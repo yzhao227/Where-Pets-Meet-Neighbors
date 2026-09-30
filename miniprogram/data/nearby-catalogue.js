@@ -99,6 +99,7 @@ const newEvents = require('./nearby-events-20260930');
 const guides = require('./nearby-guides');
 const enrichment = require('./nearby-enrichment');
 const newEnrichment = require('./nearby-enrichment-20260930');
+const withSourcePhoto = require('./nearby-source-photos');
 // Pet activities are separate from the older visitor-oriented playTags. Unknown
 // pet admission never supplies a pet activity; unknown fees do not mean free.
 const baseAreas = {
@@ -115,6 +116,6 @@ const baseAreas = {
 };
 const allRecords = records.concat(placeExtras, newPlaces, eventExtras, newEvents).map(record => ({
   ...record, ...(baseAreas[record.id] || {}), ...(enrichment[record.id] || {}), ...(newEnrichment[record.id] || {})
-}));
+})).map(withSourcePhoto);
 
 module.exports = { records: allRecords, guides, region, checkedAt: '2026-09-30' };

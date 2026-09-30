@@ -30,8 +30,14 @@ function navigationSize() {
 s.register({
   data: { loading: true, error: '', mode: '', statusBarHeight: 0, navigationHeight: 44, navigationInset: 96, circles: [], joinedCircles: [], posts: [], postColumns: [], feed: 'discover', topic: '', topics, selectedCircle: '', animalType: '', animalFilterLabel: '动物筛选', animalFilterTitle: '动物', animalChoices: [{ id: '', name: '全部动物' }].concat(animals.TYPES, [{ id: 'unclassified', name: '未标注' }]), excludedAnimalTypes: [], hiddenChoices: animals.choices([]), animalFiltersOpen: false, topicsOpen: false, preferenceError: '', searchFocused: false, searchInput: '', query: '', nextCursor: null, waitingForCovers: false, moreBusy: false, busy: false, feeds: [{ id: 'discover', name: '发现' }, { id: 'following', name: '关注' }, { id: 'circles', name: '圈子' }] },
   onLoad() { this._covers = new Map(); this._coverAttempt = 0; this._columnById = new Map(); const saved = preferences.read(wx); s.safe(this, Object.assign(navigationSize(), { excludedAnimalTypes: saved.excludedAnimalTypes, hiddenChoices: animals.choices(saved.excludedAnimalTypes), animalFilterTitle: animalFilterTitle(''), animalFilterLabel: animalFilterLabel('', saved.excludedAnimalTypes), preferenceError: saved.error })); return this.refresh(); },
-  onShow() { if (this._loaded) this.refresh(); },
-  onHide() { this.cancelCoverWait(); s.safe(this, { searchFocused: false, animalFiltersOpen: false }); },
+  onShow() { if (this._loaded) return this.data.error ? this.refresh() : this.resume(); },
+  onHide() {
+    this._resumeRequest = (this._resumeRequest || 0) + 1;
+    this._moreRequestId = (this._moreRequestId || 0) + 1;
+    this._moreTask = null;
+    this.cancelCoverWait();
+    s.safe(this, { searchFocused: false, animalFiltersOpen: false, moreBusy: false });
+  },
   onUnload() { this.cancelCoverWait(); },
   onResize() { s.safe(this, navigationSize()); },
   onPullDownRefresh() { return this.refresh(); },
@@ -84,20 +90,54 @@ s.register({
     return columns;
   },
   setPosts(posts) { if (!this._closed) s.safe(this, { posts, postColumns: this.columnsFor(posts) }); },
+  async resume() {
+    if (this._closed || this.data.loading) return;
+    if (this._feedVersion !== s.api.getFeedVersion()) return this.refresh();
+    const request = this._resumeRequest = (this._resumeRequest || 0) + 1;
+    const version = this._refreshVersion;
+    const postId = this._resumePostId;
+    const outcome = task => Promise.resolve().then(task).then(value => ({ value }), error => ({ error }));
+    // Keep the loaded pages and their image geometry mounted. A detail visit
+    // only needs the opened card's interactions updated, not a new first page.
+    const [bootResult, postResult] = await Promise.all([
+      outcome(() => s.api.call('bootstrap')),
+      postId ? outcome(() => s.api.call('getPost', { id: postId })) : Promise.resolve({})
+    ]);
+    if (this._closed || request !== this._resumeRequest || version !== this._refreshVersion || this.data.loading) return;
+    if (this._feedVersion !== s.api.getFeedVersion()) return this.refresh();
+    const boot = bootResult.value;
+    if (boot) {
+      if (this.data.mode !== boot.mode || this.data.user && boot.user && this.data.user.id !== boot.user.id) return this.refresh();
+      s.safe(this, { mode: boot.mode, user: boot.user, circles: boot.circles, joinedCircles: boot.circles.filter(circle => circle.isJoined) });
+    }
+    if (postResult.value && postResult.value.post) {
+      this.setPosts(this.data.posts.map(item => item.id === postId ? this.preparePost(postResult.value.post) : item));
+      if (this._resumePostId === postId) this._resumePostId = '';
+    } else if (postResult.error && postResult.error.code === 'NOT_FOUND') {
+      this.setPosts(this.data.posts.filter(item => item.id !== postId));
+      if (this._resumePostId === postId) this._resumePostId = '';
+    }
+  },
   refresh() {
+    this._resumeRequest = (this._resumeRequest || 0) + 1;
+    this._resumePostId = '';
     this.cancelCoverWait();
     this._moreTask = null;
     const parameters = this.parameters();
     const version = this._refreshVersion = (this._refreshVersion || 0) + 1;
+    const feedVersion = s.api.getFeedVersion();
     return s.load(this, async () => {
       const [boot, result] = await Promise.all([s.api.call('bootstrap'), s.api.call('listPosts', parameters)]);
       if (this._closed || version !== this._refreshVersion) return {};
       const key = JSON.stringify(parameters);
       if (key !== this._columnKey) { this._columnKey = key; this._columnById = new Map(); }
       const posts = result.items.map(item => this.preparePost(item));
+      this._feedVersion = feedVersion;
       return { mode: boot.mode, user: boot.user, circles: boot.circles, joinedCircles: boot.circles.filter(circle => circle.isJoined), posts, postColumns: this.columnsFor(posts), nextCursor: result.nextCursor || null };
     }).then(() => {
-      if (!this._closed && version === this._refreshVersion && !this.data.error && !this.data.posts.length && this.data.nextCursor) return this.loadMore();
+      if (this._closed || version !== this._refreshVersion || this.data.error) return;
+      if (this._feedVersion !== s.api.getFeedVersion()) return this.refresh();
+      if (!this.data.posts.length && this.data.nextCursor) return this.loadMore();
     });
   },
   selectFeed(e) { s.safe(this, { feed: e.currentTarget.dataset.id, selectedCircle: '' }); this.refresh(); },
@@ -136,17 +176,42 @@ s.register({
     const data = e.currentTarget.dataset;
     const state = this._covers.get(data.id);
     if (!state || state.status !== 'error' || state.src !== data.src || state.attempt !== Number(data.attempt)) return;
+    const item = this.data.posts.find(post => post.id === data.id);
+    if (item && item.mediaSigned) return this.refreshCover(data.id);
     const next = presentation.retryCover(state, ++this._coverAttempt);
     this._covers.set(data.id, next);
     this.setPosts(this.data.posts.map(item => item.id === data.id ? presentation.decorate(item, next) : item));
   },
+  refreshCover(id) { return s.action(this, async () => {
+    const version = this._refreshVersion;
+    const request = this._resumeRequest = (this._resumeRequest || 0) + 1;
+    try {
+      const result = await s.api.call('getPost', { id });
+      if (this._closed || version !== this._refreshVersion || request !== this._resumeRequest) return;
+      this._covers.delete(id);
+      this.setPosts(this.data.posts.map(post => post.id === id ? this.preparePost(result.post) : post));
+    } catch (error) {
+      if (this._closed || version !== this._refreshVersion || request !== this._resumeRequest) return;
+      if (error.code === 'NOT_FOUND') this.setPosts(this.data.posts.filter(post => post.id !== id));
+      else throw error;
+    }
+  }); },
   openCircle(e) { s.go('/pages/circle/index?id=' + e.currentTarget.dataset.id); },
-  openPost(e) { s.go('/pages/post/index?id=' + e.currentTarget.dataset.id); },
+  openPost(e) { this._resumePostId = e.currentTarget.dataset.id; s.go('/pages/post/index?id=' + this._resumePostId); },
   openPlace(e) { s.go('/pages/local-detail/index?id=' + e.currentTarget.dataset.id); },
   openAuthor(e) { s.go('/pages/author/index?userId=' + e.currentTarget.dataset.id); },
   openEvent(e) { s.go('/pages/event/index?id=' + e.currentTarget.dataset.id); },
   compose() { s.go('/pages/compose/index' + (this.data.selectedCircle ? '?circleId=' + this.data.selectedCircle : '')); },
-  like(e) { return s.action(this, async () => { const item = this.data.posts.find(post => post.id === e.currentTarget.dataset.id); if (!item) return; const result = await s.api.call('likePost', { id: item.id, like: !item.isLiked }); if (!this._closed) this.setPosts(this.data.posts.map(post => post.id === result.post.id ? this.preparePost(result.post) : post)); }); },
+  like(e) { return s.action(this, async () => {
+    const item = this.data.posts.find(post => post.id === e.currentTarget.dataset.id);
+    if (!item) return;
+    this._resumeRequest = (this._resumeRequest || 0) + 1;
+    const loadId = this._loadId;
+    const userId = this.data.user && this.data.user.id;
+    const mode = this.data.mode;
+    const result = await s.api.call('likePost', { id: item.id, like: !item.isLiked });
+    if (!this._closed && loadId === this._loadId && mode === this.data.mode && userId === (this.data.user && this.data.user.id)) this.setPosts(this.data.posts.map(post => post.id === result.post.id ? this.preparePost(result.post) : post));
+  }); },
   async loadMore() {
     if (this._closed || this.data.loading || this.data.moreBusy || this._moreTask || !this.data.nextCursor) return;
     this.cancelCoverWait();

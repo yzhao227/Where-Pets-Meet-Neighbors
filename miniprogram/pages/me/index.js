@@ -30,14 +30,33 @@ function draftSummary(owner) {
     draftError: result.error ? '暂时无法读取本机草稿，可进入编辑页重试' : ''
   };
 }
+function emptyProfile() {
+  return { user: null, stats: {}, circles: [], circlePreview: [], contact: '', petLabel: '', privacySummary: '',
+    verificationStatus: 'unverified', verificationLabel: '尚未完成手机号核验', maskedPhone: '',
+    hasDraft: false, draftPreview: '', draftError: '', adminExpanded: false, localCleanupPending: false };
+}
 s.register({
   data: { loading: true, error: '', errorCode: '', mode: '', statusBarHeight: 0, navigationHeight: 44, navigationInset: 96, user: null, stats: {}, circles: [], circlePreview: [], contact: '', verificationStatus: 'unverified', verificationLabel: '尚未完成手机号核验', maskedPhone: '', privacySummary: '', hasDraft: false, draftPreview: '', draftError: '', adminExpanded: false, localCleanupPending: false, busy: false },
-  onLoad() { s.safe(this, navigationSize()); return this.refresh(); }, onShow() { if (this._loaded) this.refresh(); }, onPullDownRefresh() { this.refresh(); },
+  onLoad() { s.safe(this, navigationSize()); return this.refresh(); },
+  onShow() { if (this._loaded) return this.refresh({ retain: true }); },
+  onPullDownRefresh() { return this.refresh(); },
   onResize() { s.safe(this, navigationSize()); },
-  refresh() {
+  refresh(options = {}) {
+    const retain = options.retain === true && this._loaded && !!this.data.user && !this.data.error;
     return s.load(this, async () => {
-      const result = await s.api.call('bootstrap');
+      const id = this._loadId;
+      let result;
+      try { result = await s.api.call('bootstrap'); }
+      catch (error) {
+        if (['AUTH_REQUIRED', 'ACCOUNT_UNAVAILABLE'].includes(error.code)) {
+          return { ...emptyProfile(), mode: '', error: error.message || '账号暂不可用，请重新进入', errorCode: error.code };
+        }
+        throw error;
+      }
+      if (this._closed || id !== this._loadId) return;
       const user = result.user;
+      if (!user || !user.id) return { ...emptyProfile(), mode: result.mode || '', error: '账号暂不可用，请重新进入', errorCode: 'AUTH_REQUIRED' };
+      const changedAccount = this.data.user && (this.data.user.id !== user.id || this.data.mode !== result.mode);
       const verification = user.verification || { status: 'unverified' };
       const circles = result.circles.filter(circle => circle.isJoined);
       const privacy = [user.publicProfile === true ? '主页介绍已公开' : '主页介绍仅自己可见'];
@@ -49,8 +68,8 @@ s.register({
         verificationStatus: verification.status,
         verificationLabel: { phone_verified: '手机号已核验', demo_verified: '演示模拟核验完成', unverified: '尚未完成手机号核验' }[verification.status] || '尚未完成手机号核验',
         maskedPhone: verification.maskedPhone || '', contact: result.settings.contact || ''
-      }, draftSummary(result.mode + ':' + user.id));
-    });
+      }, draftSummary(result.mode + ':' + user.id), changedAccount ? { adminExpanded: false, localCleanupPending: false } : {});
+    }, { retain });
   },
   openDraft() { s.go('/pages/compose/index'); },
   exploreCircles() { s.go('/pages/circle-square/index'); },

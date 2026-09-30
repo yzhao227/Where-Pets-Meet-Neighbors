@@ -14,14 +14,14 @@ function fixture(t) {
     { id: 'fixture-event', category: 'system', kind: 'event', targetType: 'event', targetId: 'event-1', title: '活动安排有更新', text: '仅内存测试活动通知' },
     { id: 'fixture-system', category: 'system', kind: 'system', targetType: 'system', title: '系统提醒', text: '仅内存测试系统正文' }
   ].map(item => ({ createdAt: Date.now(), isRead: false, ...item }));
-  const state = { calls: [], navigations: [], toasts: [], modals: [], navigationFail: false, writesAfterUnload: 0 };
+  const state = { calls: [], navigations: [], toasts: [], modals: [], navigationFail: false, writesAfterUnload: 0, viewWrites: [] };
   const saved = { wx: global.wx, Page: global.Page, call: api.call };
   const unread = () => {
     const categoryUnread = Object.fromEntries(categories.map(category => [category, messages.filter(item => item.category === category && !item.isRead).length]));
     return { unreadCount: messages.filter(item => !item.isRead).length, categoryUnread };
   };
   const handlers = {
-    bootstrap: () => ({ mode: 'demo' }),
+    bootstrap: () => ({ mode: 'demo', user: { id: 'memory-inbox-owner' } }),
     listConversations: () => ({ items: [], unreadCount: 0 }), getFriendHub: () => ({ friends: [], incoming: [], outgoing: [] }),
     listMessages: payload => ({ items: messages.filter(item => (payload.category === 'all' || !payload.category || item.category === payload.category) && (!payload.query || [item.title, item.text, item.actor && item.actor.nickname].some(value => (value || '').includes(payload.query)))).map(item => structuredClone(item)), ...unread() }),
     readMessage: payload => { messages.forEach(item => { if (payload.all || item.id === payload.id) item.isRead = true; }); return { success: true, ...unread() }; },
@@ -36,7 +36,7 @@ function fixture(t) {
   let definition; global.Page = value => { definition = value; };
   const file = require.resolve('../miniprogram/pages/messages/index');
   delete require.cache[file]; require(file);
-  const page = { ...definition, data: structuredClone(definition.data), setData(value) { if (this._closed) state.writesAfterUnload += 1; Object.assign(this.data, value); } };
+  const page = { ...definition, data: structuredClone(definition.data), setData(value) { if (this._closed) state.writesAfterUnload += 1; state.viewWrites.push(structuredClone(value)); Object.assign(this.data, value); } };
   t.after(() => { global.wx = saved.wx; global.Page = saved.Page; api.call = saved.call; });
   return { page, state, handlers, messages };
 }
@@ -260,4 +260,162 @@ test('unsafe or broken images fall back without inventing an actor and late read
   page.onUnload(); finish({ success: true }); await pending;
   assert.equal(state.writesAfterUnload, 0);
   assert.equal(state.navigations.length, 0);
+});
+
+
+test('returning to messages refreshes loaded pages in place without a loading collapse', async t => {
+  const { page, handlers, messages, state } = fixture(t);
+  let returned = false;
+  const chat = (id, unreadCount) => ({ id, name: id, lastText: '仅内存会话', unreadCount });
+  handlers.listMessages = payload => ({ items: payload.cursor ? [{ ...messages[1], isRead: returned }] : returned ? [{ ...messages[0], id: 'new-notification' }, messages[0]] : [messages[0]], nextCursor: payload.cursor ? 'messages-third' : 'messages-second', unreadCount: returned ? 3 : 4 });
+  handlers.listConversations = payload => ({ items: payload.cursor ? [chat('chat-second', returned ? 0 : 2)] : returned ? [chat('chat-new', 1), chat('chat-first', 1)] : [chat('chat-first', 1)], nextCursor: payload.cursor ? 'chats-third' : 'chats-second', unreadCount: returned ? 2 : 3 });
+  await page.onLoad();
+  await page.loadMore(); await page.loadMoreConversations();
+  const originalMessages = page.data.items.map(item => item.id), originalChats = page.data.conversations.map(item => item.id);
+  state.viewWrites.length = 0; state.calls.length = 0; returned = true;
+  await page.onShow();
+  assert.deepEqual(page.data.items.map(item => item.id), originalMessages);
+  assert.deepEqual(page.data.conversations.map(item => item.id), originalChats);
+  assert.equal(page.data.items[1].isRead, true);
+  assert.equal(page.data.conversations[1].unreadCount, 0);
+  assert.equal(page.data.unreadCount, 3); assert.equal(page.data.chatUnreadCount, 2);
+  assert.equal(page.data.nextCursor, 'messages-third'); assert.equal(page.data.conversationCursor, 'chats-third');
+  assert.deepEqual(state.calls.filter(call => call.action === 'listMessages').map(call => call.payload.cursor || null), [null, 'messages-second']);
+  assert.deepEqual(state.calls.filter(call => call.action === 'listConversations').map(call => call.payload.cursor || null), [null, 'chats-second']);
+  assert.ok(state.viewWrites.every(value => value.loading !== true && (!value.items || value.items.length === 2) && (!value.conversations || value.conversations.length === 2)));
+  await page.onPullDownRefresh();
+  assert.deepEqual(page.data.items.map(item => item.id), ['new-notification', messages[0].id]);
+  assert.deepEqual(page.data.conversations.map(item => item.id), ['chat-new', 'chat-first']);
+  assert.equal(page.data.nextCursor, 'messages-second'); assert.equal(page.data.conversationCursor, 'chats-second');
+});
+
+test('reading a notification and reading all apply returned counts without refetching or dropping pages', async t => {
+  const { page, handlers, messages, state } = fixture(t);
+  handlers.listMessages = payload => ({ items: payload.cursor ? messages.slice(1) : [messages[0]], nextCursor: payload.cursor ? 'third' : 'second', unreadCount: 5 });
+  await page.onLoad(); await page.loadMore();
+  state.calls.length = 0; state.viewWrites.length = 0;
+  await page.openMessage(event(messages[1].id));
+  assert.equal(page.data.items.length, 5); assert.equal(page.data.nextCursor, 'third');
+  assert.equal(page.data.items[1].isRead, true); assert.equal(page.data.unreadCount, 4);
+  assert.deepEqual(state.calls.map(call => call.action), ['readMessage', 'getPost']);
+  assert.equal(state.navigations.at(-1), '/pages/post/index?id=post-2');
+  await page.readAll();
+  assert.equal(page.data.unreadCount, 0); assert.ok(page.data.items.every(item => item.isRead));
+  assert.equal(page.data.nextCursor, 'third'); assert.equal(page.data.items.length, 5);
+  assert.ok(state.viewWrites.every(value => value.loading !== true));
+  assert.equal(state.calls.filter(call => call.action === 'listMessages').length, 0);
+});
+
+test('temporary return refresh failures preserve loaded notification and chat content', async t => {
+  const { page, handlers, state } = fixture(t);
+  handlers.listConversations = () => ({ items: [{ id: 'cached-chat', name: '仅内存会话', unreadCount: 2 }], unreadCount: 2, nextCursor: 'older-chat' });
+  await page.onLoad();
+  const before = structuredClone(page.data);
+  state.viewWrites.length = 0;
+  const listMessages = handlers.listMessages;
+  handlers.listMessages = () => { throw Error('仅内存网络故障'); };
+  await page.onShow();
+  assert.deepEqual(page.data.items, before.items); assert.deepEqual(page.data.conversations, before.conversations);
+  assert.equal(page.data.error, ''); assert.equal(page.data.unreadCount, before.unreadCount);
+  handlers.listMessages = listMessages;
+  handlers.listConversations = () => { throw Error('仅内存聊天网络故障'); };
+  await page.onShow();
+  assert.deepEqual(page.data.conversations, before.conversations);
+  assert.equal(page.data.socialError, ''); assert.equal(page.data.conversationCursor, 'older-chat');
+  assert.equal(page.data.chatUnreadCount, 2);
+  assert.ok(state.viewWrites.every(value => value.loading !== true));
+  assert.deepEqual(state.toasts, []);
+});
+
+test('account or mode changes discard old inbox pages even when the replacement fetch fails', async t => {
+  const { page, handlers, messages } = fixture(t);
+  let active = 'old', mode = 'demo', fail = false;
+  handlers.bootstrap = () => ({ mode, user: { id: active } });
+  handlers.listMessages = payload => {
+    if (fail) throw Error('仅内存新账号读取故障');
+    return { items: [{ ...messages[0], id: active + ':' + mode + ':' + (payload.cursor || 'first') }], nextCursor: payload.cursor ? null : 'second', unreadCount: 1 };
+  };
+  handlers.listConversations = () => ({ items: [{ id: active + ':' + mode, name: '仅内存会话' }], unreadCount: 0 });
+  await page.onLoad(); await page.loadMore();
+  active = 'new'; fail = true;
+  await page.onShow();
+  assert.deepEqual(page.data.items, []); assert.deepEqual(page.data.conversations, []);
+  assert.equal(page.data.nextCursor, null); assert.equal(page.data.conversationCursor, null);
+  assert.match(page.data.error, /新账号读取故障/); assert.equal(page.data.loading, false);
+  fail = false; await page.onShow();
+  assert.deepEqual(page.data.items.map(item => item.id), ['new:demo:first']);
+  await page.loadMore(); mode = 'cloud'; await page.onShow();
+  assert.deepEqual(page.data.items.map(item => item.id), ['new:cloud:first']);
+  assert.deepEqual(page.data.conversations.map(item => item.id), ['new:cloud']);
+});
+
+test('unavailable accounts clear cached private content during retained refresh', async t => {
+  const { page, handlers } = fixture(t);
+  await page.onLoad();
+  handlers.bootstrap = () => { throw Object.assign(Error('仅内存账号已注销'), { code: 'AUTH_REQUIRED' }); };
+  await page.onShow();
+  assert.deepEqual(page.data.items, []); assert.deepEqual(page.data.conversations, []);
+  assert.equal(page.data.errorCode, 'AUTH_REQUIRED'); assert.equal(page.data.unreadCount, null);
+  assert.equal(page.data.loading, false);
+});
+
+test('late retained inbox requests cannot restore a prior account or category', async t => {
+  const { page, handlers, messages } = fixture(t);
+  await page.onLoad();
+  let resolveOld, started;
+  const entered = new Promise(resolve => { started = resolve; });
+  handlers.listMessages = () => { started(); return new Promise(resolve => { resolveOld = resolve; }); };
+  const old = page.onShow(); await entered;
+  handlers.bootstrap = () => ({ mode: 'demo', user: { id: 'new-owner' } });
+  handlers.listMessages = () => ({ items: [{ ...messages[1], id: 'new-owner-comment' }], unreadCount: 0 });
+  await page.selectCategory(event('comments'));
+  resolveOld({ items: [{ ...messages[0], id: 'stale-private-notification' }], unreadCount: 99, nextCursor: 'stale-cursor' }); await old;
+  assert.deepEqual(page.data.items.map(item => item.id), ['new-owner-comment']);
+  assert.equal(page.data.category, 'comments'); assert.equal(page.data.unreadCount, 0);
+  assert.equal(page.data.nextCursor, null);
+});
+
+
+test('new arrivals do not displace loaded inbox rows and revoked rows disappear on return', async t => {
+  const { page, handlers, messages } = fixture(t);
+  let notifications = ['a', 'b', 'c', 'd', 'e', 'f'].map((id, index) => ({ ...messages[0], id, createdAt: 600 - index * 100 }));
+  let conversations = notifications.map(item => ({ id: item.id, name: item.id, updatedAt: item.createdAt, unreadCount: 1 }));
+  const slice = (items, field, payload) => {
+    const rows = items.filter(item => !payload.cursor || item[field] < Number(payload.cursor));
+    const pageItems = rows.slice(0, 2);
+    return { items: pageItems, nextCursor: rows.length > 2 ? String(pageItems.at(-1)[field]) : null, unreadCount: items.length };
+  };
+  handlers.listMessages = payload => slice(notifications, 'createdAt', payload);
+  handlers.listConversations = payload => slice(conversations, 'updatedAt', payload);
+  await page.onLoad(); await page.loadMore(); await page.loadMoreConversations();
+  const arrivals = [800, 700].map(createdAt => ({ ...messages[0], id: 'new-' + createdAt, createdAt }));
+  notifications = [...arrivals, ...notifications];
+  conversations = [...arrivals.map(item => ({ id: item.id, name: item.id, updatedAt: item.createdAt, unreadCount: 1 })), ...conversations];
+  await page.onShow();
+  assert.deepEqual(page.data.items.map(item => item.id), ['a', 'b', 'c', 'd']);
+  assert.deepEqual(page.data.conversations.map(item => item.id), ['a', 'b', 'c', 'd']);
+  assert.equal(page.data.nextCursor, '300'); assert.equal(page.data.conversationCursor, '300');
+  notifications = notifications.filter(item => item.id !== 'b');
+  conversations = conversations.filter(item => item.id !== 'c');
+  await page.onShow();
+  assert.deepEqual(page.data.items.map(item => item.id), ['a', 'c', 'd']);
+  assert.deepEqual(page.data.conversations.map(item => item.id), ['a', 'b', 'd']);
+  await page.loadMore(); await page.loadMoreConversations();
+  assert.deepEqual(page.data.items.map(item => item.id), ['a', 'c', 'd', 'e', 'f']);
+  assert.deepEqual(page.data.conversations.map(item => item.id), ['a', 'b', 'd', 'e', 'f']);
+});
+
+test('a read acknowledgement wins over a slower retained inbox snapshot', async t => {
+  const { page, handlers, messages } = fixture(t);
+  await page.onLoad();
+  const staleRows = structuredClone(messages);
+  let finish, entered;
+  const started = new Promise(resolve => { entered = resolve; });
+  handlers.listMessages = () => { entered(); return new Promise(resolve => { finish = resolve; }); };
+  const pending = page.onShow(); await started;
+  await page.openMessage(event(messages[0].id));
+  assert.equal(page.data.unreadCount, 4); assert.equal(page.data.items[0].isRead, true);
+  finish({ items: staleRows, unreadCount: 5 }); await pending;
+  assert.equal(page.data.unreadCount, 4); assert.equal(page.data.items[0].isRead, true);
+  assert.equal(page.data.loading, false);
 });

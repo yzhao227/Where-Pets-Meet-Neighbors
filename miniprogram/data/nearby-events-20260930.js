@@ -39,8 +39,33 @@ module.exports = [
       '赛事将于10月4日至6日在旗忠网球中心举办，属于上海劳力士大师赛嘉年华活动。',
       '设选美赛、敏捷赛；不限品种、血统，公告提到面向新手的分组。',
       '参赛犬只年龄为9个月至9岁，需要有效检疫证明、狂犬病免疫证明和养犬登记证。',
-      '报名入口、费用、报到时间及普通观众携犬要求请向赛事组织方确认；本页不受理报名。'
-    ], sources: [source, { publisher: '腾讯地图', title: '久事体育场馆旗忠网球中心地点详情', url: 'https://map.qq.com/poi/?sm=539366273284470100&keyfrom=1', publishedAt: '', checkedAt: '2026-09-30' }],
+      '报名入口、费用、报到时间及普通观众携犬要求请向赛事组织方确认；本页不受理报名。',
+      '犬赛位于场内「ACE萌友天地」的宠物区；该区域另设宠物寄养服务，使用时段、费用和预约要求需另询。',
+      '报道介绍可先寄养宠物再前往中央场馆观赛；这不代表宠物获准进入中央场馆，也不代表当前寄养有余位。'
+    ], sources: [source, { publisher: '腾讯地图', title: '久事体育场馆旗忠网球中心地点详情', url: 'https://map.qq.com/poi/?sm=539366273284470100&keyfrom=1', publishedAt: '', checkedAt: '2026-09-30' },
+      { publisher: '上观新闻 · 新民晚报', title: '服务更细，商品更多，宠物更友好，上海劳力士大师赛又升级了', url: 'https://www.shobserver.com/staticsg/res/html/web/newsDetail.html?id=1186234', publishedAt: '2026-09-28', checkedAt: '2026-09-30' }],
     point: { latitude: 31.040443, longitude: 121.358051, coordinateSystem: 'gcj02', precision: 'venue', label: '旗忠网球中心（场所参照，非犬赛入口）', sourceUrl: 'https://map.qq.com/poi/?sm=539366273284470100&keyfrom=1' }
+  },
+  {
+    id: 'event-changtan-langhua-market-2026', type: 'event', title: '上海长滩 · 浪花市集',
+    city: '上海', district: '宝山区', area: '长滩滨江', categoryLabel: '滨江市集 · 宠物友好区',
+    address: '上海市宝山区长滩滨江公园段 · 浪花市集（具体入口待公布）', venue: '长滩滨江公园段', hostName: '具体主办单位待公布',
+    startsAt: '2026-10-02T14:00:00+08:00', endsAt: '2026-10-06T20:00:00+08:00',
+    dateLabel: '10月2日—6日 · 每天14:00—20:00（市集）',
+    ticketText: '市集免费参与 · 消费项目另询', feeType: 'free',
+    summary: '沿江逛浪花市集，找找宠物友好区；同期还有江岸萌宠欢聚派对，场次等官方发布。',
+    visitAdvice: '先到「文旅宝山」公众号核对市集入口、宠物友好区域和当日派对安排。',
+    noPetRequired: true, playTags: [], petPlayTags: [],
+    petPolicy: { status: 'conditional', text: '市集设宠物友好区；区域边界、宠物种类及牵引要求待确认，不代表整个滨江公园均可携宠。' },
+    notice: '14:00—20:00是市集时段，萌宠派对的具体场次尚未公布。活动可能因天气或现场情况调整。',
+    highlights: [
+      '「与浪之间」上海长滩艺术集的一部分，10月2日至6日每天14:00—20:00在滨江公园段举办。',
+      '市集设美食、文创、手作及宠物友好区域，市民游客可免费逛集；具体消费与体验项目费用另询。',
+      '官方预告同期举办江岸萌宠欢聚派对；派对日期、场次、报名要求和宠物互动项目尚待公布。',
+      '在「文旅宝山」公众号查看后续安排；先确认活动入口和宠物友好区范围，再规划出行。'
+    ], sources: [
+      { publisher: '上海市人民政府 · 宝山区人民政府', title: '国庆来宝山！200项活动嗨遍全城，重磅礼遇buff叠满！追浪听歌看烟花全部安排', url: 'https://www.shanghai.gov.cn/nw17239/20260921/5a558d54e2604b8ebbb6b8ac1da79115.html', publishedAt: '2026-09-21', checkedAt: '2026-09-30' },
+      { publisher: '上观新闻 · 新民晚报', title: '国庆去哪玩？上海16个区放大招！从滨江赛事到郊野丰收，总有一款适合你', url: 'https://www.shobserver.com/staticsg/res/html/web/newsDetail.html?id=1185747', publishedAt: '2026-09-30', checkedAt: '2026-09-30' }
+    ]
   }
 ];

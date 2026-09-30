@@ -127,15 +127,13 @@ test('new natural-science destinations keep the reviewed admission rules and unc
   assert.equal(aquarium.petPolicy.status, 'unknown'); assert.equal(aquarium.feeType, 'unknown');
   assert.equal(aquarium.dateLabel, '开放时段待向场馆确认');
   assert.match(aquarium.notice, /开放时段不一致/);
+  assert.deepEqual([aquarium.point.longitude, aquarium.point.latitude], [121.397027, 31.225171], 'use the reviewed aquarium POI, not the surrounding Changfeng Park point');
   assert.deepEqual([museum.point.longitude, museum.point.latitude], [121.46265, 31.234992], 'use the reviewed Beijing West Road museum, not the former museum point');
   const withPet = selectNearbyRecords(catalogue.records, { kind: 'place', petFilter: 'with', now });
   for (const venue of [zoo, museum, aquarium]) {
-    if (venue.id === aquarium.id) assert.equal(venue.point, undefined, 'do not substitute the surrounding park point for the aquarium');
-    else {
-      assert.equal(venue.point.coordinateSystem, 'gcj02');
-      assert.equal(venue.point.precision, 'venue');
-      assert.match(venue.point.sourceUrl, /^https:\/\/map\.qq\.com\/poi\//);
-    }
+    assert.equal(venue.point.coordinateSystem, 'gcj02');
+    assert.equal(venue.point.precision, 'venue');
+    assert.match(venue.point.sourceUrl, /^https:\/\/map\.qq\.com\/poi\//);
     assert.deepEqual(venue.petPlayTags, []);
     assert.equal(withPet.some(item => item.id === venue.id), false);
     assert.ok(venue.sources.every(source => source.checkedAt === '2026-09-30'));

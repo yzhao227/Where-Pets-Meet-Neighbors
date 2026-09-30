@@ -2,9 +2,11 @@
 
 const s = require('../_shared');
 const catalogue = require('../../data/nearby-catalogue');
+const withSourcePhoto = require('../../data/nearby-source-photos');
 const { CATEGORIES } = require('../../services/place-engine');
 const { getTimeStatus, playTagsFor, isLocalScenePhoto } = require('../../data/nearby-utils');
 const location = require('../../services/nearby-location');
+const config = require('../../config');
 const presentation = require('../nearby/presentation');
 const links = require('../../services/public-links');
 const participationFor = require('../../data/nearby-participation');
@@ -54,6 +56,7 @@ function programmeFor(record) {
 }
 
 function decorate(record, failed) {
+  record = withSourcePhoto(record);
   const sources = (Array.isArray(record.sources) ? record.sources : []).filter(source => source && typeof source === 'object').map(source => ({
     title: source.title || '公开参考信息', publisher: source.publisher || '',
     url: s.httpsUrl(source.url), canOpen: links.canOpen(source.url), publishedAt: source.publishedAt || '', checkedAt: source.checkedAt || ''
@@ -86,6 +89,10 @@ function decorate(record, failed) {
   const sceneKind = isPlace ? ['park', 'waterside', 'commercial', 'rest', 'culture'].includes(record.placeKind) ? record.placeKind : 'park' : record.type;
   const point = record.point;
   const canNavigate = !!(point && point.coordinateSystem === 'gcj02' && Number.isFinite(point.latitude) && Math.abs(point.latitude) <= 90 && Number.isFinite(point.longitude) && Math.abs(point.longitude) <= 180);
+  const hasAddress = typeof record.address === 'string' && !!record.address.trim();
+  const canResolveAddress = typeof wx !== 'undefined' && (wx.__preview === true ||
+    typeof wx.openLocation === 'function' && config.mode === 'cloud' && typeof config.cloudEnv === 'string' && !!config.cloudEnv.trim());
+  const canLocate = canNavigate || hasAddress && canResolveAddress;
   const reference = location.getReference();
   const dateLabel = record.dateLabel || (rangeStatus && rangeStatus !== 'undated' && record.startsAt && record.endsAt
     ? displayDate(record.startsAt) + ' — ' + displayDate(record.endsAt) : '具体时间待主办方公布');
@@ -102,9 +109,10 @@ function decorate(record, failed) {
     quickPrice: record.ticketText ? copy.ticketHint : '费用待确认',
     showQuickTime: !isPlace || !!(record.dateLabel && !/^(?:开放|营业).*待(?:确认|向|公布)/.test(record.dateLabel)),
     showQuickPrice: !!(record.ticketText && !/^(?:现行)?(?:票价|费用|观众票价).*待(?:确认|公布)/.test(record.ticketText)),
-    canLocate: canNavigate || !!(typeof record.address === 'string' && record.address.trim()),
-    navigationLabel: '地图导航',
-    navigationHint: canNavigate ? point.precision === 'venue' ? '导航参照：' + (typeof point.label === 'string' ? point.label : '场所位置').split('（')[0] + '；具体入口请按现场指引' : '打开地图查看路线' : record.address ? '在地图中按地址查找目的地，入园口以现场指引为准' : '地点待公布',
+    canLocate,
+    navigationLabel: canLocate ? '地图导航' : hasAddress ? '位置待核实' : '地点待公布',
+    navigationHint: canNavigate ? point.precision === 'venue' ? '导航参照：' + (typeof point.label === 'string' ? point.label : '场所位置').split('（')[0] + '；具体入口请按现场指引' : '打开地图查看路线'
+      : canLocate ? '在地图中按地址查找目的地，入园口以现场指引为准' : hasAddress ? '地图位置尚待核实，可复制地址查询。' : '地点待公布',
     petFacts: policyText.split(/[；;]/).filter(Boolean).map((text, index) => ({ id: 'policy-' + index, icon: '', title: index ? '现场要求' : '携宠安排', text })),
     schedule: programme.schedule,
     detailNotes: (Array.isArray(record.highlights) ? record.highlights : []).filter((text, index) => typeof text === 'string' && text.trim() && !programme.used.has(index)),
@@ -237,11 +245,16 @@ s.register({
   },
   navigate() {
     if (this._closed || this._hidden) return;
-    if (this.data.item && !this.data.item.canLocate) return s.toast('具体地点尚未公布，请留意后续活动信息');
+    this.refresh();
+    const destination = this.data.item;
+    if (!destination) return;
+    if (!destination.canLocate) {
+      if (typeof destination.address !== 'string' || !destination.address.trim()) s.toast('具体地点尚未公布，请留意后续活动信息');
+      return;
+    }
     return s.action(this, async () => {
-      this.refresh();
       const item = this.data.item;
-      if (!item) return;
+      if (!item || !item.canLocate) return;
       try {
         if (!item.canNavigate) await location.navigateByAddress({ id: item.id, name: item.venue || item.title, address: item.address, city: item.city || '上海' });
         else await location.navigateTo(item.point, { name: typeof item.point.label === 'string' && item.point.label ? item.point.label.split('（')[0] : item.title, address: item.address });

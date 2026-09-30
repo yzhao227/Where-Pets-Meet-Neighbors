@@ -47,6 +47,39 @@ function decorate(item, failedImages) {
 function chatView(item) {
   return { ...item, initial: Array.from(item.name || '聊')[0], timeText: item.lastAt ? s.relative(item.lastAt) : '', badge: item.unreadCount > 99 ? '99+' : String(item.unreadCount || '') };
 }
+function ownerOf(boot) { return boot && boot.user && boot.user.id ? boot.mode + ':' + boot.user.id : ''; }
+function accountUnavailable(error) { return ['AUTH_REQUIRED', 'ACCOUNT_UNAVAILABLE'].includes(error.code); }
+function retainRows(previous, incoming, decorateRow, complete) {
+  const rows = new Map(incoming.map(item => [item.id, decorateRow(item)]));
+  // New entries arrive on an explicit refresh; returning updates rows in place.
+  return previous.length ? previous.filter(item => !complete || rows.has(item.id)).map(item => rows.get(item.id) || item) : Array.from(rows.values());
+}
+async function readPages(action, payload, previous, depth, current) {
+  const field = action === 'listMessages' ? 'createdAt' : 'updatedAt';
+  const before = (a, b) => a[field] < b[field] || a[field] === b[field] && a.id <= b.id;
+  const oldest = previous.length && previous.every(item => Number.isFinite(item[field]))
+    ? previous.reduce((a, b) => before(a, b) ? a : b) : null;
+  const missing = new Set(previous.map(item => item.id)), seen = new Set(), pages = [];
+  let cursor = null, complete = false;
+  do {
+    seen.add(cursor);
+    const result = await s.api.call(action, { ...payload, ...(cursor ? { cursor } : {}) });
+    pages.push(result);
+    const items = result.items || [];
+    items.forEach(item => missing.delete(item.id));
+    const last = items[items.length - 1];
+    cursor = result.nextCursor || null;
+    complete = !missing.size || !cursor || !!(oldest && last && before(last, oldest));
+    // Read through the old visible range so new rows cannot displace it and
+    // revoked conversations or notifications can be removed from the cache.
+    if (complete || !current() || !oldest && pages.length >= depth) break;
+  } while (cursor && !seen.has(cursor));
+  return { pages, complete };
+}
+function emptyInbox() {
+  return { items: [], nextCursor: null, conversations: [], conversationCursor: null, ...counts({}),
+    chatUnreadCount: null, friendRequestCount: 0, socialError: '', conversationMoreBusy: false, moreBusy: false };
+}
 function navigationSize() {
   try {
     const info = typeof wx.getWindowInfo === 'function' ? wx.getWindowInfo() : typeof wx.getSystemInfoSync === 'function' ? wx.getSystemInfoSync() : {};
@@ -67,42 +100,86 @@ s.register({
     chatUnreadCount: null, friendRequestCount: 0, socialError: ''
   },
   onLoad() { this._failedImages = Object.create(null); s.safe(this, navigationSize()); return this.refresh(); },
-  onShow() { if (this._loaded) this.refresh(); },
+  onShow() { if (this._loaded) return this.refresh({ retain: true }); },
   onHide() { s.safe(this, { menuOpen: false, searchFocused: false }); },
   onPullDownRefresh() { return this.refresh(); },
-  refresh() {
+  refresh(options = {}) {
     const { category, query } = this.data;
+    const retain = options.retain === true && this._loaded && !this.data.error && !!this._owner;
+    const owner = this._owner;
+    const previous = { items: this.data.items, nextCursor: this.data.nextCursor, conversations: this.data.conversations,
+      conversationCursor: this.data.conversationCursor };
+    const messagePages = (this._messagePages || [null]).slice(), conversationPages = (this._conversationPages || [null]).slice();
     this._conversationMoreId = (this._conversationMoreId || 0) + 1;
-    s.safe(this, { ...counts({}), conversationMoreBusy: false });
+    s.safe(this, { ...(retain ? {} : counts({})), conversationMoreBusy: false });
     return s.load(this, async () => {
-      const [boot, result, social] = await Promise.all([
-        Promise.resolve().then(() => s.api.call('bootstrap')).catch(() => null),
-        s.api.call('listMessages', { category, query }),
-        Promise.all([s.api.call('listConversations', { query }), s.api.call('getFriendHub')])
-          .then(([chats, hub]) => ({ conversations: (chats.items || []).map(chatView), conversationCursor: chats.nextCursor || null,
-            chatUnreadCount: count(chats.unreadCount), friendRequestCount: (hub.incoming || []).length, socialError: '' }))
-          .catch(error => ({ conversations: [], conversationCursor: null, chatUnreadCount: null, friendRequestCount: 0, socialError: error.message || '聊天暂时未能加载，请重试' }))
-      ]);
-      return { mode: boot ? boot.mode : this.data.mode,
-        items: (result.items || []).map(item => decorate(item, this._failedImages)),
-        nextCursor: result.nextCursor || null, ...counts(result), ...social };
-    });
+      const id = this._loadId;
+      this._refreshing = id;
+      const current = () => !this._closed && id === this._loadId;
+      let sameOwner = retain;
+      try {
+        let boot;
+        try { boot = await s.api.call('bootstrap'); }
+        catch (error) { if (retain || accountUnavailable(error)) throw error; boot = null; }
+        if (!current()) return;
+        const nextOwner = ownerOf(boot);
+        sameOwner = retain && !!nextOwner && nextOwner === owner;
+        if (owner && nextOwner !== owner) {
+          this._owner = '';
+          this._failedImages = Object.create(null);
+          s.safe(this, { ...emptyInbox(), mode: boot ? boot.mode : '', loading: true });
+        }
+        const [results, social] = await Promise.all([
+          readPages('listMessages', { category, query }, sameOwner ? previous.items : [], messagePages.length, current),
+          Promise.all([readPages('listConversations', { query }, sameOwner ? previous.conversations : [], conversationPages.length, current), s.api.call('getFriendHub')])
+            .then(([result, hub]) => ({ conversations: sameOwner ? retainRows(previous.conversations, result.pages.flatMap(page => page.items || []), chatView, result.complete) : (result.pages[0].items || []).map(chatView),
+              conversationCursor: sameOwner && previous.conversations.length ? previous.conversationCursor : result.pages[0].nextCursor || null,
+              chatUnreadCount: count(result.pages[0].unreadCount), friendRequestCount: (hub.incoming || []).length, socialError: '' }))
+            .catch(error => {
+              if (accountUnavailable(error)) throw error;
+              return sameOwner ? {} : { conversations: [], conversationCursor: null, chatUnreadCount: null, friendRequestCount: 0, socialError: error.message || '聊天暂时未能加载，请重试' };
+            })
+        ]);
+        if (!current()) return;
+        this._owner = nextOwner;
+        this._messagePages = sameOwner ? messagePages : [null];
+        this._conversationPages = sameOwner ? conversationPages : [null];
+        return { mode: boot ? boot.mode : this.data.mode,
+          items: sameOwner ? retainRows(previous.items, results.pages.flatMap(page => page.items || []), item => decorate(item, this._failedImages), results.complete) : (results.pages[0].items || []).map(item => decorate(item, this._failedImages)),
+          nextCursor: sameOwner && previous.items.length ? previous.nextCursor : results.pages[0].nextCursor || null, ...counts(results.pages[0]), ...social };
+      } catch (error) {
+        if (current() && accountUnavailable(error)) {
+          this._owner = '';
+          s.safe(this, { ...emptyInbox(), loading: false, error: error.message || '账号暂不可用，请重新进入', errorCode: error.code });
+        } else if (current() && retain && !sameOwner) {
+          s.safe(this, { loading: false, error: error.message || '暂时没有连接上，请重试', errorCode: error.code || '' });
+        }
+        throw error;
+      } finally { if (this._refreshing === id) this._refreshing = 0; }
+    }, { retain });
   },
   loadMore() {
+    if (this._refreshing) return;
     const { category, query } = this.data;
+    const cursor = this.data.nextCursor;
     return s.more(this, { key: 'items', request: cursor => s.api.call('listMessages', { category, query, cursor }),
-      decorate: item => decorate(item, this._failedImages), extra: result => counts(result) });
+      decorate: item => decorate(item, this._failedImages), extra: result => {
+        this._messagePages = Array.from(new Set([...(this._messagePages || [null]), cursor]));
+        return counts(result);
+      } });
   },
   async loadMoreConversations() {
-    if (this.data.loading || this.data.conversationMoreBusy || !this.data.conversationCursor) return;
+    if (this._refreshing || this.data.loading || this.data.conversationMoreBusy || !this.data.conversationCursor) return;
     const id = this._conversationMoreId = (this._conversationMoreId || 0) + 1;
     const loadId = this._loadId;
+    const cursor = this.data.conversationCursor;
     s.safe(this, { conversationMoreBusy: true });
     try {
-      const result = await s.api.call('listConversations', { query: this.data.query, cursor: this.data.conversationCursor });
+      const result = await s.api.call('listConversations', { query: this.data.query, cursor });
       if (this._closed || id !== this._conversationMoreId || loadId !== this._loadId) return;
       const merged = new Map(this.data.conversations.map(item => [item.id, item]));
       (result.items || []).forEach(item => merged.set(item.id, chatView(item)));
+      this._conversationPages = Array.from(new Set([...(this._conversationPages || [null]), cursor]));
       s.safe(this, { conversations: Array.from(merged.values()), conversationCursor: result.nextCursor || null, chatUnreadCount: count(result.unreadCount) });
     } catch (error) { if (!this._closed && id === this._conversationMoreId) s.toast(error.message || '聊天暂时未能加载，请重试'); }
     finally { if (id === this._conversationMoreId) s.safe(this, { conversationMoreBusy: false }); }
@@ -165,44 +242,53 @@ s.register({
   readAll() {
     if (this.data.loading || this.data.unreadCount === null || this.data.unreadCount === 0) return;
     return s.action(this, async () => {
-      await s.api.call('readMessage', { all: true });
-      if (this._closed) return;
-      s.safe(this, { items: this.data.items.map(item => ({ ...item, isRead: true })) });
-      await this.refresh();
+      const id = this._loadId;
+      const result = await s.api.call('readMessage', { all: true });
+      if (this._closed || id !== this._loadId) return;
+      this.cancelPendingReads();
+      s.safe(this, { items: this.data.items.map(item => ({ ...item, isRead: true })), ...counts(result || {}) });
     });
   },
   openMessage(event) {
     const item = this.data.items.find(value => value.id === event.currentTarget.dataset.id);
     if (!item) return;
     return s.action(this, async () => {
-      await s.api.call('readMessage', { id: item.id });
-      if (this._closed) return;
-      s.safe(this, { items: this.data.items.map(value => value.id === item.id ? { ...value, isRead: true } : value) });
-      await this.refresh();
-      if (this._closed) return;
+      const loadId = this._loadId;
+      const result = await s.api.call('readMessage', { id: item.id });
+      if (this._closed || loadId !== this._loadId) return;
+      this.cancelPendingReads();
+      const navigationId = this._loadId;
+      s.safe(this, { items: this.data.items.map(value => value.id === item.id ? { ...value, isRead: true } : value), ...counts(result || {}) });
       if (item.targetType === 'system' || !['post', 'event', 'user'].includes(item.targetType)) {
         wx.showModal({ title: item.title || '系统通知', content: item.text || '暂无更多内容', showCancel: false, confirmText: '知道了' });
         return;
       }
       const id = typeof item.targetId === 'string' ? item.targetId.trim() : '';
       if (!id) return s.toast('这条消息关联的内容暂不可用');
-      let url, result;
+      let url, target;
       if (item.targetType === 'post') {
-        result = await s.api.call('getPost', { id });
-        if (!result || !result.post) return s.toast('这篇分享已不可用');
+        target = await s.api.call('getPost', { id });
+        if (!target || !target.post) return s.toast('这篇分享已不可用');
         url = '/pages/post/index?id=' + encodeURIComponent(id);
       } else if (item.targetType === 'event') {
-        result = await s.api.call('getEvent', { id });
-        if (!result || !result.event) return s.toast('这场活动已不可用');
+        target = await s.api.call('getEvent', { id });
+        if (!target || !target.event) return s.toast('这场活动已不可用');
         url = '/pages/event/index?id=' + encodeURIComponent(id);
       } else {
-        result = await s.api.call('getUserProfile', { userId: id });
-        if (!result || !result.user) return s.toast('这个账号暂不可用');
+        target = await s.api.call('getUserProfile', { userId: id });
+        if (!target || !target.user) return s.toast('这个账号暂不可用');
         url = '/pages/author/index?userId=' + encodeURIComponent(id);
       }
-      if (this._closed) return;
+      if (this._closed || navigationId !== this._loadId) return;
       wx.navigateTo({ url, fail: () => { if (!this._closed) s.toast('暂时无法打开，请稍后重试'); } });
     });
+  },
+  cancelPendingReads() {
+    this._loadId = (this._loadId || 0) + 1;
+    this._moreRequestId = (this._moreRequestId || 0) + 1;
+    this._conversationMoreId = (this._conversationMoreId || 0) + 1;
+    this._refreshing = 0;
+    s.safe(this, { moreBusy: false, conversationMoreBusy: false });
   },
   imageFailed(event) {
     const { id, field, src } = event.currentTarget.dataset;

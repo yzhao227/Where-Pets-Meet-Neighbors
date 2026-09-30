@@ -120,6 +120,67 @@ test('denied, imprecise, and missing GPS APIs keep manual browsing available wit
   assert.equal(f.effects.requests.length, 5);
 });
 
+test('location capability and declaration errors remain distinct from user refusal and preserve the current reference', async () => {
+  const cases = [
+    ['the api need to be declared in the requiredPrivateInfos', 'LOCATION_UNSUPPORTED'],
+    ['api scope is not declared in the privacy agreement', 'LOCATION_UNSUPPORTED'],
+    ['api permission denied', 'LOCATION_UNSUPPORTED'],
+    ['no permission', 'LOCATION_UNSUPPORTED'],
+    ['not available: permission', 'LOCATION_UNSUPPORTED'],
+    ['auth deny', 'LOCATION_DENIED'],
+    ['user denied privacy authorization', 'LOCATION_DENIED'],
+    ['permission denied', 'LOCATION_DENIED'],
+    ['privacy authorization failed', 'LOCATION_FAILED'],
+    ['cancel: api permission denied', 'LOCATION_CANCELLED']
+  ];
+  for (const [action, api] of [['locate', 'getLocation'], ['chooseReference', 'chooseLocation']]) {
+    for (const [message, code] of cases) {
+      const f = fixture();
+      const previous = f.service.setManualReference(origin, '保留参照');
+      f.effects.calls.length = 0;
+      const calls = [];
+      for (const name of ['getLocation', 'chooseLocation']) f.platform[name] = options => {
+        calls.push(name);
+        options.fail({ errMsg: name + ':fail ' + message });
+      };
+      await assert.rejects(f.service[action](), error => error.code === code, api + ': ' + message);
+      assert.deepEqual(calls, [api], 'no automatic retry or fallback location request');
+      assert.deepEqual(f.service.getReference(), previous);
+      assert.deepEqual(f.effects.calls, [], 'failed authorization does not modify the saved reference');
+      assert.deepEqual(f.effects.navigations, []);
+    }
+  }
+});
+
+test('destination map failures never advise GPS authorization or request the viewer location', async () => {
+  for (const [message, code] of [
+    ['cancel: privacy permission denied', 'LOCATION_CANCELLED'],
+    ['not supported', 'LOCATION_UNSUPPORTED'],
+    ['api scope is not declared in the privacy agreement', 'LOCATION_UNSUPPORTED'],
+    ['api permission denied', 'LOCATION_UNSUPPORTED'],
+    ['auth deny', 'LOCATION_FAILED'],
+    ['permission denied', 'LOCATION_FAILED'],
+    ['privacy authorization failed', 'LOCATION_FAILED'],
+    ['map temporarily unavailable', 'LOCATION_FAILED']
+  ]) {
+    const f = fixture();
+    f.platform.openLocation = options => {
+      f.effects.navigations.push(options);
+      options.fail({ errMsg: 'openLocation:fail ' + message });
+    };
+    await assert.rejects(f.service.navigateTo(destination), error => {
+      assert.equal(error.code, code, message);
+      assert.match(error.message, /地图/);
+      assert.doesNotMatch(error.message, /GPS|位置权限|位置授权|手选片区|参照/);
+      return true;
+    });
+    assert.equal(f.effects.navigations.length, 1);
+    assert.deepEqual(f.effects.requests, [], 'opening a destination never requests GPS or map picking');
+    assert.deepEqual(f.effects.calls, [], 'map failure does not read or save the viewer reference');
+    assert.equal(f.storage.size, 0);
+  }
+});
+
 test('leaving the page, clearing, or choosing another reference prevents late GPS from restoring it', async () => {
   for (const action of ['cancelPending', 'clearReference', 'manual']) {
     const f = fixture();

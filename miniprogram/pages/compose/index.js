@@ -2,6 +2,7 @@ const s = require('../_shared');
 const drafts = require('../_drafts');
 const topics = require('../../data/topics');
 const animals = require('../../data/animal-types');
+const visibility = require('../../data/post-visibility');
 const placesService = require('../../services/places');
 const unique = values => [...new Set(values)];
 const list = value => Array.isArray(value) ? value : [];
@@ -14,12 +15,15 @@ function attachmentFlags(value) {
   const incomplete = list(value.pendingUploads).concat(list(value.failedUploads));
   const hasVideoAttachment = !!value.video || incomplete.some(item => item.mediaType === 'video');
   const hasImageAttachment = list(value.images).length > 0 || incomplete.some(item => item.mediaType !== 'video');
+  const readable = source => typeof source === 'string' && !/^cloud:\/\//i.test(source) ? source : '';
+  const preview = source => readable((tickets(value.completedUploads).find(item => item.fileId === source) || {}).previewPath) || readable(source);
   return { hasVideoAttachment, mediaConflict: hasVideoAttachment && hasImageAttachment,
+    imagePreviewSources: list(value.images).map(preview), videoPreviewSource: value.video ? preview(value.video.url) : '',
     attachmentCount: list(value.images).length + (value.video ? 1 : 0) + incomplete.length };
 }
 function text(value) { return typeof value === 'string' ? value : ''; }
 s.register({
-  data: { places: [{ id: '', title: '不关联地点' }], placeIndex: 0, selectedPlaceId: '', selectedVisitId: '', pendingPlaceId: '', pendingVisitId: '', placesBusy: false, placesError: '', loading: true, error: '', mode: '', circles: [], circleIndex: 0, text: '', title: '', kind: 'daily', kinds: [{ id: 'daily', name: '日常分享', icon: '✦' }, { id: 'question', name: '问问大家', icon: '?' }, { id: 'meetup', name: '一起活动', icon: '↗' }], animalTypes: [], animalChoices: animals.choices([]), topicsOpen: false, selectedTopics: [], topicChoices: topics.map(name => ({ name, selected: false })), video: null, hasVideoAttachment: false, mediaConflict: false, videoUploading: false, videoProgress: null, images: [], completedUploads: [], pendingUploads: [], failedUploads: [], uploadsBusy: false, attachmentCount: 0, coverIndex: 0, busy: false, events: [{ id: '', pickerLabel: '不关联活动' }], eventIndex: 0, selectedEventId: '', eventCursor: null, eventsBusy: false, eventError: '', eventsLoaded: false, draftRestored: false, draftError: '', submitError: '' },
+  data: { visibility: 'public', visibilityChoices: visibility.choices, visibilityIndex: 0, places: [{ id: '', title: '不关联地点' }], placeIndex: 0, selectedPlaceId: '', selectedVisitId: '', pendingPlaceId: '', pendingVisitId: '', placesBusy: false, placesError: '', loading: true, error: '', mode: '', circles: [], circleIndex: 0, text: '', title: '', kind: 'daily', kinds: [{ id: 'daily', name: '日常分享', icon: '✦' }, { id: 'question', name: '问问大家', icon: '?' }, { id: 'meetup', name: '一起活动', icon: '↗' }], animalTypes: [], animalChoices: animals.choices([]), topicsOpen: false, selectedTopics: [], topicChoices: topics.map(name => ({ name, selected: false })), video: null, imagePreviewSources: [], videoPreviewSource: '', hasVideoAttachment: false, mediaConflict: false, videoUploading: false, videoProgress: null, images: [], completedUploads: [], pendingUploads: [], failedUploads: [], uploadsBusy: false, attachmentCount: 0, coverIndex: 0, busy: false, events: [{ id: '', pickerLabel: '不关联活动' }], eventIndex: 0, selectedEventId: '', eventCursor: null, eventsBusy: false, eventError: '', eventsLoaded: false, draftRestored: false, draftError: '', submitError: '' },
   onLoad(options) { this.requestedCircle = options.circleId; this.requestedPlace = options.placeId || ''; this.requestedVisit = options.visitId || ''; this.refresh().then(() => { if (this._closed || this.data.error) return; this.loadEvents(); this.loadPlaces(); if (this._verified) this.checkUploads(true); }); },
   onShow() { if (this._loaded) this.refresh().then(() => { if (!this._closed && !this.data.error && this._verified) this.checkUploads(true); }); },
   onHide() { this.saveDraft(); },
@@ -35,15 +39,16 @@ s.register({
       this._draftOwner = boot.mode + ':' + boot.user.id;
       this._skipSave = false;
       circleId = this.requestedCircle;
-      restored = { text: '', title: '', kind: 'daily', animalTypes: [], animalChoices: animals.choices([]), topicsOpen: false, selectedTopics: [], topicChoices: topics.map(name => ({ name, selected: false })), video: null, hasVideoAttachment: false, mediaConflict: false, videoUploading: false, videoProgress: null, images: [], completedUploads: [], pendingUploads: [], failedUploads: [], coverIndex: 0, attachmentCount: 0, selectedEventId: '', eventIndex: 0, selectedPlaceId: this.requestedPlace || '', selectedVisitId: this.requestedVisit || '', placeIndex: 0, draftRestored: false, submitError: '' };
+      restored = { visibility: 'public', visibilityIndex: 0, text: '', title: '', kind: 'daily', animalTypes: [], animalChoices: animals.choices([]), topicsOpen: false, selectedTopics: [], topicChoices: topics.map(name => ({ name, selected: false })), video: null, imagePreviewSources: [], videoPreviewSource: '', hasVideoAttachment: false, mediaConflict: false, videoUploading: false, videoProgress: null, images: [], completedUploads: [], pendingUploads: [], failedUploads: [], coverIndex: 0, attachmentCount: 0, selectedEventId: '', eventIndex: 0, selectedPlaceId: this.requestedPlace || '', selectedVisitId: this.requestedVisit || '', placeIndex: 0, draftRestored: false, submitError: '' };
       const result = drafts.read(this._draftOwner);
       const draft = result.value;
       if (draft) {
+        const scope = visibility.selected(draft.visibility);
         const selectedTopics = topics.normalize(draft.selectedTopics).slice(0, 3);
         const animalTypes = animals.normalize(draft.animalTypes).slice(0, 3);
         const video = draft.video && typeof draft.video.url === 'string' ? draft.video : null;
         const images = list(draft.images).filter(image => typeof image === 'string').slice(0, 3);
-        restored = { text: text(draft.text), title: text(draft.title), kind: ['daily', 'question', 'meetup'].includes(draft.kind) ? draft.kind : 'daily', animalTypes, animalChoices: animals.choices(animalTypes), video, selectedTopics, topicChoices: topics.map(name => ({ name, selected: selectedTopics.includes(name) })), images, coverIndex: draft.coverIndex >= 0 && draft.coverIndex < images.length ? draft.coverIndex : 0, selectedEventId: text(draft.selectedEventId), completedUploads: tickets(draft.completedUploads), pendingUploads: tickets(draft.pendingUploads), failedUploads: tickets(draft.failedUploads), draftRestored: true };
+        restored = { visibility: scope.id, visibilityIndex: visibility.choices.indexOf(scope), text: text(draft.text), title: text(draft.title), kind: ['daily', 'question', 'meetup'].includes(draft.kind) ? draft.kind : 'daily', animalTypes, animalChoices: animals.choices(animalTypes), video, selectedTopics, topicChoices: topics.map(name => ({ name, selected: selectedTopics.includes(name) })), images, coverIndex: draft.coverIndex >= 0 && draft.coverIndex < images.length ? draft.coverIndex : 0, selectedEventId: text(draft.selectedEventId), completedUploads: tickets(draft.completedUploads), pendingUploads: tickets(draft.pendingUploads), failedUploads: tickets(draft.failedUploads), draftRestored: true };
         Object.assign(restored, attachmentFlags(restored));
         restored.selectedPlaceId = text(draft.selectedPlaceId);
         restored.selectedVisitId = text(draft.selectedVisitId);
@@ -59,12 +64,13 @@ s.register({
   saveDraft() {
     if (!this._draftOwner || this._skipSave) return;
     const circle = this.data.circles[this.data.circleIndex];
-    const keys = ['text', 'title', 'kind', 'selectedTopics', 'animalTypes', 'video', 'images', 'coverIndex', 'completedUploads', 'pendingUploads', 'failedUploads', 'selectedEventId', 'selectedPlaceId', 'selectedVisitId'];
+    const keys = ['visibility', 'text', 'title', 'kind', 'selectedTopics', 'animalTypes', 'video', 'images', 'coverIndex', 'completedUploads', 'pendingUploads', 'failedUploads', 'selectedEventId', 'selectedPlaceId', 'selectedVisitId'];
     const value = { circleId: circle && circle.id || '' };
     keys.forEach(key => { value[key] = this.data[key]; });
     const error = drafts.save(this._draftOwner, value);
     s.safe(this, { draftError: error });
   },
+  chooseVisibility(e) { const choice = visibility.choices[Number(e.detail.value)]; if (!this.data.busy && choice) this.change({ visibility: choice.id, visibilityIndex: visibility.choices.indexOf(choice) }); },
   input(e) { this.change({ text: e.detail.value }); },
   inputTitle(e) { this.change({ title: e.detail.value }); },
   chooseCircle(e) { this.change({ circleIndex: Number(e.detail.value) }); },
@@ -157,7 +163,10 @@ s.register({
     this.change({ pendingUploads, failedUploads, hasVideoAttachment: !!this.data.video || pendingUploads.concat(failedUploads).some(item => item.mediaType === 'video'), attachmentCount: this.data.images.length + (this.data.video ? 1 : 0) + pendingUploads.length + failedUploads.length });
   }); },
   chooseCover(e) { if (this.data.busy) return; const index = Number(e.currentTarget.dataset.index); if (index >= 0 && index < this.data.images.length) this.change({ coverIndex: index }); },
-  preview(e) { s.preview(this.data.images, e.currentTarget.dataset.src); },
+  preview(e) {
+    const source = this.data.imagePreviewSources[Number(e.currentTarget.dataset.index)];
+    if (source) s.preview(this.data.imagePreviewSources.filter(Boolean), source);
+  },
   chooseEvent(e) { const eventIndex = Number(e.detail.value); const event = this.data.events[eventIndex]; this.change({ eventIndex, selectedEventId: event && event.id || '' }); },
   async loadEvents() { if (this.data.eventsBusy || (this.data.eventsLoaded && !this.data.eventCursor)) return; s.safe(this, { eventsBusy: true, eventError: '' }); try { const result = await s.api.call('listEvents', { filter: 'all', cursor: this.data.eventCursor || undefined }); const available = result.items.filter(event => event.status === 'active' && event.startAt > Date.now()); const events = this.data.events.slice(); const ids = new Set(events.map(event => event.id)); available.forEach(event => { if (!ids.has(event.id)) { events.push(Object.assign({}, event, { pickerLabel: event.title + ' · ' + s.dateText(event.startAt) })); ids.add(event.id); } }); s.safe(this, { events, eventIndex: Math.max(0, events.findIndex(event => event.id === this.data.selectedEventId)), eventCursor: result.nextCursor || null, eventsLoaded: true }); } catch (error) { s.safe(this, { eventError: error.message || '暂时没有读到活动，请重试' }); } finally { s.safe(this, { eventsBusy: false }); } },
   explore() { wx.switchTab({ url: '/pages/community/index' }); },
@@ -168,7 +177,7 @@ s.register({
     this._skipSave = true;
     const cleared = drafts.clear(this._draftOwner);
     this._consumedUploadIds = [];
-    s.safe(this, { text: '', title: '', video: null, hasVideoAttachment: false, mediaConflict: false, videoUploading: false, videoProgress: null, images: [], completedUploads: [], pendingUploads: [], failedUploads: [], attachmentCount: 0, coverIndex: 0, animalTypes: [], animalChoices: animals.choices([]), topicsOpen: false, selectedTopics: [], topicChoices: topics.map(name => ({ name, selected: false })), selectedEventId: '', eventIndex: 0, selectedPlaceId: '', selectedVisitId: '', placeIndex: 0, pendingPlaceId: '', pendingVisitId: '', kind: 'daily', draftRestored: false, submitError: '', draftError: cleared ? '' : '本机草稿未能清除，请检查存储空间后重试。' });
+    s.safe(this, { visibility: 'public', visibilityIndex: 0, text: '', title: '', video: null, imagePreviewSources: [], videoPreviewSource: '', hasVideoAttachment: false, mediaConflict: false, videoUploading: false, videoProgress: null, images: [], completedUploads: [], pendingUploads: [], failedUploads: [], attachmentCount: 0, coverIndex: 0, animalTypes: [], animalChoices: animals.choices([]), topicsOpen: false, selectedTopics: [], topicChoices: topics.map(name => ({ name, selected: false })), selectedEventId: '', eventIndex: 0, selectedPlaceId: '', selectedVisitId: '', placeIndex: 0, pendingPlaceId: '', pendingVisitId: '', kind: 'daily', draftRestored: false, submitError: '', draftError: cleared ? '' : '本机草稿未能清除，请检查存储空间后重试。' });
   }); },
   submit() { return s.action(this, async () => {
     if (attachmentFlags(this.data).mediaConflict) return s.toast('照片与视频不能一起发布，请移除其中一类附件');
@@ -182,7 +191,7 @@ s.register({
     if (this.data.selectedPlaceId && !(this.data.places || []).some(place => place.id === this.data.selectedPlaceId)) return s.toast('关联地点尚未读取或已下架，请重试或选择不关联地点');
     this.saveDraft();
     let posted;
-    try { posted = await s.api.call('createPost', { circleId: circle.id, text, images: this.data.images, title, kind: this.data.kind, topics: this.data.selectedTopics, animalTypes: this.data.animalTypes, video: this.data.video || undefined, coverIndex: this.data.coverIndex, eventId: this.data.selectedEventId || undefined, placeId: this.data.selectedPlaceId || undefined, visitId: this.data.selectedVisitId || undefined }); }
+    try { posted = await s.api.call('createPost', { visibility: this.data.visibility, circleId: circle.id, text, images: this.data.images, title, kind: this.data.kind, topics: this.data.selectedTopics, animalTypes: this.data.animalTypes, video: this.data.video || undefined, coverIndex: this.data.coverIndex, eventId: this.data.selectedEventId || undefined, placeId: this.data.selectedPlaceId || undefined, visitId: this.data.selectedVisitId || undefined }); }
     catch (error) { s.safe(this, { submitError: (error.message || '分享未完成') + '。内容已保留，请调整后重试。' }); throw error; }
     this._skipSave = true;
     const cleared = drafts.clear(this._draftOwner);
@@ -190,8 +199,8 @@ s.register({
     let cleanupFailed = !cleared || !!(posted && posted.localCleanup && posted.localCleanup.status === 'failed');
     try { if (ids.length && s.api.discardUploads) await s.api.discardUploads(ids); } catch (error) { cleanupFailed = true; this._consumedUploadIds = ids; }
     if (this._closed) return;
-    s.safe(this, { text: '', title: '', video: null, hasVideoAttachment: false, mediaConflict: false, videoUploading: false, videoProgress: null, images: [], completedUploads: [], pendingUploads: [], failedUploads: [], attachmentCount: 0, coverIndex: 0, submitError: '', draftRestored: false, draftError: cleanupFailed ? '分享已发布，但本机草稿或照片记录未能清理。请点清除本机草稿，不要重复发布。' : '' });
+    s.safe(this, { visibility: 'public', visibilityIndex: 0, text: '', title: '', video: null, imagePreviewSources: [], videoPreviewSource: '', hasVideoAttachment: false, mediaConflict: false, videoUploading: false, videoProgress: null, images: [], completedUploads: [], pendingUploads: [], failedUploads: [], attachmentCount: 0, coverIndex: 0, submitError: '', draftRestored: false, draftError: cleanupFailed ? '分享已发布，但本机草稿或照片记录未能清理。请点清除本机草稿，不要重复发布。' : '' });
     if (cleanupFailed) { s.toast('分享已发布，请清理本机草稿'); return; }
-    s.toast(this.data.mode === 'demo' ? '分享已保存到本机演示' : '已分享，让同好慢慢认识你'); s.back();
+    s.toast(this.data.mode === 'demo' ? '已按所选范围保存到本机' : '已按所选范围发布'); s.back();
   }); }
 });

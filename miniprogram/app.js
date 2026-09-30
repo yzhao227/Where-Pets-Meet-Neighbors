@@ -10,6 +10,9 @@ App({
       wx.cloud.init({ env: config.cloudEnv, traceUser: false });
     }
   },
+  onShow() {
+    require('./services/devtools-tabbar').refresh(wx);
+  },
   async bootstrap() {
     const data = await require('./services/api').call('bootstrap');
     this.globalData.user = data.user;

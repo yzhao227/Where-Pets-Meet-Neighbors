@@ -32,6 +32,10 @@ const normalizeTopics = value => Array.isArray(value) ? [...new Set(value.map(no
 // aligned with the mini-program's animal-types module.
 const ANIMAL_TYPES = Object.freeze(['cat', 'dog', 'rabbit', 'small-mammal', 'bird', 'fish', 'reptile', 'amphibian', 'invertebrate', 'other']);
 const normalizeAnimals = value => Array.isArray(value) ? [...new Set(value.filter(item => ANIMAL_TYPES.includes(item)))] : [];
+function postVisibility(value = 'public') {
+  if (!['public', 'friends', 'private'].includes(value)) fail('INVALID_INPUT', '请选择公开、仅好友可见或仅自己可见');
+  return value;
+}
 const TERMS_VERSION = '2026-09-29';
 const PRIVACY_VERSION = '2026-09-29';
 const MESSAGE_CATEGORIES = ['all', 'interactions', 'comments', 'follows', 'system'];
@@ -155,7 +159,7 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
     if (!claim || claim.userId !== userId) return { status: 'unverified' };
     return { status: 'phone_verified', maskedPhone: identity.maskedPhone };
   }
-  const userProjection = async (record, isAdmin) => ({ ...publicAuthor(record), area: record.area || '', bio: record.bio || '', pet: record.pet || null, pets: petData.list(record),
+  const userProjection = async (record, isAdmin, committed = false) => ({ ...publicAuthor(record), area: record.area || '', bio: record.bio || '', pet: record.pet || null, ...await petService.projectPets(record, record._id || record.id, committed),
     publicProfile: record.publicProfile === true, showPet: record.showPet === true, verification: await verificationFor(repo, record._id || record.id), isAdmin, ...neighbors.settings(record) });
 
   async function getSettings() {
@@ -196,6 +200,30 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
     }
     return all;
   }
+  async function canReadPost(record, viewerId, access = repo, excluded) {
+    if (!record || record.deleted) return false;
+    if (record.authorId === viewerId) return true;
+    const visibility = record.visibility === undefined ? 'public' : record.visibility;
+    if (visibility !== 'public' && visibility !== 'friends') return false;
+    if (excluded ? excluded.has(record.authorId) : await access.get('blocks', pair(viewerId, record.authorId)) || await access.get('blocks', pair(record.authorId, viewerId))) return false;
+    return visibility === 'public' || social.areFriends(access, viewerId, record.authorId);
+  }
+  async function requirePost(access, viewerId, id) {
+    const record = await requireDocument(access, 'posts', id);
+    if (!await canReadPost(record, viewerId, access)) fail('NOT_FOUND', '内容不存在或不可访问');
+    return record;
+  }
+  async function postMedia(urls) {
+    const cloudFiles = [...new Set(urls.filter(url => typeof url === 'string' && url.startsWith('cloud://')))];
+    if (!cloudFiles.length) return url => url;
+    if (!storage || typeof storage.resolvePostMedia !== 'function') fail('MEDIA_UNAVAILABLE', '图片或视频暂时无法加载，请稍后重试');
+    const signed = await storage.resolvePostMedia(cloudFiles);
+    if (cloudFiles.some(file => !signed || typeof signed[file] !== 'string' || !signed[file].startsWith('https://'))) fail('MEDIA_UNAVAILABLE', '图片或视频暂时无法加载，请稍后重试');
+    return url => signed[url] || url;
+  }
+  function requirePrivateMedia(visibility, hasMedia) {
+    if (visibility !== 'public' && hasMedia && (!storage || storage.privateMediaEnabled !== true)) fail('PRIVATE_MEDIA_UNAVAILABLE', '私密图片和视频的存储权限尚未配置，请稍后重试或先分享文字');
+  }
   async function author(authorId) {
     const record = await repo.get('users', authorId);
     return record && record.status === 'active' ? publicAuthor(record) : { id: authorId, nickname: '已注销用户', avatar: '' };
@@ -206,10 +234,19 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
       memberCount: record.memberCount || 0, isJoined: !!await repo.get('memberships', pair(viewerId, record._id)),
       accent: record.accent || '#73957c', icon };
   }
-  async function postProjection(record, viewerId) {
+  async function postProjection(record, viewerId, committed = false) {
+    if (!await canReadPost(record, viewerId)) fail('NOT_FOUND', '内容不存在或不可访问');
     const circle = await repo.get('circles', record.circleId);
-    const images = record.images || [];
-    const video = publicVideo(record.video);
+    const rawImages = record.images || [];
+    const rawVideo = publicVideo(record.video);
+    const media = rawImages.concat(rawVideo ? [rawVideo.url, rawVideo.poster] : []);
+    let resolve;
+    try { resolve = await postMedia(media); }
+    catch (error) { if (!committed || error.code !== 'MEDIA_UNAVAILABLE') throw error; }
+    // A signing outage must not turn a committed publish/scope change into a
+    // failed mutation that invites a duplicate. Never fall back to raw file IDs.
+    const images = resolve ? rawImages.map(resolve) : [];
+    const video = resolve && rawVideo && { ...rawVideo, url: resolve(rawVideo.url), ...(rawVideo.poster ? { poster: resolve(rawVideo.poster) } : {}) };
     const coverIndex = Number.isInteger(record.coverIndex) && record.coverIndex >= 0 && record.coverIndex < images.length ? record.coverIndex : 0;
     let event = null;
     if (record.eventId) {
@@ -221,18 +258,20 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
         } catch (error) { if (!(error instanceof AppError)) throw error; }
       }
     }
-    return { id: record._id, author: await author(record.authorId), circle: { id: record.circleId, name: circle ? circle.name : '小圈子' },
+    const result = { id: record._id, author: await author(record.authorId), circle: { id: record.circleId, name: circle ? circle.name : '小圈子' },
       text: record.text, title: record.title || '', kind: record.kind || 'daily', topics: normalizeTopics(record.topics), animalTypes: normalizeAnimals(record.animalTypes),
       images, ...(video ? { video, contentType: 'video' } : {}), coverIndex, cover: video ? video.poster || '' : images[coverIndex] || '', eventId: event ? event.id : '', event, createdAt: record.createdAt,
       place: await placeRun(placeEngine.postPlace(record)), placeId: record.placeId || '', visitId: record.authorId === viewerId ? record.visitId || '' : '',
       likeCount: record.likeCount || 0, isLiked: !!await repo.get('likes', pair(viewerId, record._id)),
       isBookmarked: !!await repo.get('bookmarks', pair(viewerId, record._id)),
       commentCount: record.commentCount || 0, isMine: record.authorId === viewerId };
+    // Recheck after media signing and projection I/O, including changed friendships.
+    const current = await requirePost(repo, viewerId, record._id);
+    return { ...result, ...(!resolve ? { mediaUnavailable: true } : media.some(url => typeof url === 'string' && url.startsWith('cloud://')) ? { mediaSigned: true } : {}), visibility: current.visibility === undefined ? 'public' : ['public', 'friends'].includes(current.visibility) ? current.visibility : 'private' };
   }
-  async function postResult(id, ctx) {
-    const record = await requireDocument(repo, 'posts', id);
-    await ensureVisible(repo, ctx.userId, record.authorId);
-    return { post: await postProjection(record, ctx.userId) };
+  async function postResult(id, ctx, committed = false) {
+    const record = await requirePost(repo, ctx.userId, id);
+    return { post: await postProjection(record, ctx.userId, committed) };
   }
   async function commentProjection(record, viewerId) {
     let replyToName = '';
@@ -258,6 +297,7 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
     if (toId === actorId) return;
     const receiver = await tx.get('users', toId);
     if (!receiver || receiver.status !== 'active') return;
+    if (targetType === 'post' && !await canReadPost(await tx.get('posts', targetId), toId, tx)) return;
     if (actorId) {
       const actor = await tx.get('users', actorId);
       if (!actor || actor.status !== 'active' || await tx.get('blocks', pair(toId, actorId)) || await tx.get('blocks', pair(actorId, toId))) return;
@@ -359,6 +399,7 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
     if (await blocked(record.actorId)) return false;
     const collection = record.targetType === 'post' ? 'posts' : record.targetType === 'event' ? 'events' : '';
     const target = collection && record.targetId ? await access.get(collection, record.targetId) : null;
+    if (record.targetType === 'post' && target && !await canReadPost(target, userId, access, excluded)) return false;
     const ownerId = target && (target.authorId || target.hostId) || (record.targetType === 'user' ? record.targetId : '');
     return !await blocked(ownerId);
   }
@@ -371,12 +412,16 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
     for (const record of records) if (await messageVisible(record, userId, access, excluded)) visible.push(record);
     return visible;
   }
-  async function messageProjection(record) {
+  async function messageProjection(record, viewerId) {
+    if (!await messageVisible(record, viewerId)) return null;
     const actor = record.actorId ? await repo.get('users', record.actorId) : null;
     const post = record.targetType === 'post' && record.targetId ? await repo.get('posts', record.targetId) : null;
     const images = post && post.images || [];
     const coverIndex = post && Number.isInteger(post.coverIndex) && post.coverIndex >= 0 && post.coverIndex < images.length ? post.coverIndex : 0;
-    const cover = post && !post.deleted ? post.video ? post.video.poster || '' : images[coverIndex] || '' : '';
+    const rawCover = post && !post.deleted ? post.video ? post.video.poster || '' : images[coverIndex] || '' : '';
+    const resolve = await postMedia([rawCover]);
+    if (!await messageVisible(record, viewerId)) return null;
+    const cover = resolve(rawCover);
     return { id: record._id, title: record.title, text: record.text, createdAt: record.createdAt, isRead: !!record.isRead,
       targetType: record.targetType, targetId: record.targetId, kind: messageKind(record), category: messageCategory(record),
       ...(actor && actor.status === 'active' ? { actor: publicAuthor(actor) } : {}), ...(cover ? { cover } : {}) };
@@ -398,6 +443,9 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
     for (const collection of ['likes', 'bookmarks']) {
       for (const relation of await allRecords(collection, { postId })) await repo.remove(collection, relation._id);
     }
+  }
+  async function clearPostNotices(postId) {
+    for (const message of await allRecords('messages', { targetType: 'post', targetId: postId })) await repo.remove('messages', message._id);
   }
   function validateEvent(payload) {
     const data = { title: string(payload.title, '活动名称', 1, 60), description: string(payload.description, '活动介绍', 1, 1000),
@@ -421,6 +469,7 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
     });
     for (const comment of await allRecords('comments', { targetType: 'post', targetId: id })) await repo.remove('comments', comment._id);
     await clearPostReactions(id);
+    await clearPostNotices(id);
     if (storage && images.length) await storage.remove(images).catch(() => {});
   }
   function uploadResult(ticket) {
@@ -432,7 +481,7 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
   }
 
   const social = createSocialService({ repository: repo, now, fail, requireUser, requireVerifiedUser, verificationFor, moderateText, allRecords });
-  const petService = createPetService({ repository: repo, now, uid, fail, requireUser, requireVerifiedUser, moderateText, storage, allRecords, rateLimiter });
+  const petService = createPetService({ repository: repo, now, uid, fail, requireUser, requireVerifiedUser, moderateText, storage, allRecords, rateLimiter, resolveMedia: postMedia });
   const handlers = {
     async getPlaceNavigation(payload, ctx) {
       if (Object.keys(payload).some(key => key !== 'id')) fail('INVALID_INPUT', '导航仅接受公开地点编号');
@@ -478,7 +527,8 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
       const circles = await handlers.listCircles({}, ctx);
       const posts = await allRecords('posts', { authorId: ctx.userId, deleted: false });
       const registrations = await allRecords('registrations', { userId: ctx.userId });
-      const bookmarks = await allRecords('bookmarks', { userId: ctx.userId });
+      const bookmarks = [];
+      for (const bookmark of await allRecords('bookmarks', { userId: ctx.userId })) if (await canReadPost(await repo.get('posts', bookmark.postId), ctx.userId)) bookmarks.push(bookmark);
       const follows = await allRecords('follows', { fromId: ctx.userId });
       return { mode: 'cloud', user: await userProjection(await repo.get('users', ctx.userId), ctx.isAdmin),
         registration: { termsVersion: runtime.termsVersion, privacyVersion: runtime.privacyVersion, phoneEnabled, policyConfigured: runtime.policyConfigured },
@@ -594,29 +644,35 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
       const joined = feed === 'circles' ? new Set((await allRecords('memberships', { userId: ctx.userId })).map(record => record.circleId)) : null;
       const saved = bookmarked ? new Set((await allRecords('bookmarks', { userId: ctx.userId })).map(record => record.postId)) : null;
       if (followed && !followed.size || joined && !joined.size || saved && !saved.size) return { items: [] };
-      const matches = record => {
+      const excluded = await blockedSet(ctx.userId);
+      const matches = async record => {
         const topics = normalizeTopics(record.topics);
         const aliases = Object.keys(TOPIC_ALIASES).filter(alias => topics.includes(TOPIC_ALIASES[alias]));
-        return (!followed || followed.has(record.authorId)) && (!joined || joined.has(record.circleId)) && (!saved || saved.has(record._id)) &&
+        return await canReadPost(record, ctx.userId, repo, excluded) && (!followed || followed.has(record.authorId)) && (!joined || joined.has(record.circleId)) && (!saved || saved.has(record._id)) &&
           matchesAnimals(record.animalTypes) && (!topic || topics.includes(topic)) && (!query || [record.title || '', record.text || '', ...topics, ...aliases].join(' ').toLowerCase().includes(query));
       };
-      const page = await scanVisible('posts', filters, payload, await blockedSet(ctx.userId), 'authorId', matches);
-      return { ...page, items: await Promise.all(page.items.map(record => postProjection(record, ctx.userId))) };
+      const page = await scanVisible('posts', filters, payload, excluded, 'authorId', matches);
+      const items = await Promise.all(page.items.map(async record => {
+        try { return await postProjection(record, ctx.userId); }
+        catch (error) { if (error.code === 'NOT_FOUND') return null; throw error; }
+      }));
+      return { ...page, items: items.filter(Boolean) };
     },
     async getPost(payload, ctx) {
-      const record = await requireDocument(repo, 'posts', identifier(payload.id));
-      await ensureVisible(repo, ctx.userId, record.authorId);
+      const record = await requirePost(repo, ctx.userId, identifier(payload.id));
       const comments = await commentsFor('post', record._id, ctx.userId, payload);
       return { post: await postProjection(record, ctx.userId), comments: comments.items, ...(comments.nextCursor ? { nextCursor: comments.nextCursor } : {}) };
     },
     async createPost(payload, ctx) {
       const circleId = identifier(payload.circleId);
+      const visibility = postVisibility(payload.visibility);
       const text = string(payload.text === undefined ? '' : payload.text, '正文', 0, 1000);
       if (!Array.isArray(payload.images) || payload.images.length > 3 || payload.images.some(file => typeof file !== 'string' || file.length > 512)) fail('INVALID_INPUT', '最多添加 3 张图片');
       const images = [...new Set(payload.images)];
       const requestedVideo = payload.video === undefined || payload.video === null ? null : payload.video;
       if (requestedVideo !== null && (!object(requestedVideo) || typeof requestedVideo.url !== 'string' || !requestedVideo.url || requestedVideo.url.length > 512 || requestedVideo.poster)) fail('INVALID_INPUT', '请选择已上传的视频，视频封面暂不支持另行设置');
       if (requestedVideo && images.length) fail('INVALID_INPUT', '图片与视频不能同时发布');
+      requirePrivateMedia(visibility, images.length || requestedVideo);
       if (!text && !images.length && !requestedVideo) fail('INVALID_INPUT', '请写一点内容或添加图片、视频');
       const title = string(payload.title === undefined ? '' : payload.title, '标题', 0, 40);
       const kind = payload.kind === undefined ? 'daily' : payload.kind;
@@ -654,17 +710,30 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
           await tx.set('uploads', current._id, { ...current, postId: id });
         }
         const placeFields = await placeRun(placeEngine.linkPost(payload, ctx, id), tx);
-        await tx.set('posts', id, { authorId: ctx.userId, circleId, text, title, kind, topics, animalTypes, images, ...(video ? { video, contentType: 'video' } : {}), coverIndex, eventId, ...placeFields,
+        await tx.set('posts', id, { authorId: ctx.userId, visibility, circleId, text, title, kind, topics, animalTypes, images, ...(video ? { video, contentType: 'video' } : {}), coverIndex, eventId, ...placeFields,
           likeCount: 0, createdAt: now(), commentCount: 0, deleted: false });
       });
-      return { post: await postProjection(await repo.get('posts', id), ctx.userId) };
+      return { post: await postProjection(await repo.get('posts', id), ctx.userId, true) };
+    },
+    async setPostVisibility(payload, ctx) {
+      if (Object.keys(payload).some(key => !['id', 'visibility'].includes(key))) fail('INVALID_INPUT', '可见范围请求包含无效字段');
+      const id = identifier(payload.id); const visibility = postVisibility(payload.visibility);
+      if (payload.visibility === undefined) fail('INVALID_INPUT', '请选择分享的可见范围');
+      await repo.transaction(async tx => {
+        await requireUser(tx, ctx.userId, ctx.lifecycleId);
+        const post = await requireDocument(tx, 'posts', id);
+        if (post.authorId !== ctx.userId) fail('FORBIDDEN', '只能修改自己分享的可见范围');
+        requirePrivateMedia(visibility, post.images && post.images.length || post.video && post.video.url);
+        await tx.set('posts', id, { ...post, visibility, updatedAt: now() });
+      });
+      return postResult(id, ctx, true);
     },
     async deletePost(payload, ctx) { await cleanPost(identifier(payload.id), ctx.userId, ctx.isAdmin, ctx.lifecycleId); return { deleted: true }; },
     async likePost(payload, ctx) {
       const id = identifier(payload.id); const like = boolean(payload.like);
       await repo.transaction(async tx => {
         await (like ? requireVerifiedUser(tx, ctx.userId, ctx.lifecycleId) : requireUser(tx, ctx.userId, ctx.lifecycleId));
-        const post = await requireDocument(tx, 'posts', id);
+        const post = await requirePost(tx, ctx.userId, id);
         await requireUser(tx, post.authorId); await ensureVisible(tx, ctx.userId, post.authorId);
         const key = pair(ctx.userId, id); const previous = await tx.get('likes', key);
         if (!!previous === like) return;
@@ -680,7 +749,7 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
       const id = identifier(payload.id); const bookmark = boolean(payload.bookmark);
       await repo.transaction(async tx => {
         await (bookmark ? requireVerifiedUser(tx, ctx.userId, ctx.lifecycleId) : requireUser(tx, ctx.userId, ctx.lifecycleId));
-        const post = await requireDocument(tx, 'posts', id);
+        const post = await requirePost(tx, ctx.userId, id);
         await requireUser(tx, post.authorId); await ensureVisible(tx, ctx.userId, post.authorId);
         const key = pair(ctx.userId, id); const previous = await tx.get('bookmarks', key);
         if (!!previous === bookmark) return;
@@ -734,10 +803,12 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
       if (!user || user.status !== 'active') fail('NOT_FOUND', '这位用户暂时不可访问');
       await ensureVisible(repo, ctx.userId, userId);
       const isMine = userId === ctx.userId; const publicProfile = user.publicProfile === true;
-      const ownPosts = await allRecords('posts', { authorId: userId, deleted: false });
+      const ownPosts = [];
+      for (const post of await allRecords('posts', { authorId: userId, deleted: false })) if (await canReadPost(post, ctx.userId)) ownPosts.push(post);
       const posts = await handlers.listPosts({ authorId: userId, cursor: payload.cursor, limit: payload.limit, excludedAnimalTypes: payload.excludedAnimalTypes }, ctx);
+      const petProjection = await petService.projectPets(user, ctx.userId);
       return { user: { ...publicAuthor(user), publicProfile, showPet: user.showPet === true, bio: isMine || publicProfile ? user.bio || '' : '',
-        pet: isMine || publicProfile || user.showPet === true ? user.pet || null : null, pets: petData.publicList(user, isMine, now()), isMine,
+        pet: isMine || publicProfile || user.showPet === true ? user.pet || null : null, ...petProjection, isMine,
         isFollowing: !isMine && !!await repo.get('follows', pair(ctx.userId, userId)), postCount: ownPosts.length,
         followerCount: user.followerCount || 0, followingCount: user.followingCount || 0 },
       posts: posts.items, ...(posts.nextCursor ? { nextCursor: posts.nextCursor } : {}) };
@@ -751,7 +822,7 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
       await repo.transaction(async tx => {
         const me = await requireVerifiedUser(tx, ctx.userId, ctx.lifecycleId);
         const collection = payload.targetType === 'post' ? 'posts' : 'events';
-        const target = await requireDocument(tx, collection, targetId);
+        const target = payload.targetType === 'post' ? await requirePost(tx, ctx.userId, targetId) : await requireDocument(tx, collection, targetId);
         const ownerId = target.authorId || target.hostId;
         await ensureVisible(tx, ctx.userId, ownerId);
         let reply;
@@ -882,7 +953,8 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
         actorNames.set(record.actorId, actor && actor.status === 'active' ? publicAuthor(actor).nickname : '');
       }
       const page = messagePage(visible, payload, record => !query || [record.title, record.text, actorNames.get(record.actorId)].join(' ').toLowerCase().includes(query));
-      return { ...page, items: await Promise.all(page.items.map(messageProjection)), ...messageCounts(visible) };
+      const items = await Promise.all(page.items.map(record => messageProjection(record, ctx.userId)));
+      return { ...page, items: items.filter(Boolean), ...messageCounts(await visibleMessages(ctx.userId)) };
     },
     async readMessage(payload, ctx) {
       const all = payload.all === undefined ? false : boolean(payload.all);
@@ -920,7 +992,7 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
           showPet: showPet === undefined ? me.showPet === true : showPet, ...neighborSettings, ...petData.legacyPatch(me, pet), updatedAt: now() });
       });
       if (pet === null) await petService.cleanupDetached(ctx);
-      return { user: await userProjection(await repo.get('users', ctx.userId), ctx.isAdmin) };
+      return { user: await userProjection(await repo.get('users', ctx.userId), ctx.isAdmin, true) };
     },
     async report(payload, ctx) {
       if (!['post', 'comment', 'user', 'event'].includes(payload.targetType)) fail('INVALID_INPUT', '举报类型不正确');
@@ -930,6 +1002,8 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
         await requireUser(tx, ctx.userId, ctx.lifecycleId);
         const collection = { post: 'posts', comment: 'comments', user: 'users', event: 'events' }[payload.targetType];
         const target = await requireDocument(tx, collection, targetId);
+        if (payload.targetType === 'post') await requirePost(tx, ctx.userId, targetId);
+        if (payload.targetType === 'comment' && target.targetType === 'post') await requirePost(tx, ctx.userId, target.targetId);
         const targetTypeForLink = payload.targetType === 'comment' ? target.targetType : payload.targetType;
         const targetIdForLink = payload.targetType === 'comment' ? target.targetId : targetId;
         await tx.set('reports', id, { reporterId: ctx.userId, targetType: payload.targetType, targetId,
@@ -947,8 +1021,10 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
       const items = await Promise.all(page.items.map(async record => {
         const collection = { post: 'posts', comment: 'comments', user: 'users', event: 'events' }[record.targetType];
         const target = collection ? await repo.get(collection, record.targetId) : null;
-        const available = target && !target.deleted && (record.targetType !== 'user' || target.status === 'active');
-        let targetSummary = '内容已删除';
+        const linkedPost = record.targetType === 'post' ? target : record.targetType === 'comment' && (target && target.targetType || record.targetTypeForLink) === 'post' ? await repo.get('posts', target && target.targetId || record.targetIdForLink) : null;
+        const restricted = linkedPost && !await canReadPost(linkedPost, ctx.userId);
+        const available = target && !target.deleted && !restricted && (record.targetType !== 'user' || target.status === 'active');
+        let targetSummary = restricted ? '内容不可见' : '内容已删除';
         if (available) {
           const summary = record.targetType === 'user' ? target.nickname : record.targetType === 'event' ? target.title : target.text;
           targetSummary = Array.from(summary || (record.targetType === 'post' ? '图片分享' : '内容已删除')).slice(0, 140).join('');
@@ -956,8 +1032,8 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
         const isComment = record.targetType === 'comment';
         const targetTypeForLink = isComment ? (record.targetTypeForLink || target && target.targetType || 'post') : record.targetType;
         const targetIdForLink = isComment ? (record.targetIdForLink || target && target.targetId || '') : record.targetId;
-        return { id: record._id, targetType: record.targetType, targetId: record.targetId, reason: record.reason,
-          description: record.description || '', status: record.status === 'pending' ? 'open' : record.status,
+        return { id: record._id, targetType: record.targetType, targetId: record.targetId, reason: restricted ? '内容不可见' : record.reason,
+          description: restricted ? '' : record.description || '', status: record.status === 'pending' ? 'open' : record.status,
           createdAt: record.createdAt, reporter: await author(record.reporterId), targetSummary, targetTypeForLink, targetIdForLink };
       }));
       return { ...page, items };
@@ -1290,6 +1366,7 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
         });
         for (const comment of await allRecords('comments', { targetType: 'post', targetId: post._id })) await repo.remove('comments', comment._id);
         await clearPostReactions(post._id);
+        await clearPostNotices(post._id);
       }
       for (const comment of await allRecords('comments', { authorId: ctx.userId })) {
         await repo.transaction(async tx => {

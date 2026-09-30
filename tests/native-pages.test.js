@@ -76,7 +76,7 @@ test('all nineteen native pages have complete files, valid bindings and a workin
 });
 
 test('a member can publish an image post, reply, remove the reply and delete the post', async () => {
-  const { api } = await setup();
+  const { api, effects } = await setup();
   const compose = await mount('compose');
   compose.input(evt({}, '初版联动测试：今天在公园遇到了新朋友。'));
   await compose.upload();
@@ -92,6 +92,7 @@ test('a member can publish an image post, reply, remove the reply and delete the
   const replyId = post.data.comments[0].id;
   await post.commentMenu(evt({ id: replyId }));
   assert.equal(post.data.comments.length, 0);
+  effects.selection = 1;
   await post.more();
   await assert.rejects(api.call('getPost', { id: created.id }));
 });

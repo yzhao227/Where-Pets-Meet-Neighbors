@@ -1,9 +1,30 @@
 'use strict';
 const pets = require('./pets');
 
-function createPetService({ repository: repo, now, uid, fail, requireUser, requireVerifiedUser, moderateText, storage, allRecords, rateLimiter }) {
+function createPetService({ repository: repo, now, uid, fail, requireUser, requireVerifiedUser, moderateText, storage, allRecords, rateLimiter, resolveMedia }) {
   const locate = (user, id) => { const item = pets.list(user).find(pet => pet.id === id); if (!item) fail('NOT_FOUND', '这份宠物资料不存在或不属于你'); return item; };
-  const result = user => ({ pets: pets.list(user), pet: pets.primary(pets.list(user)) });
+  async function projectPets(user, viewerId, committed = false) {
+    const ownerId = user._id || user.id; const isMine = ownerId === viewerId;
+    const items = pets.publicList(user, isMine, now());
+    if (!items.length) return { pets: [] };
+    let resolve;
+    try { resolve = await resolveMedia(items.map(pet => pet.photo)); }
+    catch (error) { if (!committed || error.code !== 'MEDIA_UNAVAILABLE') throw error; }
+    const current = await repo.get('users', ownerId);
+    if (!current || current.status !== 'active' || current.lifecycleId !== user.lifecycleId) {
+      if (isMine) fail('ACCOUNT_UNAVAILABLE', '账号状态已变化，请重新进入小程序');
+      return { pets: [] };
+    }
+    if (!isMine && (current.publicProfile !== true || await repo.get('blocks', viewerId + '__' + ownerId) || await repo.get('blocks', ownerId + '__' + viewerId))) return { pets: [] };
+    const currentPhotos = new Map(pets.list(current).map(pet => [pet.id, pet.photo]));
+    return { pets: items.filter(pet => currentPhotos.has(pet.id)).map(pet => ({ ...pet,
+      photo: currentPhotos.get(pet.id) !== pet.photo ? '' : resolve ? resolve(pet.photo || '') : /^cloud:\/\//.test(pet.photo || '') ? '' : pet.photo || ''
+    })), ...(!resolve ? { mediaUnavailable: true } : {}) };
+  }
+  async function result(user, ctx, committed = false) {
+    const projected = await projectPets(user, ctx.userId, committed);
+    return { ...projected, pet: pets.primary(projected.pets) };
+  }
   async function retire(ticket, ownerId) {
     const locked = await repo.transaction(async tx => {
       const current = await tx.get('uploads', ticket._id);
@@ -36,25 +57,26 @@ function createPetService({ repository: repo, now, uid, fail, requireUser, requi
     return pending;
   }
   const handlers = {
-    async listPets(payload, ctx) { return result(await requireUser(repo, ctx.userId, ctx.lifecycleId)); },
+    async listPets(payload, ctx) { return result(await requireUser(repo, ctx.userId, ctx.lifecycleId), ctx); },
     async savePet(payload, ctx) {
       const fields = pets.validate(payload, now(), fail);
       await moderateText([fields.name, fields.breed].filter(Boolean).join('\n'), ctx.openid);
-      return repo.transaction(async tx => {
+      const next = await repo.transaction(async tx => {
         const user = await requireUser(tx, ctx.userId, ctx.lifecycleId), items = pets.list(user);
         if (payload.id) { locate(user, payload.id); Object.assign(items.find(pet => pet.id === payload.id), fields); }
         else { if (items.length >= pets.MAX_PETS) fail('PET_LIMIT', '每个账号最多登记 ' + pets.MAX_PETS + ' 只宠物'); items.push({ id: 'pet-' + uid(), ...fields, photo: '', createdAt: now() }); }
-        const next = { ...user, ...pets.projection(items), updatedAt: now() }; await tx.set('users', ctx.userId, next); return result(next);
+        const next = { ...user, ...pets.projection(items), updatedAt: now() }; await tx.set('users', ctx.userId, next); return next;
       });
+      return result(next, ctx, true);
     },
     async deletePet(payload, ctx) {
       const response = await repo.transaction(async tx => {
         const user = await requireUser(tx, ctx.userId, ctx.lifecycleId); locate(user, payload.petId);
         const items = pets.list(user).filter(pet => pet.id !== payload.petId);
         const next = { ...user, ...pets.projection(items), ...(!items.length ? { showPet: false } : {}), updatedAt: now() };
-        await tx.set('users', ctx.userId, next); return result(next);
+        await tx.set('users', ctx.userId, next); return next;
       });
-      return { ...response, cleanupPending: await cleanupDetached(ctx, payload.petId) };
+      return { ...await result(response, ctx, true), cleanupPending: await cleanupDetached(ctx, payload.petId) };
     },
     async createPetUploadTicket(payload, ctx) {
       if (Object.keys(payload).some(key => !['petId', 'extension'].includes(key))) fail('INVALID_INPUT', '宠物照片上传参数无效');
@@ -80,9 +102,9 @@ function createPetService({ repository: repo, now, uid, fail, requireUser, requi
         previous = pet.photoTicketId && pet.photoTicketId !== payload.ticketId ? await tx.get('uploads', pet.photoTicketId) : null;
         pet.photo = ticket ? ticket.fileId : ''; pet.photoTicketId = payload.ticketId;
         if (ticket) await tx.set('uploads', ticket._id || payload.ticketId, { ...ticket, petAttached: true });
-        const next = { ...user, ...pets.projection(items), updatedAt: now() }; await tx.set('users', ctx.userId, next); return result(next);
+        const next = { ...user, ...pets.projection(items), updatedAt: now() }; await tx.set('users', ctx.userId, next); return next;
       });
-      return { ...response, cleanupPending: previous ? await retire(previous, ctx.userId) : false };
+      return { ...await result(response, ctx, true), cleanupPending: previous ? await retire(previous, ctx.userId) : false };
     },
     async discardPetUpload(payload, ctx) {
       await requireUser(repo, ctx.userId, ctx.lifecycleId);
@@ -93,6 +115,6 @@ function createPetService({ repository: repo, now, uid, fail, requireUser, requi
       return { success: true, cleanupPending: await retire(ticket, ctx.userId) };
     }
   };
-  return { handlers, cleanupDetached };
+  return { handlers, cleanupDetached, projectPets };
 }
 module.exports = { createPetService };

@@ -40,6 +40,7 @@ function createApi(platform, config, options) {
   const pause = opts.mediaDelay || (ms => new Promise(resolve => setTimeout(resolve, ms)));
   const pollAttempts = opts.mediaPollAttempts === undefined ? 2 : Math.max(0, Math.min(5, Number(opts.mediaPollAttempts) || 0));
   const scope = () => isDemo() ? 'demo' : 'cloud:' + (settings.cloudEnv || 'default');
+  let feedVersion = 0;
   let queueWork = Promise.resolve();
   function serializeQueue(work) {
     const job = queueWork.then(work); queueWork = job.catch(() => {}); return job;
@@ -123,6 +124,7 @@ function createApi(platform, config, options) {
       if (!envelope.ok) throw failure(envelope.error && envelope.error.code || 'SERVICE_ERROR', envelope.error && envelope.error.message || '操作失败，请稍后重试');
       data = envelope.data;
     }
+    if (['followUser', 'blockUser', 'joinCircle', 'createPost', 'deletePost', 'setPostVisibility', 'deleteAccount', 'respondFriendRequest', 'removeFriend'].includes(action)) feedVersion += 1;
     if (action === 'createPost' || action === 'deleteAccount') {
       try {
         if (action === 'createPost') await serializeQueue(() => forgetPublished(payload && payload.images, payload && payload.video));
@@ -146,6 +148,7 @@ function createApi(platform, config, options) {
       const ticketId = item.ticketId || item.localId;
       const label = mediaLabel(item);
       const kind = isVideo(item) ? { mediaType: 'video' } : {};
+      const previewPath = typeof item.localPath === 'string' ? item.localPath : '';
       if (item.status === 'complete' && item.fileId) {
         if (isVideo(item)) {
           const metadata = item.video || item.videoMetadata || {};
@@ -153,9 +156,9 @@ function createApi(platform, config, options) {
           for (const key of ['width', 'height']) if (Number.isFinite(metadata[key]) && metadata[key] > 0) video[key] = metadata[key];
           if (typeof metadata.poster === 'string' && metadata.poster) video.poster = metadata.poster;
           result.video = video;
-          result.completed.push({ ticketId, fileId: item.fileId, mediaType: 'video', video });
+          result.completed.push({ ticketId, fileId: item.fileId, previewPath, mediaType: 'video', video });
         } else {
-          result.images.push(item.fileId); result.completed.push({ ticketId, fileId: item.fileId });
+          result.images.push(item.fileId); result.completed.push({ ticketId, fileId: item.fileId, previewPath });
         }
       } else if (item.status === 'pending') result.pending.push(Object.assign({ ticketId, status: 'pending', message: label + '正在审核，正文草稿已保留，请稍后重新检查' }, kind));
       else result.failures.push(Object.assign({ ticketId, status: item.status, code: item.errorCode || (isVideo(item) ? 'VIDEO_UPLOAD_FAILED' : 'IMAGE_UPLOAD_FAILED'), message: item.message || label + '暂未完成，请重试', retryable: !['rejected', 'expired', 'source_missing', 'invalid'].includes(item.status) }, kind));
@@ -379,7 +382,7 @@ function createApi(platform, config, options) {
     return snapshot(owned(userId));
   }
 
-  return { call,
+  return { call, getFeedVersion: () => feedVersion,
     uploadImages: count => serializeQueue(() => uploadImages(count)),
     uploadVideo: onProgress => serializeQueue(() => uploadVideo(onProgress)),
     resumeUploads: () => serializeQueue(resumeUploads),
@@ -400,6 +403,7 @@ function defaultApi() {
 
 module.exports = {
   call: function (action, payload) { return defaultApi().call(action, payload); },
+  getFeedVersion: function () { return singleton ? singleton.getFeedVersion() : 0; },
   uploadImages: function (count) { return defaultApi().uploadImages(count); },
   uploadVideo: function (onProgress) { return defaultApi().uploadVideo(onProgress); },
   resumeUploads: function () { return defaultApi().resumeUploads(); },

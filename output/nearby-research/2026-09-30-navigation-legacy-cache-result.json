@@ -1,0 +1,126 @@
+{
+  "revision": "d99aaba",
+  "imported": 29,
+  "legacyWithPoint": 12,
+  "currentWithPoint": 18,
+  "resultWithPoint": 18,
+  "total": 30,
+  "readWrites": 0,
+  "storageUnchanged": true,
+  "supplementedCandidates": [
+    {
+      "id": "place-libopark",
+      "title": "力波公园",
+      "bundledPoint": true,
+      "legacyPoint": false,
+      "resultPoint": true,
+      "oldAddress": "上海市闵行区虹梅南路、益梅路转角 · 力波公园",
+      "currentAddress": "上海市闵行区虹梅南路、益梅路转角 · 力波公园",
+      "beforeFixNativeDetail": {
+        "initial": "地图导航",
+        "afterGetPlace": "位置待核实",
+        "canNavigate": false
+      },
+      "afterFixNativeDetail": {
+        "initial": "地图导航",
+        "afterGetPlace": "地图导航",
+        "canNavigate": true
+      }
+    },
+    {
+      "id": "place-xincheng-central",
+      "title": "莘城中央公园",
+      "bundledPoint": true,
+      "legacyPoint": false,
+      "resultPoint": true,
+      "oldAddress": "上海市闵行区闵城路180号 · 莘城中央公园",
+      "currentAddress": "上海市闵行区闵城路180号 · 莘城中央公园",
+      "beforeFixNativeDetail": {
+        "initial": "地图导航",
+        "afterGetPlace": "位置待核实",
+        "canNavigate": false
+      },
+      "afterFixNativeDetail": {
+        "initial": "地图导航",
+        "afterGetPlace": "地图导航",
+        "canNavigate": true
+      }
+    },
+    {
+      "id": "place-menghuayuan",
+      "title": "梦花源",
+      "bundledPoint": true,
+      "legacyPoint": false,
+      "resultPoint": true,
+      "oldAddress": "上海市闵行区芦恒路1398号 · 梦花源",
+      "currentAddress": "上海市闵行区芦恒路1398号 · 梦花源",
+      "beforeFixNativeDetail": {
+        "initial": "地图导航",
+        "afterGetPlace": "位置待核实",
+        "canNavigate": false
+      },
+      "afterFixNativeDetail": {
+        "initial": "地图导航",
+        "afterGetPlace": "地图导航",
+        "canNavigate": true
+      }
+    },
+    {
+      "id": "place-gubei-citizen-park",
+      "title": "古北市民公园",
+      "bundledPoint": true,
+      "legacyPoint": false,
+      "resultPoint": true,
+      "oldAddress": "上海市长宁区 · 古北市民公园（具体入口请查询地图）",
+      "currentAddress": "上海市长宁区 · 古北市民公园（具体入口请查询地图）",
+      "beforeFixNativeDetail": {
+        "initial": "地图导航",
+        "afterGetPlace": "位置待核实",
+        "canNavigate": false
+      },
+      "afterFixNativeDetail": {
+        "initial": "地图导航",
+        "afterGetPlace": "地图导航",
+        "canNavigate": true
+      }
+    },
+    {
+      "id": "place-changfeng-ocean-world",
+      "title": "长风海洋世界",
+      "bundledPoint": true,
+      "legacyPoint": false,
+      "resultPoint": true,
+      "oldAddress": "上海市大渡河路451号 · 长风海洋世界",
+      "currentAddress": "上海市大渡河路451号 · 长风海洋世界",
+      "beforeFixNativeDetail": {
+        "initial": "地图导航",
+        "afterGetPlace": "位置待核实",
+        "canNavigate": false
+      },
+      "afterFixNativeDetail": {
+        "initial": "地图导航",
+        "afterGetPlace": "地图导航",
+        "canNavigate": true
+      }
+    },
+    {
+      "id": "event-cpark-lifestyle-2026",
+      "title": "C·PARK · 悠享生活季「放一放乐园」",
+      "bundledPoint": true,
+      "legacyPoint": false,
+      "resultPoint": true,
+      "oldAddress": "上海市长宁区 · C·PARK海粟文化广场",
+      "currentAddress": "上海市长宁区 · C·PARK海粟文化广场",
+      "beforeFixNativeDetail": {
+        "initial": "地图导航",
+        "afterGetPlace": "位置待核实",
+        "canNavigate": false
+      },
+      "afterFixNativeDetail": {
+        "initial": "地图导航",
+        "afterGetPlace": "地图导航",
+        "canNavigate": true
+      }
+    }
+  ]
+}

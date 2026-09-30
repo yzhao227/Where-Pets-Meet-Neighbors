@@ -355,7 +355,13 @@ function createSocialService({ repository: repo, now, fail, requireUser, require
     for (const message of await allRecords('chat_messages', { senderId: ctx.userId })) await repo.remove('chat_messages', message._id);
     for (const read of await allRecords('chat_reads', { userId: ctx.userId })) await repo.remove('chat_reads', read._id);
   }
-  return { handlers, blockPair, deleteAccount };
+  async function areFriends(access, leftId, rightId) {
+    const left = await access.get('users', leftId); const right = await access.get('users', rightId);
+    if (!left || !right || left.status !== 'active' || right.status !== 'active' || await blocked(access, leftId, rightId)) return false;
+    const relation = await access.get('friendships', keyFor(left, right));
+    return !!(relation && relation.status === 'friends' && Array.isArray(relation.memberIds) && relation.memberLifecycles && matchesLife(relation, left) && matchesLife(relation, right));
+  }
+  return { handlers, blockPair, deleteAccount, areFriends };
 }
 
 module.exports = { createSocialService };

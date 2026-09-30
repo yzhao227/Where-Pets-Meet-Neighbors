@@ -86,6 +86,20 @@ test('wrong-package, traversal, remote and missing-video inputs cannot become na
   assert.throws(() => createPlayer('media1'), /无效/);
 });
 
+test('the bundled player rejects restricted posts and never shares a cached private preview', async t => {
+  const f = fixture(t);
+  for (const visibility of ['friends', 'private']) {
+    f.reply(async () => ({ post: { ...rawPost(), visibility } }));
+    await f.load();
+    assert.equal(f.page.data.videoSource, '');
+    assert.equal(f.effects.copies.length, 0);
+    assert.ok(f.page.data.error);
+    assert.equal(f.page.onShareAppMessage().path, '/pages/community/index');
+    assert.equal(f.page.onShareAppMessage().imageUrl, '/assets/event-walk.png');
+    assert.doesNotMatch(JSON.stringify(f.page.onShareAppMessage()), /寄居蟹观察/);
+  }
+});
+
 test('retry unmounts a failed native video before binding its source and ignores stale playback events', async t => {
   const f = fixture(t);
   await f.load();

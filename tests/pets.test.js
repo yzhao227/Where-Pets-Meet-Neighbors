@@ -11,6 +11,7 @@ const { createService, idFor, TERMS_VERSION, PRIVACY_VERSION } = require('../clo
 const { createSqliteRepository } = require('./helpers/sqlite-repository');
 const consent = { accepted: true, termsVersion: TERMS_VERSION, privacyVersion: PRIVACY_VERSION };
 const NOW = Date.UTC(2026, 8, 30);
+const signedPhoto = file => 'https://pet-media.example.invalid/' + encodeURIComponent(file);
 const fields = (name = '离线测试猫', type = 'cat') => ({ name, type, breed: '仅测试品种', birthDate: '2024-03-01', ageMonths: null });
 const rejects = (promise, code) => assert.rejects(promise, err => err.code === code);
 function demo() {
@@ -23,9 +24,10 @@ function demo() {
 }
 async function cloud(t, options = {}) {
   const repo = createSqliteRepository(':memory:'); t.after(() => repo.close());
-  let sequence = 0, time = NOW, decision = 'pending', failRemoval = false, rejectText = false, submitHook;
-  const removed = [];
+  let sequence = 0, time = NOW, decision = 'pending', failRemoval = false, rejectText = false, submitHook, signingHook;
+  const removed = [], signatures = [];
   const storage = { enabled: true, mode: 'async', isExpectedFile: (file, path) => file === 'cloud://test/' + path, fileIdForPath: path => 'cloud://test/' + path,
+    async resolvePostMedia(files) { signatures.push(files); if (signingHook) await signingHook(); return Object.fromEntries(files.map(file => [file, signedPhoto(file)])); },
     async submitReview({ ticketId }) { if (submitHook) await submitHook(); return { traceId: 'trace-' + ticketId, quarantineFileId: 'cloud://test/quarantine/' + ticketId, sha256: 'a'.repeat(64), reviewExpiresAt: time + 3600000 }; },
     async getReviewDecision() { return { status: decision }; }, async finalizeReview({ cloudPath }) { return 'cloud://test/' + cloudPath; },
     async remove(files) { if (failRemoval) throw new Error('offline storage unavailable'); removed.push(...files); }, async removeReview() {} };
@@ -35,7 +37,7 @@ async function cloud(t, options = {}) {
     async moderateText() { if (rejectText) throw Object.assign(new Error('仅测试审核拒绝'), { code: 'CONTENT_REJECTED' }); }, ...options });
   const call = (who, action, payload = {}) => service.handle(action, payload, { openid: who });
   for (const who of ['alice', 'bob']) { await call(who, 'bootstrap'); await call(who, 'verifyPhone', { code: who, consent }); }
-  return { repo, service, call, removed, advance: n => { time += n; }, decide: value => { decision = value; }, failRemoval: value => { failRemoval = value; }, rejectText: value => { rejectText = value; }, holdSubmit: fn => { submitHook = fn; } };
+  return { repo, service, call, removed, signatures, advance: n => { time += n; }, decide: value => { decision = value; }, failRemoval: value => { failRemoval = value; }, rejectText: value => { rejectText = value; }, holdSubmit: fn => { submitHook = fn; }, holdSigning: fn => { signingHook = fn; } };
 }
 
 test('pet field contract is identical in both deployments and legacy reads do not mutate user data', () => {
@@ -107,12 +109,20 @@ test('cloud pet photos stay private and cannot be attached before review or move
   f.decide('pass'); const approved = await f.call('alice', 'getUploadStatus', { ticketId: ticket.ticketId });
   await rejects(f.call('alice', 'setPetPhoto', { petId: other.id, ticketId: ticket.ticketId }), 'FORBIDDEN');
   await f.call('alice', 'setPetPhoto', { petId: pet.id, ticketId: ticket.ticketId });
+  assert.equal((await f.repo.get('users', idFor('alice'))).pets[0].photo, approved.fileId);
+  for (const action of ['listPets', 'bootstrap']) {
+    const result = await f.call('alice', action);
+    assert.equal((result.user || result).pets[0].photo, signedPhoto(approved.fileId));
+    assert.doesNotMatch(JSON.stringify(result), /cloud:\/\//);
+  }
   await f.call('alice', 'updateProfile', { showPet: true });
+  const beforePrivateRead = f.signatures.length;
   let view = (await f.call('bob', 'getUserProfile', { userId: idFor('alice') })).user;
   assert.deepEqual(view.pets, []); assert.equal('photo' in view.pet, false);
+  assert.equal(f.signatures.length, beforePrivateRead, 'showPet alone does not authorize photo URL issuance');
   await f.call('alice', 'updateProfile', { publicProfile: true });
   view = (await f.call('bob', 'getUserProfile', { userId: idFor('alice') })).user;
-  assert.equal(view.pets[0].photo, approved.fileId); assert.equal(view.pets[0].ageLabel, '2 岁 6 个月'); assert.equal('birthDate' in view.pets[0], false);
+  assert.equal(view.pets[0].photo, signedPhoto(approved.fileId)); assert.equal(view.pets[0].ageLabel, '2 岁 6 个月'); assert.equal('birthDate' in view.pets[0], false);
   f.advance(2 * 86400000); await f.service.runMaintenance({ limit: 50 });
   assert.ok(await f.repo.get('uploads', ticket.ticketId)); assert.equal(f.removed.includes(approved.fileId), false);
   f.rejectText(true); await rejects(f.call('alice', 'savePet', { id: pet.id, ...fields('未通过审核') }), 'CONTENT_REJECTED');
@@ -125,13 +135,48 @@ test('cloud replacement commits the new photo before cleanup and account deletio
   const first = await upload(); await f.call('alice', 'setPetPhoto', { petId: pet.id, ticketId: first.ticketId });
   const next = await upload(); f.failRemoval(true);
   const changed = await f.call('alice', 'setPetPhoto', { petId: pet.id, ticketId: next.ticketId });
-  assert.equal(changed.pets[0].photo, next.fileId); assert.equal(changed.cleanupPending, true); assert.equal((await f.repo.get('uploads', first.ticketId)).status, 'cleanup');
+  assert.equal(changed.pets[0].photo, signedPhoto(next.fileId)); assert.equal(changed.cleanupPending, true); assert.equal((await f.repo.get('uploads', first.ticketId)).status, 'cleanup');
   await rejects(f.call('alice', 'setPetPhoto', { petId: pet.id, ticketId: first.ticketId }), 'FORBIDDEN');
   f.failRemoval(false); await f.service.runMaintenance({ limit: 50 });
   assert.ok(f.removed.includes(first.fileId)); assert.equal(f.removed.includes(next.fileId), false);
   await f.call('alice', 'deleteAccount');
   assert.ok(f.removed.includes(next.fileId)); assert.equal((await f.repo.get('users', idFor('alice'))).pets, undefined);
   assert.equal((await f.repo.find('uploads', { ownerId: idFor('alice') }, { limit: 100 })).length, 0);
+});
+
+test('cloud pet photo signatures are withheld after public consent is withdrawn while signing is in flight', async t => {
+  const f = await cloud(t), pet = (await f.call('alice', 'savePet', fields())).pets[0];
+  const fileId = 'cloud://test/community/published/consent.jpg';
+  const owner = await f.repo.get('users', idFor('alice'));
+  await f.repo.set('users', owner._id, { ...owner, publicProfile: true, pets: owner.pets.map(item => ({ ...item, photo: fileId })) });
+  let started, release, held = false;
+  const ready = new Promise(resolve => { started = resolve; }), waiting = new Promise(resolve => { release = resolve; });
+  f.holdSigning(async () => { if (!held) { held = true; started(); await waiting; } });
+  const viewing = f.call('bob', 'getUserProfile', { userId: idFor('alice') });
+  await ready;
+  await f.call('alice', 'updateProfile', { publicProfile: false });
+  release();
+  assert.deepEqual((await viewing).user.pets, []);
+  const own = await f.call('alice', 'listPets');
+  assert.equal(own.pets[0].id, pet.id); assert.equal(own.pets[0].photo, signedPhoto(fileId));
+});
+
+test('cloud pet signing failures never expose raw IDs or turn a committed edit into a repeatable failure', async t => {
+  const f = await cloud(t), pet = (await f.call('alice', 'savePet', fields())).pets[0];
+  const fileId = 'cloud://test/community/published/offline.jpg';
+  const owner = await f.repo.get('users', idFor('alice'));
+  await f.repo.set('users', owner._id, { ...owner, pets: owner.pets.map(item => ({ ...item, photo: fileId })) });
+  f.holdSigning(async () => { throw Object.assign(new Error('signing unavailable'), { code: 'MEDIA_UNAVAILABLE' }); });
+  await rejects(f.call('alice', 'listPets'), 'MEDIA_UNAVAILABLE');
+  const result = await f.call('alice', 'savePet', { id: pet.id, ...fields('名字修改成功') });
+  assert.equal(result.mediaUnavailable, true); assert.equal(result.pets[0].photo, '');
+  assert.doesNotMatch(JSON.stringify(result), /cloud:\/\//);
+  const stored = await f.repo.get('users', idFor('alice'));
+  assert.equal(stored.pets.length, 1); assert.equal(stored.pets[0].name, '名字修改成功'); assert.equal(stored.pets[0].photo, fileId);
+  const profile = await f.call('alice', 'updateProfile', { nickname: '资料已保存' });
+  assert.equal(profile.user.mediaUnavailable, true); assert.equal(profile.user.pets[0].photo, '');
+  f.holdSigning(null);
+  assert.equal((await f.call('alice', 'bootstrap')).user.pets[0].photo, signedPhoto(fileId));
 });
 
 test('deleting a pet during a quarantine write retains the ticket until the writer settles and cleanup can retry', async t => {

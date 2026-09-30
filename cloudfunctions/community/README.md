@@ -28,6 +28,7 @@ v0.4 补齐服务端运营政策配置、账号频次限制、受保护维护入
    | `MEDIA_REVIEW_MODE` | 缺省 `disabled`，需显式选择经真实环境验证的 `sync` 或 `async`。 |
    | `MEDIA_CALLBACK_TOKEN` / `MEDIA_CALLBACK_ENCODING_AES_KEY` / `MEDIA_CALLBACK_APP_ID` | 异步审核需填写微信消息推送安全模式的 Token、43 位 EncodingAESKey 和绑定 AppID；HTTP 回调必须校验签名、解密并核对 AppID。 |
    | `MEDIA_QUARANTINE_LOCK_CONFIRMED` | 实际确认普通客户端不能修改/删除服务端隔离快照后设为 `true`，是异步上传开启的必要条件。 |
+   | `PUBLISHED_MEDIA_PRIVATE` | 完成 `community/published/` 客户端禁止读写、禁止自行签名的实际验证后设为 `true`，才允许非公开图片/视频。新客户端通过业务权限校验后的临时 URL 展示媒体；既有链接到期与好友撤权须真机验证，详见 `docs/17-分享可见范围与验收.md`。 |
    | `UPLOADS_ENABLED` | 默认不设置，图片上传关闭。完成第 4 节核验后才设为 `true`。 |
    | `CLOUD_FILE_PREFIX` | 完整云文件前缀，形如 `cloud://环境ID.实际存储桶/`，结尾必须带 `/`。从本环境真实文件 ID 确认，不能只填写环境 ID。 |
    | `PHONE_VERIFICATION_ENABLED` | 默认不设置。主体具备微信手机号获取能力、权限声明与实际调用核验完成后才设为 `true`。 |

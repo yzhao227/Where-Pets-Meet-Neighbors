@@ -16,6 +16,8 @@
 
 图片默认关闭。同步审核需要平台仍支持对应接口；异步审核需要配置微信安全模式消息推送、Token、EncodingAESKey 和绑定 AppID。完成真实存储权限验证后，才开启 `MEDIA_QUARANTINE_LOCK_CONFIRMED=true`。接口权限或回调配置失败时不得绕过审核开放图片。
 
+分享可见范围需要将 `community/published/` 设置为客户端不可直接读写，由业务服务按帖子权限签发临时地址。只有在实测普通用户不能直接下载或自行签名已知文件 ID 后，才能设置 `PUBLISHED_MEDIA_PRIVATE=true`；否则服务拒绝非公开图片/视频的提交。不要将此前「全部登录用户可读」的存储配置与新功能混用。临时链接的实际有效期须在云端验证，不能把 SDK 的 `maxAge: 60` 请求值当作已生效保证。完整流程见 `docs/17-分享可见范围与验收.md`。
+
 ## 配置和打包
 
 1. 将 `deployment.example.json` 复制为本机 `deployment.local.json`，填写真实 AppID、云环境、运营资料、城市和片区。这个文件不能含密钥；工具只接收明确列出的字段。

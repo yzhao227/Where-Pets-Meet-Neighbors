@@ -1,0 +1,25 @@
+{
+  "sourceUrl": "https://finance.sina.com.cn/jjxw/2026-06-07/doc-iniapryw9995725.shtml",
+  "sourceTitle": "可以带“毛孩子”去哪里撒欢？看这篇→",
+  "publishedAt": "2026-06-07 07:30:38 +08:00",
+  "publisher": "上观新闻（新浪财经转载）",
+  "sourceHtmlSha256": "95b059cb54ae5d0b2f85e3d8afe62f0fb4b60cba16d3d3cba7fda1600d7ef2c8",
+  "matchedPlaces": 4,
+  "noMatchingImagePlaces": 3,
+  "downloadedImages": 0,
+  "notes": [
+    "所有URL均从原文HTML的img src提取，仅将协议相对URL补为https。",
+    "原图未裁剪或改写，水印随CDN原图保留。",
+    "kind=photo的3处为待视觉确认候选；星巴克2张类型显式标记unverified，需root下载验图后区分photo/poster。",
+    "此结论只针对指定原文，不代表其他原始资料中不存在这些地点照片。"
+  ],
+  "articleImages": {
+    "2": "https://n.sinaimg.cn/spider20260607/245/w640h405/20260607/1293-131c6629fb3af1d2005a5c1229819138.jpg",
+    "3": "https://n.sinaimg.cn/spider20260607/267/w640h427/20260607/ce3b-172d33aebdaa42ccbe70b388c65ef995.jpg",
+    "4": "https://n.sinaimg.cn/spider20260607/586/w576h810/20260607/4ec2-997e00cdb4e0aa29c408884cbfa58591.jpg",
+    "5": "https://n.sinaimg.cn/spider20260607/198/w390h608/20260607/f919-5a209a7257bb118dc55913a0685d6f79.jpg",
+    "6": "https://n.sinaimg.cn/spider20260607/264/w640h424/20260607/3560-8f0f0d658d8f41c756f600c3eebf5f36.jpg",
+    "7": "https://n.sinaimg.cn/spider20260607/266/w640h426/20260607/070c-1897f7871c6daf0849af6ce4ffd26621.jpg",
+    "8": "https://n.sinaimg.cn/spider20260607/199/w640h359/20260607/e1b4-47f3a933ec4b5f4d7a1e7919bc39b192.jpg"
+  }
+}

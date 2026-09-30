@@ -170,7 +170,7 @@
   async function navigate(url,replace=false){
     const parsed=new URL(url.replace(/^\//,''),'http://mini/');const route=parsed.pathname.replace(/^\//,'');
     if(!manifest.pages[route])throw new Error('页面不存在');
-    if(current){current.scrollTop=pageRoot.scrollTop;invoke(current,'onHide');}
+    if(current){current.scrollTop=Number.isFinite(current._previewScrollRestore)?current._previewScrollRestore:pageRoot.scrollTop;invoke(current,'onHide');}
     const query=Object.fromEntries(parsed.searchParams);let page;
     if(replace||isTab(route)){
       stack.filter(item=>!isTab(item.route)).forEach(item=>invoke(item,'onUnload'));
@@ -179,7 +179,7 @@
     }else{page=makePage(route,query);stack.push(page);}
     current=page;updateLocation();render();
     if(!page.__loaded){page.__loaded=true;invoke(page,'onLoad',query);}
-    invoke(page,'onShow');pageRoot.scrollTop=page.scrollTop||0;
+    invoke(page,'onShow');
     // Match WeChat's first-render lifecycle. Media controllers must not start
     // native playback before both this event and their source view commit.
     if(!page.__ready){page.__ready=true;queueMicrotask(()=>{if(stack.includes(page)||tabs[page.route]===page)invoke(page,'onReady');});}
@@ -400,15 +400,19 @@
     catch(error){retired.forEach(el=>{el._previewRetired=false;});throw error;}
   }
   function render(){
-    if(!current)return;const def=manifest.pages[current.route];
+    if(!current)return;const page=current,def=manifest.pages[page.route];
     if(!def.template){pageRoot.innerHTML='<div class="boot-loading">这个页面还在写入中，请稍后刷新。</div>';return;}
-    const focused=document.activeElement;const focusKey=pageRoot.contains(focused)?focused.dataset.previewKey:null;const selection=focusKey&&typeof focused.selectionStart==='number'?{start:focused.selectionStart,end:focused.selectionEnd}:null;
-    const scroll=pageRoot.scrollTop;
+    const samePage=pageRoot._previewRenderedPage===page;
+    const focused=document.activeElement;const focusKey=samePage&&pageRoot.contains(focused)?focused.dataset.previewKey:null;const selection=focusKey&&typeof focused.selectionStart==='number'?{start:focused.selectionStart,end:focused.selectionEnd}:null;
+    // A newly shown page owns its saved offset; the old DOM belongs to the
+    // page we just left. Later setData renders preserve the viewer's new scroll.
+    const saved=Number.isFinite(page.scrollTop)?page.scrollTop:0;
+    const scroll=Number.isFinite(page._previewScrollRestore)?page._previewScrollRestore:samePage?pageRoot.scrollTop:Math.max(0,saved);
     const playing=Array.from(pageRoot.querySelectorAll('video')).filter(el=>!el.paused&&!el.ended).map(el=>({el,time:el.currentTime}));
-    const swipers=new Map(Array.from(pageRoot.querySelectorAll('.mp-swiper')).map(el=>[el.dataset.previewKey,{current:el.dataset.current,left:el.scrollLeft}]));
-    const scrollers=new Map(Array.from(pageRoot.querySelectorAll('.mp-scroll-vertical,.mp-scroll-horizontal')).map(el=>[el.dataset.previewKey,{top:el.scrollTop,left:el.scrollLeft,target:el.getAttribute('scroll-into-view'),atBottom:el.scrollTop+el.clientHeight>=el.scrollHeight-90}]));
+    const swipers=new Map(samePage?Array.from(pageRoot.querySelectorAll('.mp-swiper')).map(el=>[el.dataset.previewKey,{current:el.dataset.current,left:el.scrollLeft}]):[]);
+    const scrollers=new Map(samePage?Array.from(pageRoot.querySelectorAll('.mp-scroll-vertical,.mp-scroll-horizontal')).map(el=>[el.dataset.previewKey,{top:el.scrollTop,left:el.scrollLeft,target:el.getAttribute('scroll-into-view'),atBottom:el.scrollTop+el.clientHeight>=el.scrollHeight-90}]):[]);
     document.getElementById('mini-page-style').textContent=nativeCss(def.style);
-    const fragment=document.createDocumentFragment();const template=makeTemplate(def.template);current._previewNextImages=new Map();renderChildren(template.childNodes,fragment,current.data,current,'n');replacePageContent(fragment);current._previewImageNodes=current._previewNextImages;delete current._previewNextImages;
+    const fragment=document.createDocumentFragment();const template=makeTemplate(def.template);page._previewNextImages=new Map();renderChildren(template.childNodes,fragment,page.data,page,'n');replacePageContent(fragment);page._previewImageNodes=page._previewNextImages;delete page._previewNextImages;pageRoot._previewRenderedPage=page;
     for(const {el,time} of playing)if(!document.hidden&&el.isConnected&&el.paused){if(Math.abs(el.currentTime-time)>.2)el.currentTime=time;el.play().catch(()=>{});}
     for(const el of pageRoot.querySelectorAll('.mp-swiper')){const prior=swipers.get(el.dataset.previewKey);el.scrollLeft=prior&&prior.current===el.dataset.current?prior.left:Number(el.dataset.current)*el.clientWidth;}
     for(const input of pageRoot.querySelectorAll('textarea[data-auto-height]')){input.style.height='auto';input.style.height=input.scrollHeight+'px';}
@@ -420,8 +424,13 @@
         if(target)el.scrollTop+=target.getBoundingClientRect().top-el.getBoundingClientRect().top;
       }
     }
-    restoreInputFocus(current,focusKey,selection);
-    pageRoot.scrollTop=scroll;renderTabs();
+    restoreInputFocus(page,focusKey,selection);
+    if(current!==page)return;
+    renderTabs();pageRoot.scrollTop=scroll;
+    // Loading placeholders can temporarily clamp a long list to zero. Keep
+    // its offset until the content returns, but release it after loading ends.
+    if(page.data.loading&&pageRoot.scrollTop+1<scroll)page._previewScrollRestore=scroll;
+    else delete page._previewScrollRestore;
   }
   function fatal(error){console.error(error);pageRoot.replaceChildren();const block=document.createElement('div');block.className='boot-loading';block.textContent='暂时没能打开：'+error.message+'。请确认页面文件已经生成，再刷新浏览器。';pageRoot.append(block);}
   function installPullDownRefresh(){

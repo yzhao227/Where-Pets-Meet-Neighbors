@@ -10,6 +10,20 @@ const neighborAreas = require('../../data/neighbor-areas');
 const neighborAreaChoices = [{ id: '', label: '全部活动片区' }].concat(neighborAreas);
 const dropdownId = (tab, menu, value) => tab + ':' + menu + ':' + value;
 
+function refreshedItems(previous, pages, cursors, decorate) {
+  const current = new Map();
+  pages.forEach(page => (page.items || []).forEach(item => current.set(item.id, decorate(item))));
+  // An item absent inside a refreshed cursor range was withdrawn/hidden. An
+  // item pushed beyond that range by new head entries still keeps its slot.
+  return previous.filter(item => current.has(item.id) || !pages.some((page, index) =>
+    (!cursors[index] || item.id < cursors[index]) && (!page.nextCursor || item.id >= page.nextCursor)
+  )).map(item => current.get(item.id) || item);
+}
+function readPages(action, query, cursors) {
+  return Promise.all(cursors.map(cursor => s.api.call(action, { ...query, ...(cursor ? { cursor } : {}) })));
+}
+function settled(promise) { return Promise.resolve(promise).then(value => ({ value }), error => ({ error })); }
+
 function navigationSize() {
   try {
     const info = typeof wx.getWindowInfo === 'function' ? wx.getWindowInfo() : typeof wx.getSystemInfoSync === 'function' ? wx.getSystemInfoSync() : {};
@@ -39,6 +53,8 @@ function cards(records, page) {
     petText: record.petPolicy && record.petPolicy.text || '带宠规则待确认',
     petStatus: record.petPolicy && record.petPolicy.status || 'unknown',
     playLabels: playTagsFor(record), previewPlayLabels: playTagsFor(record).slice(0, 2), distance: location.distanceFor(record.point),
+    photoLabel: record.photo && record.photo.kind === 'poster' ? '原文海报' : record.photo && record.photo.kind === 'photo' ? '原文实拍' : '场馆实景',
+    photoMode: record.photo && record.photo.kind === 'poster' ? 'aspectFit' : 'aspectFill',
     photoUrl: page._failedPhotos[record.id] === (record.photo && record.photo.url) ? '' : isLocalScenePhoto(record.photo && record.photo.url) ? record.photo.url : s.httpsUrl(record.photo && record.photo.url)
   }));
   return result;
@@ -107,9 +123,15 @@ s.register({
     this.updateCatalogue();
     return this.refresh();
   },
-  onShow() { this._hidden = false; if (this._loaded) this.refresh(); },
+  onShow() { const wasHidden = this._hidden; this._hidden = false; if (this._loaded || wasHidden) return this.refresh({ retain: true }); },
   onResize() { this.closeControls(); s.safe(this, navigationSize()); },
-  onHide() { this._hidden = true; this.closeControls(); s.safe(this, { searchFocused: false, filterOpen: false, referencePanel: false }); this._sortAfterReference = false; this._referenceFromFilters = false; location.cancelPending(); this._neighborLoadId = (this._neighborLoadId || 0) + 1; },
+  onHide() {
+    this._hidden = true; this.closeControls(); s.safe(this, { searchFocused: false, filterOpen: false, referencePanel: false });
+    this._sortAfterReference = false; this._referenceFromFilters = false; location.cancelPending();
+    this._loadId = (this._loadId || 0) + 1; this._moreRequestId = (this._moreRequestId || 0) + 1;
+    this._neighborLoadId = (this._neighborLoadId || 0) + 1;
+    this._eventRefreshId = 0; this._neighborRefreshId = 0;
+  },
   onUnload() { this.closeControls(); location.cancelPending(); this._neighborLoadId = (this._neighborLoadId || 0) + 1; },
   onPullDownRefresh() { return this.refresh(); },
   myPlaces() { this.closeControls(); s.go('/pages/places/index'); },
@@ -201,38 +223,76 @@ s.register({
     const selectedArea = preserveSelection && areas.includes(this.data.selectedArea) ? this.data.selectedArea : '';
     s.safe(this, { areas: ['全部片区'].concat(areas), areaIndex: selectedArea ? areas.indexOf(selectedArea) + 1 : 0, selectedArea });
   },
-  refresh() {
+  acceptViewer(boot, source) {
+    const id = boot && boot.user && (boot.user.id || boot.user._id);
+    if (typeof id !== 'string' || !id) return false;
+    const key = String(boot.mode || '') + ':' + id;
+    const changed = !!this._nearbyViewer && this._nearbyViewer !== key;
+    this._nearbyViewer = key;
+    if (changed) {
+      this._eventPageCursors = [null]; this._neighborPageCursors = [null]; this._neighborsLoaded = false;
+      if (source === 'neighbors') { this._loadId = (this._loadId || 0) + 1; this._moreRequestId = (this._moreRequestId || 0) + 1; }
+      else this._neighborLoadId = (this._neighborLoadId || 0) + 1;
+      s.safe(this, { items: [], neighbourItems: [], nextCursor: null, moreBusy: false, neighbors: [], neighborNextCursor: null,
+        neighborMoreBusy: false, neighborError: '', selfNeighborVisible: false, isAdmin: false });
+    }
+    return changed;
+  },
+  refresh(options) {
     this.closeControls();
-    if (this.data.tab === 'neighbors') return this.refreshNeighbors();
+    if (this.data.tab === 'neighbors') return this.refreshNeighbors(options);
     this.updateCatalogue();
     const filter = this.data.filter;
+    let retain = !!(options && options.retain && this._loaded && this.data.items.length && this._eventFilter === filter);
+    const previous = this.data.items.slice(), nextCursor = this.data.nextCursor;
+    const cursors = retain ? (this._eventPageCursors || [null]).slice() : [null];
+    let refreshId;
     return s.load(this, async () => {
-      const request = this._loadId;
-      // The local guide remains usable when the community backend is unavailable.
-      const [bootResult, eventResult, directoryResult] = await Promise.all([
-        Promise.resolve().then(() => s.api.call('bootstrap')).then(value => ({ value }), error => ({ error })),
-        Promise.resolve().then(() => s.api.call('listEvents', { filter })).then(value => ({ value }), error => ({ error })),
-        placeService.listAll({ type: 'all' }).then(value => ({ value }), error => ({ error }))
+      const request = refreshId = this._loadId;
+      this._eventRefreshId = request;
+      // Revalidate exactly the pages already opened, without collapsing the
+      // visible list to page one or adding new cards above the reading position.
+      const [bootResult, initialEvents, directoryResult] = await Promise.all([
+        settled(Promise.resolve().then(() => s.api.call('bootstrap'))),
+        settled(readPages('listEvents', { filter }, cursors)),
+        settled(placeService.listAll({ type: 'all' }))
       ]);
-      if (directoryResult.value && !this._closed && request === this._loadId) { this._placeRecords = directoryResult.value; this.updateDirectoryOptions(); this.updateCatalogue(); }
+      if (this._closed || request !== this._loadId) return {};
       const boot = bootResult.value;
-      const events = eventResult.value;
-      const items = events ? (events.items || []).map(s.event) : [];
+      const changed = this.acceptViewer(boot, 'events');
+      let eventResult = initialEvents;
+      if (changed && retain) { retain = false; eventResult = await settled(readPages('listEvents', { filter }, [null])); }
+      if (this._closed || request !== this._loadId) return {};
+      if (directoryResult.value) { this._placeRecords = directoryResult.value; this.updateDirectoryOptions(); this.updateCatalogue(); }
+      const pages = eventResult.value;
+      const keepOnError = retain && previous.length > 0;
+      const items = pages ? (retain ? refreshedItems(previous, pages, cursors, s.event) : (pages[0].items || []).map(s.event)) : keepOnError ? previous : [];
+      if (pages) { this._eventPageCursors = retain ? cursors : [null]; this._eventFilter = filter; }
+      if (eventResult.error && keepOnError) s.toast('小聚暂未更新，保留上次浏览内容');
       return {
         mode: boot ? boot.mode : this.data.mode,
         city: boot && boot.settings && boot.settings.city || '',
-        isAdmin: !!(boot && boot.user && boot.user.isAdmin),
-        selfNeighborVisible: !!(boot && boot.user && boot.user.neighborVisible),
+        isAdmin: boot ? !!(boot.user && boot.user.isAdmin) : this.data.isAdmin,
+        selfNeighborVisible: boot ? !!(boot.user && boot.user.neighborVisible) : this.data.selfNeighborVisible,
         items, neighbourItems: matchingMeetups(items, this.data.query),
-        nextCursor: events && events.nextCursor || null,
+        nextCursor: retain && (pages || keepOnError) ? nextCursor : pages && pages[0].nextCursor || null,
         placeServiceError: directoryResult.error ? '地点在线更新暂不可用，仍可浏览已保存资料' : '',
-        eventsError: eventResult.error ? eventResult.error.message || '小聚暂时没有连接上，请稍后重试' : ''
+        eventsError: eventResult.error && !keepOnError ? eventResult.error.message || '小聚暂时没有连接上，请稍后重试' : ''
       };
-    });
+    }, { retain }).finally(() => { if (this._eventRefreshId === refreshId) this._eventRefreshId = 0; });
   },
   async loadMore() {
-    await s.more(this, { key: 'items', request: cursor => s.api.call('listEvents', { filter: this.data.filter, cursor }), decorate: s.event });
-    this.updateCatalogue();
+    if (this._closed || this._hidden || this._eventRefreshId && this._eventRefreshId === this._loadId) return;
+    const request = this._loadId;
+    await s.more(this, { key: 'items', request: async cursor => {
+      const result = await s.api.call('listEvents', { filter: this.data.filter, cursor });
+      if (!this._closed && request === this._loadId) {
+        const cursors = this._eventPageCursors || [null];
+        if (!cursors.includes(cursor)) this._eventPageCursors = cursors.concat(cursor);
+      }
+      return result;
+    }, decorate: s.event });
+    if (!this._closed && !this._hidden && request === this._loadId) this.updateCatalogue();
   },
   selectFilter(e) {
     const filter = e.currentTarget.dataset.id;
@@ -576,22 +636,43 @@ s.register({
   },
   toggleNeighbours() { s.safe(this, { neighboursOpen: !this.data.neighboursOpen }); },
   neighborQuery() { return { areaId: neighborAreaChoices[this.data.neighborAreaIndex].id, kind: this.data.neighborKind, petType: this.data.neighborKind === 'pets' ? this.data.neighborPetType : 'all', query: this.data.query }; },
-  async refreshNeighbors() {
+  async refreshNeighbors(options) {
     const request = this._neighborLoadId = (this._neighborLoadId || 0) + 1;
-    const query = this.neighborQuery();
-    s.safe(this, { neighborLoading: true, neighborMoreBusy: false, neighborError: '', neighborNextCursor: null, neighbors: [] });
+    this._neighborRefreshId = request;
+    const query = this.neighborQuery(), queryKey = JSON.stringify(query);
+    let retain = !!(options && options.retain && this._neighborsLoaded && this.data.neighbors.length && this._neighborQueryKey === queryKey);
+    const previous = this.data.neighbors.slice(), nextCursor = this.data.neighborNextCursor;
+    const cursors = retain ? (this._neighborPageCursors || [null]).slice() : [null];
+    s.safe(this, retain ? { neighborLoading: false, neighborMoreBusy: false, neighborError: '' }
+      : { neighborLoading: true, neighborMoreBusy: false, neighborError: '', neighborNextCursor: null, neighbors: [] });
+    const current = () => !this._closed && !this._hidden && request === this._neighborLoadId && this.data.tab === 'neighbors';
     try {
-      const [result, boot] = await Promise.all([s.api.call('listNeighbors', query), Promise.resolve().then(() => s.api.call('bootstrap')).catch(() => null)]);
-      if (this._closed || this._hidden || request !== this._neighborLoadId || this.data.tab !== 'neighbors') return;
-      s.safe(this, { neighbors: (result.items || []).map(item => neighborCard(item, this._failedNeighborAvatars)), neighborNextCursor: result.nextCursor || null,
-        mode: boot ? boot.mode : this.data.mode, selfNeighborVisible: boot ? boot.user.neighborVisible === true : this.data.selfNeighborVisible });
+      const [initial, bootResult] = await Promise.all([settled(readPages('listNeighbors', query, cursors)), settled(Promise.resolve().then(() => s.api.call('bootstrap')))]);
+      if (!current()) return;
+      const boot = bootResult.value;
+      const changed = this.acceptViewer(boot, 'neighbors');
+      let result = initial;
+      if (changed && retain) { retain = false; s.safe(this, { neighborLoading: true }); result = await settled(readPages('listNeighbors', query, [null])); }
+      if (!current()) return;
+      if (boot) s.safe(this, { mode: boot.mode, selfNeighborVisible: !!(boot.user && boot.user.neighborVisible), isAdmin: !!(boot.user && boot.user.isAdmin) });
+      if (result.error) throw result.error;
+      const pages = result.value;
+      const decorate = item => neighborCard(item, this._failedNeighborAvatars);
+      s.safe(this, { neighbors: retain ? refreshedItems(previous, pages, cursors, decorate) : (pages[0].items || []).map(decorate),
+        neighborNextCursor: retain ? nextCursor : pages[0].nextCursor || null });
+      this._neighborPageCursors = retain ? cursors : [null]; this._neighborQueryKey = queryKey; this._neighborsLoaded = true;
     } catch (error) {
-      if (!this._closed && !this._hidden && request === this._neighborLoadId && this.data.tab === 'neighbors') s.safe(this, { neighborError: error.message || '宠友列表暂时没有连接上，请稍后重试' });
+      if (current()) {
+        if (retain && previous.length) s.toast('宠友列表暂未更新，保留上次浏览内容');
+        else s.safe(this, { neighborError: error.message || '宠友列表暂时没有连接上，请稍后重试' });
+      }
     } finally {
+      if (this._neighborRefreshId === request) this._neighborRefreshId = 0;
       if (!this._closed && request === this._neighborLoadId) { s.safe(this, { neighborLoading: false }); if (wx.stopPullDownRefresh) wx.stopPullDownRefresh(); }
     }
   },
   async loadMoreNeighbors() {
+    if (this._closed || this._hidden || this._neighborRefreshId && this._neighborRefreshId === this._neighborLoadId) return;
     if (this.data.neighborLoading || this.data.neighborMoreBusy || !this.data.neighborNextCursor || this.data.tab !== 'neighbors') return;
     const request = this._neighborLoadId;
     const query = { ...this.neighborQuery(), cursor: this.data.neighborNextCursor };
@@ -604,6 +685,8 @@ s.register({
         const index = neighbors.findIndex(value => value.id === item.id);
         if (index >= 0) neighbors[index] = item; else neighbors.push(item);
       });
+      const cursors = this._neighborPageCursors || [null];
+      if (!cursors.includes(query.cursor)) this._neighborPageCursors = cursors.concat(query.cursor);
       s.safe(this, { neighbors, neighborNextCursor: result.nextCursor || null });
     } catch (error) {
       if (!this._closed && !this._hidden && request === this._neighborLoadId) s.toast(error.message || '加载未完成，请重试');

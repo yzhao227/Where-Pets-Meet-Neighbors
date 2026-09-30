@@ -17,9 +17,9 @@ function post(id, overrides = {}) {
 }
 
 function fixture(t, handler, excludedAnimalTypes = []) {
-  const previous = { wx: global.wx, Page: global.Page, call: api.call };
+  const previous = { wx: global.wx, Page: global.Page, call: api.call, getFeedVersion: api.getFeedVersion };
   const stored = new Map([[preferences.KEY, { version: 1, excludedAnimalTypes }]]);
-  const effects = { calls: [], storageWrites: [], storageReads: [], toasts: [] };
+  const effects = { calls: [], storageWrites: [], storageReads: [], toasts: [], navigations: [], feedVersion: 0 };
   global.wx = {
     getStorageSync(key) { effects.storageReads.push(key); return structuredClone(stored.get(key)); },
     setStorageSync(key, value) {
@@ -27,6 +27,7 @@ function fixture(t, handler, excludedAnimalTypes = []) {
       stored.set(key, structuredClone(value));
     },
     showToast(options) { effects.toasts.push(options.title); },
+    navigateTo(options) { effects.navigations.push(options.url); },
     stopPullDownRefresh() {}
   };
   api.call = async (action, payload = {}) => {
@@ -34,7 +35,8 @@ function fixture(t, handler, excludedAnimalTypes = []) {
     if (action === 'bootstrap') return { mode: 'demo', user: { id: 'test-user' }, circles: [] };
     return structuredClone(await handler(action, payload));
   };
-  t.after(() => { global.wx = previous.wx; global.Page = previous.Page; api.call = previous.call; });
+  api.getFeedVersion = () => effects.feedVersion;
+  t.after(() => { global.wx = previous.wx; global.Page = previous.Page; api.call = previous.call; api.getFeedVersion = previous.getFeedVersion; });
   return { effects, stored };
 }
 
@@ -79,6 +81,81 @@ function deferred() {
   const promise = new Promise(done => { resolve = done; });
   return { promise, resolve };
 }
+
+test('signed cover retry reauthorizes only its card and preserves loaded pages and column positions', async t => {
+  const pending = deferred();
+  const expired = 'https://example.invalid/signed.jpg?signature=expired', renewed = expired.replace('expired', 'renewed');
+  const signed = url => post('signed-card', { mediaSigned: true, images: [url] });
+  const { effects } = fixture(t, async (action, payload) => {
+    if (action === 'listPosts') return payload.cursor ? { items: [post('third'), post('fourth')], nextCursor: 'page-3' }
+      : { items: [signed(expired), post('second')], nextCursor: 'page-2' };
+    if (action === 'getPost') { assert.equal(payload.id, 'signed-card'); return pending.promise; }
+    throw Error(action);
+  });
+  const page = await mount(t); await page.loadMore();
+  const original = structuredClone(page.data.posts[0]); page.onCoverError(coverEvent(original));
+  assert.equal(page.data.posts[0].coverState, 'error');
+  const positions = columnPositions(page), untouched = structuredClone(page.data.posts.slice(1));
+  const retry = page.retryCover(coverEvent(original));
+  await page.retryCover(coverEvent(original));
+  assert.equal(effects.calls.filter(call => call.action === 'getPost').length, 1);
+  assert.equal(page.data.posts[0].coverState, 'error', 'the expired URL is not mounted for another image attempt');
+  assert.equal(page.data.loading, false); assert.equal(page.data.nextCursor, 'page-3');
+  pending.resolve({ post: signed(renewed) }); await retry;
+  assert.equal(page.data.posts[0].coverSrc, renewed); assert.equal(page.data.posts[0].coverState, 'loading');
+  assert.ok(page.data.posts[0].coverAttempt > original.coverAttempt);
+  assert.deepEqual(page.data.posts.slice(1), untouched); assert.deepEqual(columnPositions(page), positions);
+  assert.equal(page.data.nextCursor, 'page-3');
+  assert.equal(effects.calls.filter(call => call.action === 'listPosts').length, 2);
+  page.onCoverError(coverEvent(original)); page.onCoverLoad(coverEvent(original, { width: 100, height: 100 }));
+  assert.equal(displayedPost(page, 'signed-card').coverSrc, renewed);
+  assert.equal(displayedPost(page, 'signed-card').coverState, 'loading');
+});
+
+test('signed cover authorization failure stays retryable and revoked access removes only the affected card', async t => {
+  let code = 'NETWORK_ERROR';
+  const { effects } = fixture(t, async (action, payload) => {
+    if (action === 'listPosts') return payload.cursor ? { items: [post('loaded-tail')], nextCursor: 'page-3' }
+      : { items: [post('protected', { mediaSigned: true }), post('public')], nextCursor: 'page-2' };
+    if (action === 'getPost') throw Object.assign(Error('仅内存授权读取失败'), { code });
+    throw Error(action);
+  });
+  const page = await mount(t); await page.loadMore();
+  const card = structuredClone(page.data.posts[0]); page.onCoverError(coverEvent(card));
+  await page.retryCover(coverEvent(card));
+  assert.deepEqual(page.data.posts.map(item => item.id), ['protected', 'public', 'loaded-tail']);
+  assert.equal(page.data.posts[0].coverState, 'error'); assert.equal(page.data.posts[0].coverAttempt, card.coverAttempt);
+  assert.equal(page.data.busy, false); assert.ok(effects.toasts.length);
+  code = 'NOT_FOUND'; await page.retryCover(coverEvent(card));
+  assert.deepEqual(page.data.posts.map(item => item.id), ['public', 'loaded-tail']);
+  assert.equal(displayedPost(page, 'protected'), undefined); assert.equal(page.data.nextCursor, 'page-3');
+  assert.equal(page.data.error, ''); assert.equal(page.data.loading, false);
+  assert.equal(effects.calls.filter(call => call.action === 'listPosts').length, 2);
+});
+
+test('late signed-cover reauthorization cannot replace or remove the same card in a newer filter', async t => {
+  let pending = deferred();
+  const { effects } = fixture(t, async (action, payload) => {
+    if (action === 'listPosts') return { items: [post('same-card', { mediaSigned: true, images: ['https://example.invalid/' + (payload.animalType || 'all') + '.jpg?signature=current'] })], nextCursor: 'next-' + (payload.animalType || 'all') };
+    if (action === 'getPost') return pending.promise.then(value => { if (value.denied) throw Object.assign(Error('仅内存旧请求撤权'), { code: 'NOT_FOUND' }); return value; });
+    throw Error(action);
+  });
+  const page = await mount(t);
+  const original = structuredClone(page.data.posts[0]); page.onCoverError(coverEvent(original));
+  const old = page.retryCover(coverEvent(original));
+  await page.selectAnimal(event({ id: 'cat' }));
+  const filtered = structuredClone(page.data.posts);
+  pending.resolve({ post: post('same-card', { mediaSigned: true, images: ['https://example.invalid/obsolete.jpg?signature=late'] }) }); await old;
+  assert.deepEqual(page.data.posts, filtered); assert.equal(page.data.nextCursor, 'next-cat');
+  pending = deferred();
+  const second = structuredClone(page.data.posts[0]); page.onCoverError(coverEvent(second));
+  const staleDenied = page.retryCover(coverEvent(second));
+  await page.selectAnimal(event({ id: 'dog' }));
+  const newest = structuredClone(page.data.posts);
+  pending.resolve({ denied: true }); await staleDenied;
+  assert.deepEqual(page.data.posts, newest); assert.equal(page.data.animalType, 'dog'); assert.equal(page.data.nextCursor, 'next-dog');
+  assert.equal(effects.calls.filter(call => call.action === 'getPost').length, 2);
+});
 async function settleMore(page) {
   for (let i = 0; i < 20 && (page.data.moreBusy || page._moreTask); i += 1) await new Promise(resolve => setImmediate(resolve));
   assert.equal(page.data.moreBusy, false, 'pagination completes');
@@ -471,4 +548,313 @@ test('search and topic continue together through pagination and a stale page can
   assert.equal(page.data.topic, '陪伴日常');
   assert.equal(page.data.query, '');
   assert.equal(effects.calls.at(-1).payload.query, undefined);
+});
+
+test('returning from a detail retains all feed pages and updates the opened card in place', async t => {
+  const { effects } = fixture(t, async (action, payload) => {
+    if (action === 'listPosts') return payload.cursor
+      ? { items: [post('c'), post('d')], nextCursor: 'page-3' }
+      : { items: [post('a'), post('b')], nextCursor: 'page-2' };
+    if (action === 'getPost') return { post: post(payload.id, { likeCount: 2, isLiked: true, commentCount: 3 }) };
+    throw new Error(action);
+  });
+  const page = await mount(t);
+  await page.loadMore();
+  page.onCoverLoad(coverEvent(page.data.posts[2], { width: 600, height: 800 }));
+  const before = structuredClone(page.data.posts);
+  const positions = columnPositions(page);
+  const writes = [];
+  const setData = page.setData;
+  page.setData = function (values) { writes.push(values); setData.call(this, values); };
+  page.openPost(event({ id: 'c' }));
+  page.onHide();
+  await page.onShow();
+  assert.deepEqual(page.data.posts.map(item => item.id), ['a', 'b', 'c', 'd']);
+  assert.equal(page.data.nextCursor, 'page-3');
+  assert.deepEqual(columnPositions(page), positions);
+  assert.equal(page.data.posts[2].coverState, 'ready');
+  assert.equal(page.data.posts[2].coverRatio, before[2].coverRatio);
+  assert.equal(page.data.posts[2].coverAttempt, before[2].coverAttempt);
+  assert.equal(displayedPost(page, 'c').likeCount, 2);
+  assert.equal(displayedPost(page, 'c').commentCount, 3);
+  assert.ok(writes.every(value => value.loading !== true), 'the list must never unmount on return');
+  assert.equal(effects.calls.filter(call => call.action === 'listPosts').length, 2);
+  assert.deepEqual(effects.navigations, ['/pages/post/index?id=c']);
+});
+
+test('tab return keeps cached filters and pagination while an explicit refresh loads the first page', async t => {
+  const { effects } = fixture(t, async (action, payload) => {
+    assert.equal(action, 'listPosts');
+    return { items: [post(payload.cursor ? 'second' : 'first')], nextCursor: payload.cursor ? 'page-3' : 'page-2' };
+  });
+  const page = await mount(t);
+  await page.selectAnimal(event({ id: 'cat' }));
+  await page.loadMore();
+  const snapshot = structuredClone(page.data.posts);
+  const calls = effects.calls.filter(call => call.action === 'listPosts').length;
+  page.onHide();
+  await page.onShow();
+  assert.deepEqual(page.data.posts, snapshot);
+  assert.equal(page.data.animalType, 'cat');
+  assert.equal(page.data.nextCursor, 'page-3');
+  assert.equal(effects.calls.filter(call => call.action === 'listPosts').length, calls);
+  await page.onPullDownRefresh();
+  assert.deepEqual(page.data.posts.map(item => item.id), ['first']);
+  assert.equal(page.data.nextCursor, 'page-2');
+});
+
+test('failed detail revalidation keeps the cached feed, and deletion removes only that card', async t => {
+  let code = 'NETWORK_ERROR';
+  fixture(t, async (action, payload) => {
+    if (action === 'listPosts') return { items: [post('a'), post('b')], nextCursor: 'page-2' };
+    if (action === 'getPost') throw Object.assign(new Error('Synthetic unavailable response'), { code });
+    throw new Error(action);
+  });
+  const page = await mount(t);
+  page.openPost(event({ id: 'a' }));
+  page.onHide();
+  await page.onShow();
+  assert.equal(page.data.error, '');
+  assert.equal(page.data.loading, false);
+  assert.deepEqual(page.data.posts.map(item => item.id), ['a', 'b']);
+  assert.equal(page.data.nextCursor, 'page-2');
+  code = 'NOT_FOUND';
+  page.onHide();
+  await page.onShow();
+  assert.deepEqual(page.data.posts.map(item => item.id), ['b']);
+  assert.equal(page.data.nextCursor, 'page-2');
+});
+
+test('late detail revalidation cannot overwrite a changed filter or a newer like action', async t => {
+  let pending = deferred();
+  fixture(t, async (action, payload) => {
+    if (action === 'listPosts') return { items: [post(payload.animalType || 'a')] };
+    if (action === 'getPost') return pending.promise;
+    if (action === 'likePost') return { post: post('cat', { likeCount: 1, isLiked: true }) };
+    throw new Error(action);
+  });
+  const page = await mount(t);
+  page.openPost(event({ id: 'a' }));
+  page.onHide();
+  const returning = page.onShow();
+  await page.selectAnimal(event({ id: 'cat' }));
+  pending.resolve({ post: post('a', { likeCount: 20 }) });
+  await returning;
+  assert.deepEqual(page.data.posts.map(item => item.id), ['cat']);
+  pending = deferred();
+  page.openPost(event({ id: 'cat' }));
+  page.onHide();
+  const nextReturn = page.onShow();
+  await page.like(event({ id: 'cat' }));
+  pending.resolve({ post: post('cat', { likeCount: 0, isLiked: false }) });
+  await nextReturn;
+  assert.equal(page.data.posts[0].likeCount, 1);
+  assert.equal(page.data.posts[0].isLiked, true);
+});
+
+test('an account change discards the previous account feed instead of retaining its interaction state', async t => {
+  let account = 'test-user';
+  fixture(t, async (action, payload) => {
+    assert.equal(action, 'listPosts');
+    return { items: [post(account + (payload.cursor ? '-tail' : ''))], nextCursor: 'next' };
+  });
+  const call = api.call;
+  api.call = (action, payload) => action === 'bootstrap'
+    ? Promise.resolve({ mode: 'demo', user: { id: account }, circles: [] }) : call(action, payload);
+  const page = await mount(t);
+  await page.loadMore();
+  account = 'another-account';
+  page.onHide();
+  await page.onShow();
+  assert.equal(page.data.user.id, account);
+  assert.deepEqual(page.data.posts.map(item => item.id), [account]);
+});
+
+test('leaving the feed retires pending pagination without overwriting revalidated or deleted cards', async t => {
+  for (const deleted of [false, true]) await t.test(deleted ? 'deleted card' : 'updated card', async t => {
+    const pending = deferred();
+    let continuations = 0;
+    fixture(t, async (action, payload) => {
+      if (action === 'listPosts') {
+        if (!payload.cursor) return { items: [post('a'), post('b')], nextCursor: 'page-2' };
+        return ++continuations === 1 ? pending.promise : { items: [post('c')], nextCursor: 'page-3' };
+      }
+      if (action === 'getPost') {
+        if (deleted) throw Object.assign(new Error('Deleted'), { code: 'NOT_FOUND' });
+        return { post: post('a', { likeCount: 3, isLiked: true }) };
+      }
+      throw new Error(action);
+    });
+    const page = await mount(t);
+    const loading = page.loadMore();
+    page.openPost(event({ id: 'a' }));
+    page.onHide();
+    assert.equal(page.data.moreBusy, false);
+    assert.equal(page._moreTask, null);
+    await page.onShow();
+    pending.resolve({ items: [post('a'), post('obsolete')], nextCursor: 'stale-cursor' });
+    await loading;
+    assert.equal(page.data.nextCursor, 'page-2');
+    assert.deepEqual(page.data.posts.map(item => item.id), deleted ? ['b'] : ['a', 'b']);
+    if (!deleted) assert.equal(page.data.posts[0].likeCount, 3);
+    await page.loadMore();
+    assert.equal(page.data.nextCursor, 'page-3');
+    assert.deepEqual(page.data.posts.map(item => item.id), deleted ? ['b', 'c'] : ['a', 'b', 'c']);
+  });
+});
+
+test('an earlier like response cannot overwrite a newer filter or account result', async t => {
+  for (const change of ['filter', 'account']) await t.test(change, async t => {
+    const pending = deferred();
+    let account = 'test-user';
+    fixture(t, async action => {
+      if (action === 'listPosts' || action === 'getPost') return action === 'listPosts'
+        ? { items: [post('a')] } : { post: post('a', { commentCount: 7 }) };
+      if (action === 'likePost') return pending.promise;
+      throw new Error(action);
+    });
+    const call = api.call;
+    api.call = (action, payload) => action === 'bootstrap'
+      ? Promise.resolve({ mode: 'demo', user: { id: account }, circles: [] }) : call(action, payload);
+    const page = await mount(t);
+    const liking = page.like(event({ id: 'a' }));
+    if (change === 'filter') await page.selectAnimal(event({ id: 'cat' }));
+    else {
+      account = 'another-user';
+      page.onHide();
+      await page.onShow();
+    }
+    pending.resolve({ post: post('a', { likeCount: 1, isLiked: true }) });
+    await liking;
+    assert.equal(page.data.posts[0].isLiked, false);
+    assert.equal(page.data.posts[0].likeCount, 0);
+    if (change === 'account') assert.equal(page.data.user.id, account);
+  });
+});
+
+test('a successful pending like survives visiting another card before its response arrives', async t => {
+  for (const phase of ['hidden', 'returned']) await t.test(phase, async t => {
+    const pending = deferred();
+    fixture(t, async (action, payload) => {
+      if (action === 'listPosts') return { items: [post('a'), post('b')], nextCursor: 'page-2' };
+      if (action === 'getPost') return { post: post(payload.id, { commentCount: 2 }) };
+      if (action === 'likePost') return pending.promise;
+      throw new Error(action);
+    });
+    const page = await mount(t);
+    const liking = page.like(event({ id: 'a' }));
+    page.openPost(event({ id: 'b' }));
+    page.onHide();
+    if (phase === 'returned') await page.onShow();
+    pending.resolve({ post: post('a', { likeCount: 1, isLiked: true }) });
+    await liking;
+    if (phase === 'hidden') await page.onShow();
+    assert.deepEqual(page.data.posts.map(item => item.id), ['a', 'b']);
+    assert.equal(page.data.posts[0].isLiked, true);
+    assert.equal(page.data.posts[0].likeCount, 1);
+    assert.equal(page.data.posts[1].commentCount, 2);
+    assert.equal(page.data.nextCursor, 'page-2');
+  });
+});
+
+test('a mode change refreshes cached posts even when the user ID is unchanged', async t => {
+  let mode = 'demo';
+  fixture(t, async action => {
+    assert.equal(action, 'listPosts');
+    return { items: [post(mode)] };
+  });
+  const call = api.call;
+  api.call = (action, payload) => action === 'bootstrap'
+    ? Promise.resolve({ mode, user: { id: 'same-user' }, circles: [] }) : call(action, payload);
+  const page = await mount(t);
+  mode = 'cloud';
+  page.onHide();
+  await page.onShow();
+  assert.equal(page.data.mode, 'cloud');
+  assert.deepEqual(page.data.posts.map(item => item.id), ['cloud']);
+});
+
+test('a collection change during revalidation or refresh is not marked as already loaded', async t => {
+  for (const phase of ['resume', 'refresh']) await t.test(phase, async t => {
+    const pending = deferred();
+    let requests = 0;
+    const { effects } = fixture(t, async action => {
+      if (action === 'listPosts') {
+        requests += 1;
+        if (phase === 'refresh' && requests === 2) return pending.promise;
+        return { items: [post(effects.feedVersion ? 'new' : 'old')] };
+      }
+      if (action === 'getPost') return pending.promise;
+      throw new Error(action);
+    });
+    const page = await mount(t);
+    page.openPost(event({ id: 'old' }));
+    page.onHide();
+    const refreshing = phase === 'resume' ? page.onShow() : page.refresh();
+    effects.feedVersion += 1;
+    pending.resolve(phase === 'resume' ? { post: post('old') } : { items: [post('old')] });
+    await refreshing;
+    assert.deepEqual(page.data.posts.map(item => item.id), ['new']);
+    assert.equal(page._feedVersion, effects.feedVersion);
+  });
+});
+
+test('real API collection mutations refresh membership while ordinary detail interactions retain pages', async t => {
+  fixture(t, async action => { throw new Error(action); });
+  const client = api.createApi(global.wx, { mode: 'demo' });
+  api.call = client.call;
+  api.getFeedVersion = client.getFeedVersion;
+  await api.call('demoVerifyIdentity', { consent: { accepted: true, termsVersion: '2026-09-29', privacyVersion: '2026-09-29' } });
+  const page = await mount(t);
+  await page.loadMore();
+  assert.ok(page.data.posts.length > 20);
+  const first = page.data.posts[0];
+  const initialIds = page.data.posts.map(item => item.id);
+  const originalVersion = api.getFeedVersion();
+  page.openPost(event({ id: first.id }));
+  page.onHide();
+  await api.call('likePost', { id: first.id, like: true });
+  await api.call('addComment', { targetType: 'post', targetId: first.id, text: '发现页返回测试' });
+  await page.onShow();
+  assert.equal(api.getFeedVersion(), originalVersion);
+  assert.deepEqual(page.data.posts.map(item => item.id), initialIds);
+  assert.equal(page.data.posts[0].isLiked, true);
+  assert.equal(page.data.posts[0].commentCount, 1);
+
+  page.openAuthor(event({ id: first.author.id }));
+  page.onHide();
+  await api.call('blockUser', { userId: first.author.id, block: true });
+  await page.onShow();
+  assert.ok(page.data.posts.every(item => item.author.id !== first.author.id));
+  await api.call('blockUser', { userId: first.author.id, block: false });
+  await api.call('followUser', { userId: first.author.id, follow: true });
+  page.setData({ feed: 'following' });
+  await page.refresh();
+  assert.ok(page.data.posts.some(item => item.author.id === first.author.id));
+  page.onHide();
+  await api.call('followUser', { userId: first.author.id, follow: false });
+  await page.onShow();
+  assert.equal(page.data.posts.length, 0);
+
+  await api.call('joinCircle', { id: first.circle.id, join: true });
+  page.setData({ feed: 'circles' });
+  await page.refresh();
+  assert.ok(page.data.posts.some(item => item.circle.id === first.circle.id));
+  page.onHide();
+  await api.call('joinCircle', { id: first.circle.id, join: false });
+  await page.onShow();
+  assert.ok(page.data.posts.every(item => item.circle.id !== first.circle.id));
+
+  await api.call('joinCircle', { id: 'circle-neighbors', join: true });
+  page.setData({ feed: 'discover' });
+  await page.refresh();
+  page.onHide();
+  const created = await api.call('createPost', { circleId: 'circle-neighbors', text: '新的邻里分享', images: [] });
+  await page.onShow();
+  assert.ok(page.data.posts.some(item => item.id === created.post.id));
+  page.openPost(event({ id: created.post.id }));
+  page.onHide();
+  await api.call('deletePost', { id: created.post.id });
+  await page.onShow();
+  assert.ok(page.data.posts.every(item => item.id !== created.post.id));
 });

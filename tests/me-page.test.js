@@ -12,7 +12,7 @@ function fixture(t) {
     ['unrelated-privacy', { publicProfile: false, showPet: false }],
     ['unrelated-location', { label: '仅内存测试参照点' }]
   ]);
-  const effects = { calls: [], reads: [], writes: [], removals: [], navigations: [], toasts: [], uploadClears: 0, readFails: false };
+  const effects = { calls: [], reads: [], writes: [], removals: [], navigations: [], toasts: [], uploadClears: 0, readFails: false, viewWrites: [], writesAfterUnload: 0 };
   const state = {
     boot: {
       mode: 'demo',
@@ -46,6 +46,7 @@ function fixture(t) {
   api.call = async (action, payload = {}) => {
     effects.calls.push({ action, payload: structuredClone(payload) });
     assert.equal(action, 'bootstrap', 'refresh and navigation never perform API writes');
+    if (state.handler) return state.handler();
     state.response = structuredClone(state.boot);
     return state.response;
   };
@@ -56,7 +57,7 @@ function fixture(t) {
   delete require.cache[source];
   require(source);
   assert.ok(definition, 'the me page registers');
-  const page = { ...definition, data: structuredClone(definition.data), setData(values) { Object.assign(this.data, values); } };
+  const page = { ...definition, data: structuredClone(definition.data), setData(values) { if (this._closed) effects.writesAfterUnload += 1; effects.viewWrites.push(structuredClone(values)); Object.assign(this.data, values); } };
   t.after(() => {
     page.onUnload();
     global.wx = previous.wx;
@@ -277,5 +278,88 @@ test('my page retains all five supplied statistics and the actual joined circles
   await page.refresh();
   assert.deepEqual(page.data.stats, {}, 'missing statistics are not fabricated');
   assert.deepEqual(page.data.circles, [], 'no sample memberships are inserted');
+  assertReadOnly(effects);
+});
+
+
+test('returning to my page refreshes profile and drafts without collapsing the existing view', async t => {
+  const { page, state, effects, storage } = fixture(t);
+  state.boot.user.isAdmin = true;
+  await page.onLoad(); page.toggleAdmin();
+  saveMemoryDraft(storage, 'demo:memory-user-a', { title: '详情返回后新保存的草稿' });
+  const updated = structuredClone(state.boot); updated.user.nickname = '仅内存更新昵称'; updated.stats.postCount = 8;
+  let finish; state.handler = () => new Promise(resolve => { finish = resolve; });
+  effects.viewWrites.length = 0;
+  const pending = page.onShow();
+  assert.equal(page.data.loading, false); assert.equal(page.data.user.nickname, state.boot.user.nickname);
+  assert.equal(page.data.adminExpanded, true);
+  finish(updated); await pending;
+  assert.equal(page.data.user.nickname, '仅内存更新昵称'); assert.equal(page.data.stats.postCount, 8);
+  assert.equal(page.data.adminExpanded, true); assert.match(page.data.draftPreview, /新保存的草稿/);
+  assert.ok(effects.viewWrites.every(value => value.loading !== true && value.user !== null));
+  assertReadOnly(effects);
+});
+
+test('temporary errors on return preserve my page while explicit refresh still reports errors', async t => {
+  const { page, state, effects } = fixture(t);
+  await page.onLoad();
+  const before = structuredClone(page.data);
+  effects.viewWrites.length = 0;
+  state.handler = () => { throw Error('仅内存网络故障'); };
+  await page.onShow();
+  assert.deepEqual(page.data, before);
+  assert.ok(effects.viewWrites.every(value => value.loading !== true));
+  await page.onPullDownRefresh();
+  assert.match(page.data.error, /网络故障/); assert.equal(page.data.loading, false);
+  assert.ok(effects.viewWrites.some(value => value.loading === true));
+  delete state.handler; effects.viewWrites.length = 0;
+  await page.onShow();
+  assert.equal(page.data.error, '');
+  assert.ok(effects.viewWrites.some(value => value.loading === true), 'an error view recovers through a full refresh');
+  assertReadOnly(effects);
+});
+
+test('account and mode changes replace private summaries and clear account-specific expanded state', async t => {
+  const { page, state, effects, storage } = fixture(t);
+  state.boot.user.isAdmin = true;
+  saveMemoryDraft(storage, 'demo:memory-user-a', { title: '旧账号草稿' });
+  saveMemoryDraft(storage, 'demo:memory-user-b', { title: '新账号草稿' });
+  saveMemoryDraft(storage, 'cloud:memory-user-b', { title: '云端账号草稿' });
+  await page.onLoad(); page.toggleAdmin();
+  state.boot.user.id = 'memory-user-b'; state.boot.user.isAdmin = false;
+  state.boot.circles = []; state.boot.stats = {};
+  await page.onShow();
+  assert.equal(page.data.user.id, 'memory-user-b'); assert.equal(page.data.adminExpanded, false);
+  assert.equal(page.data.draftPreview, '新账号草稿'); assert.deepEqual(page.data.circles, []); assert.deepEqual(page.data.stats, {});
+  state.boot.mode = 'cloud'; await page.onShow();
+  assert.equal(page.data.draftPreview, '云端账号草稿');
+  assertReadOnly(effects);
+});
+
+test('unavailable accounts clear private profile and drafts despite a retained refresh', async t => {
+  const { page, state, effects, storage } = fixture(t);
+  saveMemoryDraft(storage, 'demo:memory-user-a', { title: '仅内存私有草稿' });
+  await page.onLoad();
+  state.handler = () => { throw Object.assign(Error('仅内存账号已清除'), { code: 'ACCOUNT_UNAVAILABLE' }); };
+  await page.onShow();
+  assert.equal(page.data.user, null); assert.deepEqual(page.data.stats, {}); assert.deepEqual(page.data.circles, []);
+  assert.equal(page.data.hasDraft, false); assert.equal(page.data.draftPreview, '');
+  assert.equal(page.data.errorCode, 'ACCOUNT_UNAVAILABLE'); assert.equal(page.data.loading, false);
+  assertReadOnly(effects);
+});
+
+test('late profile responses do not replace a new account or write after unload', async t => {
+  const { page, state, effects } = fixture(t);
+  await page.onLoad();
+  const oldBoot = structuredClone(state.boot);
+  let finish; state.handler = () => new Promise(resolve => { finish = resolve; });
+  const old = page.onShow();
+  state.boot.user.id = 'memory-new-owner'; delete state.handler;
+  await page.refresh();
+  finish(oldBoot); await old;
+  assert.equal(page.data.user.id, 'memory-new-owner');
+  state.handler = () => new Promise(resolve => { finish = resolve; });
+  const closing = page.onShow(); page.onUnload(); finish(oldBoot); await closing;
+  assert.equal(effects.writesAfterUnload, 0); assert.equal(page.data.user.id, 'memory-new-owner');
   assertReadOnly(effects);
 });

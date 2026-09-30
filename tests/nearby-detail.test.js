@@ -31,12 +31,15 @@ function records() {
   ];
 }
 
-function setup(items = records()) {
+function setup(items = records(), options = {}) {
   const oldWx = global.wx;
   const oldPage = global.Page;
   const effects = { now: initialTime, toasts: [], copied: [], modals: [], opened: [], apiCalls: [], navigation: [], mapNavigation: [], addressNavigation: [], previews: [], reference: null, cancelled: 0, locationRequests: 0 };
   const catalogue = { records: items, checkedAt: '2026-09-29', region: '仅测试范围' };
+  const config = { mode: 'demo', cloudEnv: '', ...options.config };
   global.wx = {
+    __preview: options.preview !== false,
+    openLocation() {},
     showToast(options) { effects.toasts.push(options.title); },
     showModal(options) { effects.modals.push(options); options.success({ confirm: true }); },
     setClipboardData(options) { effects.copied.push(options.data); options.success({}); },
@@ -73,9 +76,11 @@ function setup(items = records()) {
     require(request) {
       if (request === '../_shared') return shared;
       if (request === '../../data/nearby-catalogue') return catalogue;
+      if (request === '../../data/nearby-source-photos') return require('../miniprogram/data/nearby-source-photos');
       if (request === '../../data/nearby-utils') return nearby;
       if (request === '../../data/nearby-participation') return require('../miniprogram/data/nearby-participation');
       if (request === '../../services/nearby-location') return location;
+      if (request === '../../config') return config;
       if (request === '../../services/public-links') return links;
       if (request === '../../services/place-engine') return require('../miniprogram/services/place-engine');
       if (request === '../nearby/presentation') return require('../miniprogram/pages/nearby/presentation');
@@ -87,7 +92,7 @@ function setup(items = records()) {
     data: structuredClone(definition.data), writesAfterUnload: 0,
     setData(values) { if (this._closed) this.writesAfterUnload += 1; Object.assign(this.data, values); }
   });
-  return { page, effects, catalogue, location, links, restore() { shared.api.call = oldCall; global.wx = oldWx; global.Page = oldPage; } };
+  return { page, effects, catalogue, location, config, links, restore() { shared.api.call = oldCall; global.wx = oldWx; global.Page = oldPage; } };
 }
 
 const imageEvent = index => ({ currentTarget: { dataset: { index } } });
@@ -436,6 +441,77 @@ test('details without a valid map point delegate the public address to map navig
     assert.deepEqual(f.effects.copied, []);
     assert.equal(f.effects.locationRequests, 0);
   } finally { f.restore(); }
+});
+
+test('native demo details disable unresolved map positions while retaining their published address', async () => {
+  const items = records();
+  const f = setup(items, { preview: false });
+  try {
+    await f.page.onLoad({ id: items[0].id });
+    assert.equal(f.page.data.item.canNavigate, false);
+    assert.equal(f.page.data.item.canLocate, false);
+    assert.equal(f.page.data.item.navigationLabel, '位置待核实');
+    assert.match(f.page.data.item.navigationHint, /位置尚待核实/);
+    assert.doesNotMatch(f.page.data.item.navigationHint, /地址.*未公布|地点待公布/);
+    assert.equal(f.page.data.item.address, items[0].address);
+    await f.page.navigate();
+    assert.deepEqual(f.effects.addressNavigation, []);
+    assert.deepEqual(f.effects.mapNavigation, []);
+    assert.deepEqual(f.effects.toasts, [], 'an unresolved position does not advertise navigation then throw on tap');
+    await f.page.copyAddress();
+    assert.deepEqual(f.effects.copied, [items[0].address]);
+    const markup = fs.readFileSync(path.join(directory, 'index.wxml'), 'utf8');
+    assert.match(markup, /class="bottom-navigate[^\"]*"[^>]*disabled="\{\{busy \|\| !item\.canLocate\}\}"/);
+    items[0].point = { latitude: 31.1, longitude: 121.4, coordinateSystem: 'gcj02' };
+    f.page.refresh();
+    assert.equal(f.page.data.item.canLocate, true); assert.equal(f.page.data.item.navigationLabel, '地图导航');
+    await f.page.navigate();
+    assert.deepEqual(f.effects.mapNavigation[0].point, items[0].point);
+    assert.equal(f.effects.addressNavigation.length, 0); assert.equal(f.effects.locationRequests, 0);
+  } finally { f.page.onUnload(); f.restore(); }
+});
+
+test('native address navigation is enabled only with a configured cloud environment and map capability', async () => {
+  const f = setup(records(), { preview: false, config: { mode: 'cloud', cloudEnv: '' } });
+  try {
+    await f.page.onLoad({ id: 'fixture-place' });
+    assert.equal(f.page.data.item.canLocate, false);
+    f.config.cloudEnv = 'synthetic-cloud'; f.page.refresh();
+    assert.equal(f.page.data.item.canLocate, true); assert.equal(f.page.data.item.navigationLabel, '地图导航');
+    await f.page.navigate();
+    assert.equal(f.effects.addressNavigation.length, 1); assert.equal(f.effects.mapNavigation.length, 0);
+    delete global.wx.openLocation; f.page.refresh();
+    assert.equal(f.page.data.item.canLocate, false);
+    await f.page.navigate();
+    assert.equal(f.effects.addressNavigation.length, 1); assert.deepEqual(f.effects.toasts, []);
+    global.wx.__preview = true; f.config.mode = 'demo'; f.config.cloudEnv = ''; f.page.refresh();
+    assert.equal(f.page.data.item.canLocate, true, 'browser address search remains available without cloud configuration');
+    await f.page.navigate(); assert.equal(f.effects.addressNavigation.length, 2);
+    assert.equal(f.effects.locationRequests, 0);
+  } finally { f.page.onUnload(); f.restore(); }
+});
+
+test('an operator-updated address without a point never regains the stale packaged map coordinate', async () => {
+  const items = records();
+  items[0].point = { latitude: 31.1, longitude: 121.4, coordinateSystem: 'gcj02' };
+  const f = setup(items, { preview: false });
+  try {
+    const remote = { ...items[0], title: '运营者更名后的地点', address: '运营者更新后的公开地址', point: null };
+    shared.api.call = async () => ({ place: remote });
+    await f.page.onLoad({ id: items[0].id });
+    assert.equal(f.page.data.item.address, remote.address); assert.equal(f.page.data.item.point, null);
+    assert.equal(f.page.data.item.canLocate, false); assert.equal(f.page.data.item.navigationLabel, '位置待核实');
+    await f.page.navigate(); assert.deepEqual(f.effects.mapNavigation, []); assert.deepEqual(f.effects.addressNavigation, []);
+    shared.api.call = async () => { throw new Error('仅测试暂时离线'); };
+    await f.page.loadPlaceState(); f.page.refresh();
+    assert.equal(f.page.data.item.address, remote.address); assert.equal(f.page.data.item.point, null);
+    f.config.mode = 'cloud'; f.config.cloudEnv = 'synthetic-cloud'; f.page.refresh();
+    await f.page.navigate();
+    assert.deepEqual(f.effects.addressNavigation, [{ id: remote.id, name: remote.title, address: remote.address, city: remote.city }]);
+    assert.deepEqual(f.effects.mapNavigation, [], 'enabling address resolution cannot revive an obsolete packaged point');
+    assert.equal(items[0].point.latitude, 31.1, 'the catalogue itself remains unchanged');
+    assert.equal(f.effects.locationRequests, 0);
+  } finally { f.page.onUnload(); f.restore(); }
 });
 
 test('details expose destination navigation without viewer-distance controls or GPS prompts', async () => {

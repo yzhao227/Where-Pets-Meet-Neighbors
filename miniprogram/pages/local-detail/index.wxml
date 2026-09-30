@@ -25,7 +25,7 @@
       <scroll-view scroll-x="{{true}}" show-scrollbar="{{false}}" class="gallery-track {{item.galleryCount === 1 ? 'single-photo' : ''}}" bindscroll="galleryScroll">
         <block wx:for="{{item.photos}}" wx:for-item="photo" wx:key="index">
           <view wx:if="{{photo.url}}" class="gallery-slide">
-            <image class="scene-photo" src="{{photo.url}}" mode="aspectFill" data-index="{{photo.index}}" bindtap="previewPhoto" binderror="photoFailed" aria-label="{{photo.caption || item.title + '实景照片'}}"/>
+            <image class="scene-photo" src="{{photo.url}}" mode="{{photo.kind === 'poster' ? 'aspectFit' : 'aspectFill'}}" data-index="{{photo.index}}" bindtap="previewPhoto" binderror="photoFailed" aria-label="{{photo.caption || item.title + (photo.kind === 'poster' ? '原文海报' : '实景照片')}}"/>
             <view wx:if="{{photo.caption}}" class="photo-caption">{{photo.caption}}</view>
             <button class="photo-zoom" data-index="{{photo.index}}" bindtap="previewPhoto" aria-label="{{'查看第' + (photo.index + 1) + '张大图'}}"><view class="zoom-symbol"/>查看大图</button>
           </view>

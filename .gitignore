@@ -16,3 +16,16 @@ infra/deployment.local.json
 # Local device observations can contain personal posts and account details.
 /output/content-review/wechat-ui-check.json
 /output/nearby-research/2026-09-30-content-size-audit.json
+
+# Local recovered attachments and generated nested WeChat project.
+/output/recovered-uploads/
+/output/brand/project.config.json
+
+# Keep source evidence; omit downloaded research pages and candidate media.
+/output/nearby-source-research/**/*
+!/output/nearby-source-research/**/
+!/output/nearby-source-research/events/manifest.json
+!/output/nearby-source-research/events/records.json
+!/output/nearby-source-research/parks/manifest.json
+!/output/nearby-source-research/parks/evidence.json
+!/output/nearby-source-research/places/manifest.json

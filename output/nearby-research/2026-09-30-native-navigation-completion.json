@@ -1,0 +1,484 @@
+{
+  "checkedAt": "2026-09-30",
+  "sourceProvider": "腾讯位置服务 · 坐标拾取器",
+  "sourceUrl": "https://lbs.qq.com/getPoint/",
+  "evidenceCollection": "根任务实际通过腾讯官方坐标拾取器 UI 逐条搜索并选中 POI，核对页面名称、地址、坐标字段与 POI ID 后，将已浏览证据转交本子任务。本子任务仅依据转交证据接入坐标，不声称独立浏览或抓取页面。",
+  "coordinateConvention": "拾取器坐标字段顺序为纬度、经度；腾讯 GCJ-02，保存时不进行坐标转换。",
+  "records": [
+    {
+      "recordId": "event-changtan-langhua-market-2026",
+      "name": "上海长滩 · 浪花市集",
+      "query": "长滩滨江公园",
+      "sourceName": "上海长滩滨江",
+      "sourcePoiId": "8655908650385580713",
+      "sourceUrl": "https://lbs.qq.com/getPoint/",
+      "addressShown": "上海市宝山区云海路",
+      "catalogueAddress": "上海市宝山区长滩滨江公园段 · 浪花市集（具体入口待公布）",
+      "sourceEvidence": "根任务在腾讯官方坐标拾取器实际查询“长滩滨江公园”，得到唯一主 POI 上海长滩滨江，地址上海市宝山区云海路、POI ID 8655908650385580713，与原活动上海长滩滨江公园段对应。坐标字段按纬度、经度显示 31.415378,121.488168。采用公园段参照，不是市集精确入口。",
+      "sourceCoordinate": {
+        "latitude": 31.415378,
+        "longitude": 121.488168,
+        "coordinateSystem": "gcj02"
+      },
+      "storedCoordinate": {
+        "latitude": 31.415378,
+        "longitude": 121.488168,
+        "coordinateSystem": "gcj02"
+      },
+      "conversion": "无转换；腾讯拾取器返回 GCJ-02 坐标。",
+      "precision": "venue",
+      "referenceType": "riverfront-section",
+      "entranceVerified": false,
+      "checkedAt": "2026-09-30",
+      "notes": [
+        "仅为长滩滨江公园段参照，不代表市集准确位置或指定入口，市集入口仍待公布。",
+        "保留原目录地址、未知参与信息、携宠规则、sources 和其余活动运营字段。"
+      ]
+    },
+    {
+      "recordId": "event-baijia-pet-market-2026",
+      "name": "百家村 · 萌宠创意嘉年华",
+      "query": "金山 百家村",
+      "sourceName": "百家村",
+      "sourcePoiId": "15202096094942044339",
+      "sourceUrl": "https://lbs.qq.com/getPoint/",
+      "addressShown": "上海市金山区张堰镇",
+      "catalogueAddress": "上海市金山区张堰镇百家村 · 林下停车场区域与荡里路沿途",
+      "sourceEvidence": "根任务先在腾讯官方坐标拾取器查询“百家村 林下停车场”，结果为浦东的同名停车场，与活动所在金山张堰不符，已排除。随后根据活动明确村名查询“金山 百家村”，查看主 POI 百家村，地址上海市金山区张堰镇、POI ID 15202096094942044339，村名、区和镇均与目录一致。坐标字段按纬度、经度显示 30.817472,121.285088。只采用较粗的活动所在村域参照，未声称已核实林下停车场。",
+      "sourceCoordinate": {
+        "latitude": 30.817472,
+        "longitude": 121.285088,
+        "coordinateSystem": "gcj02"
+      },
+      "storedCoordinate": {
+        "latitude": 30.817472,
+        "longitude": 121.285088,
+        "coordinateSystem": "gcj02"
+      },
+      "conversion": "无转换；腾讯拾取器返回 GCJ-02 坐标。",
+      "precision": "venue",
+      "referenceType": "village-area",
+      "entranceVerified": false,
+      "checkedAt": "2026-09-30",
+      "notes": [
+        "村域参照点不是具体活动场地、林下停车场或活动入口，活动停车场入口仍需确认。",
+        "未采用浦东同名林下停车场，不能凭名称近似跨区替换目的地。",
+        "保留原目录地址、入口待确认说明、sources 和其余活动运营字段。"
+      ]
+    },
+    {
+      "recordId": "event-longhua-pet-cruise-2026",
+      "name": "徐汇滨江 · 国庆萌宠航班",
+      "query": "龙华码头",
+      "sourceName": "龙华码头",
+      "sourcePoiId": "12121446618139104941",
+      "sourceUrl": "https://lbs.qq.com/getPoint/",
+      "addressShown": "上海市徐汇区龙华街道龙腾大道2072号",
+      "sourceEvidence": "根任务在腾讯官方坐标拾取器实际查询“龙华码头”，查看同名主 POI。地址上海市徐汇区龙华街道龙腾大道2072号、POI ID 12121446618139104941，对应目录徐汇滨江的活动码头，未采用外区同名码头。坐标字段按纬度、经度显示 31.157613,121.465024。",
+      "sourceCoordinate": {
+        "latitude": 31.157613,
+        "longitude": 121.465024,
+        "coordinateSystem": "gcj02"
+      },
+      "storedCoordinate": {
+        "latitude": 31.157613,
+        "longitude": 121.465024,
+        "coordinateSystem": "gcj02"
+      },
+      "conversion": "无转换；腾讯拾取器返回 GCJ-02 坐标。",
+      "precision": "venue",
+      "entranceVerified": false,
+      "checkedAt": "2026-09-30",
+      "notes": [
+        "码头场所参照点，不代表已核实本次航班登船口，登船须按现场指引。",
+        "原航班、预约、票务、携宠规则、地址和来源保持不变。"
+      ],
+      "catalogueAddress": "上海市徐汇区龙华码头 · 徐汇滨江航线"
+    },
+    {
+      "recordId": "event-shenlong-pet-adventure-2026",
+      "name": "申隆·宠物冒险岛 · 国庆勇士挑战",
+      "query": "申隆 宠物冒险岛",
+      "sourceName": "申隆宠物冒险岛",
+      "sourcePoiId": "18321280309562840357",
+      "sourceUrl": "https://lbs.qq.com/getPoint/",
+      "addressShown": "上海市奉贤区青村镇沿钱公路5601号中心路1号",
+      "catalogueAddress": "上海市奉贤区沿钱公路5599号 · 申隆·宠物冒险岛（具体入园口请先确认）",
+      "sourceEvidence": "根任务在腾讯官方坐标拾取器实际查询“申隆 宠物冒险岛”，得到唯一主 POI 申隆宠物冒险岛，POI ID 18321280309562840357。页面地址上海市奉贤区青村镇沿钱公路5601号中心路1号，与目录已有旧官方资料地址一致；近期宣传及目录使用沿钱公路5599号，该门牌差异在原目录中已明确提示。坐标字段按纬度、经度显示 30.890511,121.572553。仅采用品牌场所参照，不能由地图 POI 消除新旧门牌差异。",
+      "sourceCoordinate": {
+        "latitude": 30.890511,
+        "longitude": 121.572553,
+        "coordinateSystem": "gcj02"
+      },
+      "storedCoordinate": {
+        "latitude": 30.890511,
+        "longitude": 121.572553,
+        "coordinateSystem": "gcj02"
+      },
+      "conversion": "无转换；腾讯拾取器返回 GCJ-02 坐标。",
+      "precision": "venue",
+      "entranceVerified": false,
+      "checkedAt": "2026-09-30",
+      "notes": [
+        "仅为场所参照，活动入园口和停车安排仍须向园方确认，不构成入口核验。",
+        "保留近期沿钱公路5599号与旧官方沿钱公路5601号中心路1号之间的地址差异说明。",
+        "原目录 address、notice、sources 和其余活动运营字段均保持不变。"
+      ]
+    },
+    {
+      "recordId": "event-dingfeng-pets-2026",
+      "name": "鼎丰酱园 · 国庆宠物生活节",
+      "query": "鼎丰酱园",
+      "sourceName": "鼎丰酱园",
+      "sourcePoiId": "5452625930738010032",
+      "sourceUrl": "https://lbs.qq.com/getPoint/",
+      "addressShown": "上海市奉贤区南桥镇新建中路496号",
+      "catalogueAddress": "上海市奉贤区南桥镇新建中路496号 · 鼎丰酱园",
+      "sourceEvidence": "根任务在腾讯官方坐标拾取器实际查询“鼎丰酱园”，查看同名主 POI。地址上海市奉贤区南桥镇新建中路496号、POI ID 5452625930738010032，与目录场地名称及街道门牌一致。坐标字段按纬度、经度显示 30.918622,121.458765。",
+      "sourceCoordinate": {
+        "latitude": 30.918622,
+        "longitude": 121.458765,
+        "coordinateSystem": "gcj02"
+      },
+      "storedCoordinate": {
+        "latitude": 30.918622,
+        "longitude": 121.458765,
+        "coordinateSystem": "gcj02"
+      },
+      "conversion": "无转换；腾讯拾取器返回 GCJ-02 坐标。",
+      "precision": "venue",
+      "entranceVerified": false,
+      "checkedAt": "2026-09-30",
+      "notes": [
+        "场所参照点，不代表已核实本次活动入口或具体活动区域，须按现场指引。",
+        "原目录来源及参与信息的来源签名不变，活动日程、报名及携宠规则保持原样。"
+      ]
+    },
+    {
+      "recordId": "notice-pfa-boutique-2027",
+      "name": "亚宠甄选特展暨首届宠物主理人大会",
+      "query": "西岸穹顶",
+      "sourceName": "西岸穹顶艺术中心",
+      "sourcePoiId": "3316634125202145822",
+      "sourceUrl": "https://lbs.qq.com/getPoint/",
+      "addressShown": "上海市徐汇区龙华街道龙腾大道2300号",
+      "catalogueAddress": "上海 · 西岸穹顶（具体入口待主办方公布）",
+      "sourceEvidence": "根任务在腾讯官方坐标拾取器实际查询“西岸穹顶”，查看主 POI 西岸穹顶艺术中心，地址上海市徐汇区龙华街道龙腾大道2300号、POI ID 3316634125202145822，对应预告活动场馆西岸穹顶。坐标字段按纬度、经度显示 31.163172,121.464565。",
+      "sourceCoordinate": {
+        "latitude": 31.163172,
+        "longitude": 121.464565,
+        "coordinateSystem": "gcj02"
+      },
+      "storedCoordinate": {
+        "latitude": 31.163172,
+        "longitude": 121.464565,
+        "coordinateSystem": "gcj02"
+      },
+      "conversion": "无转换；腾讯拾取器返回 GCJ-02 坐标。",
+      "precision": "venue",
+      "entranceVerified": false,
+      "checkedAt": "2026-09-30",
+      "notes": [
+        "场馆参照点，不代表已核实本次活动入口或展区布置。",
+        "仍为2027年4月的月份级预告，具体日期、开放时段、票务和参与方式待公布。",
+        "原目录地址、来源、携宠规则和其余运营字段保持不变。"
+      ]
+    },
+    {
+      "recordId": "place-fuyuehui-pet-park",
+      "name": "复悦荟外广场 · 宠物公园",
+      "query": "复悦荟 曹杨路",
+      "sourceName": "复悦荟",
+      "sourcePoiId": "10813074228522705880",
+      "sourceUrl": "https://lbs.qq.com/getPoint/",
+      "addressShown": "上海市普陀区真如镇街道曹杨路1888号",
+      "catalogueAddress": "上海市普陀区曹杨路1888号 · 复悦荟L1外广场",
+      "sourceEvidence": "根任务在腾讯官方坐标拾取器实际查询“复悦荟 曹杨路”，查看主 POI 复悦荟。页面地址上海市普陀区真如镇街道曹杨路1888号、POI ID 10813074228522705880，名称及街道门牌与目录一致。坐标字段按纬度、经度显示 31.257281,121.406698。",
+      "sourceCoordinate": {
+        "latitude": 31.257281,
+        "longitude": 121.406698,
+        "coordinateSystem": "gcj02"
+      },
+      "storedCoordinate": {
+        "latitude": 31.257281,
+        "longitude": 121.406698,
+        "coordinateSystem": "gcj02"
+      },
+      "conversion": "无转换；腾讯拾取器返回 GCJ-02 坐标。",
+      "precision": "venue",
+      "entranceVerified": false,
+      "checkedAt": "2026-09-30",
+      "notes": [
+        "仅为商场参照点，不代表已核实外广场具体入口或宠物公园边界。",
+        "保留 L1 外广场携宠政策，不据商场坐标扩张到室内或其他区域。",
+        "原目录地址、来源和其余运营字段保持不变。"
+      ]
+    },
+    {
+      "recordId": "place-pujiang-pet-zones",
+      "name": "浦江郊野公园 · 携宠开放区",
+      "query": "浦江郊野公园 森林游憩区",
+      "sourceName": "浦江郊野公园森林游憩区沈杜公路游客中心",
+      "sourcePoiId": "14902203132866501376",
+      "sourceUrl": "https://lbs.qq.com/getPoint/",
+      "addressShown": "上海市闵行区杉林路与沈杜公路交叉口西南方向173米左右",
+      "catalogueAddress": "上海市闵行区浦江郊野公园 · 森林游憩区 / 滨江漫步区（行前确认对应入口）",
+      "sourceEvidence": "根任务在腾讯官方坐标拾取器精确查询“浦江郊野公园 森林游憩区”，结果列出该区主 POI 及该区游客中心；根任务明确点击“浦江郊野公园森林游憩区沈杜公路游客中心”，详情地址上海市闵行区杉林路与沈杜公路交叉口西南方向173米左右，POI ID 14902203132866501376。坐标字段按纬度、经度显示 31.052364,121.484773。采用森林游憩区内游客中心参照，未采用全园主入口。",
+      "sourceCoordinate": {
+        "latitude": 31.052364,
+        "longitude": 121.484773,
+        "coordinateSystem": "gcj02"
+      },
+      "storedCoordinate": {
+        "latitude": 31.052364,
+        "longitude": 121.484773,
+        "coordinateSystem": "gcj02"
+      },
+      "conversion": "无转换；腾讯拾取器返回 GCJ-02 坐标。",
+      "precision": "venue",
+      "referenceType": "zone-visitor-centre",
+      "entranceVerified": false,
+      "checkedAt": "2026-09-30",
+      "notes": [
+        "只对应森林游憩区沈杜公路游客中心，不是全园主入口或已经核验的携宠入口。",
+        "不代表滨江漫步区入口，其他片区和当天携宠准入须另行确认。",
+        "不修改原目录限制性携宠规则、地址和来源，不据此扩张可携宠区域。"
+      ]
+    },
+    {
+      "recordId": "place-yuanjiang-tod",
+      "name": "元江路 TOD 公园",
+      "query": "元江路地铁站3口",
+      "sourceName": "元江路-3口",
+      "sourcePoiId": "2199028601571",
+      "sourceUrl": "https://lbs.qq.com/getPoint/",
+      "addressShown": "-",
+      "catalogueAddress": "上海市闵行区 · 地铁15号线元江路站2号或3号口附近",
+      "sourceEvidence": "根任务未找到精确匹配公园本体的 POI，依据现有公开指引及目录地址“15号线元江路站2号或3号口附近”，在腾讯官方坐标拾取器实际查询“元江路地铁站3口”。主 POI 标题元江路-3口、POI ID 2199028601571，地址字段为“-”；同页邻近结果地址均为上海市闵行区莲花南路2622号并注明元江路地铁站3号口。坐标字段按纬度、经度显示 31.063304,121.43144。此点仅作为原资料已有依据的公园附近参照。",
+      "sourceCoordinate": {
+        "latitude": 31.063304,
+        "longitude": 121.43144,
+        "coordinateSystem": "gcj02"
+      },
+      "storedCoordinate": {
+        "latitude": 31.063304,
+        "longitude": 121.43144,
+        "coordinateSystem": "gcj02"
+      },
+      "conversion": "无转换；腾讯拾取器返回 GCJ-02 坐标。",
+      "precision": "venue",
+      "referenceType": "nearby-landmark",
+      "entranceVerified": false,
+      "checkedAt": "2026-09-30",
+      "notes": [
+        "坐标对应元江路地铁站3号口，是公园附近参照，非公园本体点或公园入口。",
+        "虽然参照对象本身是地铁出入口，point.precision 不标 entrance，避免误称公园入口已经核实。",
+        "不据此建议携宠乘坐地铁，不修改原目录交通提醒、携宠规则、地址和来源。"
+      ]
+    },
+    {
+      "recordId": "place-lanxiang-lake",
+      "name": "兰香湖 · 环湖绿道",
+      "query": "兰香湖",
+      "sourceName": "兰香湖绿道",
+      "sourcePoiId": "14782478295751548726",
+      "sourceUrl": "https://lbs.qq.com/getPoint/",
+      "addressShown": "上海市闵行区",
+      "catalogueAddress": "上海市闵行区吴泾镇星乐路 · 兰香湖环湖绿道",
+      "sourceEvidence": "根任务在腾讯官方坐标拾取器实际查询“兰香湖”，点击第8个结果“兰香湖绿道”，不是兰香湖本体。UI 标题兰香湖绿道、地址上海市闵行区、POI ID 14782478295751548726；坐标字段按纬度、经度显示 31.024041,121.474026。根任务另查看地图截图，确认选中 marker 位于兰香湖北侧岸边及绿道区域，未采用湖心点。",
+      "sourceCoordinate": {
+        "latitude": 31.024041,
+        "longitude": 121.474026,
+        "coordinateSystem": "gcj02"
+      },
+      "storedCoordinate": {
+        "latitude": 31.024041,
+        "longitude": 121.474026,
+        "coordinateSystem": "gcj02"
+      },
+      "excludedCoordinate": {
+        "latitude": 31.02267,
+        "longitude": 121.473616,
+        "coordinateSystem": "gcj02",
+        "reason": "该点是兰香湖本体湖心，不能作为绿道目的地，未接入目录。"
+      },
+      "conversion": "无转换；腾讯拾取器返回 GCJ-02 坐标。",
+      "precision": "venue",
+      "entranceVerified": false,
+      "checkedAt": "2026-09-30",
+      "notes": [
+        "绿道参照点，不代表已核实指定入口、完整路线或所有时段通行。",
+        "地图位置不构成宠物准入证据，不修改原目录地址、来源和携宠规则。"
+      ]
+    },
+    {
+      "recordId": "place-starbucks-zizhu",
+      "name": "星巴克上海紫竹半岛店 · 外摆区",
+      "query": "星巴克 紫竹半岛",
+      "sourceName": "星巴克(上海紫竹半岛店)",
+      "sourcePoiId": "14085056434339673963",
+      "sourceUrl": "https://lbs.qq.com/getPoint/",
+      "addressShown": "上海市闵行区吴泾镇东川路333弄31号地上1层102室-1座",
+      "catalogueAddress": "上海市闵行区东川路333弄31号 · 星巴克上海紫竹半岛店",
+      "sourceEvidence": "根任务在腾讯官方坐标拾取器实际查询“星巴克 紫竹半岛”，明确点击第二个结果“星巴克(上海紫竹半岛店)”，未选紫叶广场店。详情标题星巴克(上海紫竹半岛店)，地址上海市闵行区吴泾镇东川路333弄31号地上1层102室-1座，POI ID 14085056434339673963，街道门牌与目录一致。页面坐标字段按纬度、经度显示 31.026822,121.468762。",
+      "sourceCoordinate": {
+        "latitude": 31.026822,
+        "longitude": 121.468762,
+        "coordinateSystem": "gcj02"
+      },
+      "storedCoordinate": {
+        "latitude": 31.026822,
+        "longitude": 121.468762,
+        "coordinateSystem": "gcj02"
+      },
+      "conversion": "无转换；腾讯拾取器返回 GCJ-02 坐标。",
+      "precision": "venue",
+      "entranceVerified": false,
+      "checkedAt": "2026-09-30",
+      "notes": [
+        "门店参照点，不代表外摆区具体入口或边界。",
+        "目录已确认的是外摆区宠物休息区，室内携宠政策仍未确认；不能据门店坐标推断室内允许携宠，原目录来源、地址和规则保持不变。"
+      ]
+    },
+    {
+      "recordId": "place-haisu-park-pet-zones",
+      "name": "海粟公园 · 携宠试点区",
+      "query": "海粟公园",
+      "sourceName": "海粟公园",
+      "sourcePoiId": "14373314355353779305",
+      "sourceUrl": "https://lbs.qq.com/getPoint/",
+      "addressShown": "上海市长宁区华阳路",
+      "catalogueAddress": "上海市长宁区凯旋路、延安路附近 · 海粟公园（入园后确认指定携宠区）",
+      "sourceEvidence": "根任务在腾讯官方坐标拾取器实际查询“海粟公园”并查看主 POI，页面标题海粟公园、地址上海市长宁区华阳路、POI ID 14373314355353779305。坐标字段按纬度、经度显示 31.21019,121.418124。搜索结果中海粟文化广场与 C·PARK 是另列的不同 POI，本条采用海粟公园主 POI，没有使用文化广场坐标。",
+      "sourceCoordinate": {
+        "latitude": 31.21019,
+        "longitude": 121.418124,
+        "coordinateSystem": "gcj02"
+      },
+      "storedCoordinate": {
+        "latitude": 31.21019,
+        "longitude": 121.418124,
+        "coordinateSystem": "gcj02"
+      },
+      "conversion": "无转换；腾讯拾取器返回 GCJ-02 坐标。",
+      "precision": "venue",
+      "entranceVerified": false,
+      "checkedAt": "2026-09-30",
+      "notes": [
+        "采用海粟公园场所参照点，不是指定入口，也不是已核实的携宠区入口或边界。",
+        "入园后仍须确认携宠开放区；不将公园场所坐标视为任意片区均允许携宠的证据。",
+        "不修改原目录限制性携宠规则、地址和来源。"
+      ]
+    },
+    {
+      "recordId": "place-gubei-citizen-park",
+      "name": "古北市民公园",
+      "query": "古北市民公园",
+      "sourceName": "古北市民公园",
+      "sourcePoiId": "3499256611217510430",
+      "sourceUrl": "https://lbs.qq.com/getPoint/",
+      "addressShown": "上海市长宁区富贵东路",
+      "catalogueAddress": "上海市长宁区 · 古北市民公园（具体入口请查询地图）",
+      "sourceEvidence": "根任务在腾讯官方坐标拾取器实际查询“古北市民公园”并查看主 POI，页面标题古北市民公园、地址上海市长宁区富贵东路、POI ID 3499256611217510430，名称与所在长宁区匹配目录。页面坐标字段按纬度、经度显示 31.194847,121.407219。",
+      "sourceCoordinate": {
+        "latitude": 31.194847,
+        "longitude": 121.407219,
+        "coordinateSystem": "gcj02"
+      },
+      "storedCoordinate": {
+        "latitude": 31.194847,
+        "longitude": 121.407219,
+        "coordinateSystem": "gcj02"
+      },
+      "conversion": "无转换；腾讯拾取器返回 GCJ-02 坐标。",
+      "precision": "venue",
+      "entranceVerified": false,
+      "checkedAt": "2026-09-30",
+      "notes": [
+        "主公园场所参照点，不代表已核实指定入口或宠物活动区边界。",
+        "地图位置不构成宠物准入证据，不修改原目录地址、来源和携宠规则。"
+      ]
+    },
+    {
+      "recordId": "place-libopark",
+      "name": "力波公园",
+      "query": "力波公园",
+      "sourceName": "力波公园",
+      "sourcePoiId": "1411203153232145026",
+      "sourceUrl": "https://lbs.qq.com/getPoint/",
+      "addressShown": "上海市闵行区梅陇镇力波大道力波1987创意产业园",
+      "catalogueAddress": "上海市闵行区虹梅南路、益梅路转角 · 力波公园",
+      "sourceEvidence": "根任务在腾讯官方坐标拾取器实际查询“力波公园”并选中主公园 POI，标题力波公园，地址上海市闵行区梅陇镇力波大道力波1987创意产业园，POI ID 1411203153232145026。页面坐标字段按纬度、经度显示 31.133727,121.415818。同页停车场条目给出上海市闵行区虹梅南路379弄力波公园，可与目录梅陇、虹梅南路位置核对；实际采用主公园坐标，不采用停车场坐标。",
+      "sourceCoordinate": {
+        "latitude": 31.133727,
+        "longitude": 121.415818,
+        "coordinateSystem": "gcj02"
+      },
+      "storedCoordinate": {
+        "latitude": 31.133727,
+        "longitude": 121.415818,
+        "coordinateSystem": "gcj02"
+      },
+      "conversion": "无转换；腾讯拾取器返回 GCJ-02 坐标。",
+      "precision": "venue",
+      "entranceVerified": false,
+      "checkedAt": "2026-09-30",
+      "notes": [
+        "采用主公园 POI 作为场所参照，不代表已核实指定入口或停车位置。",
+        "地图位置不构成宠物准入证据，不修改原目录地址、来源和携宠规则。"
+      ]
+    },
+    {
+      "recordId": "place-xincheng-central",
+      "name": "莘城中央公园",
+      "query": "莘城中央公园",
+      "sourceName": "莘城中央公园",
+      "sourcePoiId": "17278912601774893198",
+      "sourceUrl": "https://lbs.qq.com/getPoint/",
+      "addressShown": "上海市闵行区莘庄镇闵城路180号(近珠城路)",
+      "catalogueAddress": "上海市闵行区闵城路180号 · 莘城中央公园",
+      "sourceEvidence": "根任务在官方坐标拾取器实际查询“莘城中央公园”，选中正式主 POI 后，页面显示名称莘城中央公园、地址上海市闵行区莘庄镇闵城路180号(近珠城路)、POI ID 17278912601774893198。坐标字段按纬度、经度显示 31.105161,121.38676，场所名称和门牌与目录一致。",
+      "sourceCoordinate": {
+        "latitude": 31.105161,
+        "longitude": 121.38676,
+        "coordinateSystem": "gcj02"
+      },
+      "storedCoordinate": {
+        "latitude": 31.105161,
+        "longitude": 121.38676,
+        "coordinateSystem": "gcj02"
+      },
+      "conversion": "无转换；腾讯拾取器返回 GCJ-02 坐标。",
+      "precision": "venue",
+      "entranceVerified": false,
+      "checkedAt": "2026-09-30",
+      "notes": [
+        "场所参照点，不代表已核实指定入口。",
+        "本次未使用旧官方目录页面含义不明的 meta coord；采用根任务实际查询核对的腾讯正式主 POI。",
+        "地图位置不构成准入政策证据，保留携宠规则待复核及不带宠安排。"
+      ]
+    }
+  ],
+  "validation": {
+    "newlyCompletedRecords": 15,
+    "catalogueRecords": 30,
+    "recordsWithPoint": 30,
+    "recordsWithoutPoint": [],
+    "byType": {
+      "place": {
+        "records": 20,
+        "withPoint": 20
+      },
+      "exhibition": {
+        "records": 2,
+        "withPoint": 2
+      },
+      "event": {
+        "records": 8,
+        "withPoint": 8
+      }
+    },
+    "nonPointFieldsVerifiedUnchanged": true,
+    "cloudSyncPerformed": false
+  }
+}

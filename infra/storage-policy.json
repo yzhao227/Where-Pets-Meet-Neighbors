@@ -1,10 +1,62 @@
 {
   "description": "Access requirements, not a provider-specific executable rule. Configure and test the corresponding CloudBase rules before enabling uploads.",
   "prefixes": [
-    { "path": "community/incoming/", "purpose": "temporary client uploads", "clientWrite": "owned upload only", "clientRead": "owner only", "cleanup": "expired ticket" },
-    { "path": "community/quarantine/", "purpose": "immutable server copy for content review", "clientWrite": false, "clientRead": false, "cleanup": "rejected, expired, or published review" },
-    { "path": "community/published/", "purpose": "approved public community images", "clientWrite": false, "clientRead": "authenticated community users", "cleanup": "deleted post or abandoned unreferenced upload" }
+    {
+      "path": "community/incoming/",
+      "purpose": "temporary client uploads",
+      "clientWrite": "owned upload only",
+      "clientRead": "owner only",
+      "cleanup": "expired ticket"
+    },
+    {
+      "path": "community/quarantine/",
+      "purpose": "immutable server copy for content review",
+      "clientWrite": false,
+      "clientRead": false,
+      "cleanup": "rejected, expired, or published review"
+    },
+    {
+      "path": "community/published/",
+      "purpose": "approved post images, video and derived media; visibility enforced by service",
+      "clientWrite": false,
+      "clientRead": false,
+      "cleanup": "deleted post or abandoned unreferenced upload"
+    }
   ],
-  "requiredChecks": ["user A cannot overwrite or delete user B incoming uploads", "users A and B cannot modify/read quarantine objects", "users A and B cannot modify/delete server-published objects", "deletion and repeated deletion are handled correctly"],
-  "imageUploadsEnabledByDefault": false
+  "requiredChecks": [
+    "user A cannot overwrite or delete user B incoming uploads",
+    "users A and B cannot modify/read quarantine objects",
+    "users A and B cannot modify/delete server-published objects",
+    "deletion and repeated deletion are handled correctly",
+    "ordinary clients cannot directly read published objects or create temporary URLs for them, even when they know a file ID",
+    "only an authorized post viewer or the owner of an unpublished upload receives a signed media URL",
+    "before setting PUBLISHED_MEDIA_PRIVATE=true, verify in the deployed environment that an ordinary client cannot download or call getTempFileURL for a known published file ID, including when its post is otherwise readable",
+    "measure the deployed expiry of image, video, poster and cover URLs; requesting maxAge=60 does not establish the provider's actual TTL",
+    "removing a friendship or restricting post visibility rejects new media URLs; previously issued bearer URLs may continue working until the provider's actual expiry"
+  ],
+  "imageUploadsEnabledByDefault": false,
+  "publishedMediaAccess": {
+    "clientRules": {
+      "read": false,
+      "write": false
+    },
+    "scope": "community/published/ only; preserve owner-only incoming-upload rules separately",
+    "serverAdapter": "resolvePostMedia",
+    "authorization": "Authorize the owning post (or unpublished upload owner) before every signing request; the adapter is not a client-callable action",
+    "requestedMaxAgeSeconds": 60,
+    "providerTTL": {
+      "documentedPrivateFileLifetimeSeconds": 600,
+      "source": "https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-sdk-api/storage/Cloud.getTempFileURL.html",
+      "verification": "WeChat documents a ten-minute lifetime for private-file URLs while also accepting maxAge examples. The server SDK forwards the requested maxAge; neither that request nor unit tests prove the deployed expiry. Verify and record the actual provider TTL before enabling private media. Public-read file URLs may not expire."
+    },
+    "cache": "none",
+    "failClosed": "Do not return raw cloud file IDs or public URLs when signing is missing or fails",
+    "coverage": [
+      "images",
+      "video.url",
+      "video.poster",
+      "cover"
+    ],
+    "revocation": "Deny all new URL issuance immediately; previously issued bearer URLs may remain usable until the provider's actual expiry. Revocation does not invalidate an already issued URL or recall downloaded media."
+  }
 }

@@ -1,6 +1,7 @@
 const { httpsUrl } = require('../utils/public-url');
 const animalTypes = require('../data/animal-types');
 const contentTopics = require('../data/topics');
+const postVisibility = require('../data/post-visibility');
 const api = require('../services/api');
 const nearbyLocation = require('../services/nearby-location');
 const { publication } = require('./post/_metadata');
@@ -36,16 +37,17 @@ function register(definition) {
   Page(definition);
 }
 
-async function load(page, task) {
+async function load(page, task, options = {}) {
+  const retain = options.retain === true && page._loaded && !page.data.error;
   const id = page._loadId = (page._loadId || 0) + 1;
   page._moreRequestId = (page._moreRequestId || 0) + 1;
-  safe(page, { loading: true, error: '', errorCode: '', moreBusy: false });
+  safe(page, Object.assign({ error: '', errorCode: '', moreBusy: false }, retain ? {} : { loading: true }));
   try {
     const values = await task();
     if (id === page._loadId) safe(page, Object.assign({ loading: false }, values || {}));
     page._loaded = true;
   } catch (error) {
-    if (id === page._loadId) safe(page, { loading: false, error: error.message || '暂时没有连接上，请重试', errorCode: error.code || '' });
+    if (id === page._loadId && !retain) safe(page, { loading: false, error: error.message || '暂时没有连接上，请重试', errorCode: error.code || '' });
   } finally {
     if (!page._closed && wx.stopPullDownRefresh) wx.stopPullDownRefresh();
   }
@@ -134,6 +136,7 @@ function imageCredit(credit) {
   return result;
 }
 function post(item) {
+  const visibility = postVisibility.selected(item.visibility);
   const placeDistance = item.place && item.place.active !== false ? nearbyLocation.distanceFor(item.place.point) : null;
   const images = Array.isArray(item.images) ? item.images : [];
   const video = item.video && typeof item.video.url === 'string' ? item.video : null;
@@ -151,7 +154,7 @@ function post(item) {
     statusText: item.event.status === 'cancelled' ? '已取消' : item.event.startAt <= Date.now() ? '已开始' : '去看看',
     petText: { none: '无需带宠', optional: '可带宠物', dog: '需要带犬' }[item.event.petPolicy] || ''
   }) : null;
-  return Object.assign({}, item, publication(item), { author: avatar(item.author), images, title, text, kind, coverIndex, source, contentType, isEditorialContent, video,
+  return Object.assign({}, item, publication(item), { visibility: visibility.id, visibilityText: visibility.name, author: avatar(item.author), images, title, text, kind, coverIndex, source, contentType, isEditorialContent, video,
     placeDistance, placeDistanceText: placeDistance ? '距' + placeDistance.referenceLabel + '直线 ' + placeDistance.label : '',
     videoDurationText: video ? Math.floor(videoSeconds / 60) + ':' + String(videoSeconds % 60).padStart(2, '0') : '',
     animalTypes: animalTypes.normalize(item.animalTypes), animalLabels: animalTypes.normalize(item.animalTypes).map(id => animalTypes.TYPES.find(type => type.id === id).name),

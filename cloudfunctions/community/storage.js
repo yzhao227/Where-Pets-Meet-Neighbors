@@ -63,6 +63,39 @@ function createStorage(cloud, environment, options = {}) {
   }
   return {
     enabled, mode, videoEnabled, videoMode: 'sync',
+    privateMediaEnabled: environment.PUBLISHED_MEDIA_PRIVATE === 'true' && /^cloud:\/\/[^/]+\/$/.test(prefix) && typeof cloud.getTempFileURL === 'function',
+    // Internal service adapter only: callers must authorize the post/owner
+    // before requesting any URLs. Never register this as a client RPC action.
+    async resolvePostMedia(fileIds) {
+      const unavailable = () => new AppError('MEDIA_UNAVAILABLE', '附件暂时无法加载，请稍后重试');
+      if (!Array.isArray(fileIds) || fileIds.length > 50) throw unavailable();
+      const unique = [...new Set(fileIds)];
+      if (!unique.length) return {};
+      if (!/^cloud:\/\/[^/]+\/$/.test(prefix) || typeof cloud.getTempFileURL !== 'function') throw unavailable();
+      const published = `${prefix}community/published/`;
+      if (unique.some(fileId => typeof fileId !== 'string' || !fileId.startsWith(published) ||
+        !/^[A-Za-z0-9_-]+\.(?:jpe?g|png|webp|mp4)$/.test(fileId.slice(published.length)))) throw unavailable();
+      try {
+        const result = await cloud.getTempFileURL({ fileList: unique.map(fileID => ({ fileID, maxAge: 60 })) });
+        const entries = result && result.fileList;
+        if (!Array.isArray(entries)) throw unavailable();
+        const urls = {};
+        for (const fileId of unique) {
+          const matches = entries.filter(entry => entry && entry.fileID === fileId);
+          if (matches.length !== 1) throw unavailable();
+          const entry = matches[0], value = entry.tempFileURL;
+          if (entry.status !== undefined && Number(entry.status) !== 0 || typeof value !== 'string' || value.length > 8192 || /[\s\u0000-\u001f\u007f]/.test(value)) throw unavailable();
+          const url = new URL(value);
+          if (url.protocol !== 'https:' || !url.hostname || url.username || url.password) throw unavailable();
+          urls[fileId] = value;
+        }
+        // No cross-request cache: every new projection first rechecks access.
+        // maxAge is a request, not an expiry guarantee; verify the provider's
+        // deployed TTL before enabling private media. Existing bearer URLs
+        // remain usable until the provider actually expires them.
+        return urls;
+      } catch (_) { throw unavailable(); }
+    },
     fileIdForPath(path) { return prefix ? `${prefix}${path}` : null; },
     isExpectedFile(fileId, path, mediaType) { return (mediaType === 'video' || /\.mp4$/.test(path) ? videoEnabled : enabled) && fileId === `${prefix}${path}`; },
     async verifyAndPublish({ fileId, cloudPath, extension, mediaType, openid }) {

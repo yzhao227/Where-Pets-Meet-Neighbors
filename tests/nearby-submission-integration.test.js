@@ -88,7 +88,8 @@ test('approved real demo submission records flow through nearby search and remot
   assert.equal(detail.data.loading, true); assert.equal(detail.data.error, '');
   await loading;
   assert.equal(detail.data.item.title, fields().title);
-  assert.equal(detail.data.item.isPlace, true); assert.equal(detail.data.item.canNavigate, false); assert.equal(detail.data.item.canLocate, true);
+  assert.equal(detail.data.item.isPlace, true); assert.equal(detail.data.item.canNavigate, false); assert.equal(detail.data.item.canLocate, false);
+  assert.equal(detail.data.item.navigationLabel, '位置待核实', 'native demo cannot resolve an address without reviewed coordinates');
   assert.equal(detail.data.item.sources.length, 0); assert.equal(detail.data.item.officialUrl, '');
   assert.equal(detail.data.item.galleryCount, 0); assert.equal(detail.data.item.checkedAt, '2026-09-30');
   assert.doesNotMatch(JSON.stringify(detail.data.item), /PRIVATE_REVIEW_NOTE|userId|lifecycleId|submittedBy/);

@@ -76,12 +76,13 @@ const guides = {
     actionLabel: '查看航班公告'
   },
   'event-monaco-dog-show-2026': {
-    evidenceSignature: '714:b83ac96d1f66b0dd',
+    evidenceSignature: '953:a8f5cc7633954664',
     sourceUrl: 'https://news.qq.com/rain/a/20260929A0BPRQ00',
     label: '报名入口待确认', title: '先区分「观赛」与「带犬参赛」',
     steps: [
       { title: '观众参加', text: '观赛票价、入场方式及观众携犬要求，需向赛事组织方确认。' },
-      { title: '参赛准备', text: '公告列出犬龄9个月至9岁；需有效检疫证明、狂犬病免疫证明和养犬登记证。' }
+      { title: '参赛准备', text: '公告列出犬龄9个月至9岁；需有效检疫证明、狂犬病免疫证明和养犬登记证。' },
+      { title: '认准场内区域', text: '犬赛设在「ACE萌友天地」宠物区。若需寄养，再确认开放时段、收费和预约；中央场馆携宠准入未获确认。' }
     ],
     note: '报名入口、截止时间及费用尚待确认；具备参赛条件不等于已获得参赛名额。',
     actionLabel: '查看赛事公告'
@@ -92,6 +93,18 @@ const guides = {
     label: '观众安排待确认', title: '观众入场方式还需等后续公告',
     steps: [{ title: '先确认再出发', text: '观众票价、是否预约和携宠通行范围尚未明确，先查看活动后续通知。' }],
     note: '摊主招募已截止；此页的10月1—3日为观众游玩日期，不代表仍可报名摆摊。',
+    actionLabel: '查看活动公告'
+  },
+  'event-changtan-langhua-market-2026': {
+    evidenceSignature: '836:66b575cd8356ae1d',
+    sourceUrl: 'https://www.shanghai.gov.cn/nw17239/20260921/5a558d54e2604b8ebbb6b8ac1da79115.html',
+    label: '关注官方安排', title: '到「文旅宝山」公众号确认当日安排',
+    steps: [
+      { title: '确认入口与时段', text: '市集10月2—6日每天14:00—20:00开放；具体入口查看「文旅宝山」后续指引。' },
+      { title: '带宠先核对范围', text: '确认宠物友好区边界和携宠条件；萌宠派对的场次、参与方式需要单独查询。' }
+    ],
+    fee: '公告明确市集免费参与；具体消费与体验项目费用另询。',
+    note: '公众号是详情查询渠道，尚未公布萌宠派对报名入口。时间和内容可能因天气、现场情况调整。',
     actionLabel: '查看活动公告'
   },
   'event-cpark-lifestyle-2026': {

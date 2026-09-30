@@ -1,0 +1,68 @@
+{
+  "checkedAt": "2026-09-30",
+  "evidenceCollection": "主任务实际浏览腾讯地图搜索结果与公开 POI 页面，核对名称、地址和坐标后将证据转交本子任务。本子任务依据该已浏览证据接入坐标，未重复执行浏览或声称独立抓取了页面。",
+  "records": [
+    {
+      "recordId": "place-changfeng-ocean-world",
+      "name": "长风海洋世界",
+      "sourceName": "上海长风海洋世界",
+      "sourceProvider": "腾讯地图",
+      "addressShown": "上海市普陀区大渡河路451号",
+      "catalogueAddress": "上海市大渡河路451号 · 长风海洋世界",
+      "sourceUrl": "https://map.qq.com/poi/?sm=2845230229106167770&keyfrom=1",
+      "sourceEvidence": "主任务实际搜索并打开上海长风海洋世界的公开 POI 详情，核对地址为上海市普陀区大渡河路451号，与目录场馆名和街道门牌一致。详情地图中心及周边搜索 where 参数均为 121.397027,31.225171，参数顺序为经度、纬度。该 POI 对应水族馆本体，不是长风公园。",
+      "sourceCoordinate": { "latitude": 31.225171, "longitude": 121.397027, "coordinateSystem": "gcj02" },
+      "storedCoordinate": { "latitude": 31.225171, "longitude": 121.397027, "coordinateSystem": "gcj02" },
+      "conversion": "无转换；腾讯地图来源坐标已经是 GCJ-02。",
+      "precision": "venue",
+      "entranceVerified": false,
+      "checkedAt": "2026-09-30",
+      "notes": [
+        "场馆本体的参照坐标，不代表已核实指定入馆口。",
+        "不使用或转换长风公园的 Wikidata 点位 Q15046355 来代替水族馆。",
+        "地图位置不构成宠物准入或营业信息证据，仍保留开放时段、票价与携宠规则待确认的状态。"
+      ]
+    },
+    {
+      "recordId": "event-cpark-lifestyle-2026",
+      "name": "C·PARK · 悠享生活季「放一放乐园」",
+      "sourceName": "C·PARK Haisu",
+      "sourceProvider": "腾讯地图",
+      "addressShown": "上海市长宁区昭化路618号、638号、658号、666号",
+      "catalogueAddress": "上海市长宁区 · C·PARK海粟文化广场",
+      "sourceUrl": "https://map.qq.com/poi/?sm=12679108212392822667&keyfrom=1",
+      "sourceEvidence": "主任务搜索海粟公园时，结果中出现海粟文化广场与 C·PARK Haisu，二者列出的街道门牌均为昭化路618号、638号、658号、666号。主任务打开明确为 C·PARK Haisu 的公开 POI 页，核对正文地址；页面单个 POI 地图中心及餐馆等周边链接的 where 参数均为 121.419166,31.210833，参数顺序为经度、纬度。该场所名称与目录活动场地 C·PARK海粟文化广场匹配。",
+      "sourceCoordinate": { "latitude": 31.210833, "longitude": 121.419166, "coordinateSystem": "gcj02" },
+      "storedCoordinate": { "latitude": 31.210833, "longitude": 121.419166, "coordinateSystem": "gcj02" },
+      "conversion": "无转换；腾讯地图来源坐标已经是 GCJ-02。",
+      "precision": "venue",
+      "entranceVerified": false,
+      "checkedAt": "2026-09-30",
+      "notes": [
+        "仅用于 C·PARK海粟文化广场的场所参照，不代表已核实活动入口或具体活动区域。",
+        "不将此坐标用于海粟公园或其携宠开放区。",
+        "地图位置不构成活动规则或宠物准入证据，不改变原活动来源、日程、票价和携宠待确认状态。"
+      ]
+    },
+    {
+      "recordId": "place-menghuayuan",
+      "name": "梦花源",
+      "sourceName": "上房园艺·梦花源",
+      "sourceProvider": "腾讯地图",
+      "addressShown": "上海市闵行区芦恒路1398号",
+      "catalogueAddress": "上海市闵行区芦恒路1398号 · 梦花源",
+      "sourceUrl": "https://map.qq.com/poi/?sm=10326568365688129944&keyfrom=1",
+      "sourceEvidence": "主任务搜索“梦花源”后得到唯一上海结果“上房园艺·梦花源”，打开公开 POI 页面并核对芦恒路1398号与目录一致。页面唯一 POI 地图中心及餐馆、宾馆周边链接的 where 参数均为 121.472168,31.107599；参数顺序为经度、纬度。",
+      "sourceCoordinate": { "latitude": 31.107599, "longitude": 121.472168, "coordinateSystem": "gcj02" },
+      "storedCoordinate": { "latitude": 31.107599, "longitude": 121.472168, "coordinateSystem": "gcj02" },
+      "conversion": "无转换；腾讯地图来源坐标已经是 GCJ-02。",
+      "precision": "venue",
+      "entranceVerified": false,
+      "checkedAt": "2026-09-30",
+      "notes": [
+        "坐标用于场所参照，不代表已核实指定入园口。",
+        "地图位置不构成宠物准入证据，不改变目录来源、宠物票与入园规则。"
+      ]
+    }
+  ]
+}

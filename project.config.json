@@ -35,24 +35,24 @@
     "ignore": [],
     "include": [
       {
-        "type": "file",
-        "value": "pages/post/_player.js"
+        "value": "pages/post/_player.js",
+        "type": "file"
       },
       {
-        "type": "folder",
-        "value": "media/clips"
+        "value": "media/clips",
+        "type": "folder"
       },
       {
-        "type": "folder",
-        "value": "assets/curated-poster"
+        "value": "assets/curated-poster",
+        "type": "folder"
       },
       {
-        "type": "folder",
-        "value": "media2/clips"
+        "value": "media2/clips",
+        "type": "folder"
       },
       {
-        "type": "folder",
-        "value": "media3/clips"
+        "value": "media3/clips",
+        "type": "folder"
       }
     ]
   },

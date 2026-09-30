@@ -11,11 +11,18 @@ function label(value, fallback) {
 }
 function deviceFailure(error, method, preview) {
   const message = String(error && (error.errMsg || error.message) || '');
-  if (/cancel/i.test(message)) return failure('LOCATION_CANCELLED', '已取消选择位置');
-  if (preview) return failure('LOCATION_UNSUPPORTED', ['openLocation', '__openExternal'].includes(method) ? '未能打开地图，请稍后重试' : '浏览器预览不提供手机定位和地图选点，请选择已核实地点作为参照');
-  if (/auth|deny|denied|permission|authorize|privacy/i.test(message)) return failure('LOCATION_DENIED', '暂未获得位置权限，仍可手选片区或已核实地点浏览');
-  if (/not support|unsupported|not available|api.*permission|scope|no permission/i.test(message)) return failure('LOCATION_UNSUPPORTED', '当前微信或小程序暂不支持此位置功能，可手选已核实地点浏览');
-  return failure('LOCATION_FAILED', method === 'openLocation' ? '地图暂时无法打开，请稍后重试' : '暂时无法取得位置，请稍后重试，或手选已核实地点');
+  const mapAction = ['openLocation', '__openExternal'].includes(method);
+  if (/cancel/i.test(message)) return failure('LOCATION_CANCELLED', mapAction ? '已取消打开地图' : '已取消选择位置');
+  if (preview) return failure('LOCATION_UNSUPPORTED', mapAction ? '未能打开地图，请稍后重试' : '浏览器预览不提供手机定位和地图选点，请选择已核实地点作为参照');
+  // Missing app declarations and API capabilities cannot be repaired by asking
+  // the user to grant GPS permission. Match them before explicit user refusal.
+  if (/requiredPrivateInfos|not\s+declared|undeclared|not support|unsupported|not available|api.*permission|no permission/i.test(message)) {
+    return failure('LOCATION_UNSUPPORTED', mapAction ? '当前微信或小程序暂不支持地图导航，请稍后重试' : '当前微信或小程序暂不支持此位置功能，可手选已核实地点浏览');
+  }
+  if (!mapAction && /auth\s+(?:deny|denied)|user\b.*(?:deny|denied|refus)|permission\s+denied|用户拒绝/i.test(message)) {
+    return failure('LOCATION_DENIED', '暂未获得位置权限，仍可手选片区或已核实地点浏览');
+  }
+  return failure('LOCATION_FAILED', mapAction ? '地图暂时无法打开，请稍后重试' : '暂时无法取得位置，请稍后重试，或手选已核实地点');
 }
 
 function createNearbyLocation(platform, options) {

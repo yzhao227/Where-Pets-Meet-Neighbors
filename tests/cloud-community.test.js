@@ -51,14 +51,16 @@ function memoryRepository() {
 }
 
 async function fixture(options = {}) {
-  const { verifyUsers = true, ...serviceOptions } = options;
+  const { verifyUsers = true, storage: storageOverrides, ...serviceOptions } = options;
   const repository = memoryRepository(); let serial = 0; let time = 1_800_000_000_000;
   const published = []; const removed = [];
-  const storage = { enabled: true,
+  const storage = { enabled: true, privateMediaEnabled: true,
+    async resolvePostMedia(fileIds) { return Object.fromEntries(fileIds.map(fileId => [fileId, signedMedia(fileId)])); },
     isExpectedFile: (file, path) => file === `cloud://test.bucket/${path}`,
     fileIdForPath: path => `cloud://test.bucket/${path}`,
     async verifyAndPublish({ cloudPath }) { const file = `cloud://test.bucket/${cloudPath}`; published.push(file); return file; },
-    async remove(files) { removed.push(...files); }
+    async remove(files) { removed.push(...files); },
+    ...storageOverrides
   };
   const phoneVerifier = { enabled: true,
     async verifyCode(code) {
@@ -74,8 +76,9 @@ async function fixture(options = {}) {
   if (verifyUsers) for (const who of ['operator', 'alice', 'bob', 'charlie']) await call(who, 'verifyPhone', { code: `trusted-code-${who}`, consent });
   const eventData = { title: '一起认识附近的爱宠朋友', description: '在公园公共区域散步交流', location: '公园南门',
     startAt: time + 3600_000, endAt: time + 7200_000, capacity: 2, petPolicy: 'optional', circleId: 'neighbors' };
-  return { repository, service, call, eventData, published, removed, storage: serviceOptions.storage || storage, now: () => time, advance: ms => { time += ms; } };
+  return { repository, service, call, eventData, published, removed, storage, now: () => time, advance: ms => { time += ms; } };
 }
+const signedMedia = fileId => 'https://media.example.test/' + encodeURIComponent(fileId) + '?expires=60';
 const rejects = (promise, code) => assert.rejects(promise, error => error.code === code);
 
 test('neighbors require independent verified opt-in and never infer public areas or expose private pet fields', async () => {
@@ -178,7 +181,7 @@ test('message reactions notify only the recipient once and retain read state aft
   const liked = first.items.find(message => message.kind === 'like');
   assert.deepEqual(Object.keys(liked.actor).sort(), ['avatar', 'id', 'nickname']);
   assert.equal(liked.actor.nickname, '测试互动者');
-  assert.equal(liked.cover, 'cloud://test.bucket/cover.jpg');
+  assert.equal(liked.cover, signedMedia('cloud://test.bucket/cover.jpg'));
   await f.call('alice', 'updateProfile', { showPet: true });
   const publicActor = (await f.call('bob', 'listMessages')).items.find(message => message.kind === 'like').actor;
   assert.deepEqual(publicActor.pet, { name: '测试宠物', type: 'cat' });
@@ -687,7 +690,7 @@ test('richer posts validate fields, moderate title/topics and safely project the
   }
   const { post } = await f.call('alice', 'createPost', { ...base, title: '带宠出门前准备什么', kind: 'question', topics: ['新手养宠', '一起散步'],
     eventId: event.id, images: files, coverIndex: 1 });
-  assert.equal(post.cover, files[1]); assert.equal(post.coverIndex, 1); assert.equal(post.kind, 'question');
+  assert.equal(post.cover, signedMedia(files[1])); assert.equal(post.coverIndex, 1); assert.equal(post.kind, 'question');
   assert.equal(post.event.id, event.id); assert.equal(post.event.location, event.location);
   assert.deepEqual(post.topics, ['健康护理', '户外出行']);
   assert.ok(checked.some(text => text.includes('带宠出门前准备什么') && text.includes('健康护理') && text.includes('正文')));
@@ -1178,7 +1181,8 @@ test('maintenance retries durable activity notices without visitor traffic or du
 
 async function asyncFixture() {
   let f; let decision = 'pending'; let finalizer; const files = []; const removed = []; let finalized = 0;
-  const storage = { enabled: true, mode: 'async', isExpectedFile: (file, path) => file === `cloud://test.bucket/${path}`,
+  const storage = { enabled: true, privateMediaEnabled: true,
+    async resolvePostMedia(fileIds) { return Object.fromEntries(fileIds.map(fileId => [fileId, signedMedia(fileId)])); }, mode: 'async', isExpectedFile: (file, path) => file === `cloud://test.bucket/${path}`,
     fileIdForPath: path => `cloud://test.bucket/${path}`,
     async submitReview({ ticketId, ownerId, openid }) {
       assert.equal(ownerId, idFor(openid));
@@ -1221,7 +1225,7 @@ test('trusted async approval finalizes once under concurrent polling and preserv
   await f.call('alice', 'joinCircle', { id: 'neighbors', join: true });
   const { post } = await f.call('alice', 'createPost', { circleId: 'neighbors', text: '审核通过', images: [complete.fileId] });
   await f.service.runMaintenance();
-  assert.equal((await f.call('bob', 'getPost', { id: post.id })).post.images[0], complete.fileId);
+  assert.equal((await f.call('bob', 'getPost', { id: post.id })).post.images[0], signedMedia(complete.fileId));
   assert.equal(f.removed.includes(complete.fileId), false); assert.deepEqual(await f.repository.find('media_reviews'), []);
 });
 
@@ -1464,7 +1468,7 @@ test('cloud video publication uses an owned approved ticket and server metadata,
   await rejects(f.call('alice', 'createPost', { ...base, images: ['anything'], video: uploaded.video }), 'INVALID_INPUT');
   await rejects(f.call('alice', 'createPost', { ...base, video: { ...uploaded.video, poster: 'https://cdn.example.org/foreign.jpg' } }), 'INVALID_INPUT');
   const { post } = await f.call('alice', 'createPost', { ...base, video: { ...uploaded.video, durationSeconds: 999, width: 1 } });
-  assert.deepEqual(post.video, uploaded.video); assert.deepEqual(post.images, []); assert.equal(post.contentType, 'video');
+  assert.deepEqual(post.video, { ...uploaded.video, url: signedMedia(uploaded.video.url) }); assert.deepEqual(post.images, []); assert.equal(post.contentType, 'video');
   await rejects(f.call('alice', 'createPost', { ...base, video: uploaded.video }), 'FORBIDDEN');
   f.advance(2 * 86400000); await f.service.runMaintenance();
   assert.ok(await f.repository.get('uploads', ticket.ticketId));

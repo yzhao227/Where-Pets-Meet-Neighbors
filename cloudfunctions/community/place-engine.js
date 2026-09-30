@@ -30,6 +30,19 @@ function* remove(table, id) { return yield ['remove', table, id]; }
 function* all(table, filters = {}) { return yield ['all', table, filters]; }
 function createPlaceEngine({ catalogue, now, newId, fail }) {
   const base = new Map(catalogue.records.map(record => [record.id, record]));
+  function readStored(row) {
+    const current = base.get(row._id || row.id);
+    const point = current && current.point;
+    // Early catalogue imports were full snapshots. Fill only a missing venue
+    // point on an untouched import; an explicit null is an operator's removal.
+    // Keep this read-only so upgrades never rewrite visits, drafts or edits.
+    if (!current || row.active !== true || current.active === false || Object.prototype.hasOwnProperty.call(row, 'point') ||
+      ['updatedBy', 'updatedAt', 'createdBy', 'createdAt', 'submissionId', 'submittedBy'].some(key => Object.prototype.hasOwnProperty.call(row, key)) ||
+      ['type', 'title', 'city', 'district', 'area', 'address', 'venue', 'hostName', 'startsAt', 'endsAt', 'datePrecision', 'announcementMonth', 'status'].some(key => row[key] !== current[key]) ||
+      !point || point.coordinateSystem !== 'gcj02' || point.precision !== 'venue' || !Number.isFinite(point.latitude) || Math.abs(point.latitude) > 90 ||
+      !Number.isFinite(point.longitude) || Math.abs(point.longitude) > 180 || typeof point.sourceUrl !== 'string' || !/^https:\/\/[^\s<>"\\]+$/.test(point.sourceUrl)) return row;
+    return { ...row, point: copy(point) };
+  }
   const text = (value, label, min, max) => {
     if (typeof value !== 'string' || Array.from(value.trim()).length < min || Array.from(value.trim()).length > max) fail('INVALID_INPUT', label + '需为 ' + min + '–' + max + ' 字');
     return value.trim();
@@ -46,7 +59,7 @@ function createPlaceEngine({ catalogue, now, newId, fail }) {
     return { items: items.slice(start, start + limit), ...(start + limit < items.length ? { nextCursor: String(start + limit) } : {}) };
   };
   function* record(value, includeInactive = false) {
-    const key = id(value); const row = yield* get('place_records', key); const found = row || base.get(key);
+    const key = id(value); const row = yield* get('place_records', key); const found = row ? readStored(row) : base.get(key);
     if (!found || !includeInactive && found.active === false) fail('NOT_FOUND', '这条地点信息已下架或不存在');
     return { ...copy(found), id: key };
   }
@@ -56,7 +69,7 @@ function createPlaceEngine({ catalogue, now, newId, fail }) {
   }
   function* records() {
     const merged = new Map(base);
-    for (const row of yield* all('place_records')) merged.set(row._id || row.id, { ...row, id: row._id || row.id });
+    for (const row of yield* all('place_records')) merged.set(row._id || row.id, { ...readStored(row), id: row._id || row.id });
     return Array.from(merged.values());
   }
   function date(value) {

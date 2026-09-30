@@ -1,0 +1,146 @@
+[
+  {
+    "sourceUrl": "https://finance.sina.com.cn/jjxw/2026-06-07/doc-iniapryw9995725.shtml",
+    "publisher": "上观新闻（新浪财经转载）",
+    "credit": "上观新闻（新浪财经转载）",
+    "id": "place-libopark",
+    "imageUrl": "https://n.sinaimg.cn/spider20260607/264/w640h424/20260607/3560-8f0f0d658d8f41c756f600c3eebf5f36.jpg",
+    "caption": "力波公园 · 原文实拍",
+    "kind": "photo",
+    "status": "candidate",
+    "evidence": {
+      "articleImageId": "6",
+      "matching": "原文“力波公园”标题下介绍“设置有宠物乐园…天气晴好时来遛宠的人络绎不绝”，紧接 img id=\"6\"；后接“力波公园：虹梅南路益梅路转角”。",
+      "visualReviewPending": false,
+      "originalImageUnmodified": true
+    },
+    "localPath": "/Users/yangzhao/Documents/ChatGPT/宠物app/output/nearby-source-research/parks/place-libopark.jpg"
+  },
+  {
+    "sourceUrl": "https://finance.sina.com.cn/jjxw/2026-06-07/doc-iniapryw9995725.shtml",
+    "publisher": "上观新闻（新浪财经转载）",
+    "credit": "上观新闻（新浪财经转载）",
+    "id": "place-yuanjiang-tod",
+    "imageUrl": "https://n.sinaimg.cn/spider20260607/266/w640h426/20260607/070c-1897f7871c6daf0849af6ce4ffd26621.jpg",
+    "caption": "元江路 TOD 公园 · 原文实拍",
+    "kind": "photo",
+    "status": "candidate",
+    "evidence": {
+      "articleImageId": "7",
+      "matching": "img id=\"7\" 紧随原文多公园汇总段，但图片后的独立文字明确注明“轨交15号线元江路TOD公园，宠物友好”。",
+      "visualReviewPending": false,
+      "originalImageUnmodified": true
+    },
+    "localPath": "/Users/yangzhao/Documents/ChatGPT/宠物app/output/nearby-source-research/parks/place-yuanjiang-tod.jpg"
+  },
+  {
+    "sourceUrl": "https://finance.sina.com.cn/jjxw/2026-06-07/doc-iniapryw9995725.shtml",
+    "publisher": "上观新闻（新浪财经转载）",
+    "credit": "上观新闻（新浪财经转载）",
+    "id": "place-pujiang-pet-zones",
+    "imageUrl": null,
+    "caption": "浦江郊野公园开放区",
+    "kind": null,
+    "status": "no_matching_image",
+    "reason": "指定原文没有可明确归属该地点的图片；不挪用其他公园照片。",
+    "evidence": {
+      "matching": "原文仅段落说明“24小时开放的森林游憩区和滨江漫步区可以带宠物”，之后统一列出其他公园；后续 img7 明确为元江路TOD，img8 明确为闵行滨江公园。原文地址“浦江郊野公园：浦星公路2578弄8号”旁无专属照片。",
+      "rejectedImage": {
+        "imageUrl": "https://n.sinaimg.cn/spider20260607/199/w640h359/20260607/e1b4-47f3a933ec4b5f4d7a1e7919bc39b192.jpg",
+        "articleImageId": "8",
+        "caption": "闵行滨江公园宠物友好（目前临江部分区域改造中）",
+        "reason": "原文明确归属另一个地点，不能作为本地点配图。"
+      }
+    }
+  },
+  {
+    "sourceUrl": "https://finance.sina.com.cn/jjxw/2026-06-07/doc-iniapryw9995725.shtml",
+    "publisher": "上观新闻（新浪财经转载）",
+    "credit": "上观新闻（新浪财经转载）",
+    "id": "place-lanxiang-lake",
+    "imageUrl": "https://n.sinaimg.cn/spider20260607/245/w640h405/20260607/1293-131c6629fb3af1d2005a5c1229819138.jpg",
+    "caption": "兰香湖 · 原文实拍",
+    "kind": "photo",
+    "status": "candidate",
+    "evidence": {
+      "articleImageId": "2",
+      "matching": "原文“兰香湖”标题下介绍“接近40万平方米碧蓝色的湖水…泛起阵阵涟漪”后出现 img2；随后湖边骑行散步、栏杆看湖景的段落后出现 img3。两张均在进入星巴克段落之前。",
+      "visualReviewPending": false,
+      "originalImageUnmodified": true
+    },
+    "alternatives": [
+      {
+        "imageUrl": "https://n.sinaimg.cn/spider20260607/267/w640h427/20260607/ce3b-172d33aebdaa42ccbe70b388c65ef995.jpg",
+        "articleImageId": "3",
+        "kind": "photo",
+        "visualReviewPending": true
+      }
+    ],
+    "localPath": "/Users/yangzhao/Documents/ChatGPT/宠物app/output/nearby-source-research/parks/place-lanxiang-lake.jpg"
+  },
+  {
+    "sourceUrl": "https://finance.sina.com.cn/jjxw/2026-06-07/doc-iniapryw9995725.shtml",
+    "publisher": "上观新闻（新浪财经转载）",
+    "credit": "上观新闻（新浪财经转载）",
+    "id": "place-starbucks-zizhu",
+    "imageUrl": "https://n.sinaimg.cn/spider20260607/586/w576h810/20260607/4ec2-997e00cdb4e0aa29c408884cbfa58591.jpg",
+    "caption": "星巴克（上海紫竹半岛店） · 原文实拍",
+    "kind": "photo",
+    "status": "candidate",
+    "evidence": {
+      "articleImageId": "4",
+      "matching": "原文“位于东川路333弄31号的 星巴克（上海紫竹半岛店） 是宠物友好门店”之后紧接 img4；“门店的外摆区域是宠物专属的休息区，有宠物座椅、牵引绳、挂钩、宠物专属菜单”之后紧接 img5。两张均明确归属该门店，但未下载验图，暂不判定照片还是海报。",
+      "visualReviewPending": false,
+      "originalImageUnmodified": true
+    },
+    "alternatives": [
+      {
+        "imageUrl": "https://n.sinaimg.cn/spider20260607/198/w390h608/20260607/f919-5a209a7257bb118dc55913a0685d6f79.jpg",
+        "articleImageId": "5",
+        "kind": "unverified",
+        "visualReviewPending": true
+      }
+    ],
+    "localPath": "/Users/yangzhao/Documents/ChatGPT/宠物app/output/nearby-source-research/parks/place-starbucks-zizhu.jpg"
+  },
+  {
+    "sourceUrl": "https://finance.sina.com.cn/jjxw/2026-06-07/doc-iniapryw9995725.shtml",
+    "publisher": "上观新闻（新浪财经转载）",
+    "credit": "上观新闻（新浪财经转载）",
+    "id": "place-hanxiang-water-garden",
+    "imageUrl": null,
+    "caption": "韩湘水博园",
+    "kind": null,
+    "status": "no_matching_image",
+    "reason": "指定原文没有可明确归属该地点的图片；不挪用其他公园照片。",
+    "evidence": {
+      "matching": "原文仅文字列举“韩湘水博园（请勿携带烈犬及大型犬进入）”及地址“江川西路3805号”；其附近图片分别明确注明元江路TOD和闵行滨江公园，没有本园专属照片。",
+      "rejectedImage": {
+        "imageUrl": "https://n.sinaimg.cn/spider20260607/199/w640h359/20260607/e1b4-47f3a933ec4b5f4d7a1e7919bc39b192.jpg",
+        "articleImageId": "8",
+        "caption": "闵行滨江公园宠物友好（目前临江部分区域改造中）",
+        "reason": "原文明确归属另一个地点，不能作为本地点配图。"
+      }
+    }
+  },
+  {
+    "sourceUrl": "https://finance.sina.com.cn/jjxw/2026-06-07/doc-iniapryw9995725.shtml",
+    "publisher": "上观新闻（新浪财经转载）",
+    "credit": "上观新闻（新浪财经转载）",
+    "id": "place-menghuayuan",
+    "imageUrl": null,
+    "caption": "梦花源",
+    "kind": null,
+    "status": "no_matching_image",
+    "reason": "指定原文没有可明确归属该地点的图片；不挪用其他公园照片。",
+    "evidence": {
+      "matching": "原文仅文字列举“梦花源（宠物入园需另购门票）”及地址“芦恒路1398号”；没有紧随本园或标题下的专属照片，不能挪用之后的元江路TOD/闵行滨江公园图片。",
+      "rejectedImage": {
+        "imageUrl": "https://n.sinaimg.cn/spider20260607/199/w640h359/20260607/e1b4-47f3a933ec4b5f4d7a1e7919bc39b192.jpg",
+        "articleImageId": "8",
+        "caption": "闵行滨江公园宠物友好（目前临江部分区域改造中）",
+        "reason": "原文明确归属另一个地点，不能作为本地点配图。"
+      }
+    }
+  }
+]

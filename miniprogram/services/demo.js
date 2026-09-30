@@ -16,6 +16,12 @@ const PAGE_SIZE = 20;
 const TERMS_VERSION = '2026-09-29';
 const PRIVACY_VERSION = '2026-09-29';
 const MESSAGE_CATEGORIES = ['all', 'interactions', 'comments', 'follows', 'system'];
+const POST_VISIBILITIES = ['public', 'friends', 'private'];
+function visibility(value) {
+  if (!POST_VISIBILITIES.includes(value)) throw failure('INVALID_INPUT', '请选择公开、仅好友可见或仅自己可见');
+  return value;
+}
+function postVisibility(post) { return post.visibility === undefined ? 'public' : POST_VISIBILITIES.includes(post.visibility) ? post.visibility : 'private'; }
 function messageKind(record) { return ['like', 'bookmark', 'follow', 'comment', 'reply', 'system'].includes(record.kind) ? record.kind : record.targetType === 'post' ? 'comment' : 'system'; }
 function messageCategory(record) { return ({ like: 'interactions', bookmark: 'interactions', follow: 'follows', comment: 'comments', reply: 'comments' })[messageKind(record)] || 'system'; }
 function messageCounts(records) {
@@ -287,7 +293,7 @@ function createDemoService(platform, options) {
   }
 
   function bookmarksFor(state, userId) {
-    return state.bookmarks.filter(item => item.userId === userId && state.posts.some(post => post.id === item.postId && !isBlockedPair(state, userId, post.authorId)));
+    return state.bookmarks.filter(item => item.userId === userId && state.posts.some(post => post.id === item.postId && canViewPost(state, post, userId)));
   }
 
   function publicUser(state, userId) {
@@ -305,9 +311,15 @@ function createDemoService(platform, options) {
     return circle;
   }
 
+  function canViewPost(state, post, userId = state.currentUserId) {
+    if (!post || isBlockedPair(state, userId, post.authorId)) return false;
+    const scope = postVisibility(post);
+    return post.authorId === userId || scope === 'public' || scope === 'friends' && state.friendships.some(item => item.userIds.includes(userId) && item.userIds.includes(post.authorId));
+  }
+
   function findPost(state, postId) {
     const post = state.posts.find(item => item.id === postId);
-    if (!post || isBlocked(state, post.authorId)) throw failure('NOT_FOUND', '这条动态已删除或不可见');
+    if (!canViewPost(state, post)) throw failure('NOT_FOUND', '这条动态已删除或不可见');
     return post;
   }
 
@@ -341,7 +353,7 @@ function createDemoService(platform, options) {
     const video = videoView(post.video);
     return {
       id: post.id, author: publicUser(state, post.authorId), circle: { id: circle.id, name: circle.name },
-      title: post.title || '', kind: post.kind || 'daily', topics: TOPICS.normalize(post.topics), animalTypes: normalizeAnimals(post.animalTypes), text: post.text,
+      title: post.title || '', kind: post.kind || 'daily', visibility: postVisibility(post), topics: TOPICS.normalize(post.topics), animalTypes: normalizeAnimals(post.animalTypes), text: post.text,
       images: post.images.slice(), ...(video ? { video } : {}), coverIndex: post.coverIndex || 0, cover: video ? video.poster || '' : post.images[post.coverIndex || 0] || '',
       ...(post.source ? { source: clone(post.source) } : {}),
       ...(post.contentType || video ? { contentType: post.contentType || 'video' } : {}),
@@ -367,6 +379,7 @@ function createDemoService(platform, options) {
 
   function pushMessage(state, userId, title, message, targetType, targetId, actorId, kind) {
     if (!state.users.some(user => user.id === userId)) return;
+    if (targetType === 'post' && !canViewPost(state, state.posts.find(item => item.id === targetId), userId)) return;
     const actor = actorId === undefined ? state.currentUserId : actorId;
     if (isBlockedPair(state, userId, actor)) return;
     if (kind && kind !== 'system' && userId === actor) return;
@@ -378,6 +391,7 @@ function createDemoService(platform, options) {
     return state.messages.filter(message => {
       if (message.userId !== userId || isBlockedPair(state, userId, message.actorId)) return false;
       const target = message.targetType === 'post' ? state.posts.find(item => item.id === message.targetId) : message.targetType === 'event' ? state.events.find(item => item.id === message.targetId) : null;
+      if (message.targetType === 'post' && target && !canViewPost(state, target, userId)) return false;
       const ownerId = target && (target.authorId || target.hostId) || (message.targetType === 'user' ? message.targetId : '');
       return !ownerId || !isBlockedPair(state, userId, ownerId);
     });
@@ -405,12 +419,13 @@ function createDemoService(platform, options) {
     let targetIdForLink = report.targetIdForLink || report.targetId;
     if (report.targetType === 'post') {
       target = state.posts.find(post => post.id === report.targetId);
-      summary = target && (target.text || '图片动态');
+      summary = target && (canViewPost(state, target) ? target.text || '图片动态' : '内容已不可见');
     } else if (report.targetType === 'comment') {
       target = state.comments.find(comment => comment.id === report.targetId);
       summary = target && target.text;
       targetTypeForLink = report.targetTypeForLink || (target && target.targetType) || 'post';
       targetIdForLink = report.targetIdForLink || (target && target.targetId) || '';
+      if (target && target.targetType === 'post' && !canViewPost(state, state.posts.find(post => post.id === target.targetId))) summary = '内容已不可见';
     } else if (report.targetType === 'event') {
       target = state.events.find(event => event.id === report.targetId);
       summary = target && target.title;
@@ -464,7 +479,7 @@ function createDemoService(platform, options) {
     const joinedCircleIds = state.circles.filter(circle => circle.memberIds.indexOf(state.currentUserId) !== -1).map(circle => circle.id);
     const items = state.posts.filter(item => {
       if (!matchesAnimals(item.animalTypes)) return false;
-      if (isBlocked(state, item.authorId)) return false;
+      if (!canViewPost(state, item)) return false;
       if (payload.circleId && item.circleId !== payload.circleId) return false;
       if (payload.mine && item.authorId !== state.currentUserId) return false;
       if (authorId && item.authorId !== authorId) return false;
@@ -622,7 +637,7 @@ function createDemoService(platform, options) {
         const profile = Object.assign(publicUser(state, target.id), {
           publicProfile: target.publicProfile === true, showPet: target.showPet === true, bio: showDetails ? target.bio : '', pet: showDetails || target.showPet === true ? target.pet : null, pets: petData.publicList(target, target.id === user.id, now()),
           isMine, isFollowing: followsUser(state, user.id, target.id),
-          postCount: state.posts.filter(post => post.authorId === target.id).length,
+          postCount: state.posts.filter(post => post.authorId === target.id && canViewPost(state, post)).length,
           followerCount: state.follows.filter(item => item.targetUserId === target.id && !isBlockedPair(state, item.userId, target.id) && state.users.some(person => person.id === item.userId)).length,
           followingCount: followingFor(state, target.id).length
         });
@@ -632,6 +647,7 @@ function createDemoService(platform, options) {
         return response;
       }
       case 'createPost': {
+        const scope = visibility(payload.visibility === undefined ? 'public' : payload.visibility);
         const circle = findCircle(state, payload.circleId);
         if (circle.memberIds.indexOf(user.id) === -1) throw failure('NOT_MEMBER', '请先加入这个圈子再发布动态');
         const text = textField(payload.text === undefined ? '' : payload.text, '动态正文', 0, 1000);
@@ -656,10 +672,20 @@ function createDemoService(platform, options) {
         if (eventId) findEvent(state, eventId);
         if (!text && !images.length && !video) throw failure('INVALID_INPUT', '写一点内容或添加图片、视频吧');
         if (images.some(fileId => !state.uploads.some(upload => upload.userId === user.id && upload.purpose !== 'pet' && upload.fileId === fileId && upload.mediaType !== 'video' && upload.status === 'complete'))) throw failure('UPLOAD_UNAVAILABLE', '请重新选择图片，动态只能使用本人已保存的图片');
-        const post = { id: id(state, 'post'), authorId: user.id, circleId: circle.id, title, kind, topics, animalTypes, text, images: images.slice(), ...(video ? { video, contentType: 'video' } : {}), coverIndex, eventId, createdAt: now() };
+        const post = { id: id(state, 'post'), authorId: user.id, circleId: circle.id, title, kind, visibility: scope, topics, animalTypes, text, images: images.slice(), ...(video ? { video, contentType: 'video' } : {}), coverIndex, eventId, createdAt: now() };
         Object.assign(post, placeRun(state, engine => engine.linkPost(payload, { userId: user.id }, post.id)));
         if (videoUpload) videoUpload.postId = post.id;
         state.posts.push(post);
+        result = { post: postView(state, post) };
+        break;
+      }
+      case 'setPostVisibility': {
+        if (Object.keys(payload).some(key => !['id', 'visibility'].includes(key))) throw failure('INVALID_INPUT', '可见范围只接收分享编号与范围');
+        const scope = visibility(payload.visibility);
+        const post = state.posts.find(item => item.id === payload.id);
+        if (!post) throw failure('NOT_FOUND', '这条动态已删除或不可见');
+        if (post.authorId !== user.id) throw failure('FORBIDDEN', '只能修改自己分享的可见范围');
+        post.visibility = scope;
         result = { post: postView(state, post) };
         break;
       }
@@ -674,6 +700,7 @@ function createDemoService(platform, options) {
         state.comments = state.comments.filter(comment => !(comment.targetType === 'post' && comment.targetId === post.id));
         state.likes = state.likes.filter(item => item.postId !== post.id);
         state.bookmarks = state.bookmarks.filter(item => item.postId !== post.id);
+        state.messages = state.messages.filter(item => item.targetType !== 'post' || item.targetId !== post.id);
         result = { deleted: true };
         break;
       }
@@ -821,8 +848,8 @@ function createDemoService(platform, options) {
         const reason = textField(payload.reason, '反馈原因', 1, 80);
         const description = textField(payload.description === undefined ? '' : payload.description, '补充说明', 0, 500);
         let exists = false;
-        if (payload.targetType === 'post') exists = state.posts.some(post => post.id === payload.targetId);
-        else if (payload.targetType === 'comment') exists = state.comments.some(comment => comment.id === payload.targetId);
+        if (payload.targetType === 'post') exists = !!findPost(state, payload.targetId);
+        else if (payload.targetType === 'comment') exists = state.comments.some(comment => comment.id === payload.targetId && !isBlocked(state, comment.authorId) && (comment.targetType !== 'post' || canViewPost(state, state.posts.find(post => post.id === comment.targetId))));
         else if (payload.targetType === 'event') exists = state.events.some(event => event.id === payload.targetId);
         else if (payload.targetType === 'user') exists = state.users.some(item => item.id === payload.targetId);
         else throw failure('INVALID_INPUT', '反馈对象无效');
@@ -945,7 +972,7 @@ function createDemoService(platform, options) {
         state.follows = state.follows.filter(item => item.userId !== user.id && item.targetUserId !== user.id);
         state.comments = state.comments.filter(comment => comment.authorId !== user.id && !(comment.targetType === 'post' && ownedPostIds.indexOf(comment.targetId) !== -1));
         state.circles.forEach(circle => { circle.memberIds = circle.memberIds.filter(memberId => memberId !== user.id); });
-        state.messages = state.messages.filter(message => message.userId !== user.id && message.actorId !== user.id);
+        state.messages = state.messages.filter(message => message.userId !== user.id && message.actorId !== user.id && !(message.targetType === 'post' && ownedPostIds.includes(message.targetId)));
         state.blocks = state.blocks.filter(block => block.userId !== user.id && block.blockedUserId !== user.id);
         state.reports = state.reports.filter(report => report.userId !== user.id);
         const ownedUploads = state.uploads.filter(upload => upload.userId === user.id);

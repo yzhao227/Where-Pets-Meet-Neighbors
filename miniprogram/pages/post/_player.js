@@ -167,6 +167,7 @@ function createPlayer(packageRoot) {
         if (this._closed || request !== this._playerRequest) return;
         if (!result || !result.post || typeof result.post !== 'object' || Array.isArray(result.post)) throw new Error('找不到这篇内容');
         const post = s.post(result.post);
+        if (post.visibility !== 'public') throw new Error('这篇内容请返回详情页查看');
         if (!post.video) throw new Error('这篇内容没有可播放的视频');
         const source = media.videoPath(post.video.url);
         if (!ownVideo.test(source)) throw new Error('视频资源与当前播放页不匹配，请返回内容页重新打开');
@@ -321,6 +322,7 @@ function createPlayer(packageRoot) {
     },
     onShareAppMessage() {
       const post = this.data.post;
+      if (this.data.loading || this.data.error || !post || post.visibility !== 'public') return { title: '有宠有邻｜喜欢宠物，就在这里相遇', path: '/pages/community/index', imageUrl: '/assets/event-walk.png' };
       return { title: post ? (post.title || post.text || '看看这份宠物分享').slice(0, 45) : '有宠有邻的分享', path: '/pages/post/index?id=' + encodeURIComponent(this.id || '') };
     }
   };

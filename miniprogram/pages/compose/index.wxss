@@ -17,6 +17,11 @@ button.upload-tile{display:flex;flex-direction:column;align-items:center;justify
 .post-input{height:268rpx;width:100%;box-sizing:border-box;font-size:28rpx;line-height:1.9;padding-top:18rpx;color:#343741;}
 .counter{text-align:right;font-size:21rpx;color:#7B818A;margin-top:10rpx;}
 .posting-options{padding:24rpx;margin-top:22rpx;}
+.visibility-option{display:flex;align-items:center;justify-content:space-between;gap:18rpx;padding:4rpx 0 24rpx;margin-bottom:24rpx;border-bottom:1rpx solid #EEEAE6;}
+.visibility-option>view:first-child{flex:1;min-width:0;}
+.visibility-hint{font-size:21rpx;color:#747B85;line-height:1.65;margin-top:9rpx;}
+.visibility-value{display:flex;align-items:center;gap:12rpx;color:#B84735;font-size:24rpx;flex-shrink:0;}
+.visibility-chevron{width:10rpx;height:10rpx;border-top:2rpx solid #949AA2;border-right:2rpx solid #949AA2;transform:rotate(45deg);}
 .label{font-size:25rpx;}
 .option-hint{font-size:21rpx;color:#747B85;font-weight:400;margin-left:9rpx;}
 .option-label{margin-top:26rpx;}

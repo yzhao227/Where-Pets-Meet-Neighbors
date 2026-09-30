@@ -1,0 +1,82 @@
+[
+  {
+    "id": "place-xinzhuang-weijing",
+    "localPath": "/Users/yangzhao/Documents/ChatGPT/宠物app/output/nearby-source-research/places/weijing-original.jpg",
+    "sourceUrl": "https://www.scpgroup.com/business/data?cname=project&id=62",
+    "imageUrl": "https://www.scpgroup.com/uploads/2022-03-30/6243f7f128b28.jpg",
+    "credit": "印力集团",
+    "caption": "莘庄维璟印象城外观 · 原文实拍",
+    "kind": "photo",
+    "status": "candidate"
+  },
+  {
+    "id": "place-zhongsheng",
+    "localPath": "/Users/yangzhao/Documents/ChatGPT/宠物app/output/nearby-source-research/places/zhongsheng-original.jpg",
+    "sourceUrl": "https://www.shobserver.com/sgh/detail?id=1744115",
+    "imageUrl": "https://sghimages.shobserver.com/img/catch/2026/05/02/53f3e33f-d656-4972-9178-f22b5d941044.jpg",
+    "credit": "今日闵行（上观新闻）",
+    "caption": "仲盛世界商城南下沉广场 · 原文实拍",
+    "kind": "photo",
+    "status": "candidate"
+  },
+  {
+    "id": "place-xincheng-central",
+    "localPath": "/Users/yangzhao/Documents/ChatGPT/宠物app/output/nearby-source-research/places/xincheng-original.jpg",
+    "sourceUrl": "https://whlyj.sh.gov.cn/gqfc/20240221/7ffebbbb812e4dcbb7eaa82feb796066.html",
+    "imageUrl": "https://whlyj.sh.gov.cn/cmsres/9b/9bb2c3d9e517444389b3fbaab7f891b8/bd9a3cd4ca76075c32173c20d536dbb6.jpg",
+    "credit": "上海市文化和旅游局 · 失落地方",
+    "caption": "莘城中央公园银杏 · 原文秋景，非当前叶色",
+    "kind": "photo",
+    "status": "candidate"
+  },
+  {
+    "id": "place-fuyuehui-pet-park",
+    "localPath": "/Users/yangzhao/Documents/ChatGPT/宠物app/output/nearby-source-research/places/fuyuehui-original.jpg",
+    "sourceUrl": "https://finance.sina.com.cn/wm/2026-09-26/doc-initcyyy8482170.shtml",
+    "imageUrl": "https://n.sinaimg.cn/sinakd20260926s/178/w1080h698/20260926/8a35-49a8469fada13a754db4c8eb83157965.png",
+    "credit": "上海普陀（新浪转载）",
+    "caption": "复悦荟宠物公园障碍设施 · 原文实拍",
+    "kind": "photo",
+    "status": "candidate"
+  },
+  {
+    "id": "place-changfeng-ocean-world",
+    "localPath": "/Users/yangzhao/Documents/ChatGPT/宠物app/output/nearby-source-research/places/changfeng-original.jpg",
+    "sourceUrl": "https://www.meet-in-shanghai.net/cn/attraction/shanghai-changfeng-park-and-changfeng-ocean-world-scenic-area-750928/",
+    "imageUrl": "https://www.meet-in-shanghai.net/static//upload/mainpic/20211222145725_192209961.jpg",
+    "credit": "上海旅游会展推广中心",
+    "caption": "长风海洋世界入口 · 原文实拍",
+    "kind": "photo",
+    "status": "candidate"
+  },
+  {
+    "id": "place-gubei-citizen-park",
+    "localPath": "/Users/yangzhao/Documents/ChatGPT/宠物app/output/nearby-source-research/places/gubei-original.jpg",
+    "sourceUrl": "https://news.qq.com/rain/a/20251027A06CW700",
+    "imageUrl": "https://inews.gtimg.com/om_bt/OT59NK1uV1qXfZjN8qejzE_U2abIAthZyh2W3C3EDzh4EAA/641",
+    "credit": "新闻晨报（极目新闻·腾讯转载）",
+    "caption": "古北市民公园草坪 · 原文实拍",
+    "kind": "photo",
+    "status": "candidate"
+  },
+  {
+    "id": "place-haisu-park-pet-zones",
+    "localPath": "/Users/yangzhao/Documents/ChatGPT/宠物app/output/nearby-source-research/places/haisu-original.jpg",
+    "sourceUrl": "https://news.qq.com/rain/a/20251027A06CW700",
+    "imageUrl": "https://inews.gtimg.com/om_bt/Ow4lRuNBYZYlS-ZDPrfJgCU57daKBiFBe18Aur5L72sx4AA/641",
+    "credit": "新闻晨报（极目新闻·腾讯转载）",
+    "caption": "海粟公园宠物饮水与清洁设施 · 原文实拍",
+    "kind": "photo",
+    "status": "candidate"
+  },
+  {
+    "id": "place-yuehu-sculpture",
+    "localPath": "/Users/yangzhao/Documents/ChatGPT/宠物app/output/nearby-source-research/places/yuehu-lake-original.jpg",
+    "sourceUrl": "https://www.sohu.com/a/1041579336_121124417",
+    "imageUrl": "https://q9.itc.cn/q_70/images03/20260625/89d356b37546462d81ba40d02975d67c.jpeg",
+    "credit": "月湖雕塑公园（搜狐转载）",
+    "caption": "月湖雕塑公园湖畔 · 原文实拍",
+    "kind": "photo",
+    "status": "candidate"
+  }
+]
