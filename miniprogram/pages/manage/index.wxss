@@ -1,0 +1,34 @@
+.manage-page>.eyebrow{margin-top:15rpx;}
+.page-title{font-size:42rpx;margin:4rpx 0 18rpx;}
+.demo-label{margin-bottom:23rpx;}
+.management-intro{gap:20rpx;margin:29rpx 0 24rpx;}
+.management-intro .small{font-size:21rpx;margin-top:11rpx;}
+button.new-button{margin:0;padding:0 19rpx;height:64rpx;line-height:64rpx;border-radius:16rpx;font-size:23rpx;white-space:nowrap;}
+.managed-event{padding:26rpx;margin-bottom:22rpx;}
+.event-status{font-size:21rpx;color:#516B80;background:#EAF2F8;border-radius:10rpx;padding:6rpx 12rpx;}
+.managed-title{font-size:31rpx;font-weight:650;line-height:1.6;margin:18rpx 0 13rpx;}
+.event-meta{font-size:23rpx;line-height:1.9;color:#66707A;}
+.edit-hint{font-size:21rpx;color:#B84735;margin-top:20rpx;}
+.form-heading{margin:27rpx 0 21rpx;}
+button.text-button{font-size:22rpx;color:#66707A;margin:0;padding:0;background:transparent;line-height:2;}
+.event-form,.setup-card{padding:4rpx 27rpx 26rpx;}
+.setup-card{padding-top:27rpx;}
+.field{margin-top:25rpx;}
+.label{font-size:25rpx;}
+.input{font-size:26rpx;margin-top:13rpx;box-sizing:border-box;}
+.textarea{font-size:26rpx;line-height:1.8;margin-top:13rpx;box-sizing:border-box;width:100%;}
+.event-description{height:240rpx;}
+.date-row{display:flex;gap:15rpx;}
+.date-row picker{flex:1;min-width:0;}
+.date-row picker:first-child{flex:1.45;}
+.picker-value{min-height:86rpx;padding:21rpx;}
+.field-hint,.form-note{font-size:21rpx;color:#66707A;line-height:1.8;margin-top:15rpx;}
+.event-form>.form-note{padding:18rpx;background:#EAF2F8;border-radius:13rpx;margin-top:24rpx;color:#516B80;}
+button.wide-button{width:100%;box-sizing:border-box;margin-top:26rpx;}
+.cancel-form{padding:26rpx;margin-top:30rpx;background:#FFF3E6;border-color:#F0DDC7;}
+.cancel-title{font-size:28rpx;font-weight:600;color:#94603D;}
+.cancel-input{height:150rpx;border-color:#F0DDC7;}
+button.cancel-button{background:transparent;color:#94603D;border:1rpx solid #F0DDC7;border-radius:18rpx;font-size:24rpx;margin-top:22rpx;line-height:2.8;}
+.closed-note{font-size:24rpx;color:#94603D;background:#FFF3E6;padding:22rpx;border-radius:16rpx;margin-bottom:23rpx;}
+.setup-areas{height:170rpx;}
+.empty-title{font-size:29rpx;font-weight:650;margin:20rpx 0 15rpx;}

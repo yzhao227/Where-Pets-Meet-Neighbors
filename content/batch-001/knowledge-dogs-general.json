@@ -1,0 +1,1417 @@
+[
+  {
+    "id": "knowledge-051",
+    "contentType": "knowledge",
+    "title": "幼犬的主食，先看生长阶段",
+    "text": "幼犬处在快速生长阶段，日常饮食应以适合幼犬的完整主食为基础，大型犬幼犬还需要关注对应的生长需求。不要为了让它多吃，把人的饭菜不断加进碗里；零散加餐可能影响营养搭配，也容易养成挑食习惯。选择和调整主食时，可以把年龄、体型与当前食谱一起告诉兽医，避免只凭口味或网络经验决定。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "General Dog Care",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/general-dog-care",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-general-dog.html",
+      "excerpt": "Puppies should be fed a high-quality, brand-name puppy food"
+    }
+  },
+  {
+    "id": "knowledge-052",
+    "contentType": "knowledge",
+    "title": "喝水这件事，要比饭点更随时",
+    "text": "狗需要随时能够喝到干净、新鲜的水，喝水安排不应只跟着喂饭时间走。日常照料时，可以一起检查水是否干净、水碗是否方便靠近，并把清洗食盆和水碗列入固定家务。只补水、不洗碗容易忽略容器本身的清洁。把饮水位置和清洗习惯一起安排好，让喝水不依赖某个饭点或有人临时想起。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "General Dog Care",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/general-dog-care",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-general-dog.html",
+      "excerpt": "Clean, fresh water should be available at all times"
+    }
+  },
+  {
+    "id": "knowledge-053",
+    "contentType": "knowledge",
+    "title": "遛多久，先看这只狗的状态",
+    "text": "运动能帮助狗消耗能量、保持健康，也能带来精神上的刺激，但不同狗的运动需求并不一样。品种或混种背景、年龄、身体状况等都会影响合适的活动量，不能把别人的步数直接套给自家狗。安排散步和游戏时，先观察它的反应，再逐步找到适合的节奏；有健康问题时，把运动计划交给兽医一起判断。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-walk",
+    "source": {
+      "title": "General Dog Care",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/general-dog-care",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-general-dog.html",
+      "excerpt": "Individual exercise needs vary based on breed or breed mix"
+    }
+  },
+  {
+    "id": "knowledge-054",
+    "contentType": "knowledge",
+    "title": "除了走路，也给狗一点动脑时间",
+    "text": "狗的活动不只是在路上走够一段距离。有人看护的互动游戏，可以让追逐、衔取、咀嚼等自然行为获得合适出口，也能减少长时间无事可做带来的无聊。选择游戏时，要考虑这只狗的年龄、健康和兴趣，而不是一味延长时长。把散步和互动搭配起来，重点是安全参与与共同活动。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-walk",
+    "source": {
+      "title": "General Dog Care",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/general-dog-care",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-general-dog.html",
+      "excerpt": "Supervised fun and games will satisfy"
+    }
+  },
+  {
+    "id": "knowledge-055",
+    "contentType": "knowledge",
+    "title": "梳毛时，顺便看看皮肤和毛间",
+    "text": "规律梳毛有助于保持被毛清洁，也能减少散落的毛发。天气温暖时，ASPCA 建议留意跳蚤和蜱虫，把查看毛间情况纳入日常照料。梳毛可以成为观察的机会，但不能代替合适的寄生虫防护方案。发现异常或准备更换相关产品时，先和兽医讨论，让清洁、检查和预防各自发挥作用。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "General Dog Care",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/general-dog-care",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-general-dog.html",
+      "excerpt": "Help keep your dog clean and reduce shedding with frequent brushing."
+    }
+  },
+  {
+    "id": "knowledge-056",
+    "contentType": "knowledge",
+    "title": "给狗洗澡，别漏掉充分冲洗",
+    "text": "洗澡前先处理打结的毛，洗完后则要仔细把清洁用品冲干净。残留的皂液可能让污物更容易附着在被毛上，因此冲洗并不是快速带过的最后一步。洗澡的安排也不宜只看日历或人的习惯，要结合被毛、皮肤和实际脏污情况考虑；若皮肤已经不适，先咨询兽医，再决定适合的清洁方式。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "General Dog Care",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/general-dog-care",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-general-dog.html",
+      "excerpt": "Carefully rinse all soap out of the coat"
+    }
+  },
+  {
+    "id": "knowledge-057",
+    "contentType": "knowledge",
+    "title": "抱起小狗时，让胸部和后半身都有支撑",
+    "text": "抱幼犬或小型犬时，一只手从胸部下方托住，另一只手或前臂同时支撑后腿和臀部，让身体有稳定的承托。不要抓着前腿、尾巴或后颈把它提起来。确实需要抬起大狗时，同样要兼顾胸部与后半身的支撑。抱起动作关系到身体是否受力均衡，日常搬动也值得认真对待。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "General Dog Care",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/general-dog-care",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-general-dog.html",
+      "excerpt": "Never attempt to lift or grab your puppy or small dog by the forelegs"
+    }
+  },
+  {
+    "id": "knowledge-058",
+    "contentType": "knowledge",
+    "title": "给狗留一个安静、干净的休息位",
+    "text": "狗需要一个温暖、安静、避开穿堂风的休息位置，干净的垫子或毯子也要定期清洗。布置睡觉的地方时，除了看外观，更要关注是否干燥、有没有持续冷风、是否方便维持清洁。若狗会在户外停留，热天要能找到阴凉和饮水，冷天则需要温暖、干燥并有遮蔽的地方。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "General Dog Care",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/general-dog-care",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-general-dog.html",
+      "excerpt": "Your pet needs a warm, quiet place to rest"
+    }
+  },
+  {
+    "id": "knowledge-059",
+    "contentType": "knowledge",
+    "title": "出门前，看看身份牌还在不在",
+    "text": "项圈上的身份信息可以帮助走失的狗重新找到照料者，植入芯片也是识别身份的一种方式。ASPCA 把身份牌与芯片列为走失后寻回的重要辅助。日常出门前，不妨把确认身份牌是否仍挂好作为检查项；同时遵守所在地的养犬登记规定。识别信息能够提供线索，但不能代替牵引和安全看护。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "General Dog Care",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/general-dog-care",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-general-dog.html",
+      "excerpt": "an ID tag and implanted microchip or tattoo"
+    }
+  },
+  {
+    "id": "knowledge-060",
+    "contentType": "knowledge",
+    "title": "牵好绳，也把便便带走",
+    "text": "在户外活动时，除非处于安全、围合的区域，狗应当使用牵引。散步还包含对公共环境的照顾：无论排便发生在邻居草地、人行道还是其他公共场所，都应及时清理。出门准备牵引用品时，也把清理工具一起带上。让狗享受活动，并让周围的人能够安心使用同一片空间，是日常养宠的一部分。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-walk",
+    "source": {
+      "title": "General Dog Care",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/general-dog-care",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-general-dog.html",
+      "excerpt": "the sidewalk or any other public place, please clean it up."
+    }
+  },
+  {
+    "id": "knowledge-061",
+    "contentType": "knowledge",
+    "title": "热天遛狗，留意脚下的柏油路",
+    "text": "气温很高时，别让狗长时间停留在热柏油路面上。它的身体离地面近，容易吸收路面的热量，敏感的脚垫也可能被烫伤。此时应缩短散步，并结合阴凉、饮水和整体天气安排活动。判断能不能继续走，不只是看狗是否愿意往前跑，也要把路面带来的额外热量考虑进去。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-walk",
+    "source": {
+      "title": "Hot Weather Safety Tips",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/general-pet-care/hot-weather-safety-tips",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-heat.html",
+      "excerpt": "sensitive paw pads can burn"
+    }
+  },
+  {
+    "id": "knowledge-062",
+    "contentType": "knowledge",
+    "title": "雪地散步，不轻易松开牵引",
+    "text": "在冰雪地面，尤其是暴风雪天气，不要随意放开狗的牵引。雪可能影响狗通过气味辨认环境，使它更容易走失。冬季外出前，也应确认身份牌仍在。熟悉的路线并不意味着天气变化后仍然容易辨认；把牵引、身份识别和持续看护配合起来，比单靠狗对周围环境的熟悉更可靠。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-walk",
+    "source": {
+      "title": "Cold Weather Safety Tips",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/general-pet-care/cold-weather-safety-tips",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-cold.html",
+      "excerpt": "Dogs can lose their scent in the snow and easily become lost."
+    }
+  },
+  {
+    "id": "knowledge-063",
+    "contentType": "knowledge",
+    "title": "想减少吠叫，先记录发生的情境",
+    "text": "吠叫可能是在警戒、打招呼、索取关注，也可能与不适或焦虑有关。处理前先记录它在何时、何地叫，面向谁，以及之前出现了什么声音或动作。把这些线索放在一起，才容易找到行为的原因。目标也不是让狗从此完全不出声，而是理解需求、减少过度吠叫，避免把所有叫声都归为不听话。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Barking",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/barking",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-barking.html",
+      "excerpt": "When and where does the barking occur?"
+    }
+  },
+  {
+    "id": "knowledge-064",
+    "contentType": "knowledge",
+    "title": "窗外经过的人，总让狗吠叫怎么办",
+    "text": "如果狗经常对窗外经过的人或动物警戒，可以先减少它持续盯守外面的机会，例如遮挡容易触发反应的视线，并在院子活动时有人看护。环境调整有助于减少反复练习吠叫的机会。不要只靠大声责骂压住声音；狗对陌生动静的担忧仍可能存在，后续应根据具体原因安排合适的训练。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Barking",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/barking",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-barking.html",
+      "excerpt": "Removable plastic film or spray-based glass coatings can help to obscure your dog’s view"
+    }
+  },
+  {
+    "id": "knowledge-065",
+    "contentType": "knowledge",
+    "title": "别只盯着吠叫，也奖励合适的表达",
+    "text": "有些狗会通过叫声获得关注、食物或游戏，反复成功后，这种表达方式就可能越来越常见。日常互动可以留意它安静、坐下等合适的行为，及时给出回应，让它学到另一种获得需要的方式。前提是先确认吠叫的原因；疼痛、恐惧或独处焦虑引起的叫声，不能简单当成索取奖励处理。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Barking",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/barking",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-barking.html",
+      "excerpt": "teach him to do another behavior instead"
+    }
+  },
+  {
+    "id": "knowledge-066",
+    "contentType": "knowledge",
+    "title": "狗爱咀嚼，需要的是合适的出口",
+    "text": "咀嚼是狗探索环境的一种正常行为，幼犬换牙时尤其可能想咬东西，成年犬也会借此消磨时间或缓解轻微紧张。重点不是让它完全停止咀嚼，而是提供适合的玩具，并温和地教它哪些东西可以咬。若破坏主要发生在独处时，还伴随踱步、叫声等困扰表现，应进一步了解原因，而不是只增加玩具。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Destructive Chewing",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/destructive-chewing",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-destructive-chewing.html",
+      "excerpt": "It’s normal for puppies and dogs to chew on objects"
+    }
+  },
+  {
+    "id": "knowledge-067",
+    "contentType": "knowledge",
+    "title": "先收好鞋子，再教狗咬什么",
+    "text": "在狗还没学会区分物品时，把鞋子、衣物、书本和垃圾放到它够不到的地方，可以减少出错机会。同时提供自己的咀嚼玩具，避免把旧鞋、旧靠垫当作玩具送给它，否则新旧物品之间的规则容易混淆。家居收纳和温和引导需要一起做，不能指望狗仅凭一次提醒就理解人的物品分类。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Destructive Chewing",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/destructive-chewing",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-destructive-chewing.html",
+      "excerpt": "avoid confusing him by offering unwanted household items"
+    }
+  },
+  {
+    "id": "knowledge-068",
+    "contentType": "knowledge",
+    "title": "咀嚼玩具可以轮换，也要观察适不适合",
+    "text": "给狗提供咀嚼用品后，要继续观察它对哪些材质和形式感兴趣，也可以轮换玩具，减少对同一件物品失去兴趣的情况。可食用咀嚼物还涉及大块吞咽和噎住的风险，需要有人留意。不要把“专门给狗的东西”理解为适合所有狗；若不确定某种用品是否安全，可以根据它的咬合习惯咨询兽医。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Destructive Chewing",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/destructive-chewing",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-destructive-chewing.html",
+      "excerpt": "rotate your dog’s chew toys every couple of days"
+    }
+  },
+  {
+    "id": "knowledge-069",
+    "contentType": "knowledge",
+    "title": "护食的信号，不只有真的咬人",
+    "text": "护食可能表现为叼着东西跑开、对靠近的人低吼，也可能发展为扑咬。狗觉得值得保护的，不一定只是饭碗，还可能是玩具、咀嚼物或捡到的物品。看到身体僵住、盯视、吞食加快等紧张反应时，不要继续靠近来测试底线。先让人和狗保持安全距离，再寻求合适的专业评估。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Food Guarding",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/food-guarding",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-food-guarding.html",
+      "excerpt": "Resource guarding in dogs can range from relatively benign behavior"
+    }
+  },
+  {
+    "id": "knowledge-070",
+    "contentType": "knowledge",
+    "title": "让护食的狗，先在不被打扰的地方吃饭",
+    "text": "对于有护食表现的狗，管理进食环境是保护家人和狗的重要一步。可以让它在单独房间或有隔离措施的位置吃饭，避免有人经过、伸手拿碗或争抢食物。不要通过强行夺走食物来证明谁说了算，这可能让它更紧张。若需要改善行为，应在安全安排之外，请专业人员制定适合这只狗的方案。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Food Guarding",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/food-guarding",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-food-guarding.html",
+      "excerpt": "They leave their dogs alone while they’re eating"
+    }
+  },
+  {
+    "id": "knowledge-071",
+    "contentType": "knowledge",
+    "title": "家里有孩子，更要认真处理护食问题",
+    "text": "孩子往往不容易识别狗的警告，也更可能突然靠近，因此护食与儿童共同出现时需要格外重视。不要让孩子参与拿走饭碗、靠近喂食等纠正练习，应先做好隔离和成人看护，并寻求有相关经验的行为专业人员帮助。即使狗平时看起来友好，也不能据此判断进食或守护物品时一定安全。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Food Guarding",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/food-guarding",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-food-guarding.html",
+      "excerpt": "Children are more likely to get bitten"
+    }
+  },
+  {
+    "id": "knowledge-072",
+    "contentType": "knowledge",
+    "title": "独处时拆家，可能不只是调皮",
+    "text": "如果破坏、持续叫声或试图逃出主要发生在照料者离开之后，还伴随踱步、流口水或离家前明显不安，就需要考虑独处带来的压力。抓咬门窗还可能造成牙齿、脚垫和指甲受伤。先记录行为与离家的时间关系，再联系兽医或行为专业人员评估；单凭家里被弄乱，不能直接给狗下结论。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Separation Anxiety",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/separation-anxiety",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-separation-anxiety.html",
+      "excerpt": "Escape attempts by dogs with separation anxiety are often extreme"
+    }
+  },
+  {
+    "id": "knowledge-073",
+    "contentType": "knowledge",
+    "title": "作息突然变化，也会影响狗的独处感受",
+    "text": "从经常有人在家变成需要独处更久，或经历搬家、家庭成员离开，可能与分离焦虑的出现有关。如果狗在生活安排变化后开始表现不安，把变化发生的时间也记下来，有助于专业人员理解情况。重点是观察它如何应对新的节奏，而不是把突然出现的困扰简单解释成任性或故意捣乱。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Separation Anxiety",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/separation-anxiety",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-separation-anxiety.html",
+      "excerpt": "An abrupt change in schedule in terms of when or how long a dog is left alone"
+    }
+  },
+  {
+    "id": "knowledge-074",
+    "contentType": "knowledge",
+    "title": "不要惩罚因独处而焦虑的狗",
+    "text": "分离焦虑中的吠叫、破坏等行为，是狗在应对压力时的表现，并不等于故意报复照料者。回家后责骂或惩罚，可能让它更加不安，问题也可能加重。应先保证环境安全，了解行为的发生条件，再寻求合适的帮助。处理的方向是减轻独处带来的恐惧，让狗逐渐能够承受分开，而不是让它害怕你的反应。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Separation Anxiety",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/separation-anxiety",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-separation-anxiety.html",
+      "excerpt": "Do not scold or punish your dog."
+    }
+  },
+  {
+    "id": "knowledge-075",
+    "contentType": "knowledge",
+    "title": "练习独处，要从狗能承受的时长开始",
+    "text": "对独处焦虑的狗，练习的关键是从不会引起明显不安的短暂分开开始，再依据反应逐渐增加时长。直接把狗留得更久、期待它自己习惯，可能超出它目前的承受能力。中重度情况往往需要更复杂的行为方案，应请有相关经验的专业人员指导。每次进展取决于狗的状态，而不是固定日程表。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Separation Anxiety",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/separation-anxiety",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-separation-anxiety.html",
+      "excerpt": "short separations that do not produce anxiety"
+    }
+  },
+  {
+    "id": "knowledge-076",
+    "contentType": "knowledge",
+    "title": "幼犬来咬手，可以把互动引向玩具",
+    "text": "幼犬用嘴探索时，可以准备容易拿到的合适玩具，在它想咬手或脚趾时，把互动转向玩具。这样是在提供可以参与的对象，而不是让它猜测为什么人的手刚才可以玩、现在又不可以。游戏规则应保持一致，也要观察幼犬的兴奋程度；如果出现明显僵硬、低吼或疼痛性咬伤，应另行寻求专业帮助。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Mouthing, Nipping and Biting in Puppies",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/mouthing-nipping-and-biting-puppies",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-mouthing-nipping-and-biting-puppies.html",
+      "excerpt": "Substitute a toy or chew bone when your puppy tries to gnaw on fingers or toes."
+    }
+  },
+  {
+    "id": "knowledge-077",
+    "contentType": "knowledge",
+    "title": "幼犬也能在合适的同伴互动中学习",
+    "text": "幼犬与合适的犬只玩耍，有机会学习控制咬合力度，也能满足社交和活动需要。ASPCA建议选择其他幼犬或友好、已接种疫苗的成年犬，并提到有人看护的幼犬课程。安排前先确认健康与接种要求，过程中持续观察互动；不是把幼犬放进一群陌生狗里，就能自然学会相处。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Mouthing, Nipping and Biting in Puppies",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/mouthing-nipping-and-biting-puppies",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-mouthing-nipping-and-biting-puppies.html",
+      "excerpt": "Provide plenty of opportunities for your puppy to play with other puppies and with friendly, vaccinated adult dogs."
+    }
+  },
+  {
+    "id": "knowledge-078",
+    "contentType": "knowledge",
+    "title": "幼犬咬手时，不用拍打来教训",
+    "text": "因为玩耍咬手而拍打幼犬，可能使它玩得更激烈、咬得更重，也可能让它开始害怕照料者，甚至出现真正的攻击行为。摇晃后颈、打鼻子或做让它疼痛和恐惧的动作，都不适合作为纠正方式。先让互动回到平静、安全的状态，再通过合适玩具和一致的游戏边界进行温和引导。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Mouthing, Nipping and Biting in Puppies",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/mouthing-nipping-and-biting-puppies",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-mouthing-nipping-and-biting-puppies.html",
+      "excerpt": "Slapping or hitting puppies for playful mouthing can cause them to bite harder."
+    }
+  },
+  {
+    "id": "knowledge-079",
+    "contentType": "knowledge",
+    "title": "听到警笛就嚎叫，先看看声音的关系",
+    "text": "嚎叫也是狗的交流方式，一些狗会回应警笛、乐器或其他高频声音。如果叫声随着外界声音结束而停止，就能提供一个有用的情境线索。不要看到嚎叫就直接判断成分离焦虑，也不要故意反复播放刺激它的声音取乐。若触发频繁并影响生活，可请专业人员帮助评估和调整它对声音的反应。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Howling",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/howling",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-howling.html",
+      "excerpt": "Some dogs also howl in response to high-pitched sounds"
+    }
+  },
+  {
+    "id": "knowledge-080",
+    "contentType": "knowledge",
+    "title": "突然更爱嚎叫，先排查身体不适",
+    "text": "狗有时会因为受伤或生病而嚎叫。如果原本不常这样叫的狗突然开始嚎叫，或频率明显增加，应先让兽医排查健康问题，再决定是否做行为训练。观察叫声发生的场景当然有帮助，但不能只根据它看起来精神还好，就忽略身体原因。把变化开始的时间与其他异常一起说明，有助于就诊沟通。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Howling",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/howling",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-howling.html",
+      "excerpt": "Dogs sometimes howl when they’re hurt or sick."
+    }
+  },
+  {
+    "id": "knowledge-081",
+    "contentType": "knowledge",
+    "title": "身体突然僵住，也可能是在发出警告",
+    "text": "攻击风险并不总是从明显露齿开始，身体突然僵硬、低吼、前冲或空咬都可能是警告的一部分。不同狗不会严格按同一顺序表现，警告与真正咬伤之间也可能很短。日常观察时，要结合整个身体和当时情境，不要只等它叫得很凶才重视。发现风险后先停止逼近，并安排安全距离与专业帮助。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Aggression",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/aggression",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-aggression.html",
+      "excerpt": "Becoming very still and rigid"
+    }
+  },
+  {
+    "id": "knowledge-082",
+    "contentType": "knowledge",
+    "title": "评估攻击行为，记录情境比贴标签有用",
+    "text": "狗曾经出现攻击反应时，可以记录针对谁、在何时何地发生、之前发生了什么，以及什么让反应结束。相同的表面动作可能由不同原因引起，只有“它很凶”这样的描述，往往不足以制定合适方案。记录应来自已经发生的情况，不要主动制造冲突做测试；把信息交给兽医或行为专业人员评估。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Aggression",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/aggression",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-aggression.html",
+      "excerpt": "When and where did it happen?"
+    }
+  },
+  {
+    "id": "knowledge-083",
+    "contentType": "knowledge",
+    "title": "害怕的狗，需要可以退开的空间",
+    "text": "一只想躲开的狗，如果被堵住或限制逃离，可能转而以攻击保护自己。因此，狗在后退、躲避时，不要继续逼近、围住或伸手强行接触。它看起来弱小或胆怯，并不代表没有咬伤风险。照顾恐惧反应时，先减少让它无路可退的情境，再请专业人员根据具体触发因素安排后续帮助。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Aggression",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/aggression",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-aggression.html",
+      "excerpt": "A fearful dog may become aggressive if cornered or trapped."
+    }
+  },
+  {
+    "id": "knowledge-084",
+    "contentType": "knowledge",
+    "title": "熟悉的狗受伤时，也要小心触碰",
+    "text": "平时温和、亲近人的狗，在疼痛时也可能出现攻击反应。即使你是为了检查伤处或帮助它，触碰仍可能让不适加重，因此不能因为熟悉就忽略防护。狗突然变得易怒或抗拒接触时，应先联系兽医排查身体原因；处理受伤动物时，也应听从专业人员对搬动、检查和安全看护的指导。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Aggression",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/aggression",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-aggression.html",
+      "excerpt": "An otherwise gentle, friendly dog can behave aggressively when in pain."
+    }
+  },
+  {
+    "id": "knowledge-085",
+    "contentType": "knowledge",
+    "title": "出现攻击风险时，找有对应经验的帮助",
+    "text": "攻击行为的原因和风险可能比较复杂，某些训练方法用错反而会加重问题。寻找帮助时，应了解对方是否真正受过相关教育、是否有处理犬攻击行为的经验，而不只看是否使用训练师称呼。合适的方案需要结合狗的状态与家庭情境，并持续观察进展；同时由兽医排查可能参与其中的身体问题。",
+    "topics": [
+      "养宠经验"
+    ],
+    "circleId": "circle-walks",
+    "editorId": "catalog-dog-life",
+    "source": {
+      "title": "Aggression",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/aggression",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-dog-aggression.html",
+      "excerpt": "Always Work with a Professional Behavior Expert"
+    }
+  },
+  {
+    "id": "knowledge-086",
+    "contentType": "knowledge",
+    "title": "酒杯和生面团，都要离宠物远一点",
+    "text": "含酒精的饮料和食物不适合宠物，接触后需要及时咨询兽医。尚未烘烤的酵母面团也有风险：它可能在消化道中继续膨胀、产生气体，并生成酒精。准备聚餐或烘焙时，把酒杯、剩余饮品和醒发中的面团放在宠物够不到的位置；发现误食时，记录大致种类和数量，尽快寻求专业帮助。",
+    "topics": [
+      "新手养宠",
+      "养宠经验"
+    ],
+    "circleId": "circle-neighbors",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "People Foods to Avoid Feeding Your Pets",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/aspca-poison-control/people-foods-avoid-feeding-your-pets",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-foods.html",
+      "excerpt": "The yeast also produces alcohol as a by-product in the stomach environment"
+    }
+  },
+  {
+    "id": "knowledge-087",
+    "contentType": "knowledge",
+    "title": "巧克力和咖啡，不是宠物的小零食",
+    "text": "巧克力、咖啡与其他含咖啡因的食品饮品，可能因其中的甲基黄嘌呤给宠物带来中毒风险。可可含量更高的巧克力以及咖啡因含量更高的产品，通常更值得警惕；不能因为某种巧克力颜色浅，就把它当作适合宠物的奖励。收好相关食物，若发生误食，记录产品和数量并联系兽医。",
+    "topics": [
+      "新手养宠",
+      "养宠经验"
+    ],
+    "circleId": "circle-neighbors",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "People Foods to Avoid Feeding Your Pets",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/aspca-poison-control/people-foods-avoid-feeding-your-pets",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-foods.html",
+      "excerpt": "The darker (higher cacao percentage) the chocolate"
+    }
+  },
+  {
+    "id": "knowledge-088",
+    "contentType": "knowledge",
+    "title": "葡萄和葡萄干，别拿来喂狗",
+    "text": "ASPCA 提醒，狗接触葡萄或葡萄干可能发生肾脏损伤。水果看起来天然，并不等于对狗安全，因此不要把它们当作顺手分享的点心。家里摆放果盘、收拾零食时，也要留意狗能否够到。若怀疑已经吃下，先记下大致数量和发生的情况，再及时联系兽医，不要根据当时精神尚可就自行排除风险。",
+    "topics": [
+      "新手养宠",
+      "养宠经验"
+    ],
+    "circleId": "circle-neighbors",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "People Foods to Avoid Feeding Your Pets",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/aspca-poison-control/people-foods-avoid-feeding-your-pets",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-foods.html",
+      "excerpt": "exposure to grapes/raisins can lead to kidney damage"
+    }
+  },
+  {
+    "id": "knowledge-089",
+    "contentType": "knowledge",
+    "title": "葱蒜类食物，猫狗都要避开",
+    "text": "洋葱、大蒜和细香葱属于葱属植物，可能引起胃肠道刺激以及红细胞损伤，进一步造成贫血。猫对这类问题更敏感，狗也并非没有风险。给宠物选择加餐时，不能只看食物名称，还应关注其中是否混入葱蒜成分。怀疑误食后，把食物种类和大致摄入情况告诉兽医，由专业人员判断下一步。",
+    "topics": [
+      "新手养宠",
+      "养宠经验"
+    ],
+    "circleId": "circle-neighbors",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "People Foods to Avoid Feeding Your Pets",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/aspca-poison-control/people-foods-avoid-feeding-your-pets",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-foods.html",
+      "excerpt": "Allium species can cause gastrointestinal irritation and red blood cell damage"
+    }
+  },
+  {
+    "id": "knowledge-090",
+    "contentType": "knowledge",
+    "title": "宠物防晒驱蚊，先看适用标签",
+    "text": "给自己准备的防晒霜或驱蚊用品，不要顺手直接用在宠物身上。ASPCA的夏季照护建议明确要求，给宠物使用的这类产品应标注适用于动物。选购时先核对标签中的使用对象和说明，拿不准时咨询兽医；不能只凭气味温和、自己常用或包装写着户外适用，就判断适合猫狗。",
+    "topics": [
+      "新手养宠",
+      "养宠经验"
+    ],
+    "circleId": "circle-neighbors",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "Hot Weather Safety Tips",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/general-pet-care/hot-weather-safety-tips",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-heat.html",
+      "excerpt": "any sunscreen or insect repellent product you use on your pets is labeled specifically for use on animals"
+    }
+  },
+  {
+    "id": "knowledge-091",
+    "contentType": "knowledge",
+    "title": "生肉和骨头，并不自动等于健康",
+    "text": "生肉和生鸡蛋可能携带沙门氏菌、大肠杆菌等，对宠物和接触它们的人都可能有害。骨头也可能导致消化道损伤或阻塞，不能仅凭“野外会这样吃”判断安全。为猫狗选择食物时，把微生物和误吞造成的机械损伤分别考虑，不要把未经处理的肉、蛋或骨头当作天然就无风险的加餐。",
+    "topics": [
+      "新手养宠",
+      "养宠经验"
+    ],
+    "circleId": "circle-neighbors",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "People Foods to Avoid Feeding Your Pets",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/aspca-poison-control/people-foods-avoid-feeding-your-pets",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-foods.html",
+      "excerpt": "Raw meat and raw eggs can contain bacteria such as Salmonella and E. coli"
+    }
+  },
+  {
+    "id": "knowledge-092",
+    "contentType": "knowledge",
+    "title": "含木糖醇的用品，别让狗接触",
+    "text": "木糖醇会出现在部分口香糖、糖果、烘焙食品和牙膏中。对狗来说，它可能导致低血糖，并在一定摄入量下造成肝脏损伤，因此“无糖”不代表可以喂狗。家里收纳这些用品时，注意包装成分和狗能否接触。若怀疑误食，应记录产品与大致数量并联系兽医，不要等明显症状出现后才处理。",
+    "topics": [
+      "新手养宠",
+      "养宠经验"
+    ],
+    "circleId": "circle-neighbors",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "People Foods to Avoid Feeding Your Pets",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/aspca-poison-control/people-foods-avoid-feeding-your-pets",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-foods.html",
+      "excerpt": "Xylitol is used as a sweetener in many products"
+    }
+  },
+  {
+    "id": "knowledge-093",
+    "contentType": "knowledge",
+    "title": "坚果里的油脂，也要算进风险里",
+    "text": "杏仁、碧根果和核桃等坚果含有较多油脂，可能让宠物出现呕吐、腹泻，部分情况下还可能涉及胰腺炎。人的小份零食并不一定适合作为宠物奖励，节日桌面和随手放置的零食尤其需要留意。给宠物加餐时，优先维持原有合适的饮食安排；如果误食后不适，把食物种类和数量告诉兽医。",
+    "topics": [
+      "新手养宠",
+      "养宠经验"
+    ],
+    "circleId": "circle-neighbors",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "People Foods to Avoid Feeding Your Pets",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/aspca-poison-control/people-foods-avoid-feeding-your-pets",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-foods.html",
+      "excerpt": "Nuts, including almonds, pecans and walnuts, contain high amounts of oils and fats."
+    }
+  },
+  {
+    "id": "knowledge-094",
+    "contentType": "knowledge",
+    "title": "过咸的零食，不适合和宠物分享",
+    "text": "摄入过多盐分可能让宠物明显口渴、排尿增加，也可能造成血液电解质异常。不要把重口味的人的零食当作随手分享的奖励。若怀疑摄入过量，应记下吃了什么和大致数量，及时联系兽医，不要等出现呕吐、腹泻或精神异常后才求助；具体风险需要结合摄入量等情况判断。",
+    "topics": [
+      "新手养宠",
+      "养宠经验"
+    ],
+    "circleId": "circle-neighbors",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "People Foods to Avoid Feeding Your Pets",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/aspca-poison-control/people-foods-avoid-feeding-your-pets",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-foods.html",
+      "excerpt": "Excessive salt intake can produce increased thirst and urination"
+    }
+  },
+  {
+    "id": "knowledge-095",
+    "contentType": "knowledge",
+    "title": "闷热天气，阴凉和饮水都要有",
+    "text": "室外炎热或潮湿时，宠物可能很快脱水，需要能够喝到充足、干净的新鲜水，也需要可以躲开阳光的阴凉位置。天气极热时，应让宠物留在室内，并避免过量运动。安排一次外出，不只是选好目的地，还要考虑沿途和停留处能否获得这些条件；准备好饮水，也不能忽略环境本身的热。",
+    "topics": [
+      "新手养宠",
+      "养宠经验"
+    ],
+    "circleId": "circle-neighbors",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "Hot Weather Safety Tips",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/general-pet-care/hot-weather-safety-tips",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-heat.html",
+      "excerpt": "Give pets plenty of fresh, clean water when it’s hot or humid outdoors"
+    }
+  },
+  {
+    "id": "knowledge-096",
+    "contentType": "knowledge",
+    "title": "停车办事时，不把宠物独自留在车里",
+    "text": "不要把宠物单独留在停放的汽车中，车内高温可能带来致命中暑风险。扁脸动物、老年动物、超重动物，以及患有心肺疾病的动物，还需要格外注意保持凉爽。开车带宠物出门时，提前把停车后的照看安排想清楚；行程里哪怕只是临时停靠，也不应让无人照看的车厢成为它等待的地方。",
+    "topics": [
+      "新手养宠",
+      "养宠经验"
+    ],
+    "circleId": "circle-neighbors",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "Hot Weather Safety Tips",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/general-pet-care/hot-weather-safety-tips",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-heat.html",
+      "excerpt": "Never leave your animals alone in a parked vehicle."
+    }
+  },
+  {
+    "id": "knowledge-097",
+    "contentType": "knowledge",
+    "title": "带宠物到水边，先安排好看护",
+    "text": "不要让宠物在泳池旁无人看护，接触水时应循序渐进，乘船时要使用浮具。去泳池、湖边或海边，也要提供干净饮水，避免宠物直接喝池水、海水或湖水。狗游泳后应冲洗被毛上的氯或盐。水边活动的准备不仅是能不能下水，还包括全程照看、补水，以及结束后的清洁。",
+    "topics": [
+      "新手养宠",
+      "养宠经验"
+    ],
+    "circleId": "circle-neighbors",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "Hot Weather Safety Tips",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/general-pet-care/hot-weather-safety-tips",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-heat.html",
+      "excerpt": "Do not leave pets unsupervised around a pool."
+    }
+  },
+  {
+    "id": "knowledge-098",
+    "contentType": "knowledge",
+    "title": "夏天开窗前，先确认防护稳固",
+    "text": "没有纱窗防护的敞开窗户，可能让宠物发生坠落。需要通风时，应确认窗户、门的防护完整，活动式纱窗也要固定牢靠；没有防护的门窗应保持关闭。不要因为宠物平时很少靠近窗边，就省略这一步检查。把防护是否稳固纳入日常开窗习惯，可以减少一项容易被忽略的居家风险。",
+    "topics": [
+      "新手养宠",
+      "养宠经验"
+    ],
+    "circleId": "circle-neighbors",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "Hot Weather Safety Tips",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/general-pet-care/hot-weather-safety-tips",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-heat.html",
+      "excerpt": "Open unscreened windows pose a real danger to pets"
+    }
+  },
+  {
+    "id": "knowledge-099",
+    "contentType": "knowledge",
+    "title": "车库里的防冻液，要防止宠物接触",
+    "text": "防冻液和冷却液可能给猫狗带来严重中毒风险，车辆附近的泼洒或泄漏应彻底清理。除冰融雪用品等冷天常用化学品，也要放在宠物够不到的地方。看到地面上不明液体，不要让宠物靠近舔食；一旦怀疑摄入防冻液或其他潜在有毒物质，应及时联系兽医，并说明发现的产品或环境。",
+    "topics": [
+      "新手养宠",
+      "养宠经验"
+    ],
+    "circleId": "circle-neighbors",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "Cold Weather Safety Tips",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/general-pet-care/cold-weather-safety-tips",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-cold.html",
+      "excerpt": "Thoroughly clean up any antifreeze spills."
+    }
+  },
+  {
+    "id": "knowledge-100",
+    "contentType": "knowledge",
+    "title": "冬天散步回来，检查脚底和趾间",
+    "text": "走过冰雪或撒有融雪剂的地面后，应清洗并擦干宠物的脚和腹部，去除冰、盐及化学残留。同时看看脚垫有没有裂口、趾间有没有发红，也别忽略夹在趾间的雪团。长时间散步可以带毛巾，便于及时清理。返家后的这一步检查，既关注皮肤刺激，也能减少宠物随后舔到残留物的机会。",
+    "topics": [
+      "新手养宠",
+      "养宠经验"
+    ],
+    "circleId": "circle-neighbors",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "Cold Weather Safety Tips",
+      "publisher": "ASPCA",
+      "url": "https://www.aspca.org/pet-care/general-pet-care/cold-weather-safety-tips",
+      "author": "ASPCA",
+      "checkedAt": "2026-09-29"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容整理",
+      "reviewedAt": "2026-09-29"
+    },
+    "images": [],
+    "sourceEvidence": {
+      "file": "content/batch-001/sources/aspca-cold.html",
+      "excerpt": "wash and dry your pet's feet and stomach to remove ice, salt and chemicals"
+    }
+  }
+]

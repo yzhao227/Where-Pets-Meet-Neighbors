@@ -1,0 +1,12 @@
+<view class="video-page">
+  <view wx:if="{{loading}}" class="player-message">{{loadingText}}</view>
+  <view wx:elif="{{error}}" class="player-message"><text>{{error}}</text><button bindtap="refresh">重新加载</button></view>
+  <block wx:else>
+    <view class="player-frame">
+      <video wx:if="{{videoSource && !videoError}}" id="post-video" src="{{videoSource}}" data-src="{{videoSource}}" data-attempt="{{videoAttempt}}" controls="true" autoplay="{{false}}" object-fit="contain" show-mute-btn="true" show-fullscreen-btn="true" enable-play-gesture="true" binderror="videoFailed" bindwaiting="videoBuffering" bindloadedmetadata="videoMetadata" bindplay="videoPlaying" bindtimeupdate="videoProgress" bindpause="videoPaused" bindended="videoEnded"/>
+      <view wx:if="{{videoWaiting && !videoError}}" class="player-buffer" role="status" aria-label="视频缓冲中"><view class="player-spinner"></view></view>
+      <view wx:if="{{videoError}}" class="player-message player-failure"><text>{{videoErrorText}}</text><button bindtap="retryVideo">重新播放</button></view>
+    </view>
+    <view class="player-caption"><view class="player-title">{{post.title}}</view><view class="player-author">{{post.author.nickname}}</view></view>
+  </block>
+</view>

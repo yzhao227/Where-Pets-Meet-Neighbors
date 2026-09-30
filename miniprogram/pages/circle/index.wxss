@@ -1,0 +1,22 @@
+.circle-hero{text-align:center;padding:28rpx;background:#FFFFFF;border-color:#E9E5E1;}
+.circle-symbol{font-size:66rpx;margin-bottom:12rpx;}
+.circle-hero .eyebrow{font-size:18rpx;display:none;}
+.circle-hero .page-title{font-size:38rpx;margin:12rpx 0;}
+.circle-description{font-size:26rpx;line-height:1.85;color:#505863;}
+.circle-people{font-size:22rpx;margin:24rpx 0;color:#6A717B;}
+.circle-hero .btn{width:100%;box-sizing:border-box;}
+.demo-label{margin-top:20rpx;}
+.welcome-note{font-size:23rpx;color:#516B80;line-height:1.8;margin:22rpx 0;background:#EAF2F8;padding:18rpx 20rpx;border-radius:16rpx;}
+.feed-heading{margin:28rpx 0 22rpx;}
+button.compose-link{margin:0;padding:0;background:transparent;color:#BB4937;font-size:25rpx;}
+.post-card{padding:25rpx;margin-bottom:22rpx;}
+.post-author{margin-left:8rpx;flex:1;font-size:26rpx;font-weight:600;}
+.post-author .small{font-size:21rpx;font-weight:400;margin-top:7rpx;}
+.post-text{font-size:28rpx;line-height:1.8;white-space:pre-wrap;margin:22rpx 0;}
+.post-images{display:flex;gap:8rpx;border-radius:20rpx;overflow:hidden;}
+.post-images image{width:33.333%;height:200rpx;flex:1;}
+.images-1 image{height:350rpx;width:100%;}
+.images-2 image{height:255rpx;width:50%;}
+.response-count{margin-top:21rpx;}
+.empty-title{font-size:29rpx;font-weight:650;margin-bottom:16rpx;}
+.circle-post-title{font-size:32rpx;font-weight:700;line-height:1.65;margin-top:23rpx;margin-bottom:-12rpx;}

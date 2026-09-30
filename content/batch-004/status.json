@@ -1,0 +1,40 @@
+{
+  "requestedAdditions": 100,
+  "preparedAdditions": 100,
+  "contentTypes": {
+    "photo": 92,
+    "video": 8
+  },
+  "newPhotoOriginals": 150,
+  "photoSpecies": {
+    "cat": 8,
+    "dog": 8,
+    "rabbit": 5,
+    "hamster": 4,
+    "guinea-pig": 5,
+    "budgerigar": 7,
+    "fischers-lovebird": 1,
+    "rosy-faced-lovebird": 1,
+    "masked-lovebird": 1,
+    "cockatiel": 2,
+    "leopard-gecko": 1,
+    "bearded-dragon": 10,
+    "corn-snake": 1,
+    "ball-python": 1,
+    "cherry-shrimp": 4,
+    "axolotl": 10,
+    "red-eared-slider": 4,
+    "goldfish": 7,
+    "betta": 4,
+    "ornamental-fish": 1,
+    "endler-guppy": 1,
+    "guppy": 2,
+    "aquarium-scene": 1,
+    "unidentified-tortoise": 1,
+    "unidentified-turtle": 1,
+    "pond-slider": 1
+  },
+  "basePreserved": true,
+  "published": true,
+  "publicationComplete": true
+}

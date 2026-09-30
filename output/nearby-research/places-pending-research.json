@@ -1,0 +1,39 @@
+{
+  "createdOn": "2026-09-29",
+  "status": "superseded_by_current_catalogue_report",
+  "supersededOn": "2026-09-29",
+  "supersededBy": "2026-09-29-current-catalogue.md",
+  "publishable": false,
+  "scope": "上海市闵行区莘庄镇、春申与梅陇近莘庄片区、七莘路沿线",
+  "note": "本文件是初始候选历史，已被当前报告替代。主任务已取得公开资料并填充6个地点、1个月份预告和2条往期活动；实际来源和限制以新报告与nearby-catalogue.js为准。下列旧候选仍不可直接导入，不表示当前浏览仍受阻。",
+  "historicalAccessIssue": {
+    "tool": "mcp__cua_repl.js",
+    "action": "在独立隐藏 IAB tab 中打开 Bing 公开地点搜索",
+    "firstResult": "Browser security check unavailable; permission request could not complete; access was not granted; auto-review could not complete; failing closed; no explicit denial was made.",
+    "sameActionRetryResult": "IAB visibility is not supported in a subagent thread",
+    "followUp": "主任务随后经同一受审查浏览器入口取得公开资料，当前目录已经完成；此处仅保留初始子任务历史，未通过其他工具绕过。"
+  },
+  "existingProjectEvidence": {
+    "searched": ["docs", "output", "README.md", "TODO.md"],
+    "result": "初次检查时仅有方案稿；现已新增2026-09-29-current-catalogue.md和真实运行目录，本历史检查结果不代表当前状态。"
+  },
+  "candidates": [
+    {"candidateName": "莘庄公园", "kind": "公园", "priority": 1, "sourceUrl": null, "address": null, "openingHours": null, "petAdmission": "unknown", "coordinates": null, "publishable": false},
+    {"candidateName": "莘城中央公园", "kind": "公园", "priority": 1, "sourceUrl": null, "address": null, "openingHours": null, "petAdmission": "unknown", "coordinates": null, "publishable": false},
+    {"candidateName": "仲盛世界商城", "kind": "商业空间", "priority": 1, "sourceUrl": null, "address": null, "openingHours": null, "petAdmission": "unknown", "coordinates": null, "publishable": false},
+    {"candidateName": "上海莘庄维璟印象城", "kind": "商业空间", "priority": 1, "sourceUrl": null, "address": null, "openingHours": null, "petAdmission": "unknown", "coordinates": null, "publishable": false},
+    {"candidateName": "闵行体育公园", "kind": "公园", "priority": 2, "sourceUrl": null, "address": null, "openingHours": null, "petAdmission": "unknown", "coordinates": null, "publishable": false},
+    {"candidateName": "梅陇公园", "kind": "公园", "priority": 2, "sourceUrl": null, "address": null, "openingHours": null, "petAdmission": "unknown", "coordinates": null, "publishable": false},
+    {"candidateName": "上海南方商城", "kind": "商业空间", "priority": 2, "sourceUrl": null, "address": null, "openingHours": null, "petAdmission": "unknown", "coordinates": null, "publishable": false}
+  ],
+  "verificationRequirements": [
+    "政府/经营方的当前正式名称与地址",
+    "公开页面发布时间、更新时间、查阅日期分别记录；不得把查阅日期冒充资料更新日期",
+    "携宠政策区分区域、犬猫种类、体型、牵引、推车/宠物包、禁入店铺等；未查到明确规则则维持 unknown",
+    "普通公园不可默认可以遛狗；禁携宠公园不能列入带宠出门筛选",
+    "以现场/官方当前开放信息为准，旧营业时间需重新核实",
+    "地点照片只能自有、授权或有明确使用许可；无图可使用中性类别图标，不用图库照伪装实景",
+    "坐标有可靠来源且可用时才保存；否则不算距离、不伪造距离",
+    "场所展示动物与访客允许携带的宠物分别记录"
+  ]
+}

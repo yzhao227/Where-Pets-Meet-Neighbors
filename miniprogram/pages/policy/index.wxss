@@ -1,0 +1,13 @@
+.policy-page>.eyebrow{margin-top:12rpx;font-size:18rpx;}
+.page-title{font-size:42rpx;margin:4rpx 0 18rpx;}
+.draft-label{font-size:21rpx;color:#94603D;background:#FFF3E6;border-radius:13rpx;padding:13rpx 16rpx;line-height:1.85;margin-top:20rpx;}
+.policy-tabs{display:flex;gap:14rpx;margin:25rpx 0;}
+.operator-card{padding:24rpx;background:#EAF2F8;border-color:#DCE7F0;}
+.operator-title{font-size:26rpx;font-weight:650;color:#3F5B71;}
+.operator-copy{font-size:24rpx;line-height:1.85;color:#516B80;margin-top:12rpx;word-break:break-word;}
+.operator-note{font-size:22rpx;line-height:1.85;color:#627687;margin-top:18rpx;}
+button.contact-copy{font-size:23rpx;background:transparent;color:#B84735;padding:6rpx 0;margin-top:10rpx;text-align:left;line-height:1.8;}
+.policy-section{margin:31rpx 0;}
+.policy-section-title{font-size:29rpx;font-weight:650;color:#24262D;margin-bottom:15rpx;}
+.policy-section-text{font-size:26rpx;line-height:2;color:#505863;white-space:pre-wrap;}
+.reading-note{padding:22rpx;font-size:22rpx;line-height:1.9;background:#FAF0E9;border-radius:16rpx;color:#98604B;margin-top:32rpx;}

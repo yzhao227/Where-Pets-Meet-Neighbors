@@ -1,0 +1,65 @@
+<view class="page friends-page">
+  <view class="intro">从一句招呼，认识聊得来的宠友。</view>
+  <view class="search-bar">
+    <input class="search-input" value="{{searchText}}" bindinput="inputSearch" bindconfirm="search" confirm-type="search" maxlength="60" placeholder="搜索宠友昵称 / 完整 ID" aria-label="搜索宠友昵称或完整 ID"/>
+    <button wx:if="{{searchText}}" class="clear-button" bindtap="clearSearch" aria-label="清空搜索">×</button>
+    <button class="search-button" bindtap="search">搜索</button>
+  </view>
+  <view wx:if="{{ownId}}" class="my-id"><view><text class="id-label">我的 ID</text><text class="id-value" selectable>{{ownId}}</text></view><button bindtap="copyId">复制</button></view>
+  <view class="search-help">分享完整 ID 可方便好友找到你；昵称搜索仅展示公开资料的宠友和已有联系。</view>
+  <view wx:if="{{mode === 'demo'}}" class="local-note">本机体验：好友和聊天记录保存在当前设备，暂不支持跨设备通信。</view>
+
+  <view wx:if="{{query}}" class="section search-results">
+    <view class="section-heading">搜索结果<text>{{results.length ? results.length + ' 位' : ''}}</text></view>
+    <view wx:if="{{searching}}" class="loading">正在寻找宠友…</view>
+    <view wx:elif="{{searchError}}" class="error-box"><text>{{searchError}}</text><button class="btn btn-ghost" bindtap="retrySearch">重新搜索</button></view>
+    <view wx:elif="{{results.length === 0}}" class="quiet-empty">没有找到匹配的宠友，试试对方的完整 ID。</view>
+    <view wx:for="{{results}}" wx:key="id" class="person-row">
+      <image wx:if="{{item.avatarUrl}}" class="person-avatar" src="{{item.avatarUrl}}" mode="aspectFill" binderror="imageFailed" data-id="{{item.id}}" data-src="{{item.avatarUrl}}"/><view wx:else class="person-avatar avatar-fallback">{{item.initial}}</view>
+      <view class="person-info"><view class="person-name">{{item.nickname}}</view><view class="person-id">ID · {{item.id}}</view></view>
+      <button wx:if="{{item.friendStatus === 'none'}}" class="compact-button" bindtap="beginRequest" data-id="{{item.id}}" disabled="{{busy}}">加好友</button>
+      <button wx:elif="{{item.friendStatus === 'friends'}}" class="compact-button" bindtap="chat" data-id="{{item.id}}" disabled="{{busy}}">发消息</button>
+      <text wx:else class="status-label">{{item.friendStatus === 'incoming' ? '待你同意' : '已申请'}}</text>
+    </view>
+    <button wx:if="{{nextCursor}}" class="btn btn-ghost" bindtap="loadMore" loading="{{moreBusy}}" disabled="{{moreBusy}}">查看更多</button>
+  </view>
+
+  <view wx:if="{{requestTarget}}" class="request-compose card">
+    <view class="section-heading">向 {{requestTarget.nickname}} 打个招呼</view>
+    <input class="input" value="{{requestNote}}" bindinput="inputNote" maxlength="100" placeholder="介绍一下自己（选填）" disabled="{{busy}}"/>
+    <view class="compose-actions"><button class="compact-button muted-button" bindtap="cancelRequest" disabled="{{busy}}">取消</button><button class="compact-button solid-button" bindtap="sendRequest" loading="{{busy}}" disabled="{{busy}}">发送申请</button></view>
+  </view>
+
+  <view wx:if="{{loading}}" class="loading">正在读取好友列表…</view>
+  <view wx:elif="{{error}}" class="error-box"><text>{{error}}</text><button class="btn btn-secondary" bindtap="refresh">重新加载</button></view>
+  <view wx:else>
+    <view class="section">
+      <view class="section-heading">收到的申请<text>{{incoming.length}}</text></view>
+      <view wx:if="{{incoming.length === 0}}" class="quiet-empty">暂时没有新的好友申请。</view>
+      <view wx:for="{{incoming}}" wx:key="id" class="request-row">
+        <view class="person-row">
+          <image wx:if="{{item.from.avatarUrl}}" class="person-avatar" src="{{item.from.avatarUrl}}" mode="aspectFill" binderror="imageFailed" data-id="{{item.from.id}}" data-src="{{item.from.avatarUrl}}"/><view wx:else class="person-avatar avatar-fallback">{{item.from.initial}}</view>
+          <view class="person-info"><view class="person-name">{{item.from.nickname}}</view><view class="person-id">{{item.timeText}}</view></view>
+          <button class="compact-button muted-button" bindtap="respond" data-id="{{item.id}}" data-accept="{{false}}" disabled="{{busy}}">拒绝</button><button class="compact-button" bindtap="respond" data-id="{{item.id}}" data-accept="{{true}}" disabled="{{busy}}">同意</button>
+        </view>
+        <view wx:if="{{item.note}}" class="request-note">{{item.note}}</view>
+      </view>
+    </view>
+    <view wx:if="{{outgoing.length}}" class="section">
+      <view class="section-heading">已发送的申请<text>{{outgoing.length}}</text></view>
+      <view wx:for="{{outgoing}}" wx:key="id" class="person-row">
+        <image wx:if="{{item.to.avatarUrl}}" class="person-avatar" src="{{item.to.avatarUrl}}" mode="aspectFill" binderror="imageFailed" data-id="{{item.to.id}}" data-src="{{item.to.avatarUrl}}"/><view wx:else class="person-avatar avatar-fallback">{{item.to.initial}}</view>
+        <view class="person-info"><view class="person-name">{{item.to.nickname}}</view><view class="person-id">{{item.timeText}}</view><view wx:if="{{item.note}}" class="outgoing-note">{{item.note}}</view></view><text class="status-label">等待同意</text>
+      </view>
+    </view>
+    <view class="section">
+      <view class="section-heading">我的好友<text>{{friends.length}}</text></view>
+      <view wx:if="{{friends.length === 0}}" class="friend-empty"><view class="empty-title">还没有添加好友</view><view>搜索你认识的宠友，互相确认后就能聊天、邀请进群。</view></view>
+      <view wx:for="{{friends}}" wx:key="id" class="person-row">
+        <image wx:if="{{item.avatarUrl}}" class="person-avatar" src="{{item.avatarUrl}}" mode="aspectFill" binderror="imageFailed" data-id="{{item.id}}" data-src="{{item.avatarUrl}}"/><view wx:else class="person-avatar avatar-fallback">{{item.initial}}</view>
+        <view class="person-info"><view class="person-name">{{item.nickname}}</view></view>
+        <button class="compact-button" bindtap="chat" data-id="{{item.id}}" disabled="{{busy}}">发消息</button><button class="remove-button" bindtap="removeFriend" data-id="{{item.id}}" disabled="{{busy}}" aria-label="删除好友 {{item.nickname}}">删除</button>
+      </view>
+    </view>
+  </view>
+</view>

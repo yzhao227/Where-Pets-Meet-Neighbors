@@ -1,0 +1,316 @@
+{
+  "sheets": [
+    {
+      "path": "output/content-review/batch05-cats-01.jpg",
+      "pageids": [
+        170269387,
+        170698831,
+        170748720,
+        170750461,
+        172635539,
+        174082185,
+        174702357,
+        174981946,
+        175341209,
+        175551144,
+        175551148,
+        175714739,
+        176713680,
+        176758663,
+        177591455,
+        177591456,
+        178403974,
+        178403975,
+        178403982,
+        178407571
+      ]
+    },
+    {
+      "path": "output/content-review/batch05-cats-02.jpg",
+      "pageids": [
+        178408194,
+        178568314,
+        178827540
+      ]
+    }
+  ],
+  "records": [
+    {
+      "species": "cats",
+      "pageid": 170269387,
+      "title": "File:Black-White-Cat-Sitia-Crete.jpg",
+      "localFile": "content/batch-001/media/170269387.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 1089699773304151163,
+      "reviewSha256": "b54e5f53a0ef3834ac03ad474a9edf1a9eb3fb8e571c77fd13c249e4e051fa93"
+    },
+    {
+      "species": "cats",
+      "pageid": 170698831,
+      "title": "File:Black-White-Cat-Sitia-Crete-2.jpg",
+      "localFile": "content/batch-001/media/170698831.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 5372739146426775100,
+      "reviewSha256": "d0e8a453204415c67b16c11493e30d57bef5c1466f9f15aba8d65d1824cd7048"
+    },
+    {
+      "species": "cats",
+      "pageid": 170748720,
+      "title": "File:Black-Cat-Sitia-Crete-Greece-2.jpg",
+      "localFile": "content/batch-001/media/170748720.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 17866009265168590484,
+      "reviewSha256": "52075f10efddb9dc5bdb1ee61c9ffa13b1a70813e5efdde2c7c431055de21926"
+    },
+    {
+      "species": "cats",
+      "pageid": 170750461,
+      "title": "File:Black-Cat-Sitia-Crete-Greece-3.jpg",
+      "localFile": "content/batch-001/media/170750461.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 12596131517163150461,
+      "reviewSha256": "e0e6f567f2092229b019158560ad8ddaedc9ffe34c5c510d9ea9120820eaa491"
+    },
+    {
+      "species": "cats",
+      "pageid": 172635539,
+      "title": "File:Black-White-Cat-Sitia-Crete-3.jpg",
+      "localFile": "content/batch-001/media/172635539.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 15375789439045758926,
+      "reviewSha256": "1d7d2af1e820a33ebfd6f1918e332ab5c0b41753283ef10102ccb7878979a457"
+    },
+    {
+      "species": "cats",
+      "pageid": 174082185,
+      "title": "File:Black-White-Cat-Sitia-Crete-4.jpg",
+      "localFile": "content/batch-001/media/174082185.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 1225293727120369963,
+      "reviewSha256": "ad5ee00699d63f79bce0333ad2cdf5702ad2b47dc73610d130ff10047e17111d"
+    },
+    {
+      "species": "cats",
+      "pageid": 174702357,
+      "title": "File:Тбилиси, кошка в ботаническом саду (3).jpg",
+      "localFile": "content/batch-001/media/174702357.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 5444595121097704745,
+      "reviewSha256": "b49cc3f6c0d6b365aa978e3c89398b0805b1b58c41dffedee71dac2ceca29247"
+    },
+    {
+      "species": "cats",
+      "pageid": 174981946,
+      "title": "File:Тбилиси, кот на Какабадзе-Руставели.jpg",
+      "localFile": "content/batch-001/media/174981946.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 7406689639708419227,
+      "reviewSha256": "2773b6894d53f5964c5085098a28a50e9971bb251a0f28e1d08d8ad0ec8c0ce5"
+    },
+    {
+      "species": "cats",
+      "pageid": 175341209,
+      "title": "File:Black-White-Cat-Sitia-Crete-5.jpg",
+      "localFile": "content/batch-001/media/175341209.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 3993997115747369841,
+      "reviewSha256": "7ae321ba4b959ff84d9e5b299938500e098baa6ecd70655b9b216283a947a314"
+    },
+    {
+      "species": "cats",
+      "pageid": 175551144,
+      "title": "File:Кошки Гёте института в Салониках 03.jpg",
+      "localFile": "content/batch-001/media/175551144.source",
+      "reviewDimensions": [
+        960,
+        1280
+      ],
+      "reviewDhash": 10127218336783294821,
+      "reviewSha256": "83f43a65afa422b32088a85cb98e63d08332a3575247b07e915258b4c7b78002"
+    },
+    {
+      "species": "cats",
+      "pageid": 175551148,
+      "title": "File:Кошки Гёте института в Салониках 02.jpg",
+      "localFile": "content/batch-001/media/175551148.source",
+      "reviewDimensions": [
+        960,
+        1280
+      ],
+      "reviewDhash": 15838715222652147096,
+      "reviewSha256": "8b4d4db6911963f6bf03907344494c30cb33bef66e32e91c90ec04a8b50933d7"
+    },
+    {
+      "species": "cats",
+      "pageid": 175714739,
+      "title": "File:Black-White-Cat-Sitia-Crete-6.jpg",
+      "localFile": "content/batch-001/media/175714739.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 6298230775201340571,
+      "reviewSha256": "a401ae6aff7736fbbbf3f445fbae1ae811881c546b8b8f72a90a4d246112ad23"
+    },
+    {
+      "species": "cats",
+      "pageid": 176713680,
+      "title": "File:Салоники, кошка возле Grand Hotel Palace.jpg",
+      "localFile": "content/batch-001/media/176713680.source",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 10319889677051966297,
+      "reviewSha256": "8d44a8a91b3c96a47b06848dfc618fc2fda7b8b317065005bf01747ea155fa4d"
+    },
+    {
+      "species": "cats",
+      "pageid": 176758663,
+      "title": "File:Салоники, кошка на 28 Октября.jpg",
+      "localFile": "content/batch-001/media/176758663.source",
+      "reviewDimensions": [
+        960,
+        1440
+      ],
+      "reviewDhash": 2320103829405648643,
+      "reviewSha256": "c7c939cd74a430eab0fb920cf6b54910b21aa65b1856353e584b98c25e32e4be"
+    },
+    {
+      "species": "cats",
+      "pageid": 177591455,
+      "title": "File:Каган, кошка на Дустлике (2).jpg",
+      "localFile": "content/batch-001/media/177591455.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 11086113729244341926,
+      "reviewSha256": "6f98cd3aad71d2a20b40ec13fde9b671a4d035fb0a478112c7d5e62adb724117"
+    },
+    {
+      "species": "cats",
+      "pageid": 177591456,
+      "title": "File:Каган, кошка на Дустлике (1).jpg",
+      "localFile": "content/batch-001/media/177591456.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 16458766319212415300,
+      "reviewSha256": "237fc51eda43016afb1fd9688e500c394e8df443cca6702e412ae065c18e632e"
+    },
+    {
+      "species": "cats",
+      "pageid": 178403974,
+      "title": "File:Салоники, кошка в порту (2).jpg",
+      "localFile": "content/batch-001/media/178403974.source",
+      "reviewDimensions": [
+        960,
+        1440
+      ],
+      "reviewDhash": 9907954785241828678,
+      "reviewSha256": "fd8e440ff92aea20df42195e025da78f4d1fa9263e11c7875b19ac9198ba4d68"
+    },
+    {
+      "species": "cats",
+      "pageid": 178403975,
+      "title": "File:Салоники, кошка в порту (1).jpg",
+      "localFile": "content/batch-001/media/178403975.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 583859701560901644,
+      "reviewSha256": "e2a3bac2c6fd8a69397920b84db7f91de1393f5b97dd6dda36eca7dbe75ca9d1"
+    },
+    {
+      "species": "cats",
+      "pageid": 178403982,
+      "title": "File:Салоники, кошки в порту.jpg",
+      "localFile": "content/batch-001/media/178403982.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 11212726795020202793,
+      "reviewSha256": "8891054e2d0e1f63d1f08e6e07b65db13d23b90fb0bae374e7a5a6de53c991b3"
+    },
+    {
+      "species": "cats",
+      "pageid": 178407571,
+      "title": "File:Салоники, кошка на Колетти-Гианицоне (2).jpg",
+      "localFile": "content/batch-001/media/178407571.source",
+      "reviewDimensions": [
+        960,
+        1440
+      ],
+      "reviewDhash": 14883609051886613361,
+      "reviewSha256": "9ff0d1cee8852acce643c04b42a3d36cf017c4c4186c3319315f2ce5dc3e9aa3"
+    },
+    {
+      "species": "cats",
+      "pageid": 178408194,
+      "title": "File:Салоники, кот на Монастиру.jpg",
+      "localFile": "content/batch-001/media/178408194.source",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 8915990864073387762,
+      "reviewSha256": "1892a0e2d1241b178fa4f3354e07c5116cb8103d4a12e552ede4b9f58f3cb5e7"
+    },
+    {
+      "species": "cats",
+      "pageid": 178568314,
+      "title": "File:Асвестохори, кот на Кносу (2).jpg",
+      "localFile": "content/batch-001/media/178568314.source",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 7418619277637271033,
+      "reviewSha256": "f38ff85e2b96807941fb6418f991fd4c2edd5d0b46b04300007719827180103d"
+    },
+    {
+      "species": "cats",
+      "pageid": 178827540,
+      "title": "File:Литохоро, кошка на Святого Николая (2).jpg",
+      "localFile": "content/batch-001/media/178827540.source",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 3182986627024631198,
+      "reviewSha256": "e01a28446e969587e38209f6b58ed443c88b9b9e945da7693524e77fcb30727f"
+    }
+  ],
+  "possibleDuplicates": []
+}

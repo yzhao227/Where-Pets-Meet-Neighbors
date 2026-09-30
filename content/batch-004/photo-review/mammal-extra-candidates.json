@@ -1,0 +1,3055 @@
+[
+  {
+    "pageid": 52039778,
+    "ns": 6,
+    "title": "File:Rabbit (14591985879).jpg",
+    "index": 12,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 1484313,
+        "width": 2048,
+        "height": 1536,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Rabbit_%2814591985879%29.jpg/960px-Rabbit_%2814591985879%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 480,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Rabbit_%2814591985879%29.jpg/1280px-Rabbit_%2814591985879%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Rabbit_%2814591985879%29.jpg/960px-Rabbit_%2814591985879%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 480,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Rabbit_%2814591985879%29.jpg/1280px-Rabbit_%2814591985879%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Rabbit_%2814591985879%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Rabbit_(14591985879).jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=52039778",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2016-10-03 21:22:59",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Rabbit (14591985879)",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "CC-Zero|Pet rabbits|Photos uploaded from Flickr by Fæ using a script|Flickr images reviewed by FlickreviewR|Photographs by Kostandin Minga",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Can I use this photo? Read &lt;a href=\"<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/people/fotokoci\">https://www.flickr.com/people/fotokoci</a>\"&gt;here&lt;/a&gt; for more informations.",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2014-07-29 13:07:32",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/fotokoci/14591985879/\">https://www.flickr.com/photos/fotokoci/14591985879/</a>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/124957377@N03\">fotokoci</a>",
+            "source": "commons-desc-page"
+          },
+          "Permission": {
+            "value": "At the time of upload, the image license was automatically confirmed using the Flickr <a href=\"https://en.wikipedia.org/wiki/API\" class=\"extiw\" title=\"en:API\">API</a>. For more information see <a href=\"//commons.wikimedia.org/wiki/User:F%C3%A6/Flickr_API_detail\" title=\"User:Fæ/Flickr API detail\">Flickr API detail</a>.",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+    "group": "rabbits"
+  },
+  {
+    "pageid": 94948283,
+    "ns": 6,
+    "title": "File:InsideOut.jpg",
+    "index": 15,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 2293989,
+        "width": 2296,
+        "height": 3421,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/InsideOut.jpg/960px-InsideOut.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 954,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/InsideOut.jpg/1280px-InsideOut.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/InsideOut.jpg/960px-InsideOut.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 954,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/InsideOut.jpg/1280px-InsideOut.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/InsideOut.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:InsideOut.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=94948283",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2020-10-11 09:04:05",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "InsideOut",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "CC-Zero|Rabbits|Self-published work|Curves in nature",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Das HDR-Foto der inneren Organe eines Kaninchens.",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2009-08-11 16:16:56",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:5snake5\" title=\"User:5snake5\">5snake5</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+    "group": "rabbits"
+  },
+  {
+    "pageid": 97800857,
+    "ns": 6,
+    "title": "File:2256Rabbits in the Philippines 03.jpg",
+    "index": 49,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 7559669,
+        "width": 4608,
+        "height": 3456,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/2256Rabbits_in_the_Philippines_03.jpg/960px-2256Rabbits_in_the_Philippines_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 480,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/2256Rabbits_in_the_Philippines_03.jpg/1280px-2256Rabbits_in_the_Philippines_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/2256Rabbits_in_the_Philippines_03.jpg/960px-2256Rabbits_in_the_Philippines_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 480,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/2256Rabbits_in_the_Philippines_03.jpg/1280px-2256Rabbits_in_the_Philippines_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/2256Rabbits_in_the_Philippines_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:2256Rabbits_in_the_Philippines_03.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=97800857",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2020-12-19 10:26:29",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "2256Rabbits in the Philippines 03",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Taken with Nikon Coolpix AW100|CC-Zero|Self-published work|Photographs by Judgefloro|Rabbits in the Philippines|Files with coordinates missing SDC location of creation|Philippines photographs taken on 2020-12-18|Pet rabbits in cages in the Philippines",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "GPSLatitude": {
+            "value": "14.942300",
+            "source": "commons-desc-page"
+          },
+          "GPSLongitude": {
+            "value": "120.921910",
+            "source": "commons-desc-page"
+          },
+          "GPSMapDatum": {
+            "value": "WGS-84",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Rabbits in the Philippines",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2020-12-18 09:01:22",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:Judgefloro\" title=\"User:Judgefloro\">Judgefloro</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+    "group": "rabbits"
+  },
+  {
+    "pageid": 141358757,
+    "ns": 6,
+    "title": "File:Mini rabbit.jpg",
+    "index": 32,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 3405505,
+        "width": 3468,
+        "height": 4624,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Mini_rabbit.jpg/960px-Mini_rabbit.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 853,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Mini_rabbit.jpg/1280px-Mini_rabbit.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Mini_rabbit.jpg/960px-Mini_rabbit.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 853,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Mini_rabbit.jpg/1280px-Mini_rabbit.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mini_rabbit.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Mini_rabbit.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=141358757",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2023-11-25 00:50:22",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Mini rabbit",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "CC-Zero|Pet rabbits|Self-published work|Taken with Oppo A73",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "うだ・アニマルパークで飼育されているミニウサギです。",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2022-09-18 15:01:47",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:%E3%82%B1%E3%82%B1%E3%82%B1%E3%83%8E%E3%82%B1&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:ケケケノケ (page does not exist)\">ケケケノケ</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+    "group": "rabbits"
+  },
+  {
+    "pageid": 195138332,
+    "ns": 6,
+    "title": "File:Bunny wondering on the grass.jpg",
+    "index": 32,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 3024928,
+        "width": 4032,
+        "height": 3024,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Bunny_wondering_on_the_grass.jpg/960px-Bunny_wondering_on_the_grass.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 480,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Bunny_wondering_on_the_grass.jpg/1280px-Bunny_wondering_on_the_grass.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Bunny_wondering_on_the_grass.jpg/960px-Bunny_wondering_on_the_grass.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 480,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Bunny_wondering_on_the_grass.jpg/1280px-Bunny_wondering_on_the_grass.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Bunny_wondering_on_the_grass.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Bunny_wondering_on_the_grass.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=195138332",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2026-07-04 23:39:14",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Bunny wondering on the grass",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Sylvilagus|CC-Zero|Creative Commons CC0 1.0 Universal Public Domain Dedication missing SDC copyright license|Self-published work|Self-published work missing SDC copyright license",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "A bunny from Vero Beach Florida.",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2026-07-04 16:44:04",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:TheUltimateGrass\" title=\"User:TheUltimateGrass\">TheUltimateGrass</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+    "group": "rabbits"
+  },
+  {
+    "pageid": 195138333,
+    "ns": 6,
+    "title": "File:Bunny wondering on the grass2.jpg",
+    "index": 27,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 3277235,
+        "width": 4032,
+        "height": 3024,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Bunny_wondering_on_the_grass2.jpg/960px-Bunny_wondering_on_the_grass2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 480,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Bunny_wondering_on_the_grass2.jpg/1280px-Bunny_wondering_on_the_grass2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Bunny_wondering_on_the_grass2.jpg/960px-Bunny_wondering_on_the_grass2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 480,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Bunny_wondering_on_the_grass2.jpg/1280px-Bunny_wondering_on_the_grass2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/68/Bunny_wondering_on_the_grass2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Bunny_wondering_on_the_grass2.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=195138333",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2026-07-04 23:39:14",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Bunny wondering on the grass2",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Sylvilagus|CC-Zero|Creative Commons CC0 1.0 Universal Public Domain Dedication missing SDC copyright license|Self-published work|Self-published work missing SDC copyright license",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "A bunny from the Vero Beach, Florida.",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2026-07-04 16:44:03",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:TheUltimateGrass\" title=\"User:TheUltimateGrass\">TheUltimateGrass</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+    "group": "rabbits"
+  },
+  {
+    "pageid": 195138334,
+    "ns": 6,
+    "title": "File:Bunny wondering on the grass3.jpg",
+    "index": 29,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 3273735,
+        "width": 4032,
+        "height": 3024,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Bunny_wondering_on_the_grass3.jpg/960px-Bunny_wondering_on_the_grass3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 480,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Bunny_wondering_on_the_grass3.jpg/1280px-Bunny_wondering_on_the_grass3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Bunny_wondering_on_the_grass3.jpg/960px-Bunny_wondering_on_the_grass3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 480,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Bunny_wondering_on_the_grass3.jpg/1280px-Bunny_wondering_on_the_grass3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Bunny_wondering_on_the_grass3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Bunny_wondering_on_the_grass3.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=195138334",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2026-07-04 23:39:14",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Bunny wondering on the grass3",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Sylvilagus|CC-Zero|Creative Commons CC0 1.0 Universal Public Domain Dedication missing SDC copyright license|Self-published work|Self-published work missing SDC copyright license",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "A bunny at Vero beach, Florida.",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2026-07-04 16:43:48",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:TheUltimateGrass\" title=\"User:TheUltimateGrass\">TheUltimateGrass</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+    "group": "rabbits"
+  },
+  {
+    "pageid": 195138336,
+    "ns": 6,
+    "title": "File:Bunny wondering on the grass4.jpg",
+    "index": 31,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 3281159,
+        "width": 4032,
+        "height": 3024,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Bunny_wondering_on_the_grass4.jpg/960px-Bunny_wondering_on_the_grass4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 480,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Bunny_wondering_on_the_grass4.jpg/1280px-Bunny_wondering_on_the_grass4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Bunny_wondering_on_the_grass4.jpg/960px-Bunny_wondering_on_the_grass4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 480,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Bunny_wondering_on_the_grass4.jpg/1280px-Bunny_wondering_on_the_grass4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Bunny_wondering_on_the_grass4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Bunny_wondering_on_the_grass4.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=195138336",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2026-07-04 23:39:17",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Bunny wondering on the grass4",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Sylvilagus|CC-Zero|Creative Commons CC0 1.0 Universal Public Domain Dedication missing SDC copyright license|Self-published work|Self-published work missing SDC copyright license",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "A bunny! Also from Vero Beach, Florida.",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2026-07-04 16:43:42",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:TheUltimateGrass\" title=\"User:TheUltimateGrass\">TheUltimateGrass</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+    "group": "rabbits"
+  },
+  {
+    "pageid": 147369619,
+    "ns": 6,
+    "title": "File:Kutty Rabbits.jpg",
+    "index": 22,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 200900,
+        "width": 1200,
+        "height": 1600,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Kutty_Rabbits.jpg/960px-Kutty_Rabbits.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 853,
+        "responsiveUrls": {
+          "2": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Kutty_Rabbits.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Kutty_Rabbits.jpg/960px-Kutty_Rabbits.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 853,
+          "srcset": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Kutty_Rabbits.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Kutty_Rabbits.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Kutty_Rabbits.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=147369619",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2024-04-14 13:56:53",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Kutty Rabbits",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "CC-Zero|Pet rabbits|Images with watermarks|Self-published work|Rabbits in India",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Rabbits",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2024-04-14",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:ArulkumarRajamani&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:ArulkumarRajamani (page does not exist)\">ArulkumarRajamani</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+    "group": "rabbits"
+  },
+  {
+    "pageid": 181371592,
+    "ns": 6,
+    "title": "File:Oryctolagus cuniculus domesticus - Nart Barileva - 605739065.jpeg",
+    "index": 1,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 3143883,
+        "width": 1536,
+        "height": 2048,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Oryctolagus_cuniculus_domesticus_-_Nart_Barileva_-_605739065.jpeg/960px-Oryctolagus_cuniculus_domesticus_-_Nart_Barileva_-_605739065.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 853,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Oryctolagus_cuniculus_domesticus_-_Nart_Barileva_-_605739065.jpeg/1280px-Oryctolagus_cuniculus_domesticus_-_Nart_Barileva_-_605739065.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Oryctolagus_cuniculus_domesticus_-_Nart_Barileva_-_605739065.jpeg/960px-Oryctolagus_cuniculus_domesticus_-_Nart_Barileva_-_605739065.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 853,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Oryctolagus_cuniculus_domesticus_-_Nart_Barileva_-_605739065.jpeg/1280px-Oryctolagus_cuniculus_domesticus_-_Nart_Barileva_-_605739065.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Oryctolagus_cuniculus_domesticus_-_Nart_Barileva_-_605739065.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Oryctolagus_cuniculus_domesticus_-_Nart_Barileva_-_605739065.jpeg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=181371592",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2026-01-06 20:27:40",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Oryctolagus cuniculus domesticus - Nart Barileva - 605739065",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "CC-Zero|Media from iNaturalist|INaturalist images reviewed by iNaturalistReviewBot|Files with coordinates missing SDC location of creation|INaturalist images missing SDC depicts|Media uploaded with inat2wiki|Oryctolagus cuniculus domesticus",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "GPSLatitude": {
+            "value": "43.246788",
+            "source": "commons-desc-page"
+          },
+          "GPSLongitude": {
+            "value": "-79.840295",
+            "source": "commons-desc-page"
+          },
+          "GPSMapDatum": {
+            "value": "WGS-84",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Oryctolagus cuniculus domesticus, Sherman Ave S, Hamilton, ON, CA, 2026-01-02 (iNaturalist).",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2026-01-02",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.inaturalist.org/photos/605739065\">https://www.inaturalist.org/photos/605739065</a>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.inaturalist.org/users/1860059\">Nart Barileva</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+    "group": "rabbits"
+  },
+  {
+    "pageid": 93435541,
+    "ns": 6,
+    "title": "File:9868Guinea pigs of the Philippines 05.jpg",
+    "index": 41,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 6911250,
+        "width": 4608,
+        "height": 3456,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/9868Guinea_pigs_of_the_Philippines_05.jpg/960px-9868Guinea_pigs_of_the_Philippines_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 480,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/9868Guinea_pigs_of_the_Philippines_05.jpg/1280px-9868Guinea_pigs_of_the_Philippines_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/9868Guinea_pigs_of_the_Philippines_05.jpg/960px-9868Guinea_pigs_of_the_Philippines_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 480,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/9868Guinea_pigs_of_the_Philippines_05.jpg/1280px-9868Guinea_pigs_of_the_Philippines_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/9868Guinea_pigs_of_the_Philippines_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:9868Guinea_pigs_of_the_Philippines_05.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=93435541",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2020-08-23 11:52:32",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "9868Guinea pigs of the Philippines 05",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "CC-Zero|Self-published work|Files with coordinates missing SDC location of creation|Guinea pigs of the Philippines|Philippines photographs taken on 2020-08-23",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "GPSLatitude": {
+            "value": "14.954722",
+            "source": "commons-desc-page"
+          },
+          "GPSLongitude": {
+            "value": "120.900556",
+            "source": "commons-desc-page"
+          },
+          "GPSMapDatum": {
+            "value": "WGS-84",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.bbc.com/news/business-38857881\">Guinea pigs of the Philippines</a> <a href=\"https://en.wikipedia.org/wiki/en:Guinea_pig\" class=\"extiw\" title=\"w:en:Guinea pig\"> Guinea pig</a> <a href=\"https://en.wikipedia.org/wiki/en:List_of_guinea_pig_breeds\" class=\"extiw\" title=\"w:en:List of guinea pig breeds\"> List of guinea pig breeds</a>  Peruvian holds the record for longest hair on a guinea pig at 21 inches <a href=\"https://en.wikipedia.org/wiki/en:Timeline_of_the_2020_coronavirus_pandemic_in_the_Philippines\" class=\"extiw\" title=\"w:en:Timeline of the 2020 coronavirus pandemic in the Philippines\">Timeline of the 2020 coronavirus pandemic in the Philippines</a> <a href=\"https://en.wikipedia.org/wiki/en:_2020_coronavirus_pandemic_in_the_Philippines\" class=\"extiw\" title=\"w:en: 2020 coronavirus pandemic in the Philippines\"> 2020 coronavirus pandemic in the Philippines</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://thecorpusjuris.com/legislative/republic-acts/ra-no-11469.php\">Bayanihan to Heal as One Act (RA 11469)</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://www.rappler.com/previous-articles?filterMeta=Bayanihan%20To%20Heal%20As%20One%20Act\">Bayanihan Act of 2020. Signed on March 24, 2020</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://newsinfo.inquirer.net/1266057/43-covid-19-patients-recover-as-coronavirus-infection-in-ph-nears-8000\">7,958 Covid-19 cases in Philippines April 28; 12,933 as of May 19, 2020; 14,669 Covid-19 cases in Philippines May 26;  886 deaths; Covid-19 cases in Philippines June 2 - 18,997 and 966 deaths</a>; <a rel=\"nofollow\" class=\"external text\" href=\"https://newsinfo.inquirer.net/1323518/4836-new-infections-bring-phs-covid-19-cases-to-almost-170k\">August 18 - 169,213  cases COVID-19 Philippines, new cases 4,836, 53,665 active cases; 112,861 recovered, 2,687 deaths; August 20 Coronavirus Cases: 173,774 Deaths: 2,795 Recovered: 113,481</a>; <a rel=\"nofollow\" class=\"external text\" href=\"https://www.worldometers.info/coronavirus/country/philippines/\">August 22 Philippines Coronavirus Cases: 182,365 Deaths: 2,940 Recovered: 114,519; August 22 Philippines Coronavirus Cases: 187,249 Deaths: 2,966 Recovered: 114,921</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://rappler.com/nation/coronavirus-cases-philippines-august-23-2020\">COVID-19 Philippines August 23 - 189,601 cases 55,236 are active cases 2,378 new coronavirus cases 2998 deaths</a> <a href=\"https://en.wikipedia.org/wiki/en:Category:Sitios_and_puroks_of_the_Philippines\" class=\"extiw\" title=\"w:en:Category:Sitios and puroks of the Philippines\">Category:Sitios and puroks of the Philippines</a> <a href=\"https://en.wikipedia.org/wiki/en:Category:Subdivisions_of_the_Philippines\" class=\"extiw\" title=\"w:en:Category:Subdivisions of the Philippines\">Subdivisions of the Philippines</a> <a href=\"https://en.wikipedia.org/wiki/Baliuag,_Bulacan#Barangays\" class=\"extiw\" title=\"en:Baliuag, Bulacan\">Barangay</a> <a rel=\"nofollow\" class=\"external text\" href=\"http://wikimapia.org/35617753/Poblacion-Baliuag-Bulacan\">Poblacion</a> 14°57'17\"N 120°54'2\"E, <a href=\"https://en.wikipedia.org/wiki/Baliuag,_Bulacan\" class=\"extiw\" title=\"en:Baliuag, Bulacan\">Baliuag, Bulacan</a>, <a href=\"https://en.wikipedia.org/wiki/Bulacan_province\" class=\"extiw\" title=\"en:Bulacan province\">Bulacan province</a> taken under weather conditions of <a class=\"external text\" href=\"https://tl.wikipedia.org/wiki/Habagat\">Habagat</a> <a href=\"https://en.wikipedia.org/wiki/en:Monsoon_of_South_Asia\" class=\"extiw\" title=\"w:en:Monsoon of South Asia\"> Monsoon of South Asia</a> and <a href=\"https://en.wikipedia.org/wiki/en:2020_Pacific_typhoon_season#Tropical_Storm_Bavi_(Igme)\" class=\"extiw\" title=\"w:en:2020 Pacific typhoon season\"> Tropical Storm Bavi (Igme)</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://newsinfo.inquirer.net/1325532/pagasa-igme-now-a-tropical-storm-leaving-par-this-weekend\">Igme</a> <a rel=\"nofollow\" class=\"external text\" href=\"http://bagong.pagasa.dost.gov.ph/weather\">Low Pressure Area (LPA)  Southwest Monsoon</a>  (Note: Judge Florentino Floro, the owner, to repeat, Donor <a href=\"https://en.wikipedia.org/wiki/en:Florentino_Floro\" class=\"extiw\" title=\"w:en:Florentino Floro\">FlorentinoFloro</a> of all these photos hereby donate gratuitously, freely and unconditionally Judge Floro all these photos to and for Wikimedia Commons, exclusively, for public use of the public domain, and again without any condition whatsoever).",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2020-08-23 06:44:06",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:Judgefloro\" title=\"User:Judgefloro\">Judgefloro</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/guinea-pigs-metadata.json",
+    "group": "guinea-pigs"
+  },
+  {
+    "pageid": 93435547,
+    "ns": 6,
+    "title": "File:9868Guinea pigs of the Philippines 07.jpg",
+    "index": 36,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 7335617,
+        "width": 4608,
+        "height": 3456,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/9868Guinea_pigs_of_the_Philippines_07.jpg/960px-9868Guinea_pigs_of_the_Philippines_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 480,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/9868Guinea_pigs_of_the_Philippines_07.jpg/1280px-9868Guinea_pigs_of_the_Philippines_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/9868Guinea_pigs_of_the_Philippines_07.jpg/960px-9868Guinea_pigs_of_the_Philippines_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 480,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/9868Guinea_pigs_of_the_Philippines_07.jpg/1280px-9868Guinea_pigs_of_the_Philippines_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/9868Guinea_pigs_of_the_Philippines_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:9868Guinea_pigs_of_the_Philippines_07.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=93435547",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2020-08-23 11:52:42",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "9868Guinea pigs of the Philippines 07",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "CC-Zero|Self-published work|Files with coordinates missing SDC location of creation|Guinea pigs of the Philippines|Philippines photographs taken on 2020-08-23",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "GPSLatitude": {
+            "value": "14.954722",
+            "source": "commons-desc-page"
+          },
+          "GPSLongitude": {
+            "value": "120.900556",
+            "source": "commons-desc-page"
+          },
+          "GPSMapDatum": {
+            "value": "WGS-84",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.bbc.com/news/business-38857881\">Guinea pigs of the Philippines</a> <a href=\"https://en.wikipedia.org/wiki/en:Guinea_pig\" class=\"extiw\" title=\"w:en:Guinea pig\"> Guinea pig</a> <a href=\"https://en.wikipedia.org/wiki/en:List_of_guinea_pig_breeds\" class=\"extiw\" title=\"w:en:List of guinea pig breeds\"> List of guinea pig breeds</a>  Peruvian holds the record for longest hair on a guinea pig at 21 inches <a href=\"https://en.wikipedia.org/wiki/en:Timeline_of_the_2020_coronavirus_pandemic_in_the_Philippines\" class=\"extiw\" title=\"w:en:Timeline of the 2020 coronavirus pandemic in the Philippines\">Timeline of the 2020 coronavirus pandemic in the Philippines</a> <a href=\"https://en.wikipedia.org/wiki/en:_2020_coronavirus_pandemic_in_the_Philippines\" class=\"extiw\" title=\"w:en: 2020 coronavirus pandemic in the Philippines\"> 2020 coronavirus pandemic in the Philippines</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://thecorpusjuris.com/legislative/republic-acts/ra-no-11469.php\">Bayanihan to Heal as One Act (RA 11469)</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://www.rappler.com/previous-articles?filterMeta=Bayanihan%20To%20Heal%20As%20One%20Act\">Bayanihan Act of 2020. Signed on March 24, 2020</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://newsinfo.inquirer.net/1266057/43-covid-19-patients-recover-as-coronavirus-infection-in-ph-nears-8000\">7,958 Covid-19 cases in Philippines April 28; 12,933 as of May 19, 2020; 14,669 Covid-19 cases in Philippines May 26;  886 deaths; Covid-19 cases in Philippines June 2 - 18,997 and 966 deaths</a>; <a rel=\"nofollow\" class=\"external text\" href=\"https://newsinfo.inquirer.net/1323518/4836-new-infections-bring-phs-covid-19-cases-to-almost-170k\">August 18 - 169,213  cases COVID-19 Philippines, new cases 4,836, 53,665 active cases; 112,861 recovered, 2,687 deaths; August 20 Coronavirus Cases: 173,774 Deaths: 2,795 Recovered: 113,481</a>; <a rel=\"nofollow\" class=\"external text\" href=\"https://www.worldometers.info/coronavirus/country/philippines/\">August 22 Philippines Coronavirus Cases: 182,365 Deaths: 2,940 Recovered: 114,519; August 22 Philippines Coronavirus Cases: 187,249 Deaths: 2,966 Recovered: 114,921</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://rappler.com/nation/coronavirus-cases-philippines-august-23-2020\">COVID-19 Philippines August 23 - 189,601 cases 55,236 are active cases 2,378 new coronavirus cases 2998 deaths</a> <a href=\"https://en.wikipedia.org/wiki/en:Category:Sitios_and_puroks_of_the_Philippines\" class=\"extiw\" title=\"w:en:Category:Sitios and puroks of the Philippines\">Category:Sitios and puroks of the Philippines</a> <a href=\"https://en.wikipedia.org/wiki/en:Category:Subdivisions_of_the_Philippines\" class=\"extiw\" title=\"w:en:Category:Subdivisions of the Philippines\">Subdivisions of the Philippines</a> <a href=\"https://en.wikipedia.org/wiki/Baliuag,_Bulacan#Barangays\" class=\"extiw\" title=\"en:Baliuag, Bulacan\">Barangay</a> <a rel=\"nofollow\" class=\"external text\" href=\"http://wikimapia.org/35617753/Poblacion-Baliuag-Bulacan\">Poblacion</a> 14°57'17\"N 120°54'2\"E, <a href=\"https://en.wikipedia.org/wiki/Baliuag,_Bulacan\" class=\"extiw\" title=\"en:Baliuag, Bulacan\">Baliuag, Bulacan</a>, <a href=\"https://en.wikipedia.org/wiki/Bulacan_province\" class=\"extiw\" title=\"en:Bulacan province\">Bulacan province</a> taken under weather conditions of <a class=\"external text\" href=\"https://tl.wikipedia.org/wiki/Habagat\">Habagat</a> <a href=\"https://en.wikipedia.org/wiki/en:Monsoon_of_South_Asia\" class=\"extiw\" title=\"w:en:Monsoon of South Asia\"> Monsoon of South Asia</a> and <a href=\"https://en.wikipedia.org/wiki/en:2020_Pacific_typhoon_season#Tropical_Storm_Bavi_(Igme)\" class=\"extiw\" title=\"w:en:2020 Pacific typhoon season\"> Tropical Storm Bavi (Igme)</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://newsinfo.inquirer.net/1325532/pagasa-igme-now-a-tropical-storm-leaving-par-this-weekend\">Igme</a> <a rel=\"nofollow\" class=\"external text\" href=\"http://bagong.pagasa.dost.gov.ph/weather\">Low Pressure Area (LPA)  Southwest Monsoon</a>  (Note: Judge Florentino Floro, the owner, to repeat, Donor <a href=\"https://en.wikipedia.org/wiki/en:Florentino_Floro\" class=\"extiw\" title=\"w:en:Florentino Floro\">FlorentinoFloro</a> of all these photos hereby donate gratuitously, freely and unconditionally Judge Floro all these photos to and for Wikimedia Commons, exclusively, for public use of the public domain, and again without any condition whatsoever).",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2020-08-23 06:44:06",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:Judgefloro\" title=\"User:Judgefloro\">Judgefloro</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/guinea-pigs-metadata.json",
+    "group": "guinea-pigs"
+  },
+  {
+    "pageid": 93435564,
+    "ns": 6,
+    "title": "File:9868Guinea pigs of the Philippines 12.jpg",
+    "index": 44,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 6710877,
+        "width": 4608,
+        "height": 3456,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/9868Guinea_pigs_of_the_Philippines_12.jpg/960px-9868Guinea_pigs_of_the_Philippines_12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 480,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/9868Guinea_pigs_of_the_Philippines_12.jpg/1280px-9868Guinea_pigs_of_the_Philippines_12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/9868Guinea_pigs_of_the_Philippines_12.jpg/960px-9868Guinea_pigs_of_the_Philippines_12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 480,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/9868Guinea_pigs_of_the_Philippines_12.jpg/1280px-9868Guinea_pigs_of_the_Philippines_12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/01/9868Guinea_pigs_of_the_Philippines_12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:9868Guinea_pigs_of_the_Philippines_12.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=93435564",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2020-08-23 11:53:14",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "9868Guinea pigs of the Philippines 12",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "CC-Zero|Self-published work|Files with coordinates missing SDC location of creation|Guinea pigs of the Philippines|Philippines photographs taken on 2020-08-23",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "GPSLatitude": {
+            "value": "14.954722",
+            "source": "commons-desc-page"
+          },
+          "GPSLongitude": {
+            "value": "120.900556",
+            "source": "commons-desc-page"
+          },
+          "GPSMapDatum": {
+            "value": "WGS-84",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.bbc.com/news/business-38857881\">Guinea pigs of the Philippines</a> <a href=\"https://en.wikipedia.org/wiki/en:Guinea_pig\" class=\"extiw\" title=\"w:en:Guinea pig\"> Guinea pig</a> <a href=\"https://en.wikipedia.org/wiki/en:List_of_guinea_pig_breeds\" class=\"extiw\" title=\"w:en:List of guinea pig breeds\"> List of guinea pig breeds</a>  Peruvian holds the record for longest hair on a guinea pig at 21 inches <a href=\"https://en.wikipedia.org/wiki/en:Timeline_of_the_2020_coronavirus_pandemic_in_the_Philippines\" class=\"extiw\" title=\"w:en:Timeline of the 2020 coronavirus pandemic in the Philippines\">Timeline of the 2020 coronavirus pandemic in the Philippines</a> <a href=\"https://en.wikipedia.org/wiki/en:_2020_coronavirus_pandemic_in_the_Philippines\" class=\"extiw\" title=\"w:en: 2020 coronavirus pandemic in the Philippines\"> 2020 coronavirus pandemic in the Philippines</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://thecorpusjuris.com/legislative/republic-acts/ra-no-11469.php\">Bayanihan to Heal as One Act (RA 11469)</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://www.rappler.com/previous-articles?filterMeta=Bayanihan%20To%20Heal%20As%20One%20Act\">Bayanihan Act of 2020. Signed on March 24, 2020</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://newsinfo.inquirer.net/1266057/43-covid-19-patients-recover-as-coronavirus-infection-in-ph-nears-8000\">7,958 Covid-19 cases in Philippines April 28; 12,933 as of May 19, 2020; 14,669 Covid-19 cases in Philippines May 26;  886 deaths; Covid-19 cases in Philippines June 2 - 18,997 and 966 deaths</a>; <a rel=\"nofollow\" class=\"external text\" href=\"https://newsinfo.inquirer.net/1323518/4836-new-infections-bring-phs-covid-19-cases-to-almost-170k\">August 18 - 169,213  cases COVID-19 Philippines, new cases 4,836, 53,665 active cases; 112,861 recovered, 2,687 deaths; August 20 Coronavirus Cases: 173,774 Deaths: 2,795 Recovered: 113,481</a>; <a rel=\"nofollow\" class=\"external text\" href=\"https://www.worldometers.info/coronavirus/country/philippines/\">August 22 Philippines Coronavirus Cases: 182,365 Deaths: 2,940 Recovered: 114,519; August 22 Philippines Coronavirus Cases: 187,249 Deaths: 2,966 Recovered: 114,921</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://rappler.com/nation/coronavirus-cases-philippines-august-23-2020\">COVID-19 Philippines August 23 - 189,601 cases 55,236 are active cases 2,378 new coronavirus cases 2998 deaths</a> <a href=\"https://en.wikipedia.org/wiki/en:Category:Sitios_and_puroks_of_the_Philippines\" class=\"extiw\" title=\"w:en:Category:Sitios and puroks of the Philippines\">Category:Sitios and puroks of the Philippines</a> <a href=\"https://en.wikipedia.org/wiki/en:Category:Subdivisions_of_the_Philippines\" class=\"extiw\" title=\"w:en:Category:Subdivisions of the Philippines\">Subdivisions of the Philippines</a> <a href=\"https://en.wikipedia.org/wiki/Baliuag,_Bulacan#Barangays\" class=\"extiw\" title=\"en:Baliuag, Bulacan\">Barangay</a> <a rel=\"nofollow\" class=\"external text\" href=\"http://wikimapia.org/35617753/Poblacion-Baliuag-Bulacan\">Poblacion</a> 14°57'17\"N 120°54'2\"E, <a href=\"https://en.wikipedia.org/wiki/Baliuag,_Bulacan\" class=\"extiw\" title=\"en:Baliuag, Bulacan\">Baliuag, Bulacan</a>, <a href=\"https://en.wikipedia.org/wiki/Bulacan_province\" class=\"extiw\" title=\"en:Bulacan province\">Bulacan province</a> taken under weather conditions of <a class=\"external text\" href=\"https://tl.wikipedia.org/wiki/Habagat\">Habagat</a> <a href=\"https://en.wikipedia.org/wiki/en:Monsoon_of_South_Asia\" class=\"extiw\" title=\"w:en:Monsoon of South Asia\"> Monsoon of South Asia</a> and <a href=\"https://en.wikipedia.org/wiki/en:2020_Pacific_typhoon_season#Tropical_Storm_Bavi_(Igme)\" class=\"extiw\" title=\"w:en:2020 Pacific typhoon season\"> Tropical Storm Bavi (Igme)</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://newsinfo.inquirer.net/1325532/pagasa-igme-now-a-tropical-storm-leaving-par-this-weekend\">Igme</a> <a rel=\"nofollow\" class=\"external text\" href=\"http://bagong.pagasa.dost.gov.ph/weather\">Low Pressure Area (LPA)  Southwest Monsoon</a>  (Note: Judge Florentino Floro, the owner, to repeat, Donor <a href=\"https://en.wikipedia.org/wiki/en:Florentino_Floro\" class=\"extiw\" title=\"w:en:Florentino Floro\">FlorentinoFloro</a> of all these photos hereby donate gratuitously, freely and unconditionally Judge Floro all these photos to and for Wikimedia Commons, exclusively, for public use of the public domain, and again without any condition whatsoever).",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2020-08-23 06:44:06",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:Judgefloro\" title=\"User:Judgefloro\">Judgefloro</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/guinea-pigs-metadata.json",
+    "group": "guinea-pigs"
+  },
+  {
+    "pageid": 93435587,
+    "ns": 6,
+    "title": "File:9868Guinea pigs of the Philippines 18.jpg",
+    "index": 49,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 6368377,
+        "width": 4608,
+        "height": 3456,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/9868Guinea_pigs_of_the_Philippines_18.jpg/960px-9868Guinea_pigs_of_the_Philippines_18.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 480,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/9868Guinea_pigs_of_the_Philippines_18.jpg/1280px-9868Guinea_pigs_of_the_Philippines_18.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/9868Guinea_pigs_of_the_Philippines_18.jpg/960px-9868Guinea_pigs_of_the_Philippines_18.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 480,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/9868Guinea_pigs_of_the_Philippines_18.jpg/1280px-9868Guinea_pigs_of_the_Philippines_18.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/51/9868Guinea_pigs_of_the_Philippines_18.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:9868Guinea_pigs_of_the_Philippines_18.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=93435587",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2020-08-23 11:53:55",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "9868Guinea pigs of the Philippines 18",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "CC-Zero|Self-published work|Files with coordinates missing SDC location of creation|Guinea pigs of the Philippines|Philippines photographs taken on 2020-08-23",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "GPSLatitude": {
+            "value": "14.954722",
+            "source": "commons-desc-page"
+          },
+          "GPSLongitude": {
+            "value": "120.900556",
+            "source": "commons-desc-page"
+          },
+          "GPSMapDatum": {
+            "value": "WGS-84",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.bbc.com/news/business-38857881\">Guinea pigs of the Philippines</a> <a href=\"https://en.wikipedia.org/wiki/en:Guinea_pig\" class=\"extiw\" title=\"w:en:Guinea pig\"> Guinea pig</a> <a href=\"https://en.wikipedia.org/wiki/en:List_of_guinea_pig_breeds\" class=\"extiw\" title=\"w:en:List of guinea pig breeds\"> List of guinea pig breeds</a>  Peruvian holds the record for longest hair on a guinea pig at 21 inches <a href=\"https://en.wikipedia.org/wiki/en:Timeline_of_the_2020_coronavirus_pandemic_in_the_Philippines\" class=\"extiw\" title=\"w:en:Timeline of the 2020 coronavirus pandemic in the Philippines\">Timeline of the 2020 coronavirus pandemic in the Philippines</a> <a href=\"https://en.wikipedia.org/wiki/en:_2020_coronavirus_pandemic_in_the_Philippines\" class=\"extiw\" title=\"w:en: 2020 coronavirus pandemic in the Philippines\"> 2020 coronavirus pandemic in the Philippines</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://thecorpusjuris.com/legislative/republic-acts/ra-no-11469.php\">Bayanihan to Heal as One Act (RA 11469)</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://www.rappler.com/previous-articles?filterMeta=Bayanihan%20To%20Heal%20As%20One%20Act\">Bayanihan Act of 2020. Signed on March 24, 2020</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://newsinfo.inquirer.net/1266057/43-covid-19-patients-recover-as-coronavirus-infection-in-ph-nears-8000\">7,958 Covid-19 cases in Philippines April 28; 12,933 as of May 19, 2020; 14,669 Covid-19 cases in Philippines May 26;  886 deaths; Covid-19 cases in Philippines June 2 - 18,997 and 966 deaths</a>; <a rel=\"nofollow\" class=\"external text\" href=\"https://newsinfo.inquirer.net/1323518/4836-new-infections-bring-phs-covid-19-cases-to-almost-170k\">August 18 - 169,213  cases COVID-19 Philippines, new cases 4,836, 53,665 active cases; 112,861 recovered, 2,687 deaths; August 20 Coronavirus Cases: 173,774 Deaths: 2,795 Recovered: 113,481</a>; <a rel=\"nofollow\" class=\"external text\" href=\"https://www.worldometers.info/coronavirus/country/philippines/\">August 22 Philippines Coronavirus Cases: 182,365 Deaths: 2,940 Recovered: 114,519; August 22 Philippines Coronavirus Cases: 187,249 Deaths: 2,966 Recovered: 114,921</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://rappler.com/nation/coronavirus-cases-philippines-august-23-2020\">COVID-19 Philippines August 23 - 189,601 cases 55,236 are active cases 2,378 new coronavirus cases 2998 deaths</a> <a href=\"https://en.wikipedia.org/wiki/en:Category:Sitios_and_puroks_of_the_Philippines\" class=\"extiw\" title=\"w:en:Category:Sitios and puroks of the Philippines\">Category:Sitios and puroks of the Philippines</a> <a href=\"https://en.wikipedia.org/wiki/en:Category:Subdivisions_of_the_Philippines\" class=\"extiw\" title=\"w:en:Category:Subdivisions of the Philippines\">Subdivisions of the Philippines</a> <a href=\"https://en.wikipedia.org/wiki/Baliuag,_Bulacan#Barangays\" class=\"extiw\" title=\"en:Baliuag, Bulacan\">Barangay</a> <a rel=\"nofollow\" class=\"external text\" href=\"http://wikimapia.org/35617753/Poblacion-Baliuag-Bulacan\">Poblacion</a> 14°57'17\"N 120°54'2\"E, <a href=\"https://en.wikipedia.org/wiki/Baliuag,_Bulacan\" class=\"extiw\" title=\"en:Baliuag, Bulacan\">Baliuag, Bulacan</a>, <a href=\"https://en.wikipedia.org/wiki/Bulacan_province\" class=\"extiw\" title=\"en:Bulacan province\">Bulacan province</a> taken under weather conditions of <a class=\"external text\" href=\"https://tl.wikipedia.org/wiki/Habagat\">Habagat</a> <a href=\"https://en.wikipedia.org/wiki/en:Monsoon_of_South_Asia\" class=\"extiw\" title=\"w:en:Monsoon of South Asia\"> Monsoon of South Asia</a> and <a href=\"https://en.wikipedia.org/wiki/en:2020_Pacific_typhoon_season#Tropical_Storm_Bavi_(Igme)\" class=\"extiw\" title=\"w:en:2020 Pacific typhoon season\"> Tropical Storm Bavi (Igme)</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://newsinfo.inquirer.net/1325532/pagasa-igme-now-a-tropical-storm-leaving-par-this-weekend\">Igme</a> <a rel=\"nofollow\" class=\"external text\" href=\"http://bagong.pagasa.dost.gov.ph/weather\">Low Pressure Area (LPA)  Southwest Monsoon</a>  (Note: Judge Florentino Floro, the owner, to repeat, Donor <a href=\"https://en.wikipedia.org/wiki/en:Florentino_Floro\" class=\"extiw\" title=\"w:en:Florentino Floro\">FlorentinoFloro</a> of all these photos hereby donate gratuitously, freely and unconditionally Judge Floro all these photos to and for Wikimedia Commons, exclusively, for public use of the public domain, and again without any condition whatsoever).",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2020-08-23 06:44:06",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:Judgefloro\" title=\"User:Judgefloro\">Judgefloro</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/guinea-pigs-metadata.json",
+    "group": "guinea-pigs"
+  },
+  {
+    "pageid": 182665438,
+    "ns": 6,
+    "title": "File:Guinea pig 2015.jpg",
+    "index": 20,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 409486,
+        "width": 1280,
+        "height": 720,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Guinea_pig_2015.jpg/960px-Guinea_pig_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 360,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Guinea_pig_2015.jpg/1280px-Guinea_pig_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Guinea_pig_2015.jpg/960px-Guinea_pig_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 360,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Guinea_pig_2015.jpg/1280px-Guinea_pig_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Guinea_pig_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Guinea_pig_2015.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=182665438",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2026-01-29 11:52:40",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Guinea pig 2015",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Cavia porcellus|CC-Zero|Self-published work",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Guinea pig",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2015-08-10 13:15:16",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Amirhosszein&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Amirhosszein (page does not exist)\">Amirhosszein</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/guinea-pigs-metadata.json",
+    "group": "guinea-pigs"
+  },
+  {
+    "pageid": 15755917,
+    "ns": 6,
+    "title": "File:Hausmeerschweinchen (Cavia porcellus), evtl. Osseäre Choristie.jpg",
+    "index": 46,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 6948439,
+        "width": 5184,
+        "height": 3456,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Hausmeerschweinchen_%28Cavia_porcellus%29%2C_evtl._Osse%C3%A4re_Choristie.jpg/960px-Hausmeerschweinchen_%28Cavia_porcellus%29%2C_evtl._Osse%C3%A4re_Choristie.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 427,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Hausmeerschweinchen_%28Cavia_porcellus%29%2C_evtl._Osse%C3%A4re_Choristie.jpg/1280px-Hausmeerschweinchen_%28Cavia_porcellus%29%2C_evtl._Osse%C3%A4re_Choristie.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Hausmeerschweinchen_%28Cavia_porcellus%29%2C_evtl._Osse%C3%A4re_Choristie.jpg/960px-Hausmeerschweinchen_%28Cavia_porcellus%29%2C_evtl._Osse%C3%A4re_Choristie.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 427,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Hausmeerschweinchen_%28Cavia_porcellus%29%2C_evtl._Osse%C3%A4re_Choristie.jpg/1280px-Hausmeerschweinchen_%28Cavia_porcellus%29%2C_evtl._Osse%C3%A4re_Choristie.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Hausmeerschweinchen_%28Cavia_porcellus%29%2C_evtl._Osse%C3%A4re_Choristie.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Hausmeerschweinchen_(Cavia_porcellus),_evtl._Osse%C3%A4re_Choristie.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=15755917",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2011-07-10 14:48:11",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Hausmeerschweinchen (Cavia porcellus), evtl. Osseäre Choristie",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Taken with Canon EOS 600D|CC-Zero|Self-published work|Photos by User:XenonX3|Cavia porcellus heads|Diseases and disorders of the eyes in mammals",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "mögl. <a href=\"https://de.wikipedia.org/wiki/Osse%C3%A4re_Choristie\" class=\"extiw\" title=\"de:Osseäre Choristie\">Osseäre Choristie</a> bei einem <a href=\"https://de.wikipedia.org/wiki/Hausmeerschweinchen\" class=\"extiw\" title=\"de:Hausmeerschweinchen\">Hausmeerschweinchen</a>",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2011-07-10",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:XenonX3\" title=\"User:XenonX3\">XenonX3</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/guinea-pigs-metadata.json",
+    "group": "guinea-pigs"
+  },
+  {
+    "pageid": 121439056,
+    "ns": 6,
+    "title": "File:BOBIKy04y05y2014.jpg",
+    "index": 48,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 347088,
+        "width": 1072,
+        "height": 806,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/BOBIKy04y05y2014.jpg/960px-BOBIKy04y05y2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 481,
+        "responsiveUrls": {
+          "2": "https://upload.wikimedia.org/wikipedia/commons/6/66/BOBIKy04y05y2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/BOBIKy04y05y2014.jpg/960px-BOBIKy04y05y2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 481,
+          "srcset": "https://upload.wikimedia.org/wikipedia/commons/6/66/BOBIKy04y05y2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/66/BOBIKy04y05y2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:BOBIKy04y05y2014.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=121439056",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2022-08-06 06:02:42",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "BOBIKy04y05y2014",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "CC-Zero|Cavia porcellus (domesticated)|Cats with a profound dorsal stripe|Black spotted tabby domestic short-haired cats",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Bobík a Micina",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "04y05y2014",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:2022_test_nepodobny\" title=\"User:2022 test nepodobny\">2022 test nepodobny</a>",
+            "source": "commons-desc-page"
+          },
+          "Permission": {
+            "value": "<table style=\"width:100%; clear:both; text-align:center; margin:0.5em auto; background-color:var(--background-color-neutral-subtle, #f8f9fa); border:var(--border-subtle, 2px solid #c8ccd1); padding: 0; border-spacing: 8px; color:var(--color-base, #202122);\" dir=\"ltr\" class=\"layouttemplate licensetpl\" lang=\"en\">\n<tbody><tr>\n<td style=\"width:90px;\" rowspan=\"2\"><span class=\"skin-invert\" typeof=\"mw:File\"><span title=\"Creative Commons\"><img alt=\"Creative Commons\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Cc.logo.circle.svg/40px-Cc.logo.circle.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"28\" height=\"28\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Cc.logo.circle.svg/60px-Cc.logo.circle.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"64\" data-file-height=\"64\"></span></span> <span class=\"skin-invert\" typeof=\"mw:File\"><span title=\"CC-Zero\"><img alt=\"CC-Zero\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Cc-zero.svg/40px-Cc-zero.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"28\" height=\"28\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Cc-zero.svg/60px-Cc-zero.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"64\" data-file-height=\"64\"></span></span>\n</td>\n<td>This file is made available under the <a href=\"https://en.wikipedia.org/wiki/en:Creative_Commons\" class=\"extiw\" title=\"w:en:Creative Commons\">Creative Commons</a> <a href=\"https://creativecommons.org/publicdomain/zero/1.0/deed.en\" class=\"extiw\" title=\"ccorg:publicdomain/zero/1.0/deed.en\">CC0 1.0 Universal Public Domain Dedication</a>.\n</td></tr>\n<tr style=\"text-align:left;\">\n<td>The person who associated a work with this deed has dedicated the work to the <a href=\"https://en.wikipedia.org/wiki/en:public_domain\" class=\"extiw\" title=\"w:en:public domain\">public domain</a> by waiving all of their rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law. You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.\n<p><span class=\"licensetpl_link\" style=\"display:none;\">http://creativecommons.org/publicdomain/zero/1.0/deed.en</span><span class=\"licensetpl_short\" style=\"display:none;\">CC0</span><span class=\"licensetpl_long\" style=\"display:none;\">Creative Commons Zero, Public Domain Dedication</span><span class=\"licensetpl_link_req\" style=\"display:none;\">false</span><span class=\"licensetpl_attr_req\" style=\"display:none;\">false</span>\n</p>\n</td></tr></tbody></table>",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/guinea-pigs-metadata.json",
+    "group": "guinea-pigs"
+  },
+  {
+    "pageid": 154427539,
+    "ns": 6,
+    "title": "File:Châtelais - La Petite Couère 033.jpg",
+    "index": 47,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 10162176,
+        "width": 5472,
+        "height": 3648,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_033.jpg/960px-Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_033.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 427,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_033.jpg/1280px-Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_033.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_033.jpg/960px-Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_033.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 427,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_033.jpg/1280px-Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_033.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_033.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_033.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=154427539",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2024-10-27 14:03:22",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Châtelais - La Petite Couère 033",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "CC-Zero|Self-published work|Cavia porcellus in zoos|Animals in domaine de la Petite Couère",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Petite Couère domain, in Châtelais (Maine-et-Loire, France) : Guinea pigs",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2024-06-05 15:28:36",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:Fab5669\" title=\"User:Fab5669\">Fab5669</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/guinea-pigs-metadata.json",
+    "group": "guinea-pigs"
+  },
+  {
+    "pageid": 161842690,
+    "ns": 6,
+    "title": "File:Марскія свінкі Гродна.jpg",
+    "index": 34,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 220093,
+        "width": 1545,
+        "height": 869,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/%D0%9C%D0%B0%D1%80%D1%81%D0%BA%D1%96%D1%8F_%D1%81%D0%B2%D1%96%D0%BD%D0%BA%D1%96_%D0%93%D1%80%D0%BE%D0%B4%D0%BD%D0%B0.jpg/960px-%D0%9C%D0%B0%D1%80%D1%81%D0%BA%D1%96%D1%8F_%D1%81%D0%B2%D1%96%D0%BD%D0%BA%D1%96_%D0%93%D1%80%D0%BE%D0%B4%D0%BD%D0%B0.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 360,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/%D0%9C%D0%B0%D1%80%D1%81%D0%BA%D1%96%D1%8F_%D1%81%D0%B2%D1%96%D0%BD%D0%BA%D1%96_%D0%93%D1%80%D0%BE%D0%B4%D0%BD%D0%B0.jpg/1280px-%D0%9C%D0%B0%D1%80%D1%81%D0%BA%D1%96%D1%8F_%D1%81%D0%B2%D1%96%D0%BD%D0%BA%D1%96_%D0%93%D1%80%D0%BE%D0%B4%D0%BD%D0%B0.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/%D0%9C%D0%B0%D1%80%D1%81%D0%BA%D1%96%D1%8F_%D1%81%D0%B2%D1%96%D0%BD%D0%BA%D1%96_%D0%93%D1%80%D0%BE%D0%B4%D0%BD%D0%B0.jpg/960px-%D0%9C%D0%B0%D1%80%D1%81%D0%BA%D1%96%D1%8F_%D1%81%D0%B2%D1%96%D0%BD%D0%BA%D1%96_%D0%93%D1%80%D0%BE%D0%B4%D0%BD%D0%B0.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 360,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/%D0%9C%D0%B0%D1%80%D1%81%D0%BA%D1%96%D1%8F_%D1%81%D0%B2%D1%96%D0%BD%D0%BA%D1%96_%D0%93%D1%80%D0%BE%D0%B4%D0%BD%D0%B0.jpg/1280px-%D0%9C%D0%B0%D1%80%D1%81%D0%BA%D1%96%D1%8F_%D1%81%D0%B2%D1%96%D0%BD%D0%BA%D1%96_%D0%93%D1%80%D0%BE%D0%B4%D0%BD%D0%B0.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/%D0%9C%D0%B0%D1%80%D1%81%D0%BA%D1%96%D1%8F_%D1%81%D0%B2%D1%96%D0%BD%D0%BA%D1%96_%D0%93%D1%80%D0%BE%D0%B4%D0%BD%D0%B0.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:%D0%9C%D0%B0%D1%80%D1%81%D0%BA%D1%96%D1%8F_%D1%81%D0%B2%D1%96%D0%BD%D0%BA%D1%96_%D0%93%D1%80%D0%BE%D0%B4%D0%BD%D0%B0.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=161842690",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2025-03-12 12:49:02",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Марскія свінкі Гродна",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Cavia porcellus|CC-Zero|Self-published work|Mammals at Hrodna Zoo|Belarus photographs taken on 2025-03-11|March 2025 in Hrodna|Hrodna by Dzianis Batura",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Марскія свінкі Гродзенскага заапарка",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2025-03-11 14:39:11",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:DBatura\" title=\"User:DBatura\">DBatura</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/guinea-pigs-metadata.json",
+    "group": "guinea-pigs"
+  },
+  {
+    "pageid": 190855432,
+    "ns": 6,
+    "title": "File:Galpón de cuyes en Nueve de Julio 07.jpg",
+    "index": 44,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 327951,
+        "width": 1500,
+        "height": 1000,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Galp%C3%B3n_de_cuyes_en_Nueve_de_Julio_07.jpg/960px-Galp%C3%B3n_de_cuyes_en_Nueve_de_Julio_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 427,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Galp%C3%B3n_de_cuyes_en_Nueve_de_Julio_07.jpg/1280px-Galp%C3%B3n_de_cuyes_en_Nueve_de_Julio_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Galp%C3%B3n_de_cuyes_en_Nueve_de_Julio_07.jpg/960px-Galp%C3%B3n_de_cuyes_en_Nueve_de_Julio_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 427,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Galp%C3%B3n_de_cuyes_en_Nueve_de_Julio_07.jpg/1280px-Galp%C3%B3n_de_cuyes_en_Nueve_de_Julio_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/57/Galp%C3%B3n_de_cuyes_en_Nueve_de_Julio_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Galp%C3%B3n_de_cuyes_en_Nueve_de_Julio_07.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=190855432",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2026-05-01 01:30:51",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Galpón de cuyes en Nueve de Julio 07",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "CC-Zero|Creative Commons CC0 1.0 Universal Public Domain Dedication missing SDC copyright license|Nueve de Julio District|Self-published work|Self-published work missing SDC copyright license|Cavia porcellus as food|Paseo fotográfico y sonoro",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Galpón de cuyes de Hugo Quispe, productor local en el distrito de Nueve de Julio, Concepción Junín. Imagen registrada durante el Wikicampamento 2026.",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2026-04-24 10:04:31",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:MapacheVioleta&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:MapacheVioleta (page does not exist)\">MapacheVioleta</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/guinea-pigs-metadata.json",
+    "group": "guinea-pigs"
+  },
+  {
+    "pageid": 163237823,
+    "ns": 6,
+    "title": "File:Winter white hamster babys.jpg",
+    "index": 8,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 278789,
+        "width": 762,
+        "height": 792,
+        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Winter_white_hamster_babys.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbwidth": 640,
+        "thumbheight": 665,
+        "thumbattribs": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Winter_white_hamster_babys.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 665
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Winter_white_hamster_babys.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Winter_white_hamster_babys.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=163237823",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2025-04-06 11:28:02",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Winter white hamster babys",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "CC-Zero|Self-published work|Unidentified Cricetidae",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Winter white hamster babys",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2024-04-17",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:BettyBen&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:BettyBen (page does not exist)\">BettyBen</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/hamsters-metadata.json",
+    "group": "hamsters"
+  },
+  {
+    "pageid": 184258756,
+    "ns": 6,
+    "title": "File:Louz le goat.jpg",
+    "index": 27,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 291832,
+        "width": 1080,
+        "height": 2270,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Louz_le_goat.jpg/960px-Louz_le_goat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 1345,
+        "responsiveUrls": {
+          "2": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Louz_le_goat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Louz_le_goat.jpg/960px-Louz_le_goat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 1345,
+          "srcset": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Louz_le_goat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Louz_le_goat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Louz_le_goat.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=184258756",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2026-02-16 20:36:33",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Louz le goat",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "CC-Zero|Self-published work|Pet hamsters",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Louz the hamster",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2026-02-15",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Louzzzzz&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Louzzzzz (page does not exist)\">Louzzzzz</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/hamsters-metadata.json",
+    "group": "hamsters"
+  },
+  {
+    "pageid": 186906111,
+    "ns": 6,
+    "title": "File:Hámster chino.jpg",
+    "index": 35,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 5510433,
+        "width": 4096,
+        "height": 3072,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/H%C3%A1mster_chino.jpg/960px-H%C3%A1mster_chino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 480,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/H%C3%A1mster_chino.jpg/1280px-H%C3%A1mster_chino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/H%C3%A1mster_chino.jpg/960px-H%C3%A1mster_chino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 480,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/H%C3%A1mster_chino.jpg/1280px-H%C3%A1mster_chino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/H%C3%A1mster_chino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:H%C3%A1mster_chino.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=186906111",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2026-03-24 14:46:39",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Hámster chino",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Cricetinae|CC-Zero|Self-published work",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Hámster chino de color gris en Aguascalientes",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2026-03-15 12:56:40",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:BlueInOrbit&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:BlueInOrbit (page does not exist)\">BlueInOrbit</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/hamsters-metadata.json",
+    "group": "hamsters"
+  },
+  {
+    "pageid": 190389136,
+    "ns": 6,
+    "title": "File:Turkish Hamsters.jpg",
+    "index": 38,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 4193093,
+        "width": 4032,
+        "height": 3024,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Turkish_Hamsters.jpg/960px-Turkish_Hamsters.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 480,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Turkish_Hamsters.jpg/1280px-Turkish_Hamsters.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Turkish_Hamsters.jpg/960px-Turkish_Hamsters.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 480,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Turkish_Hamsters.jpg/1280px-Turkish_Hamsters.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/9/95/Turkish_Hamsters.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Turkish_Hamsters.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=190389136",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2026-04-25 21:37:55",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Turkish Hamsters",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "CC-Zero|Self-published work|Files with coordinates missing SDC location of creation|All media needing categories as of 2026|Media needing categories as of 25 April 2026",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "GPSLatitude": {
+            "value": "38.418725",
+            "source": "commons-desc-page"
+          },
+          "GPSLongitude": {
+            "value": "27.133794",
+            "source": "commons-desc-page"
+          },
+          "GPSMapDatum": {
+            "value": "WGS-84",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Hamsters from a vendor in Izmir.",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2026-04-10 17:29:31",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:Grandmaster_Huon\" title=\"User:Grandmaster Huon\">Grandmaster Huon</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/hamsters-metadata.json",
+    "group": "hamsters"
+  },
+  {
+    "pageid": 198535520,
+    "ns": 6,
+    "title": "File:Pet hamster in his enclosure.jpg",
+    "index": 32,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 1144011,
+        "width": 3000,
+        "height": 4000,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Pet_hamster_in_his_enclosure.jpg/960px-Pet_hamster_in_his_enclosure.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 853,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Pet_hamster_in_his_enclosure.jpg/1280px-Pet_hamster_in_his_enclosure.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Pet_hamster_in_his_enclosure.jpg/960px-Pet_hamster_in_his_enclosure.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 853,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Pet_hamster_in_his_enclosure.jpg/1280px-Pet_hamster_in_his_enclosure.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Pet_hamster_in_his_enclosure.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Pet_hamster_in_his_enclosure.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=198535520",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2026-08-31 07:33:37",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Pet hamster in his enclosure",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "CC-Zero|Creative Commons CC0 1.0 Universal Public Domain Dedication missing SDC copyright license|Self-published work|Self-published work missing SDC copyright license|All media needing categories as of 2026|Media needing categories as of 31 August 2026",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "אוגרים",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2024-05-25 18:12:15",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:NoamDonagi&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:NoamDonagi (page does not exist)\">NoamDonagi</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/hamsters-metadata.json",
+    "group": "hamsters"
+  },
+  {
+    "pageid": 199440560,
+    "ns": 6,
+    "title": "File:Hamster Ruso (Watson- Alias Guachochito).jpg",
+    "index": 23,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 338199,
+        "width": 3840,
+        "height": 2880,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Hamster_Ruso_%28Watson-_Alias_Guachochito%29.jpg/960px-Hamster_Ruso_%28Watson-_Alias_Guachochito%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 480,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Hamster_Ruso_%28Watson-_Alias_Guachochito%29.jpg/1280px-Hamster_Ruso_%28Watson-_Alias_Guachochito%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Hamster_Ruso_%28Watson-_Alias_Guachochito%29.jpg/960px-Hamster_Ruso_%28Watson-_Alias_Guachochito%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 480,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Hamster_Ruso_%28Watson-_Alias_Guachochito%29.jpg/1280px-Hamster_Ruso_%28Watson-_Alias_Guachochito%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Hamster_Ruso_%28Watson-_Alias_Guachochito%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Hamster_Ruso_(Watson-_Alias_Guachochito).jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=199440560",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2026-09-13 21:03:40",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Hamster Ruso (Watson- Alias Guachochito)",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "CC-Zero|Creative Commons CC0 1.0 Universal Public Domain Dedication missing SDC copyright license|Self-published work|Self-published work missing SDC copyright license|All media needing categories as of 2026|Media needing categories as of 13 September 2026",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Hamster Ruso (Watson- Alias Guachochito)",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2026-09-13",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:Mike_y_Gati\" title=\"User:Mike y Gati\">Mike y Gati</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/hamsters-metadata.json",
+    "group": "hamsters"
+  },
+  {
+    "pageid": 94822353,
+    "ns": 6,
+    "title": "File:Big Melon, Chinchilla, September 2020.jpg",
+    "index": 21,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 2607859,
+        "width": 4841,
+        "height": 3456,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Big_Melon%2C_Chinchilla%2C_September_2020.jpg/960px-Big_Melon%2C_Chinchilla%2C_September_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 640,
+        "thumbheight": 457,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Big_Melon%2C_Chinchilla%2C_September_2020.jpg/1280px-Big_Melon%2C_Chinchilla%2C_September_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Big_Melon%2C_Chinchilla%2C_September_2020.jpg/960px-Big_Melon%2C_Chinchilla%2C_September_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 640,
+          "height": 457,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Big_Melon%2C_Chinchilla%2C_September_2020.jpg/1280px-Big_Melon%2C_Chinchilla%2C_September_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Big_Melon%2C_Chinchilla%2C_September_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Big_Melon,_Chinchilla,_September_2020.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=94822353",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2020-10-07 00:39:37",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Big Melon, Chinchilla, September 2020",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "CC-Zero|Big Melon|Self-published work|Files with coordinates missing SDC location of creation|September 2020 in Queensland|Australia photographs taken on 2020-09-27",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "GPSLatitude": {
+            "value": "-26.740909",
+            "source": "commons-desc-page"
+          },
+          "GPSLongitude": {
+            "value": "150.629477",
+            "source": "commons-desc-page"
+          },
+          "GPSMapDatum": {
+            "value": "WGS-84",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "The Big Melon in Chinchilla, Queensland in September 2020.",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2020-09-27",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:Jjamesryan\" title=\"User:Jjamesryan\">Joshua Ryan</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "image/jpeg"
+      }
+    ],
+    "metadataFile": "content/batch-002/sources/small-pets-more-metadata.json",
+    "group": "chinchillas"
+  }
+]

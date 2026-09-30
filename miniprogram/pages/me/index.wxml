@@ -1,0 +1,109 @@
+<view class="me-navbar" style="padding-top:{{statusBarHeight}}px;">
+  <view class="me-navbar-row" style="height:{{navigationHeight}}px;padding-left:{{navigationInset}}px;padding-right:{{navigationInset}}px;"><text class="me-navbar-title">我的小天地</text></view>
+</view>
+<view class="page me-page">
+  <view wx:if="{{loading}}" class="loading">正在整理你的小天地…</view>
+  <view wx:elif="{{error}}" class="error-box">
+    <text>{{error}}</text>
+    <button wx:if="{{errorCode === 'ACCOUNT_UNAVAILABLE'}}" class="btn btn-secondary" bindtap="deleteAccount" loading="{{busy}}" disabled="{{busy}}">继续清除我的资料</button>
+    <button wx:else class="btn btn-secondary" bindtap="refresh">重新加载</button>
+  </view>
+  <block wx:else>
+    <view class="profile-card card">
+      <view class="profile-top">
+        <button class="profile-identity" bindtap="publicProfile" aria-label="查看我的个人主页">
+          <image class="profile-avatar" src="{{user.avatar || '/assets/avatar-1.png'}}" mode="aspectFill"/>
+          <view class="profile-main">
+            <view class="profile-name">{{user.nickname}}</view>
+            <view class="profile-home">查看个人主页 <text>›</text></view>
+          </view>
+        </button>
+        <button class="edit-button" bindtap="editProfile">编辑资料</button>
+      </view>
+      <view wx:if="{{user.bio}}" class="profile-bio">{{user.bio}}</view>
+      <view wx:if="{{user.area}}" class="profile-location"><text>{{user.area}}</text><text class="private-label">仅自己可见</text></view>
+      <button class="pet-entry {{user.pet ? 'has-pet' : 'pet-empty'}}" bindtap="editProfile" aria-label="{{user.pet ? '查看与编辑宠物资料，' + user.pet.name + '，' + petLabel : '添加宠物资料，选填'}}">
+        <view class="pet-portrait" aria-hidden="true"><image wx:if="{{user.pets[0].photo}}" class="my-pet-photo" src="{{user.pets[0].photo}}" mode="aspectFill"/><text wx:else>{{user.pet ? (user.pet.type === 'cat' ? '🐱' : user.pet.type === 'dog' ? '🐶' : '🐾') : '🐾'}}</text></view>
+        <view class="pet-copy">
+          <block wx:if="{{user.pet}}">
+            <view class="pet-kicker">我的宠物{{user.pets.length > 1 ? ' · ' + user.pets.length + ' 只' : ''}}</view>
+            <view class="pet-heading"><text class="pet-name">{{user.pet.name}}</text><text class="pet-type">{{petLabel}}</text></view>
+            <view class="pet-note">查看与编辑宠物资料</view>
+          </block>
+          <block wx:else>
+            <view class="pet-empty-title">添加宠物资料</view>
+            <view class="pet-note">选填，记录你的动物伙伴</view>
+          </block>
+        </view>
+        <text class="entry-arrow">›</text>
+      </button>
+      <view class="stats">
+        <button class="stat" bindtap="records" data-type="posts"><view class="stat-number">{{stats.postCount || 0}}</view><view class="stat-label">我的分享</view></button>
+        <button class="stat" bindtap="records" data-type="bookmarks"><view class="stat-number">{{stats.bookmarkCount || 0}}</view><view class="stat-label">我的收藏</view></button>
+        <button class="stat" bindtap="records" data-type="following"><view class="stat-number">{{stats.followingCount || 0}}</view><view class="stat-label">我的关注</view></button>
+      </view>
+    </view>
+
+    <button class="draft-entry card {{hasDraft ? 'has-draft' : ''}}" bindtap="openDraft" aria-label="{{draftError ? '草稿箱，本机草稿暂时无法读取' : hasDraft ? '草稿箱，查看当前账号的本机草稿' : '草稿箱，记录新的日常'}}">
+      <view class="draft-icon">✎</view>
+      <view class="entry-copy">
+        <view class="entry-title">草稿箱 <text wx:if="{{hasDraft}}" class="draft-badge">本机记录</text></view>
+        <view class="entry-note draft-preview">{{draftError || draftPreview}}</view>
+        <view wx:if="{{hasDraft && !draftError}}" class="draft-private">仅保存在当前设备</view>
+      </view>
+      <text class="entry-arrow">›</text>
+    </button>
+
+    <view class="participation-card card">
+      <button class="menu-item event-entry" bindtap="records" data-type="events">
+        <text class="entry-title">活动报名</text>
+        <view class="entry-tail"><text>{{stats.joinedEventCount || 0}} 个报名</text><text class="entry-arrow">›</text></view>
+      </button>
+      <button class="menu-item" bindtap="myPlaces"><text class="entry-title">我的地点</text><view class="entry-tail"><text>收藏 · 到访 · 纠错</text><text class="entry-arrow">›</text></view></button>
+      <view class="circle-heading">
+        <view class="entry-title">我的圈子 <text class="circle-count">{{stats.joinedCircleCount || 0}}</text></view>
+        <button wx:if="{{circles.length}}" class="text-link" bindtap="records" data-type="circles">全部 <text>›</text></button>
+        <button wx:else class="text-link" bindtap="exploreCircles">逛逛圈子 <text>›</text></button>
+      </view>
+      <view wx:if="{{circles.length === 0}}" class="circle-empty">还没加入圈子，找找和你有共同爱好的宠友。</view>
+      <view wx:else class="joined-circles">
+        <button wx:for="{{circlePreview}}" wx:key="id" class="joined-circle" bindtap="openCircle" data-id="{{item.id}}"><text>{{item.icon || '🐾'}}</text><text class="circle-name">{{item.name}}</text><text class="entry-arrow">›</text></button>
+      </view>
+    </view>
+
+    <view class="group-heading">账号与隐私</view>
+    <view class="menu card">
+      <button class="menu-item" bindtap="editProfile">
+        <view class="entry-copy"><view class="entry-title">资料与公开范围</view><view class="entry-note">{{privacySummary}}</view></view>
+        <text class="entry-arrow">›</text>
+      </button>
+      <button class="menu-item" bindtap="registerIdentity">
+        <view class="entry-copy"><view class="entry-title">手机号核验</view><view class="entry-note">{{verificationStatus === 'unverified' ? '核验后可发布和参与互动' : verificationStatus === 'demo_verified' ? '演示标记，不代表真实手机号核验' : maskedPhone || '核验信息仅自己可见'}}</view></view>
+        <view class="entry-tail"><text class="verification-state {{verificationStatus === 'unverified' ? 'needs-verification' : ''}}">{{verificationStatus === 'unverified' ? '去核验' : verificationStatus === 'demo_verified' ? '模拟核验' : '已核验'}}</text><text class="entry-arrow">›</text></view>
+      </button>
+      <button class="menu-item" bindtap="blocked"><text class="entry-title">已屏蔽用户</text><text class="entry-arrow">›</text></button>
+    </view>
+
+    <view class="group-heading">帮助与说明</view>
+    <view class="menu card help-card">
+      <button class="menu-item" bindtap="help"><text class="entry-title">反馈与帮助</text><text class="entry-arrow">›</text></button>
+      <view class="policy-links"><button bindtap="terms">用户协议</button><button bindtap="privacy">资料与隐私说明</button></view>
+    </view>
+
+    <view wx:if="{{user.isAdmin}}" class="admin-card card">
+      <button class="admin-heading" bindtap="toggleAdmin" aria-expanded="{{adminExpanded}}"><view class="entry-title">管理工具 <text class="admin-tag">仅管理员可见</text></view><text class="entry-arrow">{{adminExpanded ? '⌃' : '⌄'}}</text></button>
+      <view wx:if="{{adminExpanded}}" class="admin-menu">
+        <button class="menu-item" bindtap="manage"><text>活动管理</text><text class="entry-arrow">›</text></button>
+        <button class="menu-item" bindtap="managePlaces"><text>地点管理</text><text class="entry-arrow">›</text></button>
+        <button class="menu-item" bindtap="reviewSubmissions"><text>投稿审核</text><text class="entry-arrow">›</text></button>
+        <button class="menu-item" bindtap="moderation"><text>举报处理</text><text class="entry-arrow">›</text></button>
+        <button class="menu-item" bindtap="petStats"><text>宠物登记概况</text><text class="entry-arrow">›</text></button>
+        <button class="menu-item" bindtap="operations"><text>服务运行概况</text><text class="entry-arrow">›</text></button>
+      </view>
+    </view>
+    <view wx:if="{{localCleanupPending}}" class="error-box cleanup-error">个人资料和内容已清除，本机草稿、照片或参照地点还未清理成功。<button class="btn btn-secondary" bindtap="clearLocalDrafts" disabled="{{busy}}">重试清理本机记录</button></view>
+    <button class="delete-link" disabled="{{busy}}" bindtap="deleteAccount">清除我的资料和内容</button>
+    <view wx:if="{{mode === 'demo'}}" class="local-note">本机体验 · 资料与操作仅保存在当前设备</view>
+    <view class="me-footer">有宠有邻 <text>喜欢宠物，就在这里相遇。</text></view>
+  </block>
+</view>

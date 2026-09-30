@@ -1,0 +1,1425 @@
+{
+  "batchId": "batch-001",
+  "items": [
+    {
+      "id": "knowledge-001",
+      "contentType": "knowledge",
+      "title": "先按年龄与状态选主食",
+      "text": "给猫挑主食时，先核对产品适用的成长阶段，再结合年龄、活动量和健康状况决定喂法。幼猫与成年猫的需求不同，不能仅凭包装上的口味判断是否合适。ASPCA建议让兽医评估饮食安排，并选择营养均衡、含必需营养素的食物；零食或单一食材不能替代完整主食。",
+      "topics": [
+        "新手养宠",
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-home",
+      "source": {
+        "title": "General Cat Care",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/general-cat-care",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-general-cat.html",
+        "excerpt": "Factors such as age, activity level and health make a difference in what and how much a cat should eat."
+      }
+    },
+    {
+      "id": "knowledge-002",
+      "contentType": "knowledge",
+      "title": "水碗每天也需要重新开始",
+      "text": "让猫随时能喝到干净的新鲜水，是日常照护的基础。检查时别只看水碗有没有见底，还要把水碗清洗、换水和补水一起完成。ASPCA的基础照护建议是每天清洗并重新加水；把这件事放进固定的喂食流程，比想起来时偶尔加一点更容易持续做到。",
+      "topics": [
+        "新手养宠",
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-home",
+      "source": {
+        "title": "General Cat Care",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/general-cat-care",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-general-cat.html",
+        "excerpt": "wash and refill your cat’s water bowls daily"
+      }
+    },
+    {
+      "id": "knowledge-003",
+      "contentType": "knowledge",
+      "title": "抱猫时托住身体前后两端",
+      "text": "需要把猫抱起来时，一只手放在前腿后方，另一只手托住后躯，再轻轻抬起，让身体有支撑。不要抓着前腿把猫提起来，也不要拎后颈皮。这个动作的重点是稳妥承托，而不是用力固定某一个部位；与猫接触的人都应了解同样的抱法。",
+      "topics": [
+        "新手养宠",
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-home",
+      "source": {
+        "title": "General Cat Care",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/general-cat-care",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-general-cat.html",
+        "excerpt": "place one hand behind the front legs and another under the hindquarters"
+      }
+    },
+    {
+      "id": "knowledge-004",
+      "contentType": "knowledge",
+      "title": "给休息区留一个干净的位置",
+      "text": "猫需要属于自己的休息位置，不一定要昂贵，但应保持干燥、清洁，并铺上柔软的毯子或毛巾。日常打理不能只整理表面，寝具也要经常清洗。准备新家用品时，把休息区和可更换的铺垫一起安排好，后续照护就能围绕一处稳定的地方进行。",
+      "topics": [
+        "新手养宠",
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-home",
+      "source": {
+        "title": "General Cat Care",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/general-cat-care",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-general-cat.html",
+        "excerpt": "Your pet should have her own clean, dry place in your home to sleep and rest."
+      }
+    },
+    {
+      "id": "knowledge-005",
+      "contentType": "knowledge",
+      "title": "室内猫也值得做好身份识别",
+      "text": "主要生活在室内的猫，也可能在出入家门时意外走失。ASPCA提到，身份牌或植入的识别芯片都可帮助走失后的辨认与归还；这项准备并不只属于经常外出的猫。可以向兽医了解适合自己的识别方式，同时检查信息是否便于联系到照护人。",
+      "topics": [
+        "新手养宠",
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-home",
+      "source": {
+        "title": "General Cat Care",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/general-cat-care",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-general-cat.html",
+        "excerpt": "for both indoor and outdoor cats, an ID tag or an implanted microchip can help ensure that your cat is returned"
+      }
+    },
+    {
+      "id": "knowledge-006",
+      "contentType": "knowledge",
+      "title": "不要把家里的药直接给猫吃",
+      "text": "猫不舒服时，不要自行使用未经兽医处方指导的药物。人的药箱里有什么，并不能说明它适合猫。ASPCA明确提醒，若怀疑动物吞下有毒物质，应联系兽医寻求帮助；面对意外，先取得针对猫和具体物质的专业指导，比凭经验试药更重要。",
+      "topics": [
+        "新手养宠",
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-home",
+      "source": {
+        "title": "General Cat Care",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/general-cat-care",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-general-cat.html",
+        "excerpt": "Never give your cat medication that has not been prescribed by a veterinarian."
+      }
+    },
+    {
+      "id": "knowledge-007",
+      "contentType": "knowledge",
+      "title": "疫苗安排要结合这只猫的情况",
+      "text": "安排猫咪疫苗时，不宜照搬另一只猫的时间表。ASPCA建议由兽医结合年龄和健康情况提出建议，日常也应安排定期检查；已经生病或受伤时则应及时就诊。把过去的接种与就诊资料整理好，能让这次讨论围绕这只猫的实际需要展开。",
+      "topics": [
+        "新手养宠",
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-home",
+      "source": {
+        "title": "General Cat Care",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/general-cat-care",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-general-cat.html",
+        "excerpt": "Your veterinarian will make recommendations based on your cat's age and health."
+      }
+    },
+    {
+      "id": "knowledge-008",
+      "contentType": "knowledge",
+      "title": "营养补充不是越多越好",
+      "text": "已经使用完整、均衡主食的猫，一般不需要再自行叠加维生素或矿物质。ASPCA提醒，某些营养素补充过量可能造成中毒；确有缺乏或特殊疾病时，应由兽医判断。给猫买补充剂前，先带上当前主食和已在使用的产品清单，核对是否真的需要。",
+      "topics": [
+        "新手养宠",
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-home",
+      "source": {
+        "title": "Cat Nutrition Tips",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/cat-nutrition-tips",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-nutrition-tips.html",
+        "excerpt": "Over supplementation can result in poisoning with some key vitamins and minerals!"
+      }
+    },
+    {
+      "id": "knowledge-009",
+      "contentType": "knowledge",
+      "title": "幼猫学吃饭，不要把鼻子按进碗",
+      "text": "幼猫从喝奶过渡到固体食物需要逐步学习。原文建议先让幼猫舔食，再慢慢引导到浅碗边，而不是把鼻子按进液体里；这样做可能导致吸入液体。需要人工照护时，先向兽医确认代乳产品和喂养安排，并给幼猫练习的时间，不以一次吃得快慢判断进度。",
+      "topics": [
+        "新手养宠",
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-home",
+      "source": {
+        "title": "Cat Nutrition Tips",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/cat-nutrition-tips",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-nutrition-tips.html",
+        "excerpt": "Please do not push his nose into the bowl. He may inhale the liquid"
+      }
+    },
+    {
+      "id": "knowledge-010",
+      "contentType": "knowledge",
+      "title": "自由采食要看这只猫会不会过量",
+      "text": "全天放着食物虽然方便，却不一定适合每只成年猫。ASPCA指出，有些猫会在自由采食时吃得过多，进而增加肥胖风险。可以与兽医讨论按份量喂食的方式：先量出当天食物，再按适合家庭和猫的节奏分餐，关注实际吃下多少，而不是不断续满食盆。",
+      "topics": [
+        "新手养宠",
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-home",
+      "source": {
+        "title": "Cat Nutrition Tips",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/cat-nutrition-tips",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-nutrition-tips.html",
+        "excerpt": "some cats will overeat when fed free-choice, which can result in obesity"
+      }
+    },
+    {
+      "id": "knowledge-011",
+      "contentType": "knowledge",
+      "title": "牛奶不能代替猫的日常饮水",
+      "text": "想给猫一点特别的奖励，不必选择牛奶。ASPCA说明，猫分解乳糖的能力有限，牛奶及相关乳制品可能引起呕吐或腹泻，也不应替代清水。日常继续提供新鲜饮水和适合成长阶段的完整主食；需要额外营养时，应先讨论实际需求，而不是凭人的饮食习惯添加。",
+      "topics": [
+        "新手养宠",
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-home",
+      "source": {
+        "title": "Cat Nutrition Tips",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/cat-nutrition-tips",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-nutrition-tips.html",
+        "excerpt": "Milk should not be fed to cats as a treat or a substitute for water."
+      }
+    },
+    {
+      "id": "knowledge-012",
+      "contentType": "knowledge",
+      "title": "猫咪减重先做一份完整计划",
+      "text": "猫变胖不只是外形变化，也会增加身体负担。开始减重前，ASPCA建议与兽医一起确认热量需要、食物选择和喂食量，同时增加适合它的活动。把零食、正餐和陪玩机会都纳入日常记录，目标是改变长期过量摄入与活动不足的习惯，而不是只盯着某一天的体重。",
+      "topics": [
+        "新手养宠",
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-home",
+      "source": {
+        "title": "Cat Nutrition Tips",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/cat-nutrition-tips",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-nutrition-tips.html",
+        "excerpt": "consult your pet’s vet before starting on a weight loss program"
+      }
+    },
+    {
+      "id": "knowledge-013",
+      "contentType": "knowledge",
+      "title": "生病或术后，饮食也要重新讨论",
+      "text": "猫在疾病和术后恢复期间，营养需求可能与平时不同，需要支持组织修复和恢复。ASPCA建议在这些阶段与兽医讨论饮食调整。别只沿用健康时的饭量，也不要自行把各种补品加进食物；带着原来的喂食安排和近期摄食变化，就能更具体地讨论下一步。",
+      "topics": [
+        "新手养宠",
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-home",
+      "source": {
+        "title": "Cat Nutrition Tips",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/cat-nutrition-tips",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-nutrition-tips.html",
+        "excerpt": "Talk to your vet about adjusting your cat’s diet during periods of illness and recovery."
+      }
+    },
+    {
+      "id": "knowledge-014",
+      "contentType": "knowledge",
+      "title": "猫抗拒护理时，可以先停下来",
+      "text": "梳毛或清洁时，如果猫持续挣扎，已经可能伤到自己或照护人，就不适合靠更用力固定来完成。ASPCA建议这类情况预约专业美容人员或兽医处理。日常护理的前提是能够安全进行；把猫抗拒的具体步骤告诉专业人员，有助于选择更合适的照护方式。",
+      "topics": [
+        "新手养宠",
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-home",
+      "source": {
+        "title": "Cat Grooming Tips",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/cat-grooming-tips",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-grooming-tips.html",
+        "excerpt": "If your cat fights the grooming process, and there is some potential that injury could occur"
+      }
+    },
+    {
+      "id": "knowledge-015",
+      "contentType": "knowledge",
+      "title": "梳毛时，顺便检查皮肤变化",
+      "text": "梳毛不只是把浮毛梳掉，也是观察皮肤与毛发的机会。可以留意脱毛斑、发红、肿块、小伤口或可见寄生虫，并记录发生的位置。ASPCA提醒，明显脱毛或反复舔咬同一处可能有健康原因，应请兽医检查；不要把所有异常都归为普通换毛。",
+      "topics": [
+        "新手养宠",
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-home",
+      "source": {
+        "title": "Cat Grooming Tips",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/cat-grooming-tips",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-grooming-tips.html",
+        "excerpt": "Checking for hair loss, redness, bumps, cuts, fleas, ticks or other parasites"
+      }
+    },
+    {
+      "id": "knowledge-016",
+      "contentType": "knowledge",
+      "title": "清洁眼周，两只眼睛分开用棉球",
+      "text": "眼周少量结块可用湿润棉球轻轻擦去，每只眼睛使用新的棉球，并向远离眼角的方向擦拭。不要自行滴用未经兽医建议的眼药。若出现持续眯眼、抓眼、分泌物或浑浊等变化，应联系兽医，日常表面清洁不能代替对眼部问题的检查。",
+      "topics": [
+        "新手养宠",
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-home",
+      "source": {
+        "title": "Cat Grooming Tips",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/cat-grooming-tips",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-grooming-tips.html",
+        "excerpt": "use a fresh cotton ball for each eye"
+      }
+    },
+    {
+      "id": "knowledge-017",
+      "contentType": "knowledge",
+      "title": "耳部护理只处理看得见的外侧",
+      "text": "观察猫耳时，可以留意可见的耳垢、异味、发红或分泌物。使用兽医建议的清洁用品时，轻轻清理看得到的耳部内侧即可，不要把工具探入耳道。ASPCA提醒，向里探查可能造成损伤或感染；发现异常后先检查原因，不要反复深挖清洁。",
+      "topics": [
+        "新手养宠",
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-home",
+      "source": {
+        "title": "Cat Grooming Tips",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/cat-grooming-tips",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-grooming-tips.html",
+        "excerpt": "do not attempt to clean the canal—probing inside of your cat’s ear can cause trauma or infection"
+      }
+    },
+    {
+      "id": "knowledge-018",
+      "contentType": "knowledge",
+      "title": "剪指甲前，先练习接受摸爪",
+      "text": "怕剪指甲的猫，可以先从很短的轻柔触爪开始适应。原文建议轻轻按摩脚爪，猫抽回时不要捏紧或夹住；等它安静后，再尝试轻压肉垫、松开并给奖励。把熟悉触碰和真正修剪分成不同步骤，先建立舒适感，再考虑下一次是否能继续。",
+      "topics": [
+        "新手养宠",
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-home",
+      "source": {
+        "title": "Cat Grooming Tips",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/cat-grooming-tips",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-grooming-tips.html",
+        "excerpt": "If your cat pulls her paw away, don’t squeeze or pinch"
+      }
+    },
+    {
+      "id": "knowledge-019",
+      "contentType": "knowledge",
+      "title": "修剪指甲，少一点比赶进度稳妥",
+      "text": "猫指甲里的粉色部分含有神经和血管，修剪应避开这一区域，只处理前端需要剪掉的尖部。原文建议在猫尚未适应时，一次不要急着剪完全部脚爪；完成很少的数量后就可以奖励并结束。看不清结构或猫明显抗拒时，请兽医或专业人员协助。",
+      "topics": [
+        "新手养宠",
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-home",
+      "source": {
+        "title": "Cat Grooming Tips",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/cat-grooming-tips",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-grooming-tips.html",
+        "excerpt": "The pink part of a cat’s nail, called the quick, is where the nerves and blood vessels are."
+      }
+    },
+    {
+      "id": "knowledge-020",
+      "contentType": "knowledge",
+      "title": "刷牙先熟悉触碰，再使用猫用牙膏",
+      "text": "给猫刷牙可以分阶段练习：先让它接受口周的轻柔触碰，再慢慢熟悉猫用牙膏的味道和合适的小牙刷。ASPCA提醒不要使用人的牙膏，其成分可能不适合猫。若牙龈红肿、咀嚼困难或口腔有其他异常，应先就诊，再按专业建议安排居家护理。",
+      "topics": [
+        "新手养宠",
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-home",
+      "source": {
+        "title": "Cat Grooming Tips",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/cat-grooming-tips",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-grooming-tips.html",
+        "excerpt": "be sure never to use toothpaste designed for people"
+      }
+    },
+    {
+      "id": "knowledge-021",
+      "contentType": "knowledge",
+      "title": "抓挠是需求，关键是给对地方",
+      "text": "猫会在玩耍和伸展时抓挠，也会借此做标记、去掉磨损的外层爪鞘。这并不只是故意破坏家具。ASPCA建议处理抓挠时，把重点放在引导它使用合适的表面，而不是让它完全不抓。先准备它愿意用的抓板或抓柱，才有可以替代家具的去处。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Destructive Scratching",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/destructive-scratching",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-destructive-scratching.html",
+        "excerpt": "scratch on things to remove frayed, worn outer claws and expose new, sharper claws"
+      }
+    },
+    {
+      "id": "knowledge-022",
+      "contentType": "knowledge",
+      "title": "抓板材质和方向，让猫来选择",
+      "text": "有的猫喜欢水平抓板，有的偏好竖直或斜面；纸板、木材和剑麻等不同表面，也可能得到不同反应。可以先提供几种选择，观察它真正愿意使用哪一种，再把相似的款式放到其他位置。选购时，依据猫的偏好比只看外观更有帮助。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Destructive Scratching",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/destructive-scratching",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-destructive-scratching.html",
+        "excerpt": "Some cats prefer horizontal posts. Others might like vertical posts or slanted posts."
+      }
+    },
+    {
+      "id": "knowledge-023",
+      "contentType": "knowledge",
+      "title": "新抓柱先放在它常抓的位置旁",
+      "text": "想保护一件常被抓的家具，可以在附近增加合适的抓柱，让替代选择出现在猫原本活动的地方。抓柱应足够稳固，使用时不摇晃，并留有让猫充分伸展的空间。只把新用品藏在很少经过的角落，可能难以引起它的兴趣；先从方便使用的位置开始。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Destructive Scratching",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/destructive-scratching",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-destructive-scratching.html",
+        "excerpt": "Place scratching posts next to these objects, as “legal” alternatives."
+      }
+    },
+    {
+      "id": "knowledge-024",
+      "contentType": "knowledge",
+      "title": "不要抓着猫爪强行示范抓板",
+      "text": "买了抓板后，别把猫按在旁边，再拖着它的爪子划过表面。ASPCA指出，这样的强迫体验可能让猫受惊，反而回避抓板甚至回避照护人。可以用合适的玩具吸引它主动靠近、探索，让抓板成为愿意接触的物品，而不是被固定和控制的地方。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Destructive Scratching",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/destructive-scratching",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-destructive-scratching.html",
+        "excerpt": "Do not hold your cat by the scratching post and force her to drag her claws on it."
+      }
+    },
+    {
+      "id": "knowledge-025",
+      "contentType": "knowledge",
+      "title": "喜欢的旧抓板，不必因旧而丢",
+      "text": "抓板看起来有些磨损，不代表猫已经不喜欢它。ASPCA提到，猫可能偏爱抓过的表面，因为更容易抓住，也带有熟悉的样子和气味。只要结构仍稳固可用，就不用仅为外观马上扔掉；添置新抓板时，也可以先让原来熟悉的选择继续保留。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Destructive Scratching",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/destructive-scratching",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-destructive-scratching.html",
+        "excerpt": "Do not throw away a favorite scratching post when it becomes unsightly."
+      }
+    },
+    {
+      "id": "knowledge-026",
+      "contentType": "knowledge",
+      "title": "多猫家庭先检查猫砂盆数量",
+      "text": "猫砂盆不够用，可能增加等待、回避和猫之间的冲突。ASPCA给出的基础安排是每只猫一个，再额外增加一个：两只猫的家庭可以先按三个盆准备。数量只是起点，还要看每只猫能否实际使用，不能以为买够了盆就一定没有排泄问题。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Litter Box Problems",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/litter-box-problems",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-litter-box-problems.html",
+        "excerpt": "Make sure you have one for each cat in your household, plus one extra."
+      }
+    },
+    {
+      "id": "knowledge-027",
+      "contentType": "knowledge",
+      "title": "猫砂盆要安静，也要有退路",
+      "text": "猫砂盆的位置不只是方便人清洁，还要方便猫随时进出。原文建议避开人来人往、突然响动的区域，以及可能被其他动物堵住的角落；猫最好能够看到谁在靠近，并有离开的路线。食碗也不要紧挨猫砂盆摆放，让进食和排泄各有合适的位置。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Litter Box Problems",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/litter-box-problems",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-litter-box-problems.html",
+        "excerpt": "They like to be able to see people or other animals approaching"
+      }
+    },
+    {
+      "id": "knowledge-028",
+      "contentType": "knowledge",
+      "title": "高入口猫砂盆不适合每只猫",
+      "text": "老年猫、关节不适或行动受限的猫，可能难以跨过高边缘或使用顶部入口的猫砂盆。更换用品时，先看它能否轻松进入、转身和离开，而不只看是否防带砂。ASPCA建议尝试低边缘款式；若同时出现疼痛或排泄异常，应先让兽医评估。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Litter Box Problems",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/litter-box-problems",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-litter-box-problems.html",
+        "excerpt": "Try switching to a litter box with low sides."
+      }
+    },
+    {
+      "id": "knowledge-029",
+      "contentType": "knowledge",
+      "title": "不喜欢新猫砂，可以提供选择",
+      "text": "换猫砂后出现犹豫或回避，可能与气味、触感或既有习惯有关。原文建议把不同猫砂放在并列的盆中，让猫用实际选择表达偏好，而不是一口气全部换掉。许多猫偏好无香、较细的结团猫砂，但仍应观察个体反应；排泄异常也需排查健康因素。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Litter Box Problems",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/litter-box-problems",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-litter-box-problems.html",
+        "excerpt": "put a few boxes side-by-side with different types of litter in them"
+      }
+    },
+    {
+      "id": "knowledge-030",
+      "contentType": "knowledge",
+      "title": "清理排泄痕迹，别只遮住气味",
+      "text": "日常至少清理一次猫砂盆，并定期用温水和无香清洁方式清洗。若猫在盆外排泄，ASPCA建议使用针对宠物气味的酶类清洁产品充分处理，而不是依靠香味掩盖；也应避免含氨清洁剂。清洁之外，继续寻找盆外排泄的原因，不能只反复擦同一处。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Litter Box Problems",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/litter-box-problems",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-litter-box-problems.html",
+        "excerpt": "Clean accidents thoroughly with an enzymatic cleanser designed to neutralize pet odors."
+      }
+    },
+    {
+      "id": "knowledge-031",
+      "contentType": "knowledge",
+      "title": "反复进猫砂盆却尿不出，应立即就医",
+      "text": "频繁进出猫砂盆、明显用力却排尿很少，或伴随疼痛、叫声、血尿，都不宜只当作行为问题。ASPCA提示，这些迹象可能涉及泌尿系统问题，其中一些情况可能危及生命。若猫排不出尿，应立即前往宠物医院；其他异常也应尽快联系兽医检查，不靠更换猫砂或等待几天来替代诊疗。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Litter Box Problems",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/litter-box-problems",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-litter-box-problems.html",
+        "excerpt": "It must be treated immediately by a veterinarian."
+      }
+    },
+    {
+      "id": "knowledge-032",
+      "contentType": "knowledge",
+      "title": "让猫重新信任猫砂盆，不能靠强迫",
+      "text": "在猫砂盆里受惊、被堵住或曾经排泄疼痛，可能让猫把这个位置与不舒服联系起来。强行把它抱进去，未必能证明那里安全，反而可能加重回避。先由兽医排查健康原因，再考虑增加位置合适的新盆、减少打扰；不要训斥或把猫鼻子按向排泄物。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Litter Box Problems",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/litter-box-problems",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-litter-box-problems.html",
+        "excerpt": "trying to show your cat that her litter box is safe by placing her in the box will likely backfire"
+      }
+    },
+    {
+      "id": "knowledge-033",
+      "contentType": "knowledge",
+      "title": "听见猫叫，先看看它在表达什么",
+      "text": "猫叫可能是在打招呼、寻找互动、期待食物，或表示某件事不对劲。先检查饮水、猫砂盆和通行是否正常，再结合当时场景观察，别一律理解为任性讨要。ASPCA提醒，除了明确知道它在索取某种回应的情况，忽视叫声可能错过真实需要。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Meowing and Yowling",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/meowing-and-yowling",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-meowing-and-yowling.html",
+        "excerpt": "Always make sure that her needs are met before assuming that she’s just being demanding"
+      }
+    },
+    {
+      "id": "knowledge-034",
+      "contentType": "knowledge",
+      "title": "用叫声日记寻找反复出现的线索",
+      "text": "想调整频繁叫声，先记录何时发生、周围有什么，以及什么事情会让猫安静下来。可能是饭点、见到人、门窗附近，或某段独处时间。ASPCA建议用记录寻找规律，同时由兽医排除导致不适的健康问题；观察具体情境，比只数叫了多少次更有帮助。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Meowing and Yowling",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/meowing-and-yowling",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-meowing-and-yowling.html",
+        "excerpt": "It may help to keep a log book so you can look for any patterns"
+      }
+    },
+    {
+      "id": "knowledge-035",
+      "contentType": "knowledge",
+      "title": "确认是求关注后，把互动留给安静时",
+      "text": "在基本需要得到满足、健康问题已排查，并确定叫声主要为了获得关注后，可以耐心等一个短暂安静的时刻，再主动陪伴。ASPCA指出，大声训斥也可能成为回应，不能替代一致的互动安排。把抚摸、说话和游戏放在合适的时机，不是完全不理猫。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Meowing and Yowling",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/meowing-and-yowling",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-meowing-and-yowling.html",
+        "excerpt": "wait for a brief moment of silence. Immediately give her the attention she craves."
+      }
+    },
+    {
+      "id": "knowledge-036",
+      "contentType": "knowledge",
+      "title": "总在清晨叫饭，可以调整喂食线索",
+      "text": "如果猫把叫醒人和马上开饭联系起来，可以与兽医确认合适的喂食安排后，尝试固定饭点，而不是每次叫就加餐。ASPCA也提到可定时开启的喂食器，帮助把开饭时间与人的起床反应分开。先确认不是异常饥饿或疾病，再调整日常习惯。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Meowing and Yowling",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/meowing-and-yowling",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-meowing-and-yowling.html",
+        "excerpt": "buy an automatic feeder that you can schedule to open at specific times"
+      }
+    },
+    {
+      "id": "knowledge-037",
+      "contentType": "knowledge",
+      "title": "习惯外出的猫，适应室内需要时间",
+      "text": "原本常外出的猫改为室内生活后，可能持续在门窗处叫，希望恢复旧习惯。ASPCA指出，这种变化需要适应时间，不能期待几天就完全安静。以安全为前提保持一致的安排；若考虑户外活动，资料提到可封闭的猫用户外围栏，而不是让猫自由游走。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Meowing and Yowling",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/meowing-and-yowling",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-meowing-and-yowling.html",
+        "excerpt": "This is a difficult change for a cat to make, and it will very likely take weeks or even months"
+      }
+    },
+    {
+      "id": "knowledge-038",
+      "contentType": "knowledge",
+      "title": "老年猫的新变化，先记录再判断",
+      "text": "老年猫变得不爱探索、吃得少、梳理减少，或对熟悉的人和环境反应不同，都值得与过去的状态比较并记录。ASPCA提醒，不要简单归为年纪大了；疼痛、感官变化等健康问题也可能表现为行为改变。把具体变化交给兽医判断，而不是自行诊断认知衰退。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Older Cats with Behavior Problems",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/older-cats-behavior-problems",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-older-cats-behavior-problems.html",
+        "excerpt": "Don’t assume that your cat is “just getting old” and nothing can be done to help her."
+      }
+    },
+    {
+      "id": "knowledge-039",
+      "contentType": "knowledge",
+      "title": "老年猫更需要容易预测的日常",
+      "text": "对出现迷路或方向混乱的老年猫，稳定的环境可能更容易应对。原文建议尽量保持食物、食碗、猫砂与猫砂盆的位置不变，日程也保持一致。若猫明显难以找到所需物品，应请兽医评估，并在指导下简化活动空间，让资源更容易找到和到达。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Older Cats with Behavior Problems",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/older-cats-behavior-problems",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-older-cats-behavior-problems.html",
+        "excerpt": "Avoid changes to her food, food placement, litter and litter box placement."
+      }
+    },
+    {
+      "id": "knowledge-040",
+      "contentType": "knowledge",
+      "title": "夜里总醒，先排查再调整白天活动",
+      "text": "老年猫夜间走动或叫唤增多，可能与睡眠节律、感官变化、疼痛或排泄需要有关。先由兽医检查原因，再逐步恢复规律的作息。ASPCA建议白天和傍晚安排适合猫状态的游戏，帮助建立正常昼夜节奏；不要只靠训斥来阻止夜间活动。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Older Cats with Behavior Problems",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/older-cats-behavior-problems",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-older-cats-behavior-problems.html",
+        "excerpt": "It’s best to increase her activity level by engaging her in play during the day and in the evening"
+      }
+    },
+    {
+      "id": "knowledge-041",
+      "contentType": "knowledge",
+      "title": "以前温顺的老年猫，为什么怕被碰",
+      "text": "老年猫突然对靠近或触碰更敏感，不一定是脾气变坏。ASPCA说明，关节、牙齿等疼痛问题，以及视听能力下降，都可能增加焦虑或防御反应。记录它在什么部位、什么情境下不愿接触，请兽医检查；照护时尊重回避信号，先理解不舒服的原因。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Older Cats with Behavior Problems",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/older-cats-behavior-problems",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-older-cats-behavior-problems.html",
+        "excerpt": "increased anxiety about being touched or approached"
+      }
+    },
+    {
+      "id": "knowledge-042",
+      "contentType": "knowledge",
+      "title": "读懂猫的警告，要看全身和情境",
+      "text": "观察猫是否紧张，不宜只凭尾巴或耳朵的一个动作下结论。ASPCA把身体姿势、面部表情、耳尾位置和当时情境一起作为观察线索。若出现身体僵硬、耳朵压低、哈气或挥爪等组合信号，先停止靠近和触碰，留出空间，别急着抱住安抚。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Aggression in Cats",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/aggression-cats",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-aggression-cats.html",
+        "excerpt": "Body language is made up of cats’ body postures, facial expressions, and the position and carriage"
+      }
+    },
+    {
+      "id": "knowledge-043",
+      "contentType": "knowledge",
+      "title": "抚摸时，它说停就停",
+      "text": "有些猫喜欢短暂抚摸，却不喜欢同一处被反复触碰。转头看手、甩尾、耳位变化或开始不安，都可能提示它想结束。ASPCA建议看到停止信号就停下来，而不是等到被咬才判断。每只猫对抚摸、抱起和搂住的接受程度不同，互动长度可以由它决定。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Aggression in Cats",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/aggression-cats",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-aggression-cats.html",
+        "excerpt": "When your cat signals you to stop petting, the best response is simply to stop."
+      }
+    },
+    {
+      "id": "knowledge-044",
+      "contentType": "knowledge",
+      "title": "不要把手脚变成追捕玩具",
+      "text": "幼猫追逐、扑击和咬抓常出现在游戏里，但把目标换成人的手脚，就可能造成伤害。ASPCA指出，鼓励猫追咬手脚、长期缺少游戏机会，都可能加重粗鲁玩耍。安排适合的玩具与互动机会，避免用身体逗它练习追捕；已经反复伤人时应寻求专业帮助。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Aggression in Cats",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/aggression-cats",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-aggression-cats.html",
+        "excerpt": "pet parents encourage their cats to chase and attack people’s hands and feet in play"
+      }
+    },
+    {
+      "id": "knowledge-045",
+      "contentType": "knowledge",
+      "title": "被窗外刺激后，先让猫平静下来",
+      "text": "猫看见够不到的其他动物后，可能把高度激动的反应转向附近的人或宠物；这种反应甚至会延后出现。ASPCA将其称为转移性攻击。看到明显激动或防御姿态时，不要凑近抱住，也不要徒手介入猫之间的打斗；先留出距离，必要时请专业人员协助。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Aggression in Cats",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/aggression-cats",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-aggression-cats.html",
+        "excerpt": "There can be considerable delay between the initial arousal and the redirected aggression, as long as hours."
+      }
+    },
+    {
+      "id": "knowledge-046",
+      "contentType": "knowledge",
+      "title": "猫之间起冲突，重新见面要循序渐进",
+      "text": "同住猫发生冲突后，不要期待让它们打一架就解决。原文建议先分开生活，各自有食碗、床和猫砂盆，再逐步接触气味、隔门相处，依据双方是否放松来推进。出现哈气、挥爪等反应就退回更慢的步骤；冲突严重或持续时，应请兽医或行为专业人员制定方案。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Aggression Between Cats in Your Household",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/aggression-between-cats-your-household",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-aggression-between-cats-your-household.html",
+        "excerpt": "Separate your cats in different rooms for several days or weeks, with separate beds, bowls and litter boxes."
+      }
+    },
+    {
+      "id": "knowledge-047",
+      "contentType": "knowledge",
+      "title": "喷尿标记和不用猫砂盆，不是一回事",
+      "text": "喷尿标记常表现为朝垂直表面留下较少尿液，猫也可能继续正常使用猫砂盆。ASPCA强调，这与单纯不愿在盆内排泄的原因不同。可以记录姿势、位置和大致尿量，供兽医与行为评估参考；这些特征是观察线索，不能据此自行排除健康问题。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Urine Marking in Cats",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/urine-marking-cats",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-urine-marking-cats.html",
+        "excerpt": "Cats who urine mark also use their litter boxes for voiding"
+      }
+    },
+    {
+      "id": "knowledge-048",
+      "contentType": "knowledge",
+      "title": "窗外的猫，也可能影响室内情绪",
+      "text": "室内猫反复看到窗外其他猫，可能产生紧张和冲突感，并通过尿标记回应。ASPCA建议在确认相关情境后，尝试关闭相应门窗或拉上窗帘，减少持续刺激。先记录标记发生的位置与时间，并排查健康因素；不需要强迫两只猫面对面熟悉。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Urine Marking in Cats",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/urine-marking-cats",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-urine-marking-cats.html",
+        "excerpt": "Prevent your indoor cat from seeing other neighborhood cats."
+      }
+    },
+    {
+      "id": "knowledge-049",
+      "contentType": "knowledge",
+      "title": "出现尿标记，回看最近的家庭变化",
+      "text": "搬家、新成员、装修或作息调整，都可能改变猫熟悉的环境。ASPCA提到，这些变化可能与尿标记有关，猫是在应对压力或重新建立熟悉感。发现问题时，除了清洁，也整理近期变化和发生时间；不要把它解释为报复，更不要朝猫扔东西惩罚。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Urine Marking in Cats",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/urine-marking-cats",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-urine-marking-cats.html",
+        "excerpt": "Urine marking behavior can be triggered by someone moving in, moving out"
+      }
+    },
+    {
+      "id": "knowledge-050",
+      "contentType": "knowledge",
+      "title": "绝育之后，也不能忽略标记的原因",
+      "text": "未绝育公猫较容易因繁殖相关原因进行尿标记，但母猫和已绝育的猫也可能标记。ASPCA指出，绝育可帮助处理与求偶相关的标记，却不代表所有压力和冲突都会自动消失。已经出现问题时，仍需先与兽医排查健康因素，再针对具体触发情境调整环境。",
+      "topics": [
+        "养宠经验"
+      ],
+      "circleId": "circle-cats",
+      "editorId": "catalog-cat-behavior",
+      "source": {
+        "title": "Urine Marking in Cats",
+        "publisher": "ASPCA",
+        "author": "ASPCA",
+        "url": "https://www.aspca.org/pet-care/cat-care/common-cat-behavior-issues/urine-marking-cats",
+        "checkedAt": "2026-09-29"
+      },
+      "review": {
+        "status": "approved",
+        "reviewer": "有宠有邻内容整理",
+        "reviewedAt": "2026-09-29"
+      },
+      "images": [],
+      "sourceEvidence": {
+        "file": "content/batch-001/sources/aspca-cat-urine-marking-cats.html",
+        "excerpt": "Although female cats as well as neutered and spayed cats can urine mark"
+      }
+    }
+  ]
+}

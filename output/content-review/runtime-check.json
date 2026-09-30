@@ -1,0 +1,184 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-09-29T12:27:50.137Z",
+  "catalogVersion": "batch-001-441c06cafa8cc260",
+  "method": "Actual CURATED_POSTS via createDemoService with a new in-memory Map platform. No real WeChat/browser storage, network or simulator access.",
+  "checks": {
+    "home": {
+      "total": 300,
+      "pages": 15,
+      "pageSizes": [
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "duplicateIds": 0,
+      "missingIds": 0,
+      "knowledge": 100,
+      "photo": 200
+    },
+    "details": {
+      "detailPages": 300,
+      "creditedImages": 200,
+      "originalAuthor": 300,
+      "nicknames": [
+        "橘子与猫",
+        "栗子汪汪",
+        "奶盖喵",
+        "毛孩拾光",
+        "毛球笔记",
+        "阿禾慢慢遛"
+      ],
+      "publicAccountLabels": 0,
+      "missingSources": 0,
+      "missingCredits": 0,
+      "privateEvidenceExposed": 0
+    },
+    "search": [
+      {
+        "query": "猫",
+        "total": 161,
+        "pages": 9,
+        "exactExpectedMatch": true
+      },
+      {
+        "query": "狗",
+        "total": 129,
+        "pages": 7,
+        "exactExpectedMatch": true
+      },
+      {
+        "query": "散步",
+        "total": 6,
+        "pages": 1,
+        "exactExpectedMatch": true
+      },
+      {
+        "query": "喝水",
+        "total": 1,
+        "pages": 1,
+        "exactExpectedMatch": true
+      },
+      {
+        "query": "草地",
+        "total": 25,
+        "pages": 2,
+        "exactExpectedMatch": true
+      },
+      {
+        "query": "猫砂",
+        "total": 11,
+        "pages": 1,
+        "exactExpectedMatch": true
+      },
+      {
+        "query": "安全",
+        "total": 16,
+        "pages": 1,
+        "exactExpectedMatch": true
+      },
+      {
+        "query": "没有此关键词9b7e41",
+        "total": 0,
+        "pages": 1,
+        "exactExpectedMatch": true
+      }
+    ],
+    "circles": [
+      {
+        "id": "circle-neighbors",
+        "name": "爱宠邻里",
+        "posts": 15,
+        "pages": 1,
+        "registeredMembers": 1,
+        "duplicateIds": 0,
+        "missingIds": 0
+      },
+      {
+        "id": "circle-cats",
+        "name": "猫咪慢生活",
+        "posts": 159,
+        "pages": 8,
+        "registeredMembers": 0,
+        "duplicateIds": 0,
+        "missingIds": 0
+      },
+      {
+        "id": "circle-walks",
+        "name": "一起散散步",
+        "posts": 126,
+        "pages": 7,
+        "registeredMembers": 0,
+        "duplicateIds": 0,
+        "missingIds": 0
+      }
+    ],
+    "profiles": [
+      {
+        "nickname": "橘子与猫",
+        "posts": 52,
+        "pages": 3,
+        "followers": 0
+      },
+      {
+        "nickname": "奶盖喵",
+        "posts": 67,
+        "pages": 4,
+        "followers": 0
+      },
+      {
+        "nickname": "栗子汪汪",
+        "posts": 53,
+        "pages": 3,
+        "followers": 0
+      },
+      {
+        "nickname": "阿禾慢慢遛",
+        "posts": 35,
+        "pages": 2,
+        "followers": 0
+      },
+      {
+        "nickname": "毛球笔记",
+        "posts": 15,
+        "pages": 1,
+        "followers": 0
+      },
+      {
+        "nickname": "毛孩拾光",
+        "posts": 78,
+        "pages": 4,
+        "followers": 0
+      }
+    ],
+    "accountStatistics": {
+      "localNonEditorialAccounts": 1,
+      "editorialAccountsExcludedFromMemberCounts": 6,
+      "declaredPets": 0,
+      "userCreatedPosts": 0,
+      "followingAccounts": 0
+    }
+  },
+  "storage": {
+    "type": "in-memory Map only",
+    "reads": 392,
+    "writes": 1,
+    "realDeviceStorageAccessed": false,
+    "apiCalls": 392
+  },
+  "limits": [
+    "Does not validate remote image availability, actual WeChat rendering, phone testing or cloud deployment."
+  ]
+}

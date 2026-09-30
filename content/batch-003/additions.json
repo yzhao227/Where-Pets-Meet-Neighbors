@@ -1,0 +1,861 @@
+[
+  {
+    "id": "knowledge-observe-rabbit-routine",
+    "title": "从前爪到耳朵，读一组兔子照片",
+    "text": "这组图把兔子的前爪、脸颊和停留姿态放在一起看。图一的浅色兔子把前爪抬到脸前，图二的棕色兔子低头整理身体，图三的灰兔伏在地面，前爪伸向前方。先找爪子的位置，再看耳朵和身体朝向，同样是兔子，每张照片都有不同的细节。三张图来自不同个体和场景，是并列观察，不是一只兔子的连续动作，也不能只凭静态姿态判断情绪。",
+    "imagePhotoIds": [
+      "photo-commons-199018349",
+      "photo-commons-69295425",
+      "photo-commons-141266248"
+    ],
+    "circleId": "circle-small-pets",
+    "animalTypes": [
+      "rabbit"
+    ],
+    "topics": [
+      "行为观察",
+      "治愈瞬间"
+    ],
+    "contentType": "knowledge",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "Rabbit Grooming itself.jpg",
+      "publisher": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Rabbit_Grooming_itself.jpg",
+      "author": "BlueBunnyRabbit",
+      "checkedAt": "2026-09-29"
+    },
+    "images": [],
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻编辑图解离线复核",
+      "reviewedAt": "2026-09-30"
+    },
+    "sourceEvidence": {
+      "reviewMode": "offline-existing-evidence",
+      "editorialReviewedAt": "2026-09-30",
+      "publicPagesFetchedInThisBatch": false,
+      "visualReview": "content/batch-003/review/photo-groups.jpg",
+      "reviewRecord": "content/batch-003/review/evidence.json",
+      "imageSources": [
+        {
+          "photoId": "photo-commons-199018349",
+          "source": {
+            "title": "Rabbit Grooming itself.jpg",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:Rabbit_Grooming_itself.jpg",
+            "author": "BlueBunnyRabbit",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+            "pageid": 199018349,
+            "downloadedFile": "content/batch-002/media/199018349.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "rabbits"
+          }
+        },
+        {
+          "photoId": "photo-commons-69295425",
+          "source": {
+            "title": "Bunny Photo.jpg",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:Bunny_Photo.jpg",
+            "author": "Miscellaneous contributor",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+            "pageid": 69295425,
+            "downloadedFile": "content/batch-002/media/69295425.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "rabbits"
+          }
+        },
+        {
+          "photoId": "photo-commons-141266248",
+          "source": {
+            "title": "Rabbits Grand Chinchilla.jpg",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:Rabbits_Grand_Chinchilla.jpg",
+            "author": "ケケケノケ",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+            "pageid": 141266248,
+            "downloadedFile": "content/batch-002/media/141266248.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "rabbits"
+          }
+        }
+      ],
+      "note": "仅对原已采集图片、来源记录及编辑配文作离线复核；各图为不同个体或场景，不构成连续经历。"
+    }
+  },
+  {
+    "id": "knowledge-observe-bird-framing",
+    "title": "看鸟的三个角度：脸、身体和尾羽",
+    "text": "看一组鸟类照片，可以把注意力从脸部慢慢移到全身。图一是黄绿色小鸟的正面近景，喙与脸颊的颜色很醒目；图二保留了站立的树干，能同时看见爪子和身体；图三的蓝色小鸟侧身停在细枝上，折叠的翅膀和尾羽更清楚。三张照片中的鸟并非同一个体，也不全是同一种鸟。这组图比较的是取景角度，不用羽色或单个姿势推断年龄、性别与健康状况。",
+    "imagePhotoIds": [
+      "photo-commons-31705969",
+      "photo-commons-181503615",
+      "photo-commons-155186024"
+    ],
+    "circleId": "circle-birds",
+    "animalTypes": [
+      "bird"
+    ],
+    "topics": [
+      "行为观察",
+      "治愈瞬间"
+    ],
+    "contentType": "knowledge",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "Melopsittacus undulatus Kiev2.JPG",
+      "publisher": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Melopsittacus_undulatus_Kiev2.JPG",
+      "author": "Аимаина хикари",
+      "checkedAt": "2026-09-29"
+    },
+    "images": [],
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻编辑图解离线复核",
+      "reviewedAt": "2026-09-30"
+    },
+    "sourceEvidence": {
+      "reviewMode": "offline-existing-evidence",
+      "editorialReviewedAt": "2026-09-30",
+      "publicPagesFetchedInThisBatch": false,
+      "visualReview": "content/batch-003/review/photo-groups.jpg",
+      "reviewRecord": "content/batch-003/review/evidence.json",
+      "imageSources": [
+        {
+          "photoId": "photo-commons-31705969",
+          "source": {
+            "title": "Melopsittacus undulatus Kiev2.JPG",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:Melopsittacus_undulatus_Kiev2.JPG",
+            "author": "Аимаина хикари",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/birds-metadata.json",
+            "pageid": 31705969,
+            "downloadedFile": "content/batch-002/media/31705969.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "birds"
+          }
+        },
+        {
+          "photoId": "photo-commons-181503615",
+          "source": {
+            "title": "A yellow budgie (Melopsittacus undulatus) in Gyeongju Bird Park.jpg",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:A_yellow_budgie_(Melopsittacus_undulatus)_in_Gyeongju_Bird_Park.jpg",
+            "author": "Drcbrothephotographer",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/birds-metadata.json",
+            "pageid": 181503615,
+            "downloadedFile": "content/batch-002/media/181503615.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "birds"
+          }
+        },
+        {
+          "photoId": "photo-commons-155186024",
+          "source": {
+            "title": "Pfirsichköpfchen (Agapornis fischeri) - Blaue Mutation (53669045879).jpg",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:Pfirsichk%C3%B6pfchen_(Agapornis_fischeri)_-_Blaue_Mutation_(53669045879).jpg",
+            "author": "HLI-Photography",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/birds-metadata.json",
+            "pageid": 155186024,
+            "downloadedFile": "content/batch-002/media/155186024.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "birds"
+          }
+        }
+      ],
+      "note": "仅对原已采集图片、来源记录及编辑配文作离线复核；各图为不同个体或场景，不构成连续经历。"
+    }
+  },
+  {
+    "id": "knowledge-observe-guppy-tails",
+    "title": "两条孔雀鱼，尾鳍各有细节",
+    "text": "把两张孔雀鱼侧面照片并排看，先找眼睛，再沿着身体看到尾鳍。图一的身体带蓝绿色光泽，尾部铺着细碎纹路；图二的尾鳍偏黄，深色线条更醒目。照片保留了各自的光线和拍摄角度，颜色会受到环境与成像影响。这里展示的是不同个体的外观差异，不是一条鱼成长或变色的前后对照，也不据此判断品系和健康状况。",
+    "imagePhotoIds": [
+      "photo-commons-193433386",
+      "photo-commons-18280751"
+    ],
+    "circleId": "circle-aquatics",
+    "animalTypes": [
+      "fish"
+    ],
+    "topics": [
+      "行为观察",
+      "治愈瞬间"
+    ],
+    "contentType": "knowledge",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "Poecilia reticulata - Guppy, male, cobra-green morph (cropped 2).jpg",
+      "publisher": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Poecilia_reticulata_-_Guppy,_male,_cobra-green_morph_(cropped_2).jpg",
+      "author": "5snake5",
+      "checkedAt": "2026-09-29"
+    },
+    "images": [],
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻编辑图解离线复核",
+      "reviewedAt": "2026-09-30"
+    },
+    "sourceEvidence": {
+      "reviewMode": "offline-existing-evidence",
+      "editorialReviewedAt": "2026-09-30",
+      "publicPagesFetchedInThisBatch": false,
+      "visualReview": "content/batch-003/review/photo-groups.jpg",
+      "reviewRecord": "content/batch-003/review/evidence.json",
+      "imageSources": [
+        {
+          "photoId": "photo-commons-193433386",
+          "source": {
+            "title": "Poecilia reticulata - Guppy, male, cobra-green morph (cropped 2).jpg",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:Poecilia_reticulata_-_Guppy,_male,_cobra-green_morph_(cropped_2).jpg",
+            "author": "5snake5",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/aquarium-metadata.json",
+            "pageid": 193433386,
+            "downloadedFile": "content/batch-002/media/193433386.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "aquarium"
+          }
+        },
+        {
+          "photoId": "photo-commons-18280751",
+          "source": {
+            "title": "Poecilia reticulata (male).JPG",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:Poecilia_reticulata_(male).JPG",
+            "author": "Benoît Prieur",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/aquarium-metadata.json",
+            "pageid": 18280751,
+            "downloadedFile": "content/batch-002/media/18280751.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "aquarium"
+          }
+        }
+      ],
+      "note": "仅对原已采集图片、来源记录及编辑配文作离线复核；各图为不同个体或场景，不构成连续经历。"
+    }
+  },
+  {
+    "id": "knowledge-observe-axolotl-colors",
+    "title": "深色与浅色，美西螈的两张侧影",
+    "text": "这两张美西螈照片适合从轮廓开始观察。图一的个体颜色较深，停在水草和木头旁；图二的个体颜色较浅，头部两侧的外鳃、四肢与尾部轮廓更容易分辨。试着在两图里依次找出头、腿和尾巴，会看到相似的身体结构，也会注意到背景带来的视觉差异。两图是不同个体和环境，并非一次变色记录；画面也不作为水质、造景或混养建议。",
+    "imagePhotoIds": [
+      "photo-commons-46858283",
+      "photo-commons-189264082"
+    ],
+    "circleId": "circle-exotics",
+    "animalTypes": [
+      "amphibian"
+    ],
+    "topics": [
+      "行为观察",
+      "治愈瞬间"
+    ],
+    "contentType": "knowledge",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "Axolotl Ambystoma mexicanum Aquarium Liège 30012016 1.jpg",
+      "publisher": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Axolotl_Ambystoma_mexicanum_Aquarium_Li%C3%A8ge_30012016_1.jpg",
+      "author": "Vassil",
+      "checkedAt": "2026-09-29"
+    },
+    "images": [],
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻编辑图解离线复核",
+      "reviewedAt": "2026-09-30"
+    },
+    "sourceEvidence": {
+      "reviewMode": "offline-existing-evidence",
+      "editorialReviewedAt": "2026-09-30",
+      "publicPagesFetchedInThisBatch": false,
+      "visualReview": "content/batch-003/review/photo-groups.jpg",
+      "reviewRecord": "content/batch-003/review/evidence.json",
+      "imageSources": [
+        {
+          "photoId": "photo-commons-46858283",
+          "source": {
+            "title": "Axolotl Ambystoma mexicanum Aquarium Liège 30012016 1.jpg",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:Axolotl_Ambystoma_mexicanum_Aquarium_Li%C3%A8ge_30012016_1.jpg",
+            "author": "Vassil",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/amphibians-metadata.json",
+            "pageid": 46858283,
+            "downloadedFile": "content/batch-002/media/46858283.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "amphibians"
+          }
+        },
+        {
+          "photoId": "photo-commons-189264082",
+          "source": {
+            "title": "Ansel the Axolotl, Capen Hill Nature Sanctuary 2025-03-28.jpg",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:Ansel_the_Axolotl,_Capen_Hill_Nature_Sanctuary_2025-03-28.jpg",
+            "author": "Peter Cooper Jr.",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/amphibians-metadata.json",
+            "pageid": 189264082,
+            "downloadedFile": "content/batch-002/media/189264082.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "amphibians"
+          }
+        }
+      ],
+      "note": "仅对原已采集图片、来源记录及编辑配文作离线复核；各图为不同个体或场景，不构成连续经历。"
+    }
+  },
+  {
+    "id": "knowledge-observe-shrimp-scenes",
+    "title": "把视线放低，找找小虾的触角",
+    "text": "小虾在画面里不一定占很大位置，可以先看背景，再寻找身体轮廓。图一的蓝色虾停在浅色颗粒上，细长触角向外伸出；图二的小虾位于白色石块附近，需要多看一眼；图三的红色虾靠在叶片边缘，身体与叶脉叠在一起。三张照片来自不同场景，适合练习观察触角、步足和停留位置，不是同一只虾的活动路线，也不代表底材或饲养搭配推荐。",
+    "imagePhotoIds": [
+      "photo-commons-200255842",
+      "photo-commons-193124568",
+      "photo-commons-38484097"
+    ],
+    "circleId": "circle-aquatics",
+    "animalTypes": [
+      "invertebrate"
+    ],
+    "topics": [
+      "行为观察",
+      "治愈瞬间"
+    ],
+    "contentType": "knowledge",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "PXL 20260825 003102388.MP~3.jpg",
+      "publisher": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:PXL_20260825_003102388.MP~3.jpg",
+      "author": "Softepaul",
+      "checkedAt": "2026-09-29"
+    },
+    "images": [],
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻编辑图解离线复核",
+      "reviewedAt": "2026-09-30"
+    },
+    "sourceEvidence": {
+      "reviewMode": "offline-existing-evidence",
+      "editorialReviewedAt": "2026-09-30",
+      "publicPagesFetchedInThisBatch": false,
+      "visualReview": "content/batch-003/review/photo-groups.jpg",
+      "reviewRecord": "content/batch-003/review/evidence.json",
+      "imageSources": [
+        {
+          "photoId": "photo-commons-200255842",
+          "source": {
+            "title": "PXL 20260825 003102388.MP~3.jpg",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:PXL_20260825_003102388.MP~3.jpg",
+            "author": "Softepaul",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/shrimp-metadata.json",
+            "pageid": 200255842,
+            "downloadedFile": "content/batch-002/media/200255842.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "shrimp"
+          }
+        },
+        {
+          "photoId": "photo-commons-193124568",
+          "source": {
+            "title": "Neocaridina davidi (Red-Brown Shrimp).jpg",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:Neocaridina_davidi_(Red-Brown_Shrimp).jpg",
+            "author": "UnknownM123",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/shrimp-metadata.json",
+            "pageid": 193124568,
+            "downloadedFile": "content/batch-002/media/193124568.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "shrimp"
+          }
+        },
+        {
+          "photoId": "photo-commons-38484097",
+          "source": {
+            "title": "Pregnant Red Cherry Shrimp.JPG",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:Pregnant_Red_Cherry_Shrimp.JPG",
+            "author": "Tdwittt",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/shrimp-metadata.json",
+            "pageid": 38484097,
+            "downloadedFile": "content/batch-002/media/38484097.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "shrimp"
+          }
+        }
+      ],
+      "note": "仅对原已采集图片、来源记录及编辑配文作离线复核；各图为不同个体或场景，不构成连续经历。"
+    }
+  },
+  {
+    "id": "knowledge-observe-gecko-details",
+    "title": "从叶丛到脸部，慢慢看清守宫",
+    "text": "同样是观察守宫，远景与近景会给出不同的信息。图一里，橙色的身体藏在绿色叶片间；图二能看见带斑纹的身体与周围石面；图三把视线拉到脸部，眼睛、鼻尖和斑纹成为主角。按环境、身体、脸部的顺序看图，可以练习在画面中寻找重点。这些照片来自不同个体与场景，不是一次拍摄的推进镜头，也不能据此判断它们属于同一种守宫。",
+    "imagePhotoIds": [
+      "photo-commons-37443137",
+      "photo-commons-113304301",
+      "photo-commons-106922444"
+    ],
+    "circleId": "circle-exotics",
+    "animalTypes": [
+      "reptile"
+    ],
+    "topics": [
+      "行为观察",
+      "治愈瞬间"
+    ],
+    "contentType": "knowledge",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "Correlophus ciliatus Genève 24102014 A.jpg",
+      "publisher": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Correlophus_ciliatus_Gen%C3%A8ve_24102014_A.jpg",
+      "author": "Vassil",
+      "checkedAt": "2026-09-29"
+    },
+    "images": [],
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻编辑图解离线复核",
+      "reviewedAt": "2026-09-30"
+    },
+    "sourceEvidence": {
+      "reviewMode": "offline-existing-evidence",
+      "editorialReviewedAt": "2026-09-30",
+      "publicPagesFetchedInThisBatch": false,
+      "visualReview": "content/batch-003/review/photo-groups.jpg",
+      "reviewRecord": "content/batch-003/review/evidence.json",
+      "imageSources": [
+        {
+          "photoId": "photo-commons-37443137",
+          "source": {
+            "title": "Correlophus ciliatus Genève 24102014 A.jpg",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:Correlophus_ciliatus_Gen%C3%A8ve_24102014_A.jpg",
+            "author": "Vassil",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/lizards-metadata.json",
+            "pageid": 37443137,
+            "downloadedFile": "content/batch-002/media/37443137.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "lizards"
+          }
+        },
+        {
+          "photoId": "photo-commons-113304301",
+          "source": {
+            "title": "Leopardgecko Sunny.jpg",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:Leopardgecko_Sunny.jpg",
+            "author": "Lugraff",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/lizards-metadata.json",
+            "pageid": 113304301,
+            "downloadedFile": "content/batch-002/media/113304301.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "lizards"
+          }
+        },
+        {
+          "photoId": "photo-commons-106922444",
+          "source": {
+            "title": "Leopard gecko wink.jpg",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:Leopard_gecko_wink.jpg",
+            "author": "ProtoBit",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/lizards-metadata.json",
+            "pageid": 106922444,
+            "downloadedFile": "content/batch-002/media/106922444.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "lizards"
+          }
+        }
+      ],
+      "note": "仅对原已采集图片、来源记录及编辑配文作离线复核；各图为不同个体或场景，不构成连续经历。"
+    }
+  },
+  {
+    "id": "knowledge-observe-chinchilla-features",
+    "title": "龙猫的耳朵、前爪与蓬松尾巴",
+    "text": "这组龙猫照片各自突出了一处细节。图一保留了灰色龙猫周围的平台与围栏，可以先找到它的位置；图二更靠近身体，圆耳朵、胡须和放在身前的小爪子都看得清楚；图三的白色龙猫侧身停着，弯起的蓬松尾巴很显眼。三张图来自不同个体与场景，是一组外观观察，不是同一只动物的日常日记，也不把照片中的围栏、平台或空间当作饲养标准。",
+    "imagePhotoIds": [
+      "photo-commons-86374218",
+      "photo-commons-175313100",
+      "photo-commons-69408720"
+    ],
+    "circleId": "circle-small-pets",
+    "animalTypes": [
+      "small-mammal"
+    ],
+    "topics": [
+      "行为观察",
+      "治愈瞬间"
+    ],
+    "contentType": "knowledge",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "Chimichanga the Chinchilla.jpg",
+      "publisher": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Chimichanga_the_Chinchilla.jpg",
+      "author": "NGalvanMU",
+      "checkedAt": "2026-09-29"
+    },
+    "images": [],
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻编辑图解离线复核",
+      "reviewedAt": "2026-09-30"
+    },
+    "sourceEvidence": {
+      "reviewMode": "offline-existing-evidence",
+      "editorialReviewedAt": "2026-09-30",
+      "publicPagesFetchedInThisBatch": false,
+      "visualReview": "content/batch-003/review/photo-groups.jpg",
+      "reviewRecord": "content/batch-003/review/evidence.json",
+      "imageSources": [
+        {
+          "photoId": "photo-commons-86374218",
+          "source": {
+            "title": "Chimichanga the Chinchilla.jpg",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:Chimichanga_the_Chinchilla.jpg",
+            "author": "NGalvanMU",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/small-pets-more-metadata.json",
+            "pageid": 86374218,
+            "downloadedFile": "content/batch-002/media/86374218.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "other-small-pets"
+          }
+        },
+        {
+          "photoId": "photo-commons-175313100",
+          "source": {
+            "title": "Pip The Chinchilla.jpg",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:Pip_The_Chinchilla.jpg",
+            "author": "Fabebk",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/small-pets-more-metadata.json",
+            "pageid": 175313100,
+            "downloadedFile": "content/batch-002/media/175313100.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "other-small-pets"
+          }
+        },
+        {
+          "photoId": "photo-commons-69408720",
+          "source": {
+            "title": "White Chinchilla .jpg",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:White_Chinchilla_.jpg",
+            "author": "Trashpossum666",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/small-pets-more-metadata.json",
+            "pageid": 69408720,
+            "downloadedFile": "content/batch-002/media/69408720.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "other-small-pets"
+          }
+        }
+      ],
+      "note": "仅对原已采集图片、来源记录及编辑配文作离线复核；各图为不同个体或场景，不构成连续经历。"
+    }
+  },
+  {
+    "id": "knowledge-observe-guinea-pig-coats",
+    "title": "短毛与长毛，豚鼠照片里的纹理",
+    "text": "看豚鼠照片时，可以把毛发当成一条观察线索。图一靠近脸部，深色毛发与胡须交错；图二展示金黄色短毛覆盖的身体侧面；图三里的毛发更长，深浅颜色沿身体铺开，旁边还能看见人的手。三张照片中的豚鼠是不同个体，比较的是画面里的毛发长度与纹理，不是换毛前后记录，也不能仅凭照片断定品种、年龄或健康情况。",
+    "imagePhotoIds": [
+      "photo-commons-198523592",
+      "photo-commons-156038624",
+      "photo-commons-93435557"
+    ],
+    "circleId": "circle-small-pets",
+    "animalTypes": [
+      "small-mammal"
+    ],
+    "topics": [
+      "行为观察",
+      "治愈瞬间"
+    ],
+    "contentType": "knowledge",
+    "editorId": "catalog-pet-care",
+    "source": {
+      "title": "Acure en el Zoológico de Paraguaná.jpg",
+      "publisher": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Acure_en_el_Zool%C3%B3gico_de_Paraguan%C3%A1.jpg",
+      "author": "Faunaram",
+      "checkedAt": "2026-09-29"
+    },
+    "images": [],
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻编辑图解离线复核",
+      "reviewedAt": "2026-09-30"
+    },
+    "sourceEvidence": {
+      "reviewMode": "offline-existing-evidence",
+      "editorialReviewedAt": "2026-09-30",
+      "publicPagesFetchedInThisBatch": false,
+      "visualReview": "content/batch-003/review/photo-groups.jpg",
+      "reviewRecord": "content/batch-003/review/evidence.json",
+      "imageSources": [
+        {
+          "photoId": "photo-commons-198523592",
+          "source": {
+            "title": "Acure en el Zoológico de Paraguaná.jpg",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:Acure_en_el_Zool%C3%B3gico_de_Paraguan%C3%A1.jpg",
+            "author": "Faunaram",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/guinea-pigs-metadata.json",
+            "pageid": 198523592,
+            "downloadedFile": "content/batch-002/media/198523592.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "guinea-pigs"
+          }
+        },
+        {
+          "photoId": "photo-commons-156038624",
+          "source": {
+            "title": "An orange American guinea pig.jpg",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:An_orange_American_guinea_pig.jpg",
+            "author": "Sk5555544",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/guinea-pigs-metadata.json",
+            "pageid": 156038624,
+            "downloadedFile": "content/batch-002/media/156038624.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "guinea-pigs"
+          }
+        },
+        {
+          "photoId": "photo-commons-93435557",
+          "source": {
+            "title": "9868Guinea pigs of the Philippines 10.jpg",
+            "publisher": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:9868Guinea_pigs_of_the_Philippines_10.jpg",
+            "author": "Judgefloro",
+            "checkedAt": "2026-09-29"
+          },
+          "sourceEvidence": {
+            "metadataFile": "content/batch-002/sources/guinea-pigs-metadata.json",
+            "pageid": 93435557,
+            "downloadedFile": "content/batch-002/media/93435557.source",
+            "visualReview": "content/batch-002/sources/neighbor-review.json",
+            "collectionGroup": "guinea-pigs"
+          }
+        }
+      ],
+      "note": "仅对原已采集图片、来源记录及编辑配文作离线复核；各图为不同个体或场景，不构成连续经历。"
+    }
+  },
+  {
+    "id": "video-commons-101613615",
+    "contentType": "video",
+    "title": "水面下，孔雀鱼来来回回",
+    "text": "孔雀鱼围着水族箱中的一块饲料来回游动，蓝色尾鳍在转身时闪过。镜头固定在缸前，能看见鱼群聚拢、散开，又从画面边缘游回来。这里记录一段八秒的水族观察；单个片段不能用来判断合适的喂食量或饲养密度。",
+    "circleId": "circle-aquatics",
+    "animalTypes": [
+      "fish"
+    ],
+    "topics": [
+      "行为观察"
+    ],
+    "editorId": "catalog-photo",
+    "source": {
+      "title": "Feeding of Poecilia reticulata.ogv",
+      "publisher": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Feeding_of_Poecilia_reticulata.ogv",
+      "author": "5snake5",
+      "checkedAt": "2026-09-30"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容离线复核",
+      "reviewedAt": "2026-09-30"
+    },
+    "images": [
+      {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Feeding_of_Poecilia_reticulata.ogv",
+        "author": "5snake5",
+        "license": {
+          "name": "CC0",
+          "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "attribution": "5snake5；Feeding of Poecilia reticulata.ogv；Wikimedia Commons；CC0",
+        "url": "/assets/curated-poster/101613615.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Feeding_of_Poecilia_reticulata.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "modifiedDescription": "从原片第3.5秒提取JPEG封面帧，宽度缩放至480像素，列表按比例裁切。",
+        "contentHash": "6bf07885f70ff253c0bad61343e0c5c955e5a3206d445f01ff3c7ea723438e03"
+      }
+    ],
+    "video": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Feeding_of_Poecilia_reticulata.ogv",
+      "author": "5snake5",
+      "license": {
+        "name": "CC0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "attribution": "5snake5；Feeding of Poecilia reticulata.ogv；Wikimedia Commons；CC0",
+      "url": "/media/clips/101613615.mp4",
+      "poster": "/assets/curated-poster/101613615.jpg",
+      "durationSeconds": 8,
+      "width": 480,
+      "height": 270,
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Feeding_of_Poecilia_reticulata.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "contentHash": "9ad9fdcec148dea6c22d9b1886e43123126e6da127d610750ca81eff4c8fcab5",
+      "modifiedDescription": "截取原片前8秒，去除音轨，宽度缩放至480像素后转为H.264 MP4，20帧每秒。"
+    },
+    "sourceEvidence": {
+      "metadataFile": "content/batch-002/sources/videos-metadata.json",
+      "pageid": 101613615,
+      "downloadedFile": "content/batch-002/media/101613615.webm",
+      "posterFile": "miniprogram/assets/curated-poster/101613615.jpg",
+      "visualReview": "content/batch-003/review/101613615-review.jpg",
+      "reviewRecord": "content/batch-003/review/evidence.json",
+      "reviewMode": "offline-existing-evidence",
+      "publicPagesFetchedInThisBatch": false,
+      "checkedAtMeaning": "2026-09-30离线复核已保存的来源元数据、原片、每0.5秒抽帧及封面，不代表当日重新请求来源网页。",
+      "reviewMethod": "检查8秒片段的16张间隔0.5秒帧及对应原片封面；编码无音轨。",
+      "collectionGroup": "videos"
+    }
+  },
+  {
+    "id": "video-commons-134636343",
+    "contentType": "video",
+    "title": "黑色背景里，栉水母缓缓漂过",
+    "text": "几只近乎透明的栉水母在深色水体中缓缓移动，身体边缘的亮线随角度变化。竖直的镜头里，它们一会儿重叠，一会儿又分开，背景中的细小亮点也跟着飘动。八秒片段保留了原画面的节奏，适合安静看一会儿。",
+    "circleId": "circle-aquatics",
+    "animalTypes": [
+      "invertebrate"
+    ],
+    "topics": [
+      "治愈瞬间",
+      "行为观察"
+    ],
+    "editorId": "catalog-photo",
+    "source": {
+      "title": "VIDEO Warty comb jelly Aquarium of the Pacific (July 2023).webm",
+      "publisher": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:VIDEO_Warty_comb_jelly_Aquarium_of_the_Pacific_(July_2023).webm",
+      "author": "Benoît Prieur",
+      "checkedAt": "2026-09-30"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容离线复核",
+      "reviewedAt": "2026-09-30"
+    },
+    "images": [
+      {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:VIDEO_Warty_comb_jelly_Aquarium_of_the_Pacific_(July_2023).webm",
+        "author": "Benoît Prieur",
+        "license": {
+          "name": "CC0",
+          "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "attribution": "Benoît Prieur；VIDEO Warty comb jelly Aquarium of the Pacific (July 2023).webm；Wikimedia Commons；CC0",
+        "url": "/assets/curated-poster/134636343.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/VIDEO_Warty_comb_jelly_Aquarium_of_the_Pacific_%28July_2023%29.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "modifiedDescription": "从原片第5.0秒提取JPEG封面帧，宽度缩放至480像素，列表按比例裁切。",
+        "contentHash": "d7c7969c33a168faca5ba21090effc99a515f1a7c1ddf8546a8844ce9f5de7ed"
+      }
+    ],
+    "video": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:VIDEO_Warty_comb_jelly_Aquarium_of_the_Pacific_(July_2023).webm",
+      "author": "Benoît Prieur",
+      "license": {
+        "name": "CC0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "attribution": "Benoît Prieur；VIDEO Warty comb jelly Aquarium of the Pacific (July 2023).webm；Wikimedia Commons；CC0",
+      "url": "/media/clips/134636343.mp4",
+      "poster": "/assets/curated-poster/134636343.jpg",
+      "durationSeconds": 8,
+      "width": 480,
+      "height": 854,
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/VIDEO_Warty_comb_jelly_Aquarium_of_the_Pacific_%28July_2023%29.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "contentHash": "90c32748455f0d04092ed666cc42f10c4a508be09213a84d18a6a3c4e840093c",
+      "modifiedDescription": "截取原片前8秒，去除音轨，宽度缩放至480像素后转为H.264 MP4，20帧每秒。"
+    },
+    "sourceEvidence": {
+      "metadataFile": "content/batch-002/sources/videos-metadata.json",
+      "pageid": 134636343,
+      "downloadedFile": "content/batch-002/media/134636343.webm",
+      "posterFile": "miniprogram/assets/curated-poster/134636343.jpg",
+      "visualReview": "content/batch-003/review/134636343-review.jpg",
+      "reviewRecord": "content/batch-003/review/evidence.json",
+      "reviewMode": "offline-existing-evidence",
+      "publicPagesFetchedInThisBatch": false,
+      "checkedAtMeaning": "2026-09-30离线复核已保存的来源元数据、原片、每0.5秒抽帧及封面，不代表当日重新请求来源网页。",
+      "reviewMethod": "检查8秒片段的16张间隔0.5秒帧及对应原片封面；编码无音轨。",
+      "collectionGroup": "videos"
+    }
+  }
+]

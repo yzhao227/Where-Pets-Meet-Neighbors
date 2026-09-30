@@ -1,0 +1,1 @@
+{ "desc": "试运营期间不开放搜索收录", "rules": [{ "action": "disallow", "page": "*" }] }

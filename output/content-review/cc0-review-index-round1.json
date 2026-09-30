@@ -1,0 +1,2663 @@
+{
+  "sheets": [
+    {
+      "path": "output/content-review/cc0-round1-cats-01.jpg",
+      "pageids": [
+        68608952,
+        147230400,
+        94885224,
+        142916203,
+        148465188,
+        142916226,
+        126144013,
+        142916208,
+        85952329,
+        142916199,
+        85952327,
+        142916209,
+        110154777,
+        142916227,
+        85952330,
+        142916220,
+        85952328,
+        142916204,
+        110153964,
+        142916200
+      ]
+    },
+    {
+      "path": "output/content-review/cc0-round1-cats-02.jpg",
+      "pageids": [
+        94885223,
+        142916225,
+        110154769,
+        142916221,
+        110153978,
+        92201445,
+        110153956,
+        110153958,
+        196899360,
+        110154779,
+        142916215,
+        110153952,
+        169786731,
+        110153959,
+        148557486,
+        110153972,
+        148351244,
+        110153975,
+        143121979,
+        110153977
+      ]
+    },
+    {
+      "path": "output/content-review/cc0-round1-cats-03.jpg",
+      "pageids": [
+        183770272,
+        110153976,
+        18764428,
+        110153965,
+        183902882,
+        110153971,
+        183915439,
+        110153962,
+        45948776,
+        110153961,
+        171953505,
+        110153973,
+        183878705,
+        110153960,
+        183913891,
+        126143561,
+        68609174,
+        69243778,
+        97274895,
+        97274884
+      ]
+    },
+    {
+      "path": "output/content-review/cc0-round1-cats-04.jpg",
+      "pageids": [
+        63705523,
+        97274874,
+        183834569,
+        97274877,
+        97274879,
+        145352113,
+        97274914,
+        149287804,
+        97274880,
+        97274886,
+        175891139,
+        97274905,
+        197180428,
+        97274891,
+        62207892,
+        97274897,
+        142917064,
+        97274904,
+        138384797,
+        97274876
+      ]
+    },
+    {
+      "path": "output/content-review/cc0-round1-dogs-01.jpg",
+      "pageids": [
+        145478988,
+        26592914,
+        61369169,
+        51751578,
+        189372065,
+        150140769,
+        131640573,
+        116675288,
+        51751579,
+        131641710,
+        163829632,
+        100956160,
+        131641155,
+        31033299,
+        125157060,
+        65257801,
+        102147389,
+        15957924,
+        167715111,
+        131127210
+      ]
+    },
+    {
+      "path": "output/content-review/cc0-round1-dogs-02.jpg",
+      "pageids": [
+        130631649,
+        123228797,
+        82946012,
+        123858522,
+        82946006
+      ]
+    }
+  ],
+  "records": [
+    {
+      "group": "cats",
+      "pageid": 68608952,
+      "title": "File:Tabby cat with blue eyes-3336579.jpg",
+      "description": "Portrait of a black tabby and white cat with Dominant Blue Eyes (DBE)",
+      "author": "AdinaVoicu",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Tabby_cat_with_blue_eyes-3336579.jpg/960px-Tabby_cat_with_blue_eyes-3336579.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Tabby_cat_with_blue_eyes-3336579.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tabby_cat_with_blue_eyes-3336579.jpg",
+      "localFile": "content/batch-002/media/68608952.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "cf439a8a90cd05d5922818c34129116fa64eb676c0a0a702295e85d5879e55c2",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1153
+      ],
+      "reviewDhash": 3184591293111441817,
+      "reviewSha256": "cf439a8a90cd05d5922818c34129116fa64eb676c0a0a702295e85d5879e55c2"
+    },
+    {
+      "group": "cats",
+      "pageid": 147230400,
+      "title": "File:Ginger kitten with an orange rubber rugby.jpg",
+      "description": "A Ginger kitten playing with an orange rubber rugby",
+      "author": "Aiaikz",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Ginger_kitten_with_an_orange_rubber_rugby.jpg/960px-Ginger_kitten_with_an_orange_rubber_rugby.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/95/Ginger_kitten_with_an_orange_rubber_rugby.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ginger_kitten_with_an_orange_rubber_rugby.jpg",
+      "localFile": "content/batch-002/media/147230400.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "ad9443b29fbd58e9d42fa8473426bc0b887ed68481fd4cbc74a5824a3038a3b9",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1018
+      ],
+      "reviewDhash": 18173949324399409850,
+      "reviewSha256": "ad9443b29fbd58e9d42fa8473426bc0b887ed68481fd4cbc74a5824a3038a3b9"
+    },
+    {
+      "group": "cats",
+      "pageid": 94885224,
+      "title": "File:A kitten in the hand (Flickr).jpg",
+      "description": "A kitten in the hand was touching its face.",
+      "author": "Leo Rodman",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/A_kitten_in_the_hand_%28Flickr%29.jpg/960px-A_kitten_in_the_hand_%28Flickr%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ef/A_kitten_in_the_hand_%28Flickr%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_kitten_in_the_hand_(Flickr).jpg",
+      "localFile": "content/batch-002/media/94885224.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "fc491eae5979082951114ea3e83bb38600c785d2d180017ec3956fde81ea9e05",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 1084005477755395129,
+      "reviewSha256": "fc491eae5979082951114ea3e83bb38600c785d2d180017ec3956fde81ea9e05"
+    },
+    {
+      "group": "cats",
+      "pageid": 142916203,
+      "title": "File:A mother cat of Meitei domestic cat breed (Meitei house cat variety) suckling her only little newborn baby kitten 04.jpg",
+      "description": "A mother cat of Meitei domestic cat family (Meitei house cat species) suckling her only little newborn baby kitten; Meitei domestic cats are found predominantly in the plains of Kangleipak (Manipur), where they are known as \"Meitei Houdong\" or \"Meetei Houdong\" in the Classical Meitei language.",
+      "author": "Haoreima",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_04.jpg/960px-A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_mother_cat_of_Meitei_domestic_cat_breed_(Meitei_house_cat_variety)_suckling_her_only_little_newborn_baby_kitten_04.jpg",
+      "localFile": "content/batch-002/media/142916203.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "66359100c46bdf3c7c442f3a7910064db10d2ad55332cda5186bc692395f1429",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1283
+      ],
+      "reviewDhash": 14653373358685251391,
+      "reviewSha256": "66359100c46bdf3c7c442f3a7910064db10d2ad55332cda5186bc692395f1429"
+    },
+    {
+      "group": "cats",
+      "pageid": 148465188,
+      "title": "File:Kitten Looking.jpg",
+      "description": "Kitten giving a innocent look",
+      "author": "Saral Shots",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Kitten_Looking.jpg/960px-Kitten_Looking.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Kitten_Looking.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kitten_Looking.jpg",
+      "localFile": "content/batch-002/media/148465188.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "ae9b6f5df26b86ece8c97ea51d939b857b7dd00ec3c3e0a3644395279d94407e",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1280
+      ],
+      "reviewDhash": 1661011566620720702,
+      "reviewSha256": "ae9b6f5df26b86ece8c97ea51d939b857b7dd00ec3c3e0a3644395279d94407e"
+    },
+    {
+      "group": "cats",
+      "pageid": 142916226,
+      "title": "File:A mother cat of Meitei domestic cat breed (Meitei house cat variety) suckling her only little newborn baby kitten 11.jpg",
+      "description": "A mother cat of Meitei domestic cat family (Meitei house cat species) suckling her only little newborn baby kitten; Meitei domestic cats are found predominantly in the plains of Kangleipak (Manipur), where they are known as \"Meitei Houdong\" or \"Meetei Houdong\" in the Classical Meitei language.",
+      "author": "Haoreima",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_11.jpg/960px-A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_mother_cat_of_Meitei_domestic_cat_breed_(Meitei_house_cat_variety)_suckling_her_only_little_newborn_baby_kitten_11.jpg",
+      "localFile": "content/batch-002/media/142916226.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "a61084a868cce3dd963d9ba6baf32bc538b4473823c69bfd677c3f59ac791844",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1283
+      ],
+      "reviewDhash": 1702180105623170619,
+      "reviewSha256": "a61084a868cce3dd963d9ba6baf32bc538b4473823c69bfd677c3f59ac791844"
+    },
+    {
+      "group": "cats",
+      "pageid": 126144013,
+      "title": "File:Kitten sleeping.jpg",
+      "description": "Close-up photo of sleeping kitten",
+      "author": "Pixabay",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Kitten_sleeping.jpg/960px-Kitten_sleeping.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Kitten_sleeping.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kitten_sleeping.jpg",
+      "localFile": "content/batch-002/media/126144013.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "e490d967578312c5aa1d64c7148ded3dd7fff7f1954e646f086fe30995543b2f",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 7172432943397455809,
+      "reviewSha256": "e490d967578312c5aa1d64c7148ded3dd7fff7f1954e646f086fe30995543b2f"
+    },
+    {
+      "group": "cats",
+      "pageid": 142916208,
+      "title": "File:A mother cat of Meitei domestic cat breed (Meitei house cat variety) suckling her only little newborn baby kitten 06.jpg",
+      "description": "A mother cat of Meitei domestic cat family (Meitei house cat species) suckling her only little newborn baby kitten; Meitei domestic cats are found predominantly in the plains of Kangleipak (Manipur), where they are known as \"Meitei Houdong\" or \"Meetei Houdong\" in the Classical Meitei language.",
+      "author": "Haoreima",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_06.jpg/960px-A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d5/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_mother_cat_of_Meitei_domestic_cat_breed_(Meitei_house_cat_variety)_suckling_her_only_little_newborn_baby_kitten_06.jpg",
+      "localFile": "content/batch-002/media/142916208.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "c93e141d3e4d8e2a481d52a9c8db2a20a902d0de38b5a400489c4d1dc5356e94",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        718
+      ],
+      "reviewDhash": 15917347875249259779,
+      "reviewSha256": "c93e141d3e4d8e2a481d52a9c8db2a20a902d0de38b5a400489c4d1dc5356e94"
+    },
+    {
+      "group": "cats",
+      "pageid": 85952329,
+      "title": "File:A curious kitten (Pixabay).jpg",
+      "description": "A kitten keeping a leaf in the mouth seemed curious.",
+      "author": "Dimitri Houtteman",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/A_curious_kitten_%28Pixabay%29.jpg/960px-A_curious_kitten_%28Pixabay%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/A_curious_kitten_%28Pixabay%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_curious_kitten_(Pixabay).jpg",
+      "localFile": "content/batch-002/media/85952329.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "98a5c0ff5f6b82ce38c0530b8c3dbfdca2d805c3e06cd093a60223cd1d72b2e7",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        639
+      ],
+      "reviewDhash": 8624807221301865530,
+      "reviewSha256": "98a5c0ff5f6b82ce38c0530b8c3dbfdca2d805c3e06cd093a60223cd1d72b2e7"
+    },
+    {
+      "group": "cats",
+      "pageid": 142916199,
+      "title": "File:A mother cat of Meitei domestic cat breed (Meitei house cat variety) suckling her only little newborn baby kitten 02.jpg",
+      "description": "A mother cat of Meitei domestic cat family (Meitei house cat species) suckling her only little newborn baby kitten; Meitei domestic cats are found predominantly in the plains of Kangleipak (Manipur), where they are known as \"Meitei Houdong\" or \"Meetei Houdong\" in the Classical Meitei language.",
+      "author": "Haoreima",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_02.jpg/960px-A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c0/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_mother_cat_of_Meitei_domestic_cat_breed_(Meitei_house_cat_variety)_suckling_her_only_little_newborn_baby_kitten_02.jpg",
+      "localFile": "content/batch-002/media/142916199.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "fc8df1048b203d5f53e510c365995ab52e1f8b6d080817cdd165e9d1df1e47b1",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1283
+      ],
+      "reviewDhash": 13611623888726740641,
+      "reviewSha256": "fc8df1048b203d5f53e510c365995ab52e1f8b6d080817cdd165e9d1df1e47b1"
+    },
+    {
+      "group": "cats",
+      "pageid": 85952327,
+      "title": "File:A seemingly innocent kitten (Pixabay).jpg",
+      "description": "A kitten looking at the camera lens seemed innocent.",
+      "author": "ksphotofive",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/A_seemingly_innocent_kitten_%28Pixabay%29.jpg/960px-A_seemingly_innocent_kitten_%28Pixabay%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/A_seemingly_innocent_kitten_%28Pixabay%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_seemingly_innocent_kitten_(Pixabay).jpg",
+      "localFile": "content/batch-002/media/85952327.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "607d83276bc183f85298e30f4584867886c86b01fd02c23b252fb48169cfcf89",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 3707424754608205167,
+      "reviewSha256": "607d83276bc183f85298e30f4584867886c86b01fd02c23b252fb48169cfcf89"
+    },
+    {
+      "group": "cats",
+      "pageid": 142916209,
+      "title": "File:A mother cat of Meitei domestic cat breed (Meitei house cat variety) suckling her only little newborn baby kitten 07.jpg",
+      "description": "A mother cat of Meitei domestic cat family (Meitei house cat species) suckling her only little newborn baby kitten; Meitei domestic cats are found predominantly in the plains of Kangleipak (Manipur), where they are known as \"Meitei Houdong\" or \"Meetei Houdong\" in the Classical Meitei language.",
+      "author": "Haoreima",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_07.jpg/960px-A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_mother_cat_of_Meitei_domestic_cat_breed_(Meitei_house_cat_variety)_suckling_her_only_little_newborn_baby_kitten_07.jpg",
+      "localFile": "content/batch-002/media/142916209.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "c47445b4153fe6de48784c8ff6f8dc7fb9bdb6b3693645c26275202674539672",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        718
+      ],
+      "reviewDhash": 10071423997201224459,
+      "reviewSha256": "c47445b4153fe6de48784c8ff6f8dc7fb9bdb6b3693645c26275202674539672"
+    },
+    {
+      "group": "cats",
+      "pageid": 110154777,
+      "title": "File:A black and white kitten 3.jpg",
+      "description": "A black and white kitten",
+      "author": "Jeromi Mikhael",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/A_black_and_white_kitten_3.jpg/960px-A_black_and_white_kitten_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/A_black_and_white_kitten_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_black_and_white_kitten_3.jpg",
+      "localFile": "content/batch-002/media/110154777.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "0becfdb434b830f63fef691743ec56b465aecf3700e8b807496bc66aec4f8aa3",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1280
+      ],
+      "reviewDhash": 14637034795421243181,
+      "reviewSha256": "0becfdb434b830f63fef691743ec56b465aecf3700e8b807496bc66aec4f8aa3"
+    },
+    {
+      "group": "cats",
+      "pageid": 142916227,
+      "title": "File:A mother cat of Meitei domestic cat breed (Meitei house cat variety) suckling her only little newborn baby kitten 12.jpg",
+      "description": "A mother cat of Meitei domestic cat family (Meitei house cat species) suckling her only little newborn baby kitten; Meitei domestic cats are found predominantly in the plains of Kangleipak (Manipur), where they are known as \"Meitei Houdong\" or \"Meetei Houdong\" in the Classical Meitei language.",
+      "author": "Haoreima",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_12.jpg/960px-A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_mother_cat_of_Meitei_domestic_cat_breed_(Meitei_house_cat_variety)_suckling_her_only_little_newborn_baby_kitten_12.jpg",
+      "localFile": "content/batch-002/media/142916227.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "fe00e1044ce975909bb0d0bfc773a13e33d802cc5630239aa3506ccd03624c04",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1283
+      ],
+      "reviewDhash": 1720231337637936703,
+      "reviewSha256": "fe00e1044ce975909bb0d0bfc773a13e33d802cc5630239aa3506ccd03624c04"
+    },
+    {
+      "group": "cats",
+      "pageid": 85952330,
+      "title": "File:A kitten on the lawn (Pixabay).jpg",
+      "description": "A kitten sitting on the lawn was looking at the flowers.",
+      "author": "Ilona Ilyés",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/A_kitten_on_the_lawn_%28Pixabay%29.jpg/960px-A_kitten_on_the_lawn_%28Pixabay%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/A_kitten_on_the_lawn_%28Pixabay%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_kitten_on_the_lawn_(Pixabay).jpg",
+      "localFile": "content/batch-002/media/85952330.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "f7d2fee6778c8dd2c4309f9940ab19a3ee2aa853cbe963d0b2a68ac9d1b16c48",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        650
+      ],
+      "reviewDhash": 652286869600022899,
+      "reviewSha256": "f7d2fee6778c8dd2c4309f9940ab19a3ee2aa853cbe963d0b2a68ac9d1b16c48"
+    },
+    {
+      "group": "cats",
+      "pageid": 142916220,
+      "title": "File:A mother cat of Meitei domestic cat breed (Meitei house cat variety) suckling her only little newborn baby kitten 08.jpg",
+      "description": "A mother cat of Meitei domestic cat family (Meitei house cat species) suckling her only little newborn baby kitten; Meitei domestic cats are found predominantly in the plains of Kangleipak (Manipur), where they are known as \"Meitei Houdong\" or \"Meetei Houdong\" in the Classical Meitei language.",
+      "author": "Haoreima",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_08.jpg/960px-A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_08.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fd/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_08.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_mother_cat_of_Meitei_domestic_cat_breed_(Meitei_house_cat_variety)_suckling_her_only_little_newborn_baby_kitten_08.jpg",
+      "localFile": "content/batch-002/media/142916220.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "4c87f313dba5cbd1ed68ee6707b960464efe1e4b5be8426092b2940935b1fc25",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1283
+      ],
+      "reviewDhash": 16095140823983161183,
+      "reviewSha256": "4c87f313dba5cbd1ed68ee6707b960464efe1e4b5be8426092b2940935b1fc25"
+    },
+    {
+      "group": "cats",
+      "pageid": 85952328,
+      "title": "File:A focused kitten (Pixabay).jpg",
+      "description": "A kitten looking away seemed focused.",
+      "author": "Ty Swartz",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/A_focused_kitten_%28Pixabay%29.jpg/960px-A_focused_kitten_%28Pixabay%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/09/A_focused_kitten_%28Pixabay%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_focused_kitten_(Pixabay).jpg",
+      "localFile": "content/batch-002/media/85952328.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "14fd145d3a0f768cc9cbf2bfa2f25c4b35939ed6875e6b881d243831d7d5fa1a",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1003
+      ],
+      "reviewDhash": 1989331570733239692,
+      "reviewSha256": "14fd145d3a0f768cc9cbf2bfa2f25c4b35939ed6875e6b881d243831d7d5fa1a"
+    },
+    {
+      "group": "cats",
+      "pageid": 142916204,
+      "title": "File:A mother cat of Meitei domestic cat breed (Meitei house cat variety) suckling her only little newborn baby kitten 05.jpg",
+      "description": "A mother cat of Meitei domestic cat family (Meitei house cat species) suckling her only little newborn baby kitten; Meitei domestic cats are found predominantly in the plains of Kangleipak (Manipur), where they are known as \"Meitei Houdong\" or \"Meetei Houdong\" in the Classical Meitei language.",
+      "author": "Haoreima",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_05.jpg/960px-A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/62/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_mother_cat_of_Meitei_domestic_cat_breed_(Meitei_house_cat_variety)_suckling_her_only_little_newborn_baby_kitten_05.jpg",
+      "localFile": "content/batch-002/media/142916204.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "8e56cde501fabdded210f4e9af4f50660569424b4b667fc1fff5f153f05fe196",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1283
+      ],
+      "reviewDhash": 2195069084045117239,
+      "reviewSha256": "8e56cde501fabdded210f4e9af4f50660569424b4b667fc1fff5f153f05fe196"
+    },
+    {
+      "group": "cats",
+      "pageid": 110153964,
+      "title": "File:A black and an orange kitten 9.jpg",
+      "description": "A black and an orange kitten lying on a chair.",
+      "author": "Jeromi Mikhael",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/A_black_and_an_orange_kitten_9.jpg/960px-A_black_and_an_orange_kitten_9.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/de/A_black_and_an_orange_kitten_9.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_black_and_an_orange_kitten_9.jpg",
+      "localFile": "content/batch-002/media/110153964.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "4b5209e330f2fd8d9b6012db1773a700c344a57ddd0823856f28f6935cf5f93e",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 660245211316945731,
+      "reviewSha256": "4b5209e330f2fd8d9b6012db1773a700c344a57ddd0823856f28f6935cf5f93e"
+    },
+    {
+      "group": "cats",
+      "pageid": 142916200,
+      "title": "File:A mother cat of Meitei domestic cat breed (Meitei house cat variety) suckling her only little newborn baby kitten 03.jpg",
+      "description": "A mother cat of Meitei domestic cat family (Meitei house cat species) suckling her only little newborn baby kitten; Meitei domestic cats are found predominantly in the plains of Kangleipak (Manipur), where they are known as \"Meitei Houdong\" or \"Meetei Houdong\" in the Classical Meitei language.",
+      "author": "Haoreima",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_03.jpg/960px-A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_mother_cat_of_Meitei_domestic_cat_breed_(Meitei_house_cat_variety)_suckling_her_only_little_newborn_baby_kitten_03.jpg",
+      "localFile": "content/batch-002/media/142916200.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "76855fb30d06a4fc40078ce7fe8f77d16d1e05179b22cef420faa2ba6541289d",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1283
+      ],
+      "reviewDhash": 2051032714579483727,
+      "reviewSha256": "76855fb30d06a4fc40078ce7fe8f77d16d1e05179b22cef420faa2ba6541289d"
+    },
+    {
+      "group": "cats",
+      "pageid": 94885223,
+      "title": "File:A kitten in a carton (Flickr).jpg",
+      "description": "A kitten in a cardboard box seemed to put on a brave face.",
+      "author": "游 焰熾",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/A_kitten_in_a_carton_%28Flickr%29.jpg/960px-A_kitten_in_a_carton_%28Flickr%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/A_kitten_in_a_carton_%28Flickr%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_kitten_in_a_carton_(Flickr).jpg",
+      "localFile": "content/batch-002/media/94885223.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "b72fde075c66fcf38c2ed948d0f334bde8bd23a40ff0351f8ba7bcee3cebf015",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        581
+      ],
+      "reviewDhash": 1081712742236562944,
+      "reviewSha256": "b72fde075c66fcf38c2ed948d0f334bde8bd23a40ff0351f8ba7bcee3cebf015"
+    },
+    {
+      "group": "cats",
+      "pageid": 142916225,
+      "title": "File:A mother cat of Meitei domestic cat breed (Meitei house cat variety) suckling her only little newborn baby kitten 10.jpg",
+      "description": "A mother cat of Meitei domestic cat family (Meitei house cat species) suckling her only little newborn baby kitten; Meitei domestic cats are found predominantly in the plains of Kangleipak (Manipur), where they are known as \"Meitei Houdong\" or \"Meetei Houdong\" in the Classical Meitei language.",
+      "author": "Haoreima",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_10.jpg/960px-A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d7/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_mother_cat_of_Meitei_domestic_cat_breed_(Meitei_house_cat_variety)_suckling_her_only_little_newborn_baby_kitten_10.jpg",
+      "localFile": "content/batch-002/media/142916225.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "47ca6c5935ed859f97c316a7f0369b1bc0d6648f4d60c41fde3e5bd03f9826b6",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1283
+      ],
+      "reviewDhash": 2278643056945655611,
+      "reviewSha256": "47ca6c5935ed859f97c316a7f0369b1bc0d6648f4d60c41fde3e5bd03f9826b6"
+    },
+    {
+      "group": "cats",
+      "pageid": 110154769,
+      "title": "File:A black and white kitten 2.jpg",
+      "description": "A black and white kitten",
+      "author": "Jeromi Mikhael",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/A_black_and_white_kitten_2.jpg/960px-A_black_and_white_kitten_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/A_black_and_white_kitten_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_black_and_white_kitten_2.jpg",
+      "localFile": "content/batch-002/media/110154769.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "b432b5736f91b4af64796d752be1f6bc8f2bff2e1354c95afc5776882ecce3d1",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1280
+      ],
+      "reviewDhash": 4838327906178283309,
+      "reviewSha256": "b432b5736f91b4af64796d752be1f6bc8f2bff2e1354c95afc5776882ecce3d1"
+    },
+    {
+      "group": "cats",
+      "pageid": 142916221,
+      "title": "File:A mother cat of Meitei domestic cat breed (Meitei house cat variety) suckling her only little newborn baby kitten 09.jpg",
+      "description": "A mother cat of Meitei domestic cat family (Meitei house cat species) suckling her only little newborn baby kitten; Meitei domestic cats are found predominantly in the plains of Kangleipak (Manipur), where they are known as \"Meitei Houdong\" or \"Meetei Houdong\" in the Classical Meitei language.",
+      "author": "Haoreima",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_09.jpg/960px-A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_09.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_09.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_mother_cat_of_Meitei_domestic_cat_breed_(Meitei_house_cat_variety)_suckling_her_only_little_newborn_baby_kitten_09.jpg",
+      "localFile": "content/batch-002/media/142916221.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "ee3863ba2e166397c5ba1e24878794ebbfb9709ff574825e279f0aa3ce2c21fc",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1283
+      ],
+      "reviewDhash": 15555274014953271163,
+      "reviewSha256": "ee3863ba2e166397c5ba1e24878794ebbfb9709ff574825e279f0aa3ce2c21fc"
+    },
+    {
+      "group": "cats",
+      "pageid": 110153978,
+      "title": "File:A black and an orange kitten 17.jpg",
+      "description": "A black and an orange kitten lying on a chair.",
+      "author": "Jeromi Mikhael",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/A_black_and_an_orange_kitten_17.jpg/960px-A_black_and_an_orange_kitten_17.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5a/A_black_and_an_orange_kitten_17.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_black_and_an_orange_kitten_17.jpg",
+      "localFile": "content/batch-002/media/110153978.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "e6588d3c29fe407fe07f200843f214759521082953a7e443731f7f5efd59218d",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 7089300510955834409,
+      "reviewSha256": "e6588d3c29fe407fe07f200843f214759521082953a7e443731f7f5efd59218d"
+    },
+    {
+      "group": "cats",
+      "pageid": 92201445,
+      "title": "File:Domestic cat paw.jpg",
+      "description": "back paw of a domestic cat",
+      "author": "Flanoz",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Domestic_cat_paw.jpg/960px-Domestic_cat_paw.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Domestic_cat_paw.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Domestic_cat_paw.jpg",
+      "localFile": "content/batch-002/media/92201445.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "6b5ca9865022ffc7a32c21a9497fd0b9c14e8d5d5b1a704be1b99def9df40073",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 3666168242257260534,
+      "reviewSha256": "6b5ca9865022ffc7a32c21a9497fd0b9c14e8d5d5b1a704be1b99def9df40073"
+    },
+    {
+      "group": "cats",
+      "pageid": 110153956,
+      "title": "File:A black and an orange kitten 3.jpg",
+      "description": "A black and an orange kitten lying on a chair.",
+      "author": "Jeromi Mikhael",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/A_black_and_an_orange_kitten_3.jpg/960px-A_black_and_an_orange_kitten_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1d/A_black_and_an_orange_kitten_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_black_and_an_orange_kitten_3.jpg",
+      "localFile": "content/batch-002/media/110153956.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "ef4c717b49488a176cdb2ca920153f0ee8580370dfe9af3c80c856442d68b10b",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 660245211384054595,
+      "reviewSha256": "ef4c717b49488a176cdb2ca920153f0ee8580370dfe9af3c80c856442d68b10b"
+    },
+    {
+      "group": "cats",
+      "pageid": 110153958,
+      "title": "File:A black and an orange kitten 4.jpg",
+      "description": "A black and an orange kitten lying on a chair.",
+      "author": "Jeromi Mikhael",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/A_black_and_an_orange_kitten_4.jpg/960px-A_black_and_an_orange_kitten_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/33/A_black_and_an_orange_kitten_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_black_and_an_orange_kitten_4.jpg",
+      "localFile": "content/batch-002/media/110153958.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "5882c96c220d5f2e64d6cf88a6d527cfebebaba023256af4b639eb8f7c95668c",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 660214423582098243,
+      "reviewSha256": "5882c96c220d5f2e64d6cf88a6d527cfebebaba023256af4b639eb8f7c95668c"
+    },
+    {
+      "group": "cats",
+      "pageid": 196899360,
+      "title": "File:Cat petted.jpg",
+      "description": "A cat chilling in grass being petted by a human hand",
+      "author": "Josephguy15 2.0",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Cat_petted.jpg/960px-Cat_petted.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/77/Cat_petted.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cat_petted.jpg",
+      "localFile": "content/batch-002/media/196899360.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "f02cb1dbb0e181804e4dc3f139e1e7b8cd41dc6de6910b93f8f26625c5bc9b36",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1280
+      ],
+      "reviewDhash": 3574795399557702322,
+      "reviewSha256": "f02cb1dbb0e181804e4dc3f139e1e7b8cd41dc6de6910b93f8f26625c5bc9b36"
+    },
+    {
+      "group": "cats",
+      "pageid": 110154779,
+      "title": "File:A black and white kitten 4.jpg",
+      "description": "A black and white kitten",
+      "author": "Jeromi Mikhael",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/A_black_and_white_kitten_4.jpg/960px-A_black_and_white_kitten_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/07/A_black_and_white_kitten_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_black_and_white_kitten_4.jpg",
+      "localFile": "content/batch-002/media/110154779.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "cb7c3741f04a6a73d739ed569f9db2e5e4dc4ebca8f1bdd21f1e971aa8caa203",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1280
+      ],
+      "reviewDhash": 9757999877307054923,
+      "reviewSha256": "cb7c3741f04a6a73d739ed569f9db2e5e4dc4ebca8f1bdd21f1e971aa8caa203"
+    },
+    {
+      "group": "cats",
+      "pageid": 142916215,
+      "title": "File:A mother cat of Meitei domestic cat breed (Meitei house cat variety) suckling her only little newborn baby kitten 01.jpg",
+      "description": "A mother cat of Meitei domestic cat family (Meitei house cat species) suckling her only little newborn baby kitten; Meitei domestic cats are found predominantly in the plains of Kangleipak (Manipur), where they are known as \"Meitei Houdong\" or \"Meetei Houdong\" in the Classical Meitei language.",
+      "author": "Haoreima",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_01.jpg/960px-A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_mother_cat_of_Meitei_domestic_cat_breed_(Meitei_house_cat_variety)_suckling_her_only_little_newborn_baby_kitten_01.jpg",
+      "localFile": "content/batch-002/media/142916215.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "87c472351198c6a7fc774a91d3128fbf496b87a08112b1a2db3e841bc09e7a5c",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1283
+      ],
+      "reviewDhash": 14322347380747144595,
+      "reviewSha256": "87c472351198c6a7fc774a91d3128fbf496b87a08112b1a2db3e841bc09e7a5c"
+    },
+    {
+      "group": "cats",
+      "pageid": 110153952,
+      "title": "File:A black and an orange kitten 2.jpg",
+      "description": "A black and an orange kitten lying on a chair.",
+      "author": "Jeromi Mikhael",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/A_black_and_an_orange_kitten_2.jpg/960px-A_black_and_an_orange_kitten_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/db/A_black_and_an_orange_kitten_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_black_and_an_orange_kitten_2.jpg",
+      "localFile": "content/batch-002/media/110153952.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "76786f6fce10e99dd9ee937627ed7285a78a6ae82d4041a9a9d581560314febd",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        591
+      ],
+      "reviewDhash": 14307552336153766128,
+      "reviewSha256": "76786f6fce10e99dd9ee937627ed7285a78a6ae82d4041a9a9d581560314febd"
+    },
+    {
+      "group": "cats",
+      "pageid": 169786731,
+      "title": "File:A pet cat curiously looking at the camera man.jpg",
+      "description": "A pet cat curiously looking at the camera man",
+      "author": "Kaushlendrapathe",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/A_pet_cat_curiously_looking_at_the_camera_man.jpg/960px-A_pet_cat_curiously_looking_at_the_camera_man.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/07/A_pet_cat_curiously_looking_at_the_camera_man.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_pet_cat_curiously_looking_at_the_camera_man.jpg",
+      "localFile": "content/batch-002/media/169786731.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "650ff8396cb9954664c3b490bb8980562df63f1245c962dd22167e132e75e0f2",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 3404015396224116613,
+      "reviewSha256": "650ff8396cb9954664c3b490bb8980562df63f1245c962dd22167e132e75e0f2"
+    },
+    {
+      "group": "cats",
+      "pageid": 110153959,
+      "title": "File:A black and an orange kitten 5.jpg",
+      "description": "A black and an orange kitten lying on a chair.",
+      "author": "Jeromi Mikhael",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/A_black_and_an_orange_kitten_5.jpg/960px-A_black_and_an_orange_kitten_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ac/A_black_and_an_orange_kitten_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_black_and_an_orange_kitten_5.jpg",
+      "localFile": "content/batch-002/media/110153959.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "47875e24153517053e5e167f8f22edc8efba6e9e17e8db79cff8c669f44e068e",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 15187488373436320828,
+      "reviewSha256": "47875e24153517053e5e167f8f22edc8efba6e9e17e8db79cff8c669f44e068e"
+    },
+    {
+      "group": "cats",
+      "pageid": 148557486,
+      "title": "File:Cat is sitting on the wall.jpg",
+      "description": "The cat is sitting on the wall",
+      "author": "Vyshnavi medicharla",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Cat_is_sitting_on_the_wall.jpg/960px-Cat_is_sitting_on_the_wall.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cat_is_sitting_on_the_wall.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cat_is_sitting_on_the_wall.jpg",
+      "localFile": "content/batch-002/media/148557486.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "303852c7e0bbe265811e6e2b32d641e7b06e66662033f80f920368dd31f0f3f7",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 8915847266858436367,
+      "reviewSha256": "303852c7e0bbe265811e6e2b32d641e7b06e66662033f80f920368dd31f0f3f7"
+    },
+    {
+      "group": "cats",
+      "pageid": 110153972,
+      "title": "File:A black and an orange kitten 12.jpg",
+      "description": "A black and an orange kitten lying on a chair.",
+      "author": "Jeromi Mikhael",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/A_black_and_an_orange_kitten_12.jpg/960px-A_black_and_an_orange_kitten_12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/29/A_black_and_an_orange_kitten_12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_black_and_an_orange_kitten_12.jpg",
+      "localFile": "content/batch-002/media/110153972.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "06f505f627d66adec84b82d08851ed013491fb5bcfbf66201004af4ca6243eef",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 7161393289365818409,
+      "reviewSha256": "06f505f627d66adec84b82d08851ed013491fb5bcfbf66201004af4ca6243eef"
+    },
+    {
+      "group": "cats",
+      "pageid": 148351244,
+      "title": "File:Small Cat Receiving Love.jpg",
+      "description": "An outdoor, mixed-breed cat from Texas in the 21st century. Even when born feral, domestic cats can be befriended by humans and their gentle nature can be brought forth. Although orange cats are typically presumed to be male, the subject in the picture is female, which is often considered anomalous.",
+      "author": "Doughbo",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Small_Cat_Receiving_Love.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Small_Cat_Receiving_Love.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Small_Cat_Receiving_Love.jpg",
+      "localFile": "content/batch-002/media/148351244.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "2af03bd0768a1a095edd3bae3f8593d7272d0661a2045abf6b48559d2dfb1053",
+      "species": "cats",
+      "reviewDimensions": [
+        644,
+        858
+      ],
+      "reviewDhash": 7353012480106553427,
+      "reviewSha256": "2af03bd0768a1a095edd3bae3f8593d7272d0661a2045abf6b48559d2dfb1053"
+    },
+    {
+      "group": "cats",
+      "pageid": 110153975,
+      "title": "File:A black and an orange kitten 14.jpg",
+      "description": "A black and an orange kitten lying on a chair.",
+      "author": "Jeromi Mikhael",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/A_black_and_an_orange_kitten_14.jpg/960px-A_black_and_an_orange_kitten_14.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/14/A_black_and_an_orange_kitten_14.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_black_and_an_orange_kitten_14.jpg",
+      "localFile": "content/batch-002/media/110153975.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "bebf4103d30f2053741a815b7bf96b40d2c732594e693ff8b3803608693c2d22",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 7089335695327890473,
+      "reviewSha256": "bebf4103d30f2053741a815b7bf96b40d2c732594e693ff8b3803608693c2d22"
+    },
+    {
+      "group": "cats",
+      "pageid": 143121979,
+      "title": "File:Cat shrimp.jpg",
+      "description": "Benjamin, an orange cat.",
+      "author": "Rirzog",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Cat_shrimp.jpg/960px-Cat_shrimp.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Cat_shrimp.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cat_shrimp.jpg",
+      "localFile": "content/batch-002/media/143121979.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "8b83e0a551374d31cb0a1e44faf61f468c44e919cfa4ff13d0a7994edd6414be",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1204
+      ],
+      "reviewDhash": 15912780146666821961,
+      "reviewSha256": "8b83e0a551374d31cb0a1e44faf61f468c44e919cfa4ff13d0a7994edd6414be"
+    },
+    {
+      "group": "cats",
+      "pageid": 110153977,
+      "title": "File:A black and an orange kitten 16.jpg",
+      "description": "A black and an orange kitten lying on a chair.",
+      "author": "Jeromi Mikhael",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/A_black_and_an_orange_kitten_16.jpg/960px-A_black_and_an_orange_kitten_16.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b3/A_black_and_an_orange_kitten_16.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_black_and_an_orange_kitten_16.jpg",
+      "localFile": "content/batch-002/media/110153977.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "4bc813f814cf75f9fc207592b1b8b3843f0c4309cf99ced4f7f4265b346aade7",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 7089335695327890473,
+      "reviewSha256": "4bc813f814cf75f9fc207592b1b8b3843f0c4309cf99ced4f7f4265b346aade7"
+    },
+    {
+      "group": "cats",
+      "pageid": 183770272,
+      "title": "File:White and gray silverpoint domestic cat lying down in basket.jpg",
+      "description": "This white and gray silverpoint cat is sitting in a basket, looking at the camera. Its front paws are visible. Taken in Alabama, USA.",
+      "author": "Poryden",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/White_and_gray_silverpoint_domestic_cat_lying_down_in_basket.jpg/960px-White_and_gray_silverpoint_domestic_cat_lying_down_in_basket.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5f/White_and_gray_silverpoint_domestic_cat_lying_down_in_basket.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:White_and_gray_silverpoint_domestic_cat_lying_down_in_basket.jpg",
+      "localFile": "content/batch-002/media/183770272.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "30f2d8d24f1b8309c86ad34e92a092300aeba33adce643af3cff702cb4c992ad",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1280
+      ],
+      "reviewDhash": 868166904400614414,
+      "reviewSha256": "30f2d8d24f1b8309c86ad34e92a092300aeba33adce643af3cff702cb4c992ad"
+    },
+    {
+      "group": "cats",
+      "pageid": 110153976,
+      "title": "File:A black and an orange kitten 15.jpg",
+      "description": "A black and an orange kitten lying on a chair.",
+      "author": "Jeromi Mikhael",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/A_black_and_an_orange_kitten_15.jpg/960px-A_black_and_an_orange_kitten_15.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/09/A_black_and_an_orange_kitten_15.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_black_and_an_orange_kitten_15.jpg",
+      "localFile": "content/batch-002/media/110153976.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "e8812fdfaeed5fbc2b6c71be5f98c2306fd590aa6e9d45cb102252f24ce5dec6",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 7089335695327988777,
+      "reviewSha256": "e8812fdfaeed5fbc2b6c71be5f98c2306fd590aa6e9d45cb102252f24ce5dec6"
+    },
+    {
+      "group": "cats",
+      "pageid": 18764428,
+      "title": "File:'Radhe' the pet cat of Worli fish marke in Mumbai..(Wednesday 14-3-2012).JPG",
+      "description": "This pet stray cat of the Worli fish market in Mumbai is extremely large than the average cat.",
+      "author": "Rudolph.A.furtado",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/%27Radhe%27_the_pet_cat_of_Worli_fish_marke_in_Mumbai..%28Wednesday_14-3-2012%29.JPG/960px-%27Radhe%27_the_pet_cat_of_Worli_fish_marke_in_Mumbai..%28Wednesday_14-3-2012%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/%27Radhe%27_the_pet_cat_of_Worli_fish_marke_in_Mumbai..%28Wednesday_14-3-2012%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%27Radhe%27_the_pet_cat_of_Worli_fish_marke_in_Mumbai..(Wednesday_14-3-2012).JPG",
+      "localFile": "content/batch-002/media/18764428.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "b35b226f3224baf0018f54ea9c014739356752716a167b08240109fca00c3e39",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 8419979569746366237,
+      "reviewSha256": "b35b226f3224baf0018f54ea9c014739356752716a167b08240109fca00c3e39"
+    },
+    {
+      "group": "cats",
+      "pageid": 110153965,
+      "title": "File:A black and an orange kitten 10.jpg",
+      "description": "A black and an orange kitten lying on a chair.",
+      "author": "Jeromi Mikhael",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/A_black_and_an_orange_kitten_10.jpg/960px-A_black_and_an_orange_kitten_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/25/A_black_and_an_orange_kitten_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_black_and_an_orange_kitten_10.jpg",
+      "localFile": "content/batch-002/media/110153965.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "a1dbab03086f2f550d7590793d48146ba590499f729db16629ed42a5c21e90f7",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 660245211316945731,
+      "reviewSha256": "a1dbab03086f2f550d7590793d48146ba590499f729db16629ed42a5c21e90f7"
+    },
+    {
+      "group": "cats",
+      "pageid": 183902882,
+      "title": "File:Azure cat playing a violin.png",
+      "description": "He literally played a violin with a warmer, isn't that fascinating?",
+      "author": "Jiafei Slay Queen",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Azure_cat_playing_a_violin.png/960px-Azure_cat_playing_a_violin.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Azure_cat_playing_a_violin.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Azure_cat_playing_a_violin.png",
+      "localFile": "content/batch-002/media/183902882.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "a4b1b2d49d8991b50f2d4f62eda22b4802e1725f867327750c20153bbb97d037",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 3113700480673893757,
+      "reviewSha256": "a4b1b2d49d8991b50f2d4f62eda22b4802e1725f867327750c20153bbb97d037"
+    },
+    {
+      "group": "cats",
+      "pageid": 110153971,
+      "title": "File:A black and an orange kitten 11.jpg",
+      "description": "A black and an orange kitten lying on a chair.",
+      "author": "Jeromi Mikhael",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/A_black_and_an_orange_kitten_11.jpg/960px-A_black_and_an_orange_kitten_11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/A_black_and_an_orange_kitten_11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_black_and_an_orange_kitten_11.jpg",
+      "localFile": "content/batch-002/media/110153971.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "30ffcec0f9595fc6f3d7c381c0286dedee43f59e234d311213019e2071ac33fe",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 7089335695311113257,
+      "reviewSha256": "30ffcec0f9595fc6f3d7c381c0286dedee43f59e234d311213019e2071ac33fe"
+    },
+    {
+      "group": "cats",
+      "pageid": 183915439,
+      "title": "File:Phlox cat with an electric guitar.png",
+      "description": "He might practice \"GIVE ME FIVE!\" by AKB48, I guess.",
+      "author": "Jiafei Slay Queen",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Phlox_cat_with_an_electric_guitar.png/960px-Phlox_cat_with_an_electric_guitar.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/69/Phlox_cat_with_an_electric_guitar.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phlox_cat_with_an_electric_guitar.png",
+      "localFile": "content/batch-002/media/183915439.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "9403a383ed2dde77871ef1ab98339238aba73c9dc283a181470c36263a927a84",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 15469352514537253998,
+      "reviewSha256": "9403a383ed2dde77871ef1ab98339238aba73c9dc283a181470c36263a927a84"
+    },
+    {
+      "group": "cats",
+      "pageid": 110153962,
+      "title": "File:A black and an orange kitten 8.jpg",
+      "description": "A black and an orange kitten lying on a chair.",
+      "author": "Jeromi Mikhael",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/A_black_and_an_orange_kitten_8.jpg/960px-A_black_and_an_orange_kitten_8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/A_black_and_an_orange_kitten_8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_black_and_an_orange_kitten_8.jpg",
+      "localFile": "content/batch-002/media/110153962.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "abfacbd3661babbbf98d0a5ef1615f393b10624c1626ede3e4fb11ad6eb4ee2d",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 2966088220664857411,
+      "reviewSha256": "abfacbd3661babbbf98d0a5ef1615f393b10624c1626ede3e4fb11ad6eb4ee2d"
+    },
+    {
+      "group": "cats",
+      "pageid": 45948776,
+      "title": "File:Cat Bathing in Sunbeam.jpg",
+      "description": "This picture shows a long haired cat with brown, black and cream colored fur. The cat is licking its paw taking a bath, and you can see its pink tongue. Free photo for any use.",
+      "author": "http://www.photos-public-domain.com/",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Cat_Bathing_in_Sunbeam.jpg/960px-Cat_Bathing_in_Sunbeam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/32/Cat_Bathing_in_Sunbeam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cat_Bathing_in_Sunbeam.jpg",
+      "localFile": "content/batch-002/media/45948776.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "c112a00ac601490c6e09b4dc89bddd4d7557b06a4766b9cf9ebb2b391bf04ab5",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 7507550501063171586,
+      "reviewSha256": "c112a00ac601490c6e09b4dc89bddd4d7557b06a4766b9cf9ebb2b391bf04ab5"
+    },
+    {
+      "group": "cats",
+      "pageid": 110153961,
+      "title": "File:A black and an orange kitten 7.jpg",
+      "description": "A black and an orange kitten lying on a chair.",
+      "author": "Jeromi Mikhael",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/A_black_and_an_orange_kitten_7.jpg/960px-A_black_and_an_orange_kitten_7.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1d/A_black_and_an_orange_kitten_7.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_black_and_an_orange_kitten_7.jpg",
+      "localFile": "content/batch-002/media/110153961.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "9d01e8442e977f7601b9ec9ab6f5b08e7f7e14e92e93d586b96f67b0de4543b1",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 660245211451163459,
+      "reviewSha256": "9d01e8442e977f7601b9ec9ab6f5b08e7f7e14e92e93d586b96f67b0de4543b1"
+    },
+    {
+      "group": "cats",
+      "pageid": 171953505,
+      "title": "File:Sleeping domestic cat in Grodztwo (Kowal), Kuyavian-Pomeranian Voivodeship, Poland, July 2025.jpg",
+      "description": "Sleeping domestic cat in Grodztwo (Kowal), Kuyavian-Pomeranian Voivodeship, Poland, July 2025",
+      "author": "MichalPL",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Sleeping_domestic_cat_in_Grodztwo_%28Kowal%29%2C_Kuyavian-Pomeranian_Voivodeship%2C_Poland%2C_July_2025.jpg/960px-Sleeping_domestic_cat_in_Grodztwo_%28Kowal%29%2C_Kuyavian-Pomeranian_Voivodeship%2C_Poland%2C_July_2025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/90/Sleeping_domestic_cat_in_Grodztwo_%28Kowal%29%2C_Kuyavian-Pomeranian_Voivodeship%2C_Poland%2C_July_2025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sleeping_domestic_cat_in_Grodztwo_(Kowal),_Kuyavian-Pomeranian_Voivodeship,_Poland,_July_2025.jpg",
+      "localFile": "content/batch-002/media/171953505.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "8819bd927575fa32d8de2e2b32b9f55af880dea1f30f6ebc0bfcae6cc49030eb",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 1987203345061567937,
+      "reviewSha256": "8819bd927575fa32d8de2e2b32b9f55af880dea1f30f6ebc0bfcae6cc49030eb"
+    },
+    {
+      "group": "cats",
+      "pageid": 110153973,
+      "title": "File:A black and an orange kitten 13.jpg",
+      "description": "A black and an orange kitten lying on a chair.",
+      "author": "Jeromi Mikhael",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/A_black_and_an_orange_kitten_13.jpg/960px-A_black_and_an_orange_kitten_13.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/A_black_and_an_orange_kitten_13.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_black_and_an_orange_kitten_13.jpg",
+      "localFile": "content/batch-002/media/110153973.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "7afc79c4a1e5c8928d70ecb016680fd84dfd0a7050e6a36be7c8c7c945368552",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 7089335695311113257,
+      "reviewSha256": "7afc79c4a1e5c8928d70ecb016680fd84dfd0a7050e6a36be7c8c7c945368552"
+    },
+    {
+      "group": "cats",
+      "pageid": 183878705,
+      "title": "File:Orchid cat in a fancy outfit.png",
+      "description": "Another random upload again, but why is she so silly?",
+      "author": "Jiafei Slay Queen",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Orchid_cat_in_a_fancy_outfit.png/960px-Orchid_cat_in_a_fancy_outfit.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/49/Orchid_cat_in_a_fancy_outfit.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orchid_cat_in_a_fancy_outfit.png",
+      "localFile": "content/batch-002/media/183878705.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "c90d1f5136be4b5afeef641fb561a10b8942ddf976484f8c8276b588f140f5ba",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 5803036028051418220,
+      "reviewSha256": "c90d1f5136be4b5afeef641fb561a10b8942ddf976484f8c8276b588f140f5ba"
+    },
+    {
+      "group": "cats",
+      "pageid": 110153960,
+      "title": "File:A black and an orange kitten 6.jpg",
+      "description": "A black and an orange kitten lying on a chair.",
+      "author": "Jeromi Mikhael",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/A_black_and_an_orange_kitten_6.jpg/960px-A_black_and_an_orange_kitten_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/A_black_and_an_orange_kitten_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_black_and_an_orange_kitten_6.jpg",
+      "localFile": "content/batch-002/media/110153960.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "7d228a3652c85dde98a253ae8091f3d35652b7075285b8db0c20be259b3bbe5d",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 660245211316945731,
+      "reviewSha256": "7d228a3652c85dde98a253ae8091f3d35652b7075285b8db0c20be259b3bbe5d"
+    },
+    {
+      "group": "cats",
+      "pageid": 183913891,
+      "title": "File:Orchid cat posing on a garden in a sunny day.png",
+      "description": "=^w^=",
+      "author": "Jiafei Slay Queen",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Orchid_cat_posing_on_a_garden_in_a_sunny_day.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/Orchid_cat_posing_on_a_garden_in_a_sunny_day.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orchid_cat_posing_on_a_garden_in_a_sunny_day.png",
+      "localFile": "content/batch-002/media/183913891.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "1db859de8f4c3f1ea223e6ad3ff86640432e525a1fa3d9681a656ba5fcb0025e",
+      "species": "cats",
+      "reviewDimensions": [
+        772,
+        876
+      ],
+      "reviewDhash": 2165046334804464949,
+      "reviewSha256": "1db859de8f4c3f1ea223e6ad3ff86640432e525a1fa3d9681a656ba5fcb0025e"
+    },
+    {
+      "group": "cats",
+      "pageid": 126143561,
+      "title": "File:Litter of kittens.jpg",
+      "description": "A litter of kittens in the grass",
+      "author": "Jan-Mallander",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Litter_of_kittens.jpg/960px-Litter_of_kittens.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/17/Litter_of_kittens.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Litter_of_kittens.jpg",
+      "localFile": "content/batch-002/media/126143561.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "ac7013b7a6bdc649f459195059b6c65cd3c17ddd860ad87d62fcfb3d80077019",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        534
+      ],
+      "reviewDhash": 2170573068359474238,
+      "reviewSha256": "ac7013b7a6bdc649f459195059b6c65cd3c17ddd860ad87d62fcfb3d80077019"
+    },
+    {
+      "group": "cats",
+      "pageid": 68609174,
+      "title": "File:Orange tabby cat-932269.jpg",
+      "description": "Orange tabby cat",
+      "author": "Leroy_Skalstad",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Orange_tabby_cat-932269.jpg/960px-Orange_tabby_cat-932269.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/35/Orange_tabby_cat-932269.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orange_tabby_cat-932269.jpg",
+      "localFile": "content/batch-002/media/68609174.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "7472b57b9b0cea9b5165a196a181bf54b6e6029a69c4ccf418fe9ff5e100f85b",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 10563506557831422243,
+      "reviewSha256": "7472b57b9b0cea9b5165a196a181bf54b6e6029a69c4ccf418fe9ff5e100f85b"
+    },
+    {
+      "group": "cats",
+      "pageid": 69243778,
+      "title": "File:Tabby kitten in Brastad.jpg",
+      "description": "A black silver and tan tabby kitten with a red collar and a name capsule, sitting by a door in Brastad, Sweden. One of several photos of the same cat on a snowy night in 2024.",
+      "author": "W.carter",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Tabby_kitten_in_Brastad.jpg/960px-Tabby_kitten_in_Brastad.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/53/Tabby_kitten_in_Brastad.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tabby_kitten_in_Brastad.jpg",
+      "localFile": "content/batch-002/media/69243778.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "4ce3222120bcee797be023789f2f6e8d625b7cd3fe6bc364ec923a7606972d7d",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 5213040138728559808,
+      "reviewSha256": "4ce3222120bcee797be023789f2f6e8d625b7cd3fe6bc364ec923a7606972d7d"
+    },
+    {
+      "group": "cats",
+      "pageid": 97274895,
+      "title": "File:9568Black and white kitten portraits in the Philippines 11.jpg",
+      "description": "Black and white kitten portraits in the Philippines",
+      "author": "Judgefloro",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/9568Black_and_white_kitten_portraits_in_the_Philippines_11.jpg/960px-9568Black_and_white_kitten_portraits_in_the_Philippines_11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/32/9568Black_and_white_kitten_portraits_in_the_Philippines_11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:9568Black_and_white_kitten_portraits_in_the_Philippines_11.jpg",
+      "localFile": "content/batch-002/media/97274895.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "cf0a9c001e27787e667aaffe57511b2d8f0b4157a2211c9ed01bb3ed9297d79c",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 9767759000393706341,
+      "reviewSha256": "cf0a9c001e27787e667aaffe57511b2d8f0b4157a2211c9ed01bb3ed9297d79c"
+    },
+    {
+      "group": "cats",
+      "pageid": 97274884,
+      "title": "File:9568Black and white kitten portraits in the Philippines 08.jpg",
+      "description": "Black and white kitten portraits in the Philippines",
+      "author": "Judgefloro",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/9568Black_and_white_kitten_portraits_in_the_Philippines_08.jpg/960px-9568Black_and_white_kitten_portraits_in_the_Philippines_08.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/39/9568Black_and_white_kitten_portraits_in_the_Philippines_08.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:9568Black_and_white_kitten_portraits_in_the_Philippines_08.jpg",
+      "localFile": "content/batch-002/media/97274884.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "e192c8e84d69f4f7ea4d86ca5582586a85804ed6ac3613f0bf4faa9403121a92",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 11839829310463157606,
+      "reviewSha256": "e192c8e84d69f4f7ea4d86ca5582586a85804ed6ac3613f0bf4faa9403121a92"
+    },
+    {
+      "group": "cats",
+      "pageid": 63705523,
+      "title": "File:Grey Domestic Cat.jpg",
+      "description": "Grey Cat",
+      "author": "gayulo",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Grey_Domestic_Cat.jpg/960px-Grey_Domestic_Cat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/Grey_Domestic_Cat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grey_Domestic_Cat.jpg",
+      "localFile": "content/batch-002/media/63705523.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "ccf6db20a1b8e420c56f623cf579131049e3af72dfdbc876662e36c4680e1c52",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        597
+      ],
+      "reviewDhash": 11045440609144001353,
+      "reviewSha256": "ccf6db20a1b8e420c56f623cf579131049e3af72dfdbc876662e36c4680e1c52"
+    },
+    {
+      "group": "cats",
+      "pageid": 97274874,
+      "title": "File:9568Black and white kitten portraits in the Philippines 03.jpg",
+      "description": "Black and white kitten portraits in the Philippines",
+      "author": "Judgefloro",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/9568Black_and_white_kitten_portraits_in_the_Philippines_03.jpg/960px-9568Black_and_white_kitten_portraits_in_the_Philippines_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cd/9568Black_and_white_kitten_portraits_in_the_Philippines_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:9568Black_and_white_kitten_portraits_in_the_Philippines_03.jpg",
+      "localFile": "content/batch-002/media/97274874.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "8e127ae54d65cff9f1dbf58caa05e65b004aa04dfbd2750a1d9eca0bd9ca3a16",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 3791234456076370735,
+      "reviewSha256": "8e127ae54d65cff9f1dbf58caa05e65b004aa04dfbd2750a1d9eca0bd9ca3a16"
+    },
+    {
+      "group": "cats",
+      "pageid": 183834569,
+      "title": "File:Malachite cat listening to music.png",
+      "description": "Random upload again...",
+      "author": "Jiafei Slay Queen",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Malachite_cat_listening_to_music.png/960px-Malachite_cat_listening_to_music.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Malachite_cat_listening_to_music.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Malachite_cat_listening_to_music.png",
+      "localFile": "content/batch-002/media/183834569.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "05852de6c77259dbf70f7e5ad202785d216ab636c74e5102bc36f162bb4b8ff5",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 11152006893685622474,
+      "reviewSha256": "05852de6c77259dbf70f7e5ad202785d216ab636c74e5102bc36f162bb4b8ff5"
+    },
+    {
+      "group": "cats",
+      "pageid": 97274877,
+      "title": "File:9568Black and white kitten portraits in the Philippines 04.jpg",
+      "description": "Black and white kitten portraits in the Philippines",
+      "author": "Judgefloro",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/9568Black_and_white_kitten_portraits_in_the_Philippines_04.jpg/960px-9568Black_and_white_kitten_portraits_in_the_Philippines_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/9568Black_and_white_kitten_portraits_in_the_Philippines_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:9568Black_and_white_kitten_portraits_in_the_Philippines_04.jpg",
+      "localFile": "content/batch-002/media/97274877.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "01fa0fe81f761d7593577e91dc3ba1916c9105c374d6e6ef3b510937025404d9",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 14920059694636488563,
+      "reviewSha256": "01fa0fe81f761d7593577e91dc3ba1916c9105c374d6e6ef3b510937025404d9"
+    },
+    {
+      "group": "cats",
+      "pageid": 97274879,
+      "title": "File:9568Black and white kitten portraits in the Philippines 05.jpg",
+      "description": "Black and white kitten portraits in the Philippines",
+      "author": "Judgefloro",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/9568Black_and_white_kitten_portraits_in_the_Philippines_05.jpg/960px-9568Black_and_white_kitten_portraits_in_the_Philippines_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d9/9568Black_and_white_kitten_portraits_in_the_Philippines_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:9568Black_and_white_kitten_portraits_in_the_Philippines_05.jpg",
+      "localFile": "content/batch-002/media/97274879.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "46fb2756bb0c970903d542a1aed58119da9f250ef92a6672de5bbd596339a100",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 15724721397414402879,
+      "reviewSha256": "46fb2756bb0c970903d542a1aed58119da9f250ef92a6672de5bbd596339a100"
+    },
+    {
+      "group": "cats",
+      "pageid": 145352113,
+      "title": "File:Cat Peeing in Plant.jpg",
+      "description": "My freaking cat named Stupid about to pee in my freaking plant.",
+      "author": "Panini!",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Cat_Peeing_in_Plant.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/16/Cat_Peeing_in_Plant.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cat_Peeing_in_Plant.jpg",
+      "localFile": "content/batch-002/media/145352113.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "ad5c8ce2efc3bfee802f5890b8d8324bab44c723d041d75d3f3cc4b8ff67a155",
+      "species": "cats",
+      "reviewDimensions": [
+        720,
+        960
+      ],
+      "reviewDhash": 12900436396545646286,
+      "reviewSha256": "ad5c8ce2efc3bfee802f5890b8d8324bab44c723d041d75d3f3cc4b8ff67a155"
+    },
+    {
+      "group": "cats",
+      "pageid": 97274914,
+      "title": "File:9568Black and white kitten portraits in the Philippines 22.jpg",
+      "description": "Black and white kitten portraits in the Philippines",
+      "author": "Judgefloro",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/9568Black_and_white_kitten_portraits_in_the_Philippines_22.jpg/960px-9568Black_and_white_kitten_portraits_in_the_Philippines_22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/01/9568Black_and_white_kitten_portraits_in_the_Philippines_22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:9568Black_and_white_kitten_portraits_in_the_Philippines_22.jpg",
+      "localFile": "content/batch-002/media/97274914.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "66dcfbeeb597c4a232bd14b9a9883384cda547d64c560e228e15c7aaa757a339",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 663035829836542834,
+      "reviewSha256": "66dcfbeeb597c4a232bd14b9a9883384cda547d64c560e228e15c7aaa757a339"
+    },
+    {
+      "group": "cats",
+      "pageid": 149287804,
+      "title": "File:Patterned Tabby Cat Standing.jpg",
+      "description": "My skinny cat (I specify because she is fat now) named Security, standing up. She's standing up like this because I'm holding a piece of turkey right above the camera.",
+      "author": "Panini!",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Patterned_Tabby_Cat_Standing.jpg/960px-Patterned_Tabby_Cat_Standing.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Patterned_Tabby_Cat_Standing.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Patterned_Tabby_Cat_Standing.jpg",
+      "localFile": "content/batch-002/media/149287804.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "1b25d16b2180996b3dbf8a033252ab753ba8d4fd24cbec2174d6ac7c5cd483fb",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1190
+      ],
+      "reviewDhash": 10144746496191947123,
+      "reviewSha256": "1b25d16b2180996b3dbf8a033252ab753ba8d4fd24cbec2174d6ac7c5cd483fb"
+    },
+    {
+      "group": "cats",
+      "pageid": 97274880,
+      "title": "File:9568Black and white kitten portraits in the Philippines 06.jpg",
+      "description": "Black and white kitten portraits in the Philippines",
+      "author": "Judgefloro",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/9568Black_and_white_kitten_portraits_in_the_Philippines_06.jpg/960px-9568Black_and_white_kitten_portraits_in_the_Philippines_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/9568Black_and_white_kitten_portraits_in_the_Philippines_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:9568Black_and_white_kitten_portraits_in_the_Philippines_06.jpg",
+      "localFile": "content/batch-002/media/97274880.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "4f7d03b91c0bc6c130b9653679ca4ac9cb911210e32d156be3be39c52a8ba80c",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 5625425874682199871,
+      "reviewSha256": "4f7d03b91c0bc6c130b9653679ca4ac9cb911210e32d156be3be39c52a8ba80c"
+    },
+    {
+      "group": "cats",
+      "pageid": 97274886,
+      "title": "File:9568Black and white kitten portraits in the Philippines 09.jpg",
+      "description": "Black and white kitten portraits in the Philippines",
+      "author": "Judgefloro",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/9568Black_and_white_kitten_portraits_in_the_Philippines_09.jpg/960px-9568Black_and_white_kitten_portraits_in_the_Philippines_09.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/9568Black_and_white_kitten_portraits_in_the_Philippines_09.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:9568Black_and_white_kitten_portraits_in_the_Philippines_09.jpg",
+      "localFile": "content/batch-002/media/97274886.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "ead4c36c6c62b10fc61ef032e7770e4ea5851dec1141427c5c2eed8be91b70b1",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 364516724452046715,
+      "reviewSha256": "ead4c36c6c62b10fc61ef032e7770e4ea5851dec1141427c5c2eed8be91b70b1"
+    },
+    {
+      "group": "cats",
+      "pageid": 175891139,
+      "title": "File:Pet cat Stormi.jpg",
+      "description": "Pet cat Stormi",
+      "author": "U3194852",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Pet_cat_Stormi.jpg/960px-Pet_cat_Stormi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Pet_cat_Stormi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pet_cat_Stormi.jpg",
+      "localFile": "content/batch-002/media/175891139.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "3fc7f06f0e914df685f17dbdf5c3df959ca7189c21ea74971897466c2403978d",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1199
+      ],
+      "reviewDhash": 1574352429027379277,
+      "reviewSha256": "3fc7f06f0e914df685f17dbdf5c3df959ca7189c21ea74971897466c2403978d"
+    },
+    {
+      "group": "cats",
+      "pageid": 97274905,
+      "title": "File:9568Black and white kitten portraits in the Philippines 16.jpg",
+      "description": "Black and white kitten portraits in the Philippines",
+      "author": "Judgefloro",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/9568Black_and_white_kitten_portraits_in_the_Philippines_16.jpg/960px-9568Black_and_white_kitten_portraits_in_the_Philippines_16.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/37/9568Black_and_white_kitten_portraits_in_the_Philippines_16.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:9568Black_and_white_kitten_portraits_in_the_Philippines_16.jpg",
+      "localFile": "content/batch-002/media/97274905.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "8f1236c23cf59748a55753016d394fbfe32d9fb627f656dd75108217ec250ff0",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 7176221227309813535,
+      "reviewSha256": "8f1236c23cf59748a55753016d394fbfe32d9fb627f656dd75108217ec250ff0"
+    },
+    {
+      "group": "cats",
+      "pageid": 197180428,
+      "title": "File:Black cat curled up on a sofa in Newcastle upon Tyne, UK.jpg",
+      "description": "A domestic black cat curled up indoors on a yellow couch and a patterned red cushion in Newcastle upon Tyne, UK.",
+      "author": "Salwa Farwaneh Dameh",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Black_cat_curled_up_on_a_sofa_in_Newcastle_upon_Tyne%2C_UK.jpg/960px-Black_cat_curled_up_on_a_sofa_in_Newcastle_upon_Tyne%2C_UK.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/Black_cat_curled_up_on_a_sofa_in_Newcastle_upon_Tyne%2C_UK.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_cat_curled_up_on_a_sofa_in_Newcastle_upon_Tyne,_UK.jpg",
+      "localFile": "content/batch-002/media/197180428.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "a5e6f5efda2cfa452bf8381195fc5150888f7de5f15e14665f48e023d9be1f12",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 3922771876821923000,
+      "reviewSha256": "a5e6f5efda2cfa452bf8381195fc5150888f7de5f15e14665f48e023d9be1f12"
+    },
+    {
+      "group": "cats",
+      "pageid": 97274891,
+      "title": "File:9568Black and white kitten portraits in the Philippines 02.jpg",
+      "description": "Black and white kitten portraits in the Philippines",
+      "author": "Judgefloro",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/9568Black_and_white_kitten_portraits_in_the_Philippines_02.jpg/960px-9568Black_and_white_kitten_portraits_in_the_Philippines_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/9568Black_and_white_kitten_portraits_in_the_Philippines_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:9568Black_and_white_kitten_portraits_in_the_Philippines_02.jpg",
+      "localFile": "content/batch-002/media/97274891.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "f624ada6d619017273a0512864edacfbc7848060fde55e363f0bc1aa7f43c40e",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 1460323303951904313,
+      "reviewSha256": "f624ada6d619017273a0512864edacfbc7848060fde55e363f0bc1aa7f43c40e"
+    },
+    {
+      "group": "cats",
+      "pageid": 62207892,
+      "title": "File:Resting cat in black and white (Unsplash).jpg",
+      "description": "Jerzy Dubovitsky 2016",
+      "author": "Jerzy Dubovitsky jerzy_dy",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Resting_cat_in_black_and_white_%28Unsplash%29.jpg/960px-Resting_cat_in_black_and_white_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/Resting_cat_in_black_and_white_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Resting_cat_in_black_and_white_(Unsplash).jpg",
+      "localFile": "content/batch-002/media/62207892.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "fba5898f4ddc340fb2046ffaf5af7b9ee3e4aeb153e4875d249825d01d23bfab",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 6208149738900688679,
+      "reviewSha256": "fba5898f4ddc340fb2046ffaf5af7b9ee3e4aeb153e4875d249825d01d23bfab"
+    },
+    {
+      "group": "cats",
+      "pageid": 97274897,
+      "title": "File:9568Black and white kitten portraits in the Philippines 12.jpg",
+      "description": "Black and white kitten portraits in the Philippines",
+      "author": "Judgefloro",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/9568Black_and_white_kitten_portraits_in_the_Philippines_12.jpg/960px-9568Black_and_white_kitten_portraits_in_the_Philippines_12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/82/9568Black_and_white_kitten_portraits_in_the_Philippines_12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:9568Black_and_white_kitten_portraits_in_the_Philippines_12.jpg",
+      "localFile": "content/batch-002/media/97274897.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "ee11077ae48957a968bc9e7af9327869f2612d78359b43309b476b482da845dc",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 10091473967043994977,
+      "reviewSha256": "ee11077ae48957a968bc9e7af9327869f2612d78359b43309b476b482da845dc"
+    },
+    {
+      "group": "cats",
+      "pageid": 142917064,
+      "title": "File:A mother of the Meitei domestic cat breed (Meitei house cat variety) and her kitten in Imphal 02.jpg",
+      "description": "A mother of the Meitei domestic cat stock (Meitei house cat type) and her little baby in Imphal, Kangleipak (Manipur); Meitei domestic cats are found predominantly in the plains of Kangleipak (Manipur), where they are known as \"Meitei Houdong\" or \"Meetei Houdong\" in the Classical Meitei language.",
+      "author": "Haoreima",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/A_mother_of_the_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_and_her_kitten_in_Imphal_02.jpg/960px-A_mother_of_the_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_and_her_kitten_in_Imphal_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/A_mother_of_the_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_and_her_kitten_in_Imphal_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_mother_of_the_Meitei_domestic_cat_breed_(Meitei_house_cat_variety)_and_her_kitten_in_Imphal_02.jpg",
+      "localFile": "content/batch-002/media/142917064.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "8441610d55e16c660698d9a2202b7554b67b1af290dde54ee1319ba50328383d",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        1283
+      ],
+      "reviewDhash": 9298846813391485172,
+      "reviewSha256": "8441610d55e16c660698d9a2202b7554b67b1af290dde54ee1319ba50328383d"
+    },
+    {
+      "group": "cats",
+      "pageid": 97274904,
+      "title": "File:9568Black and white kitten portraits in the Philippines 14.jpg",
+      "description": "Black and white kitten portraits in the Philippines",
+      "author": "Judgefloro",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/9568Black_and_white_kitten_portraits_in_the_Philippines_14.jpg/960px-9568Black_and_white_kitten_portraits_in_the_Philippines_14.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/9568Black_and_white_kitten_portraits_in_the_Philippines_14.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:9568Black_and_white_kitten_portraits_in_the_Philippines_14.jpg",
+      "localFile": "content/batch-002/media/97274904.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "43c6453cb8852b56ccf962087fe7106072770a4bd103116663704d3f5550c2af",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 3697190429265171337,
+      "reviewSha256": "43c6453cb8852b56ccf962087fe7106072770a4bd103116663704d3f5550c2af"
+    },
+    {
+      "group": "cats",
+      "pageid": 138384797,
+      "title": "File:Cat lying down.jpg",
+      "description": "Cat lying down",
+      "author": "Teojincheng",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Cat_lying_down.jpg/960px-Cat_lying_down.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/80/Cat_lying_down.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cat_lying_down.jpg",
+      "localFile": "content/batch-002/media/138384797.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "cf0295cb4513aa6c3da9fc85d1c23f772f5690967ffe371f81798dc839a2a268",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 216497900155318296,
+      "reviewSha256": "cf0295cb4513aa6c3da9fc85d1c23f772f5690967ffe371f81798dc839a2a268"
+    },
+    {
+      "group": "cats",
+      "pageid": 97274876,
+      "title": "File:9568Black and white kitten portraits in the Philippines 01.jpg",
+      "description": "Black and white kitten portraits in the Philippines",
+      "author": "Judgefloro",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/9568Black_and_white_kitten_portraits_in_the_Philippines_01.jpg/960px-9568Black_and_white_kitten_portraits_in_the_Philippines_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bc/9568Black_and_white_kitten_portraits_in_the_Philippines_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:9568Black_and_white_kitten_portraits_in_the_Philippines_01.jpg",
+      "localFile": "content/batch-002/media/97274876.source",
+      "metadataFile": "content/batch-002/sources/cats-metadata.json",
+      "sha256": "4a9dfce40232a0204bd6a6efe0991c4ef2b0c94491389395691c9c69c72fdc77",
+      "species": "cats",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 2739256833665657235,
+      "reviewSha256": "4a9dfce40232a0204bd6a6efe0991c4ef2b0c94491389395691c9c69c72fdc77"
+    },
+    {
+      "group": "dogs",
+      "pageid": 145478988,
+      "title": "File:Mixed-breed dogs in Serles.jpg",
+      "description": "Mixed-breed dogs in Serles, Innsbruck",
+      "author": "Wilfredor",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Mixed-breed_dogs_in_Serles.jpg/960px-Mixed-breed_dogs_in_Serles.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/37/Mixed-breed_dogs_in_Serles.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mixed-breed_dogs_in_Serles.jpg",
+      "localFile": "content/batch-002/media/145478988.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "cd86c17a5acfd2483815027b3548c5ad9ef7693d6147b548a90f7870dd25dadf",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 533526185568044867,
+      "reviewSha256": "cd86c17a5acfd2483815027b3548c5ad9ef7693d6147b548a90f7870dd25dadf"
+    },
+    {
+      "group": "dogs",
+      "pageid": 26592914,
+      "title": "File:Dog in Chacachacare.jpg",
+      "description": "Dog in Chacachacare",
+      "author": "Wilfredor",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Dog_in_Chacachacare.jpg/960px-Dog_in_Chacachacare.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Dog_in_Chacachacare.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dog_in_Chacachacare.jpg",
+      "localFile": "content/batch-002/media/26592914.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "08831828fcdd75505271b6d7459440254ece7cf1ee5ad4f4318c3d2e454a9411",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        595
+      ],
+      "reviewDhash": 8716113828276092146,
+      "reviewSha256": "08831828fcdd75505271b6d7459440254ece7cf1ee5ad4f4318c3d2e454a9411"
+    },
+    {
+      "group": "dogs",
+      "pageid": 61369169,
+      "title": "File:Dog at Nørre Vorupør Strand.jpg",
+      "description": "A small dog, probably a shih tzu / malteser cross breed on the observation deck at Nørre Vorupør Strand, Denmark.",
+      "author": "W.carter",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Dog_at_N%C3%B8rre_Vorup%C3%B8r_Strand.jpg/960px-Dog_at_N%C3%B8rre_Vorup%C3%B8r_Strand.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Dog_at_N%C3%B8rre_Vorup%C3%B8r_Strand.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dog_at_N%C3%B8rre_Vorup%C3%B8r_Strand.jpg",
+      "localFile": "content/batch-002/media/61369169.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "78e696933ada2261407a726bbb27011e010c9441a2d7bfad117e56edddf89bdc",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        819
+      ],
+      "reviewDhash": 1815849175027347633,
+      "reviewSha256": "78e696933ada2261407a726bbb27011e010c9441a2d7bfad117e56edddf89bdc"
+    },
+    {
+      "group": "dogs",
+      "pageid": 51751578,
+      "title": "File:Dog coat variation.png",
+      "description": "Montage showing the coat variation of the dog. Clockwise from the left: the Vizsla, the giant Schnauzer, the Cocker spaniel, and the Bichon frise.",
+      "author": "Mary Bloom, American Kennel Club",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Dog_coat_variation.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Dog_coat_variation.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dog_coat_variation.png",
+      "localFile": "content/batch-002/media/51751578.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "1f298b4e782586f48a6405c2fd61357c8e985e8f67bc1b06f004b675d670c3c6",
+      "species": "dogs",
+      "reviewDimensions": [
+        768,
+        805
+      ],
+      "reviewDhash": 2768815213012346677,
+      "reviewSha256": "1f298b4e782586f48a6405c2fd61357c8e985e8f67bc1b06f004b675d670c3c6"
+    },
+    {
+      "group": "dogs",
+      "pageid": 189372065,
+      "title": "File:Dog on dirt road.jpg",
+      "description": "dog on dirt road",
+      "author": "Arlo Barnes",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Dog_on_dirt_road.jpg/960px-Dog_on_dirt_road.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/36/Dog_on_dirt_road.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dog_on_dirt_road.jpg",
+      "localFile": "content/batch-002/media/189372065.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "9ed4adf72393cba198f4cb4fa6845cb8bdcdbd487e93fb2ad4c29ea6f724e62e",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 1105552581806462751,
+      "reviewSha256": "9ed4adf72393cba198f4cb4fa6845cb8bdcdbd487e93fb2ad4c29ea6f724e62e"
+    },
+    {
+      "group": "dogs",
+      "pageid": 150140769,
+      "title": "File:Dog in a muzzle.jpg",
+      "description": "A dog in a leather muzzle. White Swiss Shepherd in a muzzle",
+      "author": "Sobaki2016",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Dog_in_a_muzzle.jpg/960px-Dog_in_a_muzzle.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/Dog_in_a_muzzle.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dog_in_a_muzzle.jpg",
+      "localFile": "content/batch-002/media/150140769.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "8d2e40b5bd546bd6b038810dcb32f5793c969bc31a416eb9cf48fa4c71292251",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        1015
+      ],
+      "reviewDhash": 11639934892723304243,
+      "reviewSha256": "8d2e40b5bd546bd6b038810dcb32f5793c969bc31a416eb9cf48fa4c71292251"
+    },
+    {
+      "group": "dogs",
+      "pageid": 131640573,
+      "title": "File:Picography-dog-yawning-1.jpg",
+      "description": "Shiba Inu dog yawning",
+      "author": "Picography",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Picography-dog-yawning-1.jpg/960px-Picography-dog-yawning-1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Picography-dog-yawning-1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Picography-dog-yawning-1.jpg",
+      "localFile": "content/batch-002/media/131640573.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "4767ed673de37b77bc8f379eafc8a8644e8003ec563783c77dc696f737262963",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 6582935858317282958,
+      "reviewSha256": "4767ed673de37b77bc8f379eafc8a8644e8003ec563783c77dc696f737262963"
+    },
+    {
+      "group": "dogs",
+      "pageid": 116675288,
+      "title": "File:Boxer (dog) , Iran 08.jpg",
+      "description": "The Boxer is a medium to large, short-haired breed of dog, developed in Germany.",
+      "author": "Mostafameraji",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Boxer_%28dog%29_%2C_Iran_08.jpg/960px-Boxer_%28dog%29_%2C_Iran_08.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/32/Boxer_%28dog%29_%2C_Iran_08.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boxer_(dog)_,_Iran_08.jpg",
+      "localFile": "content/batch-002/media/116675288.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "a68bbade9248f5edf54cc031fe3cd8545f3ba5db8be1eef9a5b8f5fa5a362702",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 3694714616227683278,
+      "reviewSha256": "a68bbade9248f5edf54cc031fe3cd8545f3ba5db8be1eef9a5b8f5fa5a362702"
+    },
+    {
+      "group": "dogs",
+      "pageid": 51751579,
+      "title": "File:Dog morphological variation.png",
+      "description": "Montage showing the morphological variation of the dog. Clockwise from the left: the Bloodhound, the Chinese-crested, the Dandie Dinmont terrier, the Scottish deerhound, the long-haired Chihuahua, and the French bulldog.",
+      "author": "Mary Bloom, American Kennel Club",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Dog_morphological_variation.png/960px-Dog_morphological_variation.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/69/Dog_morphological_variation.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dog_morphological_variation.png",
+      "localFile": "content/batch-002/media/51751579.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "d0288e9d5e7586549d238888a478b49e02dc628a796415e72e27541068c3a9a5",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        739
+      ],
+      "reviewDhash": 12063716987150050022,
+      "reviewSha256": "d0288e9d5e7586549d238888a478b49e02dc628a796415e72e27541068c3a9a5"
+    },
+    {
+      "group": "dogs",
+      "pageid": 131641710,
+      "title": "File:Picography-dog-looking-out-window-1.jpg",
+      "description": "Shiba Inu dog looking out of a window",
+      "author": "Picography",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Picography-dog-looking-out-window-1.jpg/960px-Picography-dog-looking-out-window-1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Picography-dog-looking-out-window-1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Picography-dog-looking-out-window-1.jpg",
+      "localFile": "content/batch-002/media/131641710.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "5262b557171a2cd3adfa0a8b23f2fd35f98fed3d330e96478dd9916655be96b8",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 11430029335304539935,
+      "reviewSha256": "5262b557171a2cd3adfa0a8b23f2fd35f98fed3d330e96478dd9916655be96b8"
+    },
+    {
+      "group": "dogs",
+      "pageid": 163829632,
+      "title": "File:Dog resting on the grass.jpg",
+      "description": "Dog resting on the grass",
+      "author": "Joselodos",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Dog_resting_on_the_grass.jpg/960px-Dog_resting_on_the_grass.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Dog_resting_on_the_grass.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dog_resting_on_the_grass.jpg",
+      "localFile": "content/batch-002/media/163829632.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "3d7124dd3dd12544571816d152a8ae1e3174a731a7c78f583a93990ca60cf65a",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 300908924365281428,
+      "reviewSha256": "3d7124dd3dd12544571816d152a8ae1e3174a731a7c78f583a93990ca60cf65a"
+    },
+    {
+      "group": "dogs",
+      "pageid": 100956160,
+      "title": "File:Dog park, small dog mix.jpg",
+      "description": "Dog.",
+      "author": "Kurt Kaiser",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Dog_park%2C_small_dog_mix.jpg/960px-Dog_park%2C_small_dog_mix.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Dog_park%2C_small_dog_mix.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dog_park,_small_dog_mix.jpg",
+      "localFile": "content/batch-002/media/100956160.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "2b927c37a0ed342157a25616cb12244282f26542243197066c7a18eb90735435",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 7407009873533325525,
+      "reviewSha256": "2b927c37a0ed342157a25616cb12244282f26542243197066c7a18eb90735435"
+    },
+    {
+      "group": "dogs",
+      "pageid": 131641155,
+      "title": "File:Picography-shiba-inu-dog-forest-walk-sm-1.jpg",
+      "description": "Shiba Inu dog in a forest",
+      "author": "Picography",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Picography-shiba-inu-dog-forest-walk-sm-1.jpg/960px-Picography-shiba-inu-dog-forest-walk-sm-1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Picography-shiba-inu-dog-forest-walk-sm-1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Picography-shiba-inu-dog-forest-walk-sm-1.jpg",
+      "localFile": "content/batch-002/media/131641155.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "a674c7405c19ad3d20db3839a1d14c0f4cdc2e9b78a305fbd52bb62759ceb5ce",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        656
+      ],
+      "reviewDhash": 6582935824542486158,
+      "reviewSha256": "a674c7405c19ad3d20db3839a1d14c0f4cdc2e9b78a305fbd52bb62759ceb5ce"
+    },
+    {
+      "group": "dogs",
+      "pageid": 31033299,
+      "title": "File:Dog sleeping in a dog bed.JPG",
+      "description": "Dog clothed in Christmas attire, sleeping in a dog bed.",
+      "author": "Tomwsulcer",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Dog_sleeping_in_a_dog_bed.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Dog_sleeping_in_a_dog_bed.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dog_sleeping_in_a_dog_bed.JPG",
+      "localFile": "content/batch-002/media/31033299.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "1ff2dcfc3538a98b4dd7ece84fd4ff40a077e16d7d2a6fea38d6430a6702dafb",
+      "species": "dogs",
+      "reviewDimensions": [
+        905,
+        745
+      ],
+      "reviewDhash": 728408196051046284,
+      "reviewSha256": "1ff2dcfc3538a98b4dd7ece84fd4ff40a077e16d7d2a6fea38d6430a6702dafb"
+    },
+    {
+      "group": "dogs",
+      "pageid": 125157060,
+      "title": "File:Dog walker on pier, Södra Ånnabosjön.jpg",
+      "description": "Dog walker on pier, Södra Ånnabosjön",
+      "author": "DimiTalen",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Dog_walker_on_pier%2C_S%C3%B6dra_%C3%85nnabosj%C3%B6n.jpg/960px-Dog_walker_on_pier%2C_S%C3%B6dra_%C3%85nnabosj%C3%B6n.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/93/Dog_walker_on_pier%2C_S%C3%B6dra_%C3%85nnabosj%C3%B6n.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dog_walker_on_pier,_S%C3%B6dra_%C3%85nnabosj%C3%B6n.jpg",
+      "localFile": "content/batch-002/media/125157060.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "ca264369b55c9b4566394634945b1e2832ec02ed5acbadb341573af0056447ad",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        638
+      ],
+      "reviewDhash": 9076395306471251925,
+      "reviewSha256": "ca264369b55c9b4566394634945b1e2832ec02ed5acbadb341573af0056447ad"
+    },
+    {
+      "group": "dogs",
+      "pageid": 65257801,
+      "title": "File:Two French bulldogs swimming in life jackets.jpg",
+      "description": "Two French bulldogs swimming in life jackets in the water at Sandvik beach by Brofjorden, Lysekil Municipality, Sweden. These two dogs were very happily swimming and cooling off in the water on a hot summer's day. Because of this breed's constitution, they can't really hold their head high over the surface and this may result in inhaling water and drowning. Responsable owners put life vests on their French bulldogs to help them get the right buoyancy.",
+      "author": "W.carter",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Two_French_bulldogs_swimming_in_life_jackets.jpg/960px-Two_French_bulldogs_swimming_in_life_jackets.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Two_French_bulldogs_swimming_in_life_jackets.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Two_French_bulldogs_swimming_in_life_jackets.jpg",
+      "localFile": "content/batch-002/media/65257801.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "af9f12a5d8545ab9e6be6ac878049f0c824346597ab70c9aafef2c335bc94bc3",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 4125464611609918682,
+      "reviewSha256": "af9f12a5d8545ab9e6be6ac878049f0c824346597ab70c9aafef2c335bc94bc3"
+    },
+    {
+      "group": "dogs",
+      "pageid": 102147389,
+      "title": "File:Dog walkers in Hastings Country Park.jpg",
+      "description": "Dog walkers in Hastings Country Park",
+      "author": "DimiTalen",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Dog_walkers_in_Hastings_Country_Park.jpg/960px-Dog_walkers_in_Hastings_Country_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Dog_walkers_in_Hastings_Country_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dog_walkers_in_Hastings_Country_Park.jpg",
+      "localFile": "content/batch-002/media/102147389.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "b3317415e3c2f190fdaeadd83e52bd3d63d9cbe3f65634e100e22e40dd1c1d7b",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        1444
+      ],
+      "reviewDhash": 1157212299819943837,
+      "reviewSha256": "b3317415e3c2f190fdaeadd83e52bd3d63d9cbe3f65634e100e22e40dd1c1d7b"
+    },
+    {
+      "group": "dogs",
+      "pageid": 15957924,
+      "title": "File:Bavaria Dog 2011 005.JPG",
+      "description": "Bavaria Dog 2011",
+      "author": "Usien",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Bavaria_Dog_2011_005.JPG/960px-Bavaria_Dog_2011_005.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Bavaria_Dog_2011_005.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bavaria_Dog_2011_005.JPG",
+      "localFile": "content/batch-002/media/15957924.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "f3aec47f548dac4a2fdcc99ad57e8fb93ad2b91fe875af948afed6249efc9313",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        1420
+      ],
+      "reviewDhash": 1253798777173987049,
+      "reviewSha256": "f3aec47f548dac4a2fdcc99ad57e8fb93ad2b91fe875af948afed6249efc9313"
+    },
+    {
+      "group": "dogs",
+      "pageid": 167715111,
+      "title": "File:Dog and the mountain.jpg",
+      "description": "It is the view from pathivara temple ,ताप्लेजुङ नेपाल 🇳🇵",
+      "author": "Nitika kafley",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Dog_and_the_mountain.jpg/960px-Dog_and_the_mountain.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/50/Dog_and_the_mountain.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dog_and_the_mountain.jpg",
+      "localFile": "content/batch-002/media/167715111.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "594f3aa1a93281a3dc3ebb017cb01a435153fe13634da23d7ddccaf252da5ad9",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        1706
+      ],
+      "reviewDhash": 110664321879897,
+      "reviewSha256": "594f3aa1a93281a3dc3ebb017cb01a435153fe13634da23d7ddccaf252da5ad9"
+    },
+    {
+      "group": "dogs",
+      "pageid": 131127210,
+      "title": "File:A Peruvian Hairless Dog in Germany 3.jpg",
+      "description": "Peruanischer Nackthund mit Hundebekleidung",
+      "author": "Sciencia58",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/A_Peruvian_Hairless_Dog_in_Germany_3.jpg/960px-A_Peruvian_Hairless_Dog_in_Germany_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/72/A_Peruvian_Hairless_Dog_in_Germany_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_Peruvian_Hairless_Dog_in_Germany_3.jpg",
+      "localFile": "content/batch-002/media/131127210.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "585867850f2633e87583c2a9ff15fadfd1d9082b8936201f62867046c0ccb4e7",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        742
+      ],
+      "reviewDhash": 16161099601897993843,
+      "reviewSha256": "585867850f2633e87583c2a9ff15fadfd1d9082b8936201f62867046c0ccb4e7"
+    },
+    {
+      "group": "dogs",
+      "pageid": 130631649,
+      "title": "File:A Peruvian Hairless Dog in Germany 2.jpg",
+      "description": "Peruanischer Nackthund mit Hundebekleidung",
+      "author": "Sciencia58",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/A_Peruvian_Hairless_Dog_in_Germany_2.jpg/960px-A_Peruvian_Hairless_Dog_in_Germany_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/68/A_Peruvian_Hairless_Dog_in_Germany_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_Peruvian_Hairless_Dog_in_Germany_2.jpg",
+      "localFile": "content/batch-002/media/130631649.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "f29775c0a2d18bdeed56ab2fb2e6c9e543771c54f7d807fa356bcfb65b759951",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        784
+      ],
+      "reviewDhash": 3754485439251269134,
+      "reviewSha256": "f29775c0a2d18bdeed56ab2fb2e6c9e543771c54f7d807fa356bcfb65b759951"
+    },
+    {
+      "group": "dogs",
+      "pageid": 123228797,
+      "title": "File:Anatolian Shepherd Dog Laying.jpg",
+      "description": "A picture of my dog",
+      "author": "Cheetyuh",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Anatolian_Shepherd_Dog_Laying.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Anatolian_Shepherd_Dog_Laying.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anatolian_Shepherd_Dog_Laying.jpg",
+      "localFile": "content/batch-002/media/123228797.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "13ed04ffb66c1ea5eb460a5982a73d00bfefce5306e97a6eddccca093bd8322e",
+      "species": "dogs",
+      "reviewDimensions": [
+        828,
+        608
+      ],
+      "reviewDhash": 7939243556245335782,
+      "reviewSha256": "13ed04ffb66c1ea5eb460a5982a73d00bfefce5306e97a6eddccca093bd8322e"
+    },
+    {
+      "group": "dogs",
+      "pageid": 82946012,
+      "title": "File:Police Dog at Toronto Open House 06.jpg",
+      "description": "A Toronto Police Service dog named Nyx at an open house event 44 Beechwood Avenue, Toronto, Ontario, Canada. Held by 8698.",
+      "author": "PvOberstein",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Police_Dog_at_Toronto_Open_House_06.jpg/960px-Police_Dog_at_Toronto_Open_House_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Police_Dog_at_Toronto_Open_House_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Police_Dog_at_Toronto_Open_House_06.jpg",
+      "localFile": "content/batch-002/media/82946012.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "b83704cc26cb475e001745238647fb052e0779b4eae8f229e9a6e92ce23a07ef",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 16708509548889026919,
+      "reviewSha256": "b83704cc26cb475e001745238647fb052e0779b4eae8f229e9a6e92ce23a07ef"
+    },
+    {
+      "group": "dogs",
+      "pageid": 123858522,
+      "title": "File:Dog on a beach.jpg",
+      "description": "A dog at the Rondeau Provincial Park beach",
+      "author": "Unbeatable101",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Dog_on_a_beach.jpg/960px-Dog_on_a_beach.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/Dog_on_a_beach.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dog_on_a_beach.jpg",
+      "localFile": "content/batch-002/media/123858522.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "f07dc5f476409d531e588755a34ef48b4e8a414443004387c99d10f77cc02c22",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        1280
+      ],
+      "reviewDhash": 808051316842766309,
+      "reviewSha256": "f07dc5f476409d531e588755a34ef48b4e8a414443004387c99d10f77cc02c22"
+    },
+    {
+      "group": "dogs",
+      "pageid": 82946006,
+      "title": "File:Police Dog at Toronto Open House 03.jpg",
+      "description": "A Toronto Police Service dog at an open house event 44 Beechwood Avenue, Toronto, Ontario, Canada. Wearing a K9 LOF Defence System system. (7514)",
+      "author": "PvOberstein",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Police_Dog_at_Toronto_Open_House_03.jpg/960px-Police_Dog_at_Toronto_Open_House_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/Police_Dog_at_Toronto_Open_House_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Police_Dog_at_Toronto_Open_House_03.jpg",
+      "localFile": "content/batch-002/media/82946006.source",
+      "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+      "sha256": "106a80db9f13c8b0bd072abaa90475e027177c0fb3f0a344cdc4b23378616e74",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 228498004410746201,
+      "reviewSha256": "106a80db9f13c8b0bd072abaa90475e027177c0fb3f0a344cdc4b23378616e74"
+    }
+  ],
+  "possibleDuplicates": [
+    {
+      "a": 142916226,
+      "b": 142916225,
+      "distance": 5
+    },
+    {
+      "a": 110154777,
+      "b": 110154769,
+      "distance": 5
+    },
+    {
+      "a": 110153964,
+      "b": 110153956,
+      "distance": 2
+    },
+    {
+      "a": 110153964,
+      "b": 110153958,
+      "distance": 7
+    },
+    {
+      "a": 110153956,
+      "b": 110153958,
+      "distance": 7
+    },
+    {
+      "a": 110153978,
+      "b": 110153972,
+      "distance": 3
+    },
+    {
+      "a": 110153978,
+      "b": 110153975,
+      "distance": 2
+    },
+    {
+      "a": 110153972,
+      "b": 110153975,
+      "distance": 1
+    },
+    {
+      "a": 110153978,
+      "b": 110153977,
+      "distance": 2
+    },
+    {
+      "a": 110153972,
+      "b": 110153977,
+      "distance": 1
+    },
+    {
+      "a": 110153975,
+      "b": 110153977,
+      "distance": 0
+    },
+    {
+      "a": 110153978,
+      "b": 110153976,
+      "distance": 2
+    },
+    {
+      "a": 110153972,
+      "b": 110153976,
+      "distance": 3
+    },
+    {
+      "a": 110153975,
+      "b": 110153976,
+      "distance": 2
+    },
+    {
+      "a": 110153977,
+      "b": 110153976,
+      "distance": 2
+    },
+    {
+      "a": 110153964,
+      "b": 110153965,
+      "distance": 0
+    },
+    {
+      "a": 110153956,
+      "b": 110153965,
+      "distance": 2
+    },
+    {
+      "a": 110153958,
+      "b": 110153965,
+      "distance": 7
+    },
+    {
+      "a": 110153978,
+      "b": 110153971,
+      "distance": 3
+    },
+    {
+      "a": 110153972,
+      "b": 110153971,
+      "distance": 2
+    },
+    {
+      "a": 110153975,
+      "b": 110153971,
+      "distance": 1
+    },
+    {
+      "a": 110153977,
+      "b": 110153971,
+      "distance": 1
+    },
+    {
+      "a": 110153976,
+      "b": 110153971,
+      "distance": 3
+    },
+    {
+      "a": 110153964,
+      "b": 110153962,
+      "distance": 2
+    },
+    {
+      "a": 110153956,
+      "b": 110153962,
+      "distance": 2
+    },
+    {
+      "a": 110153965,
+      "b": 110153962,
+      "distance": 2
+    },
+    {
+      "a": 110153964,
+      "b": 110153961,
+      "distance": 1
+    },
+    {
+      "a": 110153956,
+      "b": 110153961,
+      "distance": 1
+    },
+    {
+      "a": 110153965,
+      "b": 110153961,
+      "distance": 1
+    },
+    {
+      "a": 110153962,
+      "b": 110153961,
+      "distance": 1
+    },
+    {
+      "a": 110153978,
+      "b": 110153973,
+      "distance": 3
+    },
+    {
+      "a": 110153972,
+      "b": 110153973,
+      "distance": 2
+    },
+    {
+      "a": 110153975,
+      "b": 110153973,
+      "distance": 1
+    },
+    {
+      "a": 110153977,
+      "b": 110153973,
+      "distance": 1
+    },
+    {
+      "a": 110153976,
+      "b": 110153973,
+      "distance": 3
+    },
+    {
+      "a": 110153971,
+      "b": 110153973,
+      "distance": 0
+    },
+    {
+      "a": 110153964,
+      "b": 110153960,
+      "distance": 0
+    },
+    {
+      "a": 110153956,
+      "b": 110153960,
+      "distance": 2
+    },
+    {
+      "a": 110153958,
+      "b": 110153960,
+      "distance": 7
+    },
+    {
+      "a": 110153965,
+      "b": 110153960,
+      "distance": 0
+    },
+    {
+      "a": 110153962,
+      "b": 110153960,
+      "distance": 2
+    },
+    {
+      "a": 110153961,
+      "b": 110153960,
+      "distance": 1
+    }
+  ]
+}

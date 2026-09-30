@@ -1,0 +1,2011 @@
+{
+  "reviewVersion": 1,
+  "reviewedAt": "2026-09-30",
+  "scope": "只负责猫、狗、兔、仓鼠、豚鼠；未改 miniprogram 或 approved。",
+  "counts": {
+    "groups": 30,
+    "cats": 8,
+    "dogs": 8,
+    "rabbits": 5,
+    "hamsters": 4,
+    "guineaPigs": 5,
+    "newOriginalPhotos": 49,
+    "existingPhotos": 11
+  },
+  "groups": [
+    {
+      "reviewId": "mammal-01",
+      "contentType": "photo",
+      "title": "蓝眼睛，白手套",
+      "text": "一张把蓝眼睛拍得很近，一张连前爪也一起入镜。两张布偶猫的日常肖像，表情各有各的认真。",
+      "animalTypes": [
+        "cat"
+      ],
+      "speciesGroup": "cat",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-cats",
+      "imagePageIds": [
+        104456864,
+        148653075
+      ],
+      "newPageIds": [
+        104456864,
+        148653075
+      ],
+      "existingPhotoIds": [],
+      "images": [
+        {
+          "group": "cats-more",
+          "pageid": 104456864,
+          "title": "File:Cross eyed Ragdoll cat.jpg",
+          "description": "An image of a cross-eyed Ragdoll cat.",
+          "author": "Anne Lowe",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Cross_eyed_Ragdoll_cat.jpg/960px-Cross_eyed_Ragdoll_cat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/76/Cross_eyed_Ragdoll_cat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cross_eyed_Ragdoll_cat.jpg",
+          "localFile": "content/batch-002/media/104456864.source",
+          "metadataFile": "content/batch-002/sources/cats-more-metadata.json",
+          "sha256": "ea1c9cb17589878a7e9611469c89698c3cfbc09a0ceec3a00eb27a76482e3110",
+          "isNew": true
+        },
+        {
+          "group": "cats-more",
+          "pageid": 148653075,
+          "title": "File:Gato Ragdoll BreedingCat.jpg",
+          "description": "Gato Ragdoll BreedingCat",
+          "author": "Cgomez766",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Gato_Ragdoll_BreedingCat.jpg/960px-Gato_Ragdoll_BreedingCat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Gato_Ragdoll_BreedingCat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gato_Ragdoll_BreedingCat.jpg",
+          "localFile": "content/batch-002/media/148653075.source",
+          "metadataFile": "content/batch-002/sources/cats-more-metadata.json",
+          "sha256": "2d559e22800a6a5271c39bfca0634876764551d9c3fd3727aa8d34a620805882",
+          "isNew": true
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "不同来源的布偶猫肖像；面部近景与全身趴卧，均为新原片。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-1.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-02",
+      "contentType": "photo",
+      "title": "在绿叶旁打个滚",
+      "text": "橘色长毛猫躺在绿叶边，一会儿蜷着，一会儿把爪子伸向空中。这组小动作，看着就很放松。",
+      "animalTypes": [
+        "cat"
+      ],
+      "speciesGroup": "cat",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-cats",
+      "imagePageIds": [
+        26074500,
+        26074504
+      ],
+      "newPageIds": [
+        26074500,
+        26074504
+      ],
+      "existingPhotoIds": [],
+      "images": [
+        {
+          "group": "cats-more",
+          "pageid": 26074500,
+          "title": "File:Katzenminze-06.JPG",
+          "description": "Mature male Maine Coon Cat reacting to Nepeta",
+          "author": "Grey Geezer",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Katzenminze-06.JPG/960px-Katzenminze-06.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Katzenminze-06.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Katzenminze-06.JPG",
+          "localFile": "content/batch-002/media/26074500.source",
+          "metadataFile": "content/batch-002/sources/cats-more-metadata.json",
+          "sha256": "e9de788d59079cd317cbd591253505a01081b45bde6605fb013376263fae7949",
+          "isNew": true
+        },
+        {
+          "group": "cats-more",
+          "pageid": 26074504,
+          "title": "File:Katzenminze-02.JPG",
+          "description": "Mature male Maine Coon Cat reacting to Nepeta",
+          "author": "Grey Geezer",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Katzenminze-02.JPG/960px-Katzenminze-02.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/85/Katzenminze-02.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Katzenminze-02.JPG",
+          "localFile": "content/batch-002/media/26074504.source",
+          "metadataFile": "content/batch-002/sources/cats-more-metadata.json",
+          "sha256": "6894ec03ddffab4bae07cb5ed8c3c10a52c0ca5b9ffaec881b3dc42fee2cb04f",
+          "isNew": true
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "同作者同文件系列；蜷卧与翻身两个不同动作，非同一照片裁切。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-1.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-03",
+      "contentType": "photo",
+      "title": "床上的两张认真脸",
+      "text": "花床单上趴着一只，深色靠垫前坐着一只。明明都是休息时间，望向镜头的样子却很认真。",
+      "animalTypes": [
+        "cat"
+      ],
+      "speciesGroup": "cat",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-cats",
+      "imagePageIds": [
+        183656267,
+        184464086
+      ],
+      "newPageIds": [
+        183656267,
+        184464086
+      ],
+      "existingPhotoIds": [],
+      "images": [
+        {
+          "group": "cats-more",
+          "pageid": 183656267,
+          "title": "File:Eclipse, the first transgender cat.jpg",
+          "description": "Eclipse, an 8 month old siamese cat adopted on July 4th, 2025, decided her gender identity wanted to contradict her birth organ.",
+          "author": "Sarahphern3lia",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Eclipse%2C_the_first_transgender_cat.jpg/960px-Eclipse%2C_the_first_transgender_cat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/36/Eclipse%2C_the_first_transgender_cat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eclipse,_the_first_transgender_cat.jpg",
+          "localFile": "content/batch-002/media/183656267.source",
+          "metadataFile": "content/batch-002/sources/cats-more-metadata.json",
+          "sha256": "3268195d6093d64d05f2cabb663f5bf8ff07f119492ccb15ecfb6201a36f69d2",
+          "isNew": true
+        },
+        {
+          "pageid": 184464086,
+          "group": "cats-more",
+          "title": "File:Cute gray cat sitting in bed.jpg",
+          "description": "British shorthair cat sitting in a bed",
+          "author": "Aleenamustlive",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Cute_gray_cat_sitting_in_bed.jpg/960px-Cute_gray_cat_sitting_in_bed.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Cute_gray_cat_sitting_in_bed.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cute_gray_cat_sitting_in_bed.jpg",
+          "metadataFile": "content/batch-002/sources/cats-more-metadata.json",
+          "localFile": "content/batch-004/photo-media/184464086.source",
+          "sha256": "a0cf19c1fe5d290ce09c42980de02a2ee44ffa0a9a067c153d4920b0de920844",
+          "isNew": true
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "不同来源的室内猫肖像；不采信第一张来源中不可核实的拟人性别叙事。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-1.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-04",
+      "contentType": "photo",
+      "title": "把午觉睡成一团",
+      "text": "一只把尾巴绕在身边，一只把爪子贴在脸边。两张窝成小圆团的睡姿，隔着照片也觉得安静。",
+      "animalTypes": [
+        "cat"
+      ],
+      "speciesGroup": "cat",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-cats",
+      "imagePageIds": [
+        123312276,
+        103631675
+      ],
+      "newPageIds": [
+        123312276,
+        103631675
+      ],
+      "existingPhotoIds": [],
+      "images": [
+        {
+          "group": "cats-more",
+          "pageid": 123312276,
+          "title": "File:Ragdoll cat resting (July 30, 2022).jpg",
+          "description": "A ragdoll cat resting. Taken July 30, 2022.",
+          "author": "Elli",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Ragdoll_cat_resting_%28July_30%2C_2022%29.jpg/960px-Ragdoll_cat_resting_%28July_30%2C_2022%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/00/Ragdoll_cat_resting_%28July_30%2C_2022%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ragdoll_cat_resting_(July_30,_2022).jpg",
+          "localFile": "content/batch-002/media/123312276.source",
+          "metadataFile": "content/batch-002/sources/cats-more-metadata.json",
+          "sha256": "15b45028cb6a153874c205f1f48bd2612170a1986899d5fecafd9ef94b8067af",
+          "isNew": true
+        },
+        {
+          "group": "cats-more",
+          "pageid": 103631675,
+          "title": "File:Cat-sleeping-curled-up.jpg",
+          "description": "A cat is sleeping curled up on a sofa. The cat is a housecat, european shorthair, the fur is brown-grey-tabby and white. The sofa is dark grey, with light gray and yellow cushions. The sleeping cat is curled up upon herself, with the paws sticking out. The image has a cute, cozy and peaceful atmosphere to it.",
+          "author": "Sonkiki",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Cat-sleeping-curled-up.jpg/960px-Cat-sleeping-curled-up.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Cat-sleeping-curled-up.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cat-sleeping-curled-up.jpg",
+          "localFile": "content/batch-002/media/103631675.source",
+          "metadataFile": "content/batch-002/sources/cats-more-metadata.json",
+          "sha256": "c969e7f47cf6a1aadaea2c3326b70ffe54309e50a985f134a00bf31d26efe5b6",
+          "isNew": true
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "两张新原片，布偶与短毛猫各自蜷卧，统一午睡主题，不称同一个体。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-1.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-05",
+      "contentType": "photo",
+      "title": "客厅里的长毛小伙伴",
+      "text": "一张是在地毯上坐好的猫咪，一张是纸箱边凑过来的两张脸。把不同的室内小表情放在一起，怎么看都不无聊。",
+      "animalTypes": [
+        "cat"
+      ],
+      "speciesGroup": "cat",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-cats",
+      "imagePageIds": [
+        72027807,
+        148387430
+      ],
+      "newPageIds": [
+        72027807,
+        148387430
+      ],
+      "existingPhotoIds": [],
+      "images": [
+        {
+          "group": "cats-more",
+          "pageid": 72027807,
+          "title": "File:GIVHATOL-GERSIMI.jpg",
+          "description": "Ragdoll cat by Givhatol Ragdolls Israel",
+          "author": "Givhatol Ragdolls-Miki Diamant",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/GIVHATOL-GERSIMI.jpg/960px-GIVHATOL-GERSIMI.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/GIVHATOL-GERSIMI.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:GIVHATOL-GERSIMI.jpg",
+          "localFile": "content/batch-002/media/72027807.source",
+          "metadataFile": "content/batch-002/sources/cats-more-metadata.json",
+          "sha256": "8268db29d245d3b454a039b7adb487111857cba44baa3566c9383f62fdb02bab",
+          "isNew": true
+        },
+        {
+          "group": "cats-more",
+          "pageid": 148387430,
+          "title": "File:Kittby.jpg",
+          "description": "cute cats",
+          "author": "Bmoneil17",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Kittby.jpg/960px-Kittby.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Kittby.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kittby.jpg",
+          "localFile": "content/batch-002/media/148387430.source",
+          "metadataFile": "content/batch-002/sources/cats-more-metadata.json",
+          "sha256": "86bfbc7e429b25a7200b9d9ab2654e342a5af1597427435420e423d0593b8333",
+          "isNew": true
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "两张新原片，坐姿与双猫纸箱边近景，统一室内长毛猫主题。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-1.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-06",
+      "contentType": "photo",
+      "title": "把身子舒展开",
+      "text": "石台上的猫侧躺着，路上的猫低头伸展。两张街边偶遇，一个松松地睡，一个认真地伸懒腰。",
+      "animalTypes": [
+        "cat"
+      ],
+      "speciesGroup": "cat",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-cats",
+      "imagePageIds": [
+        169640874,
+        128463261
+      ],
+      "newPageIds": [
+        169640874,
+        128463261
+      ],
+      "existingPhotoIds": [],
+      "images": [
+        {
+          "group": "cats-more",
+          "pageid": 169640874,
+          "title": "File:Feral cat sleeping near the Old City of Baku.jpg",
+          "description": "A white-greyish feral cat, fell asleep on a stone near the castle walls of the Old City of Baku",
+          "author": "əkrəm .",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Feral_cat_sleeping_near_the_Old_City_of_Baku.jpg/960px-Feral_cat_sleeping_near_the_Old_City_of_Baku.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Feral_cat_sleeping_near_the_Old_City_of_Baku.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Feral_cat_sleeping_near_the_Old_City_of_Baku.jpg",
+          "localFile": "content/batch-002/media/169640874.source",
+          "metadataFile": "content/batch-002/sources/cats-more-metadata.json",
+          "sha256": "a7a96a35a0897549183fed2c54ee0dda64dbef62c69796d29b6b8bcd83a033fc",
+          "isNew": true
+        },
+        {
+          "group": "cats-more",
+          "pageid": 128463261,
+          "title": "File:A street cat.jpg",
+          "description": "A cat from the street.",
+          "author": "iurie.ph",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/A_street_cat.jpg/960px-A_street_cat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/16/A_street_cat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_street_cat.jpg",
+          "localFile": "content/batch-002/media/128463261.source",
+          "metadataFile": "content/batch-002/sources/cats-more-metadata.json",
+          "sha256": "82bffd0ed0730c3461122e1c6696e3fc107ba6cb681ffadf2a97e73d8749c330",
+          "isNew": true
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "来源明确为街猫；不能写我家宠物，也不认定同一地点或同一只。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-2.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-07",
+      "contentType": "photo",
+      "title": "床边的安静时间",
+      "text": "银色被面上趴一只，深色床单上窝一只。没有什么大事发生，光看两张安静的小脸就很舒服。",
+      "animalTypes": [
+        "cat"
+      ],
+      "speciesGroup": "cat",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-cats",
+      "imagePageIds": [
+        50392730,
+        174043170
+      ],
+      "newPageIds": [
+        50392730,
+        174043170
+      ],
+      "existingPhotoIds": [],
+      "images": [
+        {
+          "pageid": 50392730,
+          "group": "cats-more",
+          "title": "File:Katze BW 2016-07-29 13-50-35.JPG",
+          "description": "Unbekannte Katze",
+          "author": "Berthold Werner",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Katze_BW_2016-07-29_13-50-35.JPG/960px-Katze_BW_2016-07-29_13-50-35.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/76/Katze_BW_2016-07-29_13-50-35.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Katze_BW_2016-07-29_13-50-35.JPG",
+          "metadataFile": "content/batch-002/sources/cats-more-metadata.json",
+          "localFile": "content/batch-004/photo-media/50392730.source",
+          "sha256": "21525df7ab88f1a19849d9ff8395d125e5f2b0828dbd9f75376e95e228019157",
+          "isNew": true
+        },
+        {
+          "pageid": 174043170,
+          "group": "cats-more",
+          "title": "File:Bored Cat.jpg",
+          "description": "British Shorthair Cat",
+          "author": "CoderchVN",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Bored_Cat.jpg/960px-Bored_Cat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Bored_Cat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bored_Cat.jpg",
+          "metadataFile": "content/batch-002/sources/cats-more-metadata.json",
+          "localFile": "content/batch-004/photo-media/174043170.source",
+          "sha256": "36c34df7b7f148332139b744e7fefc7149cbc45d0ed39c8b056e57b23e4440a4",
+          "isNew": true
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "两张新原片，不同来源的卧室休息场景。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-2.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-08",
+      "contentType": "photo",
+      "title": "离镜头近一点",
+      "text": "橘猫把鼻尖凑得很近，浅色猫也正望向镜头。胡须、耳尖和眼神，都被这两张近照留了下来。",
+      "animalTypes": [
+        "cat"
+      ],
+      "speciesGroup": "cat",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-cats",
+      "imagePageIds": [
+        165164872,
+        158445391
+      ],
+      "newPageIds": [
+        165164872,
+        158445391
+      ],
+      "existingPhotoIds": [],
+      "images": [
+        {
+          "group": "cats-more",
+          "pageid": 165164872,
+          "title": "File:Orange Tabby, Staring.jpg",
+          "description": "My cat garfield, age 17",
+          "author": "Whtwtr",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Orange_Tabby%2C_Staring.jpg/960px-Orange_Tabby%2C_Staring.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/66/Orange_Tabby%2C_Staring.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orange_Tabby,_Staring.jpg",
+          "localFile": "content/batch-002/media/165164872.source",
+          "metadataFile": "content/batch-002/sources/cats-more-metadata.json",
+          "sha256": "92a3deb8fc94c24af10ad5aee7bd42f243e26dccce6dededf2c0256d7c3d9209",
+          "isNew": true
+        },
+        {
+          "group": "cats-more",
+          "pageid": 158445391,
+          "title": "File:Red point siamese cat.jpg",
+          "description": "a red point siamese looking at the camera.",
+          "author": "Butterflye222",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Red_point_siamese_cat.jpg/960px-Red_point_siamese_cat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/37/Red_point_siamese_cat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Red_point_siamese_cat.jpg",
+          "localFile": "content/batch-002/media/158445391.source",
+          "metadataFile": "content/batch-002/sources/cats-more-metadata.json",
+          "sha256": "ae528d12dc665dcb53a10cb85378ed86ce0f9e2f55c774d412ab45bb676e2839",
+          "isNew": true
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "两张新原片，不同个体的面部近景，色彩与构图差异清楚。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-2.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-09",
+      "contentType": "photo",
+      "title": "坐好了，再加一位同伴",
+      "text": "先看黑棕色小狗端端正正的坐姿，再看两只一起面对镜头。多了个同伴，画面一下就热闹起来。",
+      "animalTypes": [
+        "dog"
+      ],
+      "speciesGroup": "dog",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-walks",
+      "imagePageIds": [
+        13408720,
+        13408834
+      ],
+      "newPageIds": [
+        13408720,
+        13408834
+      ],
+      "existingPhotoIds": [],
+      "images": [
+        {
+          "pageid": 13408720,
+          "group": "dogs-more",
+          "title": "File:Akina for Wiki.JPG",
+          "description": "Tricolor Shiba Inu Puppy",
+          "author": "Rick",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Akina_for_Wiki.JPG/960px-Akina_for_Wiki.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Akina_for_Wiki.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akina_for_Wiki.JPG",
+          "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+          "localFile": "content/batch-004/photo-media/13408720.source",
+          "sha256": "23f2049b786f6b28a3ec14b9c4266296e7b4db18250dcbffc06a17c794bdb179",
+          "isNew": true
+        },
+        {
+          "pageid": 13408834,
+          "group": "dogs-more",
+          "title": "File:Tucker for Wiki.JPG",
+          "description": "Australian Shepherd/Shiba Inu mix right, Shiba Inu Left",
+          "author": "Rick",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Tucker_for_Wiki.JPG/960px-Tucker_for_Wiki.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Tucker_for_Wiki.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tucker_for_Wiki.JPG",
+          "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+          "localFile": "content/batch-004/photo-media/13408834.source",
+          "sha256": "7bc65e48b8688a533f323413862cf7dc2e2f5eb292d49ea76a289d648a3f26dd",
+          "isNew": true
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "同作者 Rick 的 Akina/Tucker 文件组；第一张单犬，第二张双犬；不作亲缘推断。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-2.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-10",
+      "contentType": "photo",
+      "title": "林间小路上的两种表情",
+      "text": "柴犬站在树影和小路前，一张安静望着，一张张大了嘴。两张林间镜头，把散步时的小表情留住。",
+      "animalTypes": [
+        "dog"
+      ],
+      "speciesGroup": "dog",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-walks",
+      "imagePageIds": [
+        131641155,
+        131640573
+      ],
+      "newPageIds": [
+        131641155
+      ],
+      "existingPhotoIds": [
+        "photo-commons-131640573"
+      ],
+      "images": [
+        {
+          "pageid": 131641155,
+          "group": "dogs-more",
+          "title": "File:Picography-shiba-inu-dog-forest-walk-sm-1.jpg",
+          "description": "Shiba Inu dog in a forest",
+          "author": "Picography",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Picography-shiba-inu-dog-forest-walk-sm-1.jpg/960px-Picography-shiba-inu-dog-forest-walk-sm-1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Picography-shiba-inu-dog-forest-walk-sm-1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Picography-shiba-inu-dog-forest-walk-sm-1.jpg",
+          "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+          "localFile": "content/batch-004/photo-media/131641155.source",
+          "sha256": "a674c7405c19ad3d20db3839a1d14c0f4cdc2e9b78a305fbd52bb62759ceb5ce",
+          "isNew": true
+        },
+        {
+          "pageid": 131640573,
+          "isNew": false,
+          "existingPhotoId": "photo-commons-131640573",
+          "localFile": "content/batch-002/media/131640573.source",
+          "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Picography-dog-yawning-1.jpg",
+          "title": "Picography-dog-yawning-1.jpg",
+          "author": "Picography",
+          "license": "CC0"
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "同 Picography 森林散步文件系列，一新一旧，两个不同动作。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-2.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-11",
+      "contentType": "photo",
+      "title": "车门边歇一歇",
+      "text": "近一点看，耳朵和白色胸毛都很蓬松；镜头拉远，才发现它正趴在车门边。两张不同角度的休息照。",
+      "animalTypes": [
+        "dog"
+      ],
+      "speciesGroup": "dog",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-walks",
+      "imagePageIds": [
+        176378450,
+        176378453
+      ],
+      "newPageIds": [
+        176378450,
+        176378453
+      ],
+      "existingPhotoIds": [],
+      "images": [
+        {
+          "group": "dogs-more",
+          "pageid": 176378450,
+          "title": "File:Border kolie sedící v autě, hledící mimo něj.jpg",
+          "description": "Border kolie zaujatá předmětem v dálce.",
+          "author": "Kryštof Jelínek",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Border_kolie_sed%C3%ADc%C3%AD_v_aut%C4%9B%2C_hled%C3%ADc%C3%AD_mimo_n%C4%9Bj.jpg/960px-Border_kolie_sed%C3%ADc%C3%AD_v_aut%C4%9B%2C_hled%C3%ADc%C3%AD_mimo_n%C4%9Bj.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/43/Border_kolie_sed%C3%ADc%C3%AD_v_aut%C4%9B%2C_hled%C3%ADc%C3%AD_mimo_n%C4%9Bj.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Border_kolie_sed%C3%ADc%C3%AD_v_aut%C4%9B,_hled%C3%ADc%C3%AD_mimo_n%C4%9Bj.jpg",
+          "localFile": "content/batch-002/media/176378450.source",
+          "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+          "sha256": "4c43153dd71a4683e1fcf918dae7dbd31aedb15c2bb7dfbb04af26d06191b9bf",
+          "isNew": true
+        },
+        {
+          "group": "dogs-more",
+          "pageid": 176378453,
+          "title": "File:Border kolie ležící v autě II.jpg",
+          "description": "Border kolie ležící před sedadlem řidiče v autě.",
+          "author": "Kryštof Jelínek",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Border_kolie_le%C5%BE%C3%ADc%C3%AD_v_aut%C4%9B_II.jpg/960px-Border_kolie_le%C5%BE%C3%ADc%C3%AD_v_aut%C4%9B_II.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Border_kolie_le%C5%BE%C3%ADc%C3%AD_v_aut%C4%9B_II.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Border_kolie_le%C5%BE%C3%ADc%C3%AD_v_aut%C4%9B_II.jpg",
+          "localFile": "content/batch-002/media/176378453.source",
+          "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+          "sha256": "446352166dff84bfec3949b0f8fb36c7e234a75199e286613d7213fa8ed612e2",
+          "isNew": true
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "同作者同边牧汽车系列，两张新原片，面部近景和车内全景；不宣称车辆行驶中。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-3.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-12",
+      "contentType": "photo",
+      "title": "两只柴柴，凑在一起",
+      "text": "一张是在床上并排看镜头，一张是在草地上靠在一起。两组柴犬合影，都有一点双倍的可爱。",
+      "animalTypes": [
+        "dog"
+      ],
+      "speciesGroup": "dog",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-walks",
+      "imagePageIds": [
+        179042404,
+        195882865
+      ],
+      "newPageIds": [
+        179042404,
+        195882865
+      ],
+      "existingPhotoIds": [],
+      "images": [
+        {
+          "group": "dogs-more",
+          "pageid": 179042404,
+          "title": "File:Shiba inu puppy and adult.jpg",
+          "description": "Comparison between shiba inu puppy and adult",
+          "author": "Ichigocha",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Shiba_inu_puppy_and_adult.jpg/960px-Shiba_inu_puppy_and_adult.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Shiba_inu_puppy_and_adult.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shiba_inu_puppy_and_adult.jpg",
+          "localFile": "content/batch-002/media/179042404.source",
+          "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+          "sha256": "83347b44f1e9c7add9a6acce735f1024a94ed01bbb5bd702c1a6d5d4f1f39382",
+          "isNew": true
+        },
+        {
+          "group": "dogs-more",
+          "pageid": 195882865,
+          "title": "File:Two Shiba Inu dogs.jpg",
+          "description": "Two Shiba Inu dogs",
+          "author": "Novoklimov",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Two_Shiba_Inu_dogs.jpg/960px-Two_Shiba_Inu_dogs.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/43/Two_Shiba_Inu_dogs.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Two_Shiba_Inu_dogs.jpg",
+          "localFile": "content/batch-002/media/195882865.source",
+          "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+          "sha256": "367138899cc26e3434cba0242f10da7db9390dc5d67bfddbec7bdd995c832385",
+          "isNew": true
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "不同来源的两组双犬合影，不称同一对或亲子关系。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-3.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-13",
+      "contentType": "photo",
+      "title": "正脸和侧脸都拍一张",
+      "text": "正面看，耳朵一高一低；转到侧面，鼻尖的轮廓又很清楚。这组拳师犬肖像，两个角度各有表情。",
+      "animalTypes": [
+        "dog"
+      ],
+      "speciesGroup": "dog",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-walks",
+      "imagePageIds": [
+        116675282,
+        116675285
+      ],
+      "newPageIds": [
+        116675282,
+        116675285
+      ],
+      "existingPhotoIds": [],
+      "images": [
+        {
+          "group": "dogs",
+          "pageid": 116675282,
+          "title": "File:Boxer (dog) , Iran 04.jpg",
+          "description": "The Boxer is a medium to large, short-haired breed of dog, developed in Germany.",
+          "author": "Mostafameraji",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Boxer_%28dog%29_%2C_Iran_04.jpg/960px-Boxer_%28dog%29_%2C_Iran_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Boxer_%28dog%29_%2C_Iran_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boxer_(dog)_,_Iran_04.jpg",
+          "localFile": "content/batch-002/media/116675282.source",
+          "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+          "sha256": "0a74d73c49ec54533508e183f251a1a3762df0e8636492d31490da908d735e8c",
+          "isNew": true
+        },
+        {
+          "group": "dogs",
+          "pageid": 116675285,
+          "title": "File:Boxer (dog) , Iran 06.jpg",
+          "description": "The Boxer is a medium to large, short-haired breed of dog, developed in Germany.",
+          "author": "Mostafameraji",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Boxer_%28dog%29_%2C_Iran_06.jpg/960px-Boxer_%28dog%29_%2C_Iran_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Boxer_%28dog%29_%2C_Iran_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boxer_(dog)_,_Iran_06.jpg",
+          "localFile": "content/batch-002/media/116675285.source",
+          "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+          "sha256": "36788c41e9e56e953e8ba2ee7312d68d1ad296252f3824f60901d3f9d9616b8e",
+          "isNew": true
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "同作者伊朗拳师犬系列，两张新原片，正脸与侧脸。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-3.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-14",
+      "contentType": "photo",
+      "title": "巧克力色的小困包",
+      "text": "白色垫子上，两张近景都把小狗拍得软软的。一个角度看见鼻尖，另一个角度更像刚要睡着。",
+      "animalTypes": [
+        "dog"
+      ],
+      "speciesGroup": "dog",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-walks",
+      "imagePageIds": [
+        81984200,
+        81984199
+      ],
+      "newPageIds": [
+        81984200,
+        81984199
+      ],
+      "existingPhotoIds": [],
+      "images": [
+        {
+          "group": "dogs",
+          "pageid": 81984200,
+          "title": "File:Labrador Retriever Chocolate puppy 03.jpg",
+          "description": "Labrador Retriever Chocolate puppy",
+          "author": "Jacek Proszyk",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Labrador_Retriever_Chocolate_puppy_03.jpg/960px-Labrador_Retriever_Chocolate_puppy_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Labrador_Retriever_Chocolate_puppy_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Labrador_Retriever_Chocolate_puppy_03.jpg",
+          "localFile": "content/batch-002/media/81984200.source",
+          "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+          "sha256": "b80a8feaa63eaec4d3c321f591b54ee311649575af11f8ada777d7b7c780a660",
+          "isNew": true
+        },
+        {
+          "group": "dogs",
+          "pageid": 81984199,
+          "title": "File:Labrador Retriever Chocolate puppy 02.jpg",
+          "description": "Labrador Retriever Chocolate puppy",
+          "author": "Jacek Proszyk",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Labrador_Retriever_Chocolate_puppy_02.jpg/960px-Labrador_Retriever_Chocolate_puppy_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/91/Labrador_Retriever_Chocolate_puppy_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Labrador_Retriever_Chocolate_puppy_02.jpg",
+          "localFile": "content/batch-002/media/81984199.source",
+          "metadataFile": "content/batch-002/sources/dogs-metadata.json",
+          "sha256": "54a324e4a4540595361e4115a8ef80a361c9365c85098bade77bef281f73bc2a",
+          "isNew": true
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "同作者巧克力拉布拉多幼犬系列，两张新原片，不将照片次序写成真实时间线。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-3.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-15",
+      "contentType": "photo",
+      "title": "有飞盘，也有小障碍",
+      "text": "跨过栏杆的身影，飞盘旁竖起的耳朵。两张边牧玩耍照，活力都快装不下画面了。",
+      "animalTypes": [
+        "dog"
+      ],
+      "speciesGroup": "dog",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-walks",
+      "imagePageIds": [
+        158982766,
+        12782675
+      ],
+      "newPageIds": [
+        158982766,
+        12782675
+      ],
+      "existingPhotoIds": [],
+      "images": [
+        {
+          "group": "dogs-more",
+          "pageid": 158982766,
+          "title": "File:Blue merle border collie.jpg",
+          "description": "A border collie jumps",
+          "author": "Hehehefein",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Blue_merle_border_collie.jpg/960px-Blue_merle_border_collie.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/Blue_merle_border_collie.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_merle_border_collie.jpg",
+          "localFile": "content/batch-002/media/158982766.source",
+          "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+          "sha256": "e20bce630362b81aa4be649b933e840dfe05264d497161c4ecde809c3962479c",
+          "isNew": true
+        },
+        {
+          "group": "dogs-more",
+          "pageid": 12782675,
+          "title": "File:Bordercollies.JPG",
+          "description": "Elizabeth Wurtzel in New Haven, Connecticut with Border collies Amber, Jake and Ben 2008",
+          "author": "Bissabutterfly",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Bordercollies.JPG/960px-Bordercollies.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Bordercollies.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bordercollies.JPG",
+          "localFile": "content/batch-002/media/12782675.source",
+          "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+          "sha256": "85d5a0daf7bbcd4ceba4e25e2a9b10f2e4f7d27d1a14b8f401b95a67e76f1aaf",
+          "isNew": true
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "两张不同来源的新原片；图一边牧跳过栏杆，图二两只边牧在主人身旁，地面可见彩色飞盘，不称同一活动。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-3.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-16",
+      "contentType": "photo",
+      "title": "卷毛的休息时间",
+      "text": "黑色卷毛狗趴在浅色地面上，白色卷毛狗把前爪伸到身前。两张休息照，蓬松的轮廓很抢眼。",
+      "animalTypes": [
+        "dog"
+      ],
+      "speciesGroup": "dog",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-walks",
+      "imagePageIds": [
+        102694357,
+        158343797
+      ],
+      "newPageIds": [
+        102694357,
+        158343797
+      ],
+      "existingPhotoIds": [],
+      "images": [
+        {
+          "group": "dogs-more",
+          "pageid": 102694357,
+          "title": "File:2021-03-25 21.38.13 poodle ggomi.jpg",
+          "description": "poodle ggomi",
+          "author": "Choikwangmo9",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/2021-03-25_21.38.13_poodle_ggomi.jpg/960px-2021-03-25_21.38.13_poodle_ggomi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f2/2021-03-25_21.38.13_poodle_ggomi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:2021-03-25_21.38.13_poodle_ggomi.jpg",
+          "localFile": "content/batch-002/media/102694357.source",
+          "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+          "sha256": "1521541c5e7668c389d1ae8fc7cee3304673281b5bb1a3aa17e8cf602091971e",
+          "isNew": true
+        },
+        {
+          "group": "dogs-more",
+          "pageid": 158343797,
+          "title": "File:Poodle Kali.jpg",
+          "description": "French Poodle",
+          "author": "Daremo TM",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Poodle_Kali.jpg/960px-Poodle_Kali.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/44/Poodle_Kali.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Poodle_Kali.jpg",
+          "localFile": "content/batch-002/media/158343797.source",
+          "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+          "sha256": "20318f4f50d43ec1c5f3c5f9c0aca4b35ee41c47f26806575417c917af332168",
+          "isNew": true
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "两张新原片，不同来源的贵宾犬休息主题，不归为同一家庭。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-4.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-17",
+      "contentType": "photo",
+      "title": "软乎乎的白色近景",
+      "text": "一张是两只白兔凑近，一张是低头时的脸部近景。粉色耳朵和细细胡须，越看越软乎。",
+      "animalTypes": [
+        "rabbit"
+      ],
+      "speciesGroup": "rabbit",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-small-pets",
+      "imagePageIds": [
+        142199768,
+        27504159
+      ],
+      "newPageIds": [
+        142199768,
+        27504159
+      ],
+      "existingPhotoIds": [],
+      "images": [
+        {
+          "pageid": 142199768,
+          "group": "rabbits",
+          "title": "File:Зајачиња.jpg",
+          "description": "White bunies",
+          "author": "Jkivve",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/%D0%97%D0%B0%D1%98%D0%B0%D1%87%D0%B8%D1%9A%D0%B0.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5e/%D0%97%D0%B0%D1%98%D0%B0%D1%87%D0%B8%D1%9A%D0%B0.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%97%D0%B0%D1%98%D0%B0%D1%87%D0%B8%D1%9A%D0%B0.jpg",
+          "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+          "localFile": "content/batch-004/photo-media/142199768.source",
+          "sha256": "037117d63a56830dd46bbee389d166f654b8d95a9d995357adf4e33219ad5817",
+          "isNew": true
+        },
+        {
+          "pageid": 27504159,
+          "group": "rabbits",
+          "title": "File:Rabbit (red eye).JPG",
+          "description": "It is genetics. There are a few different genes that can cause red eyes. The albino gene (cc) is where all the color pigment is removed. This causes the eyes to appear pink. Basically it is just a lack of color. The himalayan gene (ch) also shows red eyes. The himalayan gene is just one step about the albino gene. This gene removes all the color except at the points, nose, ears etc.",
+          "author": "آرمین",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Rabbit_%28red_eye%29.JPG/960px-Rabbit_%28red_eye%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Rabbit_%28red_eye%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rabbit_(red_eye).JPG",
+          "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+          "localFile": "content/batch-004/photo-media/27504159.source",
+          "sha256": "5a6a959497aa49f6f87eb31ecede6bc4db4232cd78df434d2d7ec95387a1ae3f",
+          "isNew": true
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "两张新原片，白兔主题；不推断红眼基因或疾病。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-4.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-18",
+      "contentType": "photo",
+      "title": "草莓旁边，抬爪之间",
+      "text": "草莓旁边的鼻尖，抬爪时的小脸，两张近景都把兔子的胡须拍得很清楚。小动作也值得慢慢看。",
+      "animalTypes": [
+        "rabbit"
+      ],
+      "speciesGroup": "rabbit",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-small-pets",
+      "imagePageIds": [
+        199018348,
+        199018349
+      ],
+      "newPageIds": [
+        199018348
+      ],
+      "existingPhotoIds": [
+        "photo-commons-199018349"
+      ],
+      "images": [
+        {
+          "pageid": 199018348,
+          "group": "rabbits",
+          "title": "File:Rabbit eating a strawberry.jpg",
+          "description": "Rabbit in the process of eating a strawberry",
+          "author": "BlueBunnyRabbit",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Rabbit_eating_a_strawberry.jpg/960px-Rabbit_eating_a_strawberry.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Rabbit_eating_a_strawberry.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rabbit_eating_a_strawberry.jpg",
+          "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+          "localFile": "content/batch-004/photo-media/199018348.source",
+          "sha256": "05b0bb179b70ce05e6928c34d3e8d836bc3ba344be7e5ec3d82c236475581f35",
+          "isNew": true
+        },
+        {
+          "pageid": 199018349,
+          "isNew": false,
+          "existingPhotoId": "photo-commons-199018349",
+          "localFile": "content/batch-002/media/199018349.source",
+          "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rabbit_Grooming_itself.jpg",
+          "title": "Rabbit Grooming itself.jpg",
+          "author": "BlueBunnyRabbit",
+          "license": "CC0"
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "同作者 BlueBunnyRabbit 的兔子系列，一新一旧；不写摄入量、喂养建议或固定时间顺序。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-4.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-19",
+      "contentType": "photo",
+      "title": "长耳朵停一停",
+      "text": "石头边和地砖上，长耳朵都竖得直直的。两张户外停留的画面，各有一点安静。",
+      "animalTypes": [
+        "rabbit"
+      ],
+      "speciesGroup": "rabbit",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-small-pets",
+      "imagePageIds": [
+        73092788,
+        52040577
+      ],
+      "newPageIds": [
+        73092788,
+        52040577
+      ],
+      "existingPhotoIds": [],
+      "images": [
+        {
+          "group": "rabbits",
+          "pageid": 73092788,
+          "title": "File:Rabbit paying attention around a burrow 1.jpg",
+          "description": "A female rabbit paying attention around her burrow",
+          "author": "Themium",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Rabbit_paying_attention_around_a_burrow_1.jpg/960px-Rabbit_paying_attention_around_a_burrow_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/91/Rabbit_paying_attention_around_a_burrow_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rabbit_paying_attention_around_a_burrow_1.jpg",
+          "localFile": "content/batch-002/media/73092788.source",
+          "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+          "sha256": "f998af34530de353b143595655fa1082bacefc6392124972cc3ed7ddbfc9ca89",
+          "isNew": true
+        },
+        {
+          "pageid": 52040577,
+          "group": "rabbits",
+          "title": "File:Animals - Animali (14921819038).jpg",
+          "description": "Can I use this photo? Read <a href=\" https://www.flickr.com/people/fotokoci \">here</a> for more informations.",
+          "author": "fotokoci",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Animals_-_Animali_%2814921819038%29.jpg/960px-Animals_-_Animali_%2814921819038%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Animals_-_Animali_%2814921819038%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Animals_-_Animali_(14921819038).jpg",
+          "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+          "localFile": "content/batch-004/photo-media/52040577.source",
+          "sha256": "a4cfa2a7743f86030f035aa7eefbc52aa33d3139a5ef92b11e5c736ad45a7b43",
+          "isNew": true
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "两张新原片；一张洞穴附近、另一张铺装地面，不称同地点或同一只。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-4.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-20",
+      "contentType": "photo",
+      "title": "草地上的紫色小点缀",
+      "text": "远一点能看到圆圆的尾巴，近一点能看到耳朵和胡须。草地上的两张兔子照片，都有那抹醒目的紫色胸背带。",
+      "animalTypes": [
+        "rabbit"
+      ],
+      "speciesGroup": "rabbit",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-small-pets",
+      "imagePageIds": [
+        80427913,
+        80427912
+      ],
+      "newPageIds": [
+        80427913
+      ],
+      "existingPhotoIds": [
+        "photo-commons-80427912"
+      ],
+      "images": [
+        {
+          "pageid": 80427913,
+          "group": "rabbits",
+          "title": "File:Bunny is finding something.jpg",
+          "description": "Pet rabbits is finding something",
+          "author": "Lottie",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Bunny_is_finding_something.jpg/960px-Bunny_is_finding_something.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/77/Bunny_is_finding_something.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bunny_is_finding_something.jpg",
+          "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+          "localFile": "content/batch-004/photo-media/80427913.source",
+          "sha256": "5ea5df535e6a465d40d7f0ac8c9519eaf67cfbe1df62b63929fc17df69abafda",
+          "isNew": true
+        },
+        {
+          "pageid": 80427912,
+          "isNew": false,
+          "existingPhotoId": "photo-commons-80427912",
+          "localFile": "content/batch-002/media/80427912.source",
+          "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bunny_is_closed_up.jpg",
+          "title": "Bunny is closed up.jpg",
+          "author": "Lottie",
+          "license": "CC0"
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "同作者 Lottie 的草地兔子系列，一张新背部全景、一张旧侧面特写；不是同一原图的裁切。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-4.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-21",
+      "contentType": "photo",
+      "title": "手心里的一团灰",
+      "text": "两个镜头里的灰色仓鼠，都把自己缩成圆圆的一团。小爪子轻轻搭着，胡须却伸得很认真。",
+      "animalTypes": [
+        "small-mammal"
+      ],
+      "speciesGroup": "hamster",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-small-pets",
+      "imagePageIds": [
+        163230240,
+        163230242
+      ],
+      "newPageIds": [
+        163230240
+      ],
+      "existingPhotoIds": [
+        "photo-commons-163230242"
+      ],
+      "images": [
+        {
+          "pageid": 163230240,
+          "group": "hamsters",
+          "title": "File:Winter white hamster agouti2.jpg",
+          "description": "Winter white hamster agouti",
+          "author": "BettyBen",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Winter_white_hamster_agouti2.jpg/960px-Winter_white_hamster_agouti2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Winter_white_hamster_agouti2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Winter_white_hamster_agouti2.jpg",
+          "metadataFile": "content/batch-002/sources/hamsters-metadata.json",
+          "localFile": "content/batch-004/photo-media/163230240.source",
+          "sha256": "cdc3c220d5ca336ff1a683d9f9dd36306146f88863d6e3e9e92182b3d997c0ec",
+          "isNew": true
+        },
+        {
+          "pageid": 163230242,
+          "isNew": false,
+          "existingPhotoId": "photo-commons-163230242",
+          "localFile": "content/batch-002/media/163230242.source",
+          "metadataFile": "content/batch-002/sources/hamsters-metadata.json",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Winter_white_hamster_sapphire.jpg",
+          "title": "Winter white hamster sapphire.jpg",
+          "author": "BettyBen",
+          "license": "CC0"
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "同作者冬白仓鼠系列，一新一旧，图1较深毛色、图2浅灰；不称同一个体。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-5.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-22",
+      "contentType": "photo",
+      "title": "小圆脸，浅色花纹",
+      "text": "两张浅色仓鼠的近照，一张额头上有深色细纹，一张脸边的灰色更明显。圆圆的小脸都看向镜头。",
+      "animalTypes": [
+        "small-mammal"
+      ],
+      "speciesGroup": "hamster",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-small-pets",
+      "imagePageIds": [
+        163230241,
+        163230734
+      ],
+      "newPageIds": [
+        163230241,
+        163230734
+      ],
+      "existingPhotoIds": [],
+      "images": [
+        {
+          "pageid": 163230241,
+          "group": "hamsters",
+          "title": "File:Winter white hamster pearl.jpg",
+          "description": "Winter white hamster pearl",
+          "author": "BettyBen",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Winter_white_hamster_pearl.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Winter_white_hamster_pearl.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Winter_white_hamster_pearl.jpg",
+          "metadataFile": "content/batch-002/sources/hamsters-metadata.json",
+          "localFile": "content/batch-004/photo-media/163230241.source",
+          "sha256": "0db9cef3cec194ccd4640b66989ef2d59500fc36a8faf4f306082fde260e6da3",
+          "isNew": true
+        },
+        {
+          "pageid": 163230734,
+          "group": "hamsters",
+          "title": "File:Winter white hamster merle.jpg",
+          "description": "Winter white hamster merle",
+          "author": "BettyBen",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Winter_white_hamster_merle.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Winter_white_hamster_merle.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Winter_white_hamster_merle.jpg",
+          "metadataFile": "content/batch-002/sources/hamsters-metadata.json",
+          "localFile": "content/batch-004/photo-media/163230734.source",
+          "sha256": "c6796bec01653348b6749f7b488eeb9d57b4789cfefb77fe05ae9e5d3653d36e",
+          "isNew": true
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "同作者冬白仓鼠不同毛色，两张新原片；不附育种、遗传知识。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-5.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-23",
+      "contentType": "photo",
+      "title": "圆滚滚的两张近照",
+      "text": "灰色仓鼠侧着身子，白色仓鼠把脸朝向前方。两个近景里，小耳朵都像轻轻折起的圆边。",
+      "animalTypes": [
+        "small-mammal"
+      ],
+      "speciesGroup": "hamster",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-small-pets",
+      "imagePageIds": [
+        198260590,
+        163230733
+      ],
+      "newPageIds": [
+        198260590
+      ],
+      "existingPhotoIds": [
+        "photo-commons-163230733"
+      ],
+      "images": [
+        {
+          "pageid": 198260590,
+          "group": "hamsters",
+          "title": "File:Winter White Dwarf Hamster (Sapphire).jpg",
+          "description": "A sapphire winter white dwarf hamster",
+          "author": "IndTheBlue",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Winter_White_Dwarf_Hamster_%28Sapphire%29.jpg/960px-Winter_White_Dwarf_Hamster_%28Sapphire%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/59/Winter_White_Dwarf_Hamster_%28Sapphire%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Winter_White_Dwarf_Hamster_(Sapphire).jpg",
+          "metadataFile": "content/batch-002/sources/hamsters-metadata.json",
+          "localFile": "content/batch-004/photo-media/198260590.source",
+          "sha256": "971eb1bb362c8d2561893b8b5cd7a49b0f5fd102548345604ba9b1a36d0fd96f",
+          "isNew": true
+        },
+        {
+          "pageid": 163230733,
+          "isNew": false,
+          "existingPhotoId": "photo-commons-163230733",
+          "localFile": "content/batch-002/media/163230733.source",
+          "metadataFile": "content/batch-002/sources/hamsters-metadata.json",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Winter_white_hamster_pearl_sapphire.jpg",
+          "title": "Winter white hamster pearl sapphire.jpg",
+          "author": "BettyBen",
+          "license": "CC0"
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "均为冬白仓鼠，一新一旧，来自不同作者，不称同一个体或前后对比。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-5.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-24",
+      "contentType": "photo",
+      "title": "长毛豚鼠，换个角度看",
+      "text": "侧面能看到小脸，换到背后，金棕色长毛就铺成一片。两张角度不同的近照，像给毛茸茸拍了一组肖像。",
+      "animalTypes": [
+        "small-mammal"
+      ],
+      "speciesGroup": "guinea-pig",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-small-pets",
+      "imagePageIds": [
+        93435557,
+        93435543
+      ],
+      "newPageIds": [
+        93435543
+      ],
+      "existingPhotoIds": [
+        "photo-commons-93435557"
+      ],
+      "images": [
+        {
+          "pageid": 93435557,
+          "isNew": false,
+          "existingPhotoId": "photo-commons-93435557",
+          "localFile": "content/batch-002/media/93435557.source",
+          "metadataFile": "content/batch-002/sources/guinea-pigs-metadata.json",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:9868Guinea_pigs_of_the_Philippines_10.jpg",
+          "title": "9868Guinea pigs of the Philippines 10.jpg",
+          "author": "Judgefloro",
+          "license": "CC0"
+        },
+        {
+          "pageid": 93435543,
+          "group": "guinea-pigs",
+          "title": "File:9868Guinea pigs of the Philippines 06.jpg",
+          "description": "Guinea pigs of the Philippines Guinea pig List of guinea pig breeds Peruvian holds the record for longest hair on a guinea pig at 21 inches Timeline of the 2020 coronavirus pandemic in the Philippines 2020 coronavirus pandemic in the Philippines Bayanihan to Heal as One Act (RA 11469) Bayanihan Act of 2020. Signed on March 24, 2020 7,958 Covid-19 cases in Philippines April 28; 12,933 as of May 19, 2020; 14,669 Covid-19 cases in Philippines May 26; 886 deaths; Covid-19 cases in Philippines June 2 - 18,997 and 966 deaths ; August 18 - 169,213 cases COVID-19 Philippines, new cases 4,836, 53,665 active cases; 112,861 recovered, 2,687 deaths; August 20 Coronavirus Cases: 173,774 Deaths: 2,795 Recovered: 113,481 ; August 22 Philippines Coronavirus Cases: 182,365 Deaths: 2,940 Recovered: 114,519; August 22 Philippines Coronavirus Cases: 187,249 Deaths: 2,966 Recovered: 114,921 COVID-19 Philippines August 23 - 189,601 cases 55,236 are active cases 2,378 new coronavirus cases 2998 deaths Category:Sitios and puroks of the Philippines Subdivisions of the Philippines Barangay Poblacion 14°57'17\"N 120°54'2\"E, Baliuag, Bulacan , Bulacan province taken under weather conditions of Habagat Monsoon of South Asia and Tropical Storm Bavi (Igme) Igme Low Pressure Area (LPA) Southwest Monsoon (Note: Judge Florentino Floro, the owner, to repeat, Donor FlorentinoFloro of all these photos hereby donate gratuitously, freely and unconditionally Judge Floro all these photos to and for Wikimedia Commons, exclusively, for public use of the public domain, and again without any condition whatsoever).",
+          "author": "Judgefloro",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/9868Guinea_pigs_of_the_Philippines_06.jpg/960px-9868Guinea_pigs_of_the_Philippines_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/ba/9868Guinea_pigs_of_the_Philippines_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:9868Guinea_pigs_of_the_Philippines_06.jpg",
+          "metadataFile": "content/batch-002/sources/guinea-pigs-metadata.json",
+          "localFile": "content/batch-004/photo-media/93435543.source",
+          "sha256": "a1e54477bfd0cf95d069e9f5e1e168a5c74ea8b79dc05014273384ff7dca0a86",
+          "isNew": true
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "同作者 9868 豚鼠系列，一旧一新，侧面含脸与俯视背部角度，不采用另两张高度相似背部图。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-5.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-25",
+      "contentType": "photo",
+      "title": "豚鼠们的露天小聚",
+      "text": "绿叶边聚着几只，石头旁也冒出几个小脑袋。这组豚鼠的露天镜头，每翻一张都会多看见一位。",
+      "animalTypes": [
+        "small-mammal"
+      ],
+      "speciesGroup": "guinea-pig",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-small-pets",
+      "imagePageIds": [
+        154500730,
+        154500731
+      ],
+      "newPageIds": [
+        154500730,
+        154500731
+      ],
+      "existingPhotoIds": [],
+      "images": [
+        {
+          "pageid": 154500730,
+          "group": "guinea-pigs",
+          "title": "File:Châtelais - La Petite Couère 056.jpg",
+          "description": "Petite Couère domain, in Châtelais (Maine-et-Loire, France) : Guinea pigs",
+          "author": "Fab5669",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_056.jpg/960px-Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_056.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/41/Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_056.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_056.jpg",
+          "metadataFile": "content/batch-002/sources/guinea-pigs-metadata.json",
+          "localFile": "content/batch-004/photo-media/154500730.source",
+          "sha256": "9d62d677dde7c302c9b971af93dadd1f4b7d4513c52d1aab8fc1dbd2e7750dcc",
+          "isNew": true
+        },
+        {
+          "pageid": 154500731,
+          "group": "guinea-pigs",
+          "title": "File:Châtelais - La Petite Couère 055.jpg",
+          "description": "Petite Couère domain, in Châtelais (Maine-et-Loire, France) : Guinea pigs",
+          "author": "Fab5669",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_055.jpg/960px-Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_055.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_055.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_055.jpg",
+          "metadataFile": "content/batch-002/sources/guinea-pigs-metadata.json",
+          "localFile": "content/batch-004/photo-media/154500731.source",
+          "sha256": "2758c07565606db635471d5741bb004c0f6d681a624541f0e351a9f3dca68776",
+          "isNew": true
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "同作者同场地两张新原片；均为豚鼠，不是鸽子；只描述场景，不提供喂养或卫生建议。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-5.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-26",
+      "contentType": "photo",
+      "title": "草地里，两团棕色毛球",
+      "text": "一张凑近小脸，白色鼻梁和细胡须格外清楚；另一张把镜头留给绿草，棕色身影静静蹲在一旁。两处草地上的豚鼠，各有各的软乎乎。",
+      "animalTypes": [
+        "small-mammal"
+      ],
+      "speciesGroup": "guinea-pig",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-small-pets",
+      "imagePageIds": [
+        182665438,
+        122210138
+      ],
+      "newPageIds": [
+        182665438
+      ],
+      "existingPhotoIds": [
+        "photo-commons-122210138"
+      ],
+      "images": [
+        {
+          "pageid": 182665438,
+          "group": "guinea-pigs",
+          "title": "File:Guinea pig 2015.jpg",
+          "description": "Guinea pig",
+          "author": "Amirhosszein",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Guinea_pig_2015.jpg/960px-Guinea_pig_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Guinea_pig_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Guinea_pig_2015.jpg",
+          "metadataFile": "content/batch-004/photo-sources/candidates-metadata.json",
+          "localFile": "content/batch-004/photo-media/182665438.source",
+          "isNew": true,
+          "sha256": "b601934f89411042412512757d99e1e7c507a7f463d889d29b8efbb9ce36ff85"
+        },
+        {
+          "group": "guinea-pigs",
+          "pageid": 122210138,
+          "title": "File:Cavia porcellus 3581853.jpg",
+          "description": "Domestic Guinea Pig ( Cavia porcellus )",
+          "author": "Jesse Rorabaugh",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Cavia_porcellus_3581853.jpg/960px-Cavia_porcellus_3581853.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Cavia_porcellus_3581853.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cavia_porcellus_3581853.jpg",
+          "localFile": "content/batch-002/media/122210138.source",
+          "metadataFile": "content/batch-002/sources/guinea-pigs-metadata.json",
+          "sha256": "22c747f75cf36f327c7d0eca563c7636833fb9fa13bed921940aaccf5b3c63dd",
+          "isNew": false,
+          "existingPhotoId": "photo-commons-122210138"
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex independent mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "两张均为家养豚鼠 Cavia porcellus，草地里的棕白毛色主题；不同作者、不同场景，不认定为同一个体。 两张原始来源照片已分别实际打开检查；本组含一张基线与当前活跃目录均未使用的新照片。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-6.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-27",
+      "contentType": "photo",
+      "title": "圆盆边的小小聚会",
+      "text": "一张里，两只豚鼠一内一外围着圆碗；另一张里，两只把小脸凑向同一盆绿草。圆圆的容器旁，毛茸茸各占着一个位置。",
+      "animalTypes": [
+        "small-mammal"
+      ],
+      "speciesGroup": "guinea-pig",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-small-pets",
+      "imagePageIds": [
+        154427539,
+        121439037
+      ],
+      "newPageIds": [
+        154427539
+      ],
+      "existingPhotoIds": [
+        "photo-commons-121439037"
+      ],
+      "images": [
+        {
+          "pageid": 154427539,
+          "group": "guinea-pigs",
+          "title": "File:Châtelais - La Petite Couère 033.jpg",
+          "description": "Petite Couère domain, in Châtelais (Maine-et-Loire, France) : Guinea pigs",
+          "author": "Fab5669",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_033.jpg/960px-Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_033.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_033.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2telais_-_La_Petite_Cou%C3%A8re_033.jpg",
+          "metadataFile": "content/batch-004/photo-sources/candidates-metadata.json",
+          "localFile": "content/batch-004/photo-media/154427539.source",
+          "isNew": true,
+          "sha256": "e4f8aebae115b3baf2dd4514354b44eada42e1c69c44f93486134c4c1f16f122"
+        },
+        {
+          "group": "guinea-pigs",
+          "pageid": 121439037,
+          "title": "File:BOBIKxBOBINAx04x05x2014.jpg",
+          "description": "Bobík & Bobina",
+          "author": "2022 test nepodobny",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/BOBIKxBOBINAx04x05x2014.jpg/960px-BOBIKxBOBINAx04x05x2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/BOBIKxBOBINAx04x05x2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:BOBIKxBOBINAx04x05x2014.jpg",
+          "localFile": "content/batch-002/media/121439037.source",
+          "metadataFile": "content/batch-002/sources/guinea-pigs-metadata.json",
+          "sha256": "ada2d1cd8273b951ddbc5287d11b35ce057d11067c97875d07cc6d9cd0f6b8df",
+          "isNew": false,
+          "existingPhotoId": "photo-commons-121439037"
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex independent mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "两张均为豚鼠，均为两只围绕圆形容器的镜头。新图来源为 Petite Couère 园区；与旧图不同作者、不同地点，不暗示同一家或同一次经历，不作喂养建议。 两张原始来源照片已分别实际打开检查；本组含一张基线与当前活跃目录均未使用的新照片。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-6.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-28",
+      "contentType": "photo",
+      "title": "镜头里装满小脑袋",
+      "text": "木板旁，一群棕白豚鼠凑在一起，大小身影错落着；另一处户外镜头里，黑白色的小家伙站在前排，后面还能找见几位同伴。热闹都藏在画面的边边角角。",
+      "animalTypes": [
+        "small-mammal"
+      ],
+      "speciesGroup": "guinea-pig",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-small-pets",
+      "imagePageIds": [
+        190855432,
+        63987793
+      ],
+      "newPageIds": [
+        190855432
+      ],
+      "existingPhotoIds": [
+        "photo-commons-63987793"
+      ],
+      "images": [
+        {
+          "pageid": 190855432,
+          "group": "guinea-pigs",
+          "title": "File:Galpón de cuyes en Nueve de Julio 07.jpg",
+          "description": "Galpón de cuyes de Hugo Quispe, productor local en el distrito de Nueve de Julio, Concepción Junín. Imagen registrada durante el Wikicampamento 2026.",
+          "author": "MapacheVioleta",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Galp%C3%B3n_de_cuyes_en_Nueve_de_Julio_07.jpg/960px-Galp%C3%B3n_de_cuyes_en_Nueve_de_Julio_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Galp%C3%B3n_de_cuyes_en_Nueve_de_Julio_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Galp%C3%B3n_de_cuyes_en_Nueve_de_Julio_07.jpg",
+          "metadataFile": "content/batch-004/photo-sources/candidates-metadata.json",
+          "localFile": "content/batch-004/photo-media/190855432.source",
+          "isNew": true,
+          "sha256": "05c41ac876dd2a05c9ca39947bd9200cd430cddaf1b297e253d74ae53ff4c4f8"
+        },
+        {
+          "group": "guinea-pigs",
+          "pageid": 63987793,
+          "title": "File:Meerschweinchen im wildpark.jpg",
+          "description": "Meerschweinchen im Wildpark Frankenhof (Reken, NRW - Germany)",
+          "author": "Tetzemann",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Meerschweinchen_im_wildpark.jpg/960px-Meerschweinchen_im_wildpark.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Meerschweinchen_im_wildpark.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Meerschweinchen_im_wildpark.jpg",
+          "localFile": "content/batch-002/media/63987793.source",
+          "metadataFile": "content/batch-002/sources/guinea-pigs-metadata.json",
+          "sha256": "5b79b0de82612d229715a865df2a4972cb41bb75220b06b768189e6a1d5744b2",
+          "isNew": false,
+          "existingPhotoId": "photo-commons-63987793"
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex independent mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "两张均为豚鼠群体镜头。新图原始来源明确是秘鲁当地生产者的豚鼠养殖棚，旧图为德国动物园区；不冒称宠物主人、本人宠物、家庭饲养或同群个体，不给出饲养建议。 两张原始来源照片已分别实际打开检查；本组含一张基线与当前活跃目录均未使用的新照片。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-6.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-29",
+      "contentType": "photo",
+      "title": "两张圆脸，都很抢镜",
+      "text": "一张从白色圆碗里探出脸，另一张直起身体露出小爪子。金棕色的毛、亮亮的眼睛和细胡须，把这组金丝熊近照填得满满当当。",
+      "animalTypes": [
+        "small-mammal"
+      ],
+      "speciesGroup": "hamster",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-small-pets",
+      "imagePageIds": [
+        184258756,
+        91733769
+      ],
+      "newPageIds": [
+        184258756
+      ],
+      "existingPhotoIds": [
+        "photo-commons-91733769"
+      ],
+      "images": [
+        {
+          "pageid": 184258756,
+          "group": "hamsters",
+          "title": "File:Louz le goat.jpg",
+          "description": "Louz the hamster",
+          "author": "Louzzzzz",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Louz_le_goat.jpg/960px-Louz_le_goat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Louz_le_goat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Louz_le_goat.jpg",
+          "metadataFile": "content/batch-004/photo-sources/candidates-metadata.json",
+          "localFile": "content/batch-004/photo-media/184258756.source",
+          "isNew": true,
+          "sha256": "bb5f334cd5594747de5bfe8c066cb2d0f57081bb5fceb3b3e8ab5ac314bf8af8"
+        },
+        {
+          "group": "hamsters",
+          "pageid": 91733769,
+          "title": "File:Bowing to Pressure - Flickr - Dennis S. Hurd.jpg",
+          "description": "September 2002 - After a current hamster in my daily photo stream rocketed to my 'most viewed' in flickr, I had to find more creatures to feature. This was H3 and is no longer with us.",
+          "author": "Dennis Sylvester Hurd",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Bowing_to_Pressure_-_Flickr_-_Dennis_S._Hurd.jpg/960px-Bowing_to_Pressure_-_Flickr_-_Dennis_S._Hurd.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Bowing_to_Pressure_-_Flickr_-_Dennis_S._Hurd.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bowing_to_Pressure_-_Flickr_-_Dennis_S._Hurd.jpg",
+          "localFile": "content/batch-002/media/91733769.source",
+          "metadataFile": "content/batch-002/sources/hamsters-metadata.json",
+          "sha256": "2dadefa8c5e766160c4f531b2a9669b1966bd4f7f685d1515dc3982566712f24",
+          "isNew": false,
+          "existingPhotoId": "photo-commons-91733769"
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex independent mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "逐张核对两张均为金黄仓鼠（金丝熊），不是侏儒仓鼠。原始标题 Louz le goat 指名叫 Louz 的仓鼠，画面并非山羊；两位作者的不同个体，以圆脸近照为共同主题。 两张原始来源照片已分别实际打开检查；本组含一张基线与当前活跃目录均未使用的新照片。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-6.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    },
+    {
+      "reviewId": "mammal-30",
+      "contentType": "photo",
+      "title": "白兔的远景与近照",
+      "text": "雪地里的白兔缩成一团，耳朵在枝叶下竖着；另一张近照里，眼睛周围的深色毛和细胡须清清楚楚。白色毛茸茸，远远看和凑近看都有小细节。",
+      "animalTypes": [
+        "rabbit"
+      ],
+      "speciesGroup": "rabbit",
+      "topics": [
+        "治愈瞬间"
+      ],
+      "circleId": "circle-small-pets",
+      "imagePageIds": [
+        181371592,
+        34900452
+      ],
+      "newPageIds": [
+        181371592
+      ],
+      "existingPhotoIds": [
+        "photo-commons-34900452"
+      ],
+      "images": [
+        {
+          "pageid": 181371592,
+          "group": "rabbits",
+          "title": "File:Oryctolagus cuniculus domesticus - Nart Barileva - 605739065.jpeg",
+          "description": "Oryctolagus cuniculus domesticus, Sherman Ave S, Hamilton, ON, CA, 2026-01-02 (iNaturalist).",
+          "author": "Nart Barileva",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Oryctolagus_cuniculus_domesticus_-_Nart_Barileva_-_605739065.jpeg/960px-Oryctolagus_cuniculus_domesticus_-_Nart_Barileva_-_605739065.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Oryctolagus_cuniculus_domesticus_-_Nart_Barileva_-_605739065.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oryctolagus_cuniculus_domesticus_-_Nart_Barileva_-_605739065.jpeg",
+          "metadataFile": "content/batch-004/photo-sources/candidates-metadata.json",
+          "localFile": "content/batch-004/photo-media/181371592.source",
+          "isNew": true,
+          "sha256": "ce21d69d932046969966c7ca05cc40d07635231b03b9b72cf07848df597ae09b"
+        },
+        {
+          "group": "rabbits",
+          "pageid": 34900452,
+          "title": "File:Dwarf rabbit 2014.JPG",
+          "description": "White dwarf rabbit",
+          "author": "Lesekreis",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Dwarf_rabbit_2014.JPG/960px-Dwarf_rabbit_2014.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Dwarf_rabbit_2014.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dwarf_rabbit_2014.JPG",
+          "localFile": "content/batch-002/media/34900452.source",
+          "metadataFile": "content/batch-002/sources/rabbits-metadata.json",
+          "sha256": "0df445941ce0a55812ae1516a45d970c6fcf0b87ecfe3fa317367cd7b925faa7",
+          "isNew": false,
+          "existingPhotoId": "photo-commons-34900452"
+        }
+      ],
+      "review": {
+        "status": "approved-for-integration",
+        "reviewer": "Codex independent mammal visual review",
+        "reviewedAt": "2026-09-30",
+        "note": "新图原始记录明确为 Oryctolagus cuniculus domesticus，旧图为白色侏儒家兔，两张均为家兔。白毛外观、远景与面部近照主题；不同地点、不同个体，不称为同一只，不把雪地环境写为饲养建议。 两张原始来源照片已分别实际打开检查；本组含一张基线与当前活跃目录均未使用的新照片。",
+        "evidenceFile": "content/batch-004/photo-review/mammal-pairs-6.jpg"
+      },
+      "editorialStatus": "公开授权照片主题整理；不冒充用户原创、本人拍摄、同一家或同一次经历。"
+    }
+  ],
+  "rejections": [
+    {
+      "pageid": 94948283,
+      "reason": "兔子内脏解剖实拍，不适合日常宠物图片内容。"
+    },
+    {
+      "pageid": 94822353,
+      "reason": "Chinchilla 是地名，实际为西瓜雕塑，误命中。"
+    },
+    {
+      "pageid": 132379513,
+      "reason": "街景建筑为主体，不是宠物照片。"
+    },
+    {
+      "pageid": 128089554,
+      "reason": "来源明确 Midjourney AI 插画，不是真实宠物照片。"
+    },
+    {
+      "pageid": 186906111,
+      "reason": "画面和标注仓鼠不一致，实际野外大型啮齿动物，物种不确定。"
+    },
+    {
+      "pageid": 46671157,
+      "reason": "与已发布 46704078 为同原作的编辑/原始版本，构图像素重复，不计新素材。"
+    },
+    {
+      "pageid": 46704077,
+      "reason": "与已发布 46671383 为同原作的编辑/原始版本，构图像素重复，不计新素材。"
+    },
+    {
+      "pageid": 163237823,
+      "reason": "新生无毛幼崽，非本批普通日常主题且易造成不适。"
+    },
+    {
+      "pageid": 190389136,
+      "reason": "商贩笼具全景，宠物个体太小，展示质量不足。"
+    },
+    {
+      "pageid": 161842690,
+      "reason": "远景动物园展箱，动物个体过小。"
+    },
+    {
+      "pageid": 198535520,
+      "reason": "主体明显失焦。"
+    },
+    {
+      "pageid": 199440560,
+      "reason": "偏暗且有日期水印，现有更清晰仓鼠素材。"
+    },
+    {
+      "pageid": 93435541,
+      "reason": "与选用 93435543/旧93435557 角度过近，避免同系列凑数。"
+    },
+    {
+      "pageid": 93435547,
+      "reason": "与选用 93435543 高度接近，避免同系列凑数。"
+    }
+  ]
+}

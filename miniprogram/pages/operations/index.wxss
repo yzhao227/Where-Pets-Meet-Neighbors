@@ -1,0 +1,15 @@
+.page-title{margin:4rpx 0 18rpx;font-size:42rpx;}
+.subtitle{margin-bottom:25rpx;}
+.demo-label{margin-bottom:20rpx;}
+.config-card,.maintenance-card{padding:27rpx;}
+.health-row{display:flex;align-items:center;justify-content:space-between;gap:15rpx;font-size:24rpx;padding:20rpx 0;border-bottom:1rpx solid #E9E5E1;}
+.health-row>text:last-child{font-size:22rpx;color:#66707A;text-align:right;}
+.health-row .status-label{font-size:21rpx;background:#FFF3E6;padding:5rpx 12rpx;border-radius:12rpx;white-space:nowrap;color:#94603D;}
+.health-row .status-label.ready{background:#EAF2F8;color:#49667D;}
+.health-note{font-size:22rpx;color:#66707A;line-height:1.9;margin-top:20rpx;}
+.queue-grid{display:flex;gap:12rpx;margin:24rpx 0;}
+.queue-card{flex:1;min-width:0;background:#FFFFFF;border:1rpx solid #E9E5E1;border-radius:20rpx;padding:21rpx 8rpx;text-align:center;font-size:21rpx;color:#66707A;}
+.queue-count{font-size:36rpx;line-height:1.5;color:#24262D;font-weight:650;margin-bottom:7rpx;}
+.maintenance-result{margin-top:23rpx;font-size:24rpx;color:#505863;}
+.maintenance-result.failed{color:#94603D;}
+button.refresh-health{margin-top:25rpx;}

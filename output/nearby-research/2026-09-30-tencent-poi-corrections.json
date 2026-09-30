@@ -1,0 +1,41 @@
+{
+  "checkedAt": "2026-09-30",
+  "evidenceCollection": "主任务通过腾讯地图实际搜索并打开公开 POI 详情；本子任务依据主任务传回的可见页面证据接入数据。未声称子任务成功下载了公共 API 原始响应。",
+  "records": [
+    {
+      "recordId": "place-shangsheng-xinsuo",
+      "name": "上生新所",
+      "addressShown": "上海市长宁区延安西路1262号",
+      "sourceUrl": "https://map.qq.com/poi/?sm=7237851307520986373&keyfrom=1",
+      "sourceEvidence": "主任务实际打开腾讯地图搜索结果的 POI 详情。可见地址为延安西路1262号；页面地图中心及餐馆、宾馆等周边搜索链接中的 where 参数均为 121.427454,31.208015。where 的顺序为经度、纬度。",
+      "sourceCoordinate": { "latitude": 31.208015, "longitude": 121.427454, "coordinateSystem": "gcj02" },
+      "storedCoordinate": { "latitude": 31.208015, "longitude": 121.427454, "coordinateSystem": "gcj02" },
+      "conversion": "无转换；腾讯地图来源坐标已经是 GCJ-02。",
+      "precision": "venue",
+      "entranceVerified": false,
+      "replacedCoordinate": { "latitude": 31.209687, "longitude": 121.426939, "coordinateSystem": "gcj02", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Columbia_Circle_16.jpg" },
+      "replacementReason": "旧坐标由 Commons 实景照片的拍摄位置转换得到。主任务实际打开地图发现其落在场所北侧，不能继续将摄影机位置当作场所导航目的地。本次改用名称和街道地址均匹配的腾讯地图 POI。既有授权照片不因坐标纠正而改变。",
+      "notes": ["地点坐标不代表已核验某个入口。", "场所位置和照片均不构成宠物准入规则的证据。"]
+    },
+    {
+      "recordId": "place-zhongsheng",
+      "name": "仲盛世界商城",
+      "addressShown": "上海市闵行区都市路5001号",
+      "sourceUrl": "https://map.qq.com/poi/?sm=557978112909900442&keyfrom=1",
+      "sourceEvidence": "主任务在腾讯地图搜索仲盛世界商城，只得到一条匹配结果，打开 POI 详情后核对地址与目录的都市路5001号一致。页面周边搜索 where 参数均为 121.387198,31.107275。where 的顺序为经度、纬度。",
+      "sourceCoordinate": { "latitude": 31.107275, "longitude": 121.387198, "coordinateSystem": "gcj02" },
+      "storedCoordinate": { "latitude": 31.107275, "longitude": 121.387198, "coordinateSystem": "gcj02" },
+      "conversion": "无转换；腾讯地图来源坐标已经是 GCJ-02。",
+      "precision": "venue",
+      "entranceVerified": false,
+      "notes": ["场所参照点不代表南下沉广场或某个商场入口。", "坐标仅补充导航定位，不改变目录内尚待确认的日常携宠规则。"]
+    }
+  ],
+  "photoAssetsAdded": 0,
+  "photoAssetBytesAdded": 0,
+  "unfinished": [
+    "本子任务的 cua 无可用浏览器；公共地图 API 在沙箱内 DNS 解析失败，后续正式网络审批等待被中断，未取得该 API 响应。",
+    "力波公园、莘庄维璟印象城、莘城中央公园、元江路 TOD 公园和浦江携宠开放区尚无本子任务新增的已确认坐标；不按附近建筑、摄影机位置或任意公园主入口推定目的地。",
+    "常用地点的新增实景照片和许可检索未完成，未新增、转载或上传照片。"
+  ]
+}

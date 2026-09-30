@@ -1,0 +1,993 @@
+{
+  "batchcomplete": true,
+  "query": {
+    "pages": [
+      {
+        "pageid": 54466627,
+        "ns": 6,
+        "title": "File:Macrochelys temminckii baiting.webm",
+        "index": 7,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 5413098,
+            "width": 1280,
+            "height": 720,
+            "duration": 16.68,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Macrochelys_temminckii_baiting.webm/960px--Macrochelys_temminckii_baiting.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Macrochelys_temminckii_baiting.webm/1280px--Macrochelys_temminckii_baiting.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Macrochelys_temminckii_baiting.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Macrochelys_temminckii_baiting.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=54466627",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2016-12-26 04:21:04",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Macrochelys temminckii baiting",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Macrochelys temminckii|CC-Zero|Self-published work",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Alligator snapping turtle (<i>Macrochelys temminckii</i>) using its vermiform (literally, \"worm-shaped\") appendage on its tongue to lure prey. (Peckham's mimicry)",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2016-08-18",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Poecilotheria36\" title=\"User:Poecilotheria36\">Poecilotheria36</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Macrochelys_temminckii_baiting.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp8\"",
+                "width": 1280,
+                "height": 720,
+                "bandwidth": 2596210
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/7a/Macrochelys_temminckii_baiting.webm/Macrochelys_temminckii_baiting.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 138272
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/7a/Macrochelys_temminckii_baiting.webm/Macrochelys_temminckii_baiting.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 851160
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/7a/Macrochelys_temminckii_baiting.webm/Macrochelys_temminckii_baiting.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 425088
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 65198099,
+        "ns": 6,
+        "title": "File:Sealife-Munich-Turtle.ogv",
+        "index": 5,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 2231176,
+            "width": 1920,
+            "height": 1080,
+            "duration": 3.36,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Sealife-Munich-Turtle.ogv/960px--Sealife-Munich-Turtle.ogv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Sealife-Munich-Turtle.ogv/1280px--Sealife-Munich-Turtle.ogv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/7/74/Sealife-Munich-Turtle.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Sealife-Munich-Turtle.ogv",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=65198099",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2018-01-02 11:06:39",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Sealife-Munich-Turtle",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Taken with Panasonic Lumix DMC-TZ41|CC-Zero|Self-published work|Videos of 2017|Videos of 2017 from Bavaria|Files with coordinates missing SDC location of creation (48° N, 11° E)|Videos at Sea Life Centres, Munich|Videos of Chelonioidea|Videos by Martin Thoma|Images by Martin Thoma/Sea Life Munich",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "GPSLatitude": {
+                "value": "48.173806",
+                "source": "commons-desc-page"
+              },
+              "GPSLongitude": {
+                "value": "11.556194",
+                "source": "commons-desc-page"
+              },
+              "GPSMapDatum": {
+                "value": "WGS-84",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Schwimmende Schildkröte im Sealife München, 2017.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2017-12-31",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:MartinThoma\" title=\"User:MartinThoma\">MartinThoma</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/7/74/Sealife-Munich-Turtle.ogv?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/ogg; codecs=\"theora\"",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 5312323
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/74/Sealife-Munich-Turtle.ogv/Sealife-Munich-Turtle.ogv.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 185240
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/74/Sealife-Munich-Turtle.ogv/Sealife-Munich-Turtle.ogv.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 804352
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/74/Sealife-Munich-Turtle.ogv/Sealife-Munich-Turtle.ogv.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 570928
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/74/Sealife-Munich-Turtle.ogv/Sealife-Munich-Turtle.ogv.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 2596240
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 76756846,
+        "ns": 6,
+        "title": "File:Small tortoises mating.webm",
+        "index": 3,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 659959,
+            "width": 1280,
+            "height": 720,
+            "duration": 11.008000000000001,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Small_tortoises_mating.webm/960px--Small_tortoises_mating.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Small_tortoises_mating.webm/1280px--Small_tortoises_mating.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Small_tortoises_mating.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Small_tortoises_mating.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=76756846",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2019-02-21 20:22:47",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Small tortoises mating",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Self-published work|Testudines sex|Videos of Testudinidae",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Video I have taken of my Tortoises mating. They are most likely Herman's tortoises. The female later laid eggs, which is captured in <a href=\"//commons.wikimedia.org/wiki/File:Tortoise_laying_eggs.webm\" title=\"File:Tortoise laying eggs.webm\">this video</a>. <a href=\"//commons.wikimedia.org/wiki/File:Young_Hermann%27s_Tortoise.jpg\" title=\"File:Young Hermann's Tortoise.jpg\">This young tortoise</a> hatched from one of the eggs.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2018-04-23",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Drummyfish\" title=\"User:Drummyfish\">Drummyfish</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/d/da/Small_tortoises_mating.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 1280,
+                "height": 720,
+                "bandwidth": 479621
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/da/Small_tortoises_mating.webm/Small_tortoises_mating.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 388024
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/da/Small_tortoises_mating.webm/Small_tortoises_mating.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 1161096
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/da/Small_tortoises_mating.webm/Small_tortoises_mating.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 1325608
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 76757263,
+        "ns": 6,
+        "title": "File:Tortoise laying eggs.webm",
+        "index": 1,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 951427,
+            "width": 1280,
+            "height": 720,
+            "duration": 25.173000000000002,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Tortoise_laying_eggs.webm/960px--Tortoise_laying_eggs.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Tortoise_laying_eggs.webm/1280px--Tortoise_laying_eggs.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Tortoise_laying_eggs.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Tortoise_laying_eggs.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=76757263",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2019-02-21 20:43:21",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Tortoise laying eggs",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Self-published work|Videos of Testudinidae",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "This is a video I have taken of my tortoise (most likely Herman's) laying eggs to a hole it dug. It mated (<a href=\"//commons.wikimedia.org/wiki/File:Small_tortoises_mating.webm\" title=\"File:Small tortoises mating.webm\">video</a>) and out of three eggs only one tortoise (<a href=\"//commons.wikimedia.org/wiki/File:Young_Hermann%27s_Tortoise.jpg\" title=\"File:Young Hermann's Tortoise.jpg\">photo</a>) hatched and survived.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2018-05-10",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Drummyfish\" title=\"User:Drummyfish\">Drummyfish</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Tortoise_laying_eggs.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 1280,
+                "height": 720,
+                "bandwidth": 302364
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/ef/Tortoise_laying_eggs.webm/Tortoise_laying_eggs.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 393056
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/ef/Tortoise_laying_eggs.webm/Tortoise_laying_eggs.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 1137568
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/ef/Tortoise_laying_eggs.webm/Tortoise_laying_eggs.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 1213640
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 114899314,
+        "ns": 6,
+        "title": "File:鹿頂山陣頭雨.webm",
+        "index": 6,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 14428645,
+            "width": 1920,
+            "height": 1080,
+            "duration": 7.537,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/%E9%B9%BF%E9%A0%82%E5%B1%B1%E9%99%A3%E9%A0%AD%E9%9B%A8.webm/960px--%E9%B9%BF%E9%A0%82%E5%B1%B1%E9%99%A3%E9%A0%AD%E9%9B%A8.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/%E9%B9%BF%E9%A0%82%E5%B1%B1%E9%99%A3%E9%A0%AD%E9%9B%A8.webm/1280px--%E9%B9%BF%E9%A0%82%E5%B1%B1%E9%99%A3%E9%A0%AD%E9%9B%A8.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/d/d4/%E9%B9%BF%E9%A0%82%E5%B1%B1%E9%99%A3%E9%A0%AD%E9%9B%A8.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:%E9%B9%BF%E9%A0%82%E5%B1%B1%E9%99%A3%E9%A0%AD%E9%9B%A8.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=114899314",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2022-02-02 05:58:48",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "鹿頂山陣頭雨",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Rain showers|CC-Zero|The Turtle Head Park|Self-published work|Videos of rain",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "​鹿頂山半山腰個一場陣頭雨",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2021-10-14",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Lt2818\" title=\"User:Lt2818\">Lt2818</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/d/d4/%E9%B9%BF%E9%A0%82%E5%B1%B1%E9%99%A3%E9%A0%AD%E9%9B%A8.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"av01.0.08M.08, opus\"",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 15315000
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/d4/%E9%B9%BF%E9%A0%82%E5%B1%B1%E9%99%A3%E9%A0%AD%E9%9B%A8.webm/%E9%B9%BF%E9%A0%82%E5%B1%B1%E9%99%A3%E9%A0%AD%E9%9B%A8.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 411864
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/d4/%E9%B9%BF%E9%A0%82%E5%B1%B1%E9%99%A3%E9%A0%AD%E9%9B%A8.webm/%E9%B9%BF%E9%A0%82%E5%B1%B1%E9%99%A3%E9%A0%AD%E9%9B%A8.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 1184888
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/d4/%E9%B9%BF%E9%A0%82%E5%B1%B1%E9%99%A3%E9%A0%AD%E9%9B%A8.webm/%E9%B9%BF%E9%A0%82%E5%B1%B1%E9%99%A3%E9%A0%AD%E9%9B%A8.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 1427392
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/d4/%E9%B9%BF%E9%A0%82%E5%B1%B1%E9%99%A3%E9%A0%AD%E9%9B%A8.webm/%E9%B9%BF%E9%A0%82%E5%B1%B1%E9%99%A3%E9%A0%AD%E9%9B%A8.webm.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 6132432
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 131879267,
+        "ns": 6,
+        "title": "File:Turtle swimming Lake Eola (Orlando) May 2023.webm",
+        "index": 4,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 16846278,
+            "width": 3840,
+            "height": 2160,
+            "duration": 15.25,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Turtle_swimming_Lake_Eola_%28Orlando%29_May_2023.webm/960px--Turtle_swimming_Lake_Eola_%28Orlando%29_May_2023.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Turtle_swimming_Lake_Eola_%28Orlando%29_May_2023.webm/1280px--Turtle_swimming_Lake_Eola_%28Orlando%29_May_2023.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Turtle_swimming_Lake_Eola_%28Orlando%29_May_2023.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Turtle_swimming_Lake_Eola_(Orlando)_May_2023.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=131879267",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2023-05-13 19:09:07",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Turtle swimming Lake Eola (Orlando) May 2023",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Lake Eola|Turtles of Florida|Videos by Benoît Prieur|Self-published work|Videos from Orlando, Florida|Videos of Testudines|Files with coordinates missing SDC location of creation|2023 videos by Benoît Prieur|Videos of 2023 from the United States|Parks in 2023|Videos taken on 2023-05-13|May 2023 in Orlando, Florida|Videos from the United States by Benoît Prieur|Animals in Lake Eola Park|Videos of animals by Benoît Prieur|Images of Orange County, Florida by Benoît Prieur",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "GPSLatitude": {
+                "value": "28.542600",
+                "source": "commons-desc-page"
+              },
+              "GPSLongitude": {
+                "value": "-81.373200",
+                "source": "commons-desc-page"
+              },
+              "GPSMapDatum": {
+                "value": "WGS-84",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Turtle swimming Lake Eola (Orlando) May 2023.\n<figure class=\"mw-halign-right\" typeof=\"mw:File\"><a href=\"//commons.wikimedia.org/wiki/File:Turtle_swimming_Lake_Eola_(Orlando)_May_2023.JPG\" class=\"mw-file-description\"><img src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Turtle_swimming_Lake_Eola_%28Orlando%29_May_2023.JPG/250px-Turtle_swimming_Lake_Eola_%28Orlando%29_May_2023.JPG?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"220\" height=\"165\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Turtle_swimming_Lake_Eola_%28Orlando%29_May_2023.JPG/500px-Turtle_swimming_Lake_Eola_%28Orlando%29_May_2023.JPG?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"4032\" data-file-height=\"3024\"></a><figcaption></figcaption></figure>",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2023-05-13",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<bdi><a href=\"https://www.wikidata.org/wiki/Q42790984\" class=\"extiw\" title=\"d:Q42790984\"><span title=\"French computing engineer\">Benoît Prieur</span></a></bdi>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Turtle_swimming_Lake_Eola_%28Orlando%29_May_2023.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9\"",
+                "width": 3840,
+                "height": 2160,
+                "bandwidth": 8837391
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c8/Turtle_swimming_Lake_Eola_%28Orlando%29_May_2023.webm/Turtle_swimming_Lake_Eola_%28Orlando%29_May_2023.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 328152
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c8/Turtle_swimming_Lake_Eola_%28Orlando%29_May_2023.webm/Turtle_swimming_Lake_Eola_%28Orlando%29_May_2023.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 1511344
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c8/Turtle_swimming_Lake_Eola_%28Orlando%29_May_2023.webm/Turtle_swimming_Lake_Eola_%28Orlando%29_May_2023.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 1290824
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c8/Turtle_swimming_Lake_Eola_%28Orlando%29_May_2023.webm/Turtle_swimming_Lake_Eola_%28Orlando%29_May_2023.webm.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 5115352
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 162898606,
+        "ns": 6,
+        "title": "File:Tortoises walk.webm",
+        "index": 2,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 41311167,
+            "width": 608,
+            "height": 1080,
+            "duration": 26.966,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Tortoises_walk.webm/500px--Tortoises_walk.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 608,
+            "thumbheight": 1080,
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Tortoises_walk.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Tortoises_walk.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=162898606",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2025-03-28 07:55:51",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Tortoises walk",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Testudinidae|CC-Zero|Self-published work",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Tortoises walk",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2025-02-18",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Kasyap\" title=\"User:Kasyap\">Kasyap</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Tortoises_walk.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9\"",
+                "width": 608,
+                "height": 1080,
+                "bandwidth": 12255778
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/ba/Tortoises_walk.webm/Tortoises_walk.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 136,
+                "height": 240,
+                "bandwidth": 151800
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/ba/Tortoises_walk.webm/Tortoises_walk.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 202,
+                "height": 360,
+                "bandwidth": 1002784
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/ba/Tortoises_walk.webm/Tortoises_walk.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 270,
+                "height": 480,
+                "bandwidth": 891720
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/ba/Tortoises_walk.webm/Tortoises_walk.webm.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 608,
+                "height": 1080,
+                "bandwidth": 3597144
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

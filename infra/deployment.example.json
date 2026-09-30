@@ -1,0 +1,15 @@
+{
+  "appName": "有宠有邻",
+  "version": "0.4.0",
+  "wechat": { "appid": "", "cloudEnv": "", "cloudFilePrefix": "" },
+  "operator": {
+    "name": "",
+    "contact": "",
+    "retention": "",
+    "policyApproved": false,
+    "termsVersion": "2026-09-29",
+    "privacyVersion": "2026-09-29"
+  },
+  "community": { "city": "", "areas": [], "contact": "" },
+  "features": { "phoneVerification": false, "imageReviewMode": "disabled" }
+}

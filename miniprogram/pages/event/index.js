@@ -1,0 +1,17 @@
+const s = require('../_shared');
+s.register({
+  data: { loading: true, error: '', mode: '', event: null, comments: [], nextCursor: null, moreBusy: false, text: '', replyId: '', replyName: '', busy: false, isAdmin: false },
+  onLoad(options) { this.id = options.id; this.refresh(); }, onShow() { if (this._loaded) this.refresh(); }, onPullDownRefresh() { this.refresh(); },
+  refresh() { return s.load(this, async () => { if (!this.id) throw new Error('找不到这个活动'); const [boot, result] = await Promise.all([s.api.call('bootstrap'), s.api.call('getEvent', { id: this.id })]); return { mode: boot.mode, event: s.event(result.event), comments: result.comments.map(s.comment), nextCursor: result.nextCursor || null, isAdmin: !!boot.user.isAdmin }; }); },
+  openAuthor(e) { s.go('/pages/author/index?userId=' + e.currentTarget.dataset.id); },
+  loadMore() { return s.more(this, { key: 'comments', request: cursor => s.api.call('getEvent', { id: this.id, cursor }), select: result => result.comments, decorate: s.comment }); },
+  join() { return s.action(this, async () => { const item = this.data.event; const join = !item.isJoined; if (item.buttonDisabled) return; if (join && !await s.confirm('一起参加这次相遇？', item.title + '\n' + item.timeText + '\n' + item.location + '\n\n活动免费。请确认时间及带宠要求，无法参加时及时取消。', '确认报名')) return; if (!join && !await s.confirm('取消这次报名？', '取消后会释放名额。开始前有名额时，你还可以再次报名。', '取消报名')) return; const result = await s.api.call('joinEvent', { id: this.id, join }); s.safe(this, { event: s.event(result.event) }); if (!this._closed) s.toast(join ? (this.data.mode === 'demo' ? '本机演示报名已保存' : '报名成功，到时见！') : '已取消报名'); }); },
+  edit() { s.go('/pages/manage/index?id=' + this.id); },
+  report() { return s.action(this, () => s.report('event', this.id)); },
+  input(e) { s.safe(this, { text: e.detail.value }); },
+  reply(e) { const item = this.data.comments.find(c => c.id === e.currentTarget.dataset.id); if (item) s.safe(this, { replyId: item.id, replyName: item.author.nickname }); },
+  cancelReply() { s.safe(this, { replyId: '', replyName: '' }); },
+  send() { return s.action(this, async () => { const text = this.data.text.trim(); if (!text) return s.toast('写一点想说的话吧'); await s.api.call('addComment', { targetType: 'event', targetId: this.id, text, replyToId: this.data.replyId || undefined }); s.safe(this, { text: '', replyId: '', replyName: '' }); await this.refresh(); if (!this._closed) s.toast(this.data.mode === 'demo' ? '演示回应已保存在本机' : '回应已送到'); }); },
+  commentMenu(e) { return s.action(this, async () => { const item = this.data.comments.find(c => c.id === e.currentTarget.dataset.id); if (!item) return; const options = item.isMine ? ['删除这条回应'] : this.data.isAdmin ? ['举报回应', '屏蔽这位用户', '删除回应（管理员）'] : ['举报回应', '屏蔽这位用户']; const choice = await s.choose(options); if (choice < 0 || this._closed) return; if ((item.isMine && choice === 0) || (!item.isMine && this.data.isAdmin && choice === 2)) { if (!await s.confirm('删除这条回应？', '删除后无法恢复。', '删除')) return; await s.api.call('deleteComment', { id: item.id }); await this.refresh(); } else if (choice === 0) await s.report('comment', item.id); else if (choice === 1 && await s.block(item.author.id)) await this.refresh(); }); },
+  onShareAppMessage() { return { title: this.data.event ? this.data.event.title : '有宠有邻｜一起做件小事', path: '/pages/event/index?id=' + this.id }; }
+});

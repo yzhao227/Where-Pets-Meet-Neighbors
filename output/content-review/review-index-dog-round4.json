@@ -1,0 +1,232 @@
+{
+  "sheets": [
+    {
+      "path": "output/content-review/dog-round4-1.jpg",
+      "pageids": [
+        61369169,
+        162064659,
+        164398964,
+        164398973,
+        164398980,
+        165014755,
+        165750241,
+        167590527,
+        174450328,
+        174457938,
+        174457939,
+        175183512,
+        175882584,
+        177296958,
+        178827428,
+        178827429,
+        178908349
+      ]
+    }
+  ],
+  "records": [
+    {
+      "species": "dogs",
+      "pageid": 61369169,
+      "title": "File:Dog at Nørre Vorupør Strand.jpg",
+      "localFile": "content/batch-001/media/61369169.source",
+      "reviewDimensions": [
+        960,
+        819
+      ],
+      "reviewDhash": 1815849175027347633,
+      "reviewSha256": "78e696933ada2261407a726bbb27011e010c9441a2d7bfad117e56edddf89bdc"
+    },
+    {
+      "species": "dogs",
+      "pageid": 162064659,
+      "title": "File:Алматы, собака на Чайковского (2).jpg",
+      "localFile": "content/batch-001/media/162064659.source",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 18008125497574554099,
+      "reviewSha256": "74b263dfa713de5faf301b7954ed054e208352adf59c61cd529237496c84412e"
+    },
+    {
+      "species": "dogs",
+      "pageid": 164398964,
+      "title": "File:Shar Pei × American Staffordshire Terrier dog in Parc naturel régional des Ardennes (DSC05738).jpg",
+      "localFile": "content/batch-001/media/164398964.source",
+      "reviewDimensions": [
+        960,
+        670
+      ],
+      "reviewDhash": 6002088640265614067,
+      "reviewSha256": "bd3a69295ad6f2dfdaa6c3e11402889770d5ed8535d2d16cb43beb0c4d8db35d"
+    },
+    {
+      "species": "dogs",
+      "pageid": 164398973,
+      "title": "File:Shar Pei × American Staffordshire Terrier dog in Parc naturel régional des Ardennes (DSC05741).jpg",
+      "localFile": "content/batch-001/media/164398973.source",
+      "reviewDimensions": [
+        960,
+        670
+      ],
+      "reviewDhash": 5135113851157836402,
+      "reviewSha256": "8904b963cfe5f2cac1cf7e8a10423bfcb27dc684f2be6478906ee92e5a516978"
+    },
+    {
+      "species": "dogs",
+      "pageid": 164398980,
+      "title": "File:Shar Pei × American Staffordshire Terrier dog in Parc naturel régional des Ardennes (DSC05743).jpg",
+      "localFile": "content/batch-001/media/164398980.source",
+      "reviewDimensions": [
+        960,
+        670
+      ],
+      "reviewDhash": 14072363396979782579,
+      "reviewSha256": "86cdb0dcf994f3a6bbe895d1b594c53890abb78b0930d0a91dbeee1179689aa1"
+    },
+    {
+      "species": "dogs",
+      "pageid": 165014755,
+      "title": "File:Golden Retrievers Dog Show Ooty May25 A7CR 05589.jpg",
+      "localFile": "content/batch-001/media/165014755.source",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 11131568274124570895,
+      "reviewSha256": "93eb449d76a0545739226d5cdd5a87b68daebd66ea4717de5676f1ee523be6a9"
+    },
+    {
+      "species": "dogs",
+      "pageid": 165750241,
+      "title": "File:Бишкек, собака на Жибек Жолу-Тоголок Молдо.jpg",
+      "localFile": "content/batch-001/media/165750241.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 12012971814082395674,
+      "reviewSha256": "877198ea9c0117799161d2a6bc5a06c1ac7733dbbad54bb996918a1c11b2ac06"
+    },
+    {
+      "species": "dogs",
+      "pageid": 167590527,
+      "title": "File:Cavapoo male (90675).jpg",
+      "localFile": "content/batch-001/media/167590527.source",
+      "reviewDimensions": [
+        960,
+        1089
+      ],
+      "reviewDhash": 4059237056997603820,
+      "reviewSha256": "4985b2b9a3b6d4c881799a405f84b2782a9fd36d041b1b5a85bcaa2b331ecdf5"
+    },
+    {
+      "species": "dogs",
+      "pageid": 174450328,
+      "title": "File:Тбилиси, золотистый ретривер на Горгасали.jpg",
+      "localFile": "content/batch-001/media/174450328.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 16579739339746321496,
+      "reviewSha256": "3554325a678121a78fa437d963daee196dd5e658c17e3fc1bfeff9a9de5110e5"
+    },
+    {
+      "species": "dogs",
+      "pageid": 174457938,
+      "title": "File:Тбилиси, собака на Ботанической (1).jpg",
+      "localFile": "content/batch-001/media/174457938.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 3458192114260998139,
+      "reviewSha256": "b0123a6f920f32178a75cd50758de37b78c2178224b166944865730b402c4eff"
+    },
+    {
+      "species": "dogs",
+      "pageid": 174457939,
+      "title": "File:Тбилиси, собака на Ботанической (2).jpg",
+      "localFile": "content/batch-001/media/174457939.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 3422664694813366251,
+      "reviewSha256": "019bfef1ba0a07699ce9d3ccf406c0f7f309fb6115496dab0dcc11acc58655f9"
+    },
+    {
+      "species": "dogs",
+      "pageid": 175183512,
+      "title": "File:Dog in Wae Rebo village, Flores Island, Indonesia, 20250824 0720 2989.jpg",
+      "localFile": "content/batch-001/media/175183512.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 5049493748377818754,
+      "reviewSha256": "7de26454c9158d984fd35f27736ab55a666ed8581a4ea71957053bfc212ba2fd"
+    },
+    {
+      "species": "dogs",
+      "pageid": 175882584,
+      "title": "File:30.09.25 in Litochoro 01.jpg",
+      "localFile": "content/batch-001/media/175882584.source",
+      "reviewDimensions": [
+        960,
+        1172
+      ],
+      "reviewDhash": 4129411152735658271,
+      "reviewSha256": "312e8796ee2884b2602c696c65829f5d693201c721e529b2a470d3138bb3a6ce"
+    },
+    {
+      "species": "dogs",
+      "pageid": 177296958,
+      "title": "File:Chihuahua qui profite du soleil.jpg",
+      "localFile": "content/batch-001/media/177296958.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 7226335503714802725,
+      "reviewSha256": "db779d95e5d52eda40158f42a5fbfb690a3b9b7f8c58a97ee89411887e1ddfa1"
+    },
+    {
+      "species": "dogs",
+      "pageid": 178827428,
+      "title": "File:Литохоро, собака на Святого Николая (2).jpg",
+      "localFile": "content/batch-001/media/178827428.source",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 12297641952349284422,
+      "reviewSha256": "e117d61a061a598bc3b9e02b142b784e55cde66278a2dfd00e1aaf5bcdd635bd"
+    },
+    {
+      "species": "dogs",
+      "pageid": 178827429,
+      "title": "File:Литохоро, собака на Святого Николая (3).jpg",
+      "localFile": "content/batch-001/media/178827429.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 11546335408217442958,
+      "reviewSha256": "8b9fc5ea006443bc5cc94b50196827745155ac4b234148f7f54dbd20c02f82c8"
+    },
+    {
+      "species": "dogs",
+      "pageid": 178908349,
+      "title": "File:Funchal (Madeira, Portugal), Rua de Santa Maria 27 -- 2025 -- 0826.jpg",
+      "localFile": "content/batch-001/media/178908349.source",
+      "reviewDimensions": [
+        960,
+        1440
+      ],
+      "reviewDhash": 17509114206843501600,
+      "reviewSha256": "d117a525de27250da06beb756a62727ab27af733920a48b477c146d6c69a558d"
+    }
+  ]
+}

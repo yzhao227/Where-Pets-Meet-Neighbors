@@ -1,0 +1,606 @@
+{
+  "sheets": [
+    {
+      "path": "output/content-review/dog-round3-1.jpg",
+      "pageids": [
+        95962339,
+        97162230,
+        98256201,
+        98256202,
+        100150891,
+        100150893,
+        105449081,
+        112246939,
+        115563885,
+        119744700,
+        120625485,
+        124859918,
+        127882262,
+        128486208,
+        130434344,
+        133988088,
+        136179638,
+        138057502,
+        138057503,
+        138057506
+      ]
+    },
+    {
+      "path": "output/content-review/dog-round3-2.jpg",
+      "pageids": [
+        138299853,
+        140464727,
+        142023401,
+        143038325,
+        143038327,
+        143571499,
+        143571500,
+        146901153,
+        148299579,
+        148299580,
+        148399445,
+        148765413,
+        148766230,
+        149451185,
+        150378337,
+        151164647,
+        154906920,
+        156353344,
+        156353345,
+        156353348
+      ]
+    },
+    {
+      "path": "output/content-review/dog-round3-3.jpg",
+      "pageids": [
+        156353350,
+        157356681,
+        157558693,
+        157558694,
+        159509921
+      ]
+    }
+  ],
+  "records": [
+    {
+      "species": "dogs",
+      "pageid": 95962339,
+      "title": "File:Dog in GWC (42535).jpg",
+      "localFile": "content/batch-001/media/95962339.source",
+      "reviewDimensions": [
+        960,
+        799
+      ],
+      "reviewDhash": 3221255113338362668,
+      "reviewSha256": "8ea61fbf5a7fd775221c46cf4beeb49760c70adbaac19935d636b9abc67d2a34"
+    },
+    {
+      "species": "dogs",
+      "pageid": 97162230,
+      "title": "File:Heterochromia dog, Struga.jpg",
+      "localFile": "content/batch-001/media/97162230.source",
+      "reviewDimensions": [
+        960,
+        1440
+      ],
+      "reviewDhash": 15299589467878273650,
+      "reviewSha256": "3bb10eeac42817934f2f2c65ab84c5cf8008d44952764936f234792293fbba8c"
+    },
+    {
+      "species": "dogs",
+      "pageid": 98256201,
+      "title": "File:Pies nierasowy, 20201225 1128 5279.jpg",
+      "localFile": "content/batch-001/media/98256201.source",
+      "reviewDimensions": [
+        960,
+        989
+      ],
+      "reviewDhash": 1629779969155974757,
+      "reviewSha256": "6a792f4f60f16b1c7ebbf1270b8cf2f30018e640a11e725947deb6870ddfc729"
+    },
+    {
+      "species": "dogs",
+      "pageid": 98256202,
+      "title": "File:Pies nierasowy, 20201225 1128 5278.jpg",
+      "localFile": "content/batch-001/media/98256202.source",
+      "reviewDimensions": [
+        960,
+        1122
+      ],
+      "reviewDhash": 12865678246742280036,
+      "reviewSha256": "697e45146284861c0fb69ea30d396037dd33d6cf2d7aea3185c6afd13cdd1785"
+    },
+    {
+      "species": "dogs",
+      "pageid": 100150891,
+      "title": "File:White dog sleeping on the floor with puppies after nursing in Don Det Laos.jpg",
+      "localFile": "content/batch-001/media/100150891.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 14559448093296829993,
+      "reviewSha256": "d722a3fd27fa9cd864c063a5bf3c09f659abf649f5ea3355431f61dc42d2a7c5"
+    },
+    {
+      "species": "dogs",
+      "pageid": 100150893,
+      "title": "File:Liver yellow dog in the water looking at viewer at golden hour in Don Det Laos.jpg",
+      "localFile": "content/batch-001/media/100150893.source",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 3182958823187850406,
+      "reviewSha256": "c2672ef67ad2a10781445960435d5c4daf330c274b285a188eee251fd5c61bc6"
+    },
+    {
+      "species": "dogs",
+      "pageid": 105449081,
+      "title": "File:Rusty 11y9m Irish Setter Uthandi Chennai May21 R16 04758.jpg",
+      "localFile": "content/batch-001/media/105449081.source",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 13310588419603806312,
+      "reviewSha256": "3aca2dc1de0f61de6ac293d24eef916c22e9e04a495a98c005115874b7bdcd91"
+    },
+    {
+      "species": "dogs",
+      "pageid": 112246939,
+      "title": "File:Dog costume parade in Sunset Park (16432).jpg",
+      "localFile": "content/batch-001/media/112246939.source",
+      "reviewDimensions": [
+        960,
+        786
+      ],
+      "reviewDhash": 15819748078467519371,
+      "reviewSha256": "d9045f358e78adcc131fd25a8af52f73694d61289cec3c21b23e4ed1736878bf"
+    },
+    {
+      "species": "dogs",
+      "pageid": 115563885,
+      "title": "File:Barbarella the Chinese crested puppy (12929).jpg",
+      "localFile": "content/batch-001/media/115563885.source",
+      "reviewDimensions": [
+        960,
+        890
+      ],
+      "reviewDhash": 11100816756607772005,
+      "reviewSha256": "8a9a443972c45565af7c6cadae4087aabda87133d3bda6616646553c93131e63"
+    },
+    {
+      "species": "dogs",
+      "pageid": 119744700,
+      "title": "File:Mermaid Parade 2022 (84671).jpg",
+      "localFile": "content/batch-001/media/119744700.source",
+      "reviewDimensions": [
+        960,
+        676
+      ],
+      "reviewDhash": 3824836827803751342,
+      "reviewSha256": "bf38b2b72910a3412062261e03458a9dbe4d342a3d689217c97b0979acb4d81a"
+    },
+    {
+      "species": "dogs",
+      "pageid": 120625485,
+      "title": "File:Puppy with a blow-up collar (53254).jpg",
+      "localFile": "content/batch-001/media/120625485.source",
+      "reviewDimensions": [
+        960,
+        926
+      ],
+      "reviewDhash": 14233208290462345069,
+      "reviewSha256": "56aeff9a2752295abe1d30ae872038f174227957340d96e905363f385a5414aa"
+    },
+    {
+      "species": "dogs",
+      "pageid": 124859918,
+      "title": "File:Chinese crested dog on the beach (13200).jpg",
+      "localFile": "content/batch-001/media/124859918.source",
+      "reviewDimensions": [
+        960,
+        652
+      ],
+      "reviewDhash": 14071824314522226022,
+      "reviewSha256": "f5cef8586d368864151aea2c618ab3aabe8446fc5ff5fcce94899e30c91b4f81"
+    },
+    {
+      "species": "dogs",
+      "pageid": 127882262,
+      "title": "File:Zazu the dog on Lion's Head mountain 34.jpg",
+      "localFile": "content/batch-001/media/127882262.source",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 6340992107219945355,
+      "reviewSha256": "bd73217c1083abbfdf16f20c977b80132947050ab62f2c79eabc483d2b1fbb7b"
+    },
+    {
+      "species": "dogs",
+      "pageid": 128486208,
+      "title": "File:Dülmen, Hausdülmen, Golden Retriever -- 2022 -- 5530.jpg",
+      "localFile": "content/batch-001/media/128486208.source",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 4254859050541935860,
+      "reviewSha256": "53813a4045ccb89162f870e3fa922aa879fde3ab223ebc8e23bbc7981fda5a7d"
+    },
+    {
+      "species": "dogs",
+      "pageid": 130434344,
+      "title": "File:Калевальский р-н, Боровой, ул.Гористая, собака (4).jpg",
+      "localFile": "content/batch-001/media/130434344.source",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 2824170904326661654,
+      "reviewSha256": "b46ba5d1d08cc619905f29b7a29ab6f39c3f364ca56b74bd4e23739380cb6ae8"
+    },
+    {
+      "species": "dogs",
+      "pageid": 133988088,
+      "title": "File:Dog, Helgafell, Snæfellsnes peninsula, Iceland, 20230505 1507 5224.jpg",
+      "localFile": "content/batch-001/media/133988088.source",
+      "reviewDimensions": [
+        960,
+        1438
+      ],
+      "reviewDhash": 14461963168327526616,
+      "reviewSha256": "df73170cd742a2f1618e626c33f1c14096908b98b375b3ac1ea9db55123d05c8"
+    },
+    {
+      "species": "dogs",
+      "pageid": 136179638,
+      "title": "File:Maltipoo (95574).jpg",
+      "localFile": "content/batch-001/media/136179638.source",
+      "reviewDimensions": [
+        960,
+        651
+      ],
+      "reviewDhash": 3546345073607134477,
+      "reviewSha256": "2c8d169120d46fbcde7b2c5321f74409b06cc673172fd54f3db9d897ffea383b"
+    },
+    {
+      "species": "dogs",
+      "pageid": 138057502,
+      "title": "File:Pies nierasowy, 20201003 1644 4305.jpg",
+      "localFile": "content/batch-001/media/138057502.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 8646549676734965497,
+      "reviewSha256": "ec02720f8d08319cf6fcc211f88984482c0c254a346a145362ad8f8ecb5f02b7"
+    },
+    {
+      "species": "dogs",
+      "pageid": 138057503,
+      "title": "File:Pies nierasowy, 20201003 0930 4295.jpg",
+      "localFile": "content/batch-001/media/138057503.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 4654247207788056503,
+      "reviewSha256": "acc643ffb3118452e86b5a1b545226498e878260c919d9cc41cdfea27835c93f"
+    },
+    {
+      "species": "dogs",
+      "pageid": 138057506,
+      "title": "File:Pies nierasowy, 20201225 1128 5275.jpg",
+      "localFile": "content/batch-001/media/138057506.source",
+      "reviewDimensions": [
+        960,
+        918
+      ],
+      "reviewDhash": 15716364878721508592,
+      "reviewSha256": "bb427baebbaa323f0377658b9cb41f4a8ab389f2e296b8413137f1b4c7c8acd1"
+    },
+    {
+      "species": "dogs",
+      "pageid": 138299853,
+      "title": "File:Interboot 2023, Friedrichshafen (P1130271).jpg",
+      "localFile": "content/batch-001/media/138299853.source",
+      "reviewDimensions": [
+        960,
+        1200
+      ],
+      "reviewDhash": 1663301832299283732,
+      "reviewSha256": "57887245e16e0ad7e3afc145b27be963ccb837e3397704ed075ee2cdbfcffcb6"
+    },
+    {
+      "species": "dogs",
+      "pageid": 140464727,
+      "title": "File:DLRG, Interboot 2023, Friedrichshafen (P1130225).jpg",
+      "localFile": "content/batch-001/media/140464727.source",
+      "reviewDimensions": [
+        960,
+        768
+      ],
+      "reviewDhash": 14180777448696078560,
+      "reviewSha256": "ab3a4b5818835da80c1cda53770b28b8807d5bc3c89a9248e6a7b516e79a3183"
+    },
+    {
+      "species": "dogs",
+      "pageid": 142023401,
+      "title": "File:A village dog.jpg",
+      "localFile": "content/batch-001/media/142023401.source",
+      "reviewDimensions": [
+        960,
+        636
+      ],
+      "reviewDhash": 18082698690810591643,
+      "reviewSha256": "c335c69d263f5282b3f8322e73dc789c5b3bcb53773e03d037e5214e1e7894b3"
+    },
+    {
+      "species": "dogs",
+      "pageid": 143038325,
+      "title": "File:Contre-jour photograph of a standing puppy at sunset with colorful sky in Don Det Laos.jpg",
+      "localFile": "content/batch-001/media/143038325.source",
+      "reviewDimensions": [
+        960,
+        818
+      ],
+      "reviewDhash": 14706912996454708741,
+      "reviewSha256": "a11b81c57dc36c2a22654f74d47e8a5266f4e74dd3f3506c1dabdaffc0eaa07e"
+    },
+    {
+      "species": "dogs",
+      "pageid": 143038327,
+      "title": "File:Two puppies playing together one standing over the other at golden hour in Don Det Laos.jpg",
+      "localFile": "content/batch-001/media/143038327.source",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 5579692873205288905,
+      "reviewSha256": "1e690328ccb170aedc19681efc0490d2aba47d8ac971576dc08c997772f359e5"
+    },
+    {
+      "species": "dogs",
+      "pageid": 143571499,
+      "title": "File:Human–canine friendship - smiling girl hugging her dog at golden hour in Laos.jpg",
+      "localFile": "content/batch-001/media/143571499.source",
+      "reviewDimensions": [
+        960,
+        1440
+      ],
+      "reviewDhash": 3619059129744432669,
+      "reviewSha256": "963157b8e4bc9627bbb1c7708c57324d9b4314252e9e408ad7d26b6a8b1a54d0"
+    },
+    {
+      "species": "dogs",
+      "pageid": 143571500,
+      "title": "File:Human–canine friendship - girl hugging her dog tightly at golden hour in Laos.jpg",
+      "localFile": "content/batch-001/media/143571500.source",
+      "reviewDimensions": [
+        960,
+        1440
+      ],
+      "reviewDhash": 3630881083119968021,
+      "reviewSha256": "79ffa912e9c9ee6d9682976d46617dcf95746aecc47995be8586d8e6041f99f0"
+    },
+    {
+      "species": "dogs",
+      "pageid": 146901153,
+      "title": "File:Two puppies playing in the countryside one standing over the other at golden hour in Don Det Laos.jpg",
+      "localFile": "content/batch-001/media/146901153.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 2767212446557347405,
+      "reviewSha256": "76d4cc2e0ba17beb5c907f260487f1cf348618f0ae6dca1d4fd6fdb79d467c2c"
+    },
+    {
+      "species": "dogs",
+      "pageid": 148299579,
+      "title": "File:West Highland White Terrier face portrait May 2023.jpg",
+      "localFile": "content/batch-001/media/148299579.source",
+      "reviewDimensions": [
+        960,
+        643
+      ],
+      "reviewDhash": 10848642182153646513,
+      "reviewSha256": "8b3fc99c49998df75b9ffb3a0ef251d6a50480aaee7222c1b3ae73d693c64cfb"
+    },
+    {
+      "species": "dogs",
+      "pageid": 148299580,
+      "title": "File:West Highland White Terrier lying on lawn May 2023.jpg",
+      "localFile": "content/batch-001/media/148299580.source",
+      "reviewDimensions": [
+        960,
+        643
+      ],
+      "reviewDhash": 13935903364937894457,
+      "reviewSha256": "c19aa869786062e98965ad7b2c589658db4b79d677f178e577720c776009915c"
+    },
+    {
+      "species": "dogs",
+      "pageid": 148399445,
+      "title": "File:Heimtier 002 2015 04 16.jpg",
+      "localFile": "content/batch-001/media/148399445.source",
+      "reviewDimensions": [
+        960,
+        617
+      ],
+      "reviewDhash": 13889242824790147712,
+      "reviewSha256": "7370612f3657ad487638b2f158c2f54e2766fb9c1bc4b91dab706ca5d59196df"
+    },
+    {
+      "species": "dogs",
+      "pageid": 148765413,
+      "title": "File:Hiking in the Voronezh Oblast - 001.jpg",
+      "localFile": "content/batch-001/media/148765413.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 661058747981575620,
+      "reviewSha256": "45c3631e9cd541a4e82e12b63adc2fe518933713019b78d9d73cd805c115a860"
+    },
+    {
+      "species": "dogs",
+      "pageid": 148766230,
+      "title": "File:Chegem-005.jpg",
+      "localFile": "content/batch-001/media/148766230.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 7581034513801907000,
+      "reviewSha256": "2dd048b70539837af261aa09142fd2b6b8d5976e210f3f87d686c0243d0fefef"
+    },
+    {
+      "species": "dogs",
+      "pageid": 149451185,
+      "title": "File:Алматы, роща Баума, пёс.jpg",
+      "localFile": "content/batch-001/media/149451185.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 6997792516165044147,
+      "reviewSha256": "ef00a720a5b1de307a33dede7bf3ad33d4660126282fc34bb0d0c33b2161c473"
+    },
+    {
+      "species": "dogs",
+      "pageid": 150378337,
+      "title": "File:Four puppies drinking their mother's milk, standing on a dirt road in Don Khon Laos.jpg",
+      "localFile": "content/batch-001/media/150378337.source",
+      "reviewDimensions": [
+        960,
+        768
+      ],
+      "reviewDhash": 884058357389650168,
+      "reviewSha256": "1bd7990398ae22d30898534520911325ffc1d00176c5faea430d901bdf9bd3c6"
+    },
+    {
+      "species": "dogs",
+      "pageid": 151164647,
+      "title": "File:Beagle in Viroinval (DSC04556).jpg",
+      "localFile": "content/batch-001/media/151164647.source",
+      "reviewDimensions": [
+        960,
+        619
+      ],
+      "reviewDhash": 9892519376552301209,
+      "reviewSha256": "8b5eea121327d310e9a57cb6133c15c17396d678b403daedf95f9fab2ef4cfd0"
+    },
+    {
+      "species": "dogs",
+      "pageid": 154906920,
+      "title": "File:Beagle sleeping in Hautmont (DSC07212).jpg",
+      "localFile": "content/batch-001/media/154906920.source",
+      "reviewDimensions": [
+        960,
+        639
+      ],
+      "reviewDhash": 2407553189375023343,
+      "reviewSha256": "4fb87a353b28e9f2692687bd698f29df7db3163ef9b1ea55663af022ab99a2da"
+    },
+    {
+      "species": "dogs",
+      "pageid": 156353344,
+      "title": "File:Балхаш, собаки в микрорайоне Мухаммеджанова (1).jpg",
+      "localFile": "content/batch-001/media/156353344.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 10095331919925399693,
+      "reviewSha256": "5f689a24bdc5a9eed4ed0d3b25deec0b49e631186575ae7952e9e16511bba305"
+    },
+    {
+      "species": "dogs",
+      "pageid": 156353345,
+      "title": "File:Балхаш, собака в микрорайоне Мухаммеджанова (1).jpg",
+      "localFile": "content/batch-001/media/156353345.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 1376865307764077328,
+      "reviewSha256": "9de004c15db5d0e32e1d2aa4fe0cc649437b8cb618a8a2b8956912c037ea4eb7"
+    },
+    {
+      "species": "dogs",
+      "pageid": 156353348,
+      "title": "File:Балхаш, собаки в микрорайоне Мухаммеджанова (2).jpg",
+      "localFile": "content/batch-001/media/156353348.source",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 6721891697027178720,
+      "reviewSha256": "c405a363c843b60f445603a23626c7e243de79ebb6e04a1f052a49fba4df8967"
+    },
+    {
+      "species": "dogs",
+      "pageid": 156353350,
+      "title": "File:Балхаш, собаки в микрорайоне Мухаммеджанова (3).jpg",
+      "localFile": "content/batch-001/media/156353350.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 9594750127746675021,
+      "reviewSha256": "e4bdad095ae3a4d5eaacd9e89ead583ab71ac7a8a4c5f34e5f4064d4e8372321"
+    },
+    {
+      "species": "dogs",
+      "pageid": 157356681,
+      "title": "File:Батуми, собака на Театральной площади.jpg",
+      "localFile": "content/batch-001/media/157356681.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 8519122567542432964,
+      "reviewSha256": "deca9545bf07493a8cf6b6d7ac5df594fd85f62b7d6368996bdc90a3b19b4dfb"
+    },
+    {
+      "species": "dogs",
+      "pageid": 157558693,
+      "title": "File:Гелати, собака у монастыря (2).jpg",
+      "localFile": "content/batch-001/media/157558693.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 12175693285151527333,
+      "reviewSha256": "eff2d2723683faed30493b291a7ebc058feffff61a7d09682d887206b606effd"
+    },
+    {
+      "species": "dogs",
+      "pageid": 157558694,
+      "title": "File:Гелати, собака у монастыря (1).jpg",
+      "localFile": "content/batch-001/media/157558694.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 7955366202426075428,
+      "reviewSha256": "816b46129a778ab411ab14ac1967e1a25ca5a612c6e648d9d4ae9907d06b5f20"
+    },
+    {
+      "species": "dogs",
+      "pageid": 159509921,
+      "title": "File:Курцхаар.jpg",
+      "localFile": "content/batch-001/media/159509921.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 1986962196009680202,
+      "reviewSha256": "f927b826bff09a5121168e2930b6101badb0f4f8a661b6fa26bc22826bd27c77"
+    }
+  ]
+}

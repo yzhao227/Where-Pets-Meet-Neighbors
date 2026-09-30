@@ -1,0 +1,58 @@
+[
+  {
+    "id": "knowledge-observe-rabbit-routine",
+    "title": "从前爪到耳朵，读一组兔子照片",
+    "text": "这组图把兔子的前爪、脸颊和停留姿态放在一起看。图一的浅色兔子把前爪抬到脸前，图二的棕色兔子低头整理身体，图三的灰兔伏在地面，前爪伸向前方。先找爪子的位置，再看耳朵和身体朝向，同样是兔子，每张照片都有不同的细节。三张图来自不同个体和场景，是并列观察，不是一只兔子的连续动作，也不能只凭静态姿态判断情绪。",
+    "imagePhotoIds": ["photo-commons-199018349", "photo-commons-69295425", "photo-commons-141266248"],
+    "circleId": "circle-small-pets", "animalTypes": ["rabbit"], "topics": ["行为观察", "治愈瞬间"]
+  },
+  {
+    "id": "knowledge-observe-bird-framing",
+    "title": "看鸟的三个角度：脸、身体和尾羽",
+    "text": "看一组鸟类照片，可以把注意力从脸部慢慢移到全身。图一是黄绿色小鸟的正面近景，喙与脸颊的颜色很醒目；图二保留了站立的树干，能同时看见爪子和身体；图三的蓝色小鸟侧身停在细枝上，折叠的翅膀和尾羽更清楚。三张照片中的鸟并非同一个体，也不全是同一种鸟。这组图比较的是取景角度，不用羽色或单个姿势推断年龄、性别与健康状况。",
+    "imagePhotoIds": ["photo-commons-31705969", "photo-commons-181503615", "photo-commons-155186024"],
+    "circleId": "circle-birds", "animalTypes": ["bird"], "topics": ["行为观察", "治愈瞬间"]
+  },
+  {
+    "id": "knowledge-observe-guppy-tails",
+    "title": "两条孔雀鱼，尾鳍各有细节",
+    "text": "把两张孔雀鱼侧面照片并排看，先找眼睛，再沿着身体看到尾鳍。图一的身体带蓝绿色光泽，尾部铺着细碎纹路；图二的尾鳍偏黄，深色线条更醒目。照片保留了各自的光线和拍摄角度，颜色会受到环境与成像影响。这里展示的是不同个体的外观差异，不是一条鱼成长或变色的前后对照，也不据此判断品系和健康状况。",
+    "imagePhotoIds": ["photo-commons-193433386", "photo-commons-18280751"],
+    "circleId": "circle-aquatics", "animalTypes": ["fish"], "topics": ["行为观察", "治愈瞬间"]
+  },
+  {
+    "id": "knowledge-observe-axolotl-colors",
+    "title": "深色与浅色，美西螈的两张侧影",
+    "text": "这两张美西螈照片适合从轮廓开始观察。图一的个体颜色较深，停在水草和木头旁；图二的个体颜色较浅，头部两侧的外鳃、四肢与尾部轮廓更容易分辨。试着在两图里依次找出头、腿和尾巴，会看到相似的身体结构，也会注意到背景带来的视觉差异。两图是不同个体和环境，并非一次变色记录；画面也不作为水质、造景或混养建议。",
+    "imagePhotoIds": ["photo-commons-46858283", "photo-commons-189264082"],
+    "circleId": "circle-exotics", "animalTypes": ["amphibian"], "topics": ["行为观察", "治愈瞬间"]
+  },
+  {
+    "id": "knowledge-observe-shrimp-scenes",
+    "title": "把视线放低，找找小虾的触角",
+    "text": "小虾在画面里不一定占很大位置，可以先看背景，再寻找身体轮廓。图一的蓝色虾停在浅色颗粒上，细长触角向外伸出；图二的小虾位于白色石块附近，需要多看一眼；图三的红色虾靠在叶片边缘，身体与叶脉叠在一起。三张照片来自不同场景，适合练习观察触角、步足和停留位置，不是同一只虾的活动路线，也不代表底材或饲养搭配推荐。",
+    "imagePhotoIds": ["photo-commons-200255842", "photo-commons-193124568", "photo-commons-38484097"],
+    "circleId": "circle-aquatics", "animalTypes": ["invertebrate"], "topics": ["行为观察", "治愈瞬间"]
+  },
+  {
+    "id": "knowledge-observe-gecko-details",
+    "title": "从叶丛到脸部，慢慢看清守宫",
+    "text": "同样是观察守宫，远景与近景会给出不同的信息。图一里，橙色的身体藏在绿色叶片间；图二能看见带斑纹的身体与周围石面；图三把视线拉到脸部，眼睛、鼻尖和斑纹成为主角。按环境、身体、脸部的顺序看图，可以练习在画面中寻找重点。这些照片来自不同个体与场景，不是一次拍摄的推进镜头，也不能据此判断它们属于同一种守宫。",
+    "imagePhotoIds": ["photo-commons-37443137", "photo-commons-113304301", "photo-commons-106922444"],
+    "circleId": "circle-exotics", "animalTypes": ["reptile"], "topics": ["行为观察", "治愈瞬间"]
+  },
+  {
+    "id": "knowledge-observe-chinchilla-features",
+    "title": "龙猫的耳朵、前爪与蓬松尾巴",
+    "text": "这组龙猫照片各自突出了一处细节。图一保留了灰色龙猫周围的平台与围栏，可以先找到它的位置；图二更靠近身体，圆耳朵、胡须和放在身前的小爪子都看得清楚；图三的白色龙猫侧身停着，弯起的蓬松尾巴很显眼。三张图来自不同个体与场景，是一组外观观察，不是同一只动物的日常日记，也不把照片中的围栏、平台或空间当作饲养标准。",
+    "imagePhotoIds": ["photo-commons-86374218", "photo-commons-175313100", "photo-commons-69408720"],
+    "circleId": "circle-small-pets", "animalTypes": ["small-mammal"], "topics": ["行为观察", "治愈瞬间"]
+  },
+  {
+    "id": "knowledge-observe-guinea-pig-coats",
+    "title": "短毛与长毛，豚鼠照片里的纹理",
+    "text": "看豚鼠照片时，可以把毛发当成一条观察线索。图一靠近脸部，深色毛发与胡须交错；图二展示金黄色短毛覆盖的身体侧面；图三里的毛发更长，深浅颜色沿身体铺开，旁边还能看见人的手。三张照片中的豚鼠是不同个体，比较的是画面里的毛发长度与纹理，不是换毛前后记录，也不能仅凭照片断定品种、年龄或健康情况。",
+    "imagePhotoIds": ["photo-commons-198523592", "photo-commons-156038624", "photo-commons-93435557"],
+    "circleId": "circle-small-pets", "animalTypes": ["small-mammal"], "topics": ["行为观察", "治愈瞬间"]
+  }
+]

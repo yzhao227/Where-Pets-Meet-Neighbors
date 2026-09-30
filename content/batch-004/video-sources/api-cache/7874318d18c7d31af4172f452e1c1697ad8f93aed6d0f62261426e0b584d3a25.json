@@ -1,0 +1,2745 @@
+{
+  "batchcomplete": true,
+  "continue": {
+    "gsroffset": 20,
+    "continue": "gsroffset||"
+  },
+  "query": {
+    "pages": [
+      {
+        "pageid": 19006510,
+        "ns": 6,
+        "title": "File:One month age sphynx HD.ogv",
+        "index": 20,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 87043523,
+            "width": 1920,
+            "height": 1080,
+            "duration": 103.32,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/One_month_age_sphynx_HD.ogv/960px--One_month_age_sphynx_HD.ogv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/One_month_age_sphynx_HD.ogv/1280px--One_month_age_sphynx_HD.ogv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/21/One_month_age_sphynx_HD.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:One_month_age_sphynx_HD.ogv",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=19006510",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2012-04-08 09:48:12",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "One month age sphynx HD",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Sphynx (cat)|Self-published work|Videos of cats|Videos of 2012 from Belarus|Files with coordinates missing SDC location of creation",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "GPSLatitude": {
+                "value": "53.877226",
+                "source": "commons-desc-page"
+              },
+              "GPSLongitude": {
+                "value": "27.614822",
+                "source": "commons-desc-page"
+              },
+              "GPSMapDatum": {
+                "value": "WGS-84",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Belarus, Minsk, 2012.\n<p>Sphynx cattery \"Sphynx-Energy\"\n</p>\nsphynx.by",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2012-03-05",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Vnon\" class=\"mw-redirect\" title=\"User:Vnon\">Vitaly Zdanevich</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/2/21/One_month_age_sphynx_HD.ogv?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/ogg; codecs=\"theora, vorbis\"",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 6739639
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/One_month_age_sphynx_HD.ogv/One_month_age_sphynx_HD.ogv.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 287120
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/One_month_age_sphynx_HD.ogv/One_month_age_sphynx_HD.ogv.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 960520
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/One_month_age_sphynx_HD.ogv/One_month_age_sphynx_HD.ogv.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 759864
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/One_month_age_sphynx_HD.ogv/One_month_age_sphynx_HD.ogv.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 3843688
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 20074545,
+        "ns": 6,
+        "title": "File:Felis silvestris catus (Monarca).ogv",
+        "index": 14,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 7701116,
+            "width": 1280,
+            "height": 720,
+            "duration": 18.685333333333332,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Felis_silvestris_catus_%28Monarca%29.ogv/960px--Felis_silvestris_catus_%28Monarca%29.ogv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Felis_silvestris_catus_%28Monarca%29.ogv/1280px--Felis_silvestris_catus_%28Monarca%29.ogv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Felis_silvestris_catus_%28Monarca%29.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Felis_silvestris_catus_(Monarca).ogv",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=20074545",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2012-06-29 21:31:54",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Felis silvestris catus (Monarca)",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Self-published work|Solid black cats|Ogv videos|Video display resolution 1280 x 720|Videos of grooming cats|Videos of playing cats",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Artist": {
+                "value": "<div class=\"fn value\">\n<a href=\"//commons.wikimedia.org/wiki/User:George_Miquilena\" title=\"User:George Miquilena\">George Miquilena</a></div>",
+                "source": "commons-desc-page"
+              },
+              "ImageDescription": {
+                "value": "A domestic cat (Felis catus or Felis silvestris catus) called Monarca.",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/9/90/Felis_silvestris_catus_%28Monarca%29.ogv?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/ogg; codecs=\"theora\"",
+                "width": 1280,
+                "height": 720,
+                "bandwidth": 3297181
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/9/90/Felis_silvestris_catus_%28Monarca%29.ogv/Felis_silvestris_catus_%28Monarca%29.ogv.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 316280
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/9/90/Felis_silvestris_catus_%28Monarca%29.ogv/Felis_silvestris_catus_%28Monarca%29.ogv.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 1005256
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/9/90/Felis_silvestris_catus_%28Monarca%29.ogv/Felis_silvestris_catus_%28Monarca%29.ogv.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 1172472
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 20128760,
+        "ns": 6,
+        "title": "File:Gatita negra Julio del 2012.ogv",
+        "index": 13,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 16449851,
+            "width": 1280,
+            "height": 720,
+            "duration": 39.80643333333333,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Gatita_negra_Julio_del_2012.ogv/960px--Gatita_negra_Julio_del_2012.ogv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Gatita_negra_Julio_del_2012.ogv/1280px--Gatita_negra_Julio_del_2012.ogv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Gatita_negra_Julio_del_2012.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Gatita_negra_Julio_del_2012.ogv",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=20128760",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2012-07-04 00:47:01",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Gatita negra Julio del 2012",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Female cats|Self-published work|Videos of cats|Ogv videos|Video display resolution 1280 x 720|Black cats with white medallion|Cats wagging tail",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Artist": {
+                "value": "<div class=\"fn value\">\n<a href=\"//commons.wikimedia.org/wiki/User:George_Miquilena\" title=\"User:George Miquilena\">George Miquilena</a></div>",
+                "source": "commons-desc-page"
+              },
+              "ImageDescription": {
+                "value": "A female domestic cat (Felis catus or Felis silvestris catus).",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Gatita_negra_Julio_del_2012.ogv?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/ogg; codecs=\"theora\"",
+                "width": 1280,
+                "height": 720,
+                "bandwidth": 3305968
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/5/5f/Gatita_negra_Julio_del_2012.ogv/Gatita_negra_Julio_del_2012.ogv.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 256672
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/5/5f/Gatita_negra_Julio_del_2012.ogv/Gatita_negra_Julio_del_2012.ogv.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 1005320
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/5/5f/Gatita_negra_Julio_del_2012.ogv/Gatita_negra_Julio_del_2012.ogv.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 940280
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 35498016,
+        "ns": 6,
+        "title": "File:Cat with phantom forelimb.webmhd.webm",
+        "index": 5,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 4670196,
+            "width": 1080,
+            "height": 606,
+            "duration": 19.7,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Cat_with_phantom_forelimb.webmhd.webm/960px--Cat_with_phantom_forelimb.webmhd.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 359,
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Cat_with_phantom_forelimb.webmhd.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Cat_with_phantom_forelimb.webmhd.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=35498016",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2014-09-20 02:29:16",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Cat with phantom forelimb.webmhd",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Phantom limbs|Diseases and disorders of cats|Self-published work|Three-legged cats",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "A cat several months after having its front left limb amputated. It still instinctively tries to scoop litter with it.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2014-09-19 19:26:56",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:AioftheStorm&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:AioftheStorm (page does not exist)\">AioftheStorm</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Cat_with_phantom_forelimb.webmhd.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp8, vorbis\"",
+                "width": 1080,
+                "height": 606,
+                "bandwidth": 1896526
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4f/Cat_with_phantom_forelimb.webmhd.webm/Cat_with_phantom_forelimb.webmhd.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 346376
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4f/Cat_with_phantom_forelimb.webmhd.webm/Cat_with_phantom_forelimb.webmhd.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 895224
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4f/Cat_with_phantom_forelimb.webmhd.webm/Cat_with_phantom_forelimb.webmhd.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 1134024
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 42616413,
+        "ns": 6,
+        "title": "File:Amasamiento de un gato.ogv",
+        "index": 18,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 13875959,
+            "width": 856,
+            "height": 480,
+            "duration": 47.08036666666667,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Amasamiento_de_un_gato.ogv/500px--Amasamiento_de_un_gato.ogv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 359,
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Amasamiento_de_un_gato.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Amasamiento_de_un_gato.ogv",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=42616413",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2015-08-24 16:26:09",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Amasamiento de un gato",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Self-published work|Cat paws and claws|Videos of kneading cats",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Cat kneading.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2015-08-24",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Tipar&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Tipar (page does not exist)\">Tipar</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/3/39/Amasamiento_de_un_gato.ogv?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/ogg; codecs=\"theora, vorbis\"",
+                "width": 856,
+                "height": 480,
+                "bandwidth": 2357833
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/39/Amasamiento_de_un_gato.ogv/Amasamiento_de_un_gato.ogv.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 238,
+                "bandwidth": 311064
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/39/Amasamiento_de_un_gato.ogv/Amasamiento_de_un_gato.ogv.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 358,
+                "bandwidth": 1139000
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/39/Amasamiento_de_un_gato.ogv/Amasamiento_de_un_gato.ogv.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 478,
+                "bandwidth": 790080
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 51409743,
+        "ns": 6,
+        "title": "File:Dipylidium-caninum-in-domestic-cat-feces.webm",
+        "index": 8,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 5970037,
+            "width": 1920,
+            "height": 1080,
+            "duration": 815171.976,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Dipylidium-caninum-in-domestic-cat-feces.webm/960px--Dipylidium-caninum-in-domestic-cat-feces.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Dipylidium-caninum-in-domestic-cat-feces.webm/1280px--Dipylidium-caninum-in-domestic-cat-feces.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Dipylidium-caninum-in-domestic-cat-feces.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Dipylidium-caninum-in-domestic-cat-feces.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=51409743",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2016-09-15 02:34:07",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Dipylidium-caninum-in-domestic-cat-feces",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Dipylidium caninum|CC-Zero|WebM videos|Self-published work|Video display resolution 1920 x 1080",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Live dipylidium caninum in domestic cat feces.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2016-09-08",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Acebarry\" title=\"User:Acebarry\">Acebarry</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Dipylidium-caninum-in-domestic-cat-feces.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp8\"",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 58
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/6f/Dipylidium-caninum-in-domestic-cat-feces.webm/Dipylidium-caninum-in-domestic-cat-feces.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 0
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/6f/Dipylidium-caninum-in-domestic-cat-feces.webm/Dipylidium-caninum-in-domestic-cat-feces.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 16
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/6f/Dipylidium-caninum-in-domestic-cat-feces.webm/Dipylidium-caninum-in-domestic-cat-feces.webm.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 80
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 76074090,
+        "ns": 6,
+        "title": "File:Ocicat on Cat Wheel.webm",
+        "index": 19,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 50293468,
+            "width": 1280,
+            "height": 720,
+            "duration": 63.847,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Ocicat_on_Cat_Wheel.webm/960px--Ocicat_on_Cat_Wheel.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Ocicat_on_Cat_Wheel.webm/1280px--Ocicat_on_Cat_Wheel.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Ocicat_on_Cat_Wheel.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Ocicat_on_Cat_Wheel.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=76074090",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2019-01-24 16:02:54",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Ocicat on Cat Wheel",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Ocicats|Uploaded with video2commons|Cat wheels",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Ocicat on a <a href=\"https://en.wikipedia.org/wiki/Hamster_wheel\" class=\"extiw\" title=\"w:Hamster wheel\">running wheel</a>",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Oldperson\" title=\"User:Oldperson\">Oldperson</a>",
+                "source": "commons-desc-page"
+              },
+              "Permission": {
+                "value": "<table style=\"width:100%; clear:both; text-align:center; margin:0.5em auto; background-color:var(--background-color-neutral-subtle, #f8f9fa); border:var(--border-subtle, 2px solid #c8ccd1); padding: 0; border-spacing: 8px; color:var(--color-base, #202122);\" dir=\"ltr\" class=\"layouttemplate licensetpl\" lang=\"en\">\n<tbody><tr>\n<td style=\"width:90px;\" rowspan=\"2\"><span class=\"skin-invert\" typeof=\"mw:File\"><span title=\"Creative Commons\"><img alt=\"Creative Commons\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Cc.logo.circle.svg/40px-Cc.logo.circle.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"28\" height=\"28\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Cc.logo.circle.svg/60px-Cc.logo.circle.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"64\" data-file-height=\"64\"></span></span> <span class=\"skin-invert\" typeof=\"mw:File\"><span title=\"CC-Zero\"><img alt=\"CC-Zero\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Cc-zero.svg/40px-Cc-zero.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"28\" height=\"28\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Cc-zero.svg/60px-Cc-zero.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"64\" data-file-height=\"64\"></span></span>\n</td>\n<td>This file is made available under the <a href=\"https://en.wikipedia.org/wiki/en:Creative_Commons\" class=\"extiw\" title=\"w:en:Creative Commons\">Creative Commons</a> <a href=\"https://creativecommons.org/publicdomain/zero/1.0/deed.en\" class=\"extiw\" title=\"ccorg:publicdomain/zero/1.0/deed.en\">CC0 1.0 Universal Public Domain Dedication</a>.\n</td></tr>\n<tr style=\"text-align:left;\">\n<td>The person who associated a work with this deed has dedicated the work to the <a href=\"https://en.wikipedia.org/wiki/en:public_domain\" class=\"extiw\" title=\"w:en:public domain\">public domain</a> by waiving all of their rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law. You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.\n<p><span class=\"licensetpl_link\" style=\"display:none;\">http://creativecommons.org/publicdomain/zero/1.0/deed.en</span><span class=\"licensetpl_short\" style=\"display:none;\">CC0</span><span class=\"licensetpl_long\" style=\"display:none;\">Creative Commons Zero, Public Domain Dedication</span><span class=\"licensetpl_link_req\" style=\"display:none;\">false</span><span class=\"licensetpl_attr_req\" style=\"display:none;\">false</span>\n</p>\n</td></tr></tbody></table>Own work, all rights released (Public domain)",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/4/48/Ocicat_on_Cat_Wheel.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9\"",
+                "width": 1280,
+                "height": 720,
+                "bandwidth": 6301748
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/48/Ocicat_on_Cat_Wheel.webm/Ocicat_on_Cat_Wheel.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 195072
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/48/Ocicat_on_Cat_Wheel.webm/Ocicat_on_Cat_Wheel.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 805384
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/48/Ocicat_on_Cat_Wheel.webm/Ocicat_on_Cat_Wheel.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 804688
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 79013639,
+        "ns": 6,
+        "title": "File:Cat chasing a pigeon.webm",
+        "index": 6,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 18199515,
+            "width": 640,
+            "height": 480,
+            "duration": 29.808,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Cat_chasing_a_pigeon.webm/500px--Cat_chasing_a_pigeon.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 480,
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Cat_chasing_a_pigeon.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Cat_chasing_a_pigeon.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79013639",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2019-05-17 16:28:44",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Cat chasing a pigeon",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Hunting cats|Media of the day|Videos of 2018|Uploaded with video2commons",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "A stray cat hunting for a pigeon. The cat miss the pigeon due to a jogger scaring the pigeon.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2018-11-03",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Jeromi_Mikhael\" title=\"User:Jeromi Mikhael\">Jeromi Mikhael</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/2/28/Cat_chasing_a_pigeon.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 640,
+                "height": 480,
+                "bandwidth": 4884464
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/28/Cat_chasing_a_pigeon.webm/Cat_chasing_a_pigeon.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 320,
+                "height": 240,
+                "bandwidth": 365368
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/28/Cat_chasing_a_pigeon.webm/Cat_chasing_a_pigeon.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 480,
+                "height": 360,
+                "bandwidth": 1139672
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/28/Cat_chasing_a_pigeon.webm/Cat_chasing_a_pigeon.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 640,
+                "height": 480,
+                "bandwidth": 1361432
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 80168679,
+        "ns": 6,
+        "title": "File:Burmese Kitten Grooming Itself.webm",
+        "index": 12,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 256322864,
+            "width": 3840,
+            "height": 2160,
+            "duration": 45.234,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Burmese_Kitten_Grooming_Itself.webm/960px--Burmese_Kitten_Grooming_Itself.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Burmese_Kitten_Grooming_Itself.webm/1280px--Burmese_Kitten_Grooming_Itself.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Burmese_Kitten_Grooming_Itself.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Burmese_Kitten_Grooming_Itself.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=80168679",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2019-07-04 23:01:28",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Burmese Kitten Grooming Itself",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|European Burmese cats|Self-published work|Videos of 2019|Uploaded with video2commons|Chocolate Burmese cats|Videos of grooming cats",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Chocolate (American \"Champagne\") British/European Female Kitten Grooming Itself",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2019-07-05",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "Alistair Findlay",
+                "source": "commons-desc-page"
+              },
+              "Permission": {
+                "value": "I, the copyright holder of this work, hereby publish it under the following license:",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Burmese_Kitten_Grooming_Itself.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 3840,
+                "height": 2160,
+                "bandwidth": 45332778
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/ed/Burmese_Kitten_Grooming_Itself.webm/Burmese_Kitten_Grooming_Itself.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 175208
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/ed/Burmese_Kitten_Grooming_Itself.webm/Burmese_Kitten_Grooming_Itself.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 1672584
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/ed/Burmese_Kitten_Grooming_Itself.webm/Burmese_Kitten_Grooming_Itself.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 412216
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/ed/Burmese_Kitten_Grooming_Itself.webm/Burmese_Kitten_Grooming_Itself.webm.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 1367232
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 90156104,
+        "ns": 6,
+        "title": "File:Cats mating.webm",
+        "index": 7,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 1304671,
+            "width": 1280,
+            "height": 768,
+            "duration": 41.377,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Cats_mating.webm/960px--Cats_mating.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 384,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Cats_mating.webm/1280px--Cats_mating.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/5/54/Cats_mating.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Cats_mating.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=90156104",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2020-05-13 16:26:35",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Cats mating",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Self-published work|Videos of mating cats",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "This is a video I have taken of my cats mating.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2020-05-13",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Drummyfish\" title=\"User:Drummyfish\">Drummyfish</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/5/54/Cats_mating.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 1280,
+                "height": 768,
+                "bandwidth": 252250
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/5/54/Cats_mating.webm/Cats_mating.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 400,
+                "height": 240,
+                "bandwidth": 201584
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/5/54/Cats_mating.webm/Cats_mating.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 600,
+                "height": 360,
+                "bandwidth": 929072
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/5/54/Cats_mating.webm/Cats_mating.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 800,
+                "height": 480,
+                "bandwidth": 416880
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 90186284,
+        "ns": 6,
+        "title": "File:Tomcats conflict.webm",
+        "index": 15,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 1919770,
+            "width": 640,
+            "height": 480,
+            "duration": 45.485,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Tomcats_conflict.webm/500px--Tomcats_conflict.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 480,
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Tomcats_conflict.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Tomcats_conflict.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=90186284",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2020-05-14 17:24:28",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Tomcats conflict",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Self-published work|Cats in unidentified locations|Videos of cat sounds|Videos of fighting cats",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "This is a video I have taken of two tomcats in a conflict situation, making loud calls.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2020-05-14",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Drummyfish\" title=\"User:Drummyfish\">Drummyfish</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/5/50/Tomcats_conflict.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 640,
+                "height": 480,
+                "bandwidth": 337653
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/5/50/Tomcats_conflict.webm/Tomcats_conflict.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 320,
+                "height": 240,
+                "bandwidth": 303240
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/5/50/Tomcats_conflict.webm/Tomcats_conflict.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 480,
+                "height": 360,
+                "bandwidth": 1135848
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/5/50/Tomcats_conflict.webm/Tomcats_conflict.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 640,
+                "height": 480,
+                "bandwidth": 716568
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 99462733,
+        "ns": 6,
+        "title": "File:Moomin1.webm",
+        "index": 16,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 4937564,
+            "width": 1080,
+            "height": 1920,
+            "duration": 19.074,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Moomin1.webm/960px--Moomin1.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 1138,
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Moomin1.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Moomin1.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=99462733",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2021-02-02 01:24:13",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Moomin1",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Female cats|Self-published work|Cats of Brazil|Black spotted tabby point cats|Videos of playing cats|Taken with Xiaomi Redmi Note 8",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Female housecat playing with a cotton bud",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2021-01-31",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Tet\" title=\"User:Tet\">User:Tet</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Moomin1.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 1080,
+                "height": 1920,
+                "bandwidth": 2070908
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c6/Moomin1.webm/Moomin1.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 136,
+                "height": 240,
+                "bandwidth": 319896
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c6/Moomin1.webm/Moomin1.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 202,
+                "height": 360,
+                "bandwidth": 1146368
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c6/Moomin1.webm/Moomin1.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 270,
+                "height": 480,
+                "bandwidth": 1032656
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c6/Moomin1.webm/Moomin1.webm.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 608,
+                "height": 1080,
+                "bandwidth": 4070544
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 99493371,
+        "ns": 6,
+        "title": "File:Moomin2.webm",
+        "index": 17,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 8559990,
+            "width": 1080,
+            "height": 1920,
+            "duration": 10.057,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Moomin2.webm/960px--Moomin2.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 1138,
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Moomin2.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Moomin2.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=99493371",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2021-02-02 02:41:52",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Moomin2",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Female cats|Self-published work|Cats of Brazil|Black spotted tabby point cats|Videos of grooming cats|Taken with Xiaomi Redmi Note 8",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "testing Wikimedia Commons video capabilities with a 1080p 60fps video",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2021-02-01",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Tet\" title=\"User:Tet\">User:Tet</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Moomin2.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 1080,
+                "height": 1920,
+                "bandwidth": 6809179
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/cd/Moomin2.webm/Moomin2.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 136,
+                "height": 240,
+                "bandwidth": 218096
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/cd/Moomin2.webm/Moomin2.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 202,
+                "height": 360,
+                "bandwidth": 1294256
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/cd/Moomin2.webm/Moomin2.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 270,
+                "height": 480,
+                "bandwidth": 464584
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/cd/Moomin2.webm/Moomin2.webm.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 608,
+                "height": 1080,
+                "bandwidth": 1481784
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 109487074,
+        "ns": 6,
+        "title": "File:A male cat grooms a female kitten 2021-08-25 August 25.webm",
+        "index": 4,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 24318200,
+            "width": 1920,
+            "height": 1080,
+            "duration": 29.362000000000002,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/A_male_cat_grooms_a_female_kitten_2021-08-25_August_25.webm/960px--A_male_cat_grooms_a_female_kitten_2021-08-25_August_25.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/A_male_cat_grooms_a_female_kitten_2021-08-25_August_25.webm/1280px--A_male_cat_grooms_a_female_kitten_2021-08-25_August_25.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/0/04/A_male_cat_grooms_a_female_kitten_2021-08-25_August_25.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:A_male_cat_grooms_a_female_kitten_2021-08-25_August_25.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=109487074",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2021-08-30 14:23:00",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "A male cat grooms a female kitten 2021-08-25 August 25",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Self-published work|PD-self|Videos of grooming cats",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "A male cat grooms a female kitten.\n<table class=\"licensetpl\" style=\"display:none\">\n<tbody><tr>\n<td><span class=\"licensetpl_short\">Public domain</span><span class=\"licensetpl_long\">Public domain</span><span class=\"licensetpl_link_req\">false</span><span class=\"licensetpl_attr_req\">false</span>\n</td></tr></tbody></table>\n<table style=\"width: 100%; clear: both; margin: 0.5em auto; background-color: var(--background-color-progressive-subtle, #f7f8ff); color: var(--color-base, #202122); border: var(--border-subtle, 2px solid #8888aa); border-spacing: 8px; padding: 0px;\" dir=\"ltr\" class=\"layouttemplate\" lang=\"en\">\n<tbody><tr>\n<td><span typeof=\"mw:File\"><span title=\"Public domain\"><img alt=\"Public domain\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/PD-icon.svg/120px-PD-icon.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"64\" height=\"64\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/PD-icon.svg/250px-PD-icon.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"196\" data-file-height=\"196\"></span></span>\n</td>\n<td>I, the copyright holder of this work, release this work into the <b><a href=\"https://en.wikipedia.org/wiki/en:public_domain\" class=\"extiw\" title=\"w:en:public domain\">public domain</a></b>. This applies worldwide.<br><small>In some countries this may not be legally possible; if so:</small><br><i>I grant anyone the right to use this work <b>for any purpose</b>, without any conditions, unless such conditions are required by law.</i>\n</td></tr></tbody></table>",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2021-08-25",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:%E3%82%A6%E3%82%A3%E3%82%AD%E5%A4%AA%E9%83%8E&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:ウィキ太郎 (page does not exist)\">ウィキ太郎(Wiki Taro)</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "Public domain",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Public domain",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Copyrighted": {
+                "value": "False",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "pd",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/0/04/A_male_cat_grooms_a_female_kitten_2021-08-25_August_25.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 6625761
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/04/A_male_cat_grooms_a_female_kitten_2021-08-25_August_25.webm/A_male_cat_grooms_a_female_kitten_2021-08-25_August_25.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 219032
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/04/A_male_cat_grooms_a_female_kitten_2021-08-25_August_25.webm/A_male_cat_grooms_a_female_kitten_2021-08-25_August_25.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 1142480
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/04/A_male_cat_grooms_a_female_kitten_2021-08-25_August_25.webm/A_male_cat_grooms_a_female_kitten_2021-08-25_August_25.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 628632
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/04/A_male_cat_grooms_a_female_kitten_2021-08-25_August_25.webm/A_male_cat_grooms_a_female_kitten_2021-08-25_August_25.webm.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 2255368
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 109718881,
+        "ns": 6,
+        "title": "File:Mating cats.webm",
+        "index": 10,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 364254207,
+            "width": 1920,
+            "height": 1080,
+            "duration": 267.107,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Mating_cats.webm/960px--Mating_cats.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Mating_cats.webm/1280px--Mating_cats.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Mating_cats.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Mating_cats.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=109718881",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2021-09-05 15:15:37",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Mating cats",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Uploaded with video2commons|Videos of mating cats",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Two cats mating in front of my house.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2021-05-27",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Jeromi_Mikhael\" title=\"User:Jeromi Mikhael\">Jeromi Mikhael</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Mating_cats.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 10909611
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a1/Mating_cats.webm/Mating_cats.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 298680
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a1/Mating_cats.webm/Mating_cats.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 1134192
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a1/Mating_cats.webm/Mating_cats.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 1004840
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a1/Mating_cats.webm/Mating_cats.webm.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 4939096
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 110215517,
+        "ns": 6,
+        "title": "File:Three orange kittens following their mother.webm",
+        "index": 11,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 64304578,
+            "width": 1920,
+            "height": 1080,
+            "duration": 25.54,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Three_orange_kittens_following_their_mother.webm/960px--Three_orange_kittens_following_their_mother.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Three_orange_kittens_following_their_mother.webm/1280px--Three_orange_kittens_following_their_mother.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/7/72/Three_orange_kittens_following_their_mother.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Three_orange_kittens_following_their_mother.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=110215517",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2021-09-19 16:43:47",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Three orange kittens following their mother",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Red tabby and white cats|Uploaded with video2commons|Kittens of Indonesia",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Three domestic kittens following their domestic cat mother",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "Thursday, July 9, 2020, 16:17:14",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Jeromi_Mikhael\" title=\"User:Jeromi Mikhael\">Jeromi Mikhael</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/7/72/Three_orange_kittens_following_their_mother.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 20142389
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/72/Three_orange_kittens_following_their_mother.webm/Three_orange_kittens_following_their_mother.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 412832
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/72/Three_orange_kittens_following_their_mother.webm/Three_orange_kittens_following_their_mother.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 1137264
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/72/Three_orange_kittens_following_their_mother.webm/Three_orange_kittens_following_their_mother.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 1351128
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/72/Three_orange_kittens_following_their_mother.webm/Three_orange_kittens_following_their_mother.webm.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 5187096
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 145638721,
+        "ns": 6,
+        "title": "File:Domestic catfight.webm",
+        "index": 1,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 135150326,
+            "width": 1920,
+            "height": 1080,
+            "duration": 38.207,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Domestic_catfight.webm/960px--Domestic_catfight.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Domestic_catfight.webm/1280px--Domestic_catfight.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Domestic_catfight.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Domestic_catfight.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=145638721",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2024-02-21 16:54:43",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Domestic catfight",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Self-published work|Videos of fighting cats",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Two domestic cats fighting",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2024-02-21",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Panini!\" title=\"User:Panini!\">Panini!</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Domestic_catfight.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 28298547
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b0/Domestic_catfight.webm/Domestic_catfight.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 401016
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b0/Domestic_catfight.webm/Domestic_catfight.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 1140392
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b0/Domestic_catfight.webm/Domestic_catfight.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 1091904
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b0/Domestic_catfight.webm/Domestic_catfight.webm.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 4054568
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 149606635,
+        "ns": 6,
+        "title": "File:Cat Jumpscare.webm",
+        "index": 3,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 14069604,
+            "width": 1920,
+            "height": 1080,
+            "duration": 10.35,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Cat_Jumpscare.webm/960px--Cat_Jumpscare.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Cat_Jumpscare.webm/1280px--Cat_Jumpscare.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Cat_Jumpscare.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Cat_Jumpscare.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=149606635",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2024-06-21 21:46:25",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Cat Jumpscare",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Cats|Self-published work",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "My cat named Stupid running up to the camera real fast",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2021-10-04",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Panini!\" title=\"User:Panini!\">Panini!</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/0/07/Cat_Jumpscare.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 10875056
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/07/Cat_Jumpscare.webm/Cat_Jumpscare.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 297208
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/07/Cat_Jumpscare.webm/Cat_Jumpscare.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 1146592
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/07/Cat_Jumpscare.webm/Cat_Jumpscare.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 843376
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/07/Cat_Jumpscare.webm/Cat_Jumpscare.webm.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 3589952
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 164818502,
+        "ns": 6,
+        "title": "File:Cat discovers it was being spied on.webm",
+        "index": 2,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 3856797,
+            "width": 720,
+            "height": 1280,
+            "duration": 7.901,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Cat_discovers_it_was_being_spied_on.webm/500px--Cat_discovers_it_was_being_spied_on.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 1138,
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/7/74/Cat_discovers_it_was_being_spied_on.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Cat_discovers_it_was_being_spied_on.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=164818502",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2025-05-06 12:44:56",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Cat discovers it was being spied on",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Balconies|Self-published work|Videos of cats|Unidentified cats",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Cat discovers it was being spied on from the person upstairs",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2023-09-10",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Yourusernamewillbepublic2&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Yourusernamewillbepublic2 (page does not exist)\">Yourusernamewillbepublic2</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/7/74/Cat_discovers_it_was_being_spied_on.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 720,
+                "height": 1280,
+                "bandwidth": 3905122
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/74/Cat_discovers_it_was_being_spied_on.webm/Cat_discovers_it_was_being_spied_on.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 136,
+                "height": 240,
+                "bandwidth": 204624
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/74/Cat_discovers_it_was_being_spied_on.webm/Cat_discovers_it_was_being_spied_on.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 202,
+                "height": 360,
+                "bandwidth": 1740464
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/74/Cat_discovers_it_was_being_spied_on.webm/Cat_discovers_it_was_being_spied_on.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 270,
+                "height": 480,
+                "bandwidth": 636432
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/74/Cat_discovers_it_was_being_spied_on.webm/Cat_discovers_it_was_being_spied_on.webm.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 608,
+                "height": 1080,
+                "bandwidth": 3534440
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 182639090,
+        "ns": 6,
+        "title": "File:Black Cat walking.webm",
+        "index": 9,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 127644113,
+            "width": 1920,
+            "height": 1080,
+            "duration": 18.875,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Black_Cat_walking.webm/960px--Black_Cat_walking.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Black_Cat_walking.webm/1280px--Black_Cat_walking.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Black_Cat_walking.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Black_Cat_walking.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=182639090",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2026-01-28 22:42:01",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Black Cat walking",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Self-published work|Videos of cats|Solid black cats|Outdoor cats",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Black Cat walking",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2026-01-28",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Dzkouslavia\" title=\"User:Dzkouslavia\">Dzkouslavia</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Black_Cat_walking.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, vorbis\"",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 54100816
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/e0/Black_Cat_walking.webm/Black_Cat_walking.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 336520
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/e0/Black_Cat_walking.webm/Black_Cat_walking.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 949896
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/e0/Black_Cat_walking.webm/Black_Cat_walking.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 890944
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/e0/Black_Cat_walking.webm/Black_Cat_walking.webm.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 3266208
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

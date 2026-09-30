@@ -1,0 +1,335 @@
+{
+  "sheets": [
+    {
+      "path": "output/content-review/batch04-cats-01.jpg",
+      "pageids": [
+        157145968,
+        158834098,
+        158834100,
+        158834108,
+        159367522,
+        159367523,
+        159367524,
+        159367525,
+        159808469,
+        159813584,
+        161866094,
+        163666282,
+        163690993,
+        164087072,
+        164731825,
+        165857318,
+        167786943,
+        167786951,
+        168291161,
+        168913117
+      ]
+    },
+    {
+      "path": "output/content-review/batch04-cats-02.jpg",
+      "pageids": [
+        169271049,
+        169629498,
+        169671657,
+        169799669
+      ]
+    }
+  ],
+  "records": [
+    {
+      "species": "cats",
+      "pageid": 157145968,
+      "title": "File:White cat and its owner.jpg",
+      "localFile": "content/batch-001/media/157145968.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 7225537858484193178,
+      "reviewSha256": "090438905a0e7c805ca3e39b6e6276470c88a5a0784e514d5b40d3d1f4d9df2a"
+    },
+    {
+      "species": "cats",
+      "pageid": 158834098,
+      "title": "File:Талгар, кошка на Кунаева-Малькеева (1).jpg",
+      "localFile": "content/batch-001/media/158834098.source",
+      "reviewDimensions": [
+        960,
+        1440
+      ],
+      "reviewDhash": 10154642638717695037,
+      "reviewSha256": "ee4512c2f83572707818421a6af4955e877ffdc7fd439cc8f39c1b42a4724d57"
+    },
+    {
+      "species": "cats",
+      "pageid": 158834100,
+      "title": "File:Талгар, кошка на Кунаева-Малькеева (3).jpg",
+      "localFile": "content/batch-001/media/158834100.source",
+      "reviewDimensions": [
+        960,
+        1440
+      ],
+      "reviewDhash": 15924081150142385261,
+      "reviewSha256": "f1a8029a4d8a8b623a706d747afffc1b20d36a882f7808d5c93c31f683638b1a"
+    },
+    {
+      "species": "cats",
+      "pageid": 158834108,
+      "title": "File:Талгар, кошка на Кунаева-Малькеева (2).jpg",
+      "localFile": "content/batch-001/media/158834108.source",
+      "reviewDimensions": [
+        960,
+        1440
+      ],
+      "reviewDhash": 15924067956539722860,
+      "reviewSha256": "37158a13b443d8804c39de3bf088c6b276c3436f8d672a0bf1e0650becfeeace"
+    },
+    {
+      "species": "cats",
+      "pageid": 159367522,
+      "title": "File:Cat in Marrakech, Morocco, 20250125 1014 7146.jpg",
+      "localFile": "content/batch-001/media/159367522.source",
+      "reviewDimensions": [
+        960,
+        704
+      ],
+      "reviewDhash": 4345934376317406894,
+      "reviewSha256": "f85f6a3007c17479159a8a95e47b455794944a6f39697207822b5a203b9e0a7c"
+    },
+    {
+      "species": "cats",
+      "pageid": 159367523,
+      "title": "File:Cat in Marrakech, Morocco, 20250125 1008 7136.jpg",
+      "localFile": "content/batch-001/media/159367523.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 4768270076175585989,
+      "reviewSha256": "5d16fcd75adee8b4664c6128b0903908b1a8325ec4625ba55ca11835ae579eaf"
+    },
+    {
+      "species": "cats",
+      "pageid": 159367524,
+      "title": "File:Cat in Marrakech, Morocco, 20250125 1008 7134.jpg",
+      "localFile": "content/batch-001/media/159367524.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 14134561032438321346,
+      "reviewSha256": "07fa3e419f4288414e41c1208e7d527c05b23f7eb58298c3f86e59e9e2025dce"
+    },
+    {
+      "species": "cats",
+      "pageid": 159367525,
+      "title": "File:Cat in Marrakech, Morocco, 20250125 1014 7148.jpg",
+      "localFile": "content/batch-001/media/159367525.source",
+      "reviewDimensions": [
+        960,
+        700
+      ],
+      "reviewDhash": 4066691148118126226,
+      "reviewSha256": "8e2bbdb39ade56bda8c1172a27dc42ae2c6ba4ef633b118575a6d85bb873e5d3"
+    },
+    {
+      "species": "cats",
+      "pageid": 159808469,
+      "title": "File:Cat in Marrakech, Morocco, 20250125 1014 7149.jpg",
+      "localFile": "content/batch-001/media/159808469.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 2046864094342833878,
+      "reviewSha256": "29657a6dc2163b78bf187a4f631b5d6776d52a26d9c4fcad923d3f262e2afdbc"
+    },
+    {
+      "species": "cats",
+      "pageid": 159813584,
+      "title": "File:Cat at Ouzoud Falls, Morocco, 20250126 1244 7446.jpg",
+      "localFile": "content/batch-001/media/159813584.source",
+      "reviewDimensions": [
+        960,
+        807
+      ],
+      "reviewDhash": 13617847108769137511,
+      "reviewSha256": "651570585f7aeef3ab604903cdfabe6b6e0e340278011617cb75db69408402e3"
+    },
+    {
+      "species": "cats",
+      "pageid": 161866094,
+      "title": "File:Kot domowy w Krakowie, 20250312 1003 3507.jpg",
+      "localFile": "content/batch-001/media/161866094.source",
+      "reviewDimensions": [
+        960,
+        952
+      ],
+      "reviewDhash": 10148194705202159514,
+      "reviewSha256": "a7fdfa69a07cf3fb2fa575cd53c93bf722d716ded3183e964863d66006b8422b"
+    },
+    {
+      "species": "cats",
+      "pageid": 163666282,
+      "title": "File:Black-White-Cat-Sitia-Crete-Greece.jpg",
+      "localFile": "content/batch-001/media/163666282.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 11035524013505719396,
+      "reviewSha256": "c6740ce320e989d1a3f244a93d31c5c6773fc3930994be9e59ba30aa2bfbd48d"
+    },
+    {
+      "species": "cats",
+      "pageid": 163690993,
+      "title": "File:Black-Cat-Sitia-Crete-Greece.jpg",
+      "localFile": "content/batch-001/media/163690993.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 11237297633446127841,
+      "reviewSha256": "7e4eb81ffd4f1f139268a41ffbade8682b843b4bd78da40c9ee49659d17e3eef"
+    },
+    {
+      "species": "cats",
+      "pageid": 164087072,
+      "title": "File:Cat. Tashkent, Foziltepa street.jpg",
+      "localFile": "content/batch-001/media/164087072.source",
+      "reviewDimensions": [
+        960,
+        618
+      ],
+      "reviewDhash": 4340411333103222247,
+      "reviewSha256": "61fc8de8257aae43a33791628ec72b84353ad0b3ba7434954edfd578147923d2"
+    },
+    {
+      "species": "cats",
+      "pageid": 164731825,
+      "title": "File:Алматы. Котик на Тимирязева.jpg",
+      "localFile": "content/batch-001/media/164731825.source",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 16459700001479701678,
+      "reviewSha256": "6bd762f82b1324c8c5c92d0fb582ad27f73284d4b7722d7e4f991459f272a572"
+    },
+    {
+      "species": "cats",
+      "pageid": 165857318,
+      "title": "File:Бишкек, кот в траве на Элебесова.jpg",
+      "localFile": "content/batch-001/media/165857318.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 12786687949056298125,
+      "reviewSha256": "c8e492c233011859e0482ce55d00628269809707a0693d6492589f4e9e15f4bf"
+    },
+    {
+      "species": "cats",
+      "pageid": 167786943,
+      "title": "File:Медео, лестница здоровья, кошка (1).jpg",
+      "localFile": "content/batch-001/media/167786943.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 4498098706019551648,
+      "reviewSha256": "ad2a3a54de5d93bb610ae37981c72eb750fdb3cd93e5eaaf1c5222af346218f0"
+    },
+    {
+      "species": "cats",
+      "pageid": 167786951,
+      "title": "File:Медео, лестница здоровья, кошка (4).jpg",
+      "localFile": "content/batch-001/media/167786951.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 2178744346020990136,
+      "reviewSha256": "83cd24f9ee4bc6b51cedf7a5044f839839d4a0f0ee1134d131b2855c17212f24"
+    },
+    {
+      "species": "cats",
+      "pageid": 168291161,
+      "title": "File:Ginger. Amir Temur Street.jpg",
+      "localFile": "content/batch-001/media/168291161.source",
+      "reviewDimensions": [
+        960,
+        1280
+      ],
+      "reviewDhash": 8668733032581231339,
+      "reviewSha256": "4b9b2446596c51a047842226342c9684827f9b674ba3a1febc831b65bf98d304"
+    },
+    {
+      "species": "cats",
+      "pageid": 168913117,
+      "title": "File:Freiburg im Breisgau, Restaurant \"Katzentempel\" -- 2025 -- 8110.jpg",
+      "localFile": "content/batch-001/media/168913117.source",
+      "reviewDimensions": [
+        960,
+        1280
+      ],
+      "reviewDhash": 16787920453031441556,
+      "reviewSha256": "27d86ae415856c998ea387faf8a5d7c4fe4e6001fa8b88e78d413ad3ce498b5e"
+    },
+    {
+      "species": "cats",
+      "pageid": 169271049,
+      "title": "File:BLACK-WHITE-CAT-SITIA-CRETE-GREECE.jpg",
+      "localFile": "content/batch-001/media/169271049.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 3975988137211315235,
+      "reviewSha256": "537952c602f0bf49fd42eb040a7eeb3b2f577fc0eab4ce332485814c69b0b22d"
+    },
+    {
+      "species": "cats",
+      "pageid": 169629498,
+      "title": "File:Алматы, Медео, черный кот (1).jpg",
+      "localFile": "content/batch-001/media/169629498.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 9921984564138899532,
+      "reviewSha256": "e8d0f402b5d65b5865618fd4efbe160c21b72451739caeeffc64a1e3fd5e7fbe"
+    },
+    {
+      "species": "cats",
+      "pageid": 169671657,
+      "title": "File:BLACK-WHITE-CAT-SITIA-CRETE.jpg",
+      "localFile": "content/batch-001/media/169671657.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 217750706101972279,
+      "reviewSha256": "759502cc8c59005611dc94652a17a085020d19f0b32f9e60bc02929b394f32fb"
+    },
+    {
+      "species": "cats",
+      "pageid": 169799669,
+      "title": "File:Yovvoyi pishak005.jpg",
+      "localFile": "content/batch-001/media/169799669.source",
+      "reviewDimensions": [
+        960,
+        1280
+      ],
+      "reviewDhash": 1813025584499588128,
+      "reviewSha256": "eeaf00f208028ad9c2b622bb87c1781693917e77e55001e795db80e6c23847c6"
+    }
+  ],
+  "possibleDuplicates": [
+    {
+      "a": 158834100,
+      "b": 158834108,
+      "distance": 4
+    }
+  ]
+}

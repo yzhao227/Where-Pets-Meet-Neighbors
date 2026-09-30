@@ -1,0 +1,574 @@
+{
+  "sheets": [
+    {
+      "path": "output/content-review/cats-01.jpg",
+      "pageids": [
+        5256768,
+        29147950,
+        29147951,
+        34837111,
+        37527302,
+        37898714,
+        38348175,
+        46538993,
+        51359721,
+        52448864,
+        58448617,
+        60506411,
+        60565965,
+        60628153,
+        61598904,
+        61856994,
+        62351459,
+        63214506,
+        63214509,
+        63349505
+      ]
+    },
+    {
+      "path": "output/content-review/cats-02.jpg",
+      "pageids": [
+        63349519,
+        63349525,
+        63911568,
+        63912912,
+        64802769,
+        64876461,
+        64876462,
+        64876469,
+        65087787,
+        65087795,
+        65087798,
+        65087799,
+        66989080,
+        67049227,
+        67049232,
+        67248547,
+        67248548,
+        68508072,
+        68960756,
+        68960757
+      ]
+    },
+    {
+      "path": "output/content-review/cats-03.jpg",
+      "pageids": [
+        68960758,
+        68960760
+      ]
+    }
+  ],
+  "records": [
+    {
+      "species": "cats",
+      "pageid": 5256768,
+      "title": "File:Felis silvestris catus.007 - A Coruña.jpg",
+      "localFile": "content/batch-001/media/5256768.source",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 1818462825733895415,
+      "reviewSha256": "66dbcf22c1c35e0f06c49de45a91e21d34cd5bf80c2a0de22680bea41c8f81be"
+    },
+    {
+      "species": "cats",
+      "pageid": 29147950,
+      "title": "File:Clovelly (Devon, UK) -- 2013 -- 1337.jpg",
+      "localFile": "content/batch-001/media/29147950.source",
+      "reviewDimensions": [
+        960,
+        1342
+      ],
+      "reviewDhash": 17651778465898556653,
+      "reviewSha256": "a29a205692a343029d7f3388438a623a33fd7c5463e15a8786d83dab3101f0e4"
+    },
+    {
+      "species": "cats",
+      "pageid": 29147951,
+      "title": "File:Clovelly (Devon, UK) -- 2013 -- 1332.jpg",
+      "localFile": "content/batch-001/media/29147951.source",
+      "reviewDimensions": [
+        960,
+        805
+      ],
+      "reviewDhash": 11416245391190799040,
+      "reviewSha256": "f59d2fb4813de794923707f0c00236c61ca4b0ff734f34ef98bcdc582f5d3a37"
+    },
+    {
+      "species": "cats",
+      "pageid": 34837111,
+      "title": "File:Moni Preveli Cat 01.JPG",
+      "localFile": "content/batch-001/media/34837111.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 8385931808239575041,
+      "reviewSha256": "3b33412d2f047a36a5346f7d85af2a801e5f1f7bbd462ecf5e4bf0966c38840b"
+    },
+    {
+      "species": "cats",
+      "pageid": 37527302,
+      "title": "File:Cat June 2013-1a.jpg",
+      "localFile": "content/batch-001/media/37527302.source",
+      "reviewDimensions": [
+        960,
+        685
+      ],
+      "reviewDhash": 1803988687059852319,
+      "reviewSha256": "e3817c16c46aabf10e7086423b7ceac57ee12b6208c6f70f12bd39296c467097"
+    },
+    {
+      "species": "cats",
+      "pageid": 37898714,
+      "title": "File:Berndie 11062014 444.jpg",
+      "localFile": "content/batch-001/media/37898714.source",
+      "reviewDimensions": [
+        960,
+        638
+      ],
+      "reviewDhash": 3619287072974346473,
+      "reviewSha256": "93e3ffafc00ad9c38471cd1e22b3bc897b090193ab652efe96ecd2863f578b56"
+    },
+    {
+      "species": "cats",
+      "pageid": 38348175,
+      "title": "File:Muso di gatto europeo.JPG",
+      "localFile": "content/batch-001/media/38348175.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 1701685106123214156,
+      "reviewSha256": "dd391152256c1fc350fdb077dab6f80806340199779ab5e540b92fa294c3a4a2"
+    },
+    {
+      "species": "cats",
+      "pageid": 46538993,
+      "title": "File:Clovelly (Devon, UK), Katze -- 2013 -- 1337.jpg",
+      "localFile": "content/batch-001/media/46538993.source",
+      "reviewDimensions": [
+        960,
+        1200
+      ],
+      "reviewDhash": 16566488590724160745,
+      "reviewSha256": "c1337588e49173cdf851a40690e795d67d039a957e89b02667d909bb7d66f713"
+    },
+    {
+      "species": "cats",
+      "pageid": 51359721,
+      "title": "File:20160729 - Stray cat - Mandalay Hill - Mandalay, Myanmar - 5862.jpg",
+      "localFile": "content/batch-001/media/51359721.source",
+      "reviewDimensions": [
+        960,
+        636
+      ],
+      "reviewDhash": 6476706102913648120,
+      "reviewSha256": "6520d0cc84268dc2603d260f79d7c2478cc5f1ac1e9484b1c381eb28c4edf21e"
+    },
+    {
+      "species": "cats",
+      "pageid": 52448864,
+      "title": "File:London, Kensington High Street -- 2016 -- 4617.jpg",
+      "localFile": "content/batch-001/media/52448864.source",
+      "reviewDimensions": [
+        960,
+        768
+      ],
+      "reviewDhash": 7659014798419583602,
+      "reviewSha256": "ff6d41bc1072344ee3e63d154df5f4f84454600cbd1c770fb87c08b6b33dda59"
+    },
+    {
+      "species": "cats",
+      "pageid": 58448617,
+      "title": "File:20170501 Kot w trawie 6202.jpg",
+      "localFile": "content/batch-001/media/58448617.source",
+      "reviewDimensions": [
+        960,
+        636
+      ],
+      "reviewDhash": 13875931515694382196,
+      "reviewSha256": "89103e42a222ad8d6aa3d5ce7b5ef6135350b266a1873d69c23a96a647901615"
+    },
+    {
+      "species": "cats",
+      "pageid": 60506411,
+      "title": "File:20170604 Sphynx cat 7984.jpg",
+      "localFile": "content/batch-001/media/60506411.source",
+      "reviewDimensions": [
+        960,
+        796
+      ],
+      "reviewDhash": 8298791762348055564,
+      "reviewSha256": "8da06dd416b775ca0c4ad2bf4c417be705bdbe269d4b80716883666e328729eb"
+    },
+    {
+      "species": "cats",
+      "pageid": 60565965,
+      "title": "File:20170604 kot wystawa Kraków 8006.jpg",
+      "localFile": "content/batch-001/media/60565965.source",
+      "reviewDimensions": [
+        960,
+        947
+      ],
+      "reviewDhash": 3548243265674519475,
+      "reviewSha256": "de146036b3edb9e6e3aa22aec261e76d7d095952173fa869e801656b1e0832c3"
+    },
+    {
+      "species": "cats",
+      "pageid": 60628153,
+      "title": "File:20170604 kot na wystawie w Krakowie 7971.jpg",
+      "localFile": "content/batch-001/media/60628153.source",
+      "reviewDimensions": [
+        960,
+        636
+      ],
+      "reviewDhash": 11244404320317695558,
+      "reviewSha256": "3d5a131286a5f7959a22e4de4b9433f9c04da4e31bb120e804b8d2e28300c0cb"
+    },
+    {
+      "species": "cats",
+      "pageid": 61598904,
+      "title": "File:20170809 kot 5133 DxO.jpg",
+      "localFile": "content/batch-001/media/61598904.source",
+      "reviewDimensions": [
+        960,
+        989
+      ],
+      "reviewDhash": 7072788416924119331,
+      "reviewSha256": "01b497394b890c5ee377b494496ddf406398ef6d83ef105782bd23e43911f3f1"
+    },
+    {
+      "species": "cats",
+      "pageid": 61856994,
+      "title": "File:Startled blue-eyed cat (Unsplash).jpg",
+      "localFile": "content/batch-001/media/61856994.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 7738845907798446023,
+      "reviewSha256": "1fc197032ef150120ecd4b4032608e946f5a7047cb1cd9e65e9d4bc9e26eab6a"
+    },
+    {
+      "species": "cats",
+      "pageid": 62351459,
+      "title": "File:Pörtschach Winklern 10.-Oktober-Straße 67 schwarzer Kater 11092017 5509.jpg",
+      "localFile": "content/batch-001/media/62351459.source",
+      "reviewDimensions": [
+        960,
+        639
+      ],
+      "reviewDhash": 14324768189515555934,
+      "reviewSha256": "5436a1cb666a11ec8c6c508c8ba24a4d09fd4fa3ffb5bd21e84f4f6449a64d71"
+    },
+    {
+      "species": "cats",
+      "pageid": 63214506,
+      "title": "File:Santorin (GR), Akrotiri -- 2017 -- 2979.jpg",
+      "localFile": "content/batch-001/media/63214506.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 17988404851014673504,
+      "reviewSha256": "f37f97be5c56425c41e60144f42c01da6e1b416153c1219a936c0fa5bad05107"
+    },
+    {
+      "species": "cats",
+      "pageid": 63214509,
+      "title": "File:Santorin (GR), Akrotiri -- 2017 -- 2982.jpg",
+      "localFile": "content/batch-001/media/63214509.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 6826525097656356868,
+      "reviewSha256": "65c2ef52eff509b841c4fbcc6cac7c96282e5c5ed43ba20778dc35206165f2b7"
+    },
+    {
+      "species": "cats",
+      "pageid": 63349505,
+      "title": "File:Santorin (GR), Pirgos Kallistis -- 2017 -- 2926.jpg",
+      "localFile": "content/batch-001/media/63349505.source",
+      "reviewDimensions": [
+        960,
+        768
+      ],
+      "reviewDhash": 13268855909746625732,
+      "reviewSha256": "670b5e476b261b1ad8b42a34b8eb91b81ca9368fbaf7083b21985d92dcee227b"
+    },
+    {
+      "species": "cats",
+      "pageid": 63349519,
+      "title": "File:Santorin (GR), Pirgos Kallistis -- 2017 -- 2928.jpg",
+      "localFile": "content/batch-001/media/63349519.source",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 12923145327219106855,
+      "reviewSha256": "de886c507756868b3c16408f4b46ebeb94c3e99684b21e6a31a5d6dffbb4d18f"
+    },
+    {
+      "species": "cats",
+      "pageid": 63349525,
+      "title": "File:Santorin (GR), Pirgos Kallistis -- 2017 -- 2933.jpg",
+      "localFile": "content/batch-001/media/63349525.source",
+      "reviewDimensions": [
+        960,
+        1200
+      ],
+      "reviewDhash": 4018012566856021566,
+      "reviewSha256": "aaefd349d786614ab8a9dc623b717a235c5b63ae972d0591c06a31c7d2f81592"
+    },
+    {
+      "species": "cats",
+      "pageid": 63911568,
+      "title": "File:Cat side2017.jpg",
+      "localFile": "content/batch-001/media/63911568.source",
+      "reviewDimensions": [
+        960,
+        848
+      ],
+      "reviewDhash": 11040965791901270811,
+      "reviewSha256": "0186648c814334ff0e47abde64424a1dafb34f5506ec0ea504674d8f2f26cd42"
+    },
+    {
+      "species": "cats",
+      "pageid": 63912912,
+      "title": "File:Cat front2017.jpg",
+      "localFile": "content/batch-001/media/63912912.source",
+      "reviewDimensions": [
+        960,
+        742
+      ],
+      "reviewDhash": 11068117020005747981,
+      "reviewSha256": "eaf9f7c1b7900e8ab5c3686a322d9151a84d2799b6e0647205835ee3f1517de3"
+    },
+    {
+      "species": "cats",
+      "pageid": 64802769,
+      "title": "File:Hissing cats.jpg",
+      "localFile": "content/batch-001/media/64802769.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 15118939717081581056,
+      "reviewSha256": "657f7764086b13c755b4fd98ad59e1ed37a2a3a9dea7bfdb3db6db6240564dfe"
+    },
+    {
+      "species": "cats",
+      "pageid": 64876461,
+      "title": "File:Larry the cat trying out his harness for the first time in Auderghem, Belgium (facing).jpg",
+      "localFile": "content/batch-001/media/64876461.source",
+      "reviewDimensions": [
+        960,
+        688
+      ],
+      "reviewDhash": 5074516228070722887,
+      "reviewSha256": "c2c2eefafdf8dbf594477f9c55b2a2ddbddb17c2ae0210c93457027e722a52c0"
+    },
+    {
+      "species": "cats",
+      "pageid": 64876462,
+      "title": "File:Cat in a harness being held by a pink human in Auderghem, Belgium.jpg",
+      "localFile": "content/batch-001/media/64876462.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 5774748383715234695,
+      "reviewSha256": "974c84a8f974b79a78b8ceb8eef5e3cb4a4def8006b34d264db0351029d9476c"
+    },
+    {
+      "species": "cats",
+      "pageid": 64876469,
+      "title": "File:Larry the cat trying out his harness for the first time in Auderghem, Belgium (sideways).jpg",
+      "localFile": "content/batch-001/media/64876469.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 5642463889389849947,
+      "reviewSha256": "30154b5842a4dcef9f5c8ce3d2b7eb8fb2bd990735b764a0a905efd5efd864a5"
+    },
+    {
+      "species": "cats",
+      "pageid": 65087787,
+      "title": "File:Larry the cat sitting besides a wooden lawn chair in Auderghem, Belgium (DSCF2368).jpg",
+      "localFile": "content/batch-001/media/65087787.source",
+      "reviewDimensions": [
+        960,
+        615
+      ],
+      "reviewDhash": 2097863828706252571,
+      "reviewSha256": "f33fd12f54651a51c99c9dce8aeab98c05dfd09dbec88091dc39fcd08713cdf3"
+    },
+    {
+      "species": "cats",
+      "pageid": 65087795,
+      "title": "File:Larry the cat standing on grass and licking his nose in Auderghem, Belgium (DSCF2372).jpg",
+      "localFile": "content/batch-001/media/65087795.source",
+      "reviewDimensions": [
+        960,
+        469
+      ],
+      "reviewDhash": 14577755719499585909,
+      "reviewSha256": "fb8c115ceef9b7ef8f420422491b205ed93e7bab28e8d4765fb96de5146bd0c9"
+    },
+    {
+      "species": "cats",
+      "pageid": 65087798,
+      "title": "File:Larry the cat standing on gravel and verociously attacking a wool string in Auderghem, Belgium (DSCF2327).jpg",
+      "localFile": "content/batch-001/media/65087798.source",
+      "reviewDimensions": [
+        960,
+        589
+      ],
+      "reviewDhash": 4856363802769507210,
+      "reviewSha256": "f87922dc97b13004ce4cfcd7a5c73b74ec450597c16a0b658da9869811fc7cbf"
+    },
+    {
+      "species": "cats",
+      "pageid": 65087799,
+      "title": "File:Larry the cat standing on gravel and gently pulling on a wool string in Auderghem, Belgium (DSCF2328).jpg",
+      "localFile": "content/batch-001/media/65087799.source",
+      "reviewDimensions": [
+        960,
+        679
+      ],
+      "reviewDhash": 533435921796974378,
+      "reviewSha256": "b83333191f5dae32b1469a66b16cab068c5cc004c3e34c063adc0a28d5007feb"
+    },
+    {
+      "species": "cats",
+      "pageid": 66989080,
+      "title": "File:Ganjali Khan Complex, Kerman - fountain.jpg",
+      "localFile": "content/batch-001/media/66989080.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 9534839182106028643,
+      "reviewSha256": "628df658d269badb003432c2f6736086dd57b2e5c17505f90e4dc0d0e1daa78f"
+    },
+    {
+      "species": "cats",
+      "pageid": 67049227,
+      "title": "File:1 chat noir 01.jpg",
+      "localFile": "content/batch-001/media/67049227.source",
+      "reviewDimensions": [
+        960,
+        684
+      ],
+      "reviewDhash": 9784576794099833054,
+      "reviewSha256": "b778a1e8b8be19e146573cec61d16d2b41588973f28dce2110118ff07987f786"
+    },
+    {
+      "species": "cats",
+      "pageid": 67049232,
+      "title": "File:1 chat noir 04.jpg",
+      "localFile": "content/batch-001/media/67049232.source",
+      "reviewDimensions": [
+        960,
+        1708
+      ],
+      "reviewDhash": 7557543531959348449,
+      "reviewSha256": "93dbee2378f7cb5d3b834492c003e713a4f62d77295d8baef8be51f863533a79"
+    },
+    {
+      "species": "cats",
+      "pageid": 67248547,
+      "title": "File:2017 Kot domowy 2.jpg",
+      "localFile": "content/batch-001/media/67248547.source",
+      "reviewDimensions": [
+        960,
+        758
+      ],
+      "reviewDhash": 5785098901338770638,
+      "reviewSha256": "effd402da7312f234c9ad592c6f58710b7d2e64251ba22bb0ae2e909a6577203"
+    },
+    {
+      "species": "cats",
+      "pageid": 67248548,
+      "title": "File:2017 Kot domowy 1.jpg",
+      "localFile": "content/batch-001/media/67248548.source",
+      "reviewDimensions": [
+        960,
+        711
+      ],
+      "reviewDhash": 6938019854042320078,
+      "reviewSha256": "ff57257a29134ea3902a58de009b26b8f7291a09d80a168285d54c1bcec4a225"
+    },
+    {
+      "species": "cats",
+      "pageid": 68508072,
+      "title": "File:Felis silvestris catus lying on rice straw.jpg",
+      "localFile": "content/batch-001/media/68508072.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 829689301553876929,
+      "reviewSha256": "ac09d6b8811b26fd7a2701977dce25641393f58d003dec61c4f165ef8016da29"
+    },
+    {
+      "species": "cats",
+      "pageid": 68960756,
+      "title": "File:Cat biting the tail of a lizard.jpg",
+      "localFile": "content/batch-001/media/68960756.source",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 17133881873709389533,
+      "reviewSha256": "b3acaa9a8da0ffae71664ec32dda6dba253e7dd487d2726c041ca244fbaa669e"
+    },
+    {
+      "species": "cats",
+      "pageid": 68960757,
+      "title": "File:Curious cat starring at a lizard.jpg",
+      "localFile": "content/batch-001/media/68960757.source",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 3268521197519292831,
+      "reviewSha256": "42f382d891d6e7ace3b69ea1c67f5e841394ae0753e1e7034dfc55cd520e1e90"
+    },
+    {
+      "species": "cats",
+      "pageid": 68960758,
+      "title": "File:Cat playing with a lizard.jpg",
+      "localFile": "content/batch-001/media/68960758.source",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 2981747754049296790,
+      "reviewSha256": "97c55377437bd41b798853dc0530186bedbe0917b21583192684eecbd1dab226"
+    },
+    {
+      "species": "cats",
+      "pageid": 68960760,
+      "title": "File:Cat biting the tail of a lizard (2).jpg",
+      "localFile": "content/batch-001/media/68960760.source",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 12960673167987356256,
+      "reviewSha256": "65d7645ea78b912f86f9e07f97ec93946548ba45ef1244fff46743bbe95755e1"
+    }
+  ],
+  "possibleDuplicates": [
+    {
+      "a": 67248547,
+      "b": 67248548,
+      "distance": 4
+    }
+  ]
+}

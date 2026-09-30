@@ -1,0 +1,111 @@
+{
+  "pages": [
+    "pages/community/index",
+    "pages/nearby/index",
+    "pages/messages/index",
+    "pages/me/index",
+    "pages/circle/index",
+    "pages/circle-square/index",
+    "pages/post/index",
+    "pages/event/index",
+    "pages/compose/index",
+    "pages/profile/index",
+    "pages/records/index",
+    "pages/blocked/index",
+    "pages/manage/index",
+    "pages/moderation/index",
+    "pages/author/index",
+    "pages/register/index",
+    "pages/policy/index",
+    "pages/petstats/index",
+    "pages/operations/index",
+    "pages/local-detail/index",
+    "pages/places/index",
+    "pages/places-manage/index",
+    "pages/web/index"
+  ],
+  "subPackages": [
+    {
+      "root": "social",
+      "pages": [
+        "pages/friends/index",
+        "pages/group-create/index",
+        "pages/chat/index",
+        "pages/contribute/index",
+        "pages/submissions-manage/index"
+      ]
+    },
+    {
+      "root": "media",
+      "name": "media",
+      "pages": [
+        "pages/index"
+      ]
+    },
+    {
+      "root": "media2",
+      "name": "media2",
+      "pages": [
+        "pages/index"
+      ]
+    },
+    {
+      "root": "media3",
+      "name": "media3",
+      "pages": [
+        "pages/index"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTitleText": "有宠有邻",
+    "navigationBarBackgroundColor": "#FAF8F5",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FAF8F5",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#7B818A",
+    "selectedColor": "#CC4A37",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/community/index",
+        "text": "发现",
+        "iconPath": "assets/tab-community.png",
+        "selectedIconPath": "assets/tab-community-active.png"
+      },
+      {
+        "pagePath": "pages/nearby/index",
+        "text": "附近",
+        "iconPath": "assets/tab-nearby.png",
+        "selectedIconPath": "assets/tab-nearby-active.png"
+      },
+      {
+        "pagePath": "pages/messages/index",
+        "text": "消息",
+        "iconPath": "assets/tab-messages.png",
+        "selectedIconPath": "assets/tab-messages-active.png"
+      },
+      {
+        "pagePath": "pages/me/index",
+        "text": "我的",
+        "iconPath": "assets/tab-me.png",
+        "selectedIconPath": "assets/tab-me-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "仅在主动定位时计算公共地点距离，也可手选地点浏览"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation",
+    "chooseLocation"
+  ],
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

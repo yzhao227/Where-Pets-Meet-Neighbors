@@ -1,0 +1,570 @@
+[
+  {
+    "id": "video-commons-78173542",
+    "contentType": "video",
+    "title": "石头之间，像小花一样轻轻晃动",
+    "text": "灰白色的小触手在水里一伸一收，旁边是橙褐色的石面。镜头几乎没有移动，细微的摆动就成了这段画面的主角。留八秒，看看水下这一角。",
+    "circleId": "circle-aquatics",
+    "animalTypes": [
+      "invertebrate"
+    ],
+    "topics": [
+      "治愈瞬间"
+    ],
+    "editorId": "catalog-photo",
+    "source": {
+      "title": "Ozeaneum Stralsund 2019-04.webm",
+      "publisher": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Ozeaneum_Stralsund_2019-04.webm",
+      "author": "Sebastian Wallroth",
+      "checkedAt": "2026-09-30"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容复核",
+      "reviewedAt": "2026-09-30"
+    },
+    "images": [
+      {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ozeaneum_Stralsund_2019-04.webm",
+        "author": "Sebastian Wallroth",
+        "license": {
+          "name": "CC0",
+          "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "attribution": "Sebastian Wallroth；Ozeaneum Stralsund 2019-04.webm；Wikimedia Commons；CC0",
+        "url": "/assets/curated-poster/78173542.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/35/Ozeaneum_Stralsund_2019-04.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "modifiedDescription": "从选用片段第2秒提取JPEG封面帧，长边缩放至320像素并压缩，列表按比例裁切。",
+        "contentHash": "38fa93445b9e464b24d7d6feec27a854a156f7760c0e1143fa463951d7db5961"
+      }
+    ],
+    "video": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ozeaneum_Stralsund_2019-04.webm",
+      "author": "Sebastian Wallroth",
+      "license": {
+        "name": "CC0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "attribution": "Sebastian Wallroth；Ozeaneum Stralsund 2019-04.webm；Wikimedia Commons；CC0",
+      "url": "/media2/clips/78173542.mp4",
+      "poster": "/assets/curated-poster/78173542.jpg",
+      "durationSeconds": 8.0,
+      "width": 480,
+      "height": 270,
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/35/Ozeaneum_Stralsund_2019-04.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "contentHash": "8a2d1b107f0fb54a86db2194aa61d9ac6e8976eef354f994769d94d0e94e512d",
+      "modifiedDescription": "截取原片0–8.0秒，去除音轨，长边缩放至480像素后转为H.264 baseline MP4，20帧每秒。"
+    },
+    "sourceEvidence": {
+      "metadataFile": "content/batch-002/sources/videos-metadata.json",
+      "pageid": 78173542,
+      "downloadedFile": "content/batch-002/media/78173542.webm",
+      "preparedVideoFile": "content/batch-004/videos/78173542.mp4",
+      "posterFile": "content/batch-004/videos/78173542-poster.jpg",
+      "visualReview": "content/batch-004/video-review/78173542-review.jpg",
+      "reviewRecord": "content/batch-004/video-review/evidence.json",
+      "reviewMethod": "实际检查选用片段的每0.5秒抽帧接触图及对应封面；编码无音轨。",
+      "reviewMode": "saved-source-visual-review",
+      "collectionGroup": "videos",
+      "feedPosterFile": "content/batch-004/videos/78173542-feed.jpg"
+    }
+  },
+  {
+    "id": "video-commons-134637319",
+    "contentType": "video",
+    "title": "一顶透明的小伞，慢慢飘过",
+    "text": "浅色水母从深色背景前缓缓经过，伞状身体一张一合，细长的触手垂在下面。另一个身影偶尔从画面边缘出现，然后又慢慢错开。八秒的水下片段，保留了原片的节奏。",
+    "circleId": "circle-aquatics",
+    "animalTypes": [
+      "invertebrate"
+    ],
+    "topics": [
+      "治愈瞬间"
+    ],
+    "editorId": "catalog-photo",
+    "source": {
+      "title": "VIDEO Lion's mane jelly Aquarium of the Pacific July 2023.webm",
+      "publisher": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:VIDEO_Lion%27s_mane_jelly_Aquarium_of_the_Pacific_July_2023.webm",
+      "author": "Benoît Prieur",
+      "checkedAt": "2026-09-30"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容复核",
+      "reviewedAt": "2026-09-30"
+    },
+    "images": [
+      {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:VIDEO_Lion%27s_mane_jelly_Aquarium_of_the_Pacific_July_2023.webm",
+        "author": "Benoît Prieur",
+        "license": {
+          "name": "CC0",
+          "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "attribution": "Benoît Prieur；VIDEO Lion's mane jelly Aquarium of the Pacific July 2023.webm；Wikimedia Commons；CC0",
+        "url": "/assets/curated-poster/134637319.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/51/VIDEO_Lion%27s_mane_jelly_Aquarium_of_the_Pacific_July_2023.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "modifiedDescription": "从选用片段第2秒提取JPEG封面帧，长边缩放至320像素并压缩，列表按比例裁切。",
+        "contentHash": "9488563b8797dad65fdd053099011eba52ccaa98cb9936fdb7f10aa513225d3e"
+      }
+    ],
+    "video": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:VIDEO_Lion%27s_mane_jelly_Aquarium_of_the_Pacific_July_2023.webm",
+      "author": "Benoît Prieur",
+      "license": {
+        "name": "CC0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "attribution": "Benoît Prieur；VIDEO Lion's mane jelly Aquarium of the Pacific July 2023.webm；Wikimedia Commons；CC0",
+      "url": "/media2/clips/134637319.mp4",
+      "poster": "/assets/curated-poster/134637319.jpg",
+      "durationSeconds": 8.0,
+      "width": 270,
+      "height": 480,
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/51/VIDEO_Lion%27s_mane_jelly_Aquarium_of_the_Pacific_July_2023.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "contentHash": "89ec9527a79b90f03d6c4e94de673c310cb2c698c5a3ddc7b3bb8ab0095d7497",
+      "modifiedDescription": "截取原片0–8.0秒，去除音轨，长边缩放至480像素后转为H.264 baseline MP4，20帧每秒。"
+    },
+    "sourceEvidence": {
+      "metadataFile": "content/batch-002/sources/videos-metadata.json",
+      "pageid": 134637319,
+      "downloadedFile": "content/batch-002/media/134637319.webm",
+      "preparedVideoFile": "content/batch-004/videos/134637319.mp4",
+      "posterFile": "content/batch-004/videos/134637319-poster.jpg",
+      "visualReview": "content/batch-004/video-review/134637319-review.jpg",
+      "reviewRecord": "content/batch-004/video-review/evidence.json",
+      "reviewMethod": "实际检查选用片段的每0.5秒抽帧接触图及对应封面；编码无音轨。",
+      "reviewMode": "saved-source-visual-review",
+      "collectionGroup": "videos",
+      "feedPosterFile": "content/batch-004/videos/134637319-feed.jpg"
+    }
+  },
+  {
+    "id": "video-commons-149148402",
+    "contentType": "video",
+    "title": "蓝色水里，几朵小伞各走各的",
+    "text": "几只水母在蓝色水体里缓缓移动，镜头也跟着它们稍稍转动。它们有时聚在一起，有时从不同方向错开，圆圆的轮廓一直在变化。这里是一小段来自水族馆的日常影像。",
+    "circleId": "circle-aquatics",
+    "animalTypes": [
+      "invertebrate"
+    ],
+    "topics": [
+      "治愈瞬间"
+    ],
+    "editorId": "catalog-photo",
+    "source": {
+      "title": "Aquarium Boka - species 02.webm",
+      "publisher": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Aquarium_Boka_-_species_02.webm",
+      "author": "BuhaM",
+      "checkedAt": "2026-09-30"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容复核",
+      "reviewedAt": "2026-09-30"
+    },
+    "images": [
+      {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Boka_-_species_02.webm",
+        "author": "BuhaM",
+        "license": {
+          "name": "CC0",
+          "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "attribution": "BuhaM；Aquarium Boka - species 02.webm；Wikimedia Commons；CC0",
+        "url": "/assets/curated-poster/149148402.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Aquarium_Boka_-_species_02.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "modifiedDescription": "从选用片段第2秒提取JPEG封面帧，长边缩放至320像素并压缩，列表按比例裁切。",
+        "contentHash": "1f394c1fb68f3376f866105673dc9a479514f13879744c2d30b905a1fb41c7bc"
+      }
+    ],
+    "video": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Boka_-_species_02.webm",
+      "author": "BuhaM",
+      "license": {
+        "name": "CC0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "attribution": "BuhaM；Aquarium Boka - species 02.webm；Wikimedia Commons；CC0",
+      "url": "/media2/clips/149148402.mp4",
+      "poster": "/assets/curated-poster/149148402.jpg",
+      "durationSeconds": 8.0,
+      "width": 480,
+      "height": 270,
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Aquarium_Boka_-_species_02.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "contentHash": "6ff0ef8a680263b959f7059395aa8e8759d1b33169b8a32036c3886bb7a80ddf",
+      "modifiedDescription": "截取原片0–8.0秒，去除音轨，长边缩放至480像素后转为H.264 baseline MP4，20帧每秒。"
+    },
+    "sourceEvidence": {
+      "metadataFile": "content/batch-002/sources/videos-metadata.json",
+      "pageid": 149148402,
+      "downloadedFile": "content/batch-002/media/149148402.webm",
+      "preparedVideoFile": "content/batch-004/videos/149148402.mp4",
+      "posterFile": "content/batch-004/videos/149148402-poster.jpg",
+      "visualReview": "content/batch-004/video-review/149148402-review.jpg",
+      "reviewRecord": "content/batch-004/video-review/evidence.json",
+      "reviewMethod": "实际检查选用片段的每0.5秒抽帧接触图及对应封面；编码无音轨。",
+      "reviewMode": "saved-source-visual-review",
+      "collectionGroup": "videos",
+      "feedPosterFile": "content/batch-004/videos/149148402-feed.jpg"
+    }
+  },
+  {
+    "id": "video-commons-149148404",
+    "contentType": "video",
+    "title": "石头旁边，海鳝抬起了头",
+    "text": "一条带斑纹的海鳝盘在石头旁，抬起头张着嘴，身体大部分留在原地。另一条鱼从后方缓缓游过，镜头也随之往旁边移了一点。安静的水族箱里，这些小动作很醒目。",
+    "circleId": "circle-aquatics",
+    "animalTypes": [
+      "fish"
+    ],
+    "topics": [
+      "行为观察"
+    ],
+    "editorId": "catalog-photo",
+    "source": {
+      "title": "Aquarium Boka - species 01.webm",
+      "publisher": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Aquarium_Boka_-_species_01.webm",
+      "author": "BuhaM",
+      "checkedAt": "2026-09-30"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容复核",
+      "reviewedAt": "2026-09-30"
+    },
+    "images": [
+      {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Boka_-_species_01.webm",
+        "author": "BuhaM",
+        "license": {
+          "name": "CC0",
+          "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "attribution": "BuhaM；Aquarium Boka - species 01.webm；Wikimedia Commons；CC0",
+        "url": "/assets/curated-poster/149148404.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/Aquarium_Boka_-_species_01.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "modifiedDescription": "从选用片段第2秒提取JPEG封面帧，长边缩放至320像素并压缩，列表按比例裁切。",
+        "contentHash": "b092c369b0d8f8d608f5efa089866bcae6cbab337c30b6ca23a51b2cddc35522"
+      }
+    ],
+    "video": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Boka_-_species_01.webm",
+      "author": "BuhaM",
+      "license": {
+        "name": "CC0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "attribution": "BuhaM；Aquarium Boka - species 01.webm；Wikimedia Commons；CC0",
+      "url": "/media2/clips/149148404.mp4",
+      "poster": "/assets/curated-poster/149148404.jpg",
+      "durationSeconds": 8.0,
+      "width": 480,
+      "height": 270,
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/Aquarium_Boka_-_species_01.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "contentHash": "2b4f4e592158eda25d7d12d0cfb96dbde8249e7432883db7e8a05a8388f81497",
+      "modifiedDescription": "截取原片0–8.0秒，去除音轨，长边缩放至480像素后转为H.264 baseline MP4，20帧每秒。"
+    },
+    "sourceEvidence": {
+      "metadataFile": "content/batch-002/sources/videos-metadata.json",
+      "pageid": 149148404,
+      "downloadedFile": "content/batch-002/media/149148404.webm",
+      "preparedVideoFile": "content/batch-004/videos/149148404.mp4",
+      "posterFile": "content/batch-004/videos/149148404-poster.jpg",
+      "visualReview": "content/batch-004/video-review/149148404-review.jpg",
+      "reviewRecord": "content/batch-004/video-review/evidence.json",
+      "reviewMethod": "实际检查选用片段的每0.5秒抽帧接触图及对应封面；编码无音轨。",
+      "reviewMode": "saved-source-visual-review",
+      "collectionGroup": "videos",
+      "feedPosterFile": "content/batch-004/videos/149148404-feed.jpg"
+    }
+  },
+  {
+    "id": "video-commons-194760075",
+    "contentType": "video",
+    "title": "蓝绿色的水里，鱼群来来往往",
+    "text": "鱼群在蓝绿色的水体里不断穿过画面，有的贴着石面，有的从上方游过。镜头停在缸前，近处和远处的小身影交错着出现。把这一段水族馆片段留给喜欢看鱼的人。",
+    "circleId": "circle-aquatics",
+    "animalTypes": [
+      "fish"
+    ],
+    "topics": [
+      "治愈瞬间"
+    ],
+    "editorId": "catalog-photo",
+    "source": {
+      "title": "Barcelona Aquarium (video).webm",
+      "publisher": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Barcelona_Aquarium_(video).webm",
+      "author": "Eraevsky",
+      "checkedAt": "2026-09-30"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容复核",
+      "reviewedAt": "2026-09-30"
+    },
+    "images": [
+      {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barcelona_Aquarium_(video).webm",
+        "author": "Eraevsky",
+        "license": {
+          "name": "CC0",
+          "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "attribution": "Eraevsky；Barcelona Aquarium (video).webm；Wikimedia Commons；CC0",
+        "url": "/assets/curated-poster/194760075.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/Barcelona_Aquarium_%28video%29.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "modifiedDescription": "从选用片段第2秒提取JPEG封面帧，长边缩放至320像素并压缩，列表按比例裁切。",
+        "contentHash": "c9a5e8d350393d6181f8b35ed8752f6877059357ae6b7be5fc207b6d8c4390fe"
+      }
+    ],
+    "video": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barcelona_Aquarium_(video).webm",
+      "author": "Eraevsky",
+      "license": {
+        "name": "CC0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "attribution": "Eraevsky；Barcelona Aquarium (video).webm；Wikimedia Commons；CC0",
+      "url": "/media2/clips/194760075.mp4",
+      "poster": "/assets/curated-poster/194760075.jpg",
+      "durationSeconds": 8.0,
+      "width": 270,
+      "height": 480,
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/Barcelona_Aquarium_%28video%29.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "contentHash": "5f1847df4a5e460a93bad1aa657c8a0e8864bad5c756e108b8918991a65d324c",
+      "modifiedDescription": "截取原片0–8.0秒，去除音轨，长边缩放至480像素后转为H.264 baseline MP4，20帧每秒。"
+    },
+    "sourceEvidence": {
+      "metadataFile": "content/batch-002/sources/videos-metadata.json",
+      "pageid": 194760075,
+      "downloadedFile": "content/batch-002/media/194760075.webm",
+      "preparedVideoFile": "content/batch-004/videos/194760075.mp4",
+      "posterFile": "content/batch-004/videos/194760075-poster.jpg",
+      "visualReview": "content/batch-004/video-review/194760075-review.jpg",
+      "reviewRecord": "content/batch-004/video-review/evidence.json",
+      "reviewMethod": "实际检查选用片段的每0.5秒抽帧接触图及对应封面；编码无音轨。",
+      "reviewMode": "saved-source-visual-review",
+      "collectionGroup": "videos",
+      "feedPosterFile": "content/batch-004/videos/194760075-feed.jpg"
+    }
+  },
+  {
+    "id": "video-commons-19244332",
+    "contentType": "video",
+    "title": "小爪子没停，旁边的小圆团先走了",
+    "text": "几只灰白色仓鼠靠近画面中央，低着头忙自己的小动作。左边的一只先离开，剩下的小身影继续留在原处，脸颊和小爪子时不时动一下。这段只记录镜头里的片刻。",
+    "circleId": "circle-small-pets",
+    "animalTypes": [
+      "small-mammal"
+    ],
+    "topics": [
+      "陪伴日常"
+    ],
+    "editorId": "catalog-photo",
+    "source": {
+      "title": "Dwarf hamsters eating cooked, frozen beans - 03.ogv",
+      "publisher": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Dwarf_hamsters_eating_cooked,_frozen_beans_-_03.ogv",
+      "author": "Anna Frodesiak",
+      "checkedAt": "2026-09-30"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容复核",
+      "reviewedAt": "2026-09-30"
+    },
+    "images": [
+      {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dwarf_hamsters_eating_cooked,_frozen_beans_-_03.ogv",
+        "author": "Anna Frodesiak",
+        "license": {
+          "name": "CC0",
+          "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "attribution": "Anna Frodesiak；Dwarf hamsters eating cooked, frozen beans - 03.ogv；Wikimedia Commons；CC0",
+        "url": "/assets/curated-poster/19244332.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/83/Dwarf_hamsters_eating_cooked%2C_frozen_beans_-_03.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "modifiedDescription": "从选用片段第2秒提取JPEG封面帧，长边缩放至320像素并压缩，列表按比例裁切。",
+        "contentHash": "9071c54d064a087d8628372e478e830659c8e879a7c74a07465021edf51d11ba"
+      }
+    ],
+    "video": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dwarf_hamsters_eating_cooked,_frozen_beans_-_03.ogv",
+      "author": "Anna Frodesiak",
+      "license": {
+        "name": "CC0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "attribution": "Anna Frodesiak；Dwarf hamsters eating cooked, frozen beans - 03.ogv；Wikimedia Commons；CC0",
+      "url": "/media2/clips/19244332.mp4",
+      "poster": "/assets/curated-poster/19244332.jpg",
+      "durationSeconds": 8.0,
+      "width": 480,
+      "height": 360,
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/83/Dwarf_hamsters_eating_cooked%2C_frozen_beans_-_03.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "contentHash": "7fb07a541c543d09767cc7f0b92c4aa934008aed924202ccc1c97bdf023fca3b",
+      "modifiedDescription": "截取原片0–8.0秒，去除音轨，长边缩放至480像素后转为H.264 baseline MP4，20帧每秒。"
+    },
+    "sourceEvidence": {
+      "metadataFile": "content/batch-002/sources/videos-metadata.json",
+      "pageid": 19244332,
+      "downloadedFile": "content/batch-002/media/19244332.webm",
+      "preparedVideoFile": "content/batch-004/videos/19244332.mp4",
+      "posterFile": "content/batch-004/videos/19244332-poster.jpg",
+      "visualReview": "content/batch-004/video-review/19244332-review.jpg",
+      "reviewRecord": "content/batch-004/video-review/evidence.json",
+      "reviewMethod": "实际检查选用片段的每0.5秒抽帧接触图及对应封面；编码无音轨。",
+      "reviewMode": "saved-source-visual-review",
+      "collectionGroup": "videos",
+      "feedPosterFile": "content/batch-004/videos/19244332-feed.jpg"
+    }
+  },
+  {
+    "id": "video-commons-19244337",
+    "contentType": "video",
+    "title": "一圈小脑袋，中间有一抹绿色",
+    "text": "镜头靠近后，几只仓鼠围在一块绿色食物旁，小脑袋挨得很近。它们时不时换一下位置，又继续低头，毛茸茸的背影把画面填得满满的。几秒钟的小动作，也可以看得很入神。",
+    "circleId": "circle-small-pets",
+    "animalTypes": [
+      "small-mammal"
+    ],
+    "topics": [
+      "陪伴日常"
+    ],
+    "editorId": "catalog-photo",
+    "source": {
+      "title": "Dwarf hamsters eating cucumber - 01.ogv",
+      "publisher": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Dwarf_hamsters_eating_cucumber_-_01.ogv",
+      "author": "Anna Frodesiak",
+      "checkedAt": "2026-09-30"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容复核",
+      "reviewedAt": "2026-09-30"
+    },
+    "images": [
+      {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dwarf_hamsters_eating_cucumber_-_01.ogv",
+        "author": "Anna Frodesiak",
+        "license": {
+          "name": "CC0",
+          "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "attribution": "Anna Frodesiak；Dwarf hamsters eating cucumber - 01.ogv；Wikimedia Commons；CC0",
+        "url": "/assets/curated-poster/19244337.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Dwarf_hamsters_eating_cucumber_-_01.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "modifiedDescription": "从选用片段第2秒提取JPEG封面帧，长边缩放至320像素并压缩，列表按比例裁切。",
+        "contentHash": "8e52256c5e731536458f8a398e6f166558554df085416d19cfcc909f0d7fd08b"
+      }
+    ],
+    "video": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dwarf_hamsters_eating_cucumber_-_01.ogv",
+      "author": "Anna Frodesiak",
+      "license": {
+        "name": "CC0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "attribution": "Anna Frodesiak；Dwarf hamsters eating cucumber - 01.ogv；Wikimedia Commons；CC0",
+      "url": "/media2/clips/19244337.mp4",
+      "poster": "/assets/curated-poster/19244337.jpg",
+      "durationSeconds": 8.0,
+      "width": 480,
+      "height": 360,
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Dwarf_hamsters_eating_cucumber_-_01.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "contentHash": "0f007ced7529a5ad304699becc06b8f235eeffc85f6b61d53c0e49788a136a39",
+      "modifiedDescription": "截取原片0–8.0秒，去除音轨，长边缩放至480像素后转为H.264 baseline MP4，20帧每秒。"
+    },
+    "sourceEvidence": {
+      "metadataFile": "content/batch-002/sources/videos-metadata.json",
+      "pageid": 19244337,
+      "downloadedFile": "content/batch-002/media/19244337.webm",
+      "preparedVideoFile": "content/batch-004/videos/19244337.mp4",
+      "posterFile": "content/batch-004/videos/19244337-poster.jpg",
+      "visualReview": "content/batch-004/video-review/19244337-review.jpg",
+      "reviewRecord": "content/batch-004/video-review/evidence.json",
+      "reviewMethod": "实际检查选用片段的每0.5秒抽帧接触图及对应封面；编码无音轨。",
+      "reviewMode": "saved-source-visual-review",
+      "collectionGroup": "videos",
+      "feedPosterFile": "content/batch-004/videos/19244337-feed.jpg"
+    }
+  },
+  {
+    "id": "video-commons-21925981",
+    "contentType": "video",
+    "title": "小仓鼠上了转盘，一圈接一圈",
+    "text": "透明转盘上出现了仓鼠的小身影，它沿着边缘跑动，盘面也跟着转起来。镜头从上方拍下这段动作，条纹背影忽近忽远，偶尔又停在画面一侧。八秒，刚好看完这一小段忙碌。",
+    "circleId": "circle-small-pets",
+    "animalTypes": [
+      "small-mammal"
+    ],
+    "topics": [
+      "陪伴日常"
+    ],
+    "editorId": "catalog-photo",
+    "source": {
+      "title": "Dwarf hamsters running on disc.ogv",
+      "publisher": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Dwarf_hamsters_running_on_disc.ogv",
+      "author": "Anna Frodesiak",
+      "checkedAt": "2026-09-30"
+    },
+    "review": {
+      "status": "approved",
+      "reviewer": "有宠有邻内容复核",
+      "reviewedAt": "2026-09-30"
+    },
+    "images": [
+      {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dwarf_hamsters_running_on_disc.ogv",
+        "author": "Anna Frodesiak",
+        "license": {
+          "name": "CC0",
+          "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "attribution": "Anna Frodesiak；Dwarf hamsters running on disc.ogv；Wikimedia Commons；CC0",
+        "url": "/assets/curated-poster/21925981.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Dwarf_hamsters_running_on_disc.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "modifiedDescription": "从选用片段第2秒提取JPEG封面帧，长边缩放至320像素并压缩，列表按比例裁切。",
+        "contentHash": "31aeb404bf90f10cb2ba8cce09f2d3accf05f805346e4270ad7c90616cb8f342"
+      }
+    ],
+    "video": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dwarf_hamsters_running_on_disc.ogv",
+      "author": "Anna Frodesiak",
+      "license": {
+        "name": "CC0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "attribution": "Anna Frodesiak；Dwarf hamsters running on disc.ogv；Wikimedia Commons；CC0",
+      "url": "/media3/clips/21925981.mp4",
+      "poster": "/assets/curated-poster/21925981.jpg",
+      "durationSeconds": 8.0,
+      "width": 480,
+      "height": 320,
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Dwarf_hamsters_running_on_disc.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "contentHash": "00ab2eb6ea25aa117223c96b93ecab37e03eaeb0221e16b03107528188b490a0",
+      "modifiedDescription": "截取原片0–8.0秒，去除音轨，长边缩放至480像素后转为H.264 baseline MP4，20帧每秒。"
+    },
+    "sourceEvidence": {
+      "metadataFile": "content/batch-002/sources/videos-metadata.json",
+      "pageid": 21925981,
+      "downloadedFile": "content/batch-002/media/21925981.webm",
+      "preparedVideoFile": "content/batch-004/videos/21925981.mp4",
+      "posterFile": "content/batch-004/videos/21925981-poster.jpg",
+      "visualReview": "content/batch-004/video-review/21925981-review.jpg",
+      "reviewRecord": "content/batch-004/video-review/evidence.json",
+      "reviewMethod": "实际检查选用片段的每0.5秒抽帧接触图及对应封面；编码无音轨。",
+      "reviewMode": "saved-source-visual-review",
+      "collectionGroup": "videos",
+      "feedPosterFile": "content/batch-004/videos/21925981-feed.jpg"
+    }
+  }
+]

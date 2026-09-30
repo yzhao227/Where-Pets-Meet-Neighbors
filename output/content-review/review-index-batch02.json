@@ -1,0 +1,581 @@
+{
+  "sheets": [
+    {
+      "path": "output/content-review/batch02-cats-01.jpg",
+      "pageids": [
+        68960762,
+        70512369,
+        72090872,
+        72901449,
+        72945430,
+        73361847,
+        73509998,
+        73510019,
+        73530735,
+        74242422,
+        74549523,
+        75934756,
+        76097663,
+        76701455,
+        76701456,
+        76701458,
+        77323860,
+        79162873,
+        79162878,
+        79633124
+      ]
+    },
+    {
+      "path": "output/content-review/batch02-cats-02.jpg",
+      "pageids": [
+        81513944,
+        85679809,
+        85679811,
+        85682178,
+        85716671,
+        85737646,
+        87286420,
+        87745831,
+        89091565,
+        90278172,
+        91504124,
+        92166802,
+        93220894,
+        94379729,
+        94807912,
+        94808352,
+        94862895,
+        95494176,
+        97121195,
+        97121200
+      ]
+    },
+    {
+      "path": "output/content-review/batch02-cats-03.jpg",
+      "pageids": [
+        97183329,
+        97183953,
+        97407129
+      ]
+    }
+  ],
+  "records": [
+    {
+      "species": "cats",
+      "pageid": 68960762,
+      "title": "File:Curious cat starring at a lizard (2).jpg",
+      "localFile": "content/batch-001/media/68960762.source",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 14547999922553882136,
+      "reviewSha256": "7abfb57a57399de2c9f6bc08919dd4556436af88cc3f5fb3faf41569811eaaf2"
+    },
+    {
+      "species": "cats",
+      "pageid": 70512369,
+      "title": "File:Cochem, Oberbachstraße, Fenster -- 2018 -- 0011.jpg",
+      "localFile": "content/batch-001/media/70512369.source",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 7373449633603808428,
+      "reviewSha256": "76af712793a31f238241d52ffe7cd7402c09d4c71f23bc3c846348ecb9cbfc45"
+    },
+    {
+      "species": "cats",
+      "pageid": 72090872,
+      "title": "File:Brügge (B), Bonifatius-Brücke -- 2018 -- 8608.jpg",
+      "localFile": "content/batch-001/media/72090872.source",
+      "reviewDimensions": [
+        960,
+        1440
+      ],
+      "reviewDhash": 10145746049723931769,
+      "reviewSha256": "d880c20ecd4eaa835f1a73d25c59624345cc5bfddae0c9cf9542372c5fee12ff"
+    },
+    {
+      "species": "cats",
+      "pageid": 72901449,
+      "title": "File:Red cat Felis silvestris catus.jpg",
+      "localFile": "content/batch-001/media/72901449.source",
+      "reviewDimensions": [
+        960,
+        1189
+      ],
+      "reviewDhash": 4493764693807876753,
+      "reviewSha256": "e144b28e620ea4e651ff565aac98ea3ba4a8124370d5497c9bea7d7388c5c810"
+    },
+    {
+      "species": "cats",
+      "pageid": 72945430,
+      "title": "File:Окно фасада, улица Ушакова, особняк.jpg",
+      "localFile": "content/batch-001/media/72945430.source",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 15263494581540610962,
+      "reviewSha256": "d32c10720a4cc7fb15cd606b69cbe1d463f8b768cdba62e24df46f6b30e061cd"
+    },
+    {
+      "species": "cats",
+      "pageid": 73361847,
+      "title": "File:Bicolor cat residing in the Bois-du-Luc workers' housing (DSCF7921).jpg",
+      "localFile": "content/batch-001/media/73361847.source",
+      "reviewDimensions": [
+        960,
+        1483
+      ],
+      "reviewDhash": 12941245004257988161,
+      "reviewSha256": "880aa988c402ceb4496181fbd76bd39f31aa88611726c3f35deea317eeaedb8d"
+    },
+    {
+      "species": "cats",
+      "pageid": 73509998,
+      "title": "File:Korfu (GR), Nissaki, Kloster von Ipsilos -- 2018 -- 0989.jpg",
+      "localFile": "content/batch-001/media/73509998.source",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 12907661215456338003,
+      "reviewSha256": "d61728a7debc902dac08da4c0dfb4a5ab22eaef4699b0ede7847f5ba27a38b8f"
+    },
+    {
+      "species": "cats",
+      "pageid": 73510019,
+      "title": "File:Korfu (GR), Nissaki, Kloster von Ipsilos -- 2018 -- 1020.jpg",
+      "localFile": "content/batch-001/media/73510019.source",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 10271934378418449928,
+      "reviewSha256": "95d3d4ed8f4a66e60a27ee7e038f0f04322db8476cf7dba51e0ec0100ad61bde"
+    },
+    {
+      "species": "cats",
+      "pageid": 73530735,
+      "title": "File:Korfu (GR), Kassiopi -- 2018 -- 1085.jpg",
+      "localFile": "content/batch-001/media/73530735.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 2749010829212940484,
+      "reviewSha256": "c583bdfda0e989c315cac2bb170b298dfa2fa345b22b967d0dd5a83a8fad3e08"
+    },
+    {
+      "species": "cats",
+      "pageid": 74242422,
+      "title": "File:20171118 Kot w Wientianie 3030 DxO.jpg",
+      "localFile": "content/batch-001/media/74242422.source",
+      "reviewDimensions": [
+        960,
+        636
+      ],
+      "reviewDhash": 542621531430502849,
+      "reviewSha256": "bc24ea2d69537cef59eefeae44bf13daa8a9ef488a16fecf1442b4b20feb484f"
+    },
+    {
+      "species": "cats",
+      "pageid": 74549523,
+      "title": "File:Felis silvestris catus sitting on rice straw.jpg",
+      "localFile": "content/batch-001/media/74549523.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 1518565222346856211,
+      "reviewSha256": "054cada7f7acb8264ed3e678509e587ef3bbb785aeac77074d0540d7d776c265"
+    },
+    {
+      "species": "cats",
+      "pageid": 75934756,
+      "title": "File:Naro, blue-eyed cross-siamese cat, at Josselin 04.jpg",
+      "localFile": "content/batch-001/media/75934756.source",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 5989514238710200125,
+      "reviewSha256": "1378494a7c730637bf1049f1a9193b2dd79bb69a64ad9e15fc0677347a908ed2"
+    },
+    {
+      "species": "cats",
+      "pageid": 76097663,
+      "title": "File:Young tabby cat keeping watch.jpg",
+      "localFile": "content/batch-001/media/76097663.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 8753165027952519580,
+      "reviewSha256": "09c6f7fd7b6044e01c8339722f3010cb4f5751c82ab5891cde330bb3c666409f"
+    },
+    {
+      "species": "cats",
+      "pageid": 76701455,
+      "title": "File:Siberian black tabby blotched cat 03.jpg",
+      "localFile": "content/batch-001/media/76701455.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 11352982912080189110,
+      "reviewSha256": "788ed9669b8e26bf06f8ce58f51e76f347e10d366aeb4aa7888ae6e2ebe0dd5d"
+    },
+    {
+      "species": "cats",
+      "pageid": 76701456,
+      "title": "File:Siberian black tabby blotched cat 01.jpg",
+      "localFile": "content/batch-001/media/76701456.source",
+      "reviewDimensions": [
+        960,
+        1440
+      ],
+      "reviewDhash": 9893569484110127883,
+      "reviewSha256": "5811cf917330a39b16b54b70db513eaba7acdda1a86bf17f8df492e9d71b4c25"
+    },
+    {
+      "species": "cats",
+      "pageid": 76701458,
+      "title": "File:Siberian black tabby blotched cat 04.jpg",
+      "localFile": "content/batch-001/media/76701458.source",
+      "reviewDimensions": [
+        960,
+        1280
+      ],
+      "reviewDhash": 5624603247437925238,
+      "reviewSha256": "2b01a7935bf881d10dd55ba055622201f4b38f8a49af8f5367055e2f9f7ab35f"
+    },
+    {
+      "species": "cats",
+      "pageid": 77323860,
+      "title": "File:Roadside cat in Belœil, Belgium (DSCF4999).jpg",
+      "localFile": "content/batch-001/media/77323860.source",
+      "reviewDimensions": [
+        960,
+        653
+      ],
+      "reviewDhash": 6366126171865755649,
+      "reviewSha256": "33ec3136135e83c92e721d85d4448b9be05acf04dd9f2c5a55f3de9c5efb3cfb"
+    },
+    {
+      "species": "cats",
+      "pageid": 79162873,
+      "title": "File:Sphynx - studio portrait photographs of cats.jpg",
+      "localFile": "content/batch-001/media/79162873.source",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 10722064594582306044,
+      "reviewSha256": "39bc46976cece41ed4dac08fedfb3c8edaa1e2d4f0433d7754d160577111985c"
+    },
+    {
+      "species": "cats",
+      "pageid": 79162878,
+      "title": "File:Sphynx kittens.jpg",
+      "localFile": "content/batch-001/media/79162878.source",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 14757568041425954272,
+      "reviewSha256": "5e420ebf931700cb88e020a0fbda3093ddcbdb96c44c20d334004d11c037b4fa"
+    },
+    {
+      "species": "cats",
+      "pageid": 79633124,
+      "title": "File:Naro, blue-eyed cross-siamese cat, at Josselin 17.jpg",
+      "localFile": "content/batch-001/media/79633124.source",
+      "reviewDimensions": [
+        960,
+        661
+      ],
+      "reviewDhash": 18427988448946284423,
+      "reviewSha256": "2b9518c610168a792636eddcf4e22abbeccb1cb2ae74507e7935a5ffd4615e1a"
+    },
+    {
+      "species": "cats",
+      "pageid": 81513944,
+      "title": "File:Chat dans les herbes, Lotissement Chante Pie (Beynost) août 2019.jpg",
+      "localFile": "content/batch-001/media/81513944.source",
+      "reviewDimensions": [
+        960,
+        790
+      ],
+      "reviewDhash": 2869663881475264109,
+      "reviewSha256": "5bbc4f6935fc24730ec3af694516706afbf6037332f119ee5f64fd1773de1729"
+    },
+    {
+      "species": "cats",
+      "pageid": 85679809,
+      "title": "File:Gato Sphynx.jpg",
+      "localFile": "content/batch-001/media/85679809.source",
+      "reviewDimensions": [
+        960,
+        668
+      ],
+      "reviewDhash": 4557475066742949336,
+      "reviewSha256": "2823b6f1585f931d7e986475c8369d44ee592f035f8899f39ff35063c9904e5f"
+    },
+    {
+      "species": "cats",
+      "pageid": 85679811,
+      "title": "File:Chat Sphynx.jpg",
+      "localFile": "content/batch-001/media/85679811.source",
+      "reviewDimensions": [
+        960,
+        1263
+      ],
+      "reviewDhash": 17567564362334969005,
+      "reviewSha256": "0a4b7f0088e206d1ddeb2fdd2ef6809285afff0d5c06de03965e318b10d0d347"
+    },
+    {
+      "species": "cats",
+      "pageid": 85682178,
+      "title": "File:Cat Sphynx. img 025.jpg",
+      "localFile": "content/batch-001/media/85682178.source",
+      "reviewDimensions": [
+        960,
+        783
+      ],
+      "reviewDhash": 17632954645420199719,
+      "reviewSha256": "646f6d321e6a9fc0534d0f46a7a0ea2400d93a84ffe490fc7a66839dbbb75d89"
+    },
+    {
+      "species": "cats",
+      "pageid": 85716671,
+      "title": "File:1 adult cat Sphynx. img 047.jpg",
+      "localFile": "content/batch-001/media/85716671.source",
+      "reviewDimensions": [
+        960,
+        1113
+      ],
+      "reviewDhash": 11473936774467711001,
+      "reviewSha256": "798f3313ace92d1f0046247b340005d0704dd1df6212318d14b0813b7a8019a8"
+    },
+    {
+      "species": "cats",
+      "pageid": 85737646,
+      "title": "File:Stegna Στεγνά Rhodes Ρόδος 2019-11-26 27 cat.jpg",
+      "localFile": "content/batch-001/media/85737646.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 9411312529647127246,
+      "reviewSha256": "74cb35c8179b73e32f8c6b261c6e5c8b37a276757d5871dc36de8569cbce31cc"
+    },
+    {
+      "species": "cats",
+      "pageid": 87286420,
+      "title": "File:Liegende graue Katze 20200219 135657.jpg",
+      "localFile": "content/batch-001/media/87286420.source",
+      "reviewDimensions": [
+        960,
+        1280
+      ],
+      "reviewDhash": 8319243468222251553,
+      "reviewSha256": "1c5219600e60a272c16a1ad469f4638a0c6e26dedb432156781cca328ad4e426"
+    },
+    {
+      "species": "cats",
+      "pageid": 87745831,
+      "title": "File:20191205 Kot na targu przypraw w Starym Delhi 0707 6758.jpg",
+      "localFile": "content/batch-001/media/87745831.source",
+      "reviewDimensions": [
+        960,
+        638
+      ],
+      "reviewDhash": 1898999054767954596,
+      "reviewSha256": "8c431fb96d03c85104f79a113a176a862debc4e9c649d5d36facd6c1fc4aba87"
+    },
+    {
+      "species": "cats",
+      "pageid": 89091565,
+      "title": "File:Larry the cat posing on the roof (DSCF7128).jpg",
+      "localFile": "content/batch-001/media/89091565.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 12940704953190781080,
+      "reviewSha256": "bf20e0fa495369c4306076f696230ad60e46466d46c899e9a030e39b3c42eb7e"
+    },
+    {
+      "species": "cats",
+      "pageid": 90278172,
+      "title": "File:20200516 Kot w oknie mieszkania na Kazimierzu w Krakowie 1016 0004.jpg",
+      "localFile": "content/batch-001/media/90278172.source",
+      "reviewDimensions": [
+        960,
+        1444
+      ],
+      "reviewDhash": 1326424887898271221,
+      "reviewSha256": "b1c2a0d1b1ed091ddba67f4e70ff894758952dc3aaf441a3cd6f8360c1799c0d"
+    },
+    {
+      "species": "cats",
+      "pageid": 91504124,
+      "title": "File:Хозяин Метеостанции.jpg",
+      "localFile": "content/batch-001/media/91504124.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 8200988638940473103,
+      "reviewSha256": "48070af16d714669989daf27671e64c50007e60534e1ce2dd2d619ede2da9c67"
+    },
+    {
+      "species": "cats",
+      "pageid": 92166802,
+      "title": "File:Chat tigré Josselin 01.jpg",
+      "localFile": "content/batch-001/media/92166802.source",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 3761726819805680603,
+      "reviewSha256": "223c52b2727b188654c4a6508e88faea1ba7847a937f7f905373b1c6c94ccd69"
+    },
+    {
+      "species": "cats",
+      "pageid": 93220894,
+      "title": "File:20200816 Kot domowy, na polu w Rżuchowie, świętokrzyskie 0803 3618.jpg",
+      "localFile": "content/batch-001/media/93220894.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 13491723710781207696,
+      "reviewSha256": "0aff245723ee7352657363b9657785d787925f6aa7e5be5225b970face3026e0"
+    },
+    {
+      "species": "cats",
+      "pageid": 94379729,
+      "title": "File:Supine cat sleeping on the back on a bamboo and wicker armchair in Don Det Laos.jpg",
+      "localFile": "content/batch-001/media/94379729.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 9974187236492981949,
+      "reviewSha256": "c55f64bd7aa88ce9008ed621bd3816cc1dc3c7b373b2b03a658d4115f1a1cd7f"
+    },
+    {
+      "species": "cats",
+      "pageid": 94807912,
+      "title": "File:Tommy (DSC 0005).jpg",
+      "localFile": "content/batch-001/media/94807912.source",
+      "reviewDimensions": [
+        960,
+        643
+      ],
+      "reviewDhash": 3181413284140868705,
+      "reviewSha256": "33ebc02ce3a193da160121f5b937f8b2985ed51ff42f4f644ad475f14c3efa8d"
+    },
+    {
+      "species": "cats",
+      "pageid": 94808352,
+      "title": "File:Larry the cat sitting on a bed (DSC 0010).jpg",
+      "localFile": "content/batch-001/media/94808352.source",
+      "reviewDimensions": [
+        960,
+        626
+      ],
+      "reviewDhash": 2193093705831641457,
+      "reviewSha256": "8ee299b791a8ed66db2c4c0aba227966321624e27214214103e956e973791157"
+    },
+    {
+      "species": "cats",
+      "pageid": 94862895,
+      "title": "File:Larry the cat lying on a desk next to a coffee mug (DSC 0063).jpg",
+      "localFile": "content/batch-001/media/94862895.source",
+      "reviewDimensions": [
+        960,
+        668
+      ],
+      "reviewDhash": 5860295495388326373,
+      "reviewSha256": "a15b22d2552b8fb5ee8eb2e28fe1cb0f48264ce155c38efd2cac54d8663053ca"
+    },
+    {
+      "species": "cats",
+      "pageid": 95494176,
+      "title": "File:Sitzende graue Mieze 20201026 DSC5103.jpg",
+      "localFile": "content/batch-001/media/95494176.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 5358000961031539981,
+      "reviewSha256": "964ffe21da24ee465079b6bf09fcacc47b9f3c52b5a3768245c361b1941c0550"
+    },
+    {
+      "species": "cats",
+      "pageid": 97121195,
+      "title": "File:Schlafende Katze 20201024 DSC4877.jpg",
+      "localFile": "content/batch-001/media/97121195.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 2025539275255453744,
+      "reviewSha256": "5887b73cc0663c1d59765425d7484973bbd4ba2aed886cf57d6a1ae8556f707f"
+    },
+    {
+      "species": "cats",
+      "pageid": 97121200,
+      "title": "File:Schlafende Katze 20201024 DSC4879.jpg",
+      "localFile": "content/batch-001/media/97121200.source",
+      "reviewDimensions": [
+        960,
+        567
+      ],
+      "reviewDhash": 3547132166329361532,
+      "reviewSha256": "a6b84f8e901b64ebc3a15bf5064c37e4fce74dd9479dac9c04c7dcfe3c60123e"
+    },
+    {
+      "species": "cats",
+      "pageid": 97183329,
+      "title": "File:Schlafende Katze mit hintergeklapptem Ohr 20201006 DSC4890.jpg",
+      "localFile": "content/batch-001/media/97183329.source",
+      "reviewDimensions": [
+        960,
+        853
+      ],
+      "reviewDhash": 4049928401285708923,
+      "reviewSha256": "80a469c8867cd93620e437ed2de023b2910fa8e5efb0da7a3a32348e3cddb33d"
+    },
+    {
+      "species": "cats",
+      "pageid": 97183953,
+      "title": "File:Schlafende zusammengerollte Katze 20201024 DSC5100.jpg",
+      "localFile": "content/batch-001/media/97183953.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 17574136948828205555,
+      "reviewSha256": "bbd47fd9589c94d37138e98e9cb39acbf57f004de389fe387480e678fbc19aef"
+    },
+    {
+      "species": "cats",
+      "pageid": 97407129,
+      "title": "File:Larry the cat laying on top of a shelf (GEDC00062).jpg",
+      "localFile": "content/batch-001/media/97407129.source",
+      "reviewDimensions": [
+        960,
+        586
+      ],
+      "reviewDhash": 5181171416641384624,
+      "reviewSha256": "fef68a70e638674322535e1865e0248933aa24b2d1077c7c4d757023ce6091a3"
+    }
+  ],
+  "possibleDuplicates": []
+}

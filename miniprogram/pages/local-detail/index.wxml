@@ -1,0 +1,138 @@
+<view class="page local-detail-page">
+  <view wx:if="{{loading}}" class="loading">正在查看附近信息…</view>
+  <view wx:elif="{{error}}" class="error-box">
+    <view>{{error}}</view><view class="error-actions"><button class="btn btn-secondary" bindtap="backToNearby" aria-label="回到附近">回到附近</button><button class="btn btn-ghost" bindtap="loadPlaceState" aria-label="重新加载详情">重新查看</button></view>
+  </view>
+  <block wx:elif="{{guide}}">
+    <view class="guide-heading">
+      <view class="guide-cover-art" aria-hidden="true"><view class="guide-orbit"/><view class="guide-path"/><view class="guide-point point-start"/><view class="guide-point point-end"/></view>
+      <view class="place-eyebrow"><view class="eyebrow-line"/>路线攻略 · 编辑建议</view>
+      <view class="local-title">{{guide.title}}</view>
+      <view class="guide-summary">{{guide.summary}}</view>
+      <view class="guide-meta"><view class="guide-meta-item"><view class="clock-symbol"/>{{guide.duration}}</view><view class="guide-meta-item">{{guide.petLabel}}</view></view>
+      <view wx:if="{{guide.notice}}" class="guide-notice">{{guide.notice}}</view>
+    </view>
+    <view wx:if="{{guide.needsUpdate}}" class="state-banner">路线中的部分地点已下架或不可用，请调整行程。</view><view wx:if="{{placeServiceError}}" class="guide-service-note">{{placeServiceError}}<button class="text-action" bindtap="loadPlaceState">重试读取</button></view>
+    <view class="detail-section guide-preparation"><view class="section-heading"><view class="section-title">出发前确认</view><text class="section-aside">先看条件，再出发</text></view><view class="guide-conditions"><view wx:for="{{guide.conditions}}" wx:key="*this" class="guide-condition"><view class="condition-mark"/><view>{{item}}</view></view></view></view>
+    <view class="detail-section"><view class="section-heading"><view class="section-title">建议这样安排</view><text class="section-aside">{{guide.steps.length}} 个停留点</text></view><view class="guide-steps"><view wx:for="{{guide.steps}}" wx:for-item="step" wx:key="number" class="guide-step"><view class="guide-step-number">{{step.number}}</view><view class="guide-step-body"><button class="guide-stop-link" data-id="{{step.placeId}}" bindtap="openGuideStop" disabled="{{!step.available}}" aria-label="{{'查看地点：' + step.title}}">{{step.title}}<text wx:if="{{step.available}}">↗</text></button><view class="guide-step-duration">{{step.duration}}</view><view class="guide-step-action">{{step.action}}</view><view wx:if="{{step.address}}" class="guide-step-address"><view class="pin-symbol"/>{{step.address}}</view><view wx:if="{{!step.available}}" class="guide-step-unavailable">地点已下架或不可用，请调整安排。</view></view></view></view></view>
+    <view class="guide-source-note">未实地核验，预计停留时间由编辑建议。</view>
+    <view class="reference-section guide-references"><button class="reference-toggle" bindtap="toggleReferences" aria-label="{{referencesOpen ? '收起路线依据与来源' : '展开路线依据与来源'}}" aria-expanded="{{referencesOpen}}"><text>路线依据与来源</text><text>{{referencesOpen ? '收起 −' : '展开 +'}}</text></button><view wx:if="{{referencesOpen}}"><view class="reference-meta">路线编辑于 {{guide.checkedAt}}；地点事实来自以下公开资料。</view><view wx:for="{{guide.sources}}" wx:for-item="source" wx:key="url" class="reference-item"><view class="reference-title">{{source.title}}</view><view class="reference-meta">{{source.publisher}} · 资料查阅 {{source.checkedAt}}</view><button class="text-action" data-index="{{index}}" bindtap="openGuideSource" wx:if="{{source.canOpen}}" disabled="{{busy}}">打开来源 ↗</button></view></view></view>
+    <view class="guide-footer"><button class="btn btn-secondary" bindtap="backToNearby">继续看附近</button><button class="btn btn-primary" open-type="share">分享路线</button></view>
+  </block>
+  <block wx:elif="{{item}}">
+    <view class="detail-overview {{item.isPlace ? 'place-overview' : 'event-overview'}}">
+    <view wx:if="{{item.galleryCount}}" class="gallery">
+      <scroll-view scroll-x="{{true}}" show-scrollbar="{{false}}" class="gallery-track {{item.galleryCount === 1 ? 'single-photo' : ''}}" bindscroll="galleryScroll">
+        <block wx:for="{{item.photos}}" wx:for-item="photo" wx:key="index">
+          <view wx:if="{{photo.url}}" class="gallery-slide">
+            <image class="scene-photo" src="{{photo.url}}" mode="aspectFill" data-index="{{photo.index}}" bindtap="previewPhoto" binderror="photoFailed" aria-label="{{photo.caption || item.title + '实景照片'}}"/>
+            <view wx:if="{{photo.caption}}" class="photo-caption">{{photo.caption}}</view>
+            <button class="photo-zoom" data-index="{{photo.index}}" bindtap="previewPhoto" aria-label="{{'查看第' + (photo.index + 1) + '张大图'}}"><view class="zoom-symbol"/>查看大图</button>
+          </view>
+        </block>
+      </scroll-view>
+      <view class="gallery-counter">{{(galleryIndex + 1) + ' / ' + item.galleryCount}}</view>
+    </view>
+    <view wx:else class="scene-heading scene-{{item.sceneKind}} {{item.isPlace ? 'place-scene' : 'event-scene'}}">
+      <view class="scene-decoration" aria-hidden="true"><view class="scene-orbit orbit-one"/><view class="scene-orbit orbit-two"/><view class="scene-dot dot-one"/><view class="scene-dot dot-two"/></view>
+      <view class="scene-context"><view class="scene-kicker">{{item.isPlace ? '发现身边的好去处' : '和宠物一起，快乐出发'}}</view><view class="scene-topic">{{item.categoryText}}</view><text>{{item.areaLabel}}</text></view>
+      <view wx:if="{{item.isPlace}}" class="scene-symbol"><image src="{{'/assets/nearby/icons/scene-' + item.sceneKind + '.svg'}}" class="scene-icon"/></view>
+      <image wx:else class="event-scene-art" src="{{'/assets/nearby/icons/ticket-' + item.ticketTheme + '.svg'}}" mode="aspectFit" aria-hidden="true"/>
+    </view>
+
+    <view class="detail-heading">
+      <view wx:if="{{item.galleryCount}}" class="place-eyebrow">{{item.categoryText}}<text wx:if="{{item.areaLabel}}"> · {{item.areaLabel}}</text></view>
+      <view class="title-row"><view class="local-title">{{item.title}}</view></view>
+      <view class="heading-tags"><text class="policy-chip policy-{{item.policyStatus}}">{{item.visitWithoutPet ? '不带宠参观' : item.policyLabel}}</text><text wx:if="{{item.statusText}}" class="status-chip status-{{item.timeStatus}}">{{item.statusText}}</text></view>
+      <view class="policy-brief"><view class="brief-mark"/><view class="policy-short">{{item.policyShort || item.policyText}}</view></view>
+      <view wx:if="{{item.stateNotice}}" class="state-banner state-{{item.timeStatus}}"><text class="notice-mark">!</text><text>{{item.stateNotice}}</text></view>
+      <view wx:if="{{item.notice}}" class="recheck-note">{{item.notice}}</view>
+      <view wx:if="{{item.showQuickTime || item.showQuickPrice}}" class="quick-cards">
+        <view wx:if="{{item.showQuickTime}}" class="quick-card quick-time"><view class="quick-label"><view class="clock-symbol"/>{{item.isPlace ? '开放安排' : '活动时间'}}</view><view class="quick-value">{{item.quickTime || item.timeLabel}}</view></view>
+        <view wx:if="{{item.showQuickPrice}}" class="quick-card quick-fee"><view class="quick-label"><view class="fee-symbol">¥</view>{{item.feeType === 'unknown' ? '参与方式' : '费用'}}</view><view class="quick-value">{{item.quickPrice || item.priceLabel}}</view></view>
+      </view>
+    </view>
+    </view>
+
+    <view wx:if="{{item.participation}}" class="participation-card participation-{{item.participation.state}}">
+      <view class="participation-heading"><view class="participation-heading-main"><view class="section-title">怎么参加</view><button wx:if="{{item.participation.sourceUrl}}" class="participation-source-button" bindtap="openParticipationSource" disabled="{{busy}}" aria-label="{{'查看活动原文：' + item.participation.sourceName}}"><view class="participation-source-chip"><text>查看原文</text><text aria-hidden="true">↗</text></view></button></view><text class="participation-badge">{{item.participation.label}}</text></view>
+      <view class="participation-title">{{item.participation.title}}</view>
+      <view wx:if="{{item.participation.steps.length}}" class="participation-steps">
+        <view wx:for="{{item.participation.steps}}" wx:for-item="step" wx:key="title" class="participation-step"><view class="participation-number">{{index + 1}}</view><view class="participation-step-copy"><view class="participation-step-title">{{step.title}}</view><view class="participation-step-text">{{step.text}}</view></view></view>
+      </view>
+      <view wx:if="{{item.participation.fee || item.participation.contact}}" class="participation-facts">
+        <view wx:if="{{item.participation.fee}}" class="participation-fact"><text>参与费用</text><view>{{item.participation.fee}}</view></view>
+        <view wx:if="{{item.participation.contact}}" class="participation-fact participation-contact"><text>{{item.participation.contactLabel}}</text><text selectable="true">{{item.participation.contact}}</text></view>
+      </view>
+      <view wx:if="{{item.participation.note}}" class="participation-caveat"><view class="participation-caveat-mark"/><view>{{item.participation.note}}</view></view>
+    </view>
+
+    <view class="address-card">
+      <view class="address-main"><view class="pin-symbol"/><view class="address-content"><view class="address-heading">{{item.isPlace ? '地点与路线' : '活动场地'}}</view><text class="address-text" selectable="true">{{item.address || '地址尚未确认，请先查看官方资料。'}}</text></view><button class="address-copy" bindtap="copyAddress" disabled="{{busy || !item.address}}" aria-label="{{'复制地址：' + item.title}}"><view class="copy-symbol"/><text>复制地址</text></button></view>
+      <view wx:if="{{item.navigationHint}}" class="navigation-hint">{{item.navigationHint}}</view>
+    </view>
+
+    <view class="details-disclosure {{detailsOpen ? 'is-open' : ''}}" id="details-disclosure">
+      <button class="disclosure-toggle" bindtap="toggleDetails" aria-label="{{detailsOpen ? '收起详细介绍' : '展开详细介绍'}}" aria-expanded="{{detailsOpen}}">
+        <view class="disclosure-copy"><view class="disclosure-title">{{item.isPlace ? '地点详情' : '活动详情'}}</view><view class="disclosure-hint">{{item.isPlace ? '玩法建议 · 携宠须知 · 开放安排' : '活动亮点 · 日程安排 · 参与须知'}}</view></view>
+        <view class="disclosure-state"><text>{{detailsOpen ? '收起' : '展开'}}</text><view class="disclosure-chevron {{detailsOpen ? 'up' : ''}}"/></view>
+      </button>
+      <view wx:if="{{detailsOpen}}" class="details-body">
+        <view wx:if="{{item.description}}" class="detail-section introduction-section"><view class="section-heading"><view class="section-title">{{item.isPlace ? '关于这里' : '活动介绍'}}</view></view><view class="detail-description">{{item.description}}</view></view>
+        <view class="detail-section play-section">
+          <view class="section-heading"><view class="section-title">{{item.visitWithoutPet ? '参观建议' : '宠物怎么玩'}}</view><text wx:if="{{item.noPetRequired && !item.visitWithoutPet}}" class="section-aside">也可不带宠前往</text></view>
+          <view wx:if="{{item.playLabels.length}}" class="play-buttons"><button wx:for="{{item.playLabels}}" wx:for-item="play" wx:key="id" class="play-button {{activePlayId === play.id ? 'selected' : ''}}" data-id="{{play.id}}" bindtap="togglePlay" aria-label="{{(activePlayId === play.id ? '收起' : '查看') + play.name + '说明'}}" aria-expanded="{{activePlayId === play.id}}"><view class="play-icon-disc"><image wx:if="{{play.icon}}" class="play-icon" src="{{play.icon}}"/><view wx:else class="play-fallback"/></view><text>{{play.name}}</text><view class="play-indicator">{{activePlayId === play.id ? '−' : '+'}}</view></button></view>
+          <view wx:else class="play-pending"><view class="pending-dot"/><text>{{item.visitAdvice || '宠物玩法待确认，出发前先咨询场所。'}}</text></view>
+          <block wx:for="{{item.playLabels}}" wx:for-item="play" wx:key="id"><view wx:if="{{activePlayId === play.id && play.description}}" class="play-explanation"><text class="play-explanation-title">{{play.name}}</text><view>{{play.description}}</view></view></block>
+        </view>
+        <view wx:if="{{!item.isPlace && item.schedule.length}}" class="detail-section programme-section">
+          <view class="section-heading"><view class="section-title">活动安排</view><text wx:if="{{item.timeStatus === 'ended'}}" class="section-aside">往期记录</text></view>
+          <view class="schedule"><view wx:for="{{item.schedule}}" wx:for-item="step" wx:key="time" class="schedule-step"><view class="schedule-track"><view class="schedule-dot"/></view><view class="schedule-body"><view wx:if="{{step.time}}" class="schedule-time">{{step.time}}</view><view wx:if="{{step.title}}" class="schedule-title">{{step.title}}</view><view wx:if="{{step.text}}" class="schedule-text">{{step.text}}</view></view></view></view>
+        </view>
+        <view wx:if="{{item.petFacts.length}}" class="detail-section pet-rules-section">
+          <view class="section-heading"><view class="section-title">{{item.visitWithoutPet ? '参观须知' : '携宠须知'}}</view><text class="section-aside">出发前看一眼</text></view>
+          <view class="pet-facts"><view wx:for="{{item.petFacts}}" wx:for-item="fact" wx:key="id" class="pet-fact"><view class="fact-symbol"><view class="fact-dot"/></view><view class="fact-body"><view class="fact-title">{{fact.title}}</view><view class="fact-text">{{fact.text}}</view></view></view></view>
+        </view>
+        <view class="detail-section booking-section"><view class="section-heading"><view class="section-title">{{item.isPlace ? '开放与费用' : '参与信息'}}</view></view><view class="detail-facts">
+          <view class="detail-fact"><text class="detail-fact-label">{{item.isPlace ? '开放安排' : '活动时间'}}</text><view>{{item.timeLabel}}</view></view>
+          <view class="detail-fact"><text class="detail-fact-label">费用说明</text><view>{{item.ticketText || item.priceLabel}}</view></view>
+          <view wx:if="{{item.venue}}" class="detail-fact"><text class="detail-fact-label">活动场所</text><view>{{item.venue}}</view></view>
+          <view wx:if="{{item.hostName}}" class="detail-fact"><text class="detail-fact-label">主办方</text><view>{{item.hostName}}</view></view>
+        </view></view>
+        <view wx:if="{{item.detailNotes.length}}" class="detail-section notes-section"><view class="section-heading"><view class="section-title">值得留意</view></view><view wx:for="{{item.detailNotes}}" wx:key="*this" class="detail-note"><text class="note-number">{{index + 1}}</text><view>{{item}}</view></view></view>
+        <view wx:if="{{!item.isPlace}}" class="participation-note">参与安排以主办方公告为准，请通过官方渠道确认票务、预约和携宠要求。</view>
+        <button wx:if="{{item.isPlace && item.officialCanOpen}}" class="detail-official-link" bindtap="openOfficial" disabled="{{busy || !item.officialUrl}}" aria-label="{{item.officialButtonText + '，点击跳转'}}"><view><text>{{item.officialButtonText}}</text><view>点击跳转，查看完整内容</view></view><text>↗</text></button>
+      </view>
+    </view>
+    <view wx:if="{{item.relatedGuides.length}}" class="related-guides"><view class="related-guides-label"><view class="route-symbol"/>顺路逛一逛<text>编辑路线</text></view><button wx:for="{{item.relatedGuides}}" wx:for-item="route" wx:key="id" class="related-guide" data-id="{{route.id}}" bindtap="openGuide"><view><view class="related-guide-title">{{route.title}}</view><view wx:if="{{route.duration}}" class="related-guide-duration">{{route.duration}}</view></view><text class="route-arrow">↗</text></button></view>
+    <view class="place-tools">
+      <view class="place-tools-heading"><view class="section-title">{{item.isPlace ? '收藏与到访' : '收藏这场活动'}}</view><button class="text-action" bindtap="myPlaces">我的地点 <text>›</text></button></view>
+      <view wx:if="{{item.active === false}}" class="tool-state-note">这条地点信息已下架，出行前请重新核实。</view>
+      <view class="place-tool-actions">
+        <button class="place-tool-button bookmark-button {{isBookmarked ? 'saved' : ''}}" bindtap="bookmark" disabled="{{busy || (!isBookmarked && item.active === false)}}" aria-label="{{isBookmarked ? '取消收藏' : '收藏' + (item.isPlace ? '地点' : '活动')}}"><view class="bookmark-symbol"/><text>{{isBookmarked ? '已收藏 · 取消' : (item.isPlace ? '收藏地点' : '收藏活动')}}</text></button>
+        <button wx:if="{{item.isPlace}}" class="place-tool-button visit-button {{visitForm ? 'selected' : ''}}" bindtap="openVisitForm" disabled="{{busy || item.active === false}}" aria-expanded="{{visitForm}}"><view class="visit-symbol"/><text>{{visitForm ? '收起到访记录' : '记录到访'}}</text></button>
+      </view>
+      <view wx:if="{{placeServiceError}}" class="tool-service-note"><text>{{placeServiceError}}</text><button bindtap="loadPlaceState" class="text-action">重试</button></view>
+      <view wx:if="{{visitForm}}" class="place-inline-form">
+        <view class="form-heading"><text>记录这次到访</text><text class="private-chip">仅自己可见</text></view>
+        <view><view class="label">到访日期</view><picker mode="date" value="{{visitedOn}}" bindchange="visitDate"><view class="input date-input"><text>{{visitedOn}}</text><text>⌄</text></view></picker></view>
+        <view><view class="label">私人备注 <text>选填</text></view><textarea class="textarea" value="{{visitNote}}" bindinput="visitInput" maxlength="300" placeholder="记下当天的感受，备注不会自动发布" placeholder-class="form-placeholder" aria-label="私人到访备注"/></view>
+        <button class="btn btn-primary form-submit" bindtap="saveVisit" disabled="{{busy}}" loading="{{busy}}">保存到访记录</button>
+      </view>
+      <view wx:if="{{item.isPlace && item.active !== false}}" class="visit-share-row"><view class="visit-share-copy"><view>{{visit ? '这次到访，已为你记下' : '去过这里？留下你的体验'}}</view><text>{{visit ? '私人备注不会带入分享。' : '让下一位宠友多一份参考。'}}</text></view><button class="visit-share-button" bindtap="shareVisit">{{visit ? '写到访分享' : '写分享'}}<text>↗</text></button></view>
+      <view class="correction-actions"><button class="text-action" bindtap="toggleCorrection" aria-expanded="{{correctionForm}}">{{correctionForm ? '收起纠错' : '信息有误？提交纠错'}}</button><button wx:if="{{isAdmin && item.isPlace}}" class="text-action" bindtap="managePlace">管理地点</button></view>
+      <view wx:if="{{correctionForm}}" class="place-inline-form correction-form"><view class="form-heading">一起完善地点信息</view><view><view class="label">需要核实的内容</view><picker range="{{correctionCategories}}" value="{{correctionIndex}}" bindchange="correctionType"><view class="input date-input"><text>{{correctionCategories[correctionIndex]}}</text><text>⌄</text></view></picker></view><textarea class="textarea" value="{{correctionText}}" bindinput="correctionInput" maxlength="1000" placeholder="请描述需要核实的信息，可附公开来源（至少 5 字）" placeholder-class="form-placeholder" aria-label="地点纠错说明"/><button class="btn btn-primary form-submit" bindtap="sendCorrection" disabled="{{busy}}" loading="{{busy}}">提交给运营者</button></view>
+    </view>
+
+    <view class="reference-section"><button class="reference-toggle" bindtap="toggleReferences" aria-label="{{(referencesOpen ? '收起' : '展开') + (item.isPlace ? '资料来源与图片许可' : '活动出处与图片许可')}}" aria-expanded="{{referencesOpen}}"><text>{{item.isPlace ? '资料来源与图片许可' : '活动出处与图片许可'}}</text><text>{{referencesOpen ? '收起 −' : '展开 +'}}</text></button>
+      <block wx:if="{{referencesOpen}}">
+        <view wx:if="{{item.checkedAt}}" class="reference-meta">资料查阅 {{item.checkedAt}}</view>
+        <block><view wx:for="{{item.sources}}" wx:for-item="source" wx:key="url" class="reference-item"><view class="reference-title">{{source.title}}</view><view class="reference-meta">{{source.publisher}}<text wx:if="{{source.publishedAt}}"> · 发布于 {{source.publishedAt}}</text><text wx:if="{{source.checkedAt}}"> · 资料查阅 {{source.checkedAt}}</text></view><button wx:if="{{source.canOpen}}" class="text-action" bindtap="openSource" data-index="{{index}}" disabled="{{busy}}" aria-label="{{'打开参考原文：' + source.title}}">打开原文 ↗</button><text wx:elif="{{source.url}}" class="reference-meta reference-url" selectable="true">{{source.url}}</text></view><view wx:if="{{!item.sources.length}}" class="reference-meta">参考链接暂未提供。</view></block>
+        <view wx:if="{{item.canNavigate}}" class="reference-item"><view class="reference-title">地图位置</view><view class="reference-meta">{{item.point.label || '场所位置参照'}} · GCJ-02 坐标</view><button wx:if="{{item.pointSourceCanOpen}}" class="text-action" bindtap="openPointSource" disabled="{{busy}}" aria-label="打开地图坐标来源">打开坐标来源 ↗</button></view>
+        <view wx:for="{{item.photos}}" wx:for-item="photo" wx:key="index" class="reference-item"><view class="reference-title">图片 {{photo.index + 1}}<text wx:if="{{photo.caption}}"> · {{photo.caption}}</text></view><view wx:if="{{photo.credit}}" class="reference-meta">{{photo.credit}}</view><view wx:if="{{photo.license}}" class="reference-meta">{{photo.license}}</view><text wx:if="{{photo.sourceUrl && !photo.sourceCanOpen}}" class="reference-meta reference-url" selectable="true">{{photo.sourceUrl}}</text><text wx:if="{{photo.licenseUrl && !photo.licenseCanOpen}}" class="reference-meta reference-url" selectable="true">{{photo.licenseUrl}}</text><button wx:if="{{photo.sourceCanOpen}}" class="text-action" data-index="{{photo.index}}" data-field="sourceUrl" bindtap="openPhotoInfo" disabled="{{busy}}" aria-label="{{'打开图片' + (photo.index + 1) + '来源'}}">打开图片来源 ↗</button><button wx:if="{{photo.licenseCanOpen}}" class="text-action" data-index="{{photo.index}}" data-field="licenseUrl" bindtap="openPhotoInfo" disabled="{{busy}}" aria-label="{{'打开图片' + (photo.index + 1) + '许可'}}">打开图片许可 ↗</button></view>
+      </block>
+    </view>
+
+    <view class="bottom-actions {{item.isPlace ? 'place-actions' : 'event-actions'}}"><button class="bottom-share" open-type="share" aria-label="分享给朋友"><view class="share-symbol"><view/></view><text>分享</text></button><button class="bottom-navigate {{item.isPlace || !item.officialCanOpen ? 'primary-action' : 'secondary-action'}}" bindtap="navigate" disabled="{{busy || !item.canLocate}}" aria-label="{{item.navigationLabel + '：' + item.title}}"><text wx:if="{{item.isPlace}}" class="action-arrow">↗</text>{{item.navigationLabel}}</button><button wx:if="{{!item.isPlace && item.officialCanOpen}}" class="primary-action bottom-official" bindtap="openOfficial" disabled="{{busy || !item.officialUrl}}" loading="{{busy}}" aria-label="{{item.officialButtonText + '，点击跳转'}}">{{item.officialButtonText}}</button></view>
+  </block>
+</view>

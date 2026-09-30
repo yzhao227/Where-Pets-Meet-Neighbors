@@ -1,0 +1,123 @@
+[
+  {
+    "recordId": "place-zhongshan-park",
+    "name": "中山公园（上海）",
+    "point": {
+      "latitude": 31.221503,
+      "longitude": 121.420201,
+      "coordinateSystem": "gcj02",
+      "precision": "venue",
+      "label": "中山公园（园区位置，非宠物区入口）",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Category:Zhongshan_Park_(Shanghai)"
+    },
+    "raw": {
+      "latitude": 31.223345,
+      "longitude": 121.415555,
+      "coordinateSystem": "wgs84"
+    },
+    "sourceEvidence": "Commons 分类页信息框：31.223345° N, 121.415555° E；关联 Wikidata Q841670、OpenStreetMap way 45220427。",
+    "checkedAt": "2026-09-29",
+    "conversion": "离线使用通用 WGS84→GCJ-02 近似转换，椭球 a=6378245.0、ee=0.00669342162296594323；输出保留六位小数。",
+    "notes": [
+      "这是整个公园的场所参照点，可用于估算到园区的直线距离。",
+      "不是园门或宠物友好区的入口坐标；导航应提示行前确认目的区域与入口。",
+      "公开坐标不证明宠物可进入公园所有区域，携宠范围遵循另行核实的政策。"
+    ]
+  },
+  {
+    "recordId": "place-shangsheng-xinsuo",
+    "name": "上生新所",
+    "point": {
+      "latitude": 31.208015,
+      "longitude": 121.427454,
+      "coordinateSystem": "gcj02",
+      "precision": "venue",
+      "label": "上生新所（腾讯地图场所位置，非入口）",
+      "sourceUrl": "https://map.qq.com/poi/?sm=7237851307520986373&keyfrom=1"
+    },
+    "raw": {
+      "latitude": 31.208015,
+      "longitude": 121.427454,
+      "coordinateSystem": "gcj02"
+    },
+    "sourceEvidence": "主任务实际打开腾讯地图搜索结果的 POI 详情。可见地址为延安西路1262号；页面地图中心及餐馆、宾馆等周边搜索链接中的 where 参数均为 121.427454,31.208015。where 的顺序为经度、纬度。",
+    "checkedAt": "2026-09-30",
+    "conversion": "无转换；腾讯地图来源坐标已经是 GCJ-02。",
+    "evidenceFile": "2026-09-30-tencent-poi-corrections.json",
+    "verificationMethod": "主任务通过腾讯地图实际搜索并打开公开 POI 详情；本子任务依据主任务传回的可见页面证据接入数据。未声称子任务成功下载了公共 API 原始响应。",
+    "notes": [
+      "地点坐标不代表已核验某个入口。",
+      "场所位置和照片均不构成宠物准入规则的证据。"
+    ],
+    "supersededEvidence": {
+      "point": {
+        "latitude": 31.209687,
+        "longitude": 121.426939,
+        "coordinateSystem": "gcj02",
+        "precision": "venue",
+        "label": "上生新所（园区内参照，非入口）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Columbia_Circle_16.jpg"
+      },
+      "raw": {
+        "latitude": 31.21154,
+        "longitude": 121.4223,
+        "coordinateSystem": "wgs84"
+      },
+      "sourceEvidence": "Commons File:Columbia Circle 16.jpg 的 extmetadata：GPSLatitude=31.211540、GPSLongitude=121.422300、GPSMapDatum=WGS-84；描述为“上生新所园区随拍”，原拍摄日期2018-06-10。",
+      "checkedAt": "2026-09-29",
+      "reason": "旧坐标由 Commons 实景照片的拍摄位置转换得到。主任务实际打开地图发现其落在场所北侧，不能继续将摄影机位置当作场所导航目的地。本次改用名称和街道地址均匹配的腾讯地图 POI。既有授权照片不因坐标纠正而改变。"
+    }
+  },
+  {
+    "recordId": "event-petfair-asia-2026",
+    "name": "上海新国际博览中心",
+    "point": {
+      "latitude": 31.208926,
+      "longitude": 121.567293,
+      "coordinateSystem": "gcj02",
+      "precision": "venue",
+      "label": "上海新国际博览中心（场馆位置，非展馆入口）",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q30177"
+    },
+    "raw": {
+      "latitude": 31.21111111,
+      "longitude": 121.56305556,
+      "coordinateSystem": "wgs84"
+    },
+    "sourceEvidence": "Wikidata SPARQL返回Q30177，中文名称“上海新国际博览中心”，WKT Point(121.56305556 31.21111111)；WKT顺序为经度、纬度。",
+    "rawEvidenceFile": "wikidata-points-2026-09-30.json",
+    "checkedAt": "2026-09-30",
+    "conversion": "离线使用通用 WGS84→GCJ-02 近似转换，椭球 a=6378245.0、ee=0.00669342162296594323；输出保留六位小数。",
+    "notes": [
+      "这是上海新国际博览中心的场馆参照点，不是某个入口或宠物活动入口。",
+      "仅用于到场馆的近似直线距离与地图定位；行前应确认展会实际开放入口、场次和公众入场安排。",
+      "第28届亚洲宠物展已结束；补充场馆坐标不会将往期记录恢复为近期活动，也不证明下一届携宠规则。"
+    ]
+  },
+  {
+    "recordId": "place-zhongsheng",
+    "name": "仲盛世界商城",
+    "point": {
+      "latitude": 31.107275,
+      "longitude": 121.387198,
+      "coordinateSystem": "gcj02",
+      "precision": "venue",
+      "label": "仲盛世界商城（腾讯地图场所位置，非广场入口）",
+      "sourceUrl": "https://map.qq.com/poi/?sm=557978112909900442&keyfrom=1"
+    },
+    "raw": {
+      "latitude": 31.107275,
+      "longitude": 121.387198,
+      "coordinateSystem": "gcj02"
+    },
+    "sourceEvidence": "主任务在腾讯地图搜索仲盛世界商城，只得到一条匹配结果，打开 POI 详情后核对地址与目录的都市路5001号一致。页面周边搜索 where 参数均为 121.387198,31.107275。where 的顺序为经度、纬度。",
+    "checkedAt": "2026-09-30",
+    "conversion": "无转换；腾讯地图来源坐标已经是 GCJ-02。",
+    "evidenceFile": "2026-09-30-tencent-poi-corrections.json",
+    "verificationMethod": "主任务通过腾讯地图实际搜索并打开公开 POI 详情；本子任务依据主任务传回的可见页面证据接入数据。未声称子任务成功下载了公共 API 原始响应。",
+    "notes": [
+      "场所参照点不代表南下沉广场或某个商场入口。",
+      "坐标仅补充导航定位，不改变目录内尚待确认的日常携宠规则。"
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "retrievedAt": "2026-09-30T13:12:38+08:00",
+  "method": "curl with standard browser User-Agent; JSON.parse-equivalent decoding of window.DATA; no script execution",
+  "httpStatus": 200,
+  "sourceUrl": "https://news.qq.com/rain/a/20260929A0BPRQ00",
+  "articleId": "20260929A0BPRQ00",
+  "title": "有福利！带毛孩子坐游船，吹江风，赏光影，还有一场岸边派对",
+  "publisher": "上海徐汇",
+  "publisherVerification": "上海市徐汇区新闻办公室官方账号",
+  "publishedAt": "2026-09-29 18:44:54",
+  "sha256OfRetrievedHtml": "972f07ac4a46df9f1b2ed772612ba64da0dea99ab06da855bd2c4bb03389ead5",
+  "shortExcerpts": [
+    "10月1日到7日",
+    "每天下午都有一班宠物友好航班",
+    "将于10月4日至6日在旗忠网球中心举办",
+    "赛事面向9个月至9岁的健康犬只开放",
+    "参赛犬只需持有有效检疫证明 / 狂犬病免疫证明和养犬登记证",
+    "国庆期间，浦江游览集团 / 在徐汇滨江航线推出追光主题夜航 / 每晚两班 / （具体班次以浦江游览集团小程序为准）",
+    "文稿：浦江游览集团"
+  ]
+}

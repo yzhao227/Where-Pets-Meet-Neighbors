@@ -1,0 +1,150 @@
+// Public scene assets and verified map points. No user positions.
+module.exports = {
+  "place-zhongshan-park": {
+    "point": {
+      "latitude": 31.221503,
+      "longitude": 121.420201,
+      "coordinateSystem": "gcj02",
+      "precision": "venue",
+      "label": "中山公园（园区位置，非宠物区入口）",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Category:Zhongshan_Park_(Shanghai)"
+    },
+    "photo": {
+      "url": "/assets/nearby/zhongshan.webp",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zhongshan_Park_Shanghai.jpeg",
+      "license": "CC BY-SA 4.0 · 等比缩小并转为 WebP",
+      "credit": "Szalai.laci / Wikimedia Commons",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "caption": "上海中山公园实景 · 2018年拍摄"
+    },
+    "photos": [{
+      "url": "/assets/nearby/zhongshan-2022.webp",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zhongshan_Park-20221120.jpg",
+      "license": "CC BY-SA 4.0 · 等比缩小、压缩并转为 WebP",
+      "credit": "Shwangtianyuan / Wikimedia Commons",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "caption": "中山公园林荫步道 · 2022年拍摄，非携宠开放区指引"
+    }]
+  },
+  "place-shangsheng-xinsuo": {
+    "point": {
+      "latitude": 31.208015,
+      "longitude": 121.427454,
+      "coordinateSystem": "gcj02",
+      "precision": "venue",
+      "label": "上生新所（腾讯地图场所位置，非入口）",
+      "sourceUrl": "https://map.qq.com/poi/?sm=7237851307520986373&keyfrom=1"
+    },
+    "photo": {
+      "url": "/assets/nearby/columbia.webp",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Columbia_Circle_16.jpg",
+      "license": "CC BY-SA 4.0 · 等比缩小并转为 WebP",
+      "credit": "WQL / Wikimedia Commons",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "caption": "上生·新所园区实景 · 2018年拍摄"
+    },
+    "photos": [{
+      "url": "/assets/nearby/columbia-courtyard.webp",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Columbia_Circle_02.jpg",
+      "license": "CC BY-SA 4.0 · 等比缩小、压缩并转为 WebP",
+      "credit": "WQL / Wikimedia Commons",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "caption": "上生·新所园区广场 · 2018年拍摄，非携宠区域指引"
+    }]
+  },
+  "place-zhongsheng": {
+    "point": {
+      "latitude": 31.107275,
+      "longitude": 121.387198,
+      "coordinateSystem": "gcj02",
+      "precision": "venue",
+      "label": "仲盛世界商城（腾讯地图场所位置，非广场入口）",
+      "sourceUrl": "https://map.qq.com/poi/?sm=557978112909900442&keyfrom=1"
+    }
+  },
+  "place-xinzhuang-weijing": {
+    "point": {
+      "latitude": 31.130761,
+      "longitude": 121.363799,
+      "coordinateSystem": "gcj02",
+      "precision": "venue",
+      "label": "莘庄维璟印象城（商场场所参照，非1号门或赛事入口）",
+      "sourceUrl": "https://map.qq.com/poi/?sm=18053767641074959179&keyfrom=1"
+    }
+  },
+  "event-weijing-spartan-2026": {
+    "point": {
+      "latitude": 31.130761,
+      "longitude": 121.363799,
+      "coordinateSystem": "gcj02",
+      "precision": "venue",
+      "label": "莘庄维璟印象城（商场场所参照，非1号门或赛事入口）",
+      "sourceUrl": "https://map.qq.com/poi/?sm=18053767641074959179&keyfrom=1"
+    }
+  },
+  "place-hanxiang-water-garden": {
+    "point": {
+      "latitude": 30.984036,
+      "longitude": 121.329355,
+      "coordinateSystem": "gcj02",
+      "precision": "venue",
+      "label": "韩湘水博园（腾讯地图场所参照，非已核验入口）",
+      "sourceUrl": "https://map.qq.com/poi/?sm=15710465626523121617&keyfrom=1"
+    }
+  },
+  "place-yuehu-sculpture": {
+    "point": {
+      "latitude": 31.101161,
+      "longitude": 121.206462,
+      "coordinateSystem": "gcj02",
+      "precision": "venue",
+      "label": "上海月湖雕塑公园（腾讯地图场所参照，非携宠入口）",
+      "sourceUrl": "https://map.qq.com/poi/?sm=4072509876164900884&keyfrom=1"
+    }
+  },
+  "place-xincheng-central": {
+    "dateLabel": "官方目录：5—10月05:00—21:00；其他月份见介绍",
+    "highlights": [
+      "市绿化市容局公园目录确认地址为闵城路180号，位于莘庄地铁南广场附近。",
+      "官方目录列示开放时间：4月05:00—18:00；5—10月05:00—21:00；11—3月06:00—18:00。目录未标明更新时间，临时调整以园门公告为准。",
+      "市文旅局介绍过这里的深秋银杏景观；实际叶色随天气变化。",
+      "携宠资料较旧，本页不将其放入“带宠出门”筛选。"
+    ]
+  },
+  "place-xuhui-westbund-walk": {
+    "point": {
+        "latitude": 31.167591,
+        "longitude": 121.463854,
+        "coordinateSystem": "gcj02",
+        "precision": "venue",
+        "label": "西岸美术馆（沿线场馆参照，非步道入口；馆内携宠另询）",
+        "sourceUrl": "https://map.qq.com/poi/?sm=1630769809924604109&keyfrom=1"
+    },
+    "photo": {
+      "url": "/assets/nearby/westbund.webp",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Appearance_of_west_bund_museum_shanghai,_June_2020.jpg",
+      "license": "CC BY-SA 4.0 · 等比缩小并转为 WebP",
+      "credit": "Lcsun / Wikimedia Commons",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "caption": "西岸沿线 · 西岸美术馆外观（2020年拍摄，非当前展讯）"
+    }
+  },
+  "event-petfair-asia-2026": {
+    "photo": {
+      "url": "/assets/nearby/sniec.webp",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shanghai_new_international_expo_centre.jpg",
+      "license": "CC BY-SA 4.0 · 等比缩小、压缩并转为 WebP",
+      "credit": "Pyzhou / Wikimedia Commons",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "caption": "上海新国际博览中心外观 · 2011年拍摄，非本届展会现场"
+    },
+    "point": {
+      "latitude": 31.208926,
+      "longitude": 121.567293,
+      "coordinateSystem": "gcj02",
+      "precision": "venue",
+      "label": "上海新国际博览中心（场馆位置，非展馆入口）",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q30177"
+    }
+  }
+};

@@ -1,0 +1,10 @@
+{
+  "description": "Access requirements, not a provider-specific executable rule. Configure and test the corresponding CloudBase rules before enabling uploads.",
+  "prefixes": [
+    { "path": "community/incoming/", "purpose": "temporary client uploads", "clientWrite": "owned upload only", "clientRead": "owner only", "cleanup": "expired ticket" },
+    { "path": "community/quarantine/", "purpose": "immutable server copy for content review", "clientWrite": false, "clientRead": false, "cleanup": "rejected, expired, or published review" },
+    { "path": "community/published/", "purpose": "approved public community images", "clientWrite": false, "clientRead": "authenticated community users", "cleanup": "deleted post or abandoned unreferenced upload" }
+  ],
+  "requiredChecks": ["user A cannot overwrite or delete user B incoming uploads", "users A and B cannot modify/read quarantine objects", "users A and B cannot modify/delete server-published objects", "deletion and repeated deletion are handled correctly"],
+  "imageUploadsEnabledByDefault": false
+}

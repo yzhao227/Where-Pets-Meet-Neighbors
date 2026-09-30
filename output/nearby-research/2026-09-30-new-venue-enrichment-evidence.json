@@ -1,0 +1,191 @@
+{
+  "checkedAt": "2026-09-30",
+  "photos": [
+    {
+      "recordId": "place-shanghai-zoo",
+      "fileTitle": "File:Shanghai Zoo Entrance.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shanghai_Zoo_Entrance.JPG",
+      "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Shanghai_Zoo_Entrance.JPG/960px-Shanghai_Zoo_Entrance.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/da/Shanghai_Zoo_Entrance.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "artist": "SSYoung",
+      "sourceArtistHtml": "<a href=\"//commons.wikimedia.org/wiki/User:SSYoung\" title=\"User:SSYoung\">SSYoung</a>",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "dateTaken": "2016-04-13 15:08:03",
+      "sourceDescription": "Entrance of Shanghai Zoo (aka Shanghai Zoological Park).",
+      "sourceCreditHtml": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "originalDimensions": [
+        3264,
+        2448
+      ],
+      "rawEvidenceFile": "output/nearby-research/2026-09-30-new-venue-photo-candidates.json",
+      "usage": "Bundled scene photograph with visible attribution, license and historical capture date; no claim of current entrance arrangements or pet admission.",
+      "sourceFile": "output/nearby-research/2026-09-30-zoo-entrance.jpg",
+      "outputFile": "miniprogram/assets/nearby/shanghai-zoo-entrance.webp",
+      "downloadedSize": [
+        960,
+        720
+      ],
+      "outputSize": [
+        720,
+        540
+      ],
+      "sourceSha256": "893a7d4b7f02434cae546832a71a94d7061c131eae0160025b28dec4fb59b0ef",
+      "outputSha256": "cca302dda678d39b23926ae5825d0ec190d3ad2e9cda5ef850ac30c6dce0035d",
+      "outputBytes": 94454,
+      "transform": "EXIF orientation, proportionate resize to maximum side 720px, RGB WebP quality 75; no crop or retouch"
+    },
+    {
+      "recordId": "place-shanghai-zoo",
+      "fileTitle": "File:One of the lakes in Shanghai Zoo (20995319280).jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:One_of_the_lakes_in_Shanghai_Zoo_(20995319280).jpg",
+      "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/One_of_the_lakes_in_Shanghai_Zoo_%2820995319280%29.jpg/960px-One_of_the_lakes_in_Shanghai_Zoo_%2820995319280%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/One_of_the_lakes_in_Shanghai_Zoo_%2820995319280%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "artist": "Esin Üstün",
+      "sourceArtistHtml": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/126011817@N06\">Esin Üstün</a> from Istanbul, Turkey",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "dateTaken": "2015-09-03 09:42",
+      "sourceDescription": "One of the lakes in Shanghai Zoo",
+      "sourceCreditHtml": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/pamas/20995319280/\">One of the lakes in Shanghai Zoo</a>",
+      "originalDimensions": [
+        4608,
+        3456
+      ],
+      "rawEvidenceFile": "output/nearby-research/2026-09-30-new-venue-photo-candidates.json",
+      "usage": "Bundled scene photograph with visible attribution, license and historical capture date; no claim of current entrance arrangements or pet admission.",
+      "sourceFile": "output/nearby-research/2026-09-30-zoo-lake.jpg",
+      "outputFile": "miniprogram/assets/nearby/shanghai-zoo-lake.webp",
+      "downloadedSize": [
+        960,
+        720
+      ],
+      "outputSize": [
+        720,
+        540
+      ],
+      "sourceSha256": "597cd4951bfe51d68478fdf2ab75ffd1da00af610a02c06c29010c1f90587c09",
+      "outputSha256": "7f3049ba158a8099f31f285cb7d23ca3ff70e9032678d6ba5d4a611c2abe9670",
+      "outputBytes": 59302,
+      "transform": "EXIF orientation, proportionate resize to maximum side 720px, RGB WebP quality 75; no crop or retouch"
+    },
+    {
+      "recordId": "place-shanghai-natural-history-museum",
+      "fileTitle": "File:Shanghai Natural History Museum (New) 03.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shanghai_Natural_History_Museum_(New)_03.JPG",
+      "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Shanghai_Natural_History_Museum_%28New%29_03.JPG/960px-Shanghai_Natural_History_Museum_%28New%29_03.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Shanghai_Natural_History_Museum_%28New%29_03.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "artist": "SSYoung",
+      "sourceArtistHtml": "<a href=\"//commons.wikimedia.org/wiki/User:SSYoung\" title=\"User:SSYoung\">SSYoung</a>",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "dateTaken": "2015-08-27",
+      "sourceDescription": "Entrance of Shanghai Natural History Museum",
+      "sourceCreditHtml": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "originalDimensions": [
+        3264,
+        2448
+      ],
+      "rawEvidenceFile": "output/nearby-research/2026-09-30-new-venue-photo-candidates.json",
+      "usage": "Bundled scene photograph with visible attribution, license and historical capture date; no claim of current entrance arrangements or pet admission.",
+      "sourceFile": "output/nearby-research/2026-09-30-museum-new03.jpg",
+      "outputFile": "miniprogram/assets/nearby/shanghai-natural-history-museum.webp",
+      "downloadedSize": [
+        960,
+        720
+      ],
+      "outputSize": [
+        720,
+        540
+      ],
+      "sourceSha256": "16ff78c2d247058798a3a9d96923c51d4888dab5fb8106d98b3386f4b529947b",
+      "outputSha256": "f19f567a102d4e993c80a132a1d333aeaec933eba4e2ec24a38ef0a541639533",
+      "outputBytes": 43706,
+      "transform": "EXIF orientation, proportionate resize to maximum side 720px, RGB WebP quality 75; no crop or retouch"
+    }
+  ],
+  "points": [
+    {
+      "recordId": "place-shanghai-zoo",
+      "nameShown": "上海动物园",
+      "addressShown": "虹桥路2381号",
+      "sourceUrl": "https://map.qq.com/poi/?sm=6565845323852952734&keyfrom=1",
+      "sourceCoordinate": {
+        "latitude": 31.192683,
+        "longitude": 121.363192,
+        "coordinateSystem": "gcj02"
+      },
+      "sourceEvidence": "根任务实际打开匹配名称与虹桥路2381号地址的腾讯POI详情，周边链接where均为121.363192,31.192683，经度在前。",
+      "storedCoordinate": {
+        "latitude": 31.192683,
+        "longitude": 121.363192,
+        "coordinateSystem": "gcj02"
+      },
+      "precision": "venue",
+      "entranceVerified": false,
+      "conversion": "无转换；腾讯地图来源已为GCJ-02。",
+      "evidenceCollection": "根任务实际浏览核对，子任务依据其可见页面证据接入。"
+    },
+    {
+      "recordId": "place-shanghai-natural-history-museum",
+      "nameShown": "上海自然博物馆(上海科技馆分馆)",
+      "addressShown": "北京西路510号",
+      "sourceUrl": "https://map.qq.com/poi/?sm=8040070663151985535&keyfrom=1",
+      "sourceCoordinate": {
+        "latitude": 31.234992,
+        "longitude": 121.46265,
+        "coordinateSystem": "gcj02"
+      },
+      "sourceEvidence": "根任务实际打开新馆腾讯POI，名称及北京西路510号匹配；周边餐馆、超市链接where均为121.462650,31.234992，经度在前。",
+      "storedCoordinate": {
+        "latitude": 31.234992,
+        "longitude": 121.46265,
+        "coordinateSystem": "gcj02"
+      },
+      "precision": "venue",
+      "entranceVerified": false,
+      "conversion": "无转换；腾讯地图来源已为GCJ-02。",
+      "evidenceCollection": "根任务实际浏览核对，子任务依据其可见页面证据接入。"
+    }
+  ],
+  "photoBytesAdded": 197462,
+  "imageProcessing": "等比缩放、压缩并转为WebP；未裁剪、未换色或合成；CC BY-SA图片的派生文件继续遵循同一许可。",
+  "visualReview": "实际查看四张候选缩略图及最终WebP；选择馆名可见的动物园牌石、园内真实湖景及完整的新馆建筑。图片年月随图展示，不把历史照片当现场即时状态。",
+  "rejectedOrUnapplied": [
+    {
+      "sourceUrl": "https://www.wikidata.org/wiki/Q1312291",
+      "rawEvidenceFile": "output/nearby-research/2026-09-30-new-venues-wikidata.json",
+      "coordinate": {
+        "latitude": 31.23354,
+        "longitude": 121.48278,
+        "coordinateSystem": "wgs84"
+      },
+      "reason": "与北京西路510号新馆位置不符，疑为旧馆坐标；未转换、未导入。"
+    },
+    {
+      "sourceUrl": "https://www.wikidata.org/wiki/Q3182046",
+      "rawEvidenceFile": "output/nearby-research/2026-09-30-new-venues-wikidata.json",
+      "coordinate": {
+        "latitude": 31.195476,
+        "longitude": 121.358757,
+        "coordinateSystem": "wgs84"
+      },
+      "reason": "动物园园区范围点，有匹配地址的腾讯POI后采用后者；未导入Wikidata点。"
+    },
+    {
+      "sourceUrl": "https://www.wikidata.org/wiki/Q15046355",
+      "rawEvidenceFile": "output/nearby-research/2026-09-30-new-venues-wikidata.json",
+      "reason": "长风公园场所身份不等同长风海洋世界，未用公园中心作为海洋世界的目的地。"
+    },
+    {
+      "fileTitle": "File:Shanghai Natural History Museum (New) 01.JPG",
+      "reason": "与03同批同角度题材，选择建筑完整且前景遮挡较少的03，01不打包。"
+    }
+  ],
+  "unchanged": [
+    "现有nearby-enrichment.js",
+    "页面与云端基线",
+    "动物园及博物馆的票价、开放时间、携宠政策"
+  ],
+  "integrationOwner": "根任务负责把新模块合并进入目录并同步云端基线。"
+}

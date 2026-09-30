@@ -1,0 +1,334 @@
+{
+  "sheets": [
+    {
+      "path": "output/content-review/cc0-more1-dogs-01.jpg",
+      "pageids": [
+        157341968,
+        97879695,
+        176378449,
+        108096963,
+        166387333,
+        177322430,
+        108096958,
+        111181383,
+        62055866,
+        108096961,
+        195122225,
+        158982766,
+        82166606,
+        198253683
+      ]
+    }
+  ],
+  "records": [
+    {
+      "group": "dogs-more",
+      "pageid": 157341968,
+      "title": "File:Hund im Herzen.jpg",
+      "description": "Die Fußabdrücke zeigen ein Herz für den Hund",
+      "author": "Ilka Franz",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Hund_im_Herzen.jpg/960px-Hund_im_Herzen.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Hund_im_Herzen.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hund_im_Herzen.jpg",
+      "localFile": "content/batch-002/media/157341968.source",
+      "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+      "sha256": "958a2c06feea5155f9968a2a0cbf367764682440e0c7d9d85dbbe8a831de5f5f",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        677
+      ],
+      "reviewDhash": 1371103176757644316,
+      "reviewSha256": "958a2c06feea5155f9968a2a0cbf367764682440e0c7d9d85dbbe8a831de5f5f"
+    },
+    {
+      "group": "dogs-more",
+      "pageid": 97879695,
+      "title": "File:Carnavals-costuumfeest voor poedels, Bestanddeelnr 922-0330 (cropped).jpg",
+      "description": "Collectie / Archief : Fotocollectie Anefo Reportage / Serie : [ onbekend ] Beschrijving : Carnavals-costuumfeest voor poedels Annotatie : Repronegatief Datum : 22 januari 1969 Locatie : Oostenrijk Fotograaf : Basch, Fritz Auteursrechthebbende : Nationaal Archief Materiaalsoort : Negatief (zwart/wit) Nummer archiefinventaris : bekijk toegang 2.24.01.04 Bestanddeelnummer : 922-0330",
+      "author": "Anefo",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Carnavals-costuumfeest_voor_poedels%2C_Bestanddeelnr_922-0330_%28cropped%29.jpg/960px-Carnavals-costuumfeest_voor_poedels%2C_Bestanddeelnr_922-0330_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Carnavals-costuumfeest_voor_poedels%2C_Bestanddeelnr_922-0330_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carnavals-costuumfeest_voor_poedels,_Bestanddeelnr_922-0330_(cropped).jpg",
+      "localFile": "content/batch-002/media/97879695.source",
+      "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+      "sha256": "52c40d16684c203046b6372366b1ca390b8b2e411163dd8fc23f028eab4779a6",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        1299
+      ],
+      "reviewDhash": 8212548026202825960,
+      "reviewSha256": "52c40d16684c203046b6372366b1ca390b8b2e411163dd8fc23f028eab4779a6"
+    },
+    {
+      "group": "dogs-more",
+      "pageid": 176378449,
+      "title": "File:Čumák Border kolie přivírající oči.jpg",
+      "description": "Záběr na čumák Border kolie.",
+      "author": "Kryštof Jelínek",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/%C4%8Cum%C3%A1k_Border_kolie_p%C5%99iv%C3%ADraj%C3%ADc%C3%AD_o%C4%8Di.jpg/960px-%C4%8Cum%C3%A1k_Border_kolie_p%C5%99iv%C3%ADraj%C3%ADc%C3%AD_o%C4%8Di.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/ff/%C4%8Cum%C3%A1k_Border_kolie_p%C5%99iv%C3%ADraj%C3%ADc%C3%AD_o%C4%8Di.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%C4%8Cum%C3%A1k_Border_kolie_p%C5%99iv%C3%ADraj%C3%ADc%C3%AD_o%C4%8Di.jpg",
+      "localFile": "content/batch-002/media/176378449.source",
+      "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+      "sha256": "22cb31f42aca0e48a3cca3358f9d4dd3978c768ae7eadcd133b802336befcc72",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 505815086453691219,
+      "reviewSha256": "22cb31f42aca0e48a3cca3358f9d4dd3978c768ae7eadcd133b802336befcc72"
+    },
+    {
+      "group": "dogs-more",
+      "pageid": 108096963,
+      "title": "File:Terra Nova e Labrador 04.png",
+      "description": "Mille's Nautical Atlas of the Said World, from 1519, in which the east coast of Canada appears as a Portuguese domain.",
+      "author": "Mille",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Terra_Nova_e_Labrador_04.png/960px-Terra_Nova_e_Labrador_04.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/77/Terra_Nova_e_Labrador_04.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Terra_Nova_e_Labrador_04.png",
+      "localFile": "content/batch-002/media/108096963.source",
+      "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+      "sha256": "9081df2fe0d8f6e4b9dfcf9800e2f67f8fdc9fc313ee5fde651106a250e5ac36",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        647
+      ],
+      "reviewDhash": 17429992099745851183,
+      "reviewSha256": "9081df2fe0d8f6e4b9dfcf9800e2f67f8fdc9fc313ee5fde651106a250e5ac36"
+    },
+    {
+      "group": "dogs-more",
+      "pageid": 166387333,
+      "title": "File:Bento, o poodle toy.png",
+      "description": "Cachorro da raça poodle toy. Adulto, cerca de 4-5 anos humanos.",
+      "author": "CancerousNicolau",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Bento%2C_o_poodle_toy.png/960px-Bento%2C_o_poodle_toy.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/80/Bento%2C_o_poodle_toy.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bento,_o_poodle_toy.png",
+      "localFile": "content/batch-002/media/166387333.source",
+      "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+      "sha256": "87217ca835d250ac4710857ab4c3685fd7d7056ee60ae204edc01892f318b0c5",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        1279
+      ],
+      "reviewDhash": 10637247754884887609,
+      "reviewSha256": "87217ca835d250ac4710857ab4c3685fd7d7056ee60ae204edc01892f318b0c5"
+    },
+    {
+      "group": "dogs-more",
+      "pageid": 177322430,
+      "title": "File:Walks at Wincheap with View of Canterbury Cathedral.jpg",
+      "description": "Walks at Wincheap with View of Canterbury Cathedral",
+      "author": "Digihum",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Walks_at_Wincheap_with_View_of_Canterbury_Cathedral.jpg/960px-Walks_at_Wincheap_with_View_of_Canterbury_Cathedral.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Walks_at_Wincheap_with_View_of_Canterbury_Cathedral.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Walks_at_Wincheap_with_View_of_Canterbury_Cathedral.jpg",
+      "localFile": "content/batch-002/media/177322430.source",
+      "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+      "sha256": "c2b20457ef2d3c94104317c98bc9150ca725f37b928a7f593a37827a435dfc42",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        690
+      ],
+      "reviewDhash": 61066209095295333,
+      "reviewSha256": "c2b20457ef2d3c94104317c98bc9150ca725f37b928a7f593a37827a435dfc42"
+    },
+    {
+      "group": "dogs-more",
+      "pageid": 108096958,
+      "title": "File:Terra Nova e Labrador 03.jpg",
+      "description": "Map of Newfoundland and Labrador made by the Portuguese cartographer Fernão Vaz Dourado in 1576.",
+      "author": "Fernão Vaz Dourado",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Terra_Nova_e_Labrador_03.jpg/960px-Terra_Nova_e_Labrador_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/49/Terra_Nova_e_Labrador_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Terra_Nova_e_Labrador_03.jpg",
+      "localFile": "content/batch-002/media/108096958.source",
+      "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+      "sha256": "6c114861dd3552db86d7835fadd8677a1a1a1b2a05acbaa2583560c6177ad42a",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        716
+      ],
+      "reviewDhash": 14576544033105653611,
+      "reviewSha256": "6c114861dd3552db86d7835fadd8677a1a1a1b2a05acbaa2583560c6177ad42a"
+    },
+    {
+      "group": "dogs-more",
+      "pageid": 111181383,
+      "title": "File:Dog at Marymoor Park (3618929472).jpg",
+      "description": "Poodle at Marymoor dog park",
+      "author": "Chiara Coetzee from Menlo Park, CA, USA",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Dog_at_Marymoor_Park_%283618929472%29.jpg/960px-Dog_at_Marymoor_Park_%283618929472%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/69/Dog_at_Marymoor_Park_%283618929472%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dog_at_Marymoor_Park_(3618929472).jpg",
+      "localFile": "content/batch-002/media/111181383.source",
+      "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+      "sha256": "a0ab97ac97268532c17df773580861d491fa8215948d8070fb6d9486dffabec7",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        606
+      ],
+      "reviewDhash": 14180713182047623562,
+      "reviewSha256": "a0ab97ac97268532c17df773580861d491fa8215948d8070fb6d9486dffabec7"
+    },
+    {
+      "group": "dogs-more",
+      "pageid": 62055866,
+      "title": "File:Christal Yuen 2016 (Unsplash).jpg",
+      "description": "Christal Yuen 2016",
+      "author": "Christal Yuen dearskye",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Christal_Yuen_2016_%28Unsplash%29.jpg/960px-Christal_Yuen_2016_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Christal_Yuen_2016_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Christal_Yuen_2016_(Unsplash).jpg",
+      "localFile": "content/batch-002/media/62055866.source",
+      "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+      "sha256": "531a8d289d30b78b102238e3f96b3f5df60abe2cd9629f4b0149dbd56f5c9f68",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 14541523544381705675,
+      "reviewSha256": "531a8d289d30b78b102238e3f96b3f5df60abe2cd9629f4b0149dbd56f5c9f68"
+    },
+    {
+      "group": "dogs-more",
+      "pageid": 108096961,
+      "title": "File:Terra Nova e Labrador 01.png",
+      "description": "Map of Newfoundland and Labrador made by the Portuguese cartographer Fernão Vaz Dourado in 1570.",
+      "author": "Fernão Vaz Dourado",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Terra_Nova_e_Labrador_01.png/960px-Terra_Nova_e_Labrador_01.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Terra_Nova_e_Labrador_01.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Terra_Nova_e_Labrador_01.png",
+      "localFile": "content/batch-002/media/108096961.source",
+      "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+      "sha256": "2e9e525534f0e1f5bba8d04c1bb321ae12defc5d1a4346a6abef00856f4632c8",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        739
+      ],
+      "reviewDhash": 1684180660976232231,
+      "reviewSha256": "2e9e525534f0e1f5bba8d04c1bb321ae12defc5d1a4346a6abef00856f4632c8"
+    },
+    {
+      "group": "dogs-more",
+      "pageid": 195122225,
+      "title": "File:Lhasa-poo Dog.jpg",
+      "description": "Mica, a black lhasa-poo celebrates her birthday",
+      "author": "Lnoeil",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Lhasa-poo_Dog.jpg/960px-Lhasa-poo_Dog.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/33/Lhasa-poo_Dog.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lhasa-poo_Dog.jpg",
+      "localFile": "content/batch-002/media/195122225.source",
+      "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+      "sha256": "b5d845aef1cdffe89d8cc48177f087e49d8f7f242e5b8a22e6eb84b8f6259ce7",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        1519
+      ],
+      "reviewDhash": 2157471009287489640,
+      "reviewSha256": "b5d845aef1cdffe89d8cc48177f087e49d8f7f242e5b8a22e6eb84b8f6259ce7"
+    },
+    {
+      "group": "dogs-more",
+      "pageid": 158982766,
+      "title": "File:Blue merle border collie.jpg",
+      "description": "A border collie jumps",
+      "author": "Hehehefein",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Blue_merle_border_collie.jpg/960px-Blue_merle_border_collie.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/Blue_merle_border_collie.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_merle_border_collie.jpg",
+      "localFile": "content/batch-002/media/158982766.source",
+      "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+      "sha256": "e20bce630362b81aa4be649b933e840dfe05264d497161c4ecde809c3962479c",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        1280
+      ],
+      "reviewDhash": 4977996225063564856,
+      "reviewSha256": "e20bce630362b81aa4be649b933e840dfe05264d497161c4ecde809c3962479c"
+    },
+    {
+      "group": "dogs-more",
+      "pageid": 82166606,
+      "title": "File:Newfoundland Communities by Principal Religious Affiliation, 1945.png",
+      "description": "A map of the Dominion of Newfoundland, showing the 1945 religious makeup of its communities. All data sourced from the Eleventh Census of Newfoundland and Labrador, the last undertaken before Confederation. Visualization and formatting own work.",
+      "author": "awmcphee",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Newfoundland_Communities_by_Principal_Religious_Affiliation%2C_1945.png/960px-Newfoundland_Communities_by_Principal_Religious_Affiliation%2C_1945.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Newfoundland_Communities_by_Principal_Religious_Affiliation%2C_1945.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Newfoundland_Communities_by_Principal_Religious_Affiliation,_1945.png",
+      "localFile": "content/batch-002/media/82166606.source",
+      "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+      "sha256": "e21f8f83331f0b5fbce186b763b69135782912a22297f4314845ff9c9efcc259",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        549
+      ],
+      "reviewDhash": 642526895495988950,
+      "reviewSha256": "e21f8f83331f0b5fbce186b763b69135782912a22297f4314845ff9c9efcc259"
+    },
+    {
+      "group": "dogs-more",
+      "pageid": 198253683,
+      "title": "File:Cute Senior Small Poodle Mix.jpg",
+      "description": "This dog has a very thin fur coat, and you can see his skin through his fur. He has lots of small splotches on his skin and his tail has very feathery and wispy strands of long hair hanging off of it. He is missing all of his incisors (front teeth), so his canine teeth are his front-most teeth. He has several small moles. He is very food motivated and loves most cats, humans, and other dogs. He has brown nails, eyes, eye liner, lips, gums, and a brown nose. He has a very deep voice for his size, but he is capable of making very high pitched sounds as well. He has been diagnosed with having a heart murmur, but he is very healthy and is in very good shape. He is very attached to his humans and he always wants to be around people.",
+      "author": "Twawri",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Cute_Senior_Small_Poodle_Mix.jpg/960px-Cute_Senior_Small_Poodle_Mix.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/94/Cute_Senior_Small_Poodle_Mix.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cute_Senior_Small_Poodle_Mix.jpg",
+      "localFile": "content/batch-002/media/198253683.source",
+      "metadataFile": "content/batch-002/sources/dogs-more-metadata.json",
+      "sha256": "f60a8478b551da13cb303734c124ad1e8652ab1d9abfa5dfe1f0de966f3756dc",
+      "species": "dogs",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 10132880592782244184,
+      "reviewSha256": "f60a8478b551da13cb303734c124ad1e8652ab1d9abfa5dfe1f0de966f3756dc"
+    }
+  ],
+  "possibleDuplicates": []
+}

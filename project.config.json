@@ -1,0 +1,61 @@
+{
+  "description": "有宠有邻 v0.4 · 默认本机演示，正式发布须完成云端配置",
+  "projectname": "youchong-pet-community",
+  "appid": "wxb39b756b2fcf8872",
+  "compileType": "miniprogram",
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "setting": {
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "urlCheck": true,
+    "checkSiteMap": true,
+    "checkInvalidKey": true,
+    "ignoreUploadUnusedFiles": true,
+    "compileWorklet": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "minifyWXML": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "condition": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "packOptions": {
+    "ignore": [],
+    "include": [
+      {
+        "type": "file",
+        "value": "pages/post/_player.js"
+      },
+      {
+        "type": "folder",
+        "value": "media/clips"
+      },
+      {
+        "type": "folder",
+        "value": "assets/curated-poster"
+      },
+      {
+        "type": "folder",
+        "value": "media2/clips"
+      },
+      {
+        "type": "folder",
+        "value": "media3/clips"
+      }
+    ]
+  },
+  "simulatorPluginLibVersion": {},
+  "editorSetting": {}
+}

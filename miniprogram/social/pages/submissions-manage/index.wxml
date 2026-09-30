@@ -1,0 +1,43 @@
+<view class="page submissions-manage-page">
+  <view wx:if="{{loading}}" class="loading">正在读取投稿审核信息…</view>
+  <view wx:elif="{{error}}" class="error-box"><text>{{error}}</text><button class="btn btn-secondary" bindtap="refresh">重新加载</button></view>
+  <view wx:elif="{{!isAdmin}}" class="empty-card"><view class="empty-title">仅运营者可以审核投稿</view><view>你的投稿和审核结果可在「投稿 · 我的投稿」查看。</view></view>
+  <block wx:else>
+    <view wx:if="{{mode === 'demo'}}" class="local-note">本机体验：审核和发布只影响当前设备的数据，不代表内容已上线。</view>
+    <view wx:if="{{notice}}" class="notice-box">{{notice}}</view>
+    <block wx:if="{{!selected}}">
+      <view class="list-toolbar"><view class="page-title">投稿审核</view><picker range="{{statuses}}" range-key="name" value="{{statusIndex}}" bindchange="changeStatus" disabled="{{busy}}"><view class="status-picker">{{statuses[statusIndex].name}} ⌄</view></picker></view>
+      <view class="intro-copy">核实推荐内容后再发布。未通过时，请填写清楚原因，方便宠友补充或修改。</view>
+      <view wx:if="{{!items.length}}" class="empty-card"><view class="empty-title">{{statusIndex === 1 ? '暂时没有待审核投稿' : '这个状态下没有投稿'}}</view><view>新的宠友推荐会出现在这里。</view></view>
+      <button wx:for="{{items}}" wx:key="id" class="submission-card record-button" bindtap="selectSubmission" data-id="{{item.id}}" disabled="{{busy}}">
+        <view class="record-top"><text class="record-kind">{{item.typeText}}</text><text class="record-status status-{{item.status}}">{{item.statusText}}</text></view><view class="record-title">{{item.title}}</view><view class="record-address">{{item.city}} {{item.district}} {{item.area}} · {{item.address}}</view><view wx:if="{{item.type === 'event'}}" class="record-date">{{item.startDate}} 至 {{item.endDate}}</view><view class="record-bottom"><text>{{item.submittedText}}</text><text class="review-link">{{item.status === 'pending' ? '核实与审核' : '查看记录'}} ›</text></view>
+      </button>
+      <button wx:if="{{nextCursor}}" class="btn btn-ghost" bindtap="loadMore" disabled="{{moreBusy || busy}}" loading="{{moreBusy}}">查看更多投稿</button>
+    </block>
+    <block wx:else>
+      <view class="editor-toolbar"><button class="text-button" bindtap="closeForm" disabled="{{busy}}">‹ 返回列表</button><text class="record-status status-{{selected.status}}">{{selected.statusText}}</text></view>
+      <view class="editor-title">{{selected.status === 'pending' ? '核实投稿内容' : '投稿记录'}}</view><view class="intro-copy">{{selected.status === 'pending' ? '可以更正公开信息。通过后，下方内容会作为推荐发布到附近。' : '此记录已处理；已发布内容可填写原因后下架。'}}</view>
+      <view wx:if="{{selected.reviewNote}}" class="review-note"><view>此前审核说明</view><text>{{selected.reviewNote}}</text></view>
+      <view class="form-section"><view class="form-section-title">公开内容</view><view class="type-options"><button class="type-option {{form.type === 'place' ? 'selected' : ''}}" data-id="place" bindtap="selectType" disabled="{{busy || reviewLocked || selected.status !== 'pending'}}">好去处</button><button class="type-option {{form.type === 'event' ? 'selected' : ''}}" data-id="event" bindtap="selectType" disabled="{{busy || reviewLocked || selected.status !== 'pending'}}">活动</button></view>
+        <view class="field"><view class="label">名称<text class="required">必填</text></view><input class="input" value="{{form.title}}" data-field="title" bindinput="input" maxlength="60" disabled="{{busy || reviewLocked || selected.status !== 'pending'}}" placeholder="2–60 个字"/></view>
+        <view class="field"><view class="label">公共场所地址<text class="required">必填</text></view><input class="input" value="{{form.address}}" data-field="address" bindinput="input" maxlength="200" disabled="{{busy || reviewLocked || selected.status !== 'pending'}}" placeholder="可核实的公共场所地址"/></view>
+        <view class="form-row"><view class="field"><view class="label">城市<text class="required">必填</text></view><input class="input" value="{{form.city}}" data-field="city" bindinput="input" maxlength="40" disabled="{{busy || reviewLocked || selected.status !== 'pending'}}" placeholder="城市"/></view><view class="field"><view class="label">行政区</view><input class="input" value="{{form.district}}" data-field="district" bindinput="input" maxlength="40" disabled="{{busy || reviewLocked || selected.status !== 'pending'}}" placeholder="选填"/></view></view>
+        <view class="field"><view class="label">片区 / 商圈</view><input class="input" value="{{form.area}}" data-field="area" bindinput="input" maxlength="40" disabled="{{busy || reviewLocked || selected.status !== 'pending'}}" placeholder="选填"/></view>
+        <view wx:if="{{form.type === 'event'}}" class="form-row"><view class="field"><view class="label">开始日期<text class="required">必填</text></view><picker mode="date" value="{{form.startDate}}" data-field="startDate" bindchange="input" disabled="{{busy || reviewLocked || selected.status !== 'pending'}}"><view class="input picker-value">{{form.startDate || '选择日期'}}</view></picker></view><view class="field"><view class="label">结束日期<text class="required">必填</text></view><picker mode="date" value="{{form.endDate}}" data-field="endDate" bindchange="input" disabled="{{busy || reviewLocked || selected.status !== 'pending'}}"><view class="input picker-value">{{form.endDate || '选择日期'}}</view></picker></view></view>
+        <view class="field"><view class="label">详细介绍<text class="required">必填</text></view><textarea class="textarea description-field" value="{{form.description}}" data-field="description" bindinput="input" maxlength="2000" disabled="{{busy || reviewLocked || selected.status !== 'pending'}}" placeholder="10–2000 个字"/></view>
+        <view class="field"><view class="label">携宠情况</view><picker range="{{policyChoices}}" range-key="name" value="{{form.policyIndex}}" bindchange="selectPolicy" disabled="{{busy || reviewLocked || selected.status !== 'pending'}}"><view class="input picker-value">{{policyChoices[form.policyIndex].name}}<text>⌄</text></view></picker></view>
+        <view class="field"><view class="label">携宠说明<text wx:if="{{form.petPolicyStatus !== 'unknown'}}" class="required">必填</text></view><textarea class="textarea short-field" value="{{form.petPolicyText}}" data-field="petPolicyText" bindinput="input" maxlength="500" disabled="{{busy || reviewLocked || selected.status !== 'pending'}}" placeholder="核实携宠条件、开放区域和注意事项"/></view>
+        <view class="field"><view class="label">费用说明</view><input class="input" value="{{form.costText}}" data-field="costText" bindinput="input" maxlength="200" disabled="{{busy || reviewLocked || selected.status !== 'pending'}}" placeholder="留空表示费用待核实"/></view>
+        <view class="field"><view class="label">参考链接</view><input class="input" value="{{form.sourceUrl}}" data-field="sourceUrl" bindinput="input" maxlength="1000" disabled="{{busy || reviewLocked || selected.status !== 'pending'}}" placeholder="完整 HTTPS 链接（选填）"/><button wx:if="{{form.sourceUrl}}" class="text-button" bindtap="copySource">复制链接核实</button></view>
+      </view>
+      <view wx:if="{{selected.status === 'pending' || selected.status === 'approved'}}" class="review-section">
+        <view class="label">{{selected.status === 'approved' ? '下架原因' : '审核说明'}}<text class="required">{{selected.status === 'approved' ? '必填' : '拒绝时必填'}}</text></view><textarea class="textarea short-field" value="{{note}}" bindinput="inputNote" maxlength="500" disabled="{{busy || reviewLocked}}" placeholder="{{selected.status === 'approved' ? '说明下架原因，投稿人可在自己的记录中查看' : '说明核实结果或需要补充的内容，投稿人可见'}}"/>
+        <view wx:if="{{selected.status === 'pending'}}" class="confirmation-row"><switch type="checkbox" class="review-checkbox" checked="{{confirmed}}" bindchange="confirmReviewed" disabled="{{busy || reviewLocked}}" aria-label="确认已核实投稿内容"/><text>我已核实公共场所、活动日期及携宠信息，确认可对外发布。</text></view>
+      </view>
+      <view wx:if="{{formError}}" class="error-box form-error"><text>{{formError}}</text><view wx:if="{{reviewLocked}}" class="retry-copy">本次审核内容已保留，重试会继续同一操作。</view></view>
+      <button wx:if="{{reviewLocked}}" class="btn btn-primary decision-retry" bindtap="retryDecision" loading="{{busy}}" disabled="{{busy}}">重试确认处理结果</button>
+      <view wx:elif="{{selected.status === 'pending'}}" class="decision-actions"><button class="btn btn-secondary" bindtap="reject" disabled="{{busy}}">不通过</button><button class="btn btn-primary" bindtap="approve" disabled="{{busy || !confirmed}}" loading="{{busy}}">通过并发布</button></view>
+      <view wx:elif="{{selected.status === 'approved'}}" class="published-actions"><button wx:if="{{selected.publishedId}}" class="btn btn-secondary" bindtap="openPublished">查看已发布内容</button><button class="btn btn-ghost" bindtap="unpublish" disabled="{{busy}}" loading="{{busy}}">下架这条推荐</button></view>
+    </block>
+  </block>
+</view>

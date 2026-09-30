@@ -1,0 +1,193 @@
+{
+  "sheets": [
+    {
+      "path": "output/content-review/dog-round5-1.jpg",
+      "pageids": [
+        179295056,
+        179613367,
+        180043141,
+        187646982,
+        189693864,
+        189693865,
+        189693866,
+        190878819,
+        191392916,
+        192179538,
+        192179542,
+        192179546,
+        192308154,
+        192308155
+      ]
+    }
+  ],
+  "records": [
+    {
+      "species": "dogs",
+      "pageid": 179295056,
+      "title": "File:Funchal (Madeira, Portugal), Rua dos Barreiros 13 -- 2025 -- 0877.jpg",
+      "localFile": "content/batch-001/media/179295056.source",
+      "reviewDimensions": [
+        960,
+        1280
+      ],
+      "reviewDhash": 17791695482676588350,
+      "reviewSha256": "93a7ac917c12b6b36f937b0fb1dd9d7212904ef29dbb43b478aca32c484678f6"
+    },
+    {
+      "species": "dogs",
+      "pageid": 179613367,
+      "title": "File:Funchal (Madeira, Portugal), Rua de Santa Maria 159 -- 2025 -- 0910.jpg",
+      "localFile": "content/batch-001/media/179613367.source",
+      "reviewDimensions": [
+        960,
+        1440
+      ],
+      "reviewDhash": 17363862373952665879,
+      "reviewSha256": "4c2c07fdb34e8d30e4f3058701b819b56599b45005cbfac6a0c796f8b0a57af4"
+    },
+    {
+      "species": "dogs",
+      "pageid": 180043141,
+      "title": "File:Machico (Madeira, Portugal), Rua General António Teixeira de Aguiar 67 -- 2025 -- 1363.jpg",
+      "localFile": "content/batch-001/media/180043141.source",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 6732308266394284923,
+      "reviewSha256": "8d54bc7ee2fa3e001acebdcb56c5f9496e4aa7748316b652a3070c5d1da526df"
+    },
+    {
+      "species": "dogs",
+      "pageid": 187646982,
+      "title": "File:People leave sticks for the dog statue (82260).jpg",
+      "localFile": "content/batch-001/media/187646982.source",
+      "reviewDimensions": [
+        960,
+        705
+      ],
+      "reviewDhash": 945280137351798011,
+      "reviewSha256": "9a4373179d0e5ec2aece94753aa532fb6109e744855b4815a60187515870e17c"
+    },
+    {
+      "species": "dogs",
+      "pageid": 189693864,
+      "title": "File:Сунаката, собака на Сыганаке (2).jpg",
+      "localFile": "content/batch-001/media/189693864.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 5142589667286152926,
+      "reviewSha256": "4260f859427147a29fd49bf66adf07d83fa5820a708245dad700f8a12a4e43f2"
+    },
+    {
+      "species": "dogs",
+      "pageid": 189693865,
+      "title": "File:Сунаката, собака на Сыганаке (3).jpg",
+      "localFile": "content/batch-001/media/189693865.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 14293912902437338846,
+      "reviewSha256": "dfe873633b9eff5737bd8cf12455f2ddb1532d4775318333ca67cb8c99c01636"
+    },
+    {
+      "species": "dogs",
+      "pageid": 189693866,
+      "title": "File:Сунаката, собака на Сыганаке (1).jpg",
+      "localFile": "content/batch-001/media/189693866.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 14293910707205730014,
+      "reviewSha256": "38d159b2fe0173a76342a14dd36c3fed0d6291ccbd433729ddc3eaaa889ba9cf"
+    },
+    {
+      "species": "dogs",
+      "pageid": 190878819,
+      "title": "File:Космодром Байконур, собака в космопарке.jpg",
+      "localFile": "content/batch-001/media/190878819.source",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 4375583406622829623,
+      "reviewSha256": "fad74b8c06629f5271208f52c8192602c4661afe7632b3b13f49a36b58e332f9"
+    },
+    {
+      "species": "dogs",
+      "pageid": 191392916,
+      "title": "File:Mookstarr Hawaiian.jpg",
+      "localFile": "content/batch-001/media/191392916.source",
+      "reviewDimensions": [
+        960,
+        1707
+      ],
+      "reviewDhash": 15530536988077324458,
+      "reviewSha256": "456f4640a47ca0f495b009322973e5d8872259919c05baa021a1a3ada88c5143"
+    },
+    {
+      "species": "dogs",
+      "pageid": 192179538,
+      "title": "File:Dülmen, Hausdülmen, Golden Retriever -- 2022 -- 5767.jpg",
+      "localFile": "content/batch-001/media/192179538.source",
+      "reviewDimensions": [
+        960,
+        1280
+      ],
+      "reviewDhash": 2488546079046556121,
+      "reviewSha256": "1fd86aaad9da6ddcbd68167465db2cb0e872435e29bebb2ff14de74a3c33b212"
+    },
+    {
+      "species": "dogs",
+      "pageid": 192179542,
+      "title": "File:Dülmen, Hausdülmen, Golden Retriever -- 2022 -- 5945.jpg",
+      "localFile": "content/batch-001/media/192179542.source",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 2781841547535920415,
+      "reviewSha256": "fba874363338457d0bb4d00ee76a335e112ebcbb42b8170aac0b44148497137e"
+    },
+    {
+      "species": "dogs",
+      "pageid": 192179546,
+      "title": "File:Dülmen, Hausdülmen, Golden Retriever -- 2022 -- 6055.jpg",
+      "localFile": "content/batch-001/media/192179546.source",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 10247787864082576243,
+      "reviewSha256": "232b54b5034e9d85fc798d85f5bda907ae354058313acc39c336335fe52e9267"
+    },
+    {
+      "species": "dogs",
+      "pageid": 192308154,
+      "title": "File:Космодром Байконур, собака на Гагаринском старте (1).jpg",
+      "localFile": "content/batch-001/media/192308154.source",
+      "reviewDimensions": [
+        960,
+        1280
+      ],
+      "reviewDhash": 13164204180103872947,
+      "reviewSha256": "faa0f79ef0a87b5a6d95f45adbd9b449ea204c3e5e991a43208bb78b5a3798b7"
+    },
+    {
+      "species": "dogs",
+      "pageid": 192308155,
+      "title": "File:Космодром Байконур, собака на Гагаринском старте (3).jpg",
+      "localFile": "content/batch-001/media/192308155.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 6050833432725521353,
+      "reviewSha256": "4df75e247e6eafeced56e40f3dc9c50dbdcc06ca32ca5e33f363c30bbc1dabd8"
+    }
+  ]
+}

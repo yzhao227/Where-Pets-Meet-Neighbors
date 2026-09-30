@@ -1,0 +1,1489 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-30T06:37:09.962Z",
+  "catalogueVersion": "batch-001-b35a5fd070adbe08",
+  "catalogueSha256": "e0eedc1b3fe31416597ff2c274fcc81e1ef90c3af466e7d8e797b458c6198356",
+  "environment": "Node.js; isolated Map storage; native page definitions run with in-memory wx stubs",
+  "actualWeChatStorageAccessed": false,
+  "networkRequested": false,
+  "guiAutomationUsed": false,
+  "scope": "Final bundled catalogue data, local MP4 structure and native page data flow; not a device playback or remote availability test.",
+  "checks": [
+    {
+      "name": "all current records survive full pagination and refresh; original 250 remain unchanged",
+      "status": "passed",
+      "details": {
+        "count": 360,
+        "pages": 18,
+        "refreshedOrderStable": true,
+        "inventedDatesOrEngagement": false
+      }
+    },
+    {
+      "name": "eight populated circles and eight populated topics return exactly matching content",
+      "status": "passed",
+      "details": {
+        "circles": {
+          "circle-beginners": 18,
+          "circle-aquatics": 50,
+          "circle-exotics": 56,
+          "circle-cats": 74,
+          "circle-birds": 28,
+          "circle-walks": 68,
+          "circle-neighbors": 6,
+          "circle-small-pets": 60
+        },
+        "topics": {
+          "饮食喂养": 10,
+          "治愈瞬间": 230,
+          "行为观察": 114,
+          "居家布置": 11,
+          "健康护理": 18,
+          "陪伴日常": 135,
+          "户外出行": 15,
+          "成长记录": 14
+        }
+      }
+    },
+    {
+      "name": "all knowledge cards have reviewed photo covers and all eight new groups retain their image order",
+      "status": "passed",
+      "details": {
+        "count": 58,
+        "allHaveSelectedPhotoCover": true,
+        "multiImageGroups": 8
+      }
+    },
+    {
+      "name": "all readable bundled MP4 files are present and the first five feed pages include videos",
+      "status": "passed",
+      "details": [
+        {
+          "id": "video-commons-101613615",
+          "path": "/media/clips/101613615.mp4",
+          "bytes": 287183,
+          "sha256": "9ad9fdcec148dea6c22d9b1886e43123126e6da127d610750ca81eff4c8fcab5",
+          "position": 6,
+          "page": 1,
+          "contentType": "video/mp4",
+          "durationSeconds": 8,
+          "width": 480,
+          "height": 270
+        },
+        {
+          "id": "video-commons-164819779",
+          "path": "/assets/curated-video/164819779.mp4",
+          "bytes": 141736,
+          "sha256": "db083185b1544b1f192325aef7a91a80791375ad6e34cde343f9a56c8657fd4d",
+          "position": 27,
+          "page": 2,
+          "contentType": "video/mp4",
+          "durationSeconds": 8,
+          "width": 270,
+          "height": 480
+        },
+        {
+          "id": "video-commons-19244332",
+          "path": "/media2/clips/19244332.mp4",
+          "bytes": 283555,
+          "sha256": "7fb07a541c543d09767cc7f0b92c4aa934008aed924202ccc1c97bdf023fca3b",
+          "position": 42,
+          "page": 3,
+          "contentType": "video/mp4",
+          "durationSeconds": 8,
+          "width": 480,
+          "height": 360
+        },
+        {
+          "id": "video-commons-112285953",
+          "path": "/assets/curated-video/112285953.mp4",
+          "bytes": 217344,
+          "sha256": "74a8a6c3f9353414a878a3258d7eaba3907d5e2985ef19a97112b9acffef5149",
+          "position": 63,
+          "page": 4,
+          "contentType": "video/mp4",
+          "durationSeconds": 8,
+          "width": 480,
+          "height": 270
+        },
+        {
+          "id": "video-commons-19244337",
+          "path": "/media2/clips/19244337.mp4",
+          "bytes": 276167,
+          "sha256": "0f007ced7529a5ad304699becc06b8f235eeffc85f6b61d53c0e49788a136a39",
+          "position": 81,
+          "page": 5,
+          "contentType": "video/mp4",
+          "durationSeconds": 8,
+          "width": 480,
+          "height": 360
+        },
+        {
+          "id": "video-commons-134636343",
+          "path": "/media/clips/134636343.mp4",
+          "bytes": 286635,
+          "sha256": "90c32748455f0d04092ed666cc42f10c4a508be09213a84d18a6a3c4e840093c",
+          "position": 96,
+          "page": 5,
+          "contentType": "video/mp4",
+          "durationSeconds": 8,
+          "width": 480,
+          "height": 854
+        },
+        {
+          "id": "video-commons-21925981",
+          "path": "/media3/clips/21925981.mp4",
+          "bytes": 286445,
+          "sha256": "00ab2eb6ea25aa117223c96b93ecab37e03eaeb0221e16b03107528188b490a0",
+          "position": 114,
+          "page": 6,
+          "contentType": "video/mp4",
+          "durationSeconds": 8,
+          "width": 480,
+          "height": 320
+        },
+        {
+          "id": "video-commons-134637319",
+          "path": "/media2/clips/134637319.mp4",
+          "bytes": 248726,
+          "sha256": "89ec9527a79b90f03d6c4e94de673c310cb2c698c5a3ddc7b3bb8ab0095d7497",
+          "position": 132,
+          "page": 7,
+          "contentType": "video/mp4",
+          "durationSeconds": 8,
+          "width": 270,
+          "height": 480
+        },
+        {
+          "id": "video-commons-77198954",
+          "path": "/assets/curated-video/77198954.mp4",
+          "bytes": 238365,
+          "sha256": "4b8abdcd3192ecb81f65418d0d21b68d7066ef44297b0a2b56e3807d1d550d72",
+          "position": 150,
+          "page": 8,
+          "contentType": "video/mp4",
+          "durationSeconds": 8,
+          "width": 480,
+          "height": 270
+        },
+        {
+          "id": "video-commons-149148402",
+          "path": "/media2/clips/149148402.mp4",
+          "bytes": 95209,
+          "sha256": "6ff0ef8a680263b959f7059395aa8e8759d1b33169b8a32036c3886bb7a80ddf",
+          "position": 171,
+          "page": 9,
+          "contentType": "video/mp4",
+          "durationSeconds": 8,
+          "width": 480,
+          "height": 270
+        },
+        {
+          "id": "video-commons-149148404",
+          "path": "/media2/clips/149148404.mp4",
+          "bytes": 290594,
+          "sha256": "2b4f4e592158eda25d7d12d0cfb96dbde8249e7432883db7e8a05a8388f81497",
+          "position": 182,
+          "page": 10,
+          "contentType": "video/mp4",
+          "durationSeconds": 8,
+          "width": 480,
+          "height": 270
+        },
+        {
+          "id": "video-commons-194760075",
+          "path": "/media2/clips/194760075.mp4",
+          "bytes": 269624,
+          "sha256": "5f1847df4a5e460a93bad1aa657c8a0e8864bad5c756e108b8918991a65d324c",
+          "position": 194,
+          "page": 10,
+          "contentType": "video/mp4",
+          "durationSeconds": 8,
+          "width": 270,
+          "height": 480
+        },
+        {
+          "id": "video-commons-78173542",
+          "path": "/media2/clips/78173542.mp4",
+          "bytes": 157750,
+          "sha256": "8a2d1b107f0fb54a86db2194aa61d9ac6e8976eef354f994769d94d0e94e512d",
+          "position": 206,
+          "page": 11,
+          "contentType": "video/mp4",
+          "durationSeconds": 8,
+          "width": 480,
+          "height": 270
+        }
+      ]
+    },
+    {
+      "name": "all ten animal selectors and exclusions work across pagination, including mixed cat/dog cards",
+      "status": "passed",
+      "details": {
+        "matrix": [
+          {
+            "animalType": "cat",
+            "included": 91,
+            "remainingAfterExclusion": 269,
+            "includePages": 5,
+            "excludePages": 14
+          },
+          {
+            "animalType": "dog",
+            "included": 82,
+            "remainingAfterExclusion": 278,
+            "includePages": 5,
+            "excludePages": 14
+          },
+          {
+            "animalType": "rabbit",
+            "included": 19,
+            "remainingAfterExclusion": 341,
+            "includePages": 1,
+            "excludePages": 18
+          },
+          {
+            "animalType": "small-mammal",
+            "included": 41,
+            "remainingAfterExclusion": 319,
+            "includePages": 3,
+            "excludePages": 16
+          },
+          {
+            "animalType": "bird",
+            "included": 28,
+            "remainingAfterExclusion": 332,
+            "includePages": 2,
+            "excludePages": 17
+          },
+          {
+            "animalType": "fish",
+            "included": 36,
+            "remainingAfterExclusion": 324,
+            "includePages": 2,
+            "excludePages": 17
+          },
+          {
+            "animalType": "reptile",
+            "included": 37,
+            "remainingAfterExclusion": 323,
+            "includePages": 2,
+            "excludePages": 17
+          },
+          {
+            "animalType": "amphibian",
+            "included": 19,
+            "remainingAfterExclusion": 341,
+            "includePages": 1,
+            "excludePages": 18
+          },
+          {
+            "animalType": "invertebrate",
+            "included": 14,
+            "remainingAfterExclusion": 346,
+            "includePages": 1,
+            "excludePages": 18
+          },
+          {
+            "animalType": "other",
+            "included": 0,
+            "remainingAfterExclusion": 360,
+            "includePages": 1,
+            "excludePages": 18
+          }
+        ],
+        "mixedCatDogIds": [
+          "knowledge-086",
+          "knowledge-087",
+          "knowledge-089",
+          "knowledge-091",
+          "knowledge-093",
+          "knowledge-094",
+          "photo-commons-126371057"
+        ],
+        "catsWithoutDogs": 84,
+        "remainingWithoutCatsOrDogs": 194,
+        "allExcluded": 0,
+        "unclassified": 0
+      }
+    },
+    {
+      "name": "native circle and author pages apply all ten hidden-animal preferences to initial and subsequent pages",
+      "status": "passed",
+      "details": {
+        "scenarios": 140,
+        "includesPagination": true,
+        "matrix": [
+          {
+            "page": "circle",
+            "id": "circle-neighbors",
+            "excluded": "cat",
+            "visible": 0,
+            "pages": 1
+          },
+          {
+            "page": "circle",
+            "id": "circle-cats",
+            "excluded": "cat",
+            "visible": 0,
+            "pages": 1
+          },
+          {
+            "page": "circle",
+            "id": "circle-walks",
+            "excluded": "cat",
+            "visible": 67,
+            "pages": 4
+          },
+          {
+            "page": "circle",
+            "id": "circle-small-pets",
+            "excluded": "cat",
+            "visible": 60,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-birds",
+            "excluded": "cat",
+            "visible": 28,
+            "pages": 2
+          },
+          {
+            "page": "circle",
+            "id": "circle-aquatics",
+            "excluded": "cat",
+            "visible": 50,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-exotics",
+            "excluded": "cat",
+            "visible": 56,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-beginners",
+            "excluded": "cat",
+            "visible": 8,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-cat-home",
+            "excluded": "cat",
+            "visible": 0,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-cat-behavior",
+            "excluded": "cat",
+            "visible": 0,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-dog-life",
+            "excluded": "cat",
+            "visible": 30,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-dog-walk",
+            "excluded": "cat",
+            "visible": 12,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-pet-care",
+            "excluded": "cat",
+            "visible": 52,
+            "pages": 3
+          },
+          {
+            "page": "author",
+            "id": "catalog-photo",
+            "excluded": "cat",
+            "visible": 175,
+            "pages": 9
+          },
+          {
+            "page": "circle",
+            "id": "circle-neighbors",
+            "excluded": "dog",
+            "visible": 0,
+            "pages": 1
+          },
+          {
+            "page": "circle",
+            "id": "circle-cats",
+            "excluded": "dog",
+            "visible": 74,
+            "pages": 4
+          },
+          {
+            "page": "circle",
+            "id": "circle-walks",
+            "excluded": "dog",
+            "visible": 0,
+            "pages": 1
+          },
+          {
+            "page": "circle",
+            "id": "circle-small-pets",
+            "excluded": "dog",
+            "visible": 60,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-birds",
+            "excluded": "dog",
+            "visible": 28,
+            "pages": 2
+          },
+          {
+            "page": "circle",
+            "id": "circle-aquatics",
+            "excluded": "dog",
+            "visible": 50,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-exotics",
+            "excluded": "dog",
+            "visible": 56,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-beginners",
+            "excluded": "dog",
+            "visible": 10,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-cat-home",
+            "excluded": "dog",
+            "visible": 26,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-cat-behavior",
+            "excluded": "dog",
+            "visible": 33,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-dog-life",
+            "excluded": "dog",
+            "visible": 0,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-dog-walk",
+            "excluded": "dog",
+            "visible": 0,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-pet-care",
+            "excluded": "dog",
+            "visible": 52,
+            "pages": 3
+          },
+          {
+            "page": "author",
+            "id": "catalog-photo",
+            "excluded": "dog",
+            "visible": 167,
+            "pages": 9
+          },
+          {
+            "page": "circle",
+            "id": "circle-neighbors",
+            "excluded": "rabbit",
+            "visible": 6,
+            "pages": 1
+          },
+          {
+            "page": "circle",
+            "id": "circle-cats",
+            "excluded": "rabbit",
+            "visible": 74,
+            "pages": 4
+          },
+          {
+            "page": "circle",
+            "id": "circle-walks",
+            "excluded": "rabbit",
+            "visible": 68,
+            "pages": 4
+          },
+          {
+            "page": "circle",
+            "id": "circle-small-pets",
+            "excluded": "rabbit",
+            "visible": 41,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-birds",
+            "excluded": "rabbit",
+            "visible": 28,
+            "pages": 2
+          },
+          {
+            "page": "circle",
+            "id": "circle-aquatics",
+            "excluded": "rabbit",
+            "visible": 50,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-exotics",
+            "excluded": "rabbit",
+            "visible": 56,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-beginners",
+            "excluded": "rabbit",
+            "visible": 18,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-cat-home",
+            "excluded": "rabbit",
+            "visible": 26,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-cat-behavior",
+            "excluded": "rabbit",
+            "visible": 33,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-dog-life",
+            "excluded": "rabbit",
+            "visible": 30,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-dog-walk",
+            "excluded": "rabbit",
+            "visible": 13,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-pet-care",
+            "excluded": "rabbit",
+            "visible": 52,
+            "pages": 3
+          },
+          {
+            "page": "author",
+            "id": "catalog-photo",
+            "excluded": "rabbit",
+            "visible": 187,
+            "pages": 10
+          },
+          {
+            "page": "circle",
+            "id": "circle-neighbors",
+            "excluded": "small-mammal",
+            "visible": 6,
+            "pages": 1
+          },
+          {
+            "page": "circle",
+            "id": "circle-cats",
+            "excluded": "small-mammal",
+            "visible": 74,
+            "pages": 4
+          },
+          {
+            "page": "circle",
+            "id": "circle-walks",
+            "excluded": "small-mammal",
+            "visible": 68,
+            "pages": 4
+          },
+          {
+            "page": "circle",
+            "id": "circle-small-pets",
+            "excluded": "small-mammal",
+            "visible": 19,
+            "pages": 1
+          },
+          {
+            "page": "circle",
+            "id": "circle-birds",
+            "excluded": "small-mammal",
+            "visible": 28,
+            "pages": 2
+          },
+          {
+            "page": "circle",
+            "id": "circle-aquatics",
+            "excluded": "small-mammal",
+            "visible": 50,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-exotics",
+            "excluded": "small-mammal",
+            "visible": 56,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-beginners",
+            "excluded": "small-mammal",
+            "visible": 18,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-cat-home",
+            "excluded": "small-mammal",
+            "visible": 26,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-cat-behavior",
+            "excluded": "small-mammal",
+            "visible": 33,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-dog-life",
+            "excluded": "small-mammal",
+            "visible": 30,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-dog-walk",
+            "excluded": "small-mammal",
+            "visible": 13,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-pet-care",
+            "excluded": "small-mammal",
+            "visible": 45,
+            "pages": 3
+          },
+          {
+            "page": "author",
+            "id": "catalog-photo",
+            "excluded": "small-mammal",
+            "visible": 172,
+            "pages": 9
+          },
+          {
+            "page": "circle",
+            "id": "circle-neighbors",
+            "excluded": "bird",
+            "visible": 6,
+            "pages": 1
+          },
+          {
+            "page": "circle",
+            "id": "circle-cats",
+            "excluded": "bird",
+            "visible": 74,
+            "pages": 4
+          },
+          {
+            "page": "circle",
+            "id": "circle-walks",
+            "excluded": "bird",
+            "visible": 68,
+            "pages": 4
+          },
+          {
+            "page": "circle",
+            "id": "circle-small-pets",
+            "excluded": "bird",
+            "visible": 60,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-birds",
+            "excluded": "bird",
+            "visible": 0,
+            "pages": 1
+          },
+          {
+            "page": "circle",
+            "id": "circle-aquatics",
+            "excluded": "bird",
+            "visible": 50,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-exotics",
+            "excluded": "bird",
+            "visible": 56,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-beginners",
+            "excluded": "bird",
+            "visible": 18,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-cat-home",
+            "excluded": "bird",
+            "visible": 26,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-cat-behavior",
+            "excluded": "bird",
+            "visible": 33,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-dog-life",
+            "excluded": "bird",
+            "visible": 30,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-dog-walk",
+            "excluded": "bird",
+            "visible": 13,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-pet-care",
+            "excluded": "bird",
+            "visible": 51,
+            "pages": 3
+          },
+          {
+            "page": "author",
+            "id": "catalog-photo",
+            "excluded": "bird",
+            "visible": 179,
+            "pages": 9
+          },
+          {
+            "page": "circle",
+            "id": "circle-neighbors",
+            "excluded": "fish",
+            "visible": 6,
+            "pages": 1
+          },
+          {
+            "page": "circle",
+            "id": "circle-cats",
+            "excluded": "fish",
+            "visible": 74,
+            "pages": 4
+          },
+          {
+            "page": "circle",
+            "id": "circle-walks",
+            "excluded": "fish",
+            "visible": 68,
+            "pages": 4
+          },
+          {
+            "page": "circle",
+            "id": "circle-small-pets",
+            "excluded": "fish",
+            "visible": 60,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-birds",
+            "excluded": "fish",
+            "visible": 28,
+            "pages": 2
+          },
+          {
+            "page": "circle",
+            "id": "circle-aquatics",
+            "excluded": "fish",
+            "visible": 14,
+            "pages": 1
+          },
+          {
+            "page": "circle",
+            "id": "circle-exotics",
+            "excluded": "fish",
+            "visible": 56,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-beginners",
+            "excluded": "fish",
+            "visible": 18,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-cat-home",
+            "excluded": "fish",
+            "visible": 26,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-cat-behavior",
+            "excluded": "fish",
+            "visible": 33,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-dog-life",
+            "excluded": "fish",
+            "visible": 30,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-dog-walk",
+            "excluded": "fish",
+            "visible": 13,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-pet-care",
+            "excluded": "fish",
+            "visible": 50,
+            "pages": 3
+          },
+          {
+            "page": "author",
+            "id": "catalog-photo",
+            "excluded": "fish",
+            "visible": 172,
+            "pages": 9
+          },
+          {
+            "page": "circle",
+            "id": "circle-neighbors",
+            "excluded": "reptile",
+            "visible": 6,
+            "pages": 1
+          },
+          {
+            "page": "circle",
+            "id": "circle-cats",
+            "excluded": "reptile",
+            "visible": 74,
+            "pages": 4
+          },
+          {
+            "page": "circle",
+            "id": "circle-walks",
+            "excluded": "reptile",
+            "visible": 68,
+            "pages": 4
+          },
+          {
+            "page": "circle",
+            "id": "circle-small-pets",
+            "excluded": "reptile",
+            "visible": 60,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-birds",
+            "excluded": "reptile",
+            "visible": 28,
+            "pages": 2
+          },
+          {
+            "page": "circle",
+            "id": "circle-aquatics",
+            "excluded": "reptile",
+            "visible": 50,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-exotics",
+            "excluded": "reptile",
+            "visible": 19,
+            "pages": 1
+          },
+          {
+            "page": "circle",
+            "id": "circle-beginners",
+            "excluded": "reptile",
+            "visible": 18,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-cat-home",
+            "excluded": "reptile",
+            "visible": 26,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-cat-behavior",
+            "excluded": "reptile",
+            "visible": 33,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-dog-life",
+            "excluded": "reptile",
+            "visible": 30,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-dog-walk",
+            "excluded": "reptile",
+            "visible": 13,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-pet-care",
+            "excluded": "reptile",
+            "visible": 47,
+            "pages": 3
+          },
+          {
+            "page": "author",
+            "id": "catalog-photo",
+            "excluded": "reptile",
+            "visible": 174,
+            "pages": 9
+          },
+          {
+            "page": "circle",
+            "id": "circle-neighbors",
+            "excluded": "amphibian",
+            "visible": 6,
+            "pages": 1
+          },
+          {
+            "page": "circle",
+            "id": "circle-cats",
+            "excluded": "amphibian",
+            "visible": 74,
+            "pages": 4
+          },
+          {
+            "page": "circle",
+            "id": "circle-walks",
+            "excluded": "amphibian",
+            "visible": 68,
+            "pages": 4
+          },
+          {
+            "page": "circle",
+            "id": "circle-small-pets",
+            "excluded": "amphibian",
+            "visible": 60,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-birds",
+            "excluded": "amphibian",
+            "visible": 28,
+            "pages": 2
+          },
+          {
+            "page": "circle",
+            "id": "circle-aquatics",
+            "excluded": "amphibian",
+            "visible": 50,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-exotics",
+            "excluded": "amphibian",
+            "visible": 37,
+            "pages": 2
+          },
+          {
+            "page": "circle",
+            "id": "circle-beginners",
+            "excluded": "amphibian",
+            "visible": 18,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-cat-home",
+            "excluded": "amphibian",
+            "visible": 26,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-cat-behavior",
+            "excluded": "amphibian",
+            "visible": 33,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-dog-life",
+            "excluded": "amphibian",
+            "visible": 30,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-dog-walk",
+            "excluded": "amphibian",
+            "visible": 13,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-pet-care",
+            "excluded": "amphibian",
+            "visible": 53,
+            "pages": 3
+          },
+          {
+            "page": "author",
+            "id": "catalog-photo",
+            "excluded": "amphibian",
+            "visible": 186,
+            "pages": 10
+          },
+          {
+            "page": "circle",
+            "id": "circle-neighbors",
+            "excluded": "invertebrate",
+            "visible": 6,
+            "pages": 1
+          },
+          {
+            "page": "circle",
+            "id": "circle-cats",
+            "excluded": "invertebrate",
+            "visible": 74,
+            "pages": 4
+          },
+          {
+            "page": "circle",
+            "id": "circle-walks",
+            "excluded": "invertebrate",
+            "visible": 68,
+            "pages": 4
+          },
+          {
+            "page": "circle",
+            "id": "circle-small-pets",
+            "excluded": "invertebrate",
+            "visible": 60,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-birds",
+            "excluded": "invertebrate",
+            "visible": 28,
+            "pages": 2
+          },
+          {
+            "page": "circle",
+            "id": "circle-aquatics",
+            "excluded": "invertebrate",
+            "visible": 36,
+            "pages": 2
+          },
+          {
+            "page": "circle",
+            "id": "circle-exotics",
+            "excluded": "invertebrate",
+            "visible": 56,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-beginners",
+            "excluded": "invertebrate",
+            "visible": 18,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-cat-home",
+            "excluded": "invertebrate",
+            "visible": 26,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-cat-behavior",
+            "excluded": "invertebrate",
+            "visible": 33,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-dog-life",
+            "excluded": "invertebrate",
+            "visible": 30,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-dog-walk",
+            "excluded": "invertebrate",
+            "visible": 13,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-pet-care",
+            "excluded": "invertebrate",
+            "visible": 56,
+            "pages": 3
+          },
+          {
+            "page": "author",
+            "id": "catalog-photo",
+            "excluded": "invertebrate",
+            "visible": 188,
+            "pages": 10
+          },
+          {
+            "page": "circle",
+            "id": "circle-neighbors",
+            "excluded": "other",
+            "visible": 6,
+            "pages": 1
+          },
+          {
+            "page": "circle",
+            "id": "circle-cats",
+            "excluded": "other",
+            "visible": 74,
+            "pages": 4
+          },
+          {
+            "page": "circle",
+            "id": "circle-walks",
+            "excluded": "other",
+            "visible": 68,
+            "pages": 4
+          },
+          {
+            "page": "circle",
+            "id": "circle-small-pets",
+            "excluded": "other",
+            "visible": 60,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-birds",
+            "excluded": "other",
+            "visible": 28,
+            "pages": 2
+          },
+          {
+            "page": "circle",
+            "id": "circle-aquatics",
+            "excluded": "other",
+            "visible": 50,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-exotics",
+            "excluded": "other",
+            "visible": 56,
+            "pages": 3
+          },
+          {
+            "page": "circle",
+            "id": "circle-beginners",
+            "excluded": "other",
+            "visible": 18,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-cat-home",
+            "excluded": "other",
+            "visible": 26,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-cat-behavior",
+            "excluded": "other",
+            "visible": 33,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-dog-life",
+            "excluded": "other",
+            "visible": 30,
+            "pages": 2
+          },
+          {
+            "page": "author",
+            "id": "catalog-dog-walk",
+            "excluded": "other",
+            "visible": 13,
+            "pages": 1
+          },
+          {
+            "page": "author",
+            "id": "catalog-pet-care",
+            "excluded": "other",
+            "visible": 58,
+            "pages": 3
+          },
+          {
+            "page": "author",
+            "id": "catalog-photo",
+            "excluded": "other",
+            "visible": 200,
+            "pages": 10
+          }
+        ]
+      }
+    },
+    {
+      "name": "native video detail pages receive playable source and do not show invented times",
+      "status": "passed",
+      "details": [
+        {
+          "id": "video-commons-101613615",
+          "source": "/media/clips/101613615.mp4",
+          "durationText": "0:08"
+        },
+        {
+          "id": "video-commons-164819779",
+          "source": "/assets/curated-video/164819779.mp4",
+          "durationText": "0:08"
+        },
+        {
+          "id": "video-commons-19244332",
+          "source": "/media2/clips/19244332.mp4",
+          "durationText": "0:08"
+        },
+        {
+          "id": "video-commons-112285953",
+          "source": "/assets/curated-video/112285953.mp4",
+          "durationText": "0:08"
+        },
+        {
+          "id": "video-commons-19244337",
+          "source": "/media2/clips/19244337.mp4",
+          "durationText": "0:08"
+        },
+        {
+          "id": "video-commons-134636343",
+          "source": "/media/clips/134636343.mp4",
+          "durationText": "0:08"
+        },
+        {
+          "id": "video-commons-21925981",
+          "source": "/media3/clips/21925981.mp4",
+          "durationText": "0:08"
+        },
+        {
+          "id": "video-commons-134637319",
+          "source": "/media2/clips/134637319.mp4",
+          "durationText": "0:08"
+        },
+        {
+          "id": "video-commons-77198954",
+          "source": "/assets/curated-video/77198954.mp4",
+          "durationText": "0:08"
+        },
+        {
+          "id": "video-commons-149148402",
+          "source": "/media2/clips/149148402.mp4",
+          "durationText": "0:08"
+        },
+        {
+          "id": "video-commons-149148404",
+          "source": "/media2/clips/149148404.mp4",
+          "durationText": "0:08"
+        },
+        {
+          "id": "video-commons-194760075",
+          "source": "/media2/clips/194760075.mp4",
+          "durationText": "0:08"
+        },
+        {
+          "id": "video-commons-78173542",
+          "source": "/media2/clips/78173542.mp4",
+          "durationText": "0:08"
+        }
+      ]
+    },
+    {
+      "name": "current public views display no attribution or licence panel while retaining internal source records",
+      "status": "passed",
+      "details": {
+        "contentChecked": 360,
+        "visibleCreditPanels": 0,
+        "sourceEvidenceRetained": true
+      }
+    },
+    {
+      "name": "editorial accounts never inflate real members, pets, follows or activity",
+      "status": "passed",
+      "details": {
+        "editorialAccounts": 6,
+        "realUsers": 1,
+        "profilesWithPet": 0,
+        "ownPosts": 0,
+        "circleMemberCounts": [
+          {
+            "id": "circle-neighbors",
+            "count": 1
+          },
+          {
+            "id": "circle-cats",
+            "count": 0
+          },
+          {
+            "id": "circle-walks",
+            "count": 0
+          },
+          {
+            "id": "circle-small-pets",
+            "count": 0
+          },
+          {
+            "id": "circle-birds",
+            "count": 0
+          },
+          {
+            "id": "circle-aquatics",
+            "count": 0
+          },
+          {
+            "id": "circle-exotics",
+            "count": 0
+          },
+          {
+            "id": "circle-beginners",
+            "count": 0
+          }
+        ]
+      }
+    }
+  ],
+  "inventory": {
+    "total": 360,
+    "contentTypes": {
+      "knowledge": 58,
+      "photo": 289,
+      "video": 13
+    },
+    "circles": {
+      "circle-beginners": 18,
+      "circle-aquatics": 50,
+      "circle-exotics": 56,
+      "circle-cats": 74,
+      "circle-birds": 28,
+      "circle-walks": 68,
+      "circle-neighbors": 6,
+      "circle-small-pets": 60
+    },
+    "topics": {
+      "饮食喂养": 10,
+      "治愈瞬间": 230,
+      "行为观察": 114,
+      "居家布置": 11,
+      "健康护理": 18,
+      "陪伴日常": 135,
+      "户外出行": 15,
+      "成长记录": 14
+    },
+    "animalTypes": {
+      "cat": 91,
+      "fish": 36,
+      "amphibian": 19,
+      "bird": 28,
+      "dog": 82,
+      "rabbit": 19,
+      "small-mammal": 41,
+      "reptile": 37,
+      "invertebrate": 14
+    },
+    "pageSizes": [
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20
+    ]
+  },
+  "passed": true,
+  "summary": {
+    "passed": 9,
+    "failed": 0
+  }
+}

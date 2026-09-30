@@ -1,0 +1,138 @@
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="renderer" content="webkit">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="SiteName" content="上海市绿化和市容管理局" ><!-- 网站名称(必选) -->
+<meta name="SiteDomain" content="lhsr.sh.gov.cn" ><!-- 网站域名(必选) -->
+<meta name="SiteIDCode" content="3100000022" ><!--政府网站标识码(必选) -->
+<title>公园内容页_上海市绿化和市容管理局</title>
+<meta name="ColumnName" content="公园内容页"><!-- 栏目名称(必选) -->
+<meta name="ColumnDescription" content="公园内容页" />
+<!-- 栏目描述(必选) -->
+<meta name="ColumnKeywords" content="公园内容页" />
+<meta name="ColumnType" content="公园内容页" />
+<script src="/res/js/jquery.min.js" type="text/javascript"></script>
+<link href="/public.css" rel="stylesheet" type="text/css" />
+<link href="/res/css/PartSearch.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<div id="container">
+
+<!--表头-->
+<script src="/parthead.js" type="text/javascript"></script>
+
+<div class="main" style="width: 1002px;height:950px;margin: 0 auto;margin-top:25px;">
+    <iframe id="iframe" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-modals allow-popups" scrolling="no" frameborder="0" src="" style="width:1002px;height:1000px;"></iframe>
+</div>
+
+<!--表尾-->    
+<div id='partfoot' style="width: 100%;height: 153px;background-color: #efefef;" title="已跳转到底部内容区域"></div>
+</div>
+<script src="/partfoot.js" type="text/javascript"></script>
+</body>
+<script>
+    function getUrlParam(name) {   
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象  
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数   
+            if (r != null) return unescape(r[2]); return null; //返回参数值  
+    }
+    var id=getUrlParam("InfoId");
+    if(id=="e5f65fef-b91f-4ebf-8c2b-393c575e808b")
+    {
+        $(".main").css("height","1200px")
+        $("#iframe").css("height","1310px")
+    }
+    if(id=="39cf9dde-bd42-4233-b866-02b8fb0b92e4")
+    {
+        $(".main").css("height","1200px")
+        $("#iframe").css("height","1310px")
+    }
+    if(id=="e6708bc0-8759-4157-a788-e5aab0ad6f38")
+    {
+        $(".main").css("height","1700px")
+        $("#iframe").css("height","1800px")
+    }
+    if(id=="35f3a222-26b4-49fa-af4a-f663e7f5706f")
+    {
+        $(".main").css("height","1200px")
+        $("#iframe").css("height","1300px")
+    }
+    if(id=="f64ec04b-b303-4349-9d89-9f3b46f56600")
+    {
+        $(".main").css("height","1250px")
+        $("#iframe").css("height","1350px")
+    }
+    if(id=="d0992ad1-f5c3-4a14-ac1a-e1fd206fa550")
+    {
+        $(".main").css("height","1100px")
+        $("#iframe").css("height","1200px")
+    }
+    if(id=="cb095d2d-cf16-4d39-b82a-58a52ae290f2")
+    {
+        $(".main").css("height","2270px")
+        $("#iframe").css("height","2370px")
+    }
+    if(id=="8f0f14e4-356e-4fd8-8825-f6c70e2dc18a")
+    {
+        $(".main").css("height","1100px")
+        $("#iframe").css("height","1200px")
+    }
+    if(id=="6ca6f62c-42ec-4ad4-b312-828b9682683a")
+    {
+        $(".main").css("height","1160x")
+        $("#iframe").css("height","1260px")
+    }
+    if(id=="8f0f14e4-356e-4fd8-8825-f6c70e2dc18a")
+    {
+        $(".main").css("height","1100px")
+        $("#iframe").css("height","1200px")
+    }
+    $("#iframe").attr("src","https://web.lhsr.sh.gov.cn//sites/ShanghaiGreen/qiantao/gongyuan_con.aspx?InfoId="+id);
+</script>
+<script>
+    function changeFrameHeight(){
+        var ifm= document.getElementById("iframe"); 
+        ifm.height=document.documentElement.clientHeight;
+
+    }
+    window.onresize=function(){  
+        changeFrameHeight();  
+    } 
+</script>
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
+        //点击按钮搜索
+        $("#sou").click(function () {
+            var search1 = $("#search_quan").val();
+            var search2 = encodeURI(search1);
+            if (search1 != "" && search1 != "请输入关键字查询") {
+                //当前页跳转
+                top.location.href = "https://ss.shanghai.gov.cn/search?page=1&view=&contentScope=2&dateOrder=1&tr=1&dr=&format=1&uid=aeb40557-eb1f-5566-6a5a-dafb05907869&sid=0000016f-12d7-2c3c-28c0-49855413294d&re=2&all=1&debug=&siteId=lhsr.sh.gov.cn&siteArea=all&q=" + search2;
+            }
+        });
+
+        //搜索键盘
+        var $sousuo = $("#search_quan");
+        $sousuo.bind("keydown", function (e) {
+            var key = e.which;
+            if (key == 13) {
+                var search1 = $("#search_quan").val();
+                var search2 = encodeURI(search1);
+                //当前页跳转
+                top.location.href = "https://ss.shanghai.gov.cn/search?page=1&view=&contentScope=2&dateOrder=1&tr=1&dr=&format=1&uid=aeb40557-eb1f-5566-6a5a-dafb05907869&sid=0000016f-12d7-2c3c-28c0-49855413294d&re=2&all=1&debug=&siteId=lhsr.sh.gov.cn&siteArea=all&q=" + search2;
+            }
+        });
+
+        //点击热搜关键词进行搜索
+        $(".sear1_2_2").click(function () {
+            var search1 = $(this).children().text();
+            var search2 = encodeURI(search1);
+            top.location.href = "https://ss.shanghai.gov.cn/search?page=1&view=&contentScope=2&dateOrder=1&tr=1&dr=&format=1&uid=aeb40557-eb1f-5566-6a5a-dafb05907869&sid=0000016f-12d7-2c3c-28c0-49855413294d&re=2&all=1&debug=&siteId=lhsr.sh.gov.cn&siteArea=all&q=" + search2;
+        });
+    });
+</script>

@@ -1,0 +1,36 @@
+{
+  "accepted": 97,
+  "reviewed": 332,
+  "excluded": 235,
+  "byGroup": {
+    "rabbits": 12,
+    "guinea-pigs": 10,
+    "hamsters": 10,
+    "birds": 14,
+    "fish": 11,
+    "turtles": 2,
+    "lizards": 10,
+    "snakes": 4,
+    "shrimp": 4,
+    "other-small-pets": 7,
+    "amphibians": 8,
+    "aquarium": 5
+  },
+  "byCircle": {
+    "circle-small-pets": 39,
+    "circle-birds": 14,
+    "circle-aquatics": 20,
+    "circle-exotics": 24
+  },
+  "licenses": {
+    "CC0": 95,
+    "Public domain": 2
+  },
+  "identicalFiles": [],
+  "minimumImageEdge": 510,
+  "removedHamsters": [
+    163230241,
+    163230240,
+    156241882
+  ]
+}

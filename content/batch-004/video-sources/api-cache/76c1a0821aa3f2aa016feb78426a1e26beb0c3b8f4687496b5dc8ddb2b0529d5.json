@@ -1,0 +1,593 @@
+{
+  "batchcomplete": true,
+  "query": {
+    "pages": [
+      {
+        "pageid": 88881674,
+        "ns": 6,
+        "title": "File:公斯文豪氏攀木蜥蜴互咬 Diploderma swinhonis lizard males biting each other.webm",
+        "index": 3,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 39677945,
+            "width": 640,
+            "height": 480,
+            "duration": 207.56,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/%E5%85%AC%E6%96%AF%E6%96%87%E8%B1%AA%E6%B0%8F%E6%94%80%E6%9C%A8%E8%9C%A5%E8%9C%B4%E4%BA%92%E5%92%AC_Diploderma_swinhonis_lizard_males_biting_each_other.webm/500px--%E5%85%AC%E6%96%AF%E6%96%87%E8%B1%AA%E6%B0%8F%E6%94%80%E6%9C%A8%E8%9C%A5%E8%9C%B4%E4%BA%92%E5%92%AC_Diploderma_swinhonis_lizard_males_biting_each_other.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 480,
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/%E5%85%AC%E6%96%AF%E6%96%87%E8%B1%AA%E6%B0%8F%E6%94%80%E6%9C%A8%E8%9C%A5%E8%9C%B4%E4%BA%92%E5%92%AC_Diploderma_swinhonis_lizard_males_biting_each_other.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:%E5%85%AC%E6%96%AF%E6%96%87%E8%B1%AA%E6%B0%8F%E6%94%80%E6%9C%A8%E8%9C%A5%E8%9C%B4%E4%BA%92%E5%92%AC_Diploderma_swinhonis_lizard_males_biting_each_other.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=88881674",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2020-04-03 17:05:27",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "公斯文豪氏攀木蜥蜴互咬 Diploderma swinhonis lizard males biting each other",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Diploderma swinhonis|CC-Zero|WebM videos|Videos of 2020 from Taiwan|Uploaded with video2commons|Videos from Vimeo|Files with coordinates missing SDC location of creation|License reviewed by YouTubeReviewBot|Male-male competition|Videos of Agamidae",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "GPSLatitude": {
+                "value": "24.181650",
+                "source": "commons-desc-page"
+              },
+              "GPSLongitude": {
+                "value": "120.865140",
+                "source": "commons-desc-page"
+              },
+              "GPSMapDatum": {
+                "value": "WGS-84",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Diploderma swinhonis lizard males biting each other. In the end one runs away.\nFilmed in (1-3 Qingfu St., Dongshi) central Taiwan, elevation 777 m.  2020/2/24.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2020-02-23",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/Category:Vimeo\" title=\"Category:Vimeo\">Vimeo</a>: <a rel=\"nofollow\" class=\"external text\" data-mw-original-href=\"//vimeo.com/393356150\" href=\"https://vimeo.com/393356150\">公斯文豪氏攀木蜥蜴互咬 Diploderma swinhonis lizard males biting each other</a> (<a rel=\"nofollow\" class=\"external text\" href=\"//web.archive.org/web/*/https://vimeo.com/393356150\"><span style=\"color:#9602fc\">view archived source</span></a>)",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://vimeo.com/jidanni\">積丹尼 Dan Jacobson</a> (<a href=\"//commons.wikimedia.org/wiki/User:Jidanni\" title=\"User:Jidanni\">Jidanni</a>)",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/4/4b/%E5%85%AC%E6%96%AF%E6%96%87%E8%B1%AA%E6%B0%8F%E6%94%80%E6%9C%A8%E8%9C%A5%E8%9C%B4%E4%BA%92%E5%92%AC_Diploderma_swinhonis_lizard_males_biting_each_other.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 640,
+                "height": 480,
+                "bandwidth": 1529309
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4b/%E5%85%AC%E6%96%AF%E6%96%87%E8%B1%AA%E6%B0%8F%E6%94%80%E6%9C%A8%E8%9C%A5%E8%9C%B4%E4%BA%92%E5%92%AC_Diploderma_swinhonis_lizard_males_biting_each_other.webm/%E5%85%AC%E6%96%AF%E6%96%87%E8%B1%AA%E6%B0%8F%E6%94%80%E6%9C%A8%E8%9C%A5%E8%9C%B4%E4%BA%92%E5%92%AC_Diploderma_swinhonis_lizard_males_biting_each_other.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 320,
+                "height": 240,
+                "bandwidth": 361256
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4b/%E5%85%AC%E6%96%AF%E6%96%87%E8%B1%AA%E6%B0%8F%E6%94%80%E6%9C%A8%E8%9C%A5%E8%9C%B4%E4%BA%92%E5%92%AC_Diploderma_swinhonis_lizard_males_biting_each_other.webm/%E5%85%AC%E6%96%AF%E6%96%87%E8%B1%AA%E6%B0%8F%E6%94%80%E6%9C%A8%E8%9C%A5%E8%9C%B4%E4%BA%92%E5%92%AC_Diploderma_swinhonis_lizard_males_biting_each_other.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 480,
+                "height": 360,
+                "bandwidth": 1133472
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4b/%E5%85%AC%E6%96%AF%E6%96%87%E8%B1%AA%E6%B0%8F%E6%94%80%E6%9C%A8%E8%9C%A5%E8%9C%B4%E4%BA%92%E5%92%AC_Diploderma_swinhonis_lizard_males_biting_each_other.webm/%E5%85%AC%E6%96%AF%E6%96%87%E8%B1%AA%E6%B0%8F%E6%94%80%E6%9C%A8%E8%9C%A5%E8%9C%B4%E4%BA%92%E5%92%AC_Diploderma_swinhonis_lizard_males_biting_each_other.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 640,
+                "height": 480,
+                "bandwidth": 1035952
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 103540566,
+        "ns": 6,
+        "title": "File:Arusisalik Zootoca vivipara.ogv",
+        "index": 4,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 96933168,
+            "width": 1920,
+            "height": 1080,
+            "duration": 24.68421768707483,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Arusisalik_Zootoca_vivipara.ogv/960px--Arusisalik_Zootoca_vivipara.ogv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Arusisalik_Zootoca_vivipara.ogv/1280px--Arusisalik_Zootoca_vivipara.ogv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Arusisalik_Zootoca_vivipara.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Arusisalik_Zootoca_vivipara.ogv",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=103540566",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2021-04-13 05:24:12",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Arusisalik Zootoca vivipara",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Uploaded with video2commons|Videos of nature of Estonia|Videos of Zootoca vivipara|Zootoca vivipara in Estonia",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Arusisalik Zootoca vivipara Kõrvemaal 2020. aasta kevadel",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "Spring 2020<div style=\"display: none;\">date QS:P,+2020-00-00T00:00:00Z/9,P4241,Q40720559</div>",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "Sillerkiil",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Arusisalik_Zootoca_vivipara.ogv?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/ogg; codecs=\"theora, vorbis\"",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 31415431
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4c/Arusisalik_Zootoca_vivipara.ogv/Arusisalik_Zootoca_vivipara.ogv.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 384840
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4c/Arusisalik_Zootoca_vivipara.ogv/Arusisalik_Zootoca_vivipara.ogv.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 1141544
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4c/Arusisalik_Zootoca_vivipara.ogv/Arusisalik_Zootoca_vivipara.ogv.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 1334784
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4c/Arusisalik_Zootoca_vivipara.ogv/Arusisalik_Zootoca_vivipara.ogv.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 5125064
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 174038036,
+        "ns": 6,
+        "title": "File:Lizard digging a hole to bury its eggs.ogg",
+        "index": 2,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 18238422,
+            "width": 720,
+            "height": 1280,
+            "duration": 10.766666666666667,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Lizard_digging_a_hole_to_bury_its_eggs.ogg/500px--Lizard_digging_a_hole_to_bury_its_eggs.ogg.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 1138,
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Lizard_digging_a_hole_to_bury_its_eggs.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Lizard_digging_a_hole_to_bury_its_eggs.ogg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=174038036",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2025-08-31 00:47:44",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Lizard digging a hole to bury its eggs",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Diploderma swinhonis|CC-Zero|Lizards of Taiwan|Self-published work|Files with coordinates missing SDC location of creation|Lizards digging",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "GPSLatitude": {
+                "value": "24.181650",
+                "source": "commons-desc-page"
+              },
+              "GPSLongitude": {
+                "value": "120.865160",
+                "source": "commons-desc-page"
+              },
+              "GPSMapDatum": {
+                "value": "WGS-84",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "First it used its right hand. Then its left. Then it looked around. After it finishes digging the hole it will lay its eggs in it.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2025-08-04 08:06",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Jidanni\" title=\"User:Jidanni\">Jidanni</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/4/45/Lizard_digging_a_hole_to_bury_its_eggs.ogg?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/ogg; codecs=\"theora, vorbis\"",
+                "width": 720,
+                "height": 1280,
+                "bandwidth": 13551768
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/45/Lizard_digging_a_hole_to_bury_its_eggs.ogg/Lizard_digging_a_hole_to_bury_its_eggs.ogg.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 136,
+                "height": 240,
+                "bandwidth": 282448
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/45/Lizard_digging_a_hole_to_bury_its_eggs.ogg/Lizard_digging_a_hole_to_bury_its_eggs.ogg.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 202,
+                "height": 360,
+                "bandwidth": 1147688
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/45/Lizard_digging_a_hole_to_bury_its_eggs.ogg/Lizard_digging_a_hole_to_bury_its_eggs.ogg.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 270,
+                "height": 480,
+                "bandwidth": 1092720
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/45/Lizard_digging_a_hole_to_bury_its_eggs.ogg/Lizard_digging_a_hole_to_bury_its_eggs.ogg.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 608,
+                "height": 1080,
+                "bandwidth": 4134048
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 174038396,
+        "ns": 6,
+        "title": "File:Lizard pounding its head.ogg",
+        "index": 1,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 99736138,
+            "width": 720,
+            "height": 1280,
+            "duration": 56.1,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Lizard_pounding_its_head.ogg/500px--Lizard_pounding_its_head.ogg.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 1138,
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Lizard_pounding_its_head.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Lizard_pounding_its_head.ogg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=174038396",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2025-08-31 00:56:31",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Lizard pounding its head",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Diploderma swinhonis|CC-Zero|Lizards of Taiwan|Self-published work|Files with coordinates missing SDC location of creation|Lizards digging",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "GPSLatitude": {
+                "value": "24.181650",
+                "source": "commons-desc-page"
+              },
+              "GPSLongitude": {
+                "value": "120.865160",
+                "source": "commons-desc-page"
+              },
+              "GPSMapDatum": {
+                "value": "WGS-84",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "It has laid its eggs and now it's pounding the dirt to seal the hole.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2025-08-04 11:24",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Jidanni\" title=\"User:Jidanni\">Jidanni</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/d/df/Lizard_pounding_its_head.ogg?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/ogg; codecs=\"theora, vorbis\"",
+                "width": 720,
+                "height": 1280,
+                "bandwidth": 14222622
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/df/Lizard_pounding_its_head.ogg/Lizard_pounding_its_head.ogg.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 136,
+                "height": 240,
+                "bandwidth": 300816
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/df/Lizard_pounding_its_head.ogg/Lizard_pounding_its_head.ogg.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 202,
+                "height": 360,
+                "bandwidth": 1133704
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/df/Lizard_pounding_its_head.ogg/Lizard_pounding_its_head.ogg.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 270,
+                "height": 480,
+                "bandwidth": 1027808
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/df/Lizard_pounding_its_head.ogg/Lizard_pounding_its_head.ogg.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 608,
+                "height": 1080,
+                "bandwidth": 4062112
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

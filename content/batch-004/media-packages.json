@@ -1,0 +1,66 @@
+{
+  "maxVideoBytesPerPackage": 1843200,
+  "packages": [
+    {
+      "name": "media2",
+      "videoBytes": 1621625,
+      "items": [
+        {
+          "id": "video-commons-78173542",
+          "pageid": 78173542,
+          "path": "/media2/clips/78173542.mp4",
+          "bytes": 157750
+        },
+        {
+          "id": "video-commons-134637319",
+          "pageid": 134637319,
+          "path": "/media2/clips/134637319.mp4",
+          "bytes": 248726
+        },
+        {
+          "id": "video-commons-149148402",
+          "pageid": 149148402,
+          "path": "/media2/clips/149148402.mp4",
+          "bytes": 95209
+        },
+        {
+          "id": "video-commons-149148404",
+          "pageid": 149148404,
+          "path": "/media2/clips/149148404.mp4",
+          "bytes": 290594
+        },
+        {
+          "id": "video-commons-194760075",
+          "pageid": 194760075,
+          "path": "/media2/clips/194760075.mp4",
+          "bytes": 269624
+        },
+        {
+          "id": "video-commons-19244332",
+          "pageid": 19244332,
+          "path": "/media2/clips/19244332.mp4",
+          "bytes": 283555
+        },
+        {
+          "id": "video-commons-19244337",
+          "pageid": 19244337,
+          "path": "/media2/clips/19244337.mp4",
+          "bytes": 276167
+        }
+      ]
+    },
+    {
+      "name": "media3",
+      "videoBytes": 286445,
+      "items": [
+        {
+          "id": "video-commons-21925981",
+          "pageid": 21925981,
+          "path": "/media3/clips/21925981.mp4",
+          "bytes": 286445
+        }
+      ]
+    }
+  ],
+  "posterBytes": 44416
+}

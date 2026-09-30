@@ -1,0 +1,168 @@
+{
+  "sheets": [
+    {
+      "path": "output/content-review/dog-initial-dogs-01.jpg",
+      "pageids": [
+        3499592,
+        4370047,
+        5301931,
+        15170790,
+        32138651,
+        40248555,
+        40248556,
+        40248561,
+        40248562,
+        40248565,
+        42115285,
+        42784004
+      ]
+    }
+  ],
+  "records": [
+    {
+      "species": "dogs",
+      "pageid": 3499592,
+      "title": "File:Polski owczarek nizinny rybnik-kamien pl.jpg",
+      "localFile": "content/batch-001/media/3499592.source",
+      "reviewDimensions": [
+        960,
+        845
+      ],
+      "reviewDhash": 4078250089086359965,
+      "reviewSha256": "965c867d12545559da6359f5d8881e4776b2a3a9a15e7170b1fe4ee84bf16168"
+    },
+    {
+      "species": "dogs",
+      "pageid": 4370047,
+      "title": "File:2008-07-11 White German Shepherd pup chilling at the Coker Arboretum.jpg",
+      "localFile": "content/batch-001/media/4370047.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 11262601173182879125,
+      "reviewSha256": "a37d64568aa3d6022b0224d25b8f904996ab5c0e215161384e18386c108e784e"
+    },
+    {
+      "species": "dogs",
+      "pageid": 5301931,
+      "title": "File:2008-08-28 White German Shepherd ready.jpg",
+      "localFile": "content/batch-001/media/5301931.source",
+      "reviewDimensions": [
+        960,
+        1440
+      ],
+      "reviewDhash": 17572639023841622623,
+      "reviewSha256": "7a74886e4cce52d2ee591c39b7fcde59c241f7c0554850427430e9bb82a3832c"
+    },
+    {
+      "species": "dogs",
+      "pageid": 15170790,
+      "title": "File:20110425 German Shepherd Dog 8505.jpg",
+      "localFile": "content/batch-001/media/15170790.source",
+      "reviewDimensions": [
+        960,
+        638
+      ],
+      "reviewDhash": 5214151988831663667,
+      "reviewSha256": "c84d894446cc3d6f684b73b295743e541675d6de759bfc3236c0dbed2b3e2634"
+    },
+    {
+      "species": "dogs",
+      "pageid": 32138651,
+      "title": "File:Münster, Wolbeck, Wolbecker Tiergarten, Hund -- 2014 -- 7130.jpg",
+      "localFile": "content/batch-001/media/32138651.source",
+      "reviewDimensions": [
+        960,
+        630
+      ],
+      "reviewDhash": 12384837277589285357,
+      "reviewSha256": "73d5236639c4b84b28f6c79f2f47233ba0aa713d891e6e9a7a59bdc3e7f909d0"
+    },
+    {
+      "species": "dogs",
+      "pageid": 40248555,
+      "title": "File:Lucky en Panzerwiese, Múnich, Alemania, 2014-12-24, DD 06.JPG",
+      "localFile": "content/batch-001/media/40248555.source",
+      "reviewDimensions": [
+        960,
+        619
+      ],
+      "reviewDhash": 5598987504081889090,
+      "reviewSha256": "9d7326c3cab74ef1cea4492706ec8212ae7a97a83098ca312bc582bc364e202b"
+    },
+    {
+      "species": "dogs",
+      "pageid": 40248556,
+      "title": "File:Lucky en Panzerwiese, Múnich, Alemania, 2014-12-24, DD 03.JPG",
+      "localFile": "content/batch-001/media/40248556.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 7263433076356057666,
+      "reviewSha256": "d8bbd35ab3fd87867e65a054b088a4f725c9d87f2ff3ec7db26a1c9b5525babb"
+    },
+    {
+      "species": "dogs",
+      "pageid": 40248561,
+      "title": "File:Lucky en Panzerwiese, Múnich, Alemania, 2014-12-24, DD 02.JPG",
+      "localFile": "content/batch-001/media/40248561.source",
+      "reviewDimensions": [
+        960,
+        627
+      ],
+      "reviewDhash": 9270708321379706084,
+      "reviewSha256": "1fbfae074bd2b03140d8a7481acc3efb7205dee30954befc6b90603fe15255e6"
+    },
+    {
+      "species": "dogs",
+      "pageid": 40248562,
+      "title": "File:Lucky en Panzerwiese, Múnich, Alemania, 2014-12-24, DD 07.JPG",
+      "localFile": "content/batch-001/media/40248562.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 6676491149899386183,
+      "reviewSha256": "cec1bc5f8e907ef5c586c7f8fa9be99dcbbd10d05e6615d85929308e68dacb4b"
+    },
+    {
+      "species": "dogs",
+      "pageid": 40248565,
+      "title": "File:Lucky en Panzerwiese, Múnich, Alemania, 2014-12-24, DD 05.JPG",
+      "localFile": "content/batch-001/media/40248565.source",
+      "reviewDimensions": [
+        960,
+        519
+      ],
+      "reviewDhash": 15332449576326429773,
+      "reviewSha256": "490a84065c6d4f00fc5719ebc985d86a624b26d9b688757bd75ee6c7152b83ff"
+    },
+    {
+      "species": "dogs",
+      "pageid": 42115285,
+      "title": "File:Perro tomando el sol, Ipiales, Colombia, 2015-07-21, DD 06.JPG",
+      "localFile": "content/batch-001/media/42115285.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 9461720334428096979,
+      "reviewSha256": "c01f25a73121820e4aef2d7944873f15752d6424c5344dfbfed14a9e5d3f8b63"
+    },
+    {
+      "species": "dogs",
+      "pageid": 42784004,
+      "title": "File:Perro bañándose en el puerto de Paracas, Perú, 2015-07-29, DD 13.JPG",
+      "localFile": "content/batch-001/media/42784004.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 7680283233029694375,
+      "reviewSha256": "7dc7bf4c3ba50c4c81706b28a081aaaebff92b27d86f40e222ef6a2df7721564"
+    }
+  ],
+  "possibleDuplicates": []
+}

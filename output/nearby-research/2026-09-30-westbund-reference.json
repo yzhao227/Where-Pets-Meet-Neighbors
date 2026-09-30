@@ -1,0 +1,12 @@
+{
+  "recordId": "place-xuhui-westbund-walk",
+  "checkedAt": "2026-09-30",
+  "name": "西岸美术馆",
+  "address": "龙腾大道2600号",
+  "latitude": 31.167591,
+  "longitude": 121.463854,
+  "coordinateSystem": "gcj02",
+  "sourceUrl": "https://map.qq.com/poi/?sm=1630769809924604109&keyfrom=1",
+  "evidence": "腾讯地图POI详情可见名称、门牌与周边搜索链接 where=121.463854,31.167591。",
+  "scope": "龙腾大道沿线场馆参照，不是步道或携宠入口，保留needsRecheck，不据坐标扩大携宠范围。"
+}

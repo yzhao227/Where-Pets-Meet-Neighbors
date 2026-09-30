@@ -1,0 +1,817 @@
+{
+  "batchcomplete": true,
+  "query": {
+    "pages": [
+      {
+        "pageid": 48999363,
+        "ns": 6,
+        "title": "File:Pigeon Flushing.ogv",
+        "index": 1,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 20981300,
+            "width": 1280,
+            "height": 720,
+            "duration": 66.76996251851851,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Pigeon_Flushing.ogv/960px--Pigeon_Flushing.ogv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Pigeon_Flushing.ogv/1280px--Pigeon_Flushing.ogv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Pigeon_Flushing.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Pigeon_Flushing.ogv",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=48999363",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2016-05-25 04:45:07",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Pigeon Flushing",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Flushing, Queens|Self-published work|Ogv videos|Photographs by D. Benjamin Miller|Video display resolution 1280 x 720|Files with coordinates missing SDC location of creation|Feral pigeons in New York (state)",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "GPSLatitude": {
+                "value": "40.712784",
+                "source": "commons-desc-page"
+              },
+              "GPSLongitude": {
+                "value": "-74.005941",
+                "source": "commons-desc-page"
+              },
+              "GPSMapDatum": {
+                "value": "WGS-84",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "A <a href=\"https://en.wikipedia.org/wiki/Rock_dove\" class=\"extiw\" title=\"w:Rock dove\">pigeon</a> on the streets of <a href=\"https://en.wikipedia.org/wiki/Flushing,_Queens\" class=\"extiw\" title=\"w:Flushing, Queens\">Flushing</a>",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2016-05-22",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<bdi>D. Benjamin Miller</bdi>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/7/73/Pigeon_Flushing.ogv?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/ogg; codecs=\"theora\"",
+                "width": 1280,
+                "height": 720,
+                "bandwidth": 2513860
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/73/Pigeon_Flushing.ogv/Pigeon_Flushing.ogv.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 234512
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/73/Pigeon_Flushing.ogv/Pigeon_Flushing.ogv.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 1004344
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/73/Pigeon_Flushing.ogv/Pigeon_Flushing.ogv.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 897304
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 79013639,
+        "ns": 6,
+        "title": "File:Cat chasing a pigeon.webm",
+        "index": 4,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 18199515,
+            "width": 640,
+            "height": 480,
+            "duration": 29.808,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Cat_chasing_a_pigeon.webm/500px--Cat_chasing_a_pigeon.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 480,
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Cat_chasing_a_pigeon.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Cat_chasing_a_pigeon.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79013639",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2019-05-17 16:28:44",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Cat chasing a pigeon",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Hunting cats|Media of the day|Videos of 2018|Uploaded with video2commons",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "A stray cat hunting for a pigeon. The cat miss the pigeon due to a jogger scaring the pigeon.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2018-11-03",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Jeromi_Mikhael\" title=\"User:Jeromi Mikhael\">Jeromi Mikhael</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/2/28/Cat_chasing_a_pigeon.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 640,
+                "height": 480,
+                "bandwidth": 4884464
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/28/Cat_chasing_a_pigeon.webm/Cat_chasing_a_pigeon.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 320,
+                "height": 240,
+                "bandwidth": 365368
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/28/Cat_chasing_a_pigeon.webm/Cat_chasing_a_pigeon.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 480,
+                "height": 360,
+                "bandwidth": 1139672
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/28/Cat_chasing_a_pigeon.webm/Cat_chasing_a_pigeon.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 640,
+                "height": 480,
+                "bandwidth": 1361432
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 127607098,
+        "ns": 6,
+        "title": "File:Palomas copulando.webm",
+        "index": 6,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 3692248,
+            "width": 1920,
+            "height": 1080,
+            "duration": 5.1160000000000005,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Palomas_copulando.webm/960px--Palomas_copulando.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Palomas_copulando.webm/1280px--Palomas_copulando.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Palomas_copulando.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Palomas_copulando.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=127607098",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2023-01-10 04:11:13",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Palomas copulando",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Self-published work|Pigeon courtship and sex",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Pigeons copulating in Mexico.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2019-03-01?",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:El_Nuevo_Doge\" title=\"User:El Nuevo Doge\">El Nuevo Doge</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Palomas_copulando.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 5773648
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/1/1b/Palomas_copulando.webm/Palomas_copulando.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 299144
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/1/1b/Palomas_copulando.webm/Palomas_copulando.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 1138136
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/1/1b/Palomas_copulando.webm/Palomas_copulando.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 889112
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/1/1b/Palomas_copulando.webm/Palomas_copulando.webm.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 3448480
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 142381346,
+        "ns": 6,
+        "title": "File:Victorian Crowned Pigeon fighting.webm",
+        "index": 5,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 3595734,
+            "width": 1010,
+            "height": 616,
+            "duration": 24.248,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Victorian_Crowned_Pigeon_fighting.webm/960px--Victorian_Crowned_Pigeon_fighting.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 390,
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Victorian_Crowned_Pigeon_fighting.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Victorian_Crowned_Pigeon_fighting.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=142381346",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2023-12-18 01:17:02",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Victorian Crowned Pigeon fighting",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Self-published work|Goura victoria in National Aviary|Videos of Goura victoria",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "I think they are fighting, but I am not sure, neither did the volunteers at the zoo. She told me that they are father and daughter, and they mounted earlier in the day, so who knows…",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2023-12-17",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "Designism",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/0/00/Victorian_Crowned_Pigeon_fighting.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 1010,
+                "height": 616,
+                "bandwidth": 1186319
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/00/Victorian_Crowned_Pigeon_fighting.webm/Victorian_Crowned_Pigeon_fighting.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 394,
+                "height": 240,
+                "bandwidth": 329096
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/00/Victorian_Crowned_Pigeon_fighting.webm/Victorian_Crowned_Pigeon_fighting.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 590,
+                "height": 360,
+                "bandwidth": 1139984
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/00/Victorian_Crowned_Pigeon_fighting.webm/Victorian_Crowned_Pigeon_fighting.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 788,
+                "height": 480,
+                "bandwidth": 920632
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 163837373,
+        "ns": 6,
+        "title": "File:Pigeon feeding, Jardim da Estrela, 2025 01.webm",
+        "index": 2,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 210901588,
+            "width": 1920,
+            "height": 1080,
+            "duration": 47.2,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_01.webm/960px--Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_01.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_01.webm/1280px--Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_01.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_01.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Pigeon_feeding,_Jardim_da_Estrela,_2025_01.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=163837373",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2025-04-19 21:48:05",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Pigeon feeding, Jardim da Estrela, 2025 01",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Uploaded with video2commons|People feeding pigeons|Photographs by Juwan",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Video of me feeding pigeons with seed mixtures (sunflower, pumpkin, sesame and linseed) in Jardim da Estrela, Lisbon.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2025-04-19",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:JnpoJuwan\" class=\"mw-redirect\" title=\"User:JnpoJuwan\">JnpoJuwan</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_01.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 35746031
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/1/1e/Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_01.webm/Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_01.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 1140960
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/1/1e/Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_01.webm/Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_01.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 1103440
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/1/1e/Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_01.webm/Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_01.webm.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 4062568
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 163837647,
+        "ns": 6,
+        "title": "File:Pigeon feeding, Jardim da Estrela, 2025 02.webm",
+        "index": 3,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 309043517,
+            "width": 1080,
+            "height": 1920,
+            "duration": 78.93900000000001,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_02.webm/960px--Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_02.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 1138,
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_02.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Pigeon_feeding,_Jardim_da_Estrela,_2025_02.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=163837647",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2025-04-19 21:52:13",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Pigeon feeding, Jardim da Estrela, 2025 02",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Uploaded with video2commons|People feeding pigeons|Photographs by Juwan",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Video of me feeding pigeons with seed mixtures (sunflower, pumpkin, sesame and linseed) in Jardim da Estrela, Lisbon.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2025-04-19",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:JnpoJuwan\" class=\"mw-redirect\" title=\"User:JnpoJuwan\">JnpoJuwan</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/2/27/Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_02.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 1080,
+                "height": 1920,
+                "bandwidth": 31319729
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/27/Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_02.webm/Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_02.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 202,
+                "height": 360,
+                "bandwidth": 1131192
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/27/Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_02.webm/Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_02.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 270,
+                "height": 480,
+                "bandwidth": 1082424
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/27/Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_02.webm/Pigeon_feeding%2C_Jardim_da_Estrela%2C_2025_02.webm.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 608,
+                "height": 1080,
+                "bandwidth": 4054776
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

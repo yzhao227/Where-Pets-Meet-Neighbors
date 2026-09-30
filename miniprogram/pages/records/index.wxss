@@ -1,0 +1,34 @@
+.records-page>.eyebrow{margin-top:15rpx;}
+.page-title{font-size:42rpx;margin:4rpx 0 18rpx;}
+.tabs{display:flex;gap:14rpx;margin-bottom:24rpx;}
+.demo-label{margin-bottom:23rpx;}
+.record-card{padding:26rpx;margin-bottom:22rpx;}
+.record-tag{font-size:22rpx;color:#B84735;background:#FFF0E9;border-radius:10rpx;padding:7rpx 12rpx;}
+.post-text{font-size:28rpx;line-height:1.85;white-space:pre-wrap;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;margin:20rpx 0;}
+.record-photo{width:100%;height:270rpx;display:block;border-radius:18rpx;margin-bottom:20rpx;}
+.circle-symbol{font-size:50rpx;width:77rpx;}
+.circle-info{flex:1;}
+.record-title{font-size:30rpx;line-height:1.65;font-weight:650;}
+.circle-info .small{font-size:21rpx;margin-top:7rpx;}
+.circle-description{font-size:25rpx;color:#66707A;line-height:1.8;margin-top:19rpx;}
+.event-title{margin:16rpx 0;}
+.event-meta{font-size:24rpx;color:#66707A;line-height:1.9;}
+.event-status{font-size:22rpx;color:#505863;}
+.cancel-reason{font-size:23rpx;color:#94603D;background:#FFF3E6;border-radius:12rpx;padding:13rpx;margin-top:18rpx;}
+.empty-symbol{font-size:60rpx;color:#EF725B;}
+.empty-title{font-size:29rpx;font-weight:650;margin:21rpx 0 15rpx;}
+.tabs-scroll{white-space:nowrap;margin-bottom:22rpx;}
+.tabs{margin:0;}
+.tabs .pill{flex-shrink:0;font-size:23rpx;padding:12rpx 20rpx;}
+.record-post-title{font-size:32rpx;font-weight:700;line-height:1.65;margin:19rpx 0 -9rpx;}
+.record-topic{font-size:23rpx;color:#B84735;margin:17rpx 0;}
+.record-author{display:flex;align-items:center;gap:11rpx;min-width:0;}
+.record-author image{width:42rpx;height:42rpx;border-radius:50%;}
+.record-author text{font-size:22rpx;color:#66707A;}
+button.remove-bookmark{font-size:21rpx;color:#94603D;background:#FFF3E6;border-radius:13rpx;padding:8rpx 13rpx;line-height:1.8;}
+.following-avatar{width:83rpx;height:83rpx;border-radius:50%;}
+.following-info{flex:1;min-width:0;}
+.following-info .small{font-size:20rpx;margin-top:5rpx;}
+button.unfollow-button{font-size:22rpx;color:#66707A;border:1rpx solid #E9E5E1;background:#FAF9F7;padding:10rpx 17rpx;border-radius:15rpx;line-height:1.8;}
+.tabs-scroll{width:100%;}
+.tabs{display:inline-flex;min-width:100%;padding-bottom:2rpx;}

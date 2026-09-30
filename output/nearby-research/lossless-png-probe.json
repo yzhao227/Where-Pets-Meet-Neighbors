@@ -1,0 +1,62 @@
+{
+  "files": [
+    {
+      "file": "event-walk.png",
+      "originalBytes": 69998,
+      "candidateBytes": 54903,
+      "savedBytes": 15095,
+      "rgbaSha256": "fd135a6f8ebcd725bc813f137cb12b17fda57163c52bab534eae517c70b59d12",
+      "originalSha256": "c274eb9ce7f0ec52df58760a8818996f37d98d5b8a23808ff2b895b7c6c66003",
+      "candidateSha256": "b87976aa1fd757452dc853aa21ff8bb64f404f4afc139f2b94f5f22e74ec5698",
+      "dimensions": [
+        1000,
+        620
+      ],
+      "method": "png-filter:fixed-0:deflate=Z_DEFAULT_STRATEGY:memory=8"
+    },
+    {
+      "file": "event-coffee.png",
+      "originalBytes": 47266,
+      "candidateBytes": 39476,
+      "savedBytes": 7790,
+      "rgbaSha256": "1d95e051091a66606833347a83bba6a812943fe835bd646131a157c7155aba80",
+      "originalSha256": "b98d88ecbfc40412d67c1e06d504bfef253fc72d0fa897ed71290c19216dfc26",
+      "candidateSha256": "e7a8487bb26f60dad155d806a3ab94fa7e5497385075b95c5539cab421b13ad8",
+      "dimensions": [
+        1000,
+        620
+      ],
+      "method": "png-filter:fixed-0:deflate=Z_DEFAULT_STRATEGY:memory=8"
+    },
+    {
+      "file": "story-dog.png",
+      "originalBytes": 65472,
+      "candidateBytes": 51243,
+      "savedBytes": 14229,
+      "rgbaSha256": "fa0fd40c4e582df962cbce51d2045895176439ef960a249687b812bd07f1c136",
+      "originalSha256": "d74febc77a4f5dbdb45ff8c433964213a1df1e4d310fbb6996ab56342c990d96",
+      "candidateSha256": "9ca6446a2acc5ebe819fa11f385ca525603ed29bd890543b917fa9f126cd577d",
+      "dimensions": [
+        1000,
+        620
+      ],
+      "method": "png-filter:fixed-0:deflate=Z_DEFAULT_STRATEGY:memory=8"
+    },
+    {
+      "file": "story-cat.png",
+      "originalBytes": 60625,
+      "candidateBytes": 48754,
+      "savedBytes": 11871,
+      "rgbaSha256": "819b18426a2364bee2e7cbef380b7382762cd196791fedead2cfa92131f0a60a",
+      "originalSha256": "53f66b0bf0ed7fdacba9bb083dbc40497f3ec493befa601ab76e5d28c6dc2636",
+      "candidateSha256": "67f7fc87f635e2d804c087b8b8364ef4b092310f3d1754f1fb6431d79a9c4ca2",
+      "dimensions": [
+        1000,
+        620
+      ],
+      "method": "png-filter:fixed-0:deflate=Z_DEFAULT_STRATEGY:memory=8"
+    }
+  ],
+  "totalSavedBytes": 48985,
+  "assetsModified": false
+}

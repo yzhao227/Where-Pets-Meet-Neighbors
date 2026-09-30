@@ -1,0 +1,342 @@
+{
+  "sheets": [
+    {
+      "path": "output/content-review/dog-round1-dogs-01.jpg",
+      "pageids": [
+        3499592,
+        4370047,
+        5301931,
+        15170790,
+        32138651,
+        40248555,
+        40248556,
+        40248561,
+        40248562,
+        40248565,
+        42115285,
+        42784004,
+        48514928,
+        48514929,
+        49090170,
+        50208570,
+        52635345,
+        56423271,
+        56693660,
+        58232591
+      ]
+    },
+    {
+      "path": "output/content-review/dog-round1-dogs-02.jpg",
+      "pageids": [
+        58296950,
+        58880874,
+        58926680,
+        192603790,
+        192885722
+      ]
+    }
+  ],
+  "records": [
+    {
+      "species": "dogs",
+      "pageid": 3499592,
+      "title": "File:Polski owczarek nizinny rybnik-kamien pl.jpg",
+      "localFile": "content/batch-001/media/3499592.source",
+      "reviewDimensions": [
+        960,
+        845
+      ],
+      "reviewDhash": 4078250089086359965,
+      "reviewSha256": "965c867d12545559da6359f5d8881e4776b2a3a9a15e7170b1fe4ee84bf16168"
+    },
+    {
+      "species": "dogs",
+      "pageid": 4370047,
+      "title": "File:2008-07-11 White German Shepherd pup chilling at the Coker Arboretum.jpg",
+      "localFile": "content/batch-001/media/4370047.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 11262601173182879125,
+      "reviewSha256": "a37d64568aa3d6022b0224d25b8f904996ab5c0e215161384e18386c108e784e"
+    },
+    {
+      "species": "dogs",
+      "pageid": 5301931,
+      "title": "File:2008-08-28 White German Shepherd ready.jpg",
+      "localFile": "content/batch-001/media/5301931.source",
+      "reviewDimensions": [
+        960,
+        1440
+      ],
+      "reviewDhash": 17572639023841622623,
+      "reviewSha256": "7a74886e4cce52d2ee591c39b7fcde59c241f7c0554850427430e9bb82a3832c"
+    },
+    {
+      "species": "dogs",
+      "pageid": 15170790,
+      "title": "File:20110425 German Shepherd Dog 8505.jpg",
+      "localFile": "content/batch-001/media/15170790.source",
+      "reviewDimensions": [
+        960,
+        638
+      ],
+      "reviewDhash": 5214151988831663667,
+      "reviewSha256": "c84d894446cc3d6f684b73b295743e541675d6de759bfc3236c0dbed2b3e2634"
+    },
+    {
+      "species": "dogs",
+      "pageid": 32138651,
+      "title": "File:Münster, Wolbeck, Wolbecker Tiergarten, Hund -- 2014 -- 7130.jpg",
+      "localFile": "content/batch-001/media/32138651.source",
+      "reviewDimensions": [
+        960,
+        630
+      ],
+      "reviewDhash": 12384837277589285357,
+      "reviewSha256": "73d5236639c4b84b28f6c79f2f47233ba0aa713d891e6e9a7a59bdc3e7f909d0"
+    },
+    {
+      "species": "dogs",
+      "pageid": 40248555,
+      "title": "File:Lucky en Panzerwiese, Múnich, Alemania, 2014-12-24, DD 06.JPG",
+      "localFile": "content/batch-001/media/40248555.source",
+      "reviewDimensions": [
+        960,
+        619
+      ],
+      "reviewDhash": 5598987504081889090,
+      "reviewSha256": "9d7326c3cab74ef1cea4492706ec8212ae7a97a83098ca312bc582bc364e202b"
+    },
+    {
+      "species": "dogs",
+      "pageid": 40248556,
+      "title": "File:Lucky en Panzerwiese, Múnich, Alemania, 2014-12-24, DD 03.JPG",
+      "localFile": "content/batch-001/media/40248556.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 7263433076356057666,
+      "reviewSha256": "d8bbd35ab3fd87867e65a054b088a4f725c9d87f2ff3ec7db26a1c9b5525babb"
+    },
+    {
+      "species": "dogs",
+      "pageid": 40248561,
+      "title": "File:Lucky en Panzerwiese, Múnich, Alemania, 2014-12-24, DD 02.JPG",
+      "localFile": "content/batch-001/media/40248561.source",
+      "reviewDimensions": [
+        960,
+        627
+      ],
+      "reviewDhash": 9270708321379706084,
+      "reviewSha256": "1fbfae074bd2b03140d8a7481acc3efb7205dee30954befc6b90603fe15255e6"
+    },
+    {
+      "species": "dogs",
+      "pageid": 40248562,
+      "title": "File:Lucky en Panzerwiese, Múnich, Alemania, 2014-12-24, DD 07.JPG",
+      "localFile": "content/batch-001/media/40248562.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 6676491149899386183,
+      "reviewSha256": "cec1bc5f8e907ef5c586c7f8fa9be99dcbbd10d05e6615d85929308e68dacb4b"
+    },
+    {
+      "species": "dogs",
+      "pageid": 40248565,
+      "title": "File:Lucky en Panzerwiese, Múnich, Alemania, 2014-12-24, DD 05.JPG",
+      "localFile": "content/batch-001/media/40248565.source",
+      "reviewDimensions": [
+        960,
+        519
+      ],
+      "reviewDhash": 15332449576326429773,
+      "reviewSha256": "490a84065c6d4f00fc5719ebc985d86a624b26d9b688757bd75ee6c7152b83ff"
+    },
+    {
+      "species": "dogs",
+      "pageid": 42115285,
+      "title": "File:Perro tomando el sol, Ipiales, Colombia, 2015-07-21, DD 06.JPG",
+      "localFile": "content/batch-001/media/42115285.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 9461720334428096979,
+      "reviewSha256": "c01f25a73121820e4aef2d7944873f15752d6424c5344dfbfed14a9e5d3f8b63"
+    },
+    {
+      "species": "dogs",
+      "pageid": 42784004,
+      "title": "File:Perro bañándose en el puerto de Paracas, Perú, 2015-07-29, DD 13.JPG",
+      "localFile": "content/batch-001/media/42784004.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 7680283233029694375,
+      "reviewSha256": "7dc7bf4c3ba50c4c81706b28a081aaaebff92b27d86f40e222ef6a2df7721564"
+    },
+    {
+      "species": "dogs",
+      "pageid": 48514928,
+      "title": "File:Túnel natural, Hartelholz, Múnich, Alemania, 2016-04-03, DD 08.JPG",
+      "localFile": "content/batch-001/media/48514928.source",
+      "reviewDimensions": [
+        960,
+        1440
+      ],
+      "reviewDhash": 8150318744156985243,
+      "reviewSha256": "f2e8e895e14afd95e2c9a3efb6c098b44c9921687fb18275731b7315426e5d6d"
+    },
+    {
+      "species": "dogs",
+      "pageid": 48514929,
+      "title": "File:Túnel natural, Hartelholz, Múnich, Alemania, 2016-04-03, DD 09.JPG",
+      "localFile": "content/batch-001/media/48514929.source",
+      "reviewDimensions": [
+        960,
+        749
+      ],
+      "reviewDhash": 9773666668558876961,
+      "reviewSha256": "853b2d34c760c8bf62ed2d968dcd3c8a0f3bfae311e87d7064c28e42e66411ec"
+    },
+    {
+      "species": "dogs",
+      "pageid": 49090170,
+      "title": "File:20160327 pies nierasowy 3693.jpg",
+      "localFile": "content/batch-001/media/49090170.source",
+      "reviewDimensions": [
+        960,
+        636
+      ],
+      "reviewDhash": 5249448709183871389,
+      "reviewSha256": "92036ccbb39dfed3737712e955afbe6088b332c401cf9b05217460510abefee2"
+    },
+    {
+      "species": "dogs",
+      "pageid": 50208570,
+      "title": "File:Delta del Danubio, Rumanía, 2016-05-28, DD 37.jpg",
+      "localFile": "content/batch-001/media/50208570.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 12478716568121730693,
+      "reviewSha256": "5c08e7c2b6b340a5af111b83b94b06ebbddee374f72cac2dbf2df2d34e34c3e8"
+    },
+    {
+      "species": "dogs",
+      "pageid": 52635345,
+      "title": "File:Irish setter - İrlanda setteri, Adana 2016-10-30 01-2.jpg",
+      "localFile": "content/batch-001/media/52635345.source",
+      "reviewDimensions": [
+        960,
+        647
+      ],
+      "reviewDhash": 15568681097073912193,
+      "reviewSha256": "d18043c855bbf53790741d3ff7102e66be6acddd43769c1deacd535013f5d10f"
+    },
+    {
+      "species": "dogs",
+      "pageid": 56423271,
+      "title": "File:Vitoria - Tranvía - Perro 01.jpg",
+      "localFile": "content/batch-001/media/56423271.source",
+      "reviewDimensions": [
+        960,
+        667
+      ],
+      "reviewDhash": 5136009046911239748,
+      "reviewSha256": "d09915228e2f75edb1bc4d8d7251e47a70579fa8f9e7f7f2f2b16c2c5d8ba4fe"
+    },
+    {
+      "species": "dogs",
+      "pageid": 56693660,
+      "title": "File:Dalmatian fetching a stick.jpg",
+      "localFile": "content/batch-001/media/56693660.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 5272909647620409139,
+      "reviewSha256": "6378ffa17de2979da44e4d4ac11abbefc9c1348ad2daaf5723c4cc2f589a3376"
+    },
+    {
+      "species": "dogs",
+      "pageid": 58232591,
+      "title": "File:Sara - Perro Pastor 01.jpg",
+      "localFile": "content/batch-001/media/58232591.source",
+      "reviewDimensions": [
+        960,
+        662
+      ],
+      "reviewDhash": 5058449879805710183,
+      "reviewSha256": "96b2a92e57c26df0b89fcf90dd8c5cccd709f4026fc15caa0aa735e4a769e433"
+    },
+    {
+      "species": "dogs",
+      "pageid": 58296950,
+      "title": "File:20160327 pies nierasowy 3691.jpg",
+      "localFile": "content/batch-001/media/58296950.source",
+      "reviewDimensions": [
+        960,
+        738
+      ],
+      "reviewDhash": 16598519769084828666,
+      "reviewSha256": "798b61cecf39250dd50306d13b06f56538c61bef199a3efbaf2fcb020d429400"
+    },
+    {
+      "species": "dogs",
+      "pageid": 58880874,
+      "title": "File:Bronco the Beagle.JPG",
+      "localFile": "content/batch-001/media/58880874.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 5136876479432035181,
+      "reviewSha256": "753af5440d4eebe159f2ed8f61fc6da6ac918cee20e45b93ddd45f40f140a473"
+    },
+    {
+      "species": "dogs",
+      "pageid": 58926680,
+      "title": "File:20160801 pies Bagan 6550.jpg",
+      "localFile": "content/batch-001/media/58926680.source",
+      "reviewDimensions": [
+        960,
+        636
+      ],
+      "reviewDhash": 5047993221886060558,
+      "reviewSha256": "8209aab2a27a89256e0bec5c092f9416dc4571cb7bab394759203d9ac2d4c51b"
+    },
+    {
+      "species": "dogs",
+      "pageid": 192603790,
+      "title": "File:Байконур, собака на Королёва (1).jpg",
+      "localFile": "content/batch-001/media/192603790.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 9078305758146507742,
+      "reviewSha256": "5180d311d0b5a3e8465188c5cdea7e52ed9604875bb33655ef1907d1264e665e"
+    },
+    {
+      "species": "dogs",
+      "pageid": 192885722,
+      "title": "File:Торетам, щенок на платформе Пригородная.jpg",
+      "localFile": "content/batch-001/media/192885722.source",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 5135896046225024716,
+      "reviewSha256": "5d9b009f9712c5cbb7e8c826ecdc8da34fa135507cd48a421e06d445979c724a"
+    }
+  ],
+  "possibleDuplicates": []
+}

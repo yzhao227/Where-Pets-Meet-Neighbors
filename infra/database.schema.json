@@ -1,0 +1,1140 @@
+{
+  "version": 1,
+  "prefix": "yb_",
+  "note": "Canonical requirements, not provider import format. Configure and verify each ACL before real data writes.",
+  "defaultRules": {
+    "read": false,
+    "write": false
+  },
+  "collections": [
+    {
+      "name": "yb_users",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "users_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "status",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_settings",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": []
+    },
+    {
+      "name": "yb_circles",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "circles_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "active",
+              "direction": "asc"
+            },
+            {
+              "field": "sort",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_memberships",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "memberships_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "userId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_posts",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "posts_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "deleted",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "desc"
+            }
+          ]
+        },
+        {
+          "name": "posts_2",
+          "unique": false,
+          "keys": [
+            {
+              "field": "deleted",
+              "direction": "asc"
+            },
+            {
+              "field": "circleId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "desc"
+            }
+          ]
+        },
+        {
+          "name": "posts_3",
+          "unique": false,
+          "keys": [
+            {
+              "field": "deleted",
+              "direction": "asc"
+            },
+            {
+              "field": "authorId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "desc"
+            }
+          ]
+        },
+        {
+          "name": "posts_4",
+          "unique": false,
+          "keys": [
+            {
+              "field": "deleted",
+              "direction": "asc"
+            },
+            {
+              "field": "circleId",
+              "direction": "asc"
+            },
+            {
+              "field": "authorId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "desc"
+            }
+          ]
+        },
+        {
+          "name": "posts_5",
+          "unique": false,
+          "keys": [
+            {
+              "field": "authorId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "posts_6",
+          "unique": false,
+          "keys": [
+            {
+              "field": "authorId",
+              "direction": "asc"
+            },
+            {
+              "field": "deleted",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "posts_7",
+          "unique": false,
+          "keys": [
+            {
+              "field": "deleted",
+              "direction": "asc"
+            },
+            {
+              "field": "images",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_comments",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "comments_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "targetType",
+              "direction": "asc"
+            },
+            {
+              "field": "targetId",
+              "direction": "asc"
+            },
+            {
+              "field": "deleted",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "desc"
+            }
+          ]
+        },
+        {
+          "name": "comments_2",
+          "unique": false,
+          "keys": [
+            {
+              "field": "targetType",
+              "direction": "asc"
+            },
+            {
+              "field": "targetId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "comments_3",
+          "unique": false,
+          "keys": [
+            {
+              "field": "authorId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "comments_4",
+          "unique": false,
+          "keys": [
+            {
+              "field": "replyToAuthorId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_events",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "events_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "petPolicy",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "desc"
+            }
+          ]
+        },
+        {
+          "name": "events_2",
+          "unique": false,
+          "keys": [
+            {
+              "field": "hostId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_registrations",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "registrations_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "userId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_messages",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "messages_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "toId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "desc"
+            }
+          ]
+        },
+        {
+          "name": "messages_2",
+          "unique": false,
+          "keys": [
+            {
+              "field": "toId",
+              "direction": "asc"
+            },
+            {
+              "field": "isRead",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "desc"
+            }
+          ]
+        },
+        {
+          "name": "messages_3",
+          "unique": false,
+          "keys": [
+            {
+              "field": "toId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "messages_4",
+          "unique": false,
+          "keys": [
+            {
+              "field": "actorId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_blocks",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "blocks_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "fromId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "blocks_2",
+          "unique": false,
+          "keys": [
+            {
+              "field": "toId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_reports",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "reports_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "reporterId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "reports_2",
+          "unique": false,
+          "keys": [
+            {
+              "field": "status",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "desc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_uploads",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "uploads_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "ownerId",
+              "direction": "asc"
+            },
+            {
+              "field": "fileId",
+              "direction": "asc"
+            },
+            {
+              "field": "status",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "uploads_2",
+          "unique": false,
+          "keys": [
+            {
+              "field": "ownerId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "uploads_3",
+          "unique": false,
+          "keys": [
+            {
+              "field": "status",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_outbox",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "outbox_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "actorId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_likes",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "likes_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "userId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "likes_2",
+          "unique": false,
+          "keys": [
+            {
+              "field": "postId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "likes_3",
+          "unique": false,
+          "keys": [
+            {
+              "field": "userId",
+              "direction": "asc"
+            },
+            {
+              "field": "authorId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_bookmarks",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "bookmarks_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "userId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "bookmarks_2",
+          "unique": false,
+          "keys": [
+            {
+              "field": "postId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "bookmarks_3",
+          "unique": false,
+          "keys": [
+            {
+              "field": "userId",
+              "direction": "asc"
+            },
+            {
+              "field": "authorId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_follows",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "follows_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "fromId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "follows_2",
+          "unique": false,
+          "keys": [
+            {
+              "field": "fromId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "desc"
+            }
+          ]
+        },
+        {
+          "name": "follows_3",
+          "unique": false,
+          "keys": [
+            {
+              "field": "toId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_identities",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": []
+    },
+    {
+      "name": "yb_phone_claims",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": []
+    },
+    {
+      "name": "yb_rate_limits",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "rate_limits_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "userId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "rate_limits_2",
+          "unique": false,
+          "keys": [
+            {
+              "field": "expiresAt",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_media_reviews",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "media_reviews_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "reviewExpiresAt",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "media_reviews_2",
+          "unique": false,
+          "keys": [
+            {
+              "field": "receivedAt",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_friend_requests",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "friend_requests_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "fromId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "friend_requests_2",
+          "unique": false,
+          "keys": [
+            {
+              "field": "toId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_friendships",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "friendships_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "memberIds",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_conversations",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "conversations_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "memberIds",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "conversations_2",
+          "unique": false,
+          "keys": [
+            {
+              "field": "ownerId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "conversations_3",
+          "unique": false,
+          "keys": [
+            {
+              "field": "leftMemberIds",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_chat_messages",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "chat_messages_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "conversationId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "chat_messages_2",
+          "unique": false,
+          "keys": [
+            {
+              "field": "senderId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "chat_messages_3",
+          "unique": false,
+          "keys": [
+            {
+              "field": "conversationId",
+              "direction": "asc"
+            },
+            {
+              "field": "seq",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_chat_reads",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "chat_reads_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "userId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "chat_reads_2",
+          "unique": false,
+          "keys": [
+            {
+              "field": "conversationId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_place_records",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "place_records_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "updatedBy",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_place_bookmarks",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "place_bookmarks_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "userId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_place_visits",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "place_visits_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "userId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_place_corrections",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "place_corrections_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "userId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "yb_nearby_submissions",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "indexes": [
+        {
+          "name": "nearby_submissions_1",
+          "unique": false,
+          "keys": [
+            {
+              "field": "userId",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        },
+        {
+          "name": "nearby_submissions_2",
+          "unique": false,
+          "keys": [
+            {
+              "field": "status",
+              "direction": "asc"
+            },
+            {
+              "field": "_id",
+              "direction": "asc"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

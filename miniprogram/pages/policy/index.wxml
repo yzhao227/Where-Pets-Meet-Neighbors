@@ -1,0 +1,13 @@
+<view class="page policy-page">
+  <view class="page-title">{{type === 'terms' ? '有宠有邻用户协议' : '有宠有邻隐私说明'}}</view>
+  <view class="policy-tabs"><view class="pill {{type === 'terms' ? 'active' : ''}}" bindtap="selectType" data-type="terms">用户协议</view><view class="pill {{type === 'privacy' ? 'active' : ''}}" bindtap="selectType" data-type="privacy">隐私说明</view></view>
+  <view wx:if="{{loading}}" class="loading">正在读取协议内容…</view>
+  <view wx:elif="{{error}}" class="error-box"><text>{{error}}</text><button class="btn btn-secondary" bindtap="refresh">重新加载</button></view>
+  <block wx:else>
+    <view wx:if="{{isDraft}}" class="draft-label">{{mode === 'demo' ? '本机演示 · 产品预览草稿' : '运营方尚未完成政策配置 · 暂不开放注册'}}</view>
+    <view class="operator-card card"><view class="operator-title">当前版本：{{version}}</view><view class="operator-copy">运营主体：{{operatorName || '尚未配置'}}</view><view class="operator-copy">联系方式：{{contact || '尚未配置'}}</view><button wx:if="{{contact}}" class="contact-copy" bindtap="copyContact">复制联系信息</button><view wx:if="{{isDraft}}" class="operator-note">{{mode === 'demo' ? '这里展示演示说明。正式服务的主体、联系方式和适用政策由运营方配置后提供。' : '正式政策完成配置后，才能授权手机号并参与交流。你可以稍后重新查看。'}}</view></view>
+    <view wx:if="{{contentMissing}}" class="error-box">这份协议尚未提供内容，请稍后重新查看。</view>
+    <view wx:for="{{sections}}" wx:key="title" class="policy-section"><view class="policy-section-title">{{item.title}}</view><view class="policy-section-text">{{item.text}}</view></view>
+    <view class="reading-note">阅读页面不会自动勾选同意。返回核验页后，可自行决定是否同意并继续。</view>
+  </block>
+</view>

@@ -1,0 +1,50 @@
+[
+  {
+    "sourceFile": "output/nearby-research/2026-09-30-zoo-entrance.jpg",
+    "outputFile": "miniprogram/assets/nearby/shanghai-zoo-entrance.webp",
+    "downloadedSize": [
+      960,
+      720
+    ],
+    "outputSize": [
+      720,
+      540
+    ],
+    "sourceSha256": "893a7d4b7f02434cae546832a71a94d7061c131eae0160025b28dec4fb59b0ef",
+    "outputSha256": "cca302dda678d39b23926ae5825d0ec190d3ad2e9cda5ef850ac30c6dce0035d",
+    "outputBytes": 94454,
+    "transform": "EXIF orientation, proportionate resize to maximum side 720px, RGB WebP quality 75; no crop or retouch"
+  },
+  {
+    "sourceFile": "output/nearby-research/2026-09-30-zoo-lake.jpg",
+    "outputFile": "miniprogram/assets/nearby/shanghai-zoo-lake.webp",
+    "downloadedSize": [
+      960,
+      720
+    ],
+    "outputSize": [
+      720,
+      540
+    ],
+    "sourceSha256": "597cd4951bfe51d68478fdf2ab75ffd1da00af610a02c06c29010c1f90587c09",
+    "outputSha256": "7f3049ba158a8099f31f285cb7d23ca3ff70e9032678d6ba5d4a611c2abe9670",
+    "outputBytes": 59302,
+    "transform": "EXIF orientation, proportionate resize to maximum side 720px, RGB WebP quality 75; no crop or retouch"
+  },
+  {
+    "sourceFile": "output/nearby-research/2026-09-30-museum-new03.jpg",
+    "outputFile": "miniprogram/assets/nearby/shanghai-natural-history-museum.webp",
+    "downloadedSize": [
+      960,
+      720
+    ],
+    "outputSize": [
+      720,
+      540
+    ],
+    "sourceSha256": "16ff78c2d247058798a3a9d96923c51d4888dab5fb8106d98b3386f4b529947b",
+    "outputSha256": "f19f567a102d4e993c80a132a1d333aeaec933eba4e2ec24a38ef0a541639533",
+    "outputBytes": 43706,
+    "transform": "EXIF orientation, proportionate resize to maximum side 720px, RGB WebP quality 75; no crop or retouch"
+  }
+]

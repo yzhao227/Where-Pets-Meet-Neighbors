@@ -1,0 +1,393 @@
+{
+  "sheets": [
+    {
+      "path": "output/content-review/dog-round2-1.jpg",
+      "pageids": [
+        61619827,
+        62300949,
+        63406884,
+        63406885,
+        64454694,
+        64454698,
+        69729545,
+        70137941,
+        72295923,
+        73592846,
+        74532414,
+        74532423,
+        75769554,
+        76015452,
+        79151816,
+        79509354,
+        80646935,
+        88926655,
+        91974772,
+        93138312
+      ]
+    },
+    {
+      "path": "output/content-review/dog-round2-2.jpg",
+      "pageids": [
+        93313112,
+        193999849,
+        193999850,
+        196691885,
+        196751568,
+        198487798,
+        198487799,
+        198573306,
+        198573307
+      ]
+    }
+  ],
+  "records": [
+    {
+      "species": "dogs",
+      "pageid": 61619827,
+      "title": "File:French bulldog in life jacket.jpg",
+      "localFile": "content/batch-001/media/61619827.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 14734535040472574441,
+      "reviewSha256": "ef385fb83a99193502e5b6f69d1a66f91b0ba01bb217df07109078a52d827b6d"
+    },
+    {
+      "species": "dogs",
+      "pageid": 62300949,
+      "title": "File:Blossom and Laysha.jpg",
+      "localFile": "content/batch-001/media/62300949.source",
+      "reviewDimensions": [
+        960,
+        741
+      ],
+      "reviewDhash": 2676021531693802807,
+      "reviewSha256": "0a8b8ca333e01e6b1e11260efa986b90ea92a90eb120936a2b2c5124103ed251"
+    },
+    {
+      "species": "dogs",
+      "pageid": 63406884,
+      "title": "File:Benasque - Linsoles - Galgo 01.jpg",
+      "localFile": "content/batch-001/media/63406884.source",
+      "reviewDimensions": [
+        960,
+        667
+      ],
+      "reviewDhash": 7253153926331120617,
+      "reviewSha256": "b3d6be7020b91622fe7056adedbcd0db9b3679964dc71b1ad5d27f0a07c1cd47"
+    },
+    {
+      "species": "dogs",
+      "pageid": 63406885,
+      "title": "File:Benasque - Anciles - Labrador Retriever.jpg",
+      "localFile": "content/batch-001/media/63406885.source",
+      "reviewDimensions": [
+        960,
+        662
+      ],
+      "reviewDhash": 8690004968897686129,
+      "reviewSha256": "cf64b1c6ab76e128cd457b792a673396c21b9239f2c309b5786ed81b293b0d48"
+    },
+    {
+      "species": "dogs",
+      "pageid": 64454694,
+      "title": "File:Pepe at Josaphat coming back rather quickly (cropped).jpg",
+      "localFile": "content/batch-001/media/64454694.source",
+      "reviewDimensions": [
+        960,
+        1071
+      ],
+      "reviewDhash": 15698367395258430969,
+      "reviewSha256": "6a34cc1ee1f3090fd96953fc9a39d377417b3415b6c80eefa42f8d46129579e2"
+    },
+    {
+      "species": "dogs",
+      "pageid": 64454698,
+      "title": "File:Pepe a Josaphat looking back.jpg",
+      "localFile": "content/batch-001/media/64454698.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 6403158594504684890,
+      "reviewSha256": "a9d652467def87ffdbb1f4e2fa5062c0f73f26c20ad130bbd9041120b3012402"
+    },
+    {
+      "species": "dogs",
+      "pageid": 69729545,
+      "title": "File:Inzell 2017 Kat A1 ZBYSZEK Kunert -9513.jpg",
+      "localFile": "content/batch-001/media/69729545.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 4406602225064890275,
+      "reviewSha256": "e91a3813639023e1c5018517564518d95c5751de44c2fe2f8ec772f9500d2cb7"
+    },
+    {
+      "species": "dogs",
+      "pageid": 70137941,
+      "title": "File:Squaw Lakes, OR (DSC 0160).jpg",
+      "localFile": "content/batch-001/media/70137941.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 3606614811615698976,
+      "reviewSha256": "3694e590589e5a92d07e3503ef26f4284749f2763a0f974a4ad7cead60f6cded"
+    },
+    {
+      "species": "dogs",
+      "pageid": 72295923,
+      "title": "File:Het Zinneke (DSCF5238) Brussels, BE.jpg",
+      "localFile": "content/batch-001/media/72295923.source",
+      "reviewDimensions": [
+        960,
+        595
+      ],
+      "reviewDhash": 10778694664371057691,
+      "reviewSha256": "9b71464125ddd5912c5e2d8ad370c90a1f2c8cd9339588b74f664a6fa612f8f9"
+    },
+    {
+      "species": "dogs",
+      "pageid": 73592846,
+      "title": "File:Mausolée d’Oultremont (DSCF8207).jpg",
+      "localFile": "content/batch-001/media/73592846.source",
+      "reviewDimensions": [
+        960,
+        1454
+      ],
+      "reviewDhash": 9260599340809074465,
+      "reviewSha256": "028740c5aeb16867c36eddd34dcbe2bf36fe5310765d34b52b4a914b5da8a9f0"
+    },
+    {
+      "species": "dogs",
+      "pageid": 74532414,
+      "title": "File:Petcon (81233).jpg",
+      "localFile": "content/batch-001/media/74532414.source",
+      "reviewDimensions": [
+        960,
+        983
+      ],
+      "reviewDhash": 2245459003014912403,
+      "reviewSha256": "506956c057fba961961b5a700d4108ed4bd74b7a6638a6dfda53f3928e37184c"
+    },
+    {
+      "species": "dogs",
+      "pageid": 74532423,
+      "title": "File:Petcon (81243)a.jpg",
+      "localFile": "content/batch-001/media/74532423.source",
+      "reviewDimensions": [
+        960,
+        770
+      ],
+      "reviewDhash": 2723214104749468920,
+      "reviewSha256": "e51b13d27a7fb5a73453101305bb595b42774d4bc7fddfa62d42d7ed9aef0dd7"
+    },
+    {
+      "species": "dogs",
+      "pageid": 75769554,
+      "title": "File:Perros, vista aérea del delta del Okavango, Botsuana, 2018-08-01, DD 48.jpg",
+      "localFile": "content/batch-001/media/75769554.source",
+      "reviewDimensions": [
+        960,
+        613
+      ],
+      "reviewDhash": 9237160360310260743,
+      "reviewSha256": "06009dbda388f3bdd47f633c35cd5e25c528897ea62f7781b7309810f9d29034"
+    },
+    {
+      "species": "dogs",
+      "pageid": 76015452,
+      "title": "File:Airedale terrier head, Josselin 01.jpg",
+      "localFile": "content/batch-001/media/76015452.source",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 3318617795202438233,
+      "reviewSha256": "d8702de22b051b27327b62ff47bbe2d159551829f08648a4834577cfe079d624"
+    },
+    {
+      "species": "dogs",
+      "pageid": 79151816,
+      "title": "File:Digging dog Delaware seashore DE1.jpg",
+      "localFile": "content/batch-001/media/79151816.source",
+      "reviewDimensions": [
+        960,
+        515
+      ],
+      "reviewDhash": 9843067264726803715,
+      "reviewSha256": "bfbf4eda5beb09e16fb225a7544dc4e1dc6cd578a607d729c6b95e7de9d7365b"
+    },
+    {
+      "species": "dogs",
+      "pageid": 79509354,
+      "title": "File:Молодая сука тувинской овчарки окрас белый с черным.jpg",
+      "localFile": "content/batch-001/media/79509354.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 16759079710925334076,
+      "reviewSha256": "2dc3323ef30026f12070da3781c9ea0c45bbd85f38b0a9d86a9c6fa417000139"
+    },
+    {
+      "species": "dogs",
+      "pageid": 80646935,
+      "title": "File:Toy Poodle wearing clothes in Tokyo.jpg",
+      "localFile": "content/batch-001/media/80646935.source",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 1299491871441672392,
+      "reviewSha256": "4dae333e233d22a6227cc89c1644b60225458b38aa283373ac908461daf4cf82"
+    },
+    {
+      "species": "dogs",
+      "pageid": 88926655,
+      "title": "File:German shepherd enjoying the sun.jpg",
+      "localFile": "content/batch-001/media/88926655.source",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 3906702163475775415,
+      "reviewSha256": "2926155ba8fd7e648706dd0c63c93897679c7756dc91d159a97b17b77d87e491"
+    },
+    {
+      "species": "dogs",
+      "pageid": 91974772,
+      "title": "File:Horses carrying hay up Sendero Acequias del Poqueira in Capileira, Sierra Nevada National Park (DSCF5707).jpg",
+      "localFile": "content/batch-001/media/91974772.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 1834005266141293649,
+      "reviewSha256": "09bf06cd1ffd54441faa9f566ebc7e1b601df154ad49eec0b5d420d07b6c54e5"
+    },
+    {
+      "species": "dogs",
+      "pageid": 93138312,
+      "title": "File:Four dogs running at golden hour in the countryside of Don Det Laos.jpg",
+      "localFile": "content/batch-001/media/93138312.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 14165735061395990684,
+      "reviewSha256": "2c4f862c604b20698496e483b183af871d1b6ab929c55d0eb6cf941017aed84c"
+    },
+    {
+      "species": "dogs",
+      "pageid": 93313112,
+      "title": "File:French bulldog head, Josselin 02.jpg",
+      "localFile": "content/batch-001/media/93313112.source",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 13136236405232924262,
+      "reviewSha256": "ebb6e8c52c18b22b10c77415d504afe30510ac2458b3e81ec12f121acaa4f763"
+    },
+    {
+      "species": "dogs",
+      "pageid": 193999849,
+      "title": "File:Плато Ассы, алабай у обсерватории (3).jpg",
+      "localFile": "content/batch-001/media/193999849.source",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 13795630828457685886,
+      "reviewSha256": "ee7d9ffb771b68c319669cfe12218749aa0e242c028f534752e4081cc9edd500"
+    },
+    {
+      "species": "dogs",
+      "pageid": 193999850,
+      "title": "File:Плато Ассы, алабай у обсерватории (2).jpg",
+      "localFile": "content/batch-001/media/193999850.source",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 14179342859291663540,
+      "reviewSha256": "b8ce175f0dab0ddfd9c3142be350cc2d755444fbdd4b1ab133ee60d0d468bec3"
+    },
+    {
+      "species": "dogs",
+      "pageid": 196691885,
+      "title": "File:Пёс цепной и будка.jpg",
+      "localFile": "content/batch-001/media/196691885.source",
+      "reviewDimensions": [
+        960,
+        554
+      ],
+      "reviewDhash": 17542281147598438561,
+      "reviewSha256": "4e055a3cfcf3f9214cfd0515ca0c679c90ffbe9b15b758c49ae064eb8a803a94"
+    },
+    {
+      "species": "dogs",
+      "pageid": 196751568,
+      "title": "File:Село Орта Дересин, Карагандинская область, хаски.jpg",
+      "localFile": "content/batch-001/media/196751568.source",
+      "reviewDimensions": [
+        960,
+        1200
+      ],
+      "reviewDhash": 12985558435968744339,
+      "reviewSha256": "3b0c255b1bf7ee1ea1cffd7c8c25b526ca5c04fb70d00bea7c7c1266e13f7936"
+    },
+    {
+      "species": "dogs",
+      "pageid": 198487798,
+      "title": "File:Космос, собака на Набережной-Желтоксане (3).jpg",
+      "localFile": "content/batch-001/media/198487798.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 14991471158470283481,
+      "reviewSha256": "808d3372672c17d03a7f5536cdaafe84d708b12b374c311f95a83d4f0902edeb"
+    },
+    {
+      "species": "dogs",
+      "pageid": 198487799,
+      "title": "File:Космос, собака на Набережной-Желтоксане (2).jpg",
+      "localFile": "content/batch-001/media/198487799.source",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 9597555690025101744,
+      "reviewSha256": "ede4df8afbd32e85e031025b52c93fe460dfd9403d6acf9a590439594768c12e"
+    },
+    {
+      "species": "dogs",
+      "pageid": 198573306,
+      "title": "File:Базаркельды, щенок.jpg",
+      "localFile": "content/batch-001/media/198573306.source",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 5448096526690928561,
+      "reviewSha256": "81dc5abf010565d988530faac445e9472179f2f0a0af4bcdf0e99b7aea4abd9b"
+    },
+    {
+      "species": "dogs",
+      "pageid": 198573307,
+      "title": "File:Базаркельды, щенки.jpg",
+      "localFile": "content/batch-001/media/198573307.source",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 13058689011787257878,
+      "reviewSha256": "dafa666cb69a59636f32ea359096e3d3aefa92f9e8e63717bb2c61f5326de171"
+    }
+  ]
+}

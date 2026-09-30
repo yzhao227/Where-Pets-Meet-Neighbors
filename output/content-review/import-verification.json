@@ -1,0 +1,24 @@
+{
+  "scope": "Actual published batch files; not a WeChat simulator or device test",
+  "checkedAt": "2026-09-29",
+  "counts": {
+    "knowledge": 100,
+    "photos": 200
+  },
+  "uniqueKnowledgeSourceURLs": 21,
+  "photosDecoded": 200,
+  "uniquePhotoHashes": 200,
+  "formats": {
+    "JPEG": 200
+  },
+  "species": {
+    "cat": 109,
+    "dog": 91
+  },
+  "licenses": {
+    "CC BY-SA 4.0": 167,
+    "CC0": 6,
+    "CC BY 4.0": 27
+  },
+  "errors": []
+}

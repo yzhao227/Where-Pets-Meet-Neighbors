@@ -1,0 +1,646 @@
+{
+  "sheets": [
+    {
+      "path": "output/content-review/batch03-cats-01.jpg",
+      "pageids": [
+        97858233,
+        97858247,
+        100136530,
+        101204340,
+        105999770,
+        107656941,
+        113149016,
+        115305943,
+        118522254,
+        118522426,
+        118522545,
+        120793877,
+        122636718,
+        124151204,
+        129181881,
+        134960503,
+        137678835,
+        137678857,
+        137678940,
+        137945113
+      ]
+    },
+    {
+      "path": "output/content-review/batch03-cats-02.jpg",
+      "pageids": [
+        137945114,
+        137945119,
+        137945120,
+        138230452,
+        139295729,
+        140765819,
+        141353457,
+        141562823,
+        141990284,
+        147344586,
+        147359426,
+        148381583,
+        148399377,
+        149760610,
+        149760762,
+        149937928,
+        150093269,
+        150277771,
+        151467647,
+        151467648
+      ]
+    },
+    {
+      "path": "output/content-review/batch03-cats-03.jpg",
+      "pageids": [
+        152959859,
+        153424832,
+        154556402,
+        154556404,
+        155051336,
+        155827955,
+        156670501,
+        157140464
+      ]
+    }
+  ],
+  "records": [
+    {
+      "species": "cats",
+      "pageid": 97858233,
+      "title": "File:Entspannt zum Betrachter guckende Katze 20201104 DSC5433.jpg",
+      "localFile": "content/batch-001/media/97858233.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 13667761547718732731,
+      "reviewSha256": "0b72e93933508e1631ac8437eb1d9924070af9c657f2f78b502152169423f137"
+    },
+    {
+      "species": "cats",
+      "pageid": 97858247,
+      "title": "File:Gerollte Katze 20201104 DSC5446.jpg",
+      "localFile": "content/batch-001/media/97858247.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 12514700125930955763,
+      "reviewSha256": "a30ab0699246ccc05cfcbaea36551e9b61fc2d15a16d119a288c01e6f2dee108"
+    },
+    {
+      "species": "cats",
+      "pageid": 100136530,
+      "title": "File:Larry the cat laying with bubble wrap (DSCF6686).jpg",
+      "localFile": "content/batch-001/media/100136530.source",
+      "reviewDimensions": [
+        960,
+        828
+      ],
+      "reviewDhash": 3680571608553369656,
+      "reviewSha256": "3fa2e8eaf0f836beafa96b007567551d7d43f565ee4ededa8a879f17603e318d"
+    },
+    {
+      "species": "cats",
+      "pageid": 101204340,
+      "title": "File:Larry the cat lying on a desk next to a coffee mug (DSC 0055).jpg",
+      "localFile": "content/batch-001/media/101204340.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 8319190541290167274,
+      "reviewSha256": "9a4b343041ac563a93846f08f1d869687454e44065d6bcf3924b9a986fd4a15b"
+    },
+    {
+      "species": "cats",
+      "pageid": 105999770,
+      "title": "File:Kot domowy w Kryspinowie pod Krakowem, 20210523 0832 6807.jpg",
+      "localFile": "content/batch-001/media/105999770.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 10488238890619643175,
+      "reviewSha256": "84f815fa0254c34f1d6bea19cf16bbf91ecba8a4f5a0666d2d4ff0fae1347e54"
+    },
+    {
+      "species": "cats",
+      "pageid": 107656941,
+      "title": "File:Kot domowy w Piekarach pod Krakowem, 20210707 0456 7907.jpg",
+      "localFile": "content/batch-001/media/107656941.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 7075760931777635461,
+      "reviewSha256": "3376f19ec6d4f6b2eb94b18e3cb1b18721994ed07293e2609ab093097f9e0446"
+    },
+    {
+      "species": "cats",
+      "pageid": 113149016,
+      "title": "File:Handorf Hauptstraße 57 014 2021 06 25.jpg",
+      "localFile": "content/batch-001/media/113149016.source",
+      "reviewDimensions": [
+        960,
+        1073
+      ],
+      "reviewDhash": 14257425128172319286,
+      "reviewSha256": "18643afaabd203ec15acb01c7101120e884b84e06f834d32c177c8f58dd7ff98"
+    },
+    {
+      "species": "cats",
+      "pageid": 115305943,
+      "title": "File:Kot na ulicy Obozowej w Krakowie, 20220214 1200 4283.jpg",
+      "localFile": "content/batch-001/media/115305943.source",
+      "reviewDimensions": [
+        960,
+        1438
+      ],
+      "reviewDhash": 2080898979732567187,
+      "reviewSha256": "f41fff8161ea7ade956847e7de011e556ba4c553589e827d9a372c20df4cda9f"
+    },
+    {
+      "species": "cats",
+      "pageid": 118522254,
+      "title": "File:Brown tabby cat 2021 G1.jpg",
+      "localFile": "content/batch-001/media/118522254.source",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 947063130186243184,
+      "reviewSha256": "515345a7e54b32211ac58c9523d436f122c28becfe2c043dcedde597be360c53"
+    },
+    {
+      "species": "cats",
+      "pageid": 118522426,
+      "title": "File:Brown tabby cat 2021 G2.jpg",
+      "localFile": "content/batch-001/media/118522426.source",
+      "reviewDimensions": [
+        960,
+        800
+      ],
+      "reviewDhash": 59769710539775387,
+      "reviewSha256": "510463920e16b9e6d218331fabda0f2127b34098e3368cf6751c15de57632c88"
+    },
+    {
+      "species": "cats",
+      "pageid": 118522545,
+      "title": "File:Brown tabby cat 2021 G3.jpg",
+      "localFile": "content/batch-001/media/118522545.source",
+      "reviewDimensions": [
+        960,
+        817
+      ],
+      "reviewDhash": 5338478625732644502,
+      "reviewSha256": "5dbde61d9cd54f5ac2fede122fa4cfc06032e15cec78693ee6f3723134c040d2"
+    },
+    {
+      "species": "cats",
+      "pageid": 120793877,
+      "title": "File:Оредеж, Железнодорожная 9, кот (2).jpg",
+      "localFile": "content/batch-001/media/120793877.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 9408726396240412937,
+      "reviewSha256": "420d6aca287f98b0acdd8e8e04d8ca72091dd17d9e20187d9b53e9341e3802eb"
+    },
+    {
+      "species": "cats",
+      "pageid": 122636718,
+      "title": "File:Kot na ulicy Dżakarty w Indonezji, 20220828 1635 1446.jpg",
+      "localFile": "content/batch-001/media/122636718.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 5624027534054865438,
+      "reviewSha256": "e3d1335fe4ac91874ac7981dc6d8da9acc87e9e1e174625d813dbd91b7989a11"
+    },
+    {
+      "species": "cats",
+      "pageid": 124151204,
+      "title": "File:2007 Passau 02.jpg",
+      "localFile": "content/batch-001/media/124151204.source",
+      "reviewDimensions": [
+        960,
+        719
+      ],
+      "reviewDhash": 6049088761666233380,
+      "reviewSha256": "85fe6d9ecf52e974f840aaaaef081b96dcd8c18e3f15da4733379b3bc09485ad"
+    },
+    {
+      "species": "cats",
+      "pageid": 129181881,
+      "title": "File:Kot na ulicy Dżakarty w Indonezji, 20220828 1651 1450.jpg",
+      "localFile": "content/batch-001/media/129181881.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 12442376576566661324,
+      "reviewSha256": "07efece862263fb0ae697fa8e7575cdd626c4f20690bfe6342d2fc8007396e76"
+    },
+    {
+      "species": "cats",
+      "pageid": 134960503,
+      "title": "File:Улица Связи, Зеленогорск 14.jpg",
+      "localFile": "content/batch-001/media/134960503.source",
+      "reviewDimensions": [
+        960,
+        1238
+      ],
+      "reviewDhash": 4846390627891544064,
+      "reviewSha256": "e067ae908fc20119fdfce3e428294354e12f23ed3357f43d6b3e55b368af4ef5"
+    },
+    {
+      "species": "cats",
+      "pageid": 137678835,
+      "title": "File:Kreta (GR), Asomatos, Kloster Preveli, Katze -- 2023 -- 8473.jpg",
+      "localFile": "content/batch-001/media/137678835.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 17795686855377199115,
+      "reviewSha256": "39b68645393877461960f467cfcbad2f3ee846a8bd191fb0ed7b016d6129bdb3"
+    },
+    {
+      "species": "cats",
+      "pageid": 137678857,
+      "title": "File:Kreta (GR), Asomatos, Kloster Preveli, Katze -- 2023 -- 8492.jpg",
+      "localFile": "content/batch-001/media/137678857.source",
+      "reviewDimensions": [
+        960,
+        1280
+      ],
+      "reviewDhash": 10303924707417375608,
+      "reviewSha256": "7f294800503adcbc6e99d734f9acec014211cf51458c11c15533e89293d8dda6"
+    },
+    {
+      "species": "cats",
+      "pageid": 137678940,
+      "title": "File:Kreta (GR), Asomatos, Kloster Preveli, Katze -- 2023 -- 8466.jpg",
+      "localFile": "content/batch-001/media/137678940.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 17725584210160972837,
+      "reviewSha256": "31424c46498a51dab5dd4a49b558ddd23ca092e65cd735ed4abb1e09b9a6f69d"
+    },
+    {
+      "species": "cats",
+      "pageid": 137945113,
+      "title": "File:Kreta (GR), Amnatos, Kloster Arkadi, Katze -- 2023 -- 8621.jpg",
+      "localFile": "content/batch-001/media/137945113.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 12462155858483737442,
+      "reviewSha256": "43bfe0c1733b6e636debb91a1f3604d3a77b54f76ddf706d51f8557c6a288a9b"
+    },
+    {
+      "species": "cats",
+      "pageid": 137945114,
+      "title": "File:Kreta (GR), Amnatos, Kloster Arkadi, Katze -- 2023 -- 8622.jpg",
+      "localFile": "content/batch-001/media/137945114.source",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 16101754311086472378,
+      "reviewSha256": "52e2985e8f7d47740f56920a63299c0ffec3ffa382fc82ae503cfd37a4446e5e"
+    },
+    {
+      "species": "cats",
+      "pageid": 137945119,
+      "title": "File:Kreta (GR), Amnatos, Kloster Arkadi, Katze -- 2023 -- 8627.jpg",
+      "localFile": "content/batch-001/media/137945119.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 144041436714162678,
+      "reviewSha256": "4318a3af70b3798eadb5a03581ad78ca56c0b8516b611819a62b707140eb8070"
+    },
+    {
+      "species": "cats",
+      "pageid": 137945120,
+      "title": "File:Kreta (GR), Amnatos, Kloster Arkadi, Katze -- 2023 -- 8630.jpg",
+      "localFile": "content/batch-001/media/137945120.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 142616538500619482,
+      "reviewSha256": "9473f6661972b87c7980bfb49fdc53e67ff9a40dc4220fb11e93a7bf520bafe9"
+    },
+    {
+      "species": "cats",
+      "pageid": 138230452,
+      "title": "File:Kreta (GR), Rethymno, Charilaou Trikoupi, Katze -- 2023 -- 8781.jpg",
+      "localFile": "content/batch-001/media/138230452.source",
+      "reviewDimensions": [
+        960,
+        600
+      ],
+      "reviewDhash": 1803492962478094363,
+      "reviewSha256": "be6559253005fa68a6f43e568d1bd45ca85bd3a526343a03897b92d92521d3a3"
+    },
+    {
+      "species": "cats",
+      "pageid": 139295729,
+      "title": "File:Cat, Chora, Naxos, Greece (approx. GPS location) julesvernex2.jpg",
+      "localFile": "content/batch-001/media/139295729.source",
+      "reviewDimensions": [
+        960,
+        638
+      ],
+      "reviewDhash": 9105482599520196311,
+      "reviewSha256": "ee59c727dccb2faaf6de7eb41b31a0fd75e77551f1b1d1f097ecce0910a426f3"
+    },
+    {
+      "species": "cats",
+      "pageid": 140765819,
+      "title": "File:Pörtschach Winklern 10. Oktober Straße 67 Langhaarkatze 11112023 4753.jpg",
+      "localFile": "content/batch-001/media/140765819.source",
+      "reviewDimensions": [
+        960,
+        1438
+      ],
+      "reviewDhash": 14917659315504213181,
+      "reviewSha256": "5d84b4ab8cd136bdf4787225f933de5289e1f00852ac6c845ed16a973c090996"
+    },
+    {
+      "species": "cats",
+      "pageid": 141353457,
+      "title": "File:Chat - Père-Lachaise 06.jpg",
+      "localFile": "content/batch-001/media/141353457.source",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 2007446005610169636,
+      "reviewSha256": "690190f78e06591f1b6b457068850de42ef03afe8e8707f7b5f7ceff4b977822"
+    },
+    {
+      "species": "cats",
+      "pageid": 141562823,
+      "title": "File:20231125 housecat south meadows PD100306.jpg",
+      "localFile": "content/batch-001/media/141562823.source",
+      "reviewDimensions": [
+        960,
+        960
+      ],
+      "reviewDhash": 16777625406909705763,
+      "reviewSha256": "ceab6a295379cf63b430c5e081b1d4e192ed5c214e2d0f0a5989b328873da402"
+    },
+    {
+      "species": "cats",
+      "pageid": 141990284,
+      "title": "File:Cat at a window near Jardim Igrejas Caeiro, Lisbon, Portugal julesvernex2.jpg",
+      "localFile": "content/batch-001/media/141990284.source",
+      "reviewDimensions": [
+        960,
+        633
+      ],
+      "reviewDhash": 16494689722012283685,
+      "reviewSha256": "c7688425a08810e7743d2a43601c371c6995e3611d00172dfa7a1ef0ee19abe8"
+    },
+    {
+      "species": "cats",
+      "pageid": 147344586,
+      "title": "File:Cat sleeping in the Ngọc Sơn Temple in Hanoi, 20240204 1309 5747.jpg",
+      "localFile": "content/batch-001/media/147344586.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 14040986851693113015,
+      "reviewSha256": "ba6cb5a9fb629491e66fc763a67f49dd97240ada74e74d560b32b759a84be066"
+    },
+    {
+      "species": "cats",
+      "pageid": 147359426,
+      "title": "File:Kot domowy w Tyńcu - Krakowie, 20240414 0633 7356.jpg",
+      "localFile": "content/batch-001/media/147359426.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 3628997373920899318,
+      "reviewSha256": "b2a4c1b3219079146b542e908c95ff691f70271d425f66437910c14bb1d41067"
+    },
+    {
+      "species": "cats",
+      "pageid": 148381583,
+      "title": "File:Cat in Piran, Slovenia, 20240504 1600 8594.jpg",
+      "localFile": "content/batch-001/media/148381583.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 2387475341167607891,
+      "reviewSha256": "8e6085f2cce366020efef7db2c4f6b9bd842bea89a90f983a75cfec4f349ba60"
+    },
+    {
+      "species": "cats",
+      "pageid": 148399377,
+      "title": "File:Heimtier 003 2016 11 27.jpg",
+      "localFile": "content/batch-001/media/148399377.source",
+      "reviewDimensions": [
+        960,
+        763
+      ],
+      "reviewDhash": 12963265047424465637,
+      "reviewSha256": "3cc1a5f85f20521450f4ab781d017503cb9d60acbb82696a5f55599dd48d17fa"
+    },
+    {
+      "species": "cats",
+      "pageid": 149760610,
+      "title": "File:Pörtschach Winklern 10.-Oktober-Straße 69 schwarzer Kater 20042024 4905.jpg",
+      "localFile": "content/batch-001/media/149760610.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 2492312390095401200,
+      "reviewSha256": "ea57156434204d5375eb603e3a11e62d6febf12c30b6d53d3c2ab1e8cbf94857"
+    },
+    {
+      "species": "cats",
+      "pageid": 149760762,
+      "title": "File:Pörtschach Winklern 10.-Oktober-Straße 69 schwarzer Kater 20042024 4906.jpg",
+      "localFile": "content/batch-001/media/149760762.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 8134732796413667042,
+      "reviewSha256": "c1efdf0b896c808e087f5d1e474f695e180573f8607176c57f2dacc65e13f3f8"
+    },
+    {
+      "species": "cats",
+      "pageid": 149937928,
+      "title": "File:Black Oriental Shorthair.jpg",
+      "localFile": "content/batch-001/media/149937928.source",
+      "reviewDimensions": [
+        960,
+        600
+      ],
+      "reviewDhash": 1814147097627592464,
+      "reviewSha256": "239d58b9b9c842bcef6527063a5f4894c9c5bac63fb7dec4a57df70c6e5f6458"
+    },
+    {
+      "species": "cats",
+      "pageid": 150093269,
+      "title": "File:Балхаш, кошка на Абая (4).jpg",
+      "localFile": "content/batch-001/media/150093269.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 3680872002497649692,
+      "reviewSha256": "c2511369298e93a4a5bacd5e4c97e2cd637d4aedf6fab4fd2c2acf79b9b42456"
+    },
+    {
+      "species": "cats",
+      "pageid": 150277771,
+      "title": "File:Oriental Shorthair kitten chocolate spotted tabby.jpg",
+      "localFile": "content/batch-001/media/150277771.source",
+      "reviewDimensions": [
+        960,
+        759
+      ],
+      "reviewDhash": 2214813445555671845,
+      "reviewSha256": "ba4a41c121441bf0981b15654c7c7f07ba0e7c314bc90731b8ee6663e3a8f62d"
+    },
+    {
+      "species": "cats",
+      "pageid": 151467647,
+      "title": "File:Rostock, Fünfgiebelhaus, Terrakottafiguren -- 2024 -- 5326.jpg",
+      "localFile": "content/batch-001/media/151467647.source",
+      "reviewDimensions": [
+        960,
+        1663
+      ],
+      "reviewDhash": 5995191691341512913,
+      "reviewSha256": "6495e8fb65778c1cbe8920834e6b6d766823453b55fe426b5a622f2c076853c6"
+    },
+    {
+      "species": "cats",
+      "pageid": 151467648,
+      "title": "File:Rostock, Fünfgiebelhaus, Terrakottafiguren -- 2024 -- 5328.jpg",
+      "localFile": "content/batch-001/media/151467648.source",
+      "reviewDimensions": [
+        960,
+        744
+      ],
+      "reviewDhash": 15984831340770461318,
+      "reviewSha256": "7b59d330bc0388f432f006fd789e55b419bcad7b8b126f7cb0bb4ded7e264a96"
+    },
+    {
+      "species": "cats",
+      "pageid": 152959859,
+      "title": "File:CEEM 21.09.24 Istanbul 05.jpg",
+      "localFile": "content/batch-001/media/152959859.source",
+      "reviewDimensions": [
+        960,
+        1280
+      ],
+      "reviewDhash": 3892271627480295530,
+      "reviewSha256": "88398a9a838e131db7fdbf498cb979e7bd90c2e370d7a651a1401ad8c3c5f1e4"
+    },
+    {
+      "species": "cats",
+      "pageid": 153424832,
+      "title": "File:The cat with esophagostoma.jpg",
+      "localFile": "content/batch-001/media/153424832.source",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 12876012114833228226,
+      "reviewSha256": "a47957386ea906dff12bdbd4faede6c0c5e142d058ff3ff9223006680a5678e5"
+    },
+    {
+      "species": "cats",
+      "pageid": 154556402,
+      "title": "File:Cuxhaven, Döse, Kurpark, Katze -- 2024 -- 6128.jpg",
+      "localFile": "content/batch-001/media/154556402.source",
+      "reviewDimensions": [
+        960,
+        720
+      ],
+      "reviewDhash": 2576842822168670339,
+      "reviewSha256": "07a2c910bd9a1cbac960c5787af47722370cf87cca12b7b983b48bc139a70877"
+    },
+    {
+      "species": "cats",
+      "pageid": 154556404,
+      "title": "File:Cuxhaven, Döse, Kurpark, Katze -- 2024 -- 6133.jpg",
+      "localFile": "content/batch-001/media/154556404.source",
+      "reviewDimensions": [
+        960,
+        540
+      ],
+      "reviewDhash": 12792968357320483878,
+      "reviewSha256": "8e6854cb2c79d2ee9d25ece5b7937181767ba512715ea2656b20cafffc6e4381"
+    },
+    {
+      "species": "cats",
+      "pageid": 155051336,
+      "title": "File:Gato en la tumba del Sultán Ahmed, Estambul, Turquía, 2024-09-30, DD 36.jpg",
+      "localFile": "content/batch-001/media/155051336.source",
+      "reviewDimensions": [
+        960,
+        640
+      ],
+      "reviewDhash": 4340410370015139976,
+      "reviewSha256": "00c77edfde961bb714eb4cf11dbbc898f98410382d5e62ba5a572d08c9e5944e"
+    },
+    {
+      "species": "cats",
+      "pageid": 155827955,
+      "title": "File:Cat in Efremov, Russia1.jpg",
+      "localFile": "content/batch-001/media/155827955.source",
+      "reviewDimensions": [
+        960,
+        1068
+      ],
+      "reviewDhash": 18370979736443571035,
+      "reviewSha256": "37913b9d57eec80cefcad74fad7b3a3b65c8bbd8146d8099c715b0129dbe455f"
+    },
+    {
+      "species": "cats",
+      "pageid": 156670501,
+      "title": "File:Pörtschach Winklern 10.-Oktober-Straße 67 Garten schwarzer Kater 14122024 1271.jpg",
+      "localFile": "content/batch-001/media/156670501.source",
+      "reviewDimensions": [
+        960,
+        671
+      ],
+      "reviewDhash": 16769338913088123299,
+      "reviewSha256": "577802dc251147d4f9b38522bcf95c4e97b2f873ca646095cc1f59c202daff59"
+    },
+    {
+      "species": "cats",
+      "pageid": 157140464,
+      "title": "File:Our feral cats 4.jpg",
+      "localFile": "content/batch-001/media/157140464.source",
+      "reviewDimensions": [
+        960,
+        641
+      ],
+      "reviewDhash": 4047942558240554301,
+      "reviewSha256": "25dc6e8ad6d4bb8a772317520093858fbdba973fa500881c32a18dec8b6835b9"
+    }
+  ],
+  "possibleDuplicates": []
+}

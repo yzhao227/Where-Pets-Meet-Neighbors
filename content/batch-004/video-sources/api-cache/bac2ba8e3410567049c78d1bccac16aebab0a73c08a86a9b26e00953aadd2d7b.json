@@ -1,0 +1,1459 @@
+{
+  "batchcomplete": true,
+  "query": {
+    "pages": [
+      {
+        "pageid": 10666658,
+        "ns": 6,
+        "title": "File:African wild dogs at Artis.ogv",
+        "index": 9,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 30490391,
+            "width": 720,
+            "height": 576,
+            "duration": 42.12,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/African_wild_dogs_at_Artis.ogv/500px--African_wild_dogs_at_Artis.ogv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 512,
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/91/African_wild_dogs_at_Artis.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:African_wild_dogs_at_Artis.ogv",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=10666658",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2010-06-18 12:19:37",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "African wild dogs at Artis",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Self-published work|Ogv videos|Videos of 2010 from the Netherlands|Video display resolution 720 x 576|Lycaon pictus at Artis|3 Canidae|2010 at Artis|Walking Lycaon pictus|Lycaon pictus (groups)|Videos at Artis|Videos of Lycaon pictus|Videos of walking animals",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "An <a href=\"https://en.wikipedia.org/wiki/African_wild_dog\" class=\"extiw\" title=\"wikipedia:African wild dog\">African wild dog</a> walking about in its cage, with two others lying on the ground, at Amsterdam's <a href=\"https://en.wikipedia.org/wiki/Artis\" class=\"extiw\" title=\"wikipedia:Artis\">Artis</a> zoo.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2010-05-14",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Uusijani\" title=\"User:Uusijani\">Uusijani</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/9/91/African_wild_dogs_at_Artis.ogv?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/ogg; codecs=\"theora\"",
+                "width": 720,
+                "height": 576,
+                "bandwidth": 5791104
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/9/91/African_wild_dogs_at_Artis.ogv/African_wild_dogs_at_Artis.ogv.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 300,
+                "height": 240,
+                "bandwidth": 317368
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/9/91/African_wild_dogs_at_Artis.ogv/African_wild_dogs_at_Artis.ogv.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 450,
+                "height": 360,
+                "bandwidth": 834256
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/9/91/African_wild_dogs_at_Artis.ogv/African_wild_dogs_at_Artis.ogv.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 600,
+                "height": 480,
+                "bandwidth": 1259296
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 26378308,
+        "ns": 6,
+        "title": "File:20130528Rosa canina mit Luscinia megarhynchos.ogv",
+        "index": 10,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 83531178,
+            "width": 1280,
+            "height": 720,
+            "duration": 31.57320833333333,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/20130528Rosa_canina_mit_Luscinia_megarhynchos.ogv/960px--20130528Rosa_canina_mit_Luscinia_megarhynchos.ogv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/20130528Rosa_canina_mit_Luscinia_megarhynchos.ogv/1280px--20130528Rosa_canina_mit_Luscinia_megarhynchos.ogv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/20130528Rosa_canina_mit_Luscinia_megarhynchos.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:20130528Rosa_canina_mit_Luscinia_megarhynchos.ogv",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=26378308",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2013-05-28 22:20:01",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "20130528Rosa canina mit Luscinia megarhynchos",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Rosa canina|Videos of birds of Germany|CC-Zero|Self-published work|Ogv videos|Rosales in Reilingen in May 2013|Nature of Reilingen in May 2013|Birds of Reilingen|Videos from Reilingen|Rosa canina in Reilingen|Video display resolution 1280 x 720|Passeriformes in Rhein-Neckar-Kreis|Videos of 2013 from Rhein-Neckar-Kreis|Rosa canina in May 2013|Videos of Luscinia megarhynchos",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Nightingale (Luscinia megarhynchos) chirping and dog rose (Rosa canina) in Reilingen, Germany.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2013-05-28",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:AnRo0002\" title=\"User:AnRo0002\">AnRo0002</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/7/79/20130528Rosa_canina_mit_Luscinia_megarhynchos.ogv?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/ogg; codecs=\"theora, vorbis\"",
+                "width": 1280,
+                "height": 720,
+                "bandwidth": 21164897
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/79/20130528Rosa_canina_mit_Luscinia_megarhynchos.ogv/20130528Rosa_canina_mit_Luscinia_megarhynchos.ogv.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 285504
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/79/20130528Rosa_canina_mit_Luscinia_megarhynchos.ogv/20130528Rosa_canina_mit_Luscinia_megarhynchos.ogv.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 948664
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/79/20130528Rosa_canina_mit_Luscinia_megarhynchos.ogv/20130528Rosa_canina_mit_Luscinia_megarhynchos.ogv.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 695984
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 27167984,
+        "ns": 6,
+        "title": "File:Miss Oreo (O-Dog).webm",
+        "index": 3,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 2698674,
+            "width": 640,
+            "height": 480,
+            "duration": 56.974000000000004,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Miss_Oreo_%28O-Dog%29.webm/500px--Miss_Oreo_%28O-Dog%29.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 480,
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Miss_Oreo_%28O-Dog%29.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Miss_Oreo_(O-Dog).webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=27167984",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2013-07-09 18:43:44",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Miss Oreo (O-Dog)",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|WebM videos|Staffordshire Bull Terrier|Self-published work|Black-and-white dogs|Videos of dogs|Video display resolution 640 x 480|Licking dogs|Dogs sticking out the tongue",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Miss Oreo (O-Dog) Having A Licking Moment. Shot With A Vivitar S830.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2013-07-09 11:42:18",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Fancibaer\" title=\"User:Fancibaer\">Fancibaer</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/3/36/Miss_Oreo_%28O-Dog%29.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp8, vorbis\"",
+                "width": 640,
+                "height": 480,
+                "bandwidth": 378934
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/36/Miss_Oreo_%28O-Dog%29.webm/Miss_Oreo_%28O-Dog%29.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 320,
+                "height": 240,
+                "bandwidth": 239872
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/36/Miss_Oreo_%28O-Dog%29.webm/Miss_Oreo_%28O-Dog%29.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 480,
+                "height": 360,
+                "bandwidth": 1128728
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/36/Miss_Oreo_%28O-Dog%29.webm/Miss_Oreo_%28O-Dog%29.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 640,
+                "height": 480,
+                "bandwidth": 655744
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 27169177,
+        "ns": 6,
+        "title": "File:Oreo Enjoying A Frosty Paws Cold Treat.webm",
+        "index": 5,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 3769280,
+            "width": 640,
+            "height": 480,
+            "duration": 93.714,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Oreo_Enjoying_A_Frosty_Paws_Cold_Treat.webm/500px--Oreo_Enjoying_A_Frosty_Paws_Cold_Treat.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 480,
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Oreo_Enjoying_A_Frosty_Paws_Cold_Treat.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Oreo_Enjoying_A_Frosty_Paws_Cold_Treat.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=27169177",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2013-07-09 20:07:08",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Oreo Enjoying A Frosty Paws Cold Treat",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Ice cream|CC-Zero|WebM videos|Staffordshire Bull Terrier|Dog equipment|Self-published work|Black-and-white dogs|Dogs eating|Videos of dogs|Video display resolution 640 x 480",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Oreo Enjoying A Frosty Paws Cold Treat, Shot With A Nikon CoolPix S220.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2013-07-02",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Fancibaer\" title=\"User:Fancibaer\">Fancibaer</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Oreo_Enjoying_A_Frosty_Paws_Cold_Treat.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp8, vorbis\"",
+                "width": 640,
+                "height": 480,
+                "bandwidth": 321769
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a4/Oreo_Enjoying_A_Frosty_Paws_Cold_Treat.webm/Oreo_Enjoying_A_Frosty_Paws_Cold_Treat.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 320,
+                "height": 240,
+                "bandwidth": 258216
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a4/Oreo_Enjoying_A_Frosty_Paws_Cold_Treat.webm/Oreo_Enjoying_A_Frosty_Paws_Cold_Treat.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 480,
+                "height": 360,
+                "bandwidth": 1125768
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a4/Oreo_Enjoying_A_Frosty_Paws_Cold_Treat.webm/Oreo_Enjoying_A_Frosty_Paws_Cold_Treat.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 640,
+                "height": 480,
+                "bandwidth": 588960
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 37238211,
+        "ns": 6,
+        "title": "File:Canine-Hereditary-Ataxia-in-Old-English-Sheepdogs-and-Gordon-Setters-Is-Associated-with-a-Defect-in-pgen.1003991.s010.ogv",
+        "index": 1,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 4134498,
+            "width": 720,
+            "height": 404,
+            "duration": 13.413413413413414,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Canine-Hereditary-Ataxia-in-Old-English-Sheepdogs-and-Gordon-Setters-Is-Associated-with-a-Defect-in-pgen.1003991.s010.ogv/500px--Canine-Hereditary-Ataxia-in-Old-English-Sheepdogs-and-Gordon-Setters-Is-Associated-with-a-Defect-in-pgen.1003991.s010.ogv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 359,
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Canine-Hereditary-Ataxia-in-Old-English-Sheepdogs-and-Gordon-Setters-Is-Associated-with-a-Defect-in-pgen.1003991.s010.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Canine-Hereditary-Ataxia-in-Old-English-Sheepdogs-and-Gordon-Setters-Is-Associated-with-a-Defect-in-pgen.1003991.s010.ogv",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=37238211",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2014-12-11 01:31:30",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Canine-Hereditary-Ataxia-in-Old-English-Sheepdogs-and-Gordon-Setters-Is-Associated-with-a-Defect-in-pgen.1003991.s010",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Cerebellar disorders|Media from PLOS Genetics|Genetic testing|Genetic predispositions to diseases|Videos of dogs|Uploaded with Open Access Media Importer|Ogv videos|Uploaded with Open Access Media Importer and needing category review|Videos of neurodegenerative diseases and disorders|Video display resolution 720 x 404|Veterinary neurology|Veterinary pathology|Videos from open-access scholarly articles",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Videotape of the gait of a three-year-old female, affected Old English Sheepdog. She exhibits a hypermetric gait, particularly in her thoracic limbs, and a pronounced truncal sway.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2014-02",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3916225/bin/pgen.1003991.s010.mov\">Video S1</a> from <cite style=\"font-style:normal\">Agler C, Nielsen D, Urkasemsin G, Singleton A, Tonomura N, Sigurdsson S, Tang R, Linder K, Arepalli S, Hernandez D, Lindblad-Toh K, van de Leemput J, Motsinger-Reif A, O'Brien D, Bell J, Harris T, Steinberg S, Olby N (2014). \"<a rel=\"nofollow\" class=\"external text\" href=\"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3916225\">Canine Hereditary Ataxia in Old English Sheepdogs and Gordon Setters Is Associated with a Defect in the Autophagy Gene Encoding RAB24</a>\". <i>PLOS Genetics</i>. <span lang=\"en\" dir=\"ltr\"><a href=\"https://en.wikipedia.org/wiki/Digital_object_identifier\" class=\"extiw\" title=\"en:Digital object identifier\">DOI</a></span>:<a rel=\"nofollow\" class=\"external text\" href=\"https://doi.org/10.1371/journal.pgen.1003991\">10.1371/journal.pgen.1003991</a>. <span lang=\"en\" dir=\"ltr\"><a href=\"https://en.wikipedia.org/wiki/PubMed\" class=\"extiw\" title=\"en:PubMed\"><span lang=\"en\" dir=\"ltr\">PMID</span></a></span> <a rel=\"nofollow\" class=\"external text\" href=\"https://www.ncbi.nlm.nih.gov/pubmed/24516392\">24516392</a>. <span lang=\"en\" dir=\"ltr\"><a href=\"https://en.wikipedia.org/wiki/PubMed_Central\" class=\"extiw\" title=\"en:PubMed Central\"><span lang=\"en\" dir=\"ltr\">PMC</span></a></span>: <a rel=\"nofollow\" class=\"external text\" href=\"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3916225\">3916225</a>.</cite>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "Agler C, Nielsen D, Urkasemsin G, Singleton A, Tonomura N, Sigurdsson S, Tang R, Linder K, Arepalli S, Hernandez D, Lindblad-Toh K, van de Leemput J, Motsinger-Reif A, O'Brien D, Bell J, Harris T, Steinberg S, Olby N",
+                "source": "commons-desc-page"
+              },
+              "Permission": {
+                "value": "<table style=\"width:100%; clear:both; text-align:center; margin:0.5em auto; background-color:var(--background-color-neutral-subtle, #f8f9fa); border:var(--border-subtle, 2px solid #c8ccd1); padding: 0; border-spacing: 8px; color:var(--color-base, #202122);\" dir=\"ltr\" class=\"layouttemplate licensetpl\" lang=\"en\">\n<tbody><tr>\n<td style=\"width:90px;\" rowspan=\"2\"><span class=\"skin-invert\" typeof=\"mw:File\"><span title=\"Creative Commons\"><img alt=\"Creative Commons\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Cc.logo.circle.svg/40px-Cc.logo.circle.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"28\" height=\"28\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Cc.logo.circle.svg/60px-Cc.logo.circle.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"64\" data-file-height=\"64\"></span></span> <span class=\"skin-invert\" typeof=\"mw:File\"><span title=\"CC-Zero\"><img alt=\"CC-Zero\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Cc-zero.svg/40px-Cc-zero.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"28\" height=\"28\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Cc-zero.svg/60px-Cc-zero.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"64\" data-file-height=\"64\"></span></span>\n</td>\n<td>This file is made available under the <a href=\"https://en.wikipedia.org/wiki/en:Creative_Commons\" class=\"extiw\" title=\"w:en:Creative Commons\">Creative Commons</a> <a href=\"https://creativecommons.org/publicdomain/zero/1.0/deed.en\" class=\"extiw\" title=\"ccorg:publicdomain/zero/1.0/deed.en\">CC0 1.0 Universal Public Domain Dedication</a>.\n</td></tr>\n<tr style=\"text-align:left;\">\n<td>The person who associated a work with this deed has dedicated the work to the <a href=\"https://en.wikipedia.org/wiki/en:public_domain\" class=\"extiw\" title=\"w:en:public domain\">public domain</a> by waiving all of their rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law. You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.\n<p><span class=\"licensetpl_link\" style=\"display:none;\">http://creativecommons.org/publicdomain/zero/1.0/deed.en</span><span class=\"licensetpl_short\" style=\"display:none;\">CC0</span><span class=\"licensetpl_long\" style=\"display:none;\">Creative Commons Zero, Public Domain Dedication</span><span class=\"licensetpl_link_req\" style=\"display:none;\">false</span><span class=\"licensetpl_attr_req\" style=\"display:none;\">false</span>\n</p>\n</td></tr></tbody></table>",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Canine-Hereditary-Ataxia-in-Old-English-Sheepdogs-and-Gordon-Setters-Is-Associated-with-a-Defect-in-pgen.1003991.s010.ogv?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/ogg; codecs=\"theora\"",
+                "width": 720,
+                "height": 404,
+                "bandwidth": 2465888
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/0a/Canine-Hereditary-Ataxia-in-Old-English-Sheepdogs-and-Gordon-Setters-Is-Associated-with-a-Defect-in-pgen.1003991.s010.ogv/Canine-Hereditary-Ataxia-in-Old-English-Sheepdogs-and-Gordon-Setters-Is-Associated-with-a-Defect-in-pgen.1003991.s010.ogv.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 315952
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/0a/Canine-Hereditary-Ataxia-in-Old-English-Sheepdogs-and-Gordon-Setters-Is-Associated-with-a-Defect-in-pgen.1003991.s010.ogv/Canine-Hereditary-Ataxia-in-Old-English-Sheepdogs-and-Gordon-Setters-Is-Associated-with-a-Defect-in-pgen.1003991.s010.ogv.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 1007952
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 65451766,
+        "ns": 6,
+        "title": "File:AtomicBlastsOperationsGreenhouseThroughUphotKnothole.webm",
+        "index": 8,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 103597304,
+            "width": 960,
+            "height": 720,
+            "duration": 1740.709,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/AtomicBlastsOperationsGreenhouseThroughUphotKnothole.webm/960px--AtomicBlastsOperationsGreenhouseThroughUphotKnothole.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 480,
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/AtomicBlastsOperationsGreenhouseThroughUphotKnothole.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:AtomicBlastsOperationsGreenhouseThroughUphotKnothole.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=65451766",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2018-01-12 13:44:43",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "AtomicBlastsOperationsGreenhouseThroughUphotKnothole",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|WebM videos|Operation Greenhouse|Files from external sources with reviewed licenses|Videos of nuclear weapon tests|Uploaded with video2commons|Videos of 1953 from the United States",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "0800042 - ATOMIC BLASTS- OPERATIONS GREENHOUSE THROUGH UPSHOT-KNOTHOLE\n<p>1951 - 1953 Color Silent 29:22\n</p><p>This video shows a compilation of early atomic blasts taken from individual short films of the tests. These formerly classified films have never before been seen by the public. The video shows close up footage of boiling, tumbling, rolling fireballs of great destructive force as the nuclear power from the splitting of nuclei of atoms is unleashed. The blinding fury released by these early atomic devices demonstrates the show of power that was used by the United States to end World War II and establish a power base for the Cold War to follow.\n</p><p>The term “atomic” designated them as fission devices, as opposed to the later much more powerful thermonuclear devices, which used a fission test to start a fusion process. Eventually, the word “atomic” was replaced by the term “nuclear.”\n</p><p>By the time Operation Greenhouse was conducted, the Atomic Energy Commission began testing devices of higher yields than those detonated in the TRINITY test or in Operations Crossroads, Sandstone or Ranger. Laboratory scientists were using the data gained from the early operations to build more sophisticated devices that delivered more power.'\n</p><p>The three “atomic” tests in four-test Greenhouse Operation (DOG, EASY, and ITEM) had respective yields of 81, 47 and 45.5 kilotons (kt) compared with the 21 kt yield of the earlier devices of the Fat Man (i.e., TRINITY) design. These tests, fired from 300-foot towers on Enewetak Atoll in the Pacific Ocean between April 7 and May 24, 1951, provided weapons design/development data.\n</p><p>In Operation Buster/Jangle, the five tests conducted under Operation Buster series, ABLE, BAKER, CHARLIE, DOG, and EASY, evaluated new devices developed by the Los Alamos Scientific Laboratory and provided data on the basic phenomena associated with these devices.\n</p><p>The two Jangle Operation tests, SUGAR and UNCLE, provided the first experimental data on the military effects of surface and underground nuclear detonations, including the response of structures to nuclear bursts, the effects of gamma radiation versus time and distance, and the level of residual contamination from surface and underground bursts. The Buster/Jangle Operation was conducted at the Nevada Test Site (NTS) between October 22 and November 29, 1951.\n</p><p>The eight-test Operation Tumbler/Snapper was conducted at the NTS between April 1 and June 5, 1952. The first two, ABLE and BAKER, were 1-kt air drop weapons-effects tests, while the second pair of air drop devices, CHARLIE and DOG, had yields of 31 and 19 kt, respectively, and were weapons-related tests. The last four, EASY, FOX, GEORGE, and HOW had yields of 12, 11, 15 and 14 kt, respectively, and were weapons-related tests. The U.S. military conducted exercises in conjunction with the CHARLIE, DOG, and FOX tests.\n</p><p>Only one “atomic” test, KING, was fired in Operation Ivy. At 500 kt, it was the largest fission device ever tested. Regrettably, this series of short films did not have a fireball view of the KING detonation, but only footage showing its blast effects. KING was a weapons-related airdrop test of an advanced warhead design made possible by earlier tests and research efforts. The other test in Operation Ivy was MIKE, the first full-fledged thermonuclear device.\n</p>\nThere were 11 tests fired in Operation Upshot/Knothole, 3 airdrops, 7 tower tests and 1 fired from an atomic cannon. Approximately 21,000 military personnel participated in Upshot/Knothole as part of the Desert Rock V Exercise. The tests, all weapons related, were conducted between March 17 and June 4, 1953. The Upshot/Knothole tests and their yields were as follows: ANNIE, 16 kt; NANCY, 24 kt; RUTH, 200 tons; DIXIE, 11 kt; RAY, 200 tons; BADGER, 23 kt; SIMON, 43 kt; ENCORE, 27 kt; HARRY, 32 kt; GRABLE, fired from cannon, 15 kt; and CLIMAX, 61 kt.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "1953",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://archive.org/details/AtomicBlastsOperationsGreenhouseThroughUphotKnothole\">Atomic Blasts - Operations Greenhouse Through Uphot Knothole</a>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://archive.org/search.php?query=creator%3A%22United+States.+Department+of+Energy.+National+Nuclear+Security+Administration%22\">United States. Department of Energy. National Nuclear Security Administration</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/9/99/AtomicBlastsOperationsGreenhouseThroughUphotKnothole.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp8\"",
+                "width": 960,
+                "height": 720,
+                "bandwidth": 476115
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/9/99/AtomicBlastsOperationsGreenhouseThroughUphotKnothole.webm/AtomicBlastsOperationsGreenhouseThroughUphotKnothole.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 320,
+                "height": 240,
+                "bandwidth": 57808
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/9/99/AtomicBlastsOperationsGreenhouseThroughUphotKnothole.webm/AtomicBlastsOperationsGreenhouseThroughUphotKnothole.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 480,
+                "height": 360,
+                "bandwidth": 522800
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/9/99/AtomicBlastsOperationsGreenhouseThroughUphotKnothole.webm/AtomicBlastsOperationsGreenhouseThroughUphotKnothole.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 640,
+                "height": 480,
+                "bandwidth": 173672
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 72606895,
+        "ns": 6,
+        "title": "File:Howling Husky Dog.webm",
+        "index": 4,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 1861058,
+            "width": 1280,
+            "height": 720,
+            "duration": 47.048,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Howling_Husky_Dog.webm/960px--Howling_Husky_Dog.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Howling_Husky_Dog.webm/1280px--Howling_Husky_Dog.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Howling_Husky_Dog.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Howling_Husky_Dog.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=72606895",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2018-09-10 01:07:43",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Howling Husky Dog",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Siberian Husky|Videos of dogs|People with dogs|Videos of 2018|Dogs in automobiles|Dogs howling|Disobedience",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Howling Husky Dog",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2018-09-08",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<a rel=\"nofollow\" class=\"external free\" href=\"https://videos.pexels.com/videos/cute-howling-husky-dog-1173766\">https://videos.pexels.com/videos/cute-howling-husky-dog-1173766</a>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.pexels.com/@klaudya-teodora-461989\">Klaudya Teodora</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Howling_Husky_Dog.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 1280,
+                "height": 720,
+                "bandwidth": 316452
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4f/Howling_Husky_Dog.webm/Howling_Husky_Dog.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 379984
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4f/Howling_Husky_Dog.webm/Howling_Husky_Dog.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 1049944
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 128330510,
+        "ns": 6,
+        "title": "File:Max a peur des chiens (film, 1912).webm",
+        "index": 2,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 3902521,
+            "width": 480,
+            "height": 360,
+            "duration": 199607.979,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Max_a_peur_des_chiens_%28film%2C_1912%29.webm/330px--Max_a_peur_des_chiens_%28film%2C_1912%29.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 480,
+            "thumbheight": 360,
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Max_a_peur_des_chiens_%28film%2C_1912%29.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Max_a_peur_des_chiens_(film,_1912).webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=128330510",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2023-02-02 08:13:38",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Max a peur des chiens (film, 1912)",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Silent film|CC-Zero|Videos of 1912 from France|Max a peur des chiens",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Film muet de 1912, réalisé par Max Linder",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2023-02-02",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.youtube.com/watch?v=6FNJ_lhV01E&amp;ab_channel=JenniferBoine\">YouTube</a>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "Par Max Linder",
+                "source": "commons-desc-page"
+              },
+              "Permission": {
+                "value": "Domaine public",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Max_a_peur_des_chiens_%28film%2C_1912%29.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp8, vorbis\"",
+                "width": 480,
+                "height": 360,
+                "bandwidth": 156
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/7e/Max_a_peur_des_chiens_%28film%2C_1912%29.webm/Max_a_peur_des_chiens_%28film%2C_1912%29.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 320,
+                "height": 240,
+                "bandwidth": 144
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 182916966,
+        "ns": 6,
+        "title": "File:Cuidado con el perro, Gran Plaza Mazatlán, 1 de febrero de 2026.webm",
+        "index": 6,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 17598648,
+            "width": 1920,
+            "height": 886,
+            "duration": 17.181,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Cuidado_con_el_perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_1_de_febrero_de_2026.webm/960px--Cuidado_con_el_perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_1_de_febrero_de_2026.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 295,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Cuidado_con_el_perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_1_de_febrero_de_2026.webm/1280px--Cuidado_con_el_perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_1_de_febrero_de_2026.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Cuidado_con_el_perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_1_de_febrero_de_2026.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Cuidado_con_el_perro,_Gran_Plaza_Mazatl%C3%A1n,_1_de_febrero_de_2026.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=182916966",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2026-02-01 23:37:27",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Cuidado con el perro, Gran Plaza Mazatlán, 1 de febrero de 2026",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Self-published work|Cuidado con el Perro, Gran Plaza Mazatlán|Videos of Gran Plaza Mazatlán",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Beware of the dog, Gran Plaza Mazatlán. Date: February 1, 2026.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2026-02-01",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:DogeGamer2015MZT\" title=\"User:DogeGamer2015MZT\">DogeGamer2015MZT</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Cuidado_con_el_perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_1_de_febrero_de_2026.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 1920,
+                "height": 886,
+                "bandwidth": 8194469
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/ec/Cuidado_con_el_perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_1_de_febrero_de_2026.webm/Cuidado_con_el_perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_1_de_febrero_de_2026.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 196,
+                "bandwidth": 396968
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/ec/Cuidado_con_el_perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_1_de_febrero_de_2026.webm/Cuidado_con_el_perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_1_de_febrero_de_2026.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 296,
+                "bandwidth": 1139792
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/ec/Cuidado_con_el_perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_1_de_febrero_de_2026.webm/Cuidado_con_el_perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_1_de_febrero_de_2026.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 394,
+                "bandwidth": 1086712
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/ec/Cuidado_con_el_perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_1_de_febrero_de_2026.webm/Cuidado_con_el_perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_1_de_febrero_de_2026.webm.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 1920,
+                "height": 886,
+                "bandwidth": 4053368
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 193783561,
+        "ns": 6,
+        "title": "File:Calyptratae (fly) in Oral (Uralsk).webm",
+        "index": 11,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 3384159,
+            "width": 1920,
+            "height": 1080,
+            "duration": 49.568,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Calyptratae_%28fly%29_in_Oral_%28Uralsk%29.webm/960px--Calyptratae_%28fly%29_in_Oral_%28Uralsk%29.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Calyptratae_%28fly%29_in_Oral_%28Uralsk%29.webm/1280px--Calyptratae_%28fly%29_in_Oral_%28Uralsk%29.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Calyptratae_%28fly%29_in_Oral_%28Uralsk%29.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Calyptratae_(fly)_in_Oral_(Uralsk).webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=193783561",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2026-06-13 11:53:31",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Calyptratae (fly) in Oral (Uralsk)",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Calyptratae|CC-Zero|Creative Commons CC0 1.0 Universal Public Domain Dedication missing SDC copyright license|Self-published work|Self-published work missing SDC copyright license|Files with coordinates missing SDC location of creation",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "GPSLatitude": {
+                "value": "51.223000",
+                "source": "commons-desc-page"
+              },
+              "GPSLongitude": {
+                "value": "51.372000",
+                "source": "commons-desc-page"
+              },
+              "GPSMapDatum": {
+                "value": "WGS-84",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Calyptratae cleans its wings",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "23.04.2023",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Dog_funtom&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Dog funtom (page does not exist)\">Dog funtom</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Calyptratae_%28fly%29_in_Oral_%28Uralsk%29.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"av01.0.08M.08, opus\"",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 546184
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/6e/Calyptratae_%28fly%29_in_Oral_%28Uralsk%29.webm/Calyptratae_%28fly%29_in_Oral_%28Uralsk%29.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 84664
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/6e/Calyptratae_%28fly%29_in_Oral_%28Uralsk%29.webm/Calyptratae_%28fly%29_in_Oral_%28Uralsk%29.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 910200
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/6e/Calyptratae_%28fly%29_in_Oral_%28Uralsk%29.webm/Calyptratae_%28fly%29_in_Oral_%28Uralsk%29.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 286128
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/6e/Calyptratae_%28fly%29_in_Oral_%28Uralsk%29.webm/Calyptratae_%28fly%29_in_Oral_%28Uralsk%29.webm.1080p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "1080p.vp9.webm",
+                "width": 1920,
+                "height": 1080,
+                "bandwidth": 925240
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pageid": 194284788,
+        "ns": 6,
+        "title": "File:Cuidado con el Perro, Gran Plaza Mazatlán, 20 de junio de 2026.webm",
+        "index": 7,
+        "imagerepository": "local",
+        "videoinfo": [
+          {
+            "size": 5693533,
+            "width": 1280,
+            "height": 720,
+            "duration": 8.863,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Cuidado_con_el_Perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_20_de_junio_de_2026.webm/960px--Cuidado_con_el_Perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_20_de_junio_de_2026.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+            "thumbwidth": 640,
+            "thumbheight": 360,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Cuidado_con_el_Perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_20_de_junio_de_2026.webm/1280px--Cuidado_con_el_Perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_20_de_junio_de_2026.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+            },
+            "thumbattribs": [],
+            "url": "https://upload.wikimedia.org/wikipedia/commons/0/09/Cuidado_con_el_Perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_20_de_junio_de_2026.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Cuidado_con_el_Perro,_Gran_Plaza_Mazatl%C3%A1n,_20_de_junio_de_2026.webm",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=194284788",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2026-06-21 18:40:20",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Cuidado con el Perro, Gran Plaza Mazatlán, 20 de junio de 2026",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Self-published work|Cuidado con el Perro, Gran Plaza Mazatlán|Videos of Gran Plaza Mazatlán",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Beware of the Dog, Gran Plaza Mazatlán. Date: June 20, 2026.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2026-06-20",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Roedor_Pacheco\" title=\"User:Roedor Pacheco\">Roedor Pacheco</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            },
+            "derivatives": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/0/09/Cuidado_con_el_Perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_20_de_junio_de_2026.webm?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=original",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "width": 1280,
+                "height": 720,
+                "bandwidth": 5139147
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/09/Cuidado_con_el_Perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_20_de_junio_de_2026.webm/Cuidado_con_el_Perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_20_de_junio_de_2026.webm.240p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "240p.vp9.webm",
+                "width": 426,
+                "height": 240,
+                "bandwidth": 392864
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/09/Cuidado_con_el_Perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_20_de_junio_de_2026.webm/Cuidado_con_el_Perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_20_de_junio_de_2026.webm.360p.mpeg4.mov",
+                "type": "video/quicktime; codecs=\"mp4v\"",
+                "transcodekey": "360p.mpeg4.mov",
+                "width": 640,
+                "height": 360,
+                "bandwidth": 1145832
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/09/Cuidado_con_el_Perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_20_de_junio_de_2026.webm/Cuidado_con_el_Perro%2C_Gran_Plaza_Mazatl%C3%A1n%2C_20_de_junio_de_2026.webm.480p.vp9.webm",
+                "type": "video/webm; codecs=\"vp9, opus\"",
+                "transcodekey": "480p.vp9.webm",
+                "width": 854,
+                "height": 480,
+                "bandwidth": 1054960
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

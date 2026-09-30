@@ -1,0 +1,143 @@
+<view class="nearby-navbar" style="padding-top:{{statusBarHeight}}px;"><view class="nearby-navbar-title" style="height:{{navigationHeight}}px;padding-left:{{navigationInset}}px;padding-right:{{navigationInset}}px;">附近</view></view>
+<view class="page nearby-page">
+  <view class="nearby-header">
+    <view class="nearby-navigation">
+      <view class="nearby-tabs"><button class="nearby-tab {{tab === 'places' ? 'selected' : ''}}" data-id="places" bindtap="selectTab" aria-pressed="{{tab === 'places'}}">好去处</button><button class="nearby-tab {{tab === 'activities' ? 'selected' : ''}}" data-id="activities" bindtap="selectTab" aria-pressed="{{tab === 'activities'}}">一起玩</button><button class="nearby-tab {{tab === 'neighbors' ? 'selected' : ''}}" data-id="neighbors" bindtap="selectTab" aria-pressed="{{tab === 'neighbors'}}">附近宠友</button></view>
+      <view class="nearby-nav-actions"><button wx:if="{{!searchOpen}}" class="nearby-search-toggle" bindtap="openSearch" aria-label="搜索附近"><view class="search-symbol" aria-hidden="true"></view></button><button class="nearby-controls-toggle {{controlsOpen || (tab === 'neighbors' ? neighborAreaIndex || neighborKind === 'people' || neighborPetType !== 'all' : districtIndex || (tab === 'places' && selectedArea) || sort !== 'recommended' || playTag !== 'all' || filterCount) ? 'active' : ''}}" bindtap="toggleControls" disabled="{{busy}}" aria-label="筛选与排序" aria-expanded="{{controlsOpen}}"><view class="filter-symbol" aria-hidden="true"></view><view wx:if="{{tab === 'neighbors' ? neighborAreaIndex || neighborKind === 'people' || neighborPetType !== 'all' : districtIndex || (tab === 'places' && selectedArea) || sort !== 'recommended' || playTag !== 'all' || filterCount}}" class="controls-dot" aria-hidden="true"></view></button></view>
+    </view>
+    <view wx:if="{{searchOpen}}" class="nearby-searchbar">
+      <view class="local-search row"><view class="search-symbol" aria-hidden="true"></view><input class="local-search-input" value="{{searchText}}" focus="{{searchFocused}}" bindfocus="focusSearch" bindblur="blurSearch" bindinput="inputSearch" bindconfirm="search" confirm-type="search" maxlength="80" aria-label="搜索关键词" placeholder="{{tab === 'places' ? '搜公园、商圈、地点' : tab === 'activities' ? '搜活动、展览、场馆' : '搜宠物名、昵称、片区'}}" placeholder-class="search-placeholder"/><button wx:if="{{searchText}}" class="local-search-clear" bindtap="clearSearch" aria-label="清除搜索">×</button><button class="local-search-button" bindtap="search" aria-label="提交搜索">搜索</button></view><button class="nearby-search-cancel" bindtap="cancelSearch" aria-label="取消搜索">取消</button>
+    </view>
+    <view wx:if="{{referencePanel && tab !== 'neighbors'}}" class="control-panel reference-panel"><view class="panel-heading"><text>选择距离参照</text><button class="panel-done" bindtap="closeReferencePanel">取消</button></view><picker range="{{referenceOptions}}" range-key="title" value="{{0}}" bindchange="selectKnownReference"><view class="field-choice reference-picker">选择已核实的地点<text>⌄</text></view></picker><view class="panel-note">选择出发参照点，不会当作你的实时位置。</view></view>
+    <view wx:if="{{reference && tab !== 'neighbors' && !filterOpen && !referencePanel}}" class="distance-context"><button bindtap="openReferenceMenu" disabled="{{busy}}">{{referenceText}} · 直线距离</button></view>
+    <view wx:if="{{distanceNote && tab !== 'neighbors'}}" class="distance-note">{{distanceNote}}</view>
+  </view>
+  <view wx:if="{{placeServiceError}}" class="place-service-note">{{placeServiceError}}</view>
+  <view wx:if="{{query}}" class="local-search-summary"><text>“{{query}}”的搜索结果</text><button bindtap="clearSearch">清除</button></view>
+
+  <block wx:if="{{tab === 'places'}}">
+    <view wx:if="{{discoveryCurated}}" class="discovery-heading"><view><view class="discovery-title">出门灵感</view></view><button class="discovery-all" bindtap="toggleMorePlaces">{{showMorePlaces ? '收起更多' : '全部 ' + places.length + ' 处'}}<text>↗</text></button></view>
+    <view wx:if="{{places.length === 0}}" class="local-empty"><view class="local-empty-title">换个范围，再找找</view><view class="local-empty-copy">这个筛选下，暂时没有收录合适的地点。</view><button class="empty-action" bindtap="resetPlaces">看看全部地点</button></view>
+    <view wx:if="{{displayPlaces.length}}" class="place-discovery-grid">
+      <view wx:for="{{placeColumns}}" wx:for-item="column" wx:key="id" class="place-discovery-column">
+        <view wx:for="{{column.items}}" wx:key="id" class="place-card" data-id="{{item.id}}" bindtap="openLocal" aria-role="button" aria-label="{{'查看地点：' + item.title + '，' + item.locationLabel + '，' + (item.distance ? item.distance.label + '，' : '') + item.petText}}">
+          <view class="place-cover-wrap">
+            <image wx:if="{{item.photoUrl}}" class="place-cover" src="{{item.photoUrl}}" mode="aspectFill" binderror="photoFailed" data-id="{{item.id}}" aria-label="{{item.title + '实景'}}"/>
+            <view wx:else class="place-cover place-scene place-scene-{{item.cardScene}}" aria-hidden="true"><view class="place-scene-orbit"></view><view class="place-scene-disc"><image class="place-scene-icon" src="{{item.cardSceneIcon}}" mode="aspectFit"/></view><view class="place-scene-label">{{item.cardSceneLabel}}</view><view class="place-scene-dot"></view></view>
+          </view>
+          <view class="place-card-body">
+            <view class="place-card-title">{{item.title}}</view>
+            <view class="place-card-location"><text class="place-card-area">{{item.cardArea}}</text><text wx:if="{{item.distance}}" class="place-card-distance">{{item.distance.label}}</text></view>
+            <view class="place-card-policy policy-{{item.petStatus}}"><text>{{item.cardPetHint}}</text><view class="place-policy-arrow" aria-hidden="true"></view></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <button wx:if="{{discoveryCurated && morePlaceCount}}" class="browse-more-places" bindtap="toggleMorePlaces">{{showMorePlaces ? '收起更多地点' : '继续探索 ' + morePlaceCount + ' 处地点'}}<text>{{showMorePlaces ? '−' : '+'}}</text></button>
+    <view wx:if="{{guides.length && !query && !filterCount && !districtIndex && !selectedArea}}" class="guide-strip"><view class="guide-strip-heading"><view><text class="guide-heading-kicker">留半天，去走走</text><view>路线灵感</view></view><text>编辑建议</text></view><scroll-view scroll-x="{{true}}" show-scrollbar="{{false}}" class="guide-scroll"><view class="guide-track"><button wx:for="{{guides}}" wx:key="id" class="guide-entry" data-id="{{item.id}}" bindtap="openGuide" aria-label="{{'查看路线：' + item.title}}"><text class="guide-entry-index">0{{index + 1}}</text><view class="guide-entry-title">{{item.title}}<text>↗</text></view><view class="guide-entry-duration">{{item.duration}}</view></button></view></scroll-view></view>
+    <view class="local-footnote">出发前，记得确认开放时间与带宠规则。</view>
+  </block>
+
+  <block wx:elif="{{tab === 'activities'}}">
+    <view wx:if="{{period === 'past'}}" class="history-note">以下活动已结束，举办规则仅供回顾。</view>
+    <view wx:if="{{externalItems.length === 0 && !(period === 'upcoming' && announcements.length)}}" class="local-empty"><view class="local-empty-title">{{query ? '暂时没有找到相关活动' : period === 'past' ? '还没有收录往期活动' : '暂无符合条件的活动'}}</view><view class="local-empty-copy">{{query ? '试试活动名称、场馆，或换一个关键词。' : '有明确的时间和参与方式后，会在这里更新。'}}</view><button wx:if="{{query}}" class="empty-action" bindtap="clearSearch">清除搜索</button><button wx:elif="{{filterCount}}" class="empty-action" bindtap="resetCatalogueFilters">重置筛选</button><button wx:elif="{{period === 'upcoming' && hasHistory}}" class="empty-action" data-id="past" bindtap="selectPeriod">看看往期活动</button></view>
+    <view wx:for="{{externalItems}}" wx:key="id" class="local-card external-card {{item.timeStatus === 'ended' ? 'past-card' : ''}}" data-id="{{item.id}}" bindtap="openLocal" aria-label="{{'查看活动：' + item.title + '，' + item.statusText}}">
+      <view class="event-card-main">
+        <view class="event-visual"><block wx:if="{{item.photoUrl}}"><image class="event-photo" src="{{item.photoUrl}}" mode="aspectFill" binderror="photoFailed" data-id="{{item.id}}"/><text class="event-photo-label">场馆实景</text></block><view wx:else class="date-stamp ticket-{{item.ticketTheme}}"><view class="ticket-kind">{{item.type === 'exhibition' ? '展览' : '活动'}}</view><text class="stamp-month">{{item.stampMonth}}</text><text class="stamp-day">{{item.stampDay}}</text><image class="ticket-art" src="{{'/assets/nearby/icons/ticket-' + item.ticketTheme + '.svg'}}" mode="aspectFit" aria-hidden="true"/><view class="ticket-date-line"></view><text class="stamp-year">{{item.stampYear}} · 开始日期</text></view></view>
+        <view class="event-card-info"><view class="event-status-row"><text class="external-status {{item.timeStatus === 'ended' ? 'ended' : ''}}">{{item.statusText}}</text><text class="event-district">{{item.district}}</text></view><view class="local-card-title">{{item.title}}</view><view class="external-date">{{item.dateLabel}}</view><view class="external-venue">{{item.venue || item.address}}</view><view class="event-tags"><text wx:for="{{item.previewPlayLabels}}" wx:for-item="play" wx:key="id" class="play-label">{{play.name}}</text><text wx:if="{{item.distance}}" class="distance-label">{{item.distance.label}}</text></view></view>
+      </view>
+      <view class="event-pet-rule"><view class="pet-rule-dot"></view><text>{{item.petHint}}</text></view>
+      <view class="event-card-bottom"><text class="external-ticket">{{item.ticketHint}}</text><view class="event-view-link">{{item.timeStatus === 'ended' ? '查看回顾' : '查看活动'}}<text>›</text></view></view>
+    </view>
+    <view wx:if="{{period === 'upcoming' && announcements.length}}" class="announcements-section"><view class="section-heading">值得期待<text>活动预告</text></view>
+      <view wx:for="{{announcements}}" wx:key="id" class="local-card announcement-card" data-id="{{item.id}}" bindtap="openLocal"><view class="event-card-main"><view class="date-stamp notice-stamp"><text class="stamp-month">{{item.stampYear}}</text><text class="stamp-notice">{{item.stampMonth}}</text><text class="stamp-year">日期待定</text></view><view class="event-card-info"><view class="local-card-title">{{item.title}}</view><view class="external-venue">{{item.venue || item.address}}</view><view class="notice-caption">具体日期、票务与携宠规则待公布</view></view></view><view class="event-card-bottom"><text class="external-ticket">{{item.dateLabel}}</text><text class="card-chevron">›</text></view></view>
+    </view>
+    <view class="neighbours-section">
+      <button class="neighbours-heading" bindtap="toggleNeighbours">
+        <view><view class="neighbours-title">邻里小聚</view><view class="neighbours-caption">平台发起的免费活动</view></view>
+        <text class="neighbours-toggle">{{neighboursOpen ? '收起 −' : '展开 +'}} </text>
+      </button>
+      <block wx:if="{{neighboursOpen}}">
+        <view class="local-filter-track meetup-filters"><button wx:for="{{filters}}" wx:key="id" class="local-filter {{filter === item.id ? 'active' : ''}}" data-id="{{item.id}}" bindtap="selectFilter">{{item.name}}</button></view>
+        <view wx:if="{{mode === 'demo'}}" class="meetup-mode-note">本机体验 · 暂未连接线上小聚</view>
+        <view wx:if="{{loading}}" class="meetup-state">正在读取小聚…</view>
+        <view wx:elif="{{eventsError}}" class="meetup-state meetup-error"><text>{{eventsError}}</text><button class="local-text-button" bindtap="refresh">重新加载</button></view>
+        <view wx:elif="{{neighbourItems.length === 0}}" class="meetup-state">{{query ? '已加载的小聚中，没有找到相关内容。' : '暂时没有可报名的小聚，先从喜欢的地方逛起。'}}</view>
+        <view wx:else>
+          <view wx:for="{{neighbourItems}}" wx:key="id" class="event-card meetup-card" bindtap="openEvent" data-id="{{item.id}}">
+            <view class="meetup-status-row"><text class="meetup-policy">{{item.petText}}</text><text class="meetup-status {{item.cancelled || item.ended ? 'inactive' : ''}}">{{item.statusText}}</text></view>
+            <view class="meetup-title">{{item.title}}</view>
+            <view class="meetup-meta">{{item.timeText}}</view>
+            <view class="meetup-meta">{{item.location}}</view>
+            <view class="meetup-footer"><text>{{item.hostName + ' · ' + item.attendeeCount + ' / ' + item.capacity + ' 人'}}</text><text class="local-card-link">去看看 ↗</text></view>
+          </view>
+        </view>
+        <button wx:if="{{nextCursor && !loading}}" class="btn btn-ghost meetup-more" bindtap="loadMore" loading="{{moreBusy}}" disabled="{{moreBusy}}">查看更多小聚</button>
+      </block>
+    </view>
+    <view class="local-footnote">汇集全上海已收录的宠物活动，参与方式以主办方公告为准。</view>
+  </block>
+  <block wx:else>
+    <view wx:if="{{neighborKind === 'people'}}" class="neighbor-small-note">这些同好暂未展示宠物资料，也欢迎从日常认识彼此。</view>
+    <view wx:if="{{neighborLoading}}" class="meetup-state">正在寻找附近的小伙伴…</view>
+    <view wx:elif="{{neighborError}}" class="error-box"><view>{{neighborError}}</view><button class="btn btn-secondary" bindtap="refreshNeighbors">重新加载</button></view>
+    <view wx:elif="{{neighbors.length === 0}}" class="local-empty neighbor-empty">
+      <view class="empty-paw" aria-hidden="true"><view class="paw-pad"></view><view class="paw-toe toe-one"></view><view class="paw-toe toe-two"></view><view class="paw-toe toe-three"></view><view class="paw-toe toe-four"></view></view>
+      <view class="local-empty-title">{{query || neighborAreaIndex || (neighborKind === 'pets' && neighborPetType !== 'all') ? '换个范围，认识更多小伙伴' : selfNeighborVisible ? '小伙伴们还在来的路上' : '让附近的小伙伴认识你'}}</view>
+      <view class="local-empty-copy">{{query || neighborAreaIndex || (neighborKind === 'pets' && neighborPetType !== 'all') ? '当前筛选下，暂时没有公开的宠友名片。' : selfNeighborVisible ? '你的名片已开放，等附近的宠友一起加入。' : '公开一张宠友名片，从分享日常开始。'}}</view>
+      <button class="empty-action" bindtap="neighborEmptyAction">{{query || neighborAreaIndex || (neighborKind === 'pets' && neighborPetType !== 'all') ? '清除筛选，看看全部' : selfNeighborVisible ? '刷新看看' : '创建我的宠友名片'}}</button>
+    </view>
+    <view wx:else class="neighbor-list"><view wx:for="{{neighbors}}" wx:key="id" class="neighbor-card" data-id="{{item.id}}" bindtap="openNeighbor">
+      <view class="neighbor-card-main"><view class="pet-neighbor-placeholder pet-neighbor-{{item.pet ? item.pet.type : 'person'}}"><view class="pet-neighbor-drawing"></view><text>{{item.petSymbol}}</text></view><view class="neighbor-card-info"><view class="neighbor-card-title">{{item.title}}</view><view class="neighbor-pet-type">{{item.petTypeText}}</view><view wx:if="{{item.areaLabel}}" class="neighbor-area-label">{{item.areaLabel}}</view><view wx:if="{{item.distanceBand}}" class="neighbor-distance">居住地 {{item.distanceBand}}</view></view></view>
+      <view wx:if="{{item.bio}}" class="neighbor-bio">{{item.bio}}</view>
+      <view class="neighbor-card-footer"><view class="neighbor-owner"><image wx:if="{{item.avatarUrl}}" class="neighbor-owner-avatar" src="{{item.avatarUrl}}" mode="aspectFill" binderror="neighborAvatarFailed" data-id="{{item.id}}"/><view wx:else class="neighbor-owner-avatar owner-placeholder">·</view><text>{{item.nickname}}</text></view><button class="neighbor-follow {{item.isFollowing ? 'following' : ''}}" data-id="{{item.id}}" catchtap="followNeighbor" disabled="{{busy}}">{{item.isFollowing ? '已关注' : '关注日常'}}</button></view>
+    </view></view>
+    <button wx:if="{{neighborNextCursor && !neighborLoading && !neighborError}}" class="btn btn-ghost meetup-more" bindtap="loadMoreNeighbors" loading="{{neighborMoreBusy}}" disabled="{{neighborMoreBusy || busy}}">继续认识宠友</button>
+    <view wx:if="{{mode === 'demo'}}" class="local-footnote">本机体验 · 暂未连接线上宠友</view>
+    <view class="local-footnote neighbor-privacy">双方开启后才显示居住约距，不公开住址。</view>
+  </block>
+  <view wx:if="{{isAdmin}}" class="nearby-admin-actions"><button class="btn btn-ghost admin-link" bindtap="managePlaces" aria-label="管理地点资料">地点管理</button><button wx:if="{{tab === 'activities'}}" class="btn btn-ghost admin-link" bindtap="manage" aria-label="管理邻里活动">管理邻里活动</button></view>
+
+  <view wx:if="{{controlsOpen}}" class="nearby-filter-layer browse-controls-layer">
+    <view class="filter-backdrop" aria-hidden="true" bindtap="closeControls" catchtouchmove="stopPanelTap"></view>
+    <view class="filter-sheet browse-controls-sheet">
+      <view class="sheet-handle"></view>
+      <view class="browse-controls-heading"><button wx:if="{{dropdown}}" class="controls-back" bindtap="backToControls" aria-label="返回筛选总览"><view class="controls-back-icon" aria-hidden="true"></view></button><view class="filter-sheet-title">{{dropdown ? dropdownTitle : tab === 'neighbors' ? '发现附近宠友' : '筛选与排序'}}</view><button class="sheet-close" bindtap="closeControls" aria-label="关闭筛选与排序">×</button></view>
+      <scroll-view wx:if="{{!dropdown}}" scroll-y="true" class="browse-controls-scroll" show-scrollbar="{{false}}">
+        <view class="browse-controls-content">
+          <button class="browse-control-row" data-menu="region" bindtap="openControl" disabled="{{busy}}"><text class="browse-control-label">附近范围</text><text class="browse-control-value">{{tab === 'neighbors' ? neighborAreaChoices[neighborAreaIndex].label : (selectedArea && tab === 'places' ? districts[districtIndex] + ' · ' + selectedArea : districts[districtIndex])}}</text><view class="control-chevron" aria-hidden="true"></view></button>
+          <block wx:if="{{tab !== 'neighbors'}}">
+            <button class="browse-control-row" data-menu="sort" bindtap="openControl" disabled="{{busy}}"><text class="browse-control-label">排序方式</text><text class="browse-control-value">{{sortOptions[sortIndex].name}}</text><view class="control-chevron" aria-hidden="true"></view></button>
+            <button class="browse-control-row" data-menu="play" bindtap="openControl" disabled="{{busy}}"><text class="browse-control-label">宠物玩法</text><text class="browse-control-value">{{playTag === 'all' ? '全部玩法' : playOptions[playIndex].name}}</text><view class="control-chevron" aria-hidden="true"></view></button>
+            <button class="browse-control-row" bindtap="openAdvancedFilters" disabled="{{busy}}"><text class="browse-control-label">更多筛选</text><text class="browse-control-value">{{filterCount ? '已选 ' + filterCount + ' 项' : tab === 'places' ? '携宠 · 费用 · 距离' : '日期 · 携宠 · 费用'}}</text><view class="control-chevron" aria-hidden="true"></view></button>
+            <view wx:if="{{activeFilters.length}}" class="selected-filter-track controls-selected-filters"><button wx:for="{{activeFilters}}" wx:key="key" class="selected-filter" data-key="{{item.key}}" bindtap="removeFilter" aria-label="{{'移除筛选：' + item.label}}">{{item.label}}<text>×</text></button></view>
+          </block>
+          <block wx:else>
+            <button class="browse-control-row" data-menu="kind" bindtap="openControl" disabled="{{busy}}"><text class="browse-control-label">名片类型</text><text class="browse-control-value">{{kindOptions[neighborKind === 'people' ? 1 : 0]}}</text><view class="control-chevron" aria-hidden="true"></view></button>
+            <button wx:if="{{neighborKind === 'pets'}}" class="browse-control-row" data-menu="pet" bindtap="openControl" disabled="{{busy}}"><text class="browse-control-label">宠物种类</text><text class="browse-control-value">{{neighborPets[neighborPetIndex].name}}</text><view class="control-chevron" aria-hidden="true"></view></button>
+          </block>
+          <view class="browse-saved-links"><button class="browse-saved-link" bindtap="myPlaces"><view class="bookmark-symbol" aria-hidden="true"></view><text>收藏与到访</text><view class="control-chevron" aria-hidden="true"></view></button><button wx:if="{{tab === 'neighbors'}}" class="browse-saved-link" bindtap="editNeighborProfile"><text>{{selfNeighborVisible ? '我的宠友名片' : '创建宠友名片'}}</text><view class="control-chevron" aria-hidden="true"></view></button></view>
+        </view>
+      </scroll-view>
+      <view wx:elif="{{dropdown === 'region' && tab !== 'activities'}}" class="dropdown-region-columns">
+        <scroll-view scroll-y="true" class="dropdown-region-groups" show-scrollbar="{{false}}"><button wx:for="{{regionGroups}}" wx:key="id" class="dropdown-group {{item.selected ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="selectRegionGroup" aria-pressed="{{item.selected}}"><text>{{item.label}}</text></button></scroll-view>
+        <scroll-view scroll-y="true" class="dropdown-region-items" show-scrollbar="{{false}}"><button wx:for="{{regionItems}}" wx:key="id" class="dropdown-option {{item.selected ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="chooseControlRegion" aria-pressed="{{item.selected}}"><view class="dropdown-option-copy"><text>{{item.label}}</text><text wx:if="{{item.hint}}" class="dropdown-option-hint">{{item.hint}}</text></view><view wx:if="{{item.selected}}" class="dropdown-check" aria-hidden="true"></view></button></scroll-view>
+      </view>
+      <scroll-view wx:else scroll-y="true" class="dropdown-options" style="height:{{dropdownItems.length * 100 > 540 ? 540 : dropdownItems.length * 100}}rpx;" show-scrollbar="{{false}}"><button wx:for="{{dropdownItems}}" wx:key="id" class="dropdown-option {{item.selected ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="chooseControlItem" aria-pressed="{{item.selected}}"><view class="dropdown-option-copy"><text>{{item.label}}</text><text wx:if="{{item.hint}}" class="dropdown-option-hint">{{item.hint}}</text></view><view wx:if="{{item.selected}}" class="dropdown-check" aria-hidden="true"></view></button></scroll-view>
+    </view>
+  </view>
+  <view wx:if="{{filterOpen && tab !== 'neighbors'}}" class="nearby-filter-layer">
+    <view class="filter-backdrop" aria-hidden="true" bindtap="toggleFilters" catchtouchmove="stopPanelTap"></view>
+    <view class="filter-sheet">
+      <view class="sheet-handle"></view><view class="filter-sheet-heading"><view><view class="filter-sheet-title">{{tab === 'places' ? '适合它的好去处' : '一起玩的好时机'}}</view><view class="filter-sheet-subtitle">组合条件，找到更合适的选择</view></view><button class="sheet-close" bindtap="toggleFilters" aria-label="关闭筛选">×</button></view>
+      <scroll-view scroll-y="true" class="filter-sheet-scroll">
+        <view class="filter-groups">
+          <view wx:for="{{draftGroups}}" wx:key="key" wx:for-item="group" class="filter-group"><view class="filter-group-title">{{group.title}}</view><view class="filter-group-options"><button wx:for="{{group.choices}}" wx:key="id" wx:for-item="option" class="filter-choice {{option.selected ? 'selected' : ''}}" disabled="{{option.disabled}}" data-key="{{group.key}}" data-value="{{option.id}}" aria-label="{{option.name}}" aria-pressed="{{option.selected}}" bindtap="selectDraftFilter"><text>{{option.name}}</text><text wx:if="{{option.count !== null}}" class="choice-count">{{option.count}}</text></button></view></view>
+          <button class="reference-button filter-reference" bindtap="openReferenceMenu" disabled="{{busy}}"><view><view class="field-caption">距离参照</view><view class="reference-value">{{referenceText}}</view></view><text>⌄</text></button>
+          <view class="panel-note">{{reference ? '缺少坐标的地点不参与距离范围筛选。' : '选择距离参照后，可筛选1—10km内的地点。'}} 举办日期不代表全天开放，费用与携宠条件以详情为准。</view>
+        </view>
+      </scroll-view>
+      <view class="filter-sheet-footer"><button class="filter-reset" bindtap="resetDraftFilters">重置</button><button class="filter-apply" bindtap="applyFilters">{{'查看 ' + draftCount + ' 条结果'}}</button></view>
+    </view>
+  </view>
+</view>

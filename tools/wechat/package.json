@@ -1,0 +1,11 @@
+{
+  "name": "youchong-wechat-release-tools",
+  "version": "0.4.0",
+  "private": true,
+  "description": "Optional operator-side SDKs; never included in the mini program package",
+  "dependencies": {
+    "miniprogram-ci": "^2.0.0",
+    "@cloudbase/node-sdk": "^3.0.0"
+  },
+  "engines": { "node": ">=22.13" }
+}

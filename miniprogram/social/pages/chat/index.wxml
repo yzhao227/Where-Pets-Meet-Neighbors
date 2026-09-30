@@ -1,0 +1,31 @@
+<view class="chat-page">
+  <view wx:if="{{conversation}}" class="chat-heading">
+    <view class="chat-heading-copy"><view class="chat-title">{{conversation.name}}</view><view class="chat-subtitle">{{conversation.kind === 'group' ? conversation.memberCount + ' 位宠友' : '好友聊天'}}</view></view>
+    <button class="members-button" bindtap="toggleMembers" aria-label="{{membersOpen ? '收起成员' : '查看成员'}}">{{membersOpen ? '收起' : '成员'}}</button>
+  </view>
+  <view wx:if="{{membersOpen && conversation}}" class="members-panel">
+    <scroll-view scroll-y class="members-scroll" style="height: {{members.length > 5 ? '220rpx' : '110rpx'}}"><view class="members-list"><view wx:for="{{members}}" wx:key="id" class="member-card"><image wx:if="{{item.avatarUrl}}" class="member-avatar" src="{{item.avatarUrl}}" mode="aspectFill" binderror="imageFailed" data-id="{{item.id}}" data-src="{{item.avatarUrl}}"/><view wx:else class="member-avatar avatar-fallback">{{item.initial}}</view><view class="member-name">{{item.nickname}}</view></view></view></scroll-view>
+    <button wx:if="{{conversation.kind === 'group'}}" class="leave-button" bindtap="leaveGroup" disabled="{{busy}}">退出群聊</button>
+  </view>
+  <view wx:if="{{mode === 'demo'}}" class="local-note">本机体验 · 聊天记录仅保存在当前设备</view>
+  <view wx:if="{{syncError || readError}}" class="sync-note"><text>{{syncError || readError}}</text><button bindtap="refresh">重试</button></view>
+  <view wx:if="{{loading}}" class="loading">正在读取聊天记录…</view>
+  <view wx:elif="{{error}}" class="error-box"><text>{{error}}</text><button class="btn btn-secondary" bindtap="refresh">重新加载</button></view>
+  <scroll-view wx:else scroll-y class="chat-history" scroll-into-view="{{scrollTarget}}" bindscroll="historyScrolled" bindscrolltolower="historyBottom" lower-threshold="90">
+    <button wx:if="{{nextCursor}}" class="history-more" bindtap="loadEarlier" loading="{{moreBusy}}" disabled="{{moreBusy}}">加载更早的记录</button>
+    <view wx:elif="{{messages.length}}" class="history-start">相遇，从这里开始</view>
+    <view wx:if="{{!messages.length && !pending.length}}" class="chat-empty"><view>还没有聊天消息</view><text>从宠物的小日常开始，打个招呼吧。</text></view>
+    <view wx:for="{{messages}}" wx:key="id" id="message-{{item.id}}" class="message-row {{item.isMine ? 'mine' : ''}}">
+      <image wx:if="{{item.sender.avatarUrl}}" class="message-avatar" src="{{item.sender.avatarUrl}}" mode="aspectFill" binderror="imageFailed" data-id="{{item.sender.id}}" data-src="{{item.sender.avatarUrl}}"/><view wx:else class="message-avatar avatar-fallback">{{item.sender.initial}}</view>
+      <view class="message-body"><view class="message-meta"><text>{{item.sender.nickname}}</text><text>{{item.timeText}}</text></view><view class="message-bubble"><text selectable>{{item.text}}</text></view></view>
+    </view>
+    <view wx:for="{{pending}}" wx:key="id" class="message-row mine pending-row">
+      <view class="message-body"><view class="message-meta">{{item.state === 'sending' ? '正在发送…' : '发送未完成'}}</view><view class="message-bubble"><text selectable>{{item.text}}</text></view><view wx:if="{{item.state === 'failed'}}" class="send-failure"><text>{{item.error}}</text><button class="retry-send" bindtap="retryMessage" data-id="{{item.id}}">重试</button></view></view>
+    </view>
+    <view id="chat-bottom" class="chat-bottom"></view>
+  </scroll-view>
+  <view class="chat-composer">
+    <view wx:if="{{conversation && !conversation.canSend}}" class="cannot-send">当前关系或账号状态暂不支持发消息，可继续查看已有记录。</view>
+    <view class="composer-row"><textarea class="chat-input" value="{{draft}}" bindinput="inputDraft" maxlength="1000" auto-height fixed cursor-spacing="24" show-confirm-bar="{{false}}" placeholder="聊聊你和宠物的日常…" disabled="{{!conversation || !conversation.canSend}}" aria-label="聊天消息"/><button class="send-button" bindtap="send" disabled="{{!draft || !conversation || !conversation.canSend}}">发送</button></view>
+  </view>
+</view>
