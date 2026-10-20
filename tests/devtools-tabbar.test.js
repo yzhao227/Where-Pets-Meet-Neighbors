@@ -58,7 +58,7 @@ test('DevTools uses the packaged normal and selected PNG bytes for every native 
       platform.getSystemInfoSync = () => ({ platform: 'devtools' });
     }
     assert.equal(await refresh(platform), true);
-    assert.deepEqual(items.map(item => item.index), [0, 1, 2, 3]);
+    assert.deepEqual(items.map(item => item.index), tabBar.list.map((item, index) => index));
     assert.deepEqual(reads, tabBar.list.flatMap(item => [item.iconPath, item.selectedIconPath]));
     for (const item of items) {
       for (const key of ['iconPath', 'selectedIconPath']) {

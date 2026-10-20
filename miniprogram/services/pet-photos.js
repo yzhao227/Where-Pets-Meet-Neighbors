@@ -1,5 +1,6 @@
 'use strict';
 const KEY = 'youchong.petPhotoQueue.v1';
+const PERSONAL_KEY = 'youchong.personalPetPhotoQueue.v1';
 const error = (code, message) => Object.assign(new Error(message), { code });
 function native(platform, method, args) {
   return new Promise((resolve, reject) => {
@@ -7,38 +8,51 @@ function native(platform, method, args) {
     platform[method]({ ...args, success: resolve, fail: value => reject(error('DEVICE_ERROR', value && (value.errMsg || value.message) || '照片操作失败')) });
   });
 }
-function read(platform) {
-  const value = platform.getStorageSync(KEY);
+function read(platform, key = KEY) {
+  const value = platform.getStorageSync(key);
   if (!value) return [];
   if (value.version !== 1 || !Array.isArray(value.items)) throw error('STORAGE_UNAVAILABLE', '宠物照片记录无法读取，请检查本机存储');
   return JSON.parse(JSON.stringify(value.items));
 }
-const write = (platform, items) => platform.setStorageSync(KEY, { version: 1, items });
-async function removeLocal(platform, path) {
+const write = (platform, items, key = KEY) => platform.setStorageSync(key, { version: 1, items });
+async function removeLocal(platform, path, canRemoveLocalFile) {
   if (!path || /^data:/i.test(path)) return;
+  if (canRemoveLocalFile && !await canRemoveLocalFile(path)) return;
   try { await native(platform, 'removeSavedFile', { filePath: path }); }
   catch (err) { if (!/not found|not exist|不存在/i.test(err.message)) throw err; }
 }
-async function clearLocalPetPhotos(platform) {
+async function clearLocalPetPhotos(platform, options = {}) {
+  const personal = options.productMode === 'personal';
+  const key = personal ? PERSONAL_KEY : KEY;
+  if (personal && !options.ownerId) throw error('AUTH_REQUIRED', '请先确认本机资料');
+  const canRemoveLocalFile = personal ? options.canRemoveLocalFile || (path => require('./personal').createPersonalService(platform).canRemoveLocalFile(path, options.ownerId)) : null;
   const remaining = [];
-  for (const item of read(platform)) { try { await removeLocal(platform, item.localPath); } catch (_) { remaining.push(item); } }
-  if (remaining.length) { write(platform, remaining); throw error('LOCAL_CLEANUP_FAILED', '宠物照片本机副本尚未清理，请重试'); }
-  if (typeof platform.removeStorageSync === 'function') platform.removeStorageSync(KEY); else write(platform, []);
+  for (const item of read(platform, key)) {
+    if (personal && (item.ownerId !== options.ownerId || item.scope !== 'personal')) { remaining.push(item); continue; }
+    try { await removeLocal(platform, item.localPath, canRemoveLocalFile); } catch (_) { remaining.push(item); }
+  }
+  if (remaining.length) write(platform, remaining, key);
+  else if (typeof platform.removeStorageSync === 'function') platform.removeStorageSync(key); else write(platform, [], key);
+  if (remaining.some(item => !personal || item.ownerId === options.ownerId && item.scope === 'personal')) throw error('LOCAL_CLEANUP_FAILED', '宠物照片本机副本尚未清理，请重试');
 }
 function createPetPhotos(platform, api, config = {}) {
-  const demo = !!platform.__preview || config.mode !== 'cloud';
-  const scope = demo ? 'demo' : 'cloud:' + (config.cloudEnv || 'default');
+  const personal = config.productMode === 'personal';
+  const demo = personal || !!platform.__preview || config.mode !== 'cloud';
+  const scope = personal ? 'personal' : demo ? 'demo' : 'cloud:' + (config.cloudEnv || 'default');
+  const queueKey = personal ? PERSONAL_KEY : KEY;
+  const readQueue = () => read(platform, queueKey);
+  const writeQueue = items => write(platform, items, queueKey);
   let work = Promise.resolve();
   const serial = fn => { const job = work.then(fn); work = job.catch(() => {}); return job; };
   async function owner(verified) {
     const boot = await api.call('bootstrap'), user = boot && boot.user;
     if (!user || !user.id) throw error('AUTH_REQUIRED', '请重新进入后读取宠物资料');
-    if (verified && (!user.verification || user.verification.status !== (demo ? 'demo_verified' : 'phone_verified'))) throw error('VERIFICATION_REQUIRED', demo ? '完成本机模拟核验后即可选择宠物照片' : '完成手机号核验后即可选择宠物照片');
+    if (!personal && verified && (!user.verification || user.verification.status !== (demo ? 'demo_verified' : 'phone_verified'))) throw error('VERIFICATION_REQUIRED', demo ? '完成本机模拟核验后即可选择宠物照片' : '完成手机号核验后即可选择宠物照片');
     return user.id;
   }
-  const save = record => { const items = read(platform), index = items.findIndex(item => item.localId === record.localId); if (index < 0) items.push(record); else items[index] = record; write(platform, items); };
-  const forget = record => write(platform, read(platform).filter(item => item.localId !== record.localId));
-  const owned = userId => read(platform).filter(item => item.ownerId === userId && item.scope === scope && item.status !== 'attached');
+  const save = record => { const items = readQueue(), index = items.findIndex(item => item.localId === record.localId); if (index < 0) items.push(record); else items[index] = record; writeQueue(items); };
+  const forget = record => writeQueue(readQueue().filter(item => item.localId !== record.localId));
+  const owned = userId => readQueue().filter(item => item.ownerId === userId && item.scope === scope && item.status !== 'attached');
   const ensure = async record => { if (await owner(true) !== record.ownerId || record.scope !== scope) throw error('UPLOAD_OWNER_CHANGED', '账号已切换，照片仍保留在原账号的宠物资料中'); };
   async function process(record) {
     try {
@@ -87,14 +101,16 @@ function createPetPhotos(platform, api, config = {}) {
   }
   async function retry(petId) { const record = owned(await owner(true)).find(item => item.petId === petId); return record ? process(record) : {}; }
   async function discard(petId) {
-    const records = owned(await owner(false)).filter(item => item.petId === petId);
+    const userId = await owner(false);
+    const records = owned(userId).filter(item => item.petId === petId);
+    const referenceOptions = { excludeQueueEntries: records.map(item => ({ key: queueKey, localId: item.localId })) };
     for (const record of records) {
       if (record.ticketId) { try { await api.call('discardPetUpload', { ticketId: record.ticketId }); } catch (err) { if (!['NOT_FOUND', 'UPLOAD_UNAVAILABLE'].includes(err.code)) throw err; } }
-      await removeLocal(platform, record.localPath); forget(record);
+      await removeLocal(platform, record.localPath, personal ? path => api.canRemoveLocalFile(path, userId, referenceOptions) : null); forget(record);
     }
     return { success: true };
   }
   return { select: id => serial(() => select(id)), retry: id => serial(() => retry(id)), discard: id => serial(() => discard(id)),
     pending: async () => owned(await owner(false)).map(item => ({ petId: item.petId, status: item.status, message: item.message || '照片尚未处理完成', retryable: !['rejected', 'expired'].includes(item.status) })) };
 }
-module.exports = { KEY, createPetPhotos, clearLocalPetPhotos };
+module.exports = { KEY, PERSONAL_KEY, createPetPhotos, clearLocalPetPhotos };

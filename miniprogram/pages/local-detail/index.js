@@ -216,7 +216,7 @@ s.register({
       if (this._closed || this._hidden || request !== this._placeRequest) return;
       if (error.code === 'NOT_FOUND') { this._remoteRecord = null; this._remoteUnavailable = true; }
       if (!savedRecord || this._remoteUnavailable) s.safe(this, { loading: false, item: null, error: error.message || '地点或活动资料暂时无法读取，请重试。', placeServiceError: '' });
-      else s.safe(this, { loading: false, placeServiceError: '互动状态暂未读取，可继续查看已保存的地点资料。' });
+      else s.safe(this, { loading: false, placeServiceError: '收藏状态暂未读取，可继续查看已保存的地点资料。' });
     }
   },
   bookmark() { return s.action(this, async () => { const result = await s.api.call('bookmarkPlace', { id: this.id, bookmark: !this.data.isBookmarked }); s.safe(this, { isBookmarked: result.isBookmarked }); }); },
@@ -224,16 +224,16 @@ s.register({
   visitDate(e) { s.safe(this, { visitedOn: e.detail.value }); },
   visitInput(e) { s.safe(this, { visitNote: e.detail.value }); },
   saveVisit() { return s.action(this, async () => { const result = await s.api.call('recordPlaceVisit', { placeId: this.id, visitedOn: this.data.visitedOn, note: this.data.visitNote }); s.safe(this, { visit: result.visit, visitForm: false }); s.toast('到访已记录，仅自己可见'); }); },
-  shareVisit() { s.go('/pages/compose/index?placeId=' + encodeURIComponent(this.id) + (this.data.visit ? '&visitId=' + encodeURIComponent(this.data.visit.id) : '')); },
-  toggleCorrection() { s.safe(this, { correctionForm: !this.data.correctionForm }); },
+  shareVisit() { if (s.personalMode) return; s.go('/pages/compose/index?placeId=' + encodeURIComponent(this.id) + (this.data.visit ? '&visitId=' + encodeURIComponent(this.data.visit.id) : '')); },
+  toggleCorrection() { if (s.personalMode) return; s.safe(this, { correctionForm: !this.data.correctionForm }); },
   correctionType(e) { s.safe(this, { correctionIndex: Number(e.detail.value) }); },
   correctionInput(e) { s.safe(this, { correctionText: e.detail.value }); },
-  sendCorrection() { return s.action(this, async () => { await s.api.call('submitPlaceCorrection', { placeId: this.id, category: CATEGORIES[this.data.correctionIndex], text: this.data.correctionText }); s.safe(this, { correctionForm: false, correctionText: '' }); s.toast('已提交给运营者核实'); }); },
+  sendCorrection() { if (s.personalMode) return; return s.action(this, async () => { await s.api.call('submitPlaceCorrection', { placeId: this.id, category: CATEGORIES[this.data.correctionIndex], text: this.data.correctionText }); s.safe(this, { correctionForm: false, correctionText: '' }); s.toast('已提交给运营者核实'); }); },
   myPlaces() { s.go('/pages/places/index'); },
   openGuide(e) { const id = e.currentTarget.dataset.id; if ((catalogue.guides || []).some(guide => guide.id === id)) s.go('/pages/local-detail/index?guideId=' + encodeURIComponent(id)); },
   openGuideStop(e) { const id = e.currentTarget.dataset.id; if (this.data.guide && this.data.guide.steps.some(step => step.placeId === id && step.available)) s.go('/pages/local-detail/index?id=' + encodeURIComponent(id)); },
   openGuideSource(e) { if (this._closed || this._hidden) return; return s.action(this, () => { const source = this.data.guide && this.data.guide.sources[Number(e.currentTarget.dataset.index)]; return links.open(source && source.url, source && source.title); }); },
-  managePlace() { if (this.data.isAdmin && this.data.item && this.data.item.isPlace) s.go('/pages/places-manage/index?id=' + encodeURIComponent(this.id)); },
+  managePlace() { if (!s.personalMode && this.data.isAdmin && this.data.item && this.data.item.isPlace) s.go('/pages/places-manage/index?id=' + encodeURIComponent(this.id)); },
   copyAddress() {
     if (this._closed || this._hidden) return;
     const address = this.data.item && this.data.item.address;
@@ -353,6 +353,7 @@ s.register({
     wx.switchTab({ url: '/pages/nearby/index', fail: () => { if (!this._closed) s.toast('暂时无法返回，请使用左上角返回'); } });
   },
   onShareAppMessage() {
+    if (s.personalMode) return;
     if (this.data.guide) return { title: '有宠有邻｜' + this.data.guide.title, path: '/pages/local-detail/index?guideId=' + encodeURIComponent(this.data.guide.id) };
     const item = this.data.item;
     return item ? { title: '有宠有邻｜' + item.title, path: '/pages/local-detail/index?id=' + encodeURIComponent(item.id) }

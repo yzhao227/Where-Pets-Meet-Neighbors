@@ -356,9 +356,9 @@ function status(manifest, options = {}) {
   };
 }
 
-// Generate ordinary CommonJS literals with a pool of immutable strings. Objects
-// and arrays are still created separately; consumers see the same JSON data and
-// need no decompression library, browser API or asynchronous loading step.
+// Generate ordinary CommonJS literals with immutable strings and flat credit
+// facts shared in source only. Exported objects and arrays remain independent;
+// no decompression library, browser API or asynchronous loading is needed.
 function serializeCatalog(posts, version) {
   const data = JSON.parse(JSON.stringify(posts));
   const frequencies = new Map();
@@ -379,19 +379,44 @@ function serializeCatalog(posts, version) {
   // Give the most frequently used strings the shortest numeric references.
   strings.sort((a, b) => frequencies.get(b) - frequencies.get(a));
   const indexes = new Map(strings.map((value, index) => [value, index]));
-  function encode(value) {
-    if (typeof value === 'string') return indexes.has(value) ? 'S[' + indexes.get(value) + ']' : JSON.stringify(value);
-    if (Array.isArray(value)) return '[' + value.map(encode).join(',') + ']';
-    if (value && typeof value === 'object') return '{' + Object.entries(value).map(([key, child]) => {
-      // Only identifier-shaped keys omit quotes; all data values stay escaped.
-      const property = key === '__proto__' ? '["__proto__"]' : /^[A-Za-z_$][\w$]*$/.test(key) ? key : JSON.stringify(key);
-      return property + ':' + encode(child);
-    }).join(',') + '}';
+  function encode(value, stringIndexes = indexes, creditIndexes) {
+    if (typeof value === 'string') return stringIndexes.has(value) ? 'S[' + stringIndexes.get(value) + ']' : JSON.stringify(value);
+    if (Array.isArray(value)) return '[' + value.map(child => encode(child, stringIndexes, creditIndexes)).join(',') + ']';
+    if (value && typeof value === 'object') {
+      if (creditIndexes && creditIndexes.has(value)) return '{...creditFacts[' + creditIndexes.get(value) + ']}';
+      return '{' + Object.entries(value).map(([key, child]) => {
+        // Keep own __proto__ as data even in the unpooled fallback.
+        const property = key === '__proto__' ? '["__proto__"]' : /^[A-Za-z_$][\w$]*$/.test(key) ? key : JSON.stringify(key);
+        return property + ':' + encode(child, stringIndexes, creditIndexes);
+      }).join(',') + '}';
+    }
     return JSON.stringify(value);
   }
-  const plain = 'const CURATED_POSTS = ' + JSON.stringify(data) + ';\n';
-  const pooled = (strings.length ? 'const S=' + JSON.stringify(strings) + ';\n' : '') + 'const CURATED_POSTS = ' + encode(data) + ';\n';
-  const body = Buffer.byteLength(pooled) < Buffer.byteLength(plain) ? pooled : plain;
+  const creditGroups = new Map();
+  for (const post of Array.isArray(data) ? data : []) {
+    for (const credit of record(post) && Array.isArray(post.imageCredits) ? post.imageCredits : []) {
+      if (!record(credit) || Object.values(credit).some(value => value !== null && typeof value === 'object')) continue;
+      const literal = encode(credit);
+      const group = creditGroups.get(literal) || { literal, instances: [], bytes: Buffer.byteLength(literal) };
+      group.instances.push(credit);
+      creditGroups.set(literal, group);
+    }
+  }
+  const creditFacts = [], creditIndexes = new Map();
+  const repeated = Array.from(creditGroups.values()).filter(group => group.instances.length > 1)
+    .sort((a, b) => (b.instances.length - 1) * b.bytes - (a.instances.length - 1) * a.bytes);
+  for (const group of repeated) {
+    const referenceBytes = ('{...creditFacts[' + creditFacts.length + ']}').length;
+    if ((group.bytes - referenceBytes) * group.instances.length <= group.bytes + 1) continue;
+    group.instances.forEach(credit => creditIndexes.set(credit, creditFacts.length));
+    creditFacts.push(group.literal);
+  }
+  const stringPool = strings.length ? 'const S=' + JSON.stringify(strings) + ';\n' : '';
+  const plain = 'const CURATED_POSTS = ' + encode(data, new Map()) + ';\n';
+  const pooled = stringPool + 'const CURATED_POSTS = ' + encode(data) + ';\n';
+  const credits = stringPool + 'const creditFacts=[' + creditFacts.join(',') + '];\n' + 'const CURATED_POSTS = ' + encode(data, indexes, creditIndexes) + ';\n';
+  let body = Buffer.byteLength(pooled) < Buffer.byteLength(plain) ? pooled : plain;
+  if (creditFacts.length && Buffer.byteLength(credits) < Buffer.byteLength(body)) body = credits;
   return "'use strict';\n\n// Generated from an editorially approved manifest. The import tool validates\n// metadata only; it does not fetch sources or independently verify licences.\nconst CATALOG_VERSION = " + JSON.stringify(version) + ';\n' + body + '\nmodule.exports = { CURATED_POSTS, CATALOG_VERSION };\n';
 }
 

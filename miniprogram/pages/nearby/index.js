@@ -136,7 +136,7 @@ s.register({
   onPullDownRefresh() { return this.refresh(); },
   myPlaces() { this.closeControls(); s.go('/pages/places/index'); },
   openGuide(e) { const id = e.currentTarget.dataset.id; if ((catalogue.guides || []).some(guide => guide.id === id)) s.go('/pages/local-detail/index?guideId=' + encodeURIComponent(id)); },
-  managePlaces() { if (this.data.isAdmin) s.go('/pages/places-manage/index'); },
+  managePlaces() { if (!s.personalMode && this.data.isAdmin) s.go('/pages/places-manage/index'); },
   currentFilters(tab = this.data.tab) {
     const filters = { ...controls.DEFAULT_FILTERS, ...this.data.filtersByTab[tab] };
     if (tab === 'places') filters.petFilter = this.data.petFilter;
@@ -238,8 +238,24 @@ s.register({
     }
     return changed;
   },
+  refreshPersonal() {
+    if (!['places', 'activities'].includes(this.data.tab)) s.safe(this, { tab: 'places' });
+    this.updateCatalogue();
+    return s.load(this, async () => {
+      const request = this._loadId;
+      const [boot, directory] = await Promise.all([
+        settled(s.api.call('bootstrap')), settled(placeService.listAll({ type: 'all' }))
+      ]);
+      if (this._closed || request !== this._loadId) return {};
+      if (directory.value) { this._placeRecords = directory.value; this.updateDirectoryOptions(); this.updateCatalogue(); }
+      return { mode: boot.value && boot.value.mode || 'demo', city: boot.value && boot.value.settings && boot.value.settings.city || '',
+        isAdmin: false, selfNeighborVisible: false, items: [], neighbourItems: [], neighbors: [], nextCursor: null, neighborNextCursor: null, eventsError: '',
+        placeServiceError: directory.error ? '地点资料暂未读取完整，可继续浏览已保存内容' : '' };
+    }, { retain: this._loaded });
+  },
   refresh(options) {
     this.closeControls();
+    if (s.personalMode) return this.refreshPersonal();
     if (this.data.tab === 'neighbors') return this.refreshNeighbors(options);
     this.updateCatalogue();
     const filter = this.data.filter;
@@ -282,6 +298,7 @@ s.register({
     }, { retain }).finally(() => { if (this._eventRefreshId === refreshId) this._eventRefreshId = 0; });
   },
   async loadMore() {
+    if (s.personalMode) return;
     if (this._closed || this._hidden || this._eventRefreshId && this._eventRefreshId === this._loadId) return;
     const request = this._loadId;
     await s.more(this, { key: 'items', request: async cursor => {
@@ -302,7 +319,7 @@ s.register({
   },
   selectTab(e) {
     const tab = e.currentTarget.dataset.id;
-    if (!['places', 'activities', 'neighbors'].includes(tab)) return;
+    if (!(s.personalMode ? ['places', 'activities'] : ['places', 'activities', 'neighbors']).includes(tab)) return;
     if (this.data.busy) return;
     this.closeControls();
     const searchState = tab !== this.data.tab ? { searchOpen: false, searchFocused: false, searchText: '', query: '' } : {};
@@ -634,9 +651,10 @@ s.register({
     this.updateAreas();
     this.updateCatalogue();
   },
-  toggleNeighbours() { s.safe(this, { neighboursOpen: !this.data.neighboursOpen }); },
+  toggleNeighbours() { if (s.personalMode) return; s.safe(this, { neighboursOpen: !this.data.neighboursOpen }); },
   neighborQuery() { return { areaId: neighborAreaChoices[this.data.neighborAreaIndex].id, kind: this.data.neighborKind, petType: this.data.neighborKind === 'pets' ? this.data.neighborPetType : 'all', query: this.data.query }; },
   async refreshNeighbors(options) {
+    if (s.personalMode) return;
     const request = this._neighborLoadId = (this._neighborLoadId || 0) + 1;
     this._neighborRefreshId = request;
     const query = this.neighborQuery(), queryKey = JSON.stringify(query);
@@ -672,6 +690,7 @@ s.register({
     }
   },
   async loadMoreNeighbors() {
+    if (s.personalMode) return;
     if (this._closed || this._hidden || this._neighborRefreshId && this._neighborRefreshId === this._neighborLoadId) return;
     if (this.data.neighborLoading || this.data.neighborMoreBusy || !this.data.neighborNextCursor || this.data.tab !== 'neighbors') return;
     const request = this._neighborLoadId;
@@ -724,10 +743,12 @@ s.register({
     return this.data.selfNeighborVisible ? this.refreshNeighbors() : this.editNeighborProfile();
   },
   openNeighbor(e) {
+    if (s.personalMode) return;
     const item = this.data.neighbors.find(value => value.id === e.currentTarget.dataset.id);
     if (item) s.go('/pages/author/index?userId=' + encodeURIComponent(item.id));
   },
   followNeighbor(e) {
+    if (s.personalMode) return;
     const item = this.data.neighbors.find(value => value.id === e.currentTarget.dataset.id);
     if (!item) return;
     return s.action(this, async () => {
@@ -743,13 +764,13 @@ s.register({
     this._failedNeighborAvatars[item.id] = item.avatarUrl;
     s.safe(this, { neighbors: this.data.neighbors.map(value => value.id === item.id ? { ...value, avatarUrl: '' } : value) });
   },
-  editNeighborProfile() { this.closeControls(); s.go('/pages/profile/index'); },
+  editNeighborProfile() { if (s.personalMode) return; this.closeControls(); s.go('/pages/profile/index'); },
   openLocal(e) {
     const id = e.currentTarget.dataset.id;
     if (!(this._placeRecords || catalogue.records).some(record => record.id === id)) return;
     s.go('/pages/local-detail/index?id=' + encodeURIComponent(id));
   },
-  openEvent(e) { s.go('/pages/event/index?id=' + encodeURIComponent(e.currentTarget.dataset.id)); },
-  manage() { s.go('/pages/manage/index'); },
-  onShareAppMessage() { return { title: '有宠有邻｜从莘庄出发，找个喜欢的地方', path: '/pages/nearby/index' }; }
+  openEvent(e) { if (s.personalMode) return; s.go('/pages/event/index?id=' + encodeURIComponent(e.currentTarget.dataset.id)); },
+  manage() { if (s.personalMode) return; s.go('/pages/manage/index'); },
+  onShareAppMessage() { if (s.personalMode) return; return { title: '有宠有邻｜从莘庄出发，找个喜欢的地方', path: '/pages/nearby/index' }; }
 });

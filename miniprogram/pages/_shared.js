@@ -5,11 +5,14 @@ const postVisibility = require('../data/post-visibility');
 const api = require('../services/api');
 const nearbyLocation = require('../services/nearby-location');
 const { publication } = require('./post/_metadata');
+const product = require('../product');
+const personalMode = product.personalMode;
 let verificationPageOpen = false;
 
 function verificationArrived() { verificationPageOpen = true; }
 function verificationLeft() { verificationPageOpen = false; }
 function openVerification(from) {
+  if (personalMode) return;
   if (verificationPageOpen) return;
   verificationPageOpen = true;
   wx.navigateTo({ url: from === 'me' ? '/pages/register/index' : '/pages/register/index?from=action', fail: () => {
@@ -24,10 +27,26 @@ function safe(page, values) {
 
 function register(definition) {
   const originalLoad = definition.onLoad;
+  const originalShow = definition.onShow;
   const originalUnload = definition.onUnload;
+  definition.data = Object.assign({}, definition.data, { personalMode });
+  if (personalMode) {
+    // Personal records must never become public through the WeChat menu.
+    delete definition.onShareAppMessage;
+    delete definition.onShareTimeline;
+    delete definition.onAddToFavorites;
+  }
+  const hideSharing = () => {
+    if (personalMode && typeof wx.hideShareMenu === 'function') wx.hideShareMenu({ menus: ['shareAppMessage', 'shareTimeline'] });
+  };
   definition.onLoad = function (options) {
     this._closed = false;
+    hideSharing();
     if (originalLoad) return originalLoad.call(this, options || {});
+  };
+  definition.onShow = function () {
+    hideSharing();
+    if (originalShow) return originalShow.call(this);
   };
   definition.onUnload = function () {
     this._closed = true;
@@ -99,7 +118,10 @@ function confirm(title, content, confirmText) {
 function choose(items) {
   return new Promise(resolve => wx.showActionSheet({ itemList: items, success: result => resolve(result.tapIndex), fail: () => resolve(-1) }));
 }
-function go(url) { wx.navigateTo({ url }); }
+function go(url) {
+  if (!product.allowsNavigation(url)) return toast('该页面在当前版本不可用');
+  wx.navigateTo({ url });
+}
 function back() { wx.navigateBack({ fail: () => wx.switchTab({ url: '/pages/community/index' }) }); }
 function relative(timestamp) {
   const minutes = Math.max(0, Math.floor((Date.now() - Number(timestamp)) / 60000));
@@ -162,9 +184,9 @@ function post(item) {
     cover: video && video.poster || item.cover || images[coverIndex] || '', topics: contentTopics.normalize(item.topics),
     timeText: isEditorialContent ? '' : relative(item.createdAt), commentCount: item.commentCount || 0,
     likeCount: item.likeCount || 0, isLiked: !!item.isLiked, isBookmarked: !!item.isBookmarked,
-    kindText: video ? '视频分享' : contentType === 'photo' ? '图片分享' : isEditorialContent ? '养宠知识' : { daily: '日常分享', question: '想问问大家', meetup: '一起做点什么' }[kind],
+    kindText: personalMode ? (isEditorialContent ? (video ? '宠物视频' : contentType === 'photo' ? '动物影像' : '养宠知识') : '私人记录') : video ? '视频分享' : contentType === 'photo' ? '图片分享' : isEditorialContent ? '养宠知识' : { daily: '日常分享', question: '想问问大家', meetup: '一起做点什么' }[kind],
     kindSymbol: { daily: '✦', question: '?', meetup: '↗' }[kind],
-    displayTitle: title || text || '分享了一份可爱', cardText: text || title || '分享了一份可爱',
+    displayTitle: title || text || (personalMode ? '留住这一刻' : '分享了一份可爱'), cardText: text || title || (personalMode ? '留住这一刻' : '分享了一份可爱'),
     event: linkedEvent, eventId: item.eventId || '' });
 }
 function updatePost(page, item, key) {
@@ -210,4 +232,4 @@ async function block(userId) {
   return true;
 }
 
-module.exports = { api, safe, register, load, more, action, toast, confirm, choose, go, back, openVerification, verificationArrived, verificationLeft, relative, post, updatePost, person: avatar, event, comment, message, preview, report, block, dateText, httpsUrl };
+module.exports = { personalMode, api, safe, register, load, more, action, toast, confirm, choose, go, back, openVerification, verificationArrived, verificationLeft, relative, post, updatePost, person: avatar, event, comment, message, preview, report, block, dateText, httpsUrl };

@@ -43,7 +43,7 @@ function nativeDetailPage(api, platform) {
 }
 
 for (const oldCache of [false, true]) {
-  test('native detail: ' + (oldCache ? 'full real legacy imports' : 'fresh device data') + ' navigate every reviewed bundled point after getPlace settles', async () => {
+  test('native detail: ' + (oldCache ? 'full real legacy imports' : 'fresh device data') + ' navigate reviewed points after getPlace settles while preserving changed destinations', async () => {
     const values = new Map();
     const effects = { writes: 0, removals: 0, gps: 0, choose: 0, cloud: 0, maps: [], toasts: [] };
     const platform = {
@@ -71,11 +71,34 @@ for (const oldCache of [false, true]) {
     const before = clone(values); const writesBefore = effects.writes;
     const reviewed = catalogue.records.filter(record => record.active !== false && normalizePoint(record.point));
     assert.ok(reviewed.length > 0);
+    let protectedDestinations = 0;
     for (const record of reviewed) {
       const page = nativeDetailPage(api, platform);
       await page.onLoad({ id: record.id });
       assert.equal(page._remoteRecord.id, record.id, 'getPlace has completed for ' + record.id);
       assert.equal(page.data.placeServiceError, '', record.id);
+      if (oldCache && ['event-baijia-pet-market-2026', 'event-cpark-lifestyle-2026'].includes(record.id)) {
+        // Baijia's address and C·PARK's published time interval changed. Keep
+        // both actual old snapshots instead of borrowing their successor's pin.
+        const saved = before.get(STORAGE_KEY).place_records.find(row => row.id === record.id);
+        const changedFields = record.id === 'event-baijia-pet-market-2026' ? ['address'] : ['startsAt', 'endsAt', 'datePrecision'];
+        for (const key of changedFields) {
+          assert.notEqual(saved[key], record[key], record.id + ' has an updated ' + key);
+          assert.equal(page.data.item[key], saved[key], record.id + ' retains its saved ' + key);
+        }
+        assert.equal(saved.point, undefined, 'the historical import has no reviewed point');
+        assert.equal(page.data.item.address, saved.address);
+        assert.equal(page.data.item.point, undefined);
+        assert.equal(page.data.item.navigationLabel, '位置待核实');
+        assert.equal(page.data.item.canNavigate, false);
+        assert.equal(page.data.item.canLocate, false);
+        const count = effects.maps.length;
+        await page.navigate();
+        assert.equal(effects.maps.length, count, 'a changed destination must not navigate using the new catalogue point');
+        protectedDestinations += 1;
+        page.onUnload();
+        continue;
+      }
       assert.equal(page.data.item.navigationLabel, '地图导航', record.id);
       assert.equal(page.data.item.canNavigate, true, record.id);
       assert.deepEqual([page.data.item.point.latitude, page.data.item.point.longitude], [record.point.latitude, record.point.longitude], record.id);
@@ -87,7 +110,8 @@ for (const oldCache of [false, true]) {
       assert.equal(effects.maps[count].scale, 16);
       page.onUnload();
     }
-    assert.equal(effects.maps.length, reviewed.length);
+    assert.equal(protectedDestinations, oldCache ? 2 : 0);
+    assert.equal(effects.maps.length, reviewed.length - protectedDestinations);
     assert.equal(effects.gps, 0); assert.equal(effects.choose, 0); assert.equal(effects.cloud, 0);
     assert.equal(effects.removals, 0); assert.equal(effects.writes, writesBefore);
     assert.deepEqual(values, before, 'navigation neither clears caches nor rewrites accounts, drafts or imported records');
@@ -96,7 +120,7 @@ for (const oldCache of [false, true]) {
 }
 
 for (const preview of [false, true]) {
-  test((preview ? 'browser' : 'native demo') + ': an actual old import gains bundled coordinates without rewriting device data', async () => {
+  test((preview ? 'browser' : 'native demo') + ': old imports gain points only for unchanged destinations without rewriting device data', async () => {
     const state = createSeed(epoch);
     state.place_records = clone(legacy.records);
     state.place_visits = [{ id: 'private-visit', userId: state.currentUserId, placeId: legacy.records[0].id, note: '仅内存私人测试备注' }];
@@ -117,6 +141,12 @@ for (const preview of [false, true]) {
       const current = catalogue.records.find(row => row.id === old.id);
       assert.ok(current.point, old.id + ' has a reviewed bundled point');
       const result = (await api.call('getPlace', { id: old.id })).place;
+      if (old.id === 'event-cpark-lifestyle-2026') {
+        for (const key of ['startsAt', 'endsAt', 'datePrecision']) assert.notEqual(old[key], current[key], 'C·PARK has an updated ' + key);
+        assert.deepEqual(result, old, 'the real old event snapshot stays intact after its published dates change');
+        assert.equal(listed.find(row => row.id === old.id).point, undefined, 'the list also keeps the old event unlocated');
+        continue;
+      }
       assert.deepEqual(result.point, current.point);
       assert.deepEqual(listed.find(row => row.id === old.id).point, current.point);
       const withoutPoint = clone(result); delete withoutPoint.point;
@@ -144,7 +174,9 @@ function fixture(module, original, row) {
 for (const module of ['../miniprogram/services/place-engine', '../cloudfunctions/community/place-engine']) {
   const label = module.includes('cloudfunctions') ? 'cloud domain' : 'demo domain';
   const old = clone(legacy.records.find(row => row.type === 'event'));
-  const current = clone(catalogue.records.find(row => row.id === old.id));
+  // Hold identity constant in these isolated domain fixtures so each mutation
+  // below is the sole reason to reject a point. Real date changes are covered above.
+  const current = { ...clone(old), point: clone(catalogue.records.find(row => row.id === old.id).point) };
 
   test(label + ': detail and list preserve manual removals, edits, venue changes and inactive records', () => {
     const manualPoint = { ...current.point, latitude: current.point.latitude + 0.001 };

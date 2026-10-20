@@ -1,0 +1,76 @@
+{
+  "checkedAt": "2026-10-01T17:37:00+08:00",
+  "checkedAtPrecision": "根任务提供北京时间约17:37；仅精确到分钟，不表示秒级查阅时间。",
+  "name": "M515文创产业园",
+  "intendedAddress": "上海市崇明区庙镇宏海公路515号",
+  "sourceUrl": "https://lbs.qq.com/getPoint/",
+  "status": "verified_by_root_ui",
+  "query": "M515文创产业园",
+  "sourceName": "515文创产业园",
+  "selectedResultIndex": 2,
+  "addressShown": "上海市崇明区宏海公路515号",
+  "telephoneShown": "-",
+  "sourcePoiId": "17381691904371638683",
+  "sourceCoordinate": {
+    "latitude": 31.687916,
+    "longitude": 121.351641,
+    "coordinateSystem": "gcj02"
+  },
+  "storedCoordinate": {
+    "latitude": 31.687916,
+    "longitude": 121.351641,
+    "coordinateSystem": "gcj02"
+  },
+  "sourceCoordinateSystem": "gcj02",
+  "coordinateConvention": "腾讯官方拾取器坐标字段按纬度、经度显示，来源为 GCJ-02，未转换。",
+  "precision": "venue",
+  "label": "M515文创产业园（场所参照，活动区域按现场指引）",
+  "entranceVerified": false,
+  "evidenceCollection": "根任务在其可用的 cua 浏览器中实际打开腾讯官方坐标拾取器，查询“M515文创产业园”并明确点击结果2“515文创产业园”，核对右侧地址、坐标、POI ID 和电话字段后将结果转交本子任务。本子任务依据该已浏览证据更新本文件，未声称自行获取了页面；独立子任务浏览器不可用的先前过程保留在 attempts 中。",
+  "sourceEvidence": "查询默认选择结果1“M515文创产业园庙镇经济产业中心”，属于办公中心参照，未采用。根任务实际点击结果2“515文创产业园”后，右侧显示坐标31.687916,121.351641、地址上海市崇明区宏海公路515号、POI ID 17381691904371638683、电话“-”，与活动场所宏海公路515号匹配。结果6还有2号门，但未采用，不能推定活动入口。",
+  "excludedResults": [
+    {
+      "resultIndex": 1,
+      "name": "M515文创产业园庙镇经济产业中心",
+      "sourcePoiId": "7122236554983015222",
+      "coordinate": {
+        "latitude": 31.687962,
+        "longitude": 121.350835,
+        "coordinateSystem": "gcj02"
+      },
+      "reason": "默认选中的办公中心参照；根任务改为选择园区本体结果2，未采用此点。"
+    },
+    {
+      "resultIndex": 6,
+      "name": "2号门",
+      "reason": "根任务仅看到该门条目，未采用其坐标，也未核实其是否为活动入口。"
+    }
+  ],
+  "attempts": [
+    {
+      "action": "cua.createBrowserTab",
+      "browserId": "1",
+      "url": "https://lbs.qq.com/getPoint/",
+      "visible": false,
+      "attemptedAt": "2026-10-01T17:35:06+08:00",
+      "result": "Browser is not available: 1"
+    },
+    {
+      "action": "cua.listBrowsers",
+      "result": []
+    }
+  ],
+  "contextFromParent": {
+    "verificationScope": "主任务已核实活动资料中的场所名和地址，并补充了其通过腾讯官方拾取器实际 UI 核验的场所点。以下活动资料链接为根任务转交的背景来源，并非本子任务独立浏览所得。",
+    "sources": [
+      "https://www.shobserver.com/sgh/detail?id=4066166",
+      "https://finance.sina.com.cn/wm/2026-09-21/doc-inispymz0859685.shtml"
+    ]
+  },
+  "notes": [
+    "坐标为园区场所参照，不代表已核实活动入口或活动区域，现场安排仍须遵循主办方指引。",
+    "未采用办公中心或2号门，不将候选点当作已确认活动入口。",
+    "未修改目录代码、来源或活动运营信息，未同步云端。",
+    "未操作用户原生应用或微信开发工具，未读取 .env.local。"
+  ]
+}

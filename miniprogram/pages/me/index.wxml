@@ -11,11 +11,11 @@
   <block wx:else>
     <view class="profile-card card">
       <view class="profile-top">
-        <button class="profile-identity" bindtap="publicProfile" aria-label="查看我的个人主页">
+        <button class="profile-identity" bindtap="publicProfile" aria-label="{{personalMode ? '编辑我的私人资料' : '查看我的个人主页'}}">
           <image class="profile-avatar" src="{{user.avatar || '/assets/avatar-1.png'}}" mode="aspectFill"/>
           <view class="profile-main">
             <view class="profile-name">{{user.nickname}}</view>
-            <view class="profile-home">查看个人主页 <text>›</text></view>
+            <view class="profile-home">{{personalMode ? '我的私人资料' : '查看个人主页'}} <text>›</text></view>
           </view>
         </button>
         <button class="edit-button" bindtap="editProfile">编辑资料</button>
@@ -38,23 +38,25 @@
         <text class="entry-arrow">›</text>
       </button>
       <view class="stats">
-        <button class="stat" bindtap="records" data-type="posts"><view class="stat-number">{{stats.postCount || 0}}</view><view class="stat-label">我的分享</view></button>
+        <button class="stat" bindtap="records" data-type="posts"><view class="stat-number">{{stats.postCount || 0}}</view><view class="stat-label">{{personalMode ? '私人记录' : '我的分享'}}</view></button>
         <button class="stat" bindtap="records" data-type="bookmarks"><view class="stat-number">{{stats.bookmarkCount || 0}}</view><view class="stat-label">我的收藏</view></button>
-        <button class="stat" bindtap="records" data-type="following"><view class="stat-number">{{stats.followingCount || 0}}</view><view class="stat-label">我的关注</view></button>
+        <button wx:if="{{!personalMode}}" class="stat" bindtap="records" data-type="following"><view class="stat-number">{{stats.followingCount || 0}}</view><view class="stat-label">我的关注</view></button>
+        <button wx:if="{{personalMode}}" class="stat" bindtap="editProfile"><view class="stat-number">{{user.pets.length || 0}}</view><view class="stat-label">动物伙伴</view></button>
       </view>
     </view>
 
     <button class="draft-entry card {{hasDraft ? 'has-draft' : ''}}" bindtap="openDraft" aria-label="{{draftError ? '草稿箱，本机草稿暂时无法读取' : hasDraft ? '草稿箱，查看当前账号的本机草稿' : '草稿箱，记录新的日常'}}">
       <view class="draft-icon">✎</view>
       <view class="entry-copy">
-        <view class="entry-title">草稿箱 <text wx:if="{{hasDraft}}" class="draft-badge">本机记录</text></view>
+        <view class="entry-title">{{personalMode ? '随手记' : '草稿箱'}} <text wx:if="{{hasDraft}}" class="draft-badge">本机记录</text></view>
         <view class="entry-note draft-preview">{{draftError || draftPreview}}</view>
         <view wx:if="{{hasDraft && !draftError}}" class="draft-private">仅保存在当前设备</view>
       </view>
       <text class="entry-arrow">›</text>
     </button>
 
-    <view class="participation-card card">
+    <view wx:if="{{personalMode}}" class="menu card personal-places-card"><button class="menu-item" bindtap="myPlaces"><view class="entry-copy"><view class="entry-title">我的地点</view><view class="entry-note">把想去的地方收藏，把去过的地方记下</view></view><text class="entry-arrow">›</text></button></view>
+    <view wx:else class="participation-card card">
       <button class="menu-item event-entry" bindtap="records" data-type="events">
         <text class="entry-title">活动报名</text>
         <view class="entry-tail"><text>{{stats.joinedEventCount || 0}} 个报名</text><text class="entry-arrow">›</text></view>
@@ -74,14 +76,14 @@
     <view class="group-heading">账号与隐私</view>
     <view class="menu card">
       <button class="menu-item" bindtap="editProfile">
-        <view class="entry-copy"><view class="entry-title">资料与公开范围</view><view class="entry-note">{{privacySummary}}</view></view>
+        <view class="entry-copy"><view class="entry-title">{{personalMode ? '资料与宠物档案' : '资料与公开范围'}}</view><view class="entry-note">{{privacySummary}}</view></view>
         <text class="entry-arrow">›</text>
       </button>
-      <button class="menu-item" bindtap="registerIdentity">
+      <button wx:if="{{!personalMode}}" class="menu-item" bindtap="registerIdentity">
         <view class="entry-copy"><view class="entry-title">手机号核验</view><view class="entry-note">{{verificationStatus === 'unverified' ? '核验后可发布和参与互动' : verificationStatus === 'demo_verified' ? '演示标记，不代表真实手机号核验' : maskedPhone || '核验信息仅自己可见'}}</view></view>
         <view class="entry-tail"><text class="verification-state {{verificationStatus === 'unverified' ? 'needs-verification' : ''}}">{{verificationStatus === 'unverified' ? '去核验' : verificationStatus === 'demo_verified' ? '模拟核验' : '已核验'}}</text><text class="entry-arrow">›</text></view>
       </button>
-      <button class="menu-item" bindtap="blocked"><text class="entry-title">已屏蔽用户</text><text class="entry-arrow">›</text></button>
+      <button wx:if="{{!personalMode}}" class="menu-item" bindtap="blocked"><text class="entry-title">已屏蔽用户</text><text class="entry-arrow">›</text></button>
     </view>
 
     <view class="group-heading">帮助与说明</view>
@@ -90,7 +92,7 @@
       <view class="policy-links"><button bindtap="terms">用户协议</button><button bindtap="privacy">资料与隐私说明</button></view>
     </view>
 
-    <view wx:if="{{user.isAdmin}}" class="admin-card card">
+    <view wx:if="{{!personalMode && user.isAdmin}}" class="admin-card card">
       <button class="admin-heading" bindtap="toggleAdmin" aria-expanded="{{adminExpanded}}"><view class="entry-title">管理工具 <text class="admin-tag">仅管理员可见</text></view><text class="entry-arrow">{{adminExpanded ? '⌃' : '⌄'}}</text></button>
       <view wx:if="{{adminExpanded}}" class="admin-menu">
         <button class="menu-item" bindtap="manage"><text>活动管理</text><text class="entry-arrow">›</text></button>
@@ -103,7 +105,7 @@
     </view>
     <view wx:if="{{localCleanupPending}}" class="error-box cleanup-error">个人资料和内容已清除，本机草稿、照片或参照地点还未清理成功。<button class="btn btn-secondary" bindtap="clearLocalDrafts" disabled="{{busy}}">重试清理本机记录</button></view>
     <button class="delete-link" disabled="{{busy}}" bindtap="deleteAccount">清除我的资料和内容</button>
-    <view wx:if="{{mode === 'demo'}}" class="local-note">本机体验 · 资料与操作仅保存在当前设备</view>
-    <view class="me-footer">有宠有邻 <text>喜欢宠物，就在这里相遇。</text></view>
+    <view wx:if="{{personalMode || mode === 'demo'}}" class="local-note">{{personalMode ? '私人记录 · 仅保存在当前设备' : '本机体验 · 资料与操作仅保存在当前设备'}}</view>
+    <view class="me-footer">有宠有邻 <text>{{personalMode ? '记下和宠物一起的每一天。' : '喜欢宠物，就在这里相遇。'}}</text></view>
   </block>
 </view>

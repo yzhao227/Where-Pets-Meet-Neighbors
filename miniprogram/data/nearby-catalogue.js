@@ -96,6 +96,17 @@ const placeExtras = require('./nearby-places-expanded');
 const newPlaces = require('./nearby-places-20260930');
 const eventExtras = require('./nearby-events-expanded');
 const newEvents = require('./nearby-events-20260930');
+const octoberEvents = require('./nearby-events-20261001');
+const turtleExpo = require('./nearby-events-20261007');
+const acePetZone = require('./nearby-events-20261008');
+const miaoshengMuseum = require('./nearby-events-20261009');
+const britishLibraryCats = require('./nearby-events-20261010');
+const petFashionWeek = require('./nearby-events-20261012');
+const adoptionSpace = require('./nearby-places-20261013');
+const petfair2027 = require('./nearby-events-20261014');
+const maoqiuPark = require('./nearby-places-20261015');
+const kunxiuCarnival = require('./nearby-events-20261018');
+const october19Events = require('./nearby-events-20261019');
 const guides = require('./nearby-guides');
 const enrichment = require('./nearby-enrichment');
 const newEnrichment = require('./nearby-enrichment-20260930');
@@ -114,8 +125,8 @@ const baseAreas = {
   // The historical race required points, not a verified cash ticket price.
   'event-weijing-spartan-2026': { district: '闵行区', playTags: ['social'], petPlayTags: ['agility'], feeType: 'unknown' }
 };
-const allRecords = records.concat(placeExtras, newPlaces, eventExtras, newEvents).map(record => ({
+const allRecords = records.concat(placeExtras, newPlaces, eventExtras, newEvents, octoberEvents, turtleExpo, acePetZone, miaoshengMuseum, britishLibraryCats, petFashionWeek, adoptionSpace, petfair2027, maoqiuPark, kunxiuCarnival, october19Events).map(record => ({
   ...record, ...(baseAreas[record.id] || {}), ...(enrichment[record.id] || {}), ...(newEnrichment[record.id] || {})
 })).map(withSourcePhoto);
 
-module.exports = { records: allRecords, guides, region, checkedAt: '2026-09-30' };
+module.exports = { records: allRecords, guides, region, checkedAt: '2026-10-19' };

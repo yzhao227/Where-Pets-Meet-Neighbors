@@ -26,6 +26,13 @@ const app=JSON.parse(fs.readFileSync(path.join(mini,'app.json'),'utf8'));
 for(const [scope,value] of Object.entries(app.permission||{}))if(typeof value.desc!=='string'||!value.desc.trim()||Array.from(value.desc).length>30)issues.push('权限 '+scope+' 的用途说明必须为1—30字');
 const packages=app.subPackages||[];
 const project=JSON.parse(fs.readFileSync(path.join(root,'project.config.json'),'utf8'));
+const ignored=project.packOptions&&project.packOptions.ignore||[];
+function isPackaged(file){
+ const relative=path.relative(mini,file).split(path.sep).join('/');
+ return !ignored.some(entry=>entry.type==='file'?relative===entry.value:entry.type==='folder'&&(relative===entry.value||relative.startsWith(entry.value+'/')));
+}
+const packaged=all.filter(isPackaged);
+bytes=packaged.reduce((sum,file)=>sum+fs.statSync(file).size,0);
 // Packaged videos are selected from data at runtime, so WeChat's unused-file
 // pruning cannot discover them from literal WXML dependencies.
 const videoPackages=packages.filter(pkg=>/^media[2-9]?$/.test(pkg.root));
@@ -38,6 +45,12 @@ for(const pkg of videoPackages){
  if(!pkg.pages.includes('pages/index'))issues.push('视频分包 '+pkg.root+' 缺少同包播放页');
 }
 const routes=app.pages.concat(packages.flatMap(pkg=>pkg.pages.map(page=>pkg.root+'/'+page)));
+const product=require(path.join(mini,'product'));
+if(product.personalMode){
+ if(routes.some(route=>!product.PERSONAL_PAGES.includes(route)))issues.push('个人工具版包含已停用的社交页面');
+ if(app.tabBar.list.some(tab=>tab.pagePath==='pages/messages/index'))issues.push('个人工具版不可注册社交消息导航');
+ for(const route of routes)if(!isPackaged(path.join(mini,route+'.js')))issues.push('已注册页面被上传排除：'+route);
+}
 for(const page of routes)for(const ext of ['.js','.json','.wxml','.wxss'])if(!fs.existsSync(path.join(mini,page+ext)))issues.push('缺少页面文件 '+page+ext);
 for(const tab of app.tabBar.list)for(const field of ['iconPath','selectedIconPath'])if(!fs.existsSync(path.join(mini,tab[field])))issues.push('缺少导航图标 '+tab[field]);
 for(const file of walk(path.join(root,'cloudfunctions')))if(file.endsWith('.js'))try{new vm.Script(fs.readFileSync(file,'utf8'),{filename:file});}catch(error){issues.push(path.relative(root,file)+': '+error.message);}
@@ -54,7 +67,7 @@ try{
   if(new Set(collection.indexes.map(index=>index.name)).size!==collection.indexes.length)issues.push(collection.name+' 索引名称重复');
  }
 }catch(error){issues.push('基础设施配置检查失败：'+error.message);}
-const packageBytes=packages.map(pkg=>({root:pkg.root,bytes:all.filter(file=>file.startsWith(path.join(mini,pkg.root)+path.sep)).reduce((sum,file)=>sum+fs.statSync(file).size,0)}));
+const packageBytes=packages.map(pkg=>({root:pkg.root,bytes:packaged.filter(file=>file.startsWith(path.join(mini,pkg.root)+path.sep)).reduce((sum,file)=>sum+fs.statSync(file).size,0)}));
 const mainBytes=bytes-packageBytes.reduce((sum,pkg)=>sum+pkg.bytes,0);
 if(mainBytes>2*1024*1024)issues.push('小程序主包大于2 MiB，请检查主包大小');
 for(const pkg of packageBytes)if(pkg.bytes>2*1024*1024)issues.push('分包 '+pkg.root+' 大于2 MiB');

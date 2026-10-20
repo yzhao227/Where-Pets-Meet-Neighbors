@@ -7,6 +7,6 @@
       <view wx:if="{{videoWaiting && !videoError}}" class="player-buffer" role="status" aria-label="视频缓冲中"><view class="player-spinner"></view></view>
       <view wx:if="{{videoError}}" class="player-message player-failure"><text>{{videoErrorText}}</text><button bindtap="retryVideo">重新播放</button></view>
     </view>
-    <view class="player-caption"><view class="player-title">{{post.title}}</view><view class="player-author">{{post.author.nickname}}</view></view>
+    <view class="player-caption"><view class="player-title">{{post.title}}</view><view class="player-author">{{personalMode ? '有宠有邻 · 精选' : post.author.nickname}}</view></view>
   </block>
 </view>

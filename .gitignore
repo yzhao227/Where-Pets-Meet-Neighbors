@@ -21,6 +21,11 @@ infra/deployment.local.json
 /output/recovered-uploads/
 /output/brand/project.config.json
 
+# Local WeChat application drafts and account screenshots contain contact data.
+/output/wechat-privacy-0.4.1-20261014-form-draft.json
+/output/wechat-privacy-0.4.1-20261014.txt
+/output/wechat-location-permissions-2026-10-14/
+
 # Keep source evidence; omit downloaded research pages and candidate media.
 /output/nearby-source-research/**/*
 !/output/nearby-source-research/**/

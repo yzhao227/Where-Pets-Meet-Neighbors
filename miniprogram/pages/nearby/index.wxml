@@ -2,7 +2,7 @@
 <view class="page nearby-page">
   <view class="nearby-header">
     <view class="nearby-navigation">
-      <view class="nearby-tabs"><button class="nearby-tab {{tab === 'places' ? 'selected' : ''}}" data-id="places" bindtap="selectTab" aria-pressed="{{tab === 'places'}}">好去处</button><button class="nearby-tab {{tab === 'activities' ? 'selected' : ''}}" data-id="activities" bindtap="selectTab" aria-pressed="{{tab === 'activities'}}">一起玩</button><button class="nearby-tab {{tab === 'neighbors' ? 'selected' : ''}}" data-id="neighbors" bindtap="selectTab" aria-pressed="{{tab === 'neighbors'}}">附近宠友</button></view>
+      <view class="nearby-tabs"><button class="nearby-tab {{tab === 'places' ? 'selected' : ''}}" data-id="places" bindtap="selectTab" aria-pressed="{{tab === 'places'}}">好去处</button><button class="nearby-tab {{tab === 'activities' ? 'selected' : ''}}" data-id="activities" bindtap="selectTab" aria-pressed="{{tab === 'activities'}}">一起玩</button><button wx:if="{{!personalMode}}" class="nearby-tab {{tab === 'neighbors' ? 'selected' : ''}}" data-id="neighbors" bindtap="selectTab" aria-pressed="{{tab === 'neighbors'}}">附近宠友</button></view>
       <view class="nearby-nav-actions"><button wx:if="{{!searchOpen}}" class="nearby-search-toggle" bindtap="openSearch" aria-label="搜索附近"><view class="search-symbol" aria-hidden="true"></view></button><button class="nearby-controls-toggle {{controlsOpen || (tab === 'neighbors' ? neighborAreaIndex || neighborKind === 'people' || neighborPetType !== 'all' : districtIndex || (tab === 'places' && selectedArea) || sort !== 'recommended' || playTag !== 'all' || filterCount) ? 'active' : ''}}" bindtap="toggleControls" disabled="{{busy}}" aria-label="筛选与排序" aria-expanded="{{controlsOpen}}"><view class="filter-symbol" aria-hidden="true"></view><view wx:if="{{tab === 'neighbors' ? neighborAreaIndex || neighborKind === 'people' || neighborPetType !== 'all' : districtIndex || (tab === 'places' && selectedArea) || sort !== 'recommended' || playTag !== 'all' || filterCount}}" class="controls-dot" aria-hidden="true"></view></button></view>
     </view>
     <view wx:if="{{searchOpen}}" class="nearby-searchbar">
@@ -53,7 +53,7 @@
     <view wx:if="{{period === 'upcoming' && announcements.length}}" class="announcements-section"><view class="section-heading">值得期待<text>活动预告</text></view>
       <view wx:for="{{announcements}}" wx:key="id" class="local-card announcement-card" data-id="{{item.id}}" bindtap="openLocal"><view class="event-card-main"><view wx:if="{{item.photoUrl}}" class="event-visual"><image class="event-photo" src="{{item.photoUrl}}" mode="{{item.photoMode}}" binderror="photoFailed" data-id="{{item.id}}" aria-label="{{item.title + ' · ' + item.photoLabel}}"/><text class="event-photo-label">{{item.photoLabel}}</text></view><view wx:else class="date-stamp notice-stamp"><text class="stamp-month">{{item.stampYear}}</text><text class="stamp-notice">{{item.stampMonth}}</text><text class="stamp-year">日期待定</text></view><view class="event-card-info"><view class="local-card-title">{{item.title}}</view><view class="external-venue">{{item.venue || item.address}}</view><view class="notice-caption">具体日期、票务与携宠规则待公布</view></view></view><view class="event-card-bottom"><text class="external-ticket">{{item.dateLabel}}</text><text class="card-chevron">›</text></view></view>
     </view>
-    <view class="neighbours-section">
+    <view wx:if="{{!personalMode}}" class="neighbours-section">
       <button class="neighbours-heading" bindtap="toggleNeighbours">
         <view><view class="neighbours-title">邻里小聚</view><view class="neighbours-caption">平台发起的免费活动</view></view>
         <text class="neighbours-toggle">{{neighboursOpen ? '收起 −' : '展开 +'}} </text>
@@ -78,7 +78,7 @@
     </view>
     <view class="local-footnote">汇集全上海已收录的宠物活动，参与方式以主办方公告为准。</view>
   </block>
-  <block wx:else>
+  <block wx:elif="{{!personalMode && tab === 'neighbors'}}">
     <view wx:if="{{neighborKind === 'people'}}" class="neighbor-small-note">这些同好暂未展示宠物资料，也欢迎从日常认识彼此。</view>
     <view wx:if="{{neighborLoading}}" class="meetup-state">正在寻找附近的小伙伴…</view>
     <view wx:elif="{{neighborError}}" class="error-box"><view>{{neighborError}}</view><button class="btn btn-secondary" bindtap="refreshNeighbors">重新加载</button></view>
@@ -97,7 +97,7 @@
     <view wx:if="{{mode === 'demo'}}" class="local-footnote">本机体验 · 暂未连接线上宠友</view>
     <view class="local-footnote neighbor-privacy">双方开启后才显示居住约距，不公开住址。</view>
   </block>
-  <view wx:if="{{isAdmin}}" class="nearby-admin-actions"><button class="btn btn-ghost admin-link" bindtap="managePlaces" aria-label="管理地点资料">地点管理</button><button wx:if="{{tab === 'activities'}}" class="btn btn-ghost admin-link" bindtap="manage" aria-label="管理邻里活动">管理邻里活动</button></view>
+  <view wx:if="{{!personalMode && isAdmin}}" class="nearby-admin-actions"><button class="btn btn-ghost admin-link" bindtap="managePlaces" aria-label="管理地点资料">地点管理</button><button wx:if="{{tab === 'activities'}}" class="btn btn-ghost admin-link" bindtap="manage" aria-label="管理邻里活动">管理邻里活动</button></view>
 
   <view wx:if="{{controlsOpen}}" class="nearby-filter-layer browse-controls-layer">
     <view class="filter-backdrop" aria-hidden="true" bindtap="closeControls" catchtouchmove="stopPanelTap"></view>

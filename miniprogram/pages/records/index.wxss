@@ -32,3 +32,5 @@ button.remove-bookmark{font-size:21rpx;color:#94603D;background:#FFF3E6;border-r
 button.unfollow-button{font-size:22rpx;color:#66707A;border:1rpx solid #E9E5E1;background:#FAF9F7;padding:10rpx 17rpx;border-radius:15rpx;line-height:1.8;}
 .tabs-scroll{width:100%;}
 .tabs{display:inline-flex;min-width:100%;padding-bottom:2rpx;}
+
+.records-heading{gap:20rpx;align-items:center;margin-bottom:14rpx;}.records-heading .page-title{flex:1;margin-bottom:0;}.records-heading>.btn{flex-shrink:0;font-size:24rpx;padding:12rpx 18rpx;}

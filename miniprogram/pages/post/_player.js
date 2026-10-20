@@ -321,6 +321,7 @@ function createPlayer(packageRoot) {
       discardSettledFiles(this);
     },
     onShareAppMessage() {
+      if (s.personalMode) return {};
       const post = this.data.post;
       if (this.data.loading || this.data.error || !post || post.visibility !== 'public') return { title: '有宠有邻｜喜欢宠物，就在这里相遇', path: '/pages/community/index', imageUrl: '/assets/event-walk.png' };
       return { title: post ? (post.title || post.text || '看看这份宠物分享').slice(0, 45) : '有宠有邻的分享', path: '/pages/post/index?id=' + encodeURIComponent(this.id || '') };

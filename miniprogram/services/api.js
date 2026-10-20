@@ -1,4 +1,5 @@
 const { createDemoService } = require('./demo');
+const { createPersonalService } = require('./personal');
 
 function failure(code, message) {
   const error = new Error(message);
@@ -34,12 +35,15 @@ const mediaLabel = record => isVideo(record) ? '视频' : '图片';
 function createApi(platform, config, options) {
   const settings = config || { mode: 'demo' };
   const opts = options || {};
-  const demo = createDemoService(platform, options);
-  const isDemo = () => !!(platform && platform.__preview) || settings.mode !== 'cloud';
+  const personalMode = settings.productMode === 'personal';
+  const personal = personalMode ? createPersonalService(platform, options) : null;
+  const demo = personalMode ? null : createDemoService(platform, options);
+  const isDemo = () => personalMode || !!(platform && platform.__preview) || settings.mode !== 'cloud';
+  const uploadQueueKey = personalMode ? 'youchong.personalUploadQueue.v1' : UPLOAD_QUEUE_KEY;
   const clock = opts.now || Date.now;
   const pause = opts.mediaDelay || (ms => new Promise(resolve => setTimeout(resolve, ms)));
   const pollAttempts = opts.mediaPollAttempts === undefined ? 2 : Math.max(0, Math.min(5, Number(opts.mediaPollAttempts) || 0));
-  const scope = () => isDemo() ? 'demo' : 'cloud:' + (settings.cloudEnv || 'default');
+  const scope = () => personalMode ? 'personal' : isDemo() ? 'demo' : 'cloud:' + (settings.cloudEnv || 'default');
   let feedVersion = 0;
   let queueWork = Promise.resolve();
   function serializeQueue(work) {
@@ -48,13 +52,13 @@ function createApi(platform, config, options) {
 
   function readQueue() {
     if (!platform || typeof platform.getStorageSync !== 'function') throw failure('STORAGE_UNAVAILABLE', '无法读取附件草稿，请检查本机存储');
-    const saved = platform.getStorageSync(UPLOAD_QUEUE_KEY);
+    const saved = platform.getStorageSync(uploadQueueKey);
     if (!saved) return [];
     if (!saved || saved.version !== 1 || !Array.isArray(saved.items)) throw failure('STORAGE_UNAVAILABLE', '附件草稿记录无法读取，请先保留正文');
     return JSON.parse(JSON.stringify(saved.items));
   }
   function saveQueue(items) {
-    try { platform.setStorageSync(UPLOAD_QUEUE_KEY, { version: 1, items }); }
+    try { platform.setStorageSync(uploadQueueKey, { version: 1, items }); }
     catch (_) { throw failure('STORAGE_UNAVAILABLE', '附件草稿未能保存到本机，请检查存储空间'); }
   }
   function remember(record) {
@@ -63,16 +67,18 @@ function createApi(platform, config, options) {
     if (index < 0) queue.push(record); else queue[index] = record;
     saveQueue(queue);
   }
-  async function removeLocal(path, strict) {
-    if (!path || /^data:/i.test(path)) return;
+  async function removeLocal(path, strict, ownerId, referenceOptions) {
+    if (!path || /^data:/i.test(path)) return true;
+    if (personalMode && !personal.canRemoveLocalFile(path, ownerId, referenceOptions)) return false;
     try { await nativeCall(platform, 'removeSavedFile', { filePath: path }); }
     catch (error) { if (strict && !/not exist|not found|不存在/i.test(error.message || '')) throw error; }
+    return true;
   }
-  async function forgetPublished(images, video) {
+  async function forgetPublished(images, video, committedOwner) {
     const files = (Array.isArray(images) ? images : []).concat(video && (video.url || video.fileId) || []).filter(Boolean);
     if (!files.length) return;
     const queue = readQueue();
-    const published = queue.filter(item => item.scope === scope() && item.status === 'complete' && files.indexOf(item.fileId) !== -1);
+    const published = queue.filter(item => item.scope === scope() && (!personalMode || item.ownerId === committedOwner) && (item.status === 'complete' || personalMode && item.status === 'consumed') && files.indexOf(item.fileId) !== -1);
     // Demo posts display their durable local file. Keep that file until account
     // deletion; cloud posts display the approved cloud file and can drop the copy.
     if (isDemo()) { saveQueue(queue.filter(item => published.indexOf(item) === -1)); return; }
@@ -88,24 +94,43 @@ function createApi(platform, config, options) {
     saveQueue(queue.filter(item => removed.indexOf(item) === -1));
     if (incomplete) throw failure('LOCAL_CLEANUP_FAILED', '内容已发布，本机附件副本尚未清理完成');
   }
-  async function clearLocalUploads() {
-    const queue = readQueue(); const remaining = [];
+  async function clearLocalUploads(expectedOwner, clearingAccount = false) {
+    const queue = readQueue(); const remaining = []; let incomplete = false;
+    const currentOwner = personalMode ? expectedOwner || await owner(false) : null;
+    const referenceOptions = personalMode ? { excludeOwnerQueues: clearingAccount, excludeOwnerDrafts: clearingAccount,
+      excludeQueueEntries: queue.filter(item => item.ownerId === currentOwner && item.scope === scope()).map(item => ({ key: uploadQueueKey, localId: item.localId })) } : undefined;
+    if (personalMode) {
+      const discarded = queue.filter(item => item.ownerId === currentOwner && item.scope === scope());
+      discarded.forEach(item => { item.status = 'consumed'; });
+      if (discarded.length) saveQueue(queue);
+    }
     for (const item of queue) {
-      try { await removeLocal(item.localPath, true); }
-      catch (_) { remaining.push(item); }
+      if (personalMode && (item.ownerId !== currentOwner || item.scope !== scope())) { remaining.push(item); continue; }
+      try { if (!await removeLocal(item.localPath, true, currentOwner, referenceOptions)) remaining.push(item); }
+      catch (_) { remaining.push(item); incomplete = true; }
     }
     if (remaining.length) saveQueue(remaining);
-    else if (platform && typeof platform.removeStorageSync === 'function') platform.removeStorageSync(UPLOAD_QUEUE_KEY);
+    else if (platform && typeof platform.removeStorageSync === 'function') platform.removeStorageSync(uploadQueueKey);
     else saveQueue([]);
-    if (remaining.length) throw failure('LOCAL_CLEANUP_FAILED', '本机附件尚未清理完成，请重试清理');
+    if (incomplete) throw failure('LOCAL_CLEANUP_FAILED', '本机附件尚未清理完成，请重试清理');
+    if (personalMode) await personal.clearLocalFiles(currentOwner, referenceOptions);
     return { success: true };
   }
-  async function clearPrivateData() {
+  async function clearPrivateData(expectedOwner) {
     let cleanupError;
-    try { await clearLocalUploads(); } catch (error) { cleanupError = error; }
-    try { await require('./pet-photos').clearLocalPetPhotos(platform); } catch (error) { cleanupError = error; }
+    const currentOwner = personalMode ? expectedOwner || await owner(false) : null;
+    try { await clearLocalUploads(currentOwner, true); } catch (error) { cleanupError = error; }
+    try { await require('./pet-photos').clearLocalPetPhotos(platform, personalMode ? { productMode: 'personal', ownerId: currentOwner, canRemoveLocalFile: path => personal.canRemoveLocalFile(path, currentOwner, { excludeOwnerQueues: true, excludeOwnerDrafts: true }) } : undefined); } catch (error) { cleanupError = error; }
     try {
-      if (platform && typeof platform.removeStorageSync === 'function') platform.removeStorageSync('youchong.privateDrafts.v1');
+      if (personalMode) {
+        const saved = platform.getStorageSync('youchong.privateDrafts.v1');
+        if (saved) {
+          if (typeof saved !== 'object' || Array.isArray(saved)) throw failure('STORAGE_UNAVAILABLE', '本机草稿记录无法读取');
+          const drafts = JSON.parse(JSON.stringify(saved));
+          Object.keys(drafts).forEach(key => { if (key.startsWith('personal:') && key.endsWith(':' + currentOwner)) delete drafts[key]; });
+          platform.setStorageSync('youchong.privateDrafts.v1', drafts);
+        }
+      } else if (platform && typeof platform.removeStorageSync === 'function') platform.removeStorageSync('youchong.privateDrafts.v1');
       else if (platform && typeof platform.setStorageSync === 'function') platform.setStorageSync('youchong.privateDrafts.v1', {});
     } catch (error) { cleanupError = error; }
     if (cleanupError) throw cleanupError;
@@ -113,7 +138,8 @@ function createApi(platform, config, options) {
 
   async function call(action, payload) {
     let data;
-    if (isDemo()) data = await demo.call(action, payload || {});
+    if (personalMode) data = await personal.call(action, payload || {});
+    else if (isDemo()) data = await demo.call(action, payload || {});
     else {
       if (!platform || !platform.cloud || typeof platform.cloud.callFunction !== 'function') throw failure('CLOUD_UNAVAILABLE', '当前环境不支持云服务，请在微信中重试');
       let response;
@@ -127,8 +153,8 @@ function createApi(platform, config, options) {
     if (['followUser', 'blockUser', 'joinCircle', 'createPost', 'deletePost', 'setPostVisibility', 'deleteAccount', 'respondFriendRequest', 'removeFriend'].includes(action)) feedVersion += 1;
     if (action === 'createPost' || action === 'deleteAccount') {
       try {
-        if (action === 'createPost') await serializeQueue(() => forgetPublished(payload && payload.images, payload && payload.video));
-        else await serializeQueue(clearPrivateData);
+        if (action === 'createPost') await serializeQueue(() => forgetPublished(payload && payload.images, payload && payload.video, data && data.post && data.post.author && data.post.author.id));
+        else await serializeQueue(() => clearPrivateData(data && data.ownerId));
       } catch (_) {
         // The remote mutation has committed. Never turn a local cleanup error
         // into an apparent publish/delete failure that would invite a replay.
@@ -138,6 +164,10 @@ function createApi(platform, config, options) {
       if (data && data.localCleanupPending && !data.localCleanup) data = Object.assign({}, data, {
         localCleanup: { status: 'failed', message: '资料已清除，本机草稿尚未清理完成' }
       });
+    }
+    if (personalMode && ['deletePost', 'deletePet', 'setPetPhoto', 'discardPetUpload'].includes(action)) {
+      try { await personal.clearLocalFiles(data && data.ownerId); }
+      catch (_) { data = Object.assign({}, data, { localCleanupPending: true }); }
     }
     return data;
   }
@@ -169,10 +199,15 @@ function createApi(platform, config, options) {
     const boot = await call('bootstrap');
     const user = boot && boot.user;
     if (!user || !user.id) throw failure('INVALID_RESPONSE', '无法确认附件草稿所属账号');
-    if (requireVerified && (!user.verification || user.verification.status !== (isDemo() ? 'demo_verified' : 'phone_verified'))) throw failure('VERIFICATION_REQUIRED', isDemo() ? '先完成本机模拟核验，再分享图片吧' : '先完成手机号核验，再分享图片吧');
+    if (!personalMode && requireVerified && (!user.verification || user.verification.status !== (isDemo() ? 'demo_verified' : 'phone_verified'))) throw failure('VERIFICATION_REQUIRED', isDemo() ? '先完成本机模拟核验，再分享图片吧' : '先完成手机号核验，再分享图片吧');
     return user.id;
   }
   const owned = userId => readQueue().filter(item => item.ownerId === userId && item.scope === scope() && item.status !== 'consumed');
+  async function ownedSnapshot(userId, records) {
+    const selected = records || owned(userId);
+    if (personalMode && await owner(false) !== userId) throw failure('UPLOAD_OWNER_CHANGED', '本机资料已切换，附件仍保留在原资料的草稿中');
+    return snapshot(selected);
+  }
 
   function applyStatus(record, status) {
     const label = mediaLabel(record);
@@ -195,7 +230,7 @@ function createApi(platform, config, options) {
   }
 
   async function ensureVideoOwner(record) {
-    if (isVideo(record) && (record.scope !== scope() || await owner(true) !== record.ownerId)) throw failure('UPLOAD_OWNER_CHANGED', '账号已切换，视频仍保留在原账号的草稿中');
+    if ((personalMode || isVideo(record)) && (record.scope !== scope() || await owner(true) !== record.ownerId)) throw failure('UPLOAD_OWNER_CHANGED', '账号已切换，附件仍保留在原账号的草稿中');
   }
   function videoDeviceError(error, code, message) {
     if (/no such file|not exist|not found|不存在/i.test(error && error.message || '')) return failure('VIDEO_SOURCE_UNAVAILABLE', '本机视频副本已失效，请移除后重新选择');
@@ -299,11 +334,15 @@ function createApi(platform, config, options) {
 
   async function resumeUploads() {
     const userId = await owner(true);
+    if (personalMode) {
+      try { await discardUploads([]); }
+      catch (error) { if (error.code !== 'LOCAL_CLEANUP_FAILED') throw error; }
+    }
     const records = owned(userId);
     for (const record of records) await process(record);
     const video = records.find(isVideo);
     if (video) await ensureVideoOwner(video);
-    return snapshot(owned(userId));
+    return ownedSnapshot(userId);
   }
 
   async function uploadImages(count) {
@@ -312,12 +351,12 @@ function createApi(platform, config, options) {
     const existing = owned(userId);
     if (requested > 0 && existing.some(isVideo)) throw failure('MEDIA_CONFLICT', '一篇分享可添加照片或一个视频，请先移除视频');
     const limit = Math.min(requested, Math.max(0, 3 - existing.length));
-    if (!limit) return snapshot(existing);
+    if (!limit) return ownedSnapshot(userId, existing);
     let selection;
     try {
       selection = platform && typeof platform.chooseMedia === 'function' ? await nativeCall(platform, 'chooseMedia', { count: limit, mediaType: ['image'], sourceType: ['album', 'camera'], sizeType: ['compressed'] }) : await nativeCall(platform, 'chooseImage', { count: limit, sourceType: ['album', 'camera'], sizeType: ['compressed'] });
     } catch (error) {
-      if (/cancel/i.test(error.message || '')) return snapshot(owned(userId));
+      if (/cancel/i.test(error.message || '')) return ownedSnapshot(userId);
       throw failure('IMAGE_SELECTION_FAILED', '没有取得图片，请检查相册权限后重试');
     }
     const files = selection.tempFiles && selection.tempFiles.length ? selection.tempFiles.map(file => ({ path: file.tempFilePath || file.path, size: file.size })) : (selection.tempFilePaths || []).map(path => ({ path }));
@@ -335,21 +374,21 @@ function createApi(platform, config, options) {
         record.status = record.localPath ? 'retry' : 'source_missing'; record.errorCode = error.code === 'DEVICE_ERROR' ? 'IMAGE_SAVE_FAILED' : error.code || 'IMAGE_SAVE_FAILED'; record.message = error.message || '图片未能保存，请重新选择'; remember(record);
       }
     }
-    return snapshot(owned(userId));
+    return ownedSnapshot(userId);
   }
 
   async function uploadVideo(onProgress) {
     const userId = await owner(true);
     const existing = owned(userId);
     if (existing.some(item => !isVideo(item))) throw failure('MEDIA_CONFLICT', '一篇分享可添加照片或一个视频，请先移除照片');
-    if (existing.some(isVideo)) return snapshot(existing);
+    if (existing.some(isVideo)) return ownedSnapshot(userId, existing);
     let selection;
     try {
       selection = platform && typeof platform.chooseMedia === 'function'
         ? await nativeCall(platform, 'chooseMedia', { count: 1, mediaType: ['video'], sourceType: ['album', 'camera'], maxDuration: VIDEO_MAX_SECONDS, sizeType: ['compressed'] })
         : await nativeCall(platform, 'chooseVideo', { sourceType: ['album', 'camera'], compressed: true, maxDuration: VIDEO_MAX_SECONDS });
     } catch (error) {
-      if (/cancel/i.test(error.message || '')) return snapshot(owned(userId));
+      if (/cancel/i.test(error.message || '')) return ownedSnapshot(userId);
       throw failure('VIDEO_SELECTION_FAILED', '没有取得视频，请检查相册权限后重试');
     }
     const files = selection.tempFiles && selection.tempFiles.length ? selection.tempFiles : [selection];
@@ -364,25 +403,33 @@ function createApi(platform, config, options) {
     remember(record);
     await process(record, onProgress);
     await ensureVideoOwner(record);
-    return snapshot(owned(userId));
+    return ownedSnapshot(userId);
   }
 
   async function discardUploads(ticketIds) {
     if (!Array.isArray(ticketIds)) throw failure('INVALID_INPUT', '请选择要移除的附件');
     const userId = await owner(false);
     const queue = readQueue();
-    const removed = queue.filter(item => item.ownerId === userId && item.scope === scope() && (ticketIds.includes(item.ticketId) || ticketIds.includes(item.localId)));
+    const removed = queue.filter(item => item.ownerId === userId && item.scope === scope() && (ticketIds.includes(item.ticketId) || ticketIds.includes(item.localId) || personalMode && item.status === 'consumed'));
+    const referenceOptions = { excludeQueueEntries: removed.map(item => ({ key: uploadQueueKey, localId: item.localId })) };
+    if (personalMode && removed.length) {
+      // A saved draft can still reference a just-removed attachment. Retain a
+      // durable cleanup record until that draft has been successfully updated.
+      removed.forEach(item => { item.status = 'consumed'; });
+      saveQueue(queue);
+    }
     const cleared = []; let incomplete = false;
     for (const item of removed) {
-      try { await removeLocal(item.localPath, true); cleared.push(item); }
+      try { if (await removeLocal(item.localPath, true, userId, referenceOptions)) cleared.push(item); }
       catch (_) { incomplete = true; }
     }
     saveQueue(queue.filter(item => cleared.indexOf(item) === -1));
     if (incomplete) throw failure('LOCAL_CLEANUP_FAILED', '本机附件尚未移除，请检查存储后重试');
-    return snapshot(owned(userId));
+    return ownedSnapshot(userId);
   }
 
   return { call, getFeedVersion: () => feedVersion,
+    canRemoveLocalFile: (path, ownerId, options) => !personalMode || personal.canRemoveLocalFile(path, ownerId, options),
     uploadImages: count => serializeQueue(() => uploadImages(count)),
     uploadVideo: onProgress => serializeQueue(() => uploadVideo(onProgress)),
     resumeUploads: () => serializeQueue(resumeUploads),
@@ -409,5 +456,6 @@ module.exports = {
   resumeUploads: function () { return defaultApi().resumeUploads(); },
   discardUploads: function (ticketIds) { return defaultApi().discardUploads(ticketIds); },
   clearLocalUploads: function () { return defaultApi().clearLocalUploads(); },
+  canRemoveLocalFile: function (path, ownerId, options) { return defaultApi().canRemoveLocalFile(path, ownerId, options); },
   createApi
 };

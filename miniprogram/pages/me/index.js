@@ -5,6 +5,11 @@ function clearLocationReference() {
   try { nearbyLocation.clearReference(); return true; }
   catch (_) { return false; }
 }
+function clearCurrentDraft(page) {
+  if (!s.personalMode) return drafts.clearAll();
+  const user = page.data.user;
+  return !!user && drafts.clear('personal:' + page.data.mode + ':' + user.id);
+}
 function navigationSize() {
   try {
     const info = typeof wx.getWindowInfo === 'function' ? wx.getWindowInfo() : typeof wx.getSystemInfoSync === 'function' ? wx.getSystemInfoSync() : {};
@@ -58,56 +63,56 @@ s.register({
       if (!user || !user.id) return { ...emptyProfile(), mode: result.mode || '', error: '账号暂不可用，请重新进入', errorCode: 'AUTH_REQUIRED' };
       const changedAccount = this.data.user && (this.data.user.id !== user.id || this.data.mode !== result.mode);
       const verification = user.verification || { status: 'unverified' };
-      const circles = result.circles.filter(circle => circle.isJoined);
+      const circles = s.personalMode ? [] : (result.circles || []).filter(circle => circle.isJoined);
       const privacy = [user.publicProfile === true ? '主页介绍已公开' : '主页介绍仅自己可见'];
       if (user.pet) privacy.push(user.showPet === true ? '头像旁宠物名片已开启' : '头像旁宠物名片未开启');
       return Object.assign({
         mode: result.mode, user, stats: result.stats || {}, circles, circlePreview: circles.slice(0, 3),
         petLabel: user.pet ? ({ cat: '猫', dog: '狗', rabbit: '兔子', 'small-mammal': '小型哺乳动物', bird: '鸟', fish: '鱼', reptile: '爬行动物', amphibian: '两栖动物', invertebrate: '无脊椎动物', other: '其他宠物' }[user.pet.type] || user.pet.type) : '',
-        privacySummary: privacy.join(' · '),
+        privacySummary: s.personalMode ? '资料与宠物档案仅保存在这台设备' : privacy.join(' · '),
         verificationStatus: verification.status,
         verificationLabel: { phone_verified: '手机号已核验', demo_verified: '演示模拟核验完成', unverified: '尚未完成手机号核验' }[verification.status] || '尚未完成手机号核验',
         maskedPhone: verification.maskedPhone || '', contact: result.settings.contact || ''
-      }, draftSummary(result.mode + ':' + user.id), changedAccount ? { adminExpanded: false, localCleanupPending: false } : {});
+      }, draftSummary((s.personalMode ? 'personal:' : '') + result.mode + ':' + user.id), changedAccount ? { adminExpanded: false, localCleanupPending: false } : {});
     }, { retain });
   },
   openDraft() { s.go('/pages/compose/index'); },
-  exploreCircles() { s.go('/pages/circle-square/index'); },
-  toggleAdmin() { if (this.data.user && this.data.user.isAdmin) s.safe(this, { adminExpanded: !this.data.adminExpanded }); },
+  exploreCircles() { if (s.personalMode) return; s.go('/pages/circle-square/index'); },
+  toggleAdmin() { if (!s.personalMode && this.data.user && this.data.user.isAdmin) s.safe(this, { adminExpanded: !this.data.adminExpanded }); },
   clearLocalDrafts() {
     return s.action(this, async () => {
-      const cleared = drafts.clearAll();
+      const cleared = clearCurrentDraft(this);
       const referenceCleared = clearLocationReference();
       let photosCleared = true;
       try { if (s.api.clearLocalUploads) await s.api.clearLocalUploads(); } catch (_) { photosCleared = false; }
-      try { if (typeof wx.getStorageSync === 'function') await require('../../services/pet-photos').clearLocalPetPhotos(wx); } catch (_) { photosCleared = false; }
+      try { if (!s.personalMode && typeof wx.getStorageSync === 'function') await require('../../services/pet-photos').clearLocalPetPhotos(wx); } catch (_) { photosCleared = false; }
       if (this._closed) return;
       const localCleanupPending = !cleared || !photosCleared || !referenceCleared;
-      const summary = this.data.user ? draftSummary(this.data.mode + ':' + this.data.user.id) : {};
+      const summary = this.data.user ? draftSummary((s.personalMode ? 'personal:' : '') + this.data.mode + ':' + this.data.user.id) : {};
       s.safe(this, Object.assign({ localCleanupPending }, summary));
       s.toast(localCleanupPending ? '本机清理未完成，请检查存储空间' : '本机草稿、照片与参照地点已清除');
     });
   },
-  registerIdentity() { s.openVerification('me'); },
-  petStats() { s.go('/pages/petstats/index'); },
+  registerIdentity() { if (s.personalMode) return; s.openVerification('me'); },
+  petStats() { if (s.personalMode) return; s.go('/pages/petstats/index'); },
   myPlaces() { s.go('/pages/places/index'); },
-  managePlaces() { s.go('/pages/places-manage/index'); },
-  reviewSubmissions() { if (this.data.user && this.data.user.isAdmin) s.go('/social/pages/submissions-manage/index'); },
-  operations() { s.go('/pages/operations/index'); },
+  managePlaces() { if (s.personalMode) return; s.go('/pages/places-manage/index'); },
+  reviewSubmissions() { if (!s.personalMode && this.data.user && this.data.user.isAdmin) s.go('/social/pages/submissions-manage/index'); },
+  operations() { if (s.personalMode) return; s.go('/pages/operations/index'); },
   terms() { s.go('/pages/policy/index?type=terms'); },
-  publicProfile() { s.go('/pages/author/index?userId=' + this.data.user.id); },
+  publicProfile() { if (s.personalMode) return this.editProfile(); s.go('/pages/author/index?userId=' + this.data.user.id); },
   editProfile() { s.go('/pages/profile/index'); },
-  records(e) { s.go('/pages/records/index?type=' + e.currentTarget.dataset.type); },
-  openCircle(e) { s.go('/pages/circle/index?id=' + e.currentTarget.dataset.id); },
-  blocked() { s.go('/pages/blocked/index'); }, manage() { s.go('/pages/manage/index'); }, moderation() { s.go('/pages/moderation/index'); },
-  help() { wx.showModal({ title: '有问题，和我们说说', content: this.data.contact ? '运营联系方式：' + this.data.contact + '\n你也可以通过帖子、评论和活动上的举报入口提交问题。' : '你可以通过帖子、评论和活动上的举报入口提交问题。运营联系方式暂未配置。', confirmText: this.data.contact ? '复制联系信息' : '知道了', showCancel: !!this.data.contact, success: result => { if (result.confirm && this.data.contact) wx.setClipboardData({ data: this.data.contact }); } }); },
+  records(e) { const type = e.currentTarget.dataset.type; if (s.personalMode && !['posts', 'bookmarks'].includes(type)) return; s.go('/pages/records/index?type=' + type); },
+  openCircle(e) { if (s.personalMode) return; s.go('/pages/circle/index?id=' + e.currentTarget.dataset.id); },
+  blocked() { if (s.personalMode) return; s.go('/pages/blocked/index'); }, manage() { if (s.personalMode) return; s.go('/pages/manage/index'); }, moderation() { if (s.personalMode) return; s.go('/pages/moderation/index'); },
+  help() { if (s.personalMode) { const contact = this.data.contact && !/本机体验|暂未连接/.test(this.data.contact) ? this.data.contact : ''; return wx.showModal({ title: '反馈与帮助', content: contact ? '如需咨询使用问题或个人信息处理，请联系：' + contact : '资料、照片、私人记录和收藏保存在当前设备。请妥善保管手机；清理小程序数据或更换设备后，无法自动找回本机记录。', confirmText: contact ? '复制联系信息' : '知道了', showCancel: !!contact, success: result => { if (result.confirm && contact) wx.setClipboardData({ data: contact }); } }); } wx.showModal({ title: '有问题，和我们说说', content: this.data.contact ? '运营联系方式：' + this.data.contact + '\n你也可以通过帖子、评论和活动上的举报入口提交问题。' : '你可以通过帖子、评论和活动上的举报入口提交问题。运营联系方式暂未配置。', confirmText: this.data.contact ? '复制联系信息' : '知道了', showCancel: !!this.data.contact, success: result => { if (result.confirm && this.data.contact) wx.setClipboardData({ data: this.data.contact }); } }); },
   privacy() { s.go('/pages/policy/index?type=privacy'); },
   deleteAccount() {
     return s.action(this, async () => {
-      if (!await s.confirm('清除我的资料和内容？', '将删除你的公开内容与个人资料，解除圈子和活动报名关系，并清除本机草稿和参照地点。此操作不能撤销。', '确认清除')) return;
+      if (!await s.confirm('清除我的资料和内容？', s.personalMode ? '将清除本版本在这台设备保存的个人资料、宠物档案、私人记录、收藏、草稿与参照地点。历史社区版本数据仍隔离保留。此操作不能撤销。' : '将删除你的公开内容与个人资料，解除圈子和活动报名关系，并清除本机草稿和参照地点。此操作不能撤销。', '确认清除')) return;
       const result = await s.api.call('deleteAccount');
       if (!result || result.deleted !== true) throw new Error('尚未确认资料清除完成，请稍后重试');
-      const cleared = drafts.clearAll();
+      const cleared = clearCurrentDraft(this);
       const referenceCleared = clearLocationReference();
       const localCleanupPending = !cleared || !referenceCleared || !!(result.localCleanup && result.localCleanup.status === 'failed');
       if (this._closed) return;

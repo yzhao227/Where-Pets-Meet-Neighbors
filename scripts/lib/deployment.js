@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
 const { spawnSync } = require('node:child_process');
+const vm = require('node:vm');
 const ROOT = path.resolve(__dirname, '../..');
 const secretNames = ['PHONE_HASH_SECRET', 'MAINTENANCE_SECRET', 'ADMIN_OPENIDS'];
 const allowedTop = ['appName', 'version', 'wechat', 'operator', 'community', 'features', 'publicWeb'];
@@ -137,6 +138,9 @@ function contentBundleFiles(root) {
 }
 function createBundle(config, { root = ROOT, output } = {}) {
   assertShape(config);
+  const sourceSettings = { exports: {} };
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'miniprogram/config.js'), 'utf8'), { module: sourceSettings });
+  const client = clientConfiguration(config, sourceSettings.exports);
   if (!output) throw new Error('A new output directory is required');
   const target = path.resolve(output);
   if (fs.existsSync(target)) throw new Error('发布包目录已存在；请使用新的目录，避免覆盖旧结果');
@@ -162,8 +166,8 @@ function createBundle(config, { root = ROOT, output } = {}) {
   project.appid = config.wechat.appid || 'touristappid';
   project.description = '有宠有邻 ' + config.version + ' · 微信部署候选包';
   fs.writeFileSync(path.join(target, 'project.config.json'), JSON.stringify(project, null, 2) + '\n');
-  fs.writeFileSync(path.join(target, 'miniprogram/config.js'), '// Public settings only. Secrets belong in the cloud environment.\nmodule.exports = ' + JSON.stringify({ appName: config.appName, mode: 'cloud', cloudEnv: config.wechat.cloudEnv || '', publicWeb: config.publicWeb || { enabled: false, businessDomains: [] } }, null, 2) + ';\n');
-  const instructions = { environment: runtimeEnvironment(config), secretEnvironmentNames: secretNames.concat(config.features.imageReviewMode === 'async' ? ['MEDIA_CALLBACK_TOKEN', 'MEDIA_CALLBACK_ENCODING_AES_KEY'] : []),
+  fs.writeFileSync(path.join(target, 'miniprogram/config.js'), '// Public settings only. Preserve the source product scope.\nmodule.exports = ' + JSON.stringify(client, null, 2) + ';\n');
+  const instructions = client.productMode === 'personal' ? { environment: {}, secretEnvironmentNames: [], requiredActions: ['本版本为个人工具，无需部署云端社区服务', '完成本机私人记录、附件保存和导航检查', '按实际功能核实类目后提审'] } : { environment: runtimeEnvironment(config), secretEnvironmentNames: secretNames.concat(config.features.imageReviewMode === 'async' ? ['MEDIA_CALLBACK_TOKEN', 'MEDIA_CALLBACK_ENCODING_AES_KEY'] : []),
     communityInitialization: { action: 'initialize', payload: config.community },
     requiredActions: ['先创建全部空集合，再逐个设置拒绝客户端读写规则及索引', '验证真实数据库及存储权限后，才能将 DATABASE_RULES_CONFIRMED 改为 true', '机密字段只在服务端配置，不写入小程序', '上传云函数后验证微信能力与两账号完整流程'] };
   fs.writeFileSync(path.join(target, 'infra/cloud-settings.json'), JSON.stringify(instructions, null, 2) + '\n');
@@ -172,6 +176,10 @@ function createBundle(config, { root = ROOT, output } = {}) {
     checksPassed: false, wechatVerified: false, files: inventory(target) };
   fs.writeFileSync(path.join(target, 'release-manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
   return { directory: target, manifest };
+}
+function clientConfiguration(config, source) {
+  if (source.productMode === 'personal') return { appName: config.appName, productMode: 'personal', mode: 'demo', cloudEnv: '', publicWeb: { enabled: false, businessDomains: [] } };
+  return { appName: config.appName, mode: 'cloud', cloudEnv: config.wechat.cloudEnv || '', publicWeb: config.publicWeb || { enabled: false, businessDomains: [] } };
 }
 function verifyBundle(directory) {
   const manifest = JSON.parse(fs.readFileSync(path.join(directory, 'release-manifest.json'), 'utf8'));
@@ -207,4 +215,4 @@ async function uploadBundle(directory, { ci, privateKeyPath, preview = false } =
   }
   return ci.upload({ ...args, version: manifest.version });
 }
-module.exports = { ROOT, readConfig, validate, runtimeEnvironment, createBundle, inventory, verifyBundle, checkBundle, uploadBundle };
+module.exports = { ROOT, readConfig, validate, runtimeEnvironment, createBundle, clientConfiguration, inventory, verifyBundle, checkBundle, uploadBundle };

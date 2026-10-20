@@ -17,10 +17,10 @@ s.register({
       const boot = await s.api.call('bootstrap'); const user = boot.user;
       const areas = ['暂不填写'].concat(boot.settings.areas || []);
       if (user.area && !areas.includes(user.area)) areas.push(user.area);
-      const neighborVisible = user.neighborVisible === true;
+      const neighborVisible = !s.personalMode && user.neighborVisible === true;
       let pending = [], petPhotoError = '';
       try { pending = await this.photoClient().pending(); } catch (error) { petPhotoError = error.message || '待处理宠物照片暂时无法读取'; }
-      return { mode: boot.mode, publicProfile: user.publicProfile === true, showPet: user.showPet === true, avatar: user.avatar || '/assets/avatar-1.png', nickname: user.nickname || '', bio: user.bio || '', areas, areaIndex: Math.max(0, areas.indexOf(user.area)), hasPet: !!user.pet, petName: user.pet ? user.pet.name : '', petTypeIndex: user.pet ? Math.max(0, petTypes.findIndex(t => t.id === user.pet.type)) : 0,
+      return { mode: boot.mode, publicProfile: !s.personalMode && user.publicProfile === true, showPet: !s.personalMode && user.showPet === true, avatar: user.avatar || '/assets/avatar-1.png', nickname: user.nickname || '', bio: user.bio || '', areas, areaIndex: Math.max(0, areas.indexOf(user.area)), hasPet: !!user.pet, petName: user.pet ? user.pet.name : '', petTypeIndex: user.pet ? Math.max(0, petTypes.findIndex(t => t.id === user.pet.type)) : 0,
         pets: petRows(petData.list(user), pending), petPhotoError, today: petData.today(),
         neighborVisible, neighborAreaIndex: Math.max(0, neighborAreaChoices.findIndex(area => area.id === user.neighborAreaId)),
         residenceSharing: neighborVisible && user.residenceSharing === true,
@@ -68,7 +68,7 @@ s.register({
   deletePet(e) {
     const petId = e.currentTarget.dataset.id;
     return s.action(this, async () => {
-      if (!await s.confirm('移除这份宠物资料？', '会移除这只宠物的资料和专用照片，其他宠物与分享不受影响。', '移除')) return;
+      if (!await s.confirm('移除这份宠物资料？', s.personalMode ? '会移除这只宠物的资料和专用照片，其他宠物与私人记录不受影响。' : '会移除这只宠物的资料和专用照片，其他宠物与分享不受影响。', '移除')) return;
       const result = await s.api.call('deletePet', { petId });
       try { await this.photoClient().discard(petId); } catch (_) { /* Account cleanup can retry residual local copies. */ }
       await this.applyPets(result); s.toast(result.cleanupPending ? '资料已移除，照片清理将继续重试' : '宠物资料已移除');
@@ -84,26 +84,27 @@ s.register({
       } finally { await this.applyPets(await s.api.call('listPets')); }
     });
   },
-  petDisplayState(e) { if (!this.data.busy && this.data.hasPet) s.safe(this, { showPet: e.currentTarget.dataset.value === 'yes' }); },
-  privacyState(e) { if (!this.data.busy) s.safe(this, { publicProfile: e.currentTarget.dataset.value === 'public' }); },
+  petDisplayState(e) { if (!s.personalMode && !this.data.busy && this.data.hasPet) s.safe(this, { showPet: e.currentTarget.dataset.value === 'yes' }); },
+  privacyState(e) { if (!s.personalMode && !this.data.busy) s.safe(this, { publicProfile: e.currentTarget.dataset.value === 'public' }); },
   neighborState(e) {
-    if (this.data.busy) return;
+    if (s.personalMode || this.data.busy) return;
     const neighborVisible = e.currentTarget.dataset.value === 'yes';
     this._residenceRequest = (this._residenceRequest || 0) + 1;
     s.safe(this, { neighborVisible, ...(!neighborVisible ? { residenceSharing: false, residenceCell: null } : {}) });
   },
   selectNeighborArea(e) {
+    if (s.personalMode) return;
     const index = Number(e.detail.value);
     if (!this.data.busy && Number.isInteger(index) && index >= 0 && index < neighborAreaChoices.length) s.safe(this, { neighborAreaIndex: index });
   },
   residenceState(e) {
-    if (this.data.busy || !this.data.neighborVisible) return;
+    if (s.personalMode || this.data.busy || !this.data.neighborVisible) return;
     const residenceSharing = e.currentTarget.dataset.value === 'yes';
     this._residenceRequest = (this._residenceRequest || 0) + 1;
     s.safe(this, { residenceSharing, ...(!residenceSharing ? { residenceCell: null } : {}) });
   },
   chooseResidence() {
-    if (!this.data.neighborVisible || !this.data.residenceSharing || this.data.loading) return;
+    if (s.personalMode || !this.data.neighborVisible || !this.data.residenceSharing || this.data.loading) return;
     return s.action(this, async () => {
       if (wx.__preview || typeof wx.chooseLocation !== 'function') return s.toast('请在微信小程序中手选居住位置，浏览器预览暂不支持');
       const request = this._residenceRequest = (this._residenceRequest || 0) + 1;
@@ -129,6 +130,14 @@ s.register({
       const nickname = this.data.nickname.trim();
       if (!nickname) return s.toast('给自己起一个昵称吧');
       if (this._legacyPetEdited && this.data.hasPet && !this.data.petName.trim()) return s.toast('填写宠物名字，或选择暂不填写宠物');
+      if (s.personalMode) {
+        const payload = { nickname, bio: this.data.bio.trim(), area: this.data.areaIndex ? this.data.areas[this.data.areaIndex] : '',
+          ...(this._legacyPetEdited ? { pet: this.data.hasPet ? { name: this.data.petName.trim(), type: petTypes[this.data.petTypeIndex].id } : null } : {}) };
+        await s.api.call('updateProfile', payload);
+        this._legacyPetEdited = false;
+        if (!this._closed) { s.toast('私人资料已保存'); s.back(); }
+        return;
+      }
       const neighborAreaId = neighborAreaChoices[this.data.neighborAreaIndex] && neighborAreaChoices[this.data.neighborAreaIndex].id || '';
       if (this.data.neighborVisible && !neighborAreaId) return s.toast('选择一个愿意公开的活动片区');
       const residenceSharing = this.data.neighborVisible && this.data.residenceSharing;

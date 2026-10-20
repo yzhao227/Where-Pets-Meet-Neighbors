@@ -42,6 +42,53 @@ test('repeated attribution strings share source literals while nested objects an
   assert.deepEqual(posts, snapshot);
 });
 
+test('future builds pool repeated flat image credits only when smaller and retain independent nested and unrelated data', () => {
+  const credit = JSON.parse('{"imageUrl":"https://example.invalid/shared.jpg","author":"共同作者","licenseName":"CC BY 4.0","attribution":"完整保留原作者、出处及授权声明","__proto__":"own credit value","enabled":false,"edition":0,"note":null}');
+  const nested = { ...credit, details: { attribution: 'nested details' }, revisions: ['original'] };
+  const posts = Array.from({ length: 12 }, (_, index) => ({
+    id: 'flat-credit-' + index,
+    imageCredits: [{ ...credit }, structuredClone(nested)],
+    source: { ...credit },
+    metadata: { imageCredits: [{ ...credit }] }
+  }));
+  const snapshot = plain(posts);
+  const source = serializeCatalog(posts, 'fixture-credit-pool');
+  const output = evaluate(source).exports;
+  assert.deepEqual(plain(output), { CURATED_POSTS: snapshot, CATALOG_VERSION: 'fixture-credit-pool' });
+  assert.match(source, /const creditFacts=/, 'normal catalogue builds retain flat-credit compaction');
+  assert.equal(source, serializeCatalog(plain(output.CURATED_POSTS), output.CATALOG_VERSION), 'rebuilding exported data is deterministic');
+
+  // An equally sized field name keeps the same data and string frequencies but
+  // is outside imageCredits, so it provides an unpooled size control.
+  const unrelated = posts.map(post => Object.fromEntries(Object.entries(post).map(([key, value]) => [key === 'imageCredits' ? 'otherCredits' : key, value])));
+  const unpooled = serializeCatalog(unrelated, 'fixture-credit-pool');
+  assert.doesNotMatch(unpooled, /const creditFacts=/, 'unrelated objects are never pooled');
+  assert.ok(Buffer.byteLength(source) < Buffer.byteLength(unpooled), 'credit pooling saves bytes beyond the existing string pool');
+
+  const [first, second] = output.CURATED_POSTS;
+  assert.equal(Object.hasOwn(first.imageCredits[0], '__proto__'), true);
+  assert.equal(first.imageCredits[0].__proto__, 'own credit value');
+  assert.equal(Object.hasOwn(first.source, '__proto__'), true);
+  first.imageCredits[0].author = 'edited first credit';
+  first.imageCredits[1].details.attribution = 'edited nested detail';
+  first.imageCredits[1].revisions.push('edited revision');
+  first.source.author = 'edited first source';
+  first.metadata.imageCredits[0].author = 'edited nested credit';
+  assert.equal(second.imageCredits[0].author, credit.author);
+  assert.equal(second.imageCredits[1].details.attribution, nested.details.attribution);
+  assert.deepEqual(Array.from(second.imageCredits[1].revisions), ['original']);
+  assert.equal(second.source.author, credit.author);
+  assert.equal(second.metadata.imageCredits[0].author, credit.author);
+  assert.equal(first.source.__proto__, 'own credit value');
+  assert.deepEqual(posts, snapshot, 'pooling does not mutate caller data');
+
+  const tiny = serializeCatalog([{ imageCredits: [{ x: 0 }, { x: 0 }] }], 'v');
+  assert.doesNotMatch(tiny, /const creditFacts=/, 'small duplicate objects cannot justify pool overhead');
+  const ownKey = evaluate(serializeCatalog([JSON.parse('{"__proto__":null}')], 'v')).exports.CURATED_POSTS[0];
+  assert.equal(Object.hasOwn(ownKey, '__proto__'), true, 'the smallest unpooled fallback also preserves own prototype-shaped keys');
+  assert.equal(ownKey.__proto__, null);
+});
+
 test('quotes, backslashes, code-shaped strings and non-identifier keys remain inert JSON data', () => {
   const value = '测试 \\ "\n\t ; globalThis.catalogueInjected = true; // 🐾';
   const posts = [

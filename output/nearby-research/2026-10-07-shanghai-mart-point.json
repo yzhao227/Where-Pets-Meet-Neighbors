@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-10-07",
+  "checkedAtPrecision": "day",
+  "name": "上海世贸展馆",
+  "sourceUrl": "https://lbs.qq.com/getPoint/",
+  "queries": ["上海世贸展馆", "上海世贸商城"],
+  "addressShown": "上海市长宁区虹桥街道兴义路99号",
+  "sourcePoiId": "17634029702746255087",
+  "sourceCoordinate": {
+    "latitude": 31.202037,
+    "longitude": 121.400755,
+    "coordinateSystem": "gcj02"
+  },
+  "coordinateConvention": "腾讯官方坐标拾取器的坐标字段按纬度、经度显示，采用其GCJ-02坐标，未转换或估算。",
+  "precision": "venue",
+  "entranceVerified": false,
+  "evidenceCollection": "实际打开腾讯官方拾取器。检索后右侧地点标题为上海世贸展馆，坐标31.202037,121.400755，地址为兴义路99号，与商务委展馆介绍匹配。地图是场馆参照，不代表当次展会入口。",
+  "notes": [
+    "查询初次返回暂无数据，随后页面出现上述上海世贸展馆地点卡；采用可见地点卡字段，不采用西北一门或停车库候选。",
+    "地点卡所列场馆电话未当作已核实的展会票务联系方式。",
+    "本地详情点击地图导航后打开腾讯地图，URL传入相同经纬度、场馆名称和公开地址；未声称完成微信真机导航验证。"
+  ]
+}

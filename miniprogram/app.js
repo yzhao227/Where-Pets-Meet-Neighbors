@@ -1,9 +1,10 @@
 const config = require('./config');
+const { personalMode } = require('./product');
 
 App({
-  globalData: { mode: config.mode, isDemo: config.mode === 'demo', user: null, settings: null },
+  globalData: { productMode: config.productMode, personalMode, mode: config.mode, isDemo: personalMode || config.mode === 'demo', user: null, settings: null },
   onLaunch() {
-    const demo = config.mode !== 'cloud' || wx.__preview === true;
+    const demo = personalMode || config.mode !== 'cloud' || wx.__preview === true;
     this.globalData.mode = demo ? 'demo' : 'cloud';
     this.globalData.isDemo = demo;
     if (!demo && wx.cloud && config.cloudEnv) {
@@ -12,6 +13,10 @@ App({
   },
   onShow() {
     require('./services/devtools-tabbar').refresh(wx);
+  },
+  onPageNotFound() {
+    // Legacy social shares cannot reopen retired pages in the personal build.
+    wx.switchTab({ url: '/pages/community/index' });
   },
   async bootstrap() {
     const data = await require('./services/api').call('bootstrap');

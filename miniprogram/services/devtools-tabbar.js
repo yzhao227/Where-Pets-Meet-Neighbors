@@ -1,6 +1,6 @@
 // DevTools 2.02 can render its native tab bar before its image server URL is
 // ready. Read the same packaged icons directly; phones keep app.json paths.
-const names = ['community', 'nearby', 'messages', 'me'];
+const names = require('../product').personalMode ? ['community', 'nearby', 'me'] : ['community', 'nearby', 'messages', 'me'];
 
 async function refresh(platform) {
   if (!platform || platform.__preview || typeof platform.setTabBarItem !== 'function') return false;

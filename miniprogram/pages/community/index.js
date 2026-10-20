@@ -28,7 +28,7 @@ function navigationSize() {
   } catch (_) { return { statusBarHeight: 0, navigationHeight: 44, navigationInset: 96 }; }
 }
 s.register({
-  data: { loading: true, error: '', mode: '', statusBarHeight: 0, navigationHeight: 44, navigationInset: 96, circles: [], joinedCircles: [], posts: [], postColumns: [], feed: 'discover', topic: '', topics, selectedCircle: '', animalType: '', animalFilterLabel: '动物筛选', animalFilterTitle: '动物', animalChoices: [{ id: '', name: '全部动物' }].concat(animals.TYPES, [{ id: 'unclassified', name: '未标注' }]), excludedAnimalTypes: [], hiddenChoices: animals.choices([]), animalFiltersOpen: false, topicsOpen: false, preferenceError: '', searchFocused: false, searchInput: '', query: '', nextCursor: null, waitingForCovers: false, moreBusy: false, busy: false, feeds: [{ id: 'discover', name: '发现' }, { id: 'following', name: '关注' }, { id: 'circles', name: '圈子' }] },
+  data: { loading: true, error: '', mode: '', statusBarHeight: 0, navigationHeight: 44, navigationInset: 96, circles: [], joinedCircles: [], posts: [], postColumns: [], feed: 'discover', topic: '', topics, selectedCircle: '', animalType: '', animalFilterLabel: '动物筛选', animalFilterTitle: '动物', animalChoices: [{ id: '', name: '全部动物' }].concat(animals.TYPES, [{ id: 'unclassified', name: '未标注' }]), excludedAnimalTypes: [], hiddenChoices: animals.choices([]), animalFiltersOpen: false, topicsOpen: false, preferenceError: '', searchFocused: false, searchInput: '', query: '', nextCursor: null, waitingForCovers: false, moreBusy: false, busy: false, feeds: s.personalMode ? [{ id: 'discover', name: '精选' }] : [{ id: 'discover', name: '发现' }, { id: 'following', name: '关注' }, { id: 'circles', name: '圈子' }] },
   onLoad() { this._covers = new Map(); this._coverAttempt = 0; this._columnById = new Map(); const saved = preferences.read(wx); s.safe(this, Object.assign(navigationSize(), { excludedAnimalTypes: saved.excludedAnimalTypes, hiddenChoices: animals.choices(saved.excludedAnimalTypes), animalFilterTitle: animalFilterTitle(''), animalFilterLabel: animalFilterLabel('', saved.excludedAnimalTypes), preferenceError: saved.error })); return this.refresh(); },
   onShow() { if (this._loaded) return this.data.error ? this.refresh() : this.resume(); },
   onHide() {
@@ -62,7 +62,7 @@ s.register({
     this.cancelCoverWait();
     return this.loadMore();
   },
-  parameters(cursor) { return { feed: this.data.feed, topic: this.data.topic || undefined, query: this.data.query || undefined, circleId: this.data.selectedCircle || undefined, animalType: this.data.animalType || undefined, excludedAnimalTypes: this.data.excludedAnimalTypes, cursor }; },
+  parameters(cursor) { return { feed: s.personalMode ? 'discover' : this.data.feed, topic: this.data.topic || undefined, query: this.data.query || undefined, circleId: s.personalMode ? undefined : this.data.selectedCircle || undefined, animalType: this.data.animalType || undefined, excludedAnimalTypes: this.data.excludedAnimalTypes, cursor }; },
   preparePost(item) {
     const post = s.post(item);
     if (!this._covers) this._covers = new Map();
@@ -108,7 +108,7 @@ s.register({
     const boot = bootResult.value;
     if (boot) {
       if (this.data.mode !== boot.mode || this.data.user && boot.user && this.data.user.id !== boot.user.id) return this.refresh();
-      s.safe(this, { mode: boot.mode, user: boot.user, circles: boot.circles, joinedCircles: boot.circles.filter(circle => circle.isJoined) });
+      s.safe(this, { mode: boot.mode, user: boot.user, circles: s.personalMode ? [] : boot.circles || [], joinedCircles: s.personalMode ? [] : (boot.circles || []).filter(circle => circle.isJoined) });
     }
     if (postResult.value && postResult.value.post) {
       this.setPosts(this.data.posts.map(item => item.id === postId ? this.preparePost(postResult.value.post) : item));
@@ -133,16 +133,16 @@ s.register({
       if (key !== this._columnKey) { this._columnKey = key; this._columnById = new Map(); }
       const posts = result.items.map(item => this.preparePost(item));
       this._feedVersion = feedVersion;
-      return { mode: boot.mode, user: boot.user, circles: boot.circles, joinedCircles: boot.circles.filter(circle => circle.isJoined), posts, postColumns: this.columnsFor(posts), nextCursor: result.nextCursor || null };
+      return { mode: boot.mode, user: boot.user, circles: s.personalMode ? [] : boot.circles || [], joinedCircles: s.personalMode ? [] : (boot.circles || []).filter(circle => circle.isJoined), posts, postColumns: this.columnsFor(posts), nextCursor: result.nextCursor || null };
     }).then(() => {
       if (this._closed || version !== this._refreshVersion || this.data.error) return;
       if (this._feedVersion !== s.api.getFeedVersion()) return this.refresh();
       if (!this.data.posts.length && this.data.nextCursor) return this.loadMore();
     });
   },
-  selectFeed(e) { s.safe(this, { feed: e.currentTarget.dataset.id, selectedCircle: '' }); this.refresh(); },
-  selectCircle(e) { s.safe(this, { selectedCircle: e.currentTarget.dataset.id }); this.refresh(); },
-  selectTopic(e) { const topic = e.currentTarget.dataset.topic || ''; s.safe(this, { topic: topic === this.data.topic ? '' : topic }); this.refresh(); },
+  selectFeed(e) { if (s.personalMode) return; s.safe(this, { feed: e.currentTarget.dataset.id, selectedCircle: '' }); this.refresh(); },
+  selectCircle(e) { if (s.personalMode) return; s.safe(this, { selectedCircle: e.currentTarget.dataset.id }); this.refresh(); },
+  selectTopic(e) { const topic = e.currentTarget.dataset.topic || ''; s.safe(this, { topic: topic === this.data.topic ? '' : topic }); return this.refresh(); },
   toggleAnimalFilters() { s.safe(this, { animalFiltersOpen: !this.data.animalFiltersOpen, searchFocused: false, topicsOpen: false }); },
   closeAnimalFilters() { s.safe(this, { animalFiltersOpen: false }); },
   stopTouch() {},
@@ -196,13 +196,13 @@ s.register({
       else throw error;
     }
   }); },
-  openCircle(e) { s.go('/pages/circle/index?id=' + e.currentTarget.dataset.id); },
+  openCircle(e) { if (s.personalMode) return; s.go('/pages/circle/index?id=' + e.currentTarget.dataset.id); },
   openPost(e) { this._resumePostId = e.currentTarget.dataset.id; s.go('/pages/post/index?id=' + this._resumePostId); },
   openPlace(e) { s.go('/pages/local-detail/index?id=' + e.currentTarget.dataset.id); },
-  openAuthor(e) { s.go('/pages/author/index?userId=' + e.currentTarget.dataset.id); },
-  openEvent(e) { s.go('/pages/event/index?id=' + e.currentTarget.dataset.id); },
-  compose() { s.go('/pages/compose/index' + (this.data.selectedCircle ? '?circleId=' + this.data.selectedCircle : '')); },
-  like(e) { return s.action(this, async () => {
+  openAuthor(e) { if (s.personalMode) return; s.go('/pages/author/index?userId=' + e.currentTarget.dataset.id); },
+  openEvent(e) { if (s.personalMode) return; s.go('/pages/event/index?id=' + e.currentTarget.dataset.id); },
+  compose() { if (s.personalMode) return; s.go('/pages/compose/index' + (this.data.selectedCircle ? '?circleId=' + this.data.selectedCircle : '')); },
+  like(e) { if (s.personalMode) return; return s.action(this, async () => {
     const item = this.data.posts.find(post => post.id === e.currentTarget.dataset.id);
     if (!item) return;
     this._resumeRequest = (this._resumeRequest || 0) + 1;
@@ -230,5 +230,5 @@ s.register({
       }
     } finally { if (this._moreTask === task) this._moreTask = null; }
   },
-  onShareAppMessage() { return { title: '有宠有邻｜喜欢宠物，就在这里相遇', path: '/pages/community/index' }; }
+  onShareAppMessage() { if (s.personalMode) return {}; return { title: '有宠有邻｜喜欢宠物，就在这里相遇', path: '/pages/community/index' }; }
 });
