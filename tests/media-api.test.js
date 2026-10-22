@@ -170,7 +170,7 @@ test('failed explicit image removal retains its queue record so cleanup can be r
 });
 
 test('account deletion clears text and photo drafts without needing a fresh verified identity', async () => {
-  const f = fixture(); const api = f.api(); await api.uploadImages(1); f.data.set(draftKey, { private: 'draft text' });
+  const f = fixture(); const api = f.api(); await api.uploadImages(1); f.data.set(draftKey, { 'cloud:user-1': { version: 1, text: 'draft text' } });
   f.state.deleteHook = async () => { f.state.verified = false; return { deleted: true }; };
   const result = await api.call('deleteAccount');
   assert.equal(result.deleted, true); assert.equal(result.localCleanup, undefined);
@@ -178,7 +178,7 @@ test('account deletion clears text and photo drafts without needing a fresh veri
 });
 
 test('local file cleanup can be retried after successful account deletion without deleting the account twice', async () => {
-  const f = fixture(); const api = f.api(); await api.uploadImages(1); f.data.set(draftKey, { private: 'draft text' }); f.state.failRemoves = true;
+  const f = fixture(); const api = f.api(); await api.uploadImages(1); f.data.set(draftKey, { 'cloud:user-1': { version: 1, text: 'draft text' } }); f.state.failRemoves = true;
   const result = await api.call('deleteAccount');
   assert.equal(result.deleted, true); assert.equal(result.localCleanup.status, 'failed');
   assert.equal(f.data.get(queueKey).items.length, 1); assert.equal(f.data.has(draftKey), false);

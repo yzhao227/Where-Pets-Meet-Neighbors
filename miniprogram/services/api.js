@@ -1,5 +1,6 @@
 const { createDemoService } = require('./demo');
-const { createPersonalService } = require('./personal');
+const { createPersonalService, personalFileReferenced, clearCommunityDrafts } = require('./personal');
+const contentPolicy = require('../data/content-policy');
 
 function failure(code, message) {
   const error = new Error(message);
@@ -27,16 +28,15 @@ function imageExtension(filePath) {
 }
 
 const UPLOAD_QUEUE_KEY = 'youchong.uploadQueue.v1';
-const VIDEO_MAX_BYTES = 20 * 1024 * 1024;
-const VIDEO_MAX_SECONDS = 60;
-const isVideo = record => record.mediaType === 'video';
-const mediaLabel = record => isVideo(record) ? '视频' : '图片';
+const isVideo = contentPolicy.isVideoUpload;
+const mediaLabel = () => '图片';
 
 function createApi(platform, config, options) {
   const settings = config || { mode: 'demo' };
   const opts = options || {};
   const personalMode = settings.productMode === 'personal';
   const personal = personalMode ? createPersonalService(platform, options) : null;
+  const privateLibrary = personal || createPersonalService(platform, options);
   const demo = personalMode ? null : createDemoService(platform, options);
   const isDemo = () => personalMode || !!(platform && platform.__preview) || settings.mode !== 'cloud';
   const uploadQueueKey = personalMode ? 'youchong.personalUploadQueue.v1' : UPLOAD_QUEUE_KEY;
@@ -70,6 +70,7 @@ function createApi(platform, config, options) {
   async function removeLocal(path, strict, ownerId, referenceOptions) {
     if (!path || /^data:/i.test(path)) return true;
     if (personalMode && !personal.canRemoveLocalFile(path, ownerId, referenceOptions)) return false;
+    if (!personalMode && personalFileReferenced(platform, path, { ...opts, throwOnReadError: true })) return true;
     try { await nativeCall(platform, 'removeSavedFile', { filePath: path }); }
     catch (error) { if (strict && !/not exist|not found|不存在/i.test(error.message || '')) throw error; }
     return true;
@@ -96,7 +97,7 @@ function createApi(platform, config, options) {
   }
   async function clearLocalUploads(expectedOwner, clearingAccount = false) {
     const queue = readQueue(); const remaining = []; let incomplete = false;
-    const currentOwner = personalMode ? expectedOwner || await owner(false) : null;
+    const currentOwner = expectedOwner || await owner(false);
     const referenceOptions = personalMode ? { excludeOwnerQueues: clearingAccount, excludeOwnerDrafts: clearingAccount,
       excludeQueueEntries: queue.filter(item => item.ownerId === currentOwner && item.scope === scope()).map(item => ({ key: uploadQueueKey, localId: item.localId })) } : undefined;
     if (personalMode) {
@@ -105,7 +106,7 @@ function createApi(platform, config, options) {
       if (discarded.length) saveQueue(queue);
     }
     for (const item of queue) {
-      if (personalMode && (item.ownerId !== currentOwner || item.scope !== scope())) { remaining.push(item); continue; }
+      if (item.ownerId !== currentOwner || item.scope !== scope()) { remaining.push(item); continue; }
       try { if (!await removeLocal(item.localPath, true, currentOwner, referenceOptions)) remaining.push(item); }
       catch (_) { remaining.push(item); incomplete = true; }
     }
@@ -118,9 +119,9 @@ function createApi(platform, config, options) {
   }
   async function clearPrivateData(expectedOwner) {
     let cleanupError;
-    const currentOwner = personalMode ? expectedOwner || await owner(false) : null;
+    const currentOwner = expectedOwner || await owner(false);
     try { await clearLocalUploads(currentOwner, true); } catch (error) { cleanupError = error; }
-    try { await require('./pet-photos').clearLocalPetPhotos(platform, personalMode ? { productMode: 'personal', ownerId: currentOwner, canRemoveLocalFile: path => personal.canRemoveLocalFile(path, currentOwner, { excludeOwnerQueues: true, excludeOwnerDrafts: true }) } : undefined); } catch (error) { cleanupError = error; }
+    try { await require('./pet-photos').clearLocalPetPhotos(platform, personalMode ? { productMode: 'personal', ownerId: currentOwner, canRemoveLocalFile: path => personal.canRemoveLocalFile(path, currentOwner, { excludeOwnerQueues: true, excludeOwnerDrafts: true }) } : { ...opts, ownerId: currentOwner, scope: scope() }); } catch (error) { cleanupError = error; }
     try {
       if (personalMode) {
         const saved = platform.getStorageSync('youchong.privateDrafts.v1');
@@ -130,13 +131,12 @@ function createApi(platform, config, options) {
           Object.keys(drafts).forEach(key => { if (key.startsWith('personal:') && key.endsWith(':' + currentOwner)) delete drafts[key]; });
           platform.setStorageSync('youchong.privateDrafts.v1', drafts);
         }
-      } else if (platform && typeof platform.removeStorageSync === 'function') platform.removeStorageSync('youchong.privateDrafts.v1');
-      else if (platform && typeof platform.setStorageSync === 'function') platform.setStorageSync('youchong.privateDrafts.v1', {});
+      } else clearCommunityDrafts(platform, currentOwner, isDemo() ? 'demo' : 'cloud');
     } catch (error) { cleanupError = error; }
     if (cleanupError) throw cleanupError;
   }
 
-  async function call(action, payload) {
+  async function request(action, payload) {
     let data;
     if (personalMode) data = await personal.call(action, payload || {});
     else if (isDemo()) data = await demo.call(action, payload || {});
@@ -150,11 +150,60 @@ function createApi(platform, config, options) {
       if (!envelope.ok) throw failure(envelope.error && envelope.error.code || 'SERVICE_ERROR', envelope.error && envelope.error.message || '操作失败，请稍后重试');
       data = envelope.data;
     }
+    return data;
+  }
+
+  async function visibleResponse(action, payload, response) {
+    const field = ['listPosts', 'listMessages'].includes(action) ? 'items' : ['getCircle', 'getUserProfile'].includes(action) ? 'posts' : '';
+    const visited = new Set([payload && payload.cursor || '']);
+    const messageTargets = new Map();
+    let hiddenMessages = false;
+    async function visibleMessage(item) {
+      if (!item || contentPolicy.isVideoPost(item) || contentPolicy.isVideoPost(item.post)) return false;
+      if (item.targetType !== 'post') return true;
+      if (!item.targetId) return false;
+      if (!messageTargets.has(item.targetId)) messageTargets.set(item.targetId, request('getPost', { id: item.targetId }).then(result => !!(result && result.post) && !contentPolicy.isVideoPost(result.post), error => {
+        if (['NOT_FOUND', 'FORBIDDEN'].includes(error.code)) return false;
+        throw error;
+      }));
+      return messageTargets.get(item.targetId);
+    }
+    let data = response;
+    for (let scanned = 0; ; scanned += 1) {
+      if (data && contentPolicy.isVideoPost(data.post)) throw failure('NOT_FOUND', '这条内容已下架或不可见');
+      if (['completeUpload', 'getUploadStatus'].includes(action) && contentPolicy.isVideoUpload(data)) contentPolicy.assertVideoAllowed();
+      if (!field || !data || !Array.isArray(data[field])) return data;
+      let items;
+      if (action === 'listMessages' && !isDemo()) {
+        const visible = await Promise.all(data[field].map(visibleMessage));
+        items = data[field].filter((item, index) => visible[index]);
+        hiddenMessages = hiddenMessages || items.length !== data[field].length;
+      } else items = data[field].filter(post => !contentPolicy.isVideoPost(post));
+      const result = Object.assign({}, data, { [field]: items });
+      // Legacy cloud totals can include unavailable targets on other pages.
+      // Do not present them as verified unread counts after filtering.
+      if (hiddenMessages) Object.assign(result, { unreadCount: null, categoryUnread: null });
+      // Cursors describe the server's scanned records, not our visible count.
+      // Never renumber them after filtering or skip rows from a partial page.
+      if (items.length || !data.nextCursor || isDemo() || scanned >= 9) return result;
+      if (visited.has(data.nextCursor)) throw failure('INVALID_RESPONSE', '内容分页暂时不可用，请刷新后重试');
+      visited.add(data.nextCursor);
+      data = await request(action, Object.assign({}, payload, { cursor: data.nextCursor }));
+    }
+  }
+
+  async function call(action, payload) {
+    contentPolicy.assertRequest(action, payload);
+    if (['completeUpload', 'getUploadStatus'].includes(action) && payload && readQueue().some(item => (item.ticketId === payload.ticketId || item.localId === payload.ticketId) && isVideo(item))) contentPolicy.assertVideoAllowed();
+    // Resolve ownership before deletion, never from a newly created account
+    // after the server has committed the request.
+    const deletingOwner = action === 'deleteAccount' ? await owner(false) : null;
+    let data = await visibleResponse(action, payload, await request(action, payload));
     if (['followUser', 'blockUser', 'joinCircle', 'createPost', 'deletePost', 'setPostVisibility', 'deleteAccount', 'respondFriendRequest', 'removeFriend'].includes(action)) feedVersion += 1;
     if (action === 'createPost' || action === 'deleteAccount') {
       try {
         if (action === 'createPost') await serializeQueue(() => forgetPublished(payload && payload.images, payload && payload.video, data && data.post && data.post.author && data.post.author.id));
-        else await serializeQueue(() => clearPrivateData(data && data.ownerId));
+        else await serializeQueue(() => clearPrivateData(data && data.ownerId || deletingOwner));
       } catch (_) {
         // The remote mutation has committed. Never turn a local cleanup error
         // into an apparent publish/delete failure that would invite a replay.
@@ -176,20 +225,15 @@ function createApi(platform, config, options) {
     const result = { images: [], video: null, completed: [], pending: [], failures: [] };
     for (const item of records) {
       const ticketId = item.ticketId || item.localId;
+      if (isVideo(item)) {
+        result.failures.push({ ticketId, mediaType: 'video', status: 'disabled', code: 'VIDEO_DISABLED', message: '旧附件不再支持，请移除后继续', retryable: false });
+        continue;
+      }
       const label = mediaLabel(item);
       const kind = isVideo(item) ? { mediaType: 'video' } : {};
       const previewPath = typeof item.localPath === 'string' ? item.localPath : '';
       if (item.status === 'complete' && item.fileId) {
-        if (isVideo(item)) {
-          const metadata = item.video || item.videoMetadata || {};
-          const video = { url: item.fileId, durationSeconds: metadata.durationSeconds };
-          for (const key of ['width', 'height']) if (Number.isFinite(metadata[key]) && metadata[key] > 0) video[key] = metadata[key];
-          if (typeof metadata.poster === 'string' && metadata.poster) video.poster = metadata.poster;
-          result.video = video;
-          result.completed.push({ ticketId, fileId: item.fileId, previewPath, mediaType: 'video', video });
-        } else {
-          result.images.push(item.fileId); result.completed.push({ ticketId, fileId: item.fileId, previewPath });
-        }
+        result.images.push(item.fileId); result.completed.push({ ticketId, fileId: item.fileId, previewPath });
       } else if (item.status === 'pending') result.pending.push(Object.assign({ ticketId, status: 'pending', message: label + '正在审核，正文草稿已保留，请稍后重新检查' }, kind));
       else result.failures.push(Object.assign({ ticketId, status: item.status, code: item.errorCode || (isVideo(item) ? 'VIDEO_UPLOAD_FAILED' : 'IMAGE_UPLOAD_FAILED'), message: item.message || label + '暂未完成，请重试', retryable: !['rejected', 'expired', 'source_missing', 'invalid'].includes(item.status) }, kind));
     }
@@ -212,12 +256,6 @@ function createApi(platform, config, options) {
   function applyStatus(record, status) {
     const label = mediaLabel(record);
     if (status && typeof status.fileId === 'string' && status.fileId && (!status.status || status.status === 'complete')) {
-      if (isVideo(record)) {
-        const metadata = status.video || status;
-        const durationSeconds = metadata.durationSeconds === undefined ? record.videoMetadata && record.videoMetadata.durationSeconds : metadata.durationSeconds;
-        if (!Number.isFinite(durationSeconds) || durationSeconds <= 0 || durationSeconds > VIDEO_MAX_SECONDS) throw failure('INVALID_RESPONSE', '视频审核结果缺少有效时长');
-        record.video = Object.assign({}, record.videoMetadata || {}, metadata, { durationSeconds });
-      }
       record.status = 'complete'; record.fileId = status.fileId; record.errorCode = ''; record.message = ''; return;
     }
     if (status && ['pending', 'processing'].includes(status.status)) {
@@ -232,74 +270,14 @@ function createApi(platform, config, options) {
   async function ensureVideoOwner(record) {
     if ((personalMode || isVideo(record)) && (record.scope !== scope() || await owner(true) !== record.ownerId)) throw failure('UPLOAD_OWNER_CHANGED', '账号已切换，附件仍保留在原账号的草稿中');
   }
-  function videoDeviceError(error, code, message) {
-    if (/no such file|not exist|not found|不存在/i.test(error && error.message || '')) return failure('VIDEO_SOURCE_UNAVAILABLE', '本机视频副本已失效，请移除后重新选择');
-    return failure(code, message);
-  }
-  async function prepareVideo(record) {
-    if (record.localPath) return;
-    if (!record.tempPath && !record.preparedPath) throw failure('VIDEO_SOURCE_UNAVAILABLE', '本机视频副本不可用，请移除后重新选择');
-    if (!record.preparedPath) {
-      let path = record.tempPath;
-      const selected = record.selected || {};
-      if (Number.isFinite(selected.durationSeconds) && selected.durationSeconds > VIDEO_MAX_SECONDS) throw failure('VIDEO_TOO_LONG', '单个视频最长 60 秒，请剪短后重试');
-      if (platform && typeof platform.compressVideo === 'function') {
-        let compressed;
-        try { compressed = await nativeCall(platform, 'compressVideo', { src: path, quality: 'medium' }); }
-        catch (error) { throw videoDeviceError(error, 'VIDEO_COMPRESSION_FAILED', '视频压缩未完成，已保留选择，请重试'); }
-        if (!compressed || typeof compressed.tempFilePath !== 'string' || !compressed.tempFilePath) throw failure('VIDEO_COMPRESSION_FAILED', '视频压缩未完成，请重试');
-        path = compressed.tempFilePath;
-      }
-      let info = {};
-      if (platform && typeof platform.getVideoInfo === 'function') {
-        try { info = await nativeCall(platform, 'getVideoInfo', { src: path }); }
-        catch (error) { throw videoDeviceError(error, 'VIDEO_READ_FAILED', '暂时无法读取视频信息，已保留选择，请重试'); }
-      }
-      const metadata = { durationSeconds: info.duration === undefined ? selected.durationSeconds : Number(info.duration),
-        width: Number(info.width || selected.width) || undefined, height: Number(info.height || selected.height) || undefined };
-      // getFileInfo reports bytes; getVideoInfo/chooseVideo size fields use kB in
-      // some SDK versions, so never reuse them as authoritative byte counts.
-      if (!platform || typeof platform.getFileInfo !== 'function') throw failure('UNSUPPORTED_API', '当前微信版本无法检查视频大小，请升级微信后重试');
-      let stat;
-      try { stat = await nativeCall(platform, 'getFileInfo', { filePath: path }); }
-      catch (error) { throw videoDeviceError(error, 'VIDEO_READ_FAILED', '暂时无法读取视频大小，已保留选择，请重试'); }
-      metadata.bytes = Number(stat && stat.size);
-      if (!Number.isFinite(metadata.durationSeconds) || metadata.durationSeconds <= 0) throw failure('INVALID_VIDEO', '无法读取视频时长，请重新选择 MP4 视频');
-      if (metadata.durationSeconds > VIDEO_MAX_SECONDS) throw failure('VIDEO_TOO_LONG', '单个视频最长 60 秒，请剪短后重试');
-      if (!Number.isFinite(metadata.bytes) || metadata.bytes <= 0) throw failure('INVALID_VIDEO', '所选视频无法读取，请重新选择');
-      if (metadata.bytes > VIDEO_MAX_BYTES) throw failure('VIDEO_TOO_LARGE', '压缩后视频仍超过 20 MiB，请剪短后重试');
-      record.preparedPath = path; record.videoMetadata = metadata; remember(record);
-    }
-    await ensureVideoOwner(record);
-    let saved;
-    try { saved = await nativeCall(platform, 'saveFile', { tempFilePath: record.preparedPath }); }
-    catch (error) { throw videoDeviceError(error, 'VIDEO_SAVE_FAILED', '视频未能保存到本机，请检查存储空间后重试'); }
-    if (!saved || !saved.savedFilePath) throw failure('VIDEO_SAVE_FAILED', '视频未能保存到本机，请检查存储空间后重试');
-    record.localPath = saved.savedFilePath;
-    delete record.tempPath; delete record.preparedPath; delete record.selected;
-    remember(record);
-  }
-
-  async function uploadCloudFile(record, onProgress) {
-    if (!isVideo(record)) return platform.cloud.uploadFile({ cloudPath: record.cloudPath, filePath: record.localPath });
-    return new Promise((resolve, reject) => {
-      const task = platform.cloud.uploadFile({ cloudPath: record.cloudPath, filePath: record.localPath, success: resolve, fail: reject });
-      if (task && typeof task.then === 'function') task.then(resolve, reject);
-      if (task && typeof task.onProgressUpdate === 'function' && typeof onProgress === 'function') task.onProgressUpdate(event => {
-        if (!event || !Number.isFinite(event.progress)) return;
-        try { onProgress(Math.max(0, Math.min(100, event.progress))); } catch (_) { /* UI observers cannot fail an upload. */ }
-      });
-    });
-  }
-
-  async function process(record, onProgress) {
+  async function process(record) {
+    if (isVideo(record)) return;
     if (['complete', 'rejected', 'expired', 'source_missing', 'invalid'].includes(record.status)) return;
     const label = mediaLabel(record);
     try {
       await ensureVideoOwner(record);
-      if (isVideo(record)) await prepareVideo(record);
       if (!record.ticketId) {
-        const payload = isVideo(record) ? Object.assign({ extension: 'mp4', mediaType: 'video' }, record.videoMetadata) : { extension: record.extension };
+        const payload = { extension: record.extension };
         await ensureVideoOwner(record);
         const ticket = await call('createUploadTicket', payload);
         if (!ticket || typeof ticket.ticketId !== 'string' || !ticket.ticketId || typeof ticket.cloudPath !== 'string' || !ticket.cloudPath) throw failure('INVALID_RESPONSE', label + '上传记录暂时不可用，请重试');
@@ -311,7 +289,7 @@ function createApi(platform, config, options) {
         if (isDemo()) record.sourceFileId = record.localPath;
         else {
           if (!platform.cloud || typeof platform.cloud.uploadFile !== 'function') throw failure('CLOUD_UNAVAILABLE', '当前环境不支持上传' + label);
-          const uploaded = await uploadCloudFile(record, onProgress);
+          const uploaded = await platform.cloud.uploadFile({ cloudPath: record.cloudPath, filePath: record.localPath });
           if (!uploaded || !uploaded.fileID) throw failure(isVideo(record) ? 'VIDEO_UPLOAD_FAILED' : 'IMAGE_UPLOAD_FAILED', label + '上传未完成，请重试');
           record.sourceFileId = uploaded.fileID;
         }
@@ -340,8 +318,6 @@ function createApi(platform, config, options) {
     }
     const records = owned(userId);
     for (const record of records) await process(record);
-    const video = records.find(isVideo);
-    if (video) await ensureVideoOwner(video);
     return ownedSnapshot(userId);
   }
 
@@ -349,7 +325,7 @@ function createApi(platform, config, options) {
     const requested = count === undefined ? 3 : Math.min(3, Math.max(0, Math.floor(Number(count) || 0)));
     const userId = await owner(requested > 0);
     const existing = owned(userId);
-    if (requested > 0 && existing.some(isVideo)) throw failure('MEDIA_CONFLICT', '一篇分享可添加照片或一个视频，请先移除视频');
+    if (requested > 0 && existing.some(isVideo)) throw failure('MEDIA_CONFLICT', '请先移除草稿中已停用的旧附件，再添加图片');
     const limit = Math.min(requested, Math.max(0, 3 - existing.length));
     if (!limit) return ownedSnapshot(userId, existing);
     let selection;
@@ -377,34 +353,7 @@ function createApi(platform, config, options) {
     return ownedSnapshot(userId);
   }
 
-  async function uploadVideo(onProgress) {
-    const userId = await owner(true);
-    const existing = owned(userId);
-    if (existing.some(item => !isVideo(item))) throw failure('MEDIA_CONFLICT', '一篇分享可添加照片或一个视频，请先移除照片');
-    if (existing.some(isVideo)) return ownedSnapshot(userId, existing);
-    let selection;
-    try {
-      selection = platform && typeof platform.chooseMedia === 'function'
-        ? await nativeCall(platform, 'chooseMedia', { count: 1, mediaType: ['video'], sourceType: ['album', 'camera'], maxDuration: VIDEO_MAX_SECONDS, sizeType: ['compressed'] })
-        : await nativeCall(platform, 'chooseVideo', { sourceType: ['album', 'camera'], compressed: true, maxDuration: VIDEO_MAX_SECONDS });
-    } catch (error) {
-      if (/cancel/i.test(error.message || '')) return ownedSnapshot(userId);
-      throw failure('VIDEO_SELECTION_FAILED', '没有取得视频，请检查相册权限后重试');
-    }
-    const files = selection.tempFiles && selection.tempFiles.length ? selection.tempFiles : [selection];
-    if (files.length !== 1) throw failure('INVALID_INPUT', '每篇分享最多选择一个视频');
-    const file = files[0];
-    const path = file.tempFilePath || file.path;
-    if (typeof path !== 'string' || !path) throw failure('VIDEO_SOURCE_UNAVAILABLE', '所选视频无法读取，请重新选择');
-    const record = { localId: 'local-' + clock().toString(36) + '-' + Math.random().toString(36).slice(2), ownerId: userId, scope: scope(),
-      mediaType: 'video', extension: 'mp4', tempPath: path, selected: { durationSeconds: Number(file.duration), width: Number(file.width), height: Number(file.height) }, createdAt: clock(), status: 'retry' };
-    // Persist selection before compression/saving. If the device operation fails,
-    // the draft retains its video ticket and can retry while the temp file exists.
-    remember(record);
-    await process(record, onProgress);
-    await ensureVideoOwner(record);
-    return ownedSnapshot(userId);
-  }
+  async function uploadVideo() { contentPolicy.assertVideoAllowed(); }
 
   async function discardUploads(ticketIds) {
     if (!Array.isArray(ticketIds)) throw failure('INVALID_INPUT', '请选择要移除的附件');
@@ -428,13 +377,23 @@ function createApi(platform, config, options) {
     return ownedSnapshot(userId);
   }
 
-  return { call, getFeedVersion: () => feedVersion,
-    canRemoveLocalFile: (path, ownerId, options) => !personalMode || personal.canRemoveLocalFile(path, ownerId, options),
+  async function getPrivateLibrary() {
+    // A local identity is not proof of ownership of a future cloud identity.
+    // Keep that archive on device until an explicit account-link flow exists.
+    if (!isDemo()) throw failure('PRIVATE_LIBRARY_UNLINKED', '这份本机资料尚未与当前云端账号关联，原数据仍保存在本机');
+    const currentOwner = await owner(false);
+    const library = await privateLibrary.readLibrary(currentOwner);
+    if (await owner(false) !== currentOwner) throw failure('UPLOAD_OWNER_CHANGED', '本机账号已切换，请重新打开私人资料库');
+    return library;
+  }
+
+  return { call, getPrivateLibrary, getFeedVersion: () => feedVersion,
+    canRemoveLocalFile: (path, ownerId, options) => personalMode ? personal.canRemoveLocalFile(path, ownerId, options) : !personalFileReferenced(platform, path, opts),
     uploadImages: count => serializeQueue(() => uploadImages(count)),
     uploadVideo: onProgress => serializeQueue(() => uploadVideo(onProgress)),
     resumeUploads: () => serializeQueue(resumeUploads),
     discardUploads: ticketIds => serializeQueue(() => discardUploads(ticketIds)),
-    clearLocalUploads: () => serializeQueue(clearLocalUploads)
+    clearLocalUploads: () => serializeQueue(() => clearLocalUploads())
   };
 }
 
@@ -451,6 +410,7 @@ function defaultApi() {
 module.exports = {
   call: function (action, payload) { return defaultApi().call(action, payload); },
   getFeedVersion: function () { return singleton ? singleton.getFeedVersion() : 0; },
+  getPrivateLibrary: function () { return defaultApi().getPrivateLibrary(); },
   uploadImages: function (count) { return defaultApi().uploadImages(count); },
   uploadVideo: function (onProgress) { return defaultApi().uploadVideo(onProgress); },
   resumeUploads: function () { return defaultApi().resumeUploads(); },

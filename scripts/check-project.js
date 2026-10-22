@@ -33,24 +33,21 @@ function isPackaged(file){
 }
 const packaged=all.filter(isPackaged);
 bytes=packaged.reduce((sum,file)=>sum+fs.statSync(file).size,0);
-// Packaged videos are selected from data at runtime, so WeChat's unused-file
-// pruning cannot discover them from literal WXML dependencies.
-const videoPackages=packages.filter(pkg=>/^media[2-9]?$/.test(pkg.root));
-const included=project.packOptions&&project.packOptions.include||[];
-// The shared controller lives in the main package but is required only by
-// subpackage entries; WeChat's main-package unused-code audit can miss it too.
-if(videoPackages.length&&!included.some(entry=>entry.type==='file'&&entry.value==='pages/post/_player.js'))issues.push('视频分包共享控制器 pages/post/_player.js 必须显式包含在微信上传包中');
-for(const pkg of videoPackages){
- if(!included.some(entry=>entry.type==='folder'&&entry.value===pkg.root+'/clips'))issues.push('视频分包 '+pkg.root+' 的 clips 目录必须显式包含在微信上传包中');
- if(!pkg.pages.includes('pages/index'))issues.push('视频分包 '+pkg.root+' 缺少同包播放页');
+const contentPolicy=require(path.join(mini,'data/content-policy'));
+if(!contentPolicy.videoEnabled){
+ for(const folder of ['media','media2','media3','assets/curated-video','assets/curated-poster'])if(!ignored.some(entry=>entry.type==='folder'&&entry.value===folder))issues.push('视频已停用，上传包必须排除 '+folder);
+ if(!ignored.some(entry=>entry.type==='file'&&entry.value==='pages/post/_player.js'))issues.push('视频已停用，上传包必须排除 pages/post/_player.js');
+ if(packages.some(pkg=>/^media[2-9]?$/.test(pkg.root)))issues.push('视频已停用，不可注册视频播放分包');
+ for(const file of packaged)if(/\.(?:mp4|webm|mov|m4v)$/i.test(file)||path.relative(mini,file)==='pages/post/_player.js')issues.push('视频已停用，上传包必须排除 '+path.relative(mini,file));
+ if(require(path.join(mini,'data/curated')).CURATED_POSTS.some(contentPolicy.isVideoPost))issues.push('视频已停用，内容目录不可包含历史视频');
 }
 const routes=app.pages.concat(packages.flatMap(pkg=>pkg.pages.map(page=>pkg.root+'/'+page)));
 const product=require(path.join(mini,'product'));
 if(product.personalMode){
  if(routes.some(route=>!product.PERSONAL_PAGES.includes(route)))issues.push('个人工具版包含已停用的社交页面');
  if(app.tabBar.list.some(tab=>tab.pagePath==='pages/messages/index'))issues.push('个人工具版不可注册社交消息导航');
- for(const route of routes)if(!isPackaged(path.join(mini,route+'.js')))issues.push('已注册页面被上传排除：'+route);
 }
+for(const route of routes)if(!isPackaged(path.join(mini,route+'.js')))issues.push('已注册页面被上传排除：'+route);
 for(const page of routes)for(const ext of ['.js','.json','.wxml','.wxss'])if(!fs.existsSync(path.join(mini,page+ext)))issues.push('缺少页面文件 '+page+ext);
 for(const tab of app.tabBar.list)for(const field of ['iconPath','selectedIconPath'])if(!fs.existsSync(path.join(mini,tab[field])))issues.push('缺少导航图标 '+tab[field]);
 for(const file of walk(path.join(root,'cloudfunctions')))if(file.endsWith('.js'))try{new vm.Script(fs.readFileSync(file,'utf8'),{filename:file});}catch(error){issues.push(path.relative(root,file)+': '+error.message);}

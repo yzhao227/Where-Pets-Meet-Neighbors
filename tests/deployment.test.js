@@ -91,6 +91,24 @@ test('a standalone review bundle retains only required content metadata and evid
   } finally { fs.rmSync(directory, { recursive: true, force: true }); }
 });
 
+test('release candidates omit retired package folders and keep active images and source archives untouched', () => {
+  const directory = temp();
+  try {
+    const fixture = contentBundleFixture(directory);
+    const ignored = [{ type: 'folder', value: 'media' }, { type: 'folder', value: 'assets/curated-poster' }, { type: 'file', value: 'pages/post/_player.js' }];
+    fixture.write('project.config.json', { appid: 'touristappid', packOptions: { ignore: ignored } });
+    const retired = ['media/clips/123.mp4', 'media/pages/index.js', 'assets/curated-poster/123.jpg', 'pages/post/_player.js'];
+    retired.forEach(file => fixture.write('miniprogram/' + file, 'archived local video resource'));
+    fixture.write('miniprogram/assets/current-photo.jpg', 'retained photo');
+    const result = d.createBundle(config(), { root: fixture.root, output: path.join(directory, 'release') });
+    for (const file of retired) {
+      assert.equal(fs.existsSync(path.join(result.directory, 'miniprogram', file)), false, file);
+      assert.equal(fs.readFileSync(path.join(fixture.root, 'miniprogram', file), 'utf8'), 'archived local video resource');
+    }
+    assert.ok(result.manifest.files.some(file => file.path === 'miniprogram/assets/current-photo.jpg'));
+  } finally { fs.rmSync(directory, { recursive: true, force: true }); }
+});
+
 test('content dependency references reject missing files, path escapes, private filenames and symlinks before copying', () => {
   const directory = temp();
   try {
@@ -242,6 +260,7 @@ test('only a checked unchanged bundle reaches the WeChat SDK and private keys st
     await d.uploadBundle(result.directory, { ci, privateKeyPath: key });
     assert.equal(submitted.version, '0.4.0');
     assert.equal(submitted.project.options.projectPath, path.join(result.directory, 'miniprogram'));
+    for (const excluded of ['media/**/*', 'media2/**/*', 'media3/**/*', 'pages/post/_player.js']) assert.ok(submitted.project.options.ignores.includes(excluded), excluded);
     fs.appendFileSync(path.join(result.directory, 'miniprogram/app.js'), '\n// changed after test\n');
     await assert.rejects(d.uploadBundle(result.directory, { ci, privateKeyPath: key }), /发生变化/);
   } finally { fs.rmSync(directory, { recursive: true, force: true }); }

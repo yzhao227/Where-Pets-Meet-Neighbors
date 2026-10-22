@@ -1,27 +1,11 @@
-<view class="page circle-square-page">
-  <view class="square-intro">找到聊得来的宠友，一起分享养宠日常。</view>
-  <view wx:if="{{loading}}" class="loading">正在寻找小圈子…</view>
-  <view wx:elif="{{error}}" class="error-box">
-    <text>{{error}}</text>
-    <button class="btn btn-secondary" bindtap="refresh">重新加载</button>
-  </view>
-  <view wx:elif="{{circles.length === 0}}" class="square-empty">
-    <view class="empty-circle-symbol">○</view>
-    <view class="empty-title">暂时还没有开放的圈子</view>
-    <view class="empty-copy">过一阵再来看看，新的相遇也许就在这里。</view>
-  </view>
-  <view wx:else class="circle-list">
-    <button wx:for="{{circles}}" wx:key="id" class="circle-row" bindtap="openCircle" data-id="{{item.id}}" aria-label="{{item.name}}，{{item.memberCount}} 位同好，{{item.isJoined ? '已加入' : '查看圈子'}}">
-      <view class="circle-symbol">{{item.icon || '🐾'}}</view>
-      <view class="circle-info">
-        <view class="circle-name">{{item.name}}</view>
-        <view wx:if="{{item.description}}" class="circle-description">{{item.description}}</view>
-        <view class="circle-meta">
-          <text class="circle-people">{{item.memberCount}} 位同好</text>
-          <text wx:if="{{item.isJoined}}" class="joined-label">已加入</text>
-        </view>
-      </view>
-      <view class="circle-arrow"></view>
+<view class="page topic-square-page">
+  <view class="square-heading">从关心的主题开始</view>
+  <view class="square-intro">按养宠主题查看已有资料与作者分享，具体来源见每篇内容。</view>
+  <view class="topic-list">
+    <button wx:for="{{topics}}" wx:key="id" class="topic-row" bindtap="openTopic" data-id="{{item.id}}" aria-label="{{'查看主题：' + item.name}}">
+      <view class="topic-number">{{item.number}}</view>
+      <view class="topic-info"><view class="topic-name">{{item.name}}</view><view class="topic-description">{{item.description}}</view></view>
+      <view class="topic-arrow" aria-hidden="true"></view>
     </button>
   </view>
 </view>

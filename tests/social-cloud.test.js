@@ -70,6 +70,16 @@ async function direct(f, from = 'alice', to = 'bob') {
 }
 const send = (f, who, conversationId, text, requestId) => f.call(who, 'sendChatMessage', { conversationId, text, requestId });
 
+async function legacyGroup(f) {
+  const id = 'legacy-group', memberIds = ['alice', 'bob', 'charlie'].map(idFor), memberLifecycles = {};
+  for (const memberId of memberIds) memberLifecycles[memberId] = (await f.repository.get('users', memberId)).lifecycleId;
+  await f.repository.set('conversations', id, { kind: 'group', name: 'LEGACY_GROUP_ONLY', ownerId: idFor('alice'), memberIds, memberLifecycles,
+    createdAt: 1_800_000_000_000, updatedAt: 1_800_000_000_000, lastSeq: 2, status: 'active' });
+  for (const [index, who] of ['alice', 'bob'].entries()) await f.repository.set('chat_messages', 'legacy-message-' + index, {
+    conversationId: id, senderId: idFor(who), senderLifecycleId: memberLifecycles[idFor(who)], seq: index + 1, text: 'LEGACY_GROUP_ONLY', createdAt: 1_800_000_000_000 });
+  return id;
+}
+
 test('cloud friend discovery respects public profiles, exact IDs, pending relations and privacy; friendship needs receiver consent', async () => {
   const f = await fixture();
   assert.deepEqual(await f.call('alice', 'getFriendHub'), { friends: [], incoming: [], outgoing: [] });
@@ -81,7 +91,8 @@ test('cloud friend discovery respects public profiles, exact IDs, pending relati
   assert.deepEqual((await f.call('alice', 'searchPeople', { query: 'PRIVATE_BIO' })).items, []);
   await f.call('alice', 'followUser', { userId: idFor('diana'), follow: true });
   assert.deepEqual((await f.call('alice', 'searchPeople', { query: 'diana' })).items, [], 'follow does not grant friendship or private discovery');
-  await rejects(f.call('alice', 'openDirectChat', { targetId: idFor('bob') }), 'FRIEND_REQUIRED');
+  assert.equal((await f.call('alice', 'openDirectChat', { targetId: idFor('bob') })).conversation.canSend, true);
+  assert.deepEqual((await f.call('alice', 'getFriendHub')).friends, [], 'opening a chat never creates friendship');
   const first = await f.call('alice', 'sendFriendRequest', { targetId: idFor('diana'), note: '你好' });
   assert.equal(first.status, 'pending');
   assert.equal((await f.call('alice', 'sendFriendRequest', { targetId: idFor('diana'), note: '重复不会覆盖' })).status, 'pending');
@@ -111,7 +122,7 @@ test('cloud friend discovery respects public profiles, exact IDs, pending relati
 });
 
 test('cloud direct chats share one stable conversation, atomically allocate sequences and keep precise unread boundaries under retries', async () => {
-  const f = await fixture(); await friend(f);
+  const f = await fixture();
   const opened = await Promise.all([f.call('alice', 'openDirectChat', { targetId: idFor('bob') }), f.call('bob', 'openDirectChat', { targetId: idFor('alice') })]);
   const id = opened[0].conversation.id; assert.equal(opened[1].conversation.id, id);
   const repeated = await Promise.all([send(f, 'alice', id, '猫咪今天很好', 'one'), send(f, 'alice', id, '猫咪今天很好', 'one')]);
@@ -134,96 +145,111 @@ test('cloud direct chats share one stable conversation, atomically allocate sequ
   assert.deepEqual((await f.call('charlie', 'listConversations', { query: '猫咪' })).items, []);
   await f.call('alice', 'removeFriend', { targetId: idFor('bob') });
   const history = await f.call('bob', 'getChatMessages', { conversationId: id });
-  assert.equal(history.items.length, 3); assert.equal(history.conversation.canSend, false);
-  await rejects(send(f, 'bob', id, '不能继续发送', 'four'), 'FRIEND_REQUIRED');
+  assert.equal(history.items.length, 3); assert.equal(history.conversation.canSend, true);
+  assert.equal((await send(f, 'bob', id, '仍可继续交流', 'four')).message.seq, 4);
   for (const query of [null, '字'.repeat(61)]) await rejects(f.call('bob', 'listConversations', { query }), 'INVALID_INPUT');
   await rejects(f.call('bob', 'getChatMessages', { conversationId: id, cursor: false }), 'INVALID_INPUT');
   await rejects(f.call('bob', 'listConversations', { cursor: 'bad-cursor' }), 'INVALID_INPUT');
 });
 
-test('cloud groups validate confirmed friends and every blocked pair, creation retries are stable, and departing owners lose access', async () => {
-  const f = await fixture(); await friend(f); await friend(f, 'alice', 'charlie');
-  for (const memberIds of [[], [idFor('alice')], [idFor('bob'), idFor('bob')], Array.from({ length: 20 }, (_, index) => 'member' + index)]) {
-    await rejects(f.call('alice', 'createGroupChat', { name: '猫咪小队', memberIds, requestId: 'invalid' }), 'INVALID_INPUT');
-  }
-  await rejects(f.call('alice', 'createGroupChat', { name: '猫咪小队', memberIds: [idFor('diana')], requestId: 'nonfriend' }), 'FRIEND_REQUIRED');
-  await f.call('bob', 'blockUser', { userId: idFor('charlie'), block: true });
-  await rejects(f.call('alice', 'createGroupChat', { name: '猫咪小队', memberIds: [idFor('bob'), idFor('charlie')], requestId: 'blocked' }), 'MEMBER_UNAVAILABLE');
-  await f.call('bob', 'blockUser', { userId: idFor('charlie'), block: false });
-  const payload = { name: '猫咪小队', memberIds: [idFor('bob'), idFor('charlie')], requestId: 'group-one' };
-  const created = await Promise.all([f.call('alice', 'createGroupChat', payload), f.call('alice', 'createGroupChat', payload)]);
-  const id = created[0].conversation.id; assert.equal(created[1].conversation.id, id); assert.equal(created[0].conversation.memberCount, 3);
-  await rejects(f.call('alice', 'createGroupChat', { ...payload, name: '变更名称' }), 'IDEMPOTENCY_CONFLICT');
-  await send(f, 'bob', id, '大家好', 'hello');
-  assert.equal((await f.call('charlie', 'getChatMessages', { conversationId: id })).items[0].sender.id, idFor('bob'));
-  await rejects(send(f, 'diana', id, '猜到编号', 'not-member'), 'NOT_FOUND');
-  await f.call('alice', 'leaveGroup', { conversationId: id });
-  await f.call('alice', 'leaveGroup', { conversationId: id });
-  const continued = await f.call('bob', 'getChatMessages', { conversationId: id });
-  assert.equal(continued.conversation.ownerId, idFor('bob')); assert.equal(continued.conversation.memberCount, 2);
-  await rejects(f.call('alice', 'getChatMessages', { conversationId: id }), 'NOT_FOUND');
-  await rejects(f.call('alice', 'createGroupChat', payload), 'NOT_FOUND');
-  await f.call('bob', 'leaveGroup', { conversationId: id });
-  await f.call('charlie', 'leaveGroup', { conversationId: id });
-  assert.equal((await f.repository.get('conversations', id)).status, 'closed');
-  assert.deepEqual((await f.call('charlie', 'listConversations')).items, []);
+test('cloud private chats reject editorial and inactive users and stale lifecycles never restore access', async () => {
+  const f = await fixture();
+  const bob = await f.repository.get('users', idFor('bob'));
+  await f.repository.set('users', bob._id, { ...bob, isEditorial: true });
+  await rejects(f.call('alice', 'openDirectChat', { targetId: bob._id }), 'NOT_FOUND');
+  await rejects(f.call('bob', 'openDirectChat', { targetId: idFor('alice') }), 'AUTH_REQUIRED');
+  await f.repository.set('users', bob._id, bob);
+  await rejects(f.call('alice', 'openDirectChat', { targetId: idFor('alice') }), 'INVALID_INPUT');
+  const chat = (await f.call('alice', 'openDirectChat', { targetId: bob._id })).conversation.id;
+  await send(f, 'alice', chat, '原账号发出', 'first'); await send(f, 'bob', chat, '原账号回复', 'reply');
+  await f.repository.set('users', bob._id, { ...bob, status: 'suspended' });
+  assert.equal((await f.call('alice', 'getChatMessages', { conversationId: chat })).conversation.canSend, false);
+  await rejects(send(f, 'alice', chat, '不可发送', 'inactive'), 'CHAT_UNAVAILABLE');
+  await f.repository.set('users', bob._id, bob);
+  const oldConversation = await f.repository.get('conversations', chat);
+  const oldMessages = await f.repository.find('chat_messages', { conversationId: chat });
+  await f.call('bob', 'deleteAccount'); await f.call('bob', 'bootstrap');
+  await f.call('bob', 'verifyPhone', { code: 'test-bob', consent });
+  // Even leftover documents from an interrupted historical cleanup cannot grant
+  // the replacement account a relationship or messages from its previous life.
+  await f.repository.set('conversations', chat, oldConversation);
+  for (const message of oldMessages) await f.repository.set('chat_messages', message._id, message);
+  assert.deepEqual((await f.call('bob', 'listConversations')).items, []);
+  await rejects(f.call('bob', 'getChatMessages', { conversationId: chat }), 'NOT_FOUND');
+  assert.notEqual((await f.call('alice', 'openDirectChat', { targetId: bob._id })).conversation.id, chat);
 });
 
-test('cloud conversation search and previews filter blocked senders and preserve global visible unread totals across pages', async () => {
-  const f = await fixture(); const directChat = await direct(f); await friend(f, 'alice', 'charlie');
-  const group = (await f.call('alice', 'createGroupChat', { name: '狗狗邻居', memberIds: [idFor('bob'), idFor('charlie')], requestId: 'group' })).conversation;
-  const quiet = (await f.call('alice', 'createGroupChat', { name: '安静的小组', memberIds: [idFor('charlie')], requestId: 'quiet' })).conversation;
+test('cloud retired group APIs preserve existing data and never expose group history or unread counts', async () => {
+  const f = await fixture(); await friend(f);
+  const group = await legacyGroup(f);
+  const chat = (await f.call('alice', 'openDirectChat', { targetId: idFor('bob') })).conversation.id;
+  await send(f, 'bob', chat, '仍可见的私聊', 'direct');
+  const tables = ['conversations', 'chat_messages', 'chat_reads', 'friendships'];
+  const before = await Promise.all(tables.map(table => f.repository.find(table, {}, { limit: 100 })));
+  for (const who of ['alice', 'charlie']) {
+    if (who === 'charlie') await f.repository.remove('identities', idFor(who));
+    await rejects(f.call(who, 'createGroupChat', { name: '下线群聊', memberIds: [idFor('bob')], requestId: 'new-group' }), 'FEATURE_UNAVAILABLE');
+    for (const action of ['getChatMessages', 'readConversation', 'sendChatMessage', 'leaveGroup']) {
+      await rejects(f.call(who, action, { conversationId: group, text: '不能发送', requestId: 'disabled', throughSeq: 2 }), 'FEATURE_UNAVAILABLE');
+    }
+  }
+  const list = await f.call('alice', 'listConversations', { limit: 1 });
+  assert.deepEqual(list.items.map(item => item.id), [chat]); assert.equal(list.unreadCount, 1); assert.equal(list.nextCursor, undefined);
+  const search = await f.call('alice', 'listConversations', { query: 'LEGACY_GROUP_ONLY' });
+  assert.deepEqual(search.items, []); assert.equal(search.unreadCount, 1);
+  assert.deepEqual(await Promise.all(tables.map(table => f.repository.find(table, {}, { limit: 100 }))), before);
+  await rejects(f.call('alice', 'listChatContacts'), 'UNKNOWN_ACTION');
+});
+
+test('cloud direct search filters blocked conversations and keeps unread totals global across pages', async () => {
+  const f = await fixture(); const directChat = await direct(f); await legacyGroup(f);
+  const visibleChat = (await f.call('alice', 'openDirectChat', { targetId: idFor('charlie') })).conversation;
+  const another = (await f.call('alice', 'openDirectChat', { targetId: idFor('diana') })).conversation;
   await send(f, 'bob', directChat.id, 'ONLY_BLOCKED_DIRECT', 'direct');
-  await send(f, 'charlie', group.id, 'TaRgEt 可见文字', 'visible');
-  f.advance(); await send(f, 'bob', group.id, 'ONLY_BLOCKED_GROUP', 'hidden');
-  await send(f, 'charlie', quiet.id, '另一个 target', 'quiet');
-  const totalBefore = (await f.call('alice', 'listConversations')).unreadCount; assert.equal(totalBefore, 4);
+  await send(f, 'charlie', visibleChat.id, 'TaRgEt 可见文字', 'visible');
+  f.advance(); await send(f, 'diana', another.id, '另一个 target', 'another');
+  assert.equal((await f.call('alice', 'listConversations')).unreadCount, 3);
   await f.call('bob', 'blockUser', { userId: idFor('alice'), block: true });
   const visible = await f.call('alice', 'listConversations');
   assert.equal(visible.items.length, 2); assert.equal(visible.unreadCount, 2);
-  const groupView = visible.items.find(item => item.id === group.id);
-  assert.equal(groupView.lastText, 'TaRgEt 可见文字'); assert.equal(groupView.memberCount, 3);
-  assert.equal(groupView.members.some(member => member.id === idFor('bob')), false);
-  assert.equal(groupView.canSend, true);
-  assert.deepEqual((await f.call('alice', 'getChatMessages', { conversationId: group.id })).items.map(item => item.sender.id), [idFor('charlie')]);
-  await rejects(f.call('alice', 'getChatMessages', { conversationId: directChat.id }), 'NOT_FOUND');
-  for (const query of ['ONLY_BLOCKED', 'catbuddy', 'PRIVATE_BIO']) {
+  const view = visible.items.find(item => item.id === visibleChat.id);
+  assert.equal(view.lastText, 'TaRgEt 可见文字'); assert.equal(view.memberCount, 2); assert.equal(view.canSend, true);
+  for (const who of ['alice', 'bob']) for (const action of ['getChatMessages', 'readConversation', 'sendChatMessage']) {
+    await rejects(f.call(who, action, { conversationId: directChat.id, text: '不可发送', requestId: 'blocked', throughSeq: 1 }), 'NOT_FOUND');
+  }
+  await rejects(f.call('alice', 'openDirectChat', { targetId: idFor('bob') }), 'NOT_FOUND');
+  for (const query of ['ONLY_BLOCKED', 'catbuddy', 'PRIVATE_BIO', 'LEGACY_GROUP_ONLY']) {
     const page = await f.call('alice', 'listConversations', { query }); assert.deepEqual(page.items, []); assert.equal(page.unreadCount, 2);
   }
   const first = await f.call('alice', 'listConversations', { query: ' target ', limit: 1 });
   const second = await f.call('alice', 'listConversations', { query: ' TARGET ', limit: 1, cursor: first.nextCursor });
   assert.equal(first.unreadCount, 2); assert.equal(second.unreadCount, 2);
   assert.notEqual(first.items[0].id, second.items[0].id); assert.equal(second.nextCursor, undefined);
-  await send(f, 'alice', group.id, '群内仍然可以交流', 'after-block');
-  assert.equal((await f.call('bob', 'getChatMessages', { conversationId: group.id })).items.some(item => item.sender.id === idFor('alice')), false);
   await f.call('bob', 'blockUser', { userId: idFor('alice'), block: false });
   assert.equal((await f.call('alice', 'getFriendHub')).friends.some(person => person.id === idFor('bob')), false);
-  assert.equal((await f.call('alice', 'getChatMessages', { conversationId: directChat.id })).conversation.canSend, false);
+  assert.equal((await f.call('alice', 'getChatMessages', { conversationId: directChat.id })).conversation.canSend, true);
 });
 
-test('cloud social writes require verification and moderation; existing reads, rejection, removal and leaving stay available', async () => {
+test('cloud social writes require verification and moderation while private reads and relation removal stay available', async () => {
   const f = await fixture({ moderateText: async text => { if (text.includes('REJECT')) throw Object.assign(new Error('内容未通过审核'), { code: 'CONTENT_REJECTED' }); } });
   await rejects(f.call('alice', 'sendFriendRequest', { targetId: idFor('bob'), note: 'REJECT申请' }), 'CONTENT_REJECTED');
   assert.equal((await f.call('bob', 'getFriendHub')).incoming.length, 0);
   const chat = await direct(f);
-  await rejects(f.call('alice', 'createGroupChat', { name: 'REJECT群名', memberIds: [idFor('bob')], requestId: 'reject' }), 'CONTENT_REJECTED');
   await rejects(send(f, 'alice', chat.id, 'REJECT正文', 'reject'), 'CONTENT_REJECTED');
   assert.equal((await f.call('alice', 'getChatMessages', { conversationId: chat.id })).items.length, 0);
-  const group = (await f.call('alice', 'createGroupChat', { name: '可用群聊', memberIds: [idFor('bob')], requestId: 'allowed' })).conversation;
   await f.call('charlie', 'sendFriendRequest', { targetId: idFor('alice') });
   const incoming = (await f.call('alice', 'getFriendHub')).incoming[0];
   await f.repository.remove('identities', idFor('alice'));
   for (const [action, payload] of [
     ['sendFriendRequest', { targetId: idFor('diana') }], ['respondFriendRequest', { requestId: incoming.id, accept: true }],
-    ['openDirectChat', { targetId: idFor('bob') }], ['createGroupChat', { name: '新群', memberIds: [idFor('bob')], requestId: 'unverified' }],
+    ['openDirectChat', { targetId: idFor('bob') }],
     ['sendChatMessage', { conversationId: chat.id, text: '未核验消息', requestId: 'unverified' }]
   ]) await rejects(f.call('alice', action, payload), 'VERIFICATION_REQUIRED');
   await f.call('alice', 'getChatMessages', { conversationId: chat.id });
   await f.call('alice', 'readConversation', { conversationId: chat.id, throughSeq: 0 });
   await f.call('alice', 'respondFriendRequest', { requestId: incoming.id, accept: false });
   await f.call('alice', 'removeFriend', { targetId: idFor('bob') });
-  await f.call('alice', 'leaveGroup', { conversationId: group.id });
-  assert.ok(f.checks.some(check => check.text === '可用群聊' && check.openid === 'alice'));
+  assert.ok(f.checks.some(check => check.text === 'REJECT正文' && check.openid === 'alice'));
   await rejects(send(f, 'bob', chat.id, '字'.repeat(1001), 'long'), 'INVALID_INPUT');
 });
 
@@ -232,13 +258,12 @@ test('cloud account deletion clears social data and cannot transfer old chat mem
   const entered = new Promise(resolve => { reached = resolve; });
   const f = await fixture({ moderateText: async text => { if (text === 'DELAYED_OLD_ACCOUNT') { reached(); await new Promise(resolve => { release = resolve; }); } } });
   const chat = await direct(f); await friend(f, 'alice', 'charlie');
-  const group = (await f.call('alice', 'createGroupChat', { name: '继续聊宠物', memberIds: [idFor('bob'), idFor('charlie')], requestId: 'delete-group' })).conversation;
+  const group = await legacyGroup(f);
   await send(f, 'alice', chat.id, '注销时清除本人私聊文字', 'own-direct');
   await send(f, 'bob', chat.id, '其他成员保留的历史', 'other-direct');
-  await send(f, 'alice', group.id, '注销时清除本人群聊文字', 'own-group');
   await f.call('alice', 'readConversation', { conversationId: chat.id, throughSeq: 2 });
   await f.call('diana', 'sendFriendRequest', { targetId: idFor('alice') });
-  const pending = send(f, 'alice', group.id, 'DELAYED_OLD_ACCOUNT', 'delayed');
+  const pending = send(f, 'alice', chat.id, 'DELAYED_OLD_ACCOUNT', 'delayed');
   await entered;
   await f.call('alice', 'deleteAccount');
   await f.call('alice', 'bootstrap');
@@ -247,10 +272,11 @@ test('cloud account deletion clears social data and cannot transfer old chat mem
   assert.deepEqual(await f.call('alice', 'getFriendHub'), { friends: [], incoming: [], outgoing: [] });
   assert.deepEqual((await f.call('alice', 'listConversations')).items, []);
   await rejects(f.call('alice', 'getChatMessages', { conversationId: chat.id }), 'NOT_FOUND');
-  await rejects(f.call('alice', 'getChatMessages', { conversationId: group.id }), 'NOT_FOUND');
+  await rejects(f.call('alice', 'getChatMessages', { conversationId: group }), 'NOT_FOUND');
   const history = await f.call('bob', 'getChatMessages', { conversationId: chat.id });
   assert.deepEqual(history.items.map(item => item.text), ['其他成员保留的历史']); assert.equal(history.conversation.canSend, false);
-  assert.equal((await f.call('bob', 'getChatMessages', { conversationId: group.id })).conversation.ownerId, idFor('bob'));
+  assert.equal((await f.repository.get('conversations', group)).ownerId, idFor('bob'));
+  await rejects(f.call('bob', 'getChatMessages', { conversationId: group }), 'FEATURE_UNAVAILABLE');
   for (const table of ['friend_requests', 'friendships', 'chat_reads']) {
     const rows = await f.repository.find(table, {}, { limit: 100 });
     assert.ok(rows.every(row => row.userId !== idFor('alice') && row.fromId !== idFor('alice') && row.toId !== idFor('alice') && !(row.memberIds || []).includes(idFor('alice'))));
@@ -287,5 +313,5 @@ test('social database requirements and mutation rate limits are registered consi
     const collection = schema.collections.find(item => item.name === 'yb_' + name);
     assert.deepEqual(collection.rules, { read: false, write: false }); assert.ok(collection.indexes.length);
   }
-  for (const action of ['sendFriendRequest', 'respondFriendRequest', 'createGroupChat', 'openDirectChat', 'sendChatMessage']) assert.ok(DEFAULT_RATE_LIMITS[action]);
+  for (const action of ['sendFriendRequest', 'respondFriendRequest', 'openDirectChat', 'sendChatMessage']) assert.ok(DEFAULT_RATE_LIMITS[action]);
 });

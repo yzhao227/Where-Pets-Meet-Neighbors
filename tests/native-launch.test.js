@@ -56,6 +56,170 @@ function instantiate(name) {
 async function settle(page) { for (let i = 0; i < 40 && (page.data.loading || page.data.eventsBusy || page.data.uploadsBusy); i += 1) await new Promise(resolve => setImmediate(resolve)); }
 async function mount(name, options = {}) { const page = instantiate(name); page.onLoad(options); await settle(page); assert.equal(page.data.loading, false); return page; }
 
+test('compact compose options restore their summaries and expand one selector without changing saved choices', async () => {
+  const { storage } = setup();
+  storage.set(drafts.KEY, { 'cloud:self': { version: 1, visibility: 'private', text: '保留正文', animalTypes: ['cat', 'rabbit'], selectedTopics: ['户外出行'], selectedPlaceId: 'public-place', selectedEventId: 'event' } });
+  const page = await mount('compose');
+  assert.equal(page.data.animalsOpen, false);
+  assert.equal(page.data.topicsOpen, false);
+  assert.equal(page.data.animalSummary, '猫、兔子');
+  assert.equal(page.data.topicSummary, '户外出行');
+  const saved = structuredClone(storage.get(drafts.KEY));
+  page.toggleAnimals();
+  assert.equal(page.data.animalsOpen, true);
+  page.toggleTopics();
+  assert.equal(page.data.animalsOpen, false);
+  assert.equal(page.data.topicsOpen, true);
+  page.toggleTopics();
+  assert.equal(page.data.topicsOpen, false);
+  assert.deepEqual(storage.get(drafts.KEY), saved, 'expansion alone does not rewrite the draft');
+  page.selectAnimal(evt({ id: 'dog' }));
+  assert.equal(page.data.animalSummary, '猫、狗、兔子');
+  page.selectAnimal(evt({ id: 'bird' }));
+  assert.equal(page.data.animalTypes.length, 3);
+  page.selectTopic(evt({ topic: '陪伴日常' }));
+  assert.equal(page.data.topicSummary, '户外出行、陪伴日常');
+  page.toggleAnimals(); page.toggleAnimals();
+  assert.equal(page.data.visibility, 'private');
+  assert.equal(page.data.text, '保留正文');
+  assert.equal(page.data.selectedPlaceId, 'public-place');
+  assert.equal(page.data.selectedEventId, 'event');
+  assert.deepEqual(storage.get(drafts.KEY)['cloud:self'].animalTypes, ['cat', 'rabbit', 'dog']);
+});
+
+test('compose opens the text and image editor directly and restores the original private draft and associations', async () => {
+  const { storage, state } = setup();
+  storage.set(drafts.KEY, { 'cloud:self': { version: 1, visibility: 'private', text: '', title: '' } });
+  let pickers = 0;
+  api.uploadImages = api.uploadVideo = async () => { pickers += 1; return emptyUploads(); };
+  const page = await mount('compose');
+  assert.equal(page.selectFormat, undefined);
+  assert.equal(page.changeFormat, undefined);
+  assert.equal(page.uploadVideo, undefined, 'the editor has no video picker handler');
+  assert.equal(page.data.visibility, 'private', 'opening the editor must not reset even an empty private draft');
+  page.inputTitle(evt({}, '周末的小事')); page.input(evt({}, '带宠物到公园走走。'));
+  page.change({ selectedPlaceId: 'public-place', selectedVisitId: 'my-visit', selectedEventId: 'public-event' });
+  assert.equal(pickers, 0, 'opening and writing in the editor never launches a media picker');
+  assert.deepEqual(state.discard, []);
+  page.onUnload();
+  const reopened = await mount('compose');
+  assert.equal(reopened.data.visibility, 'private');
+  assert.equal(reopened.data.text, '带宠物到公园走走。');
+  assert.equal(reopened.data.title, '周末的小事');
+  assert.equal(reopened.data.selectedPlaceId, 'public-place');
+  assert.equal(reopened.data.selectedVisitId, 'my-visit');
+  assert.equal(reopened.data.selectedEventId, 'public-event');
+  assert.equal(reopened.uploadVideo, undefined);
+});
+
+test('late restored legacy video stays removable without playing or publishing over an existing photo draft', async () => {
+  const { storage, state } = setup();
+  storage.set(drafts.KEY, { 'cloud:self': { version: 1, visibility: 'friends', text: '旧草稿', images: ['cloud://old/image'] } });
+  let resolveUploads;
+  api.resumeUploads = () => new Promise(resolve => { resolveUploads = resolve; });
+  const page = instantiate('compose'); page.onLoad({ circleId: 'circle' });
+  for (let i = 0; i < 10 && !resolveUploads; i += 1) await new Promise(resolve => setImmediate(resolve));
+  assert.equal(page.data.restoringUploads, true);
+  const video = { url: 'cloud://old/video', durationSeconds: 12 };
+  resolveUploads({ ...emptyUploads(), video });
+  await settle(page);
+  assert.equal(page.data.restoringUploads, false);
+  assert.equal(page.data.mediaConflict, true);
+  assert.deepEqual(page.data.images, ['cloud://old/image']);
+  assert.deepEqual(page.data.video, video);
+  assert.equal(page.data.videoPreviewSource, '', 'legacy video has no playback source');
+  assert.equal(page.data.visibility, 'friends');
+  assert.deepEqual(state.discard, []);
+  await page.submit(); assert.equal(state.published.length, 0);
+  assert.match(state.toasts.at(-1), /仅支持文字和图片/);
+  await page.removeVideo();
+  assert.equal(page.data.hasVideoAttachment, false);
+  assert.equal(page.data.mediaConflict, false);
+  assert.deepEqual(page.data.images, ['cloud://old/image']);
+  await page.submit();
+  assert.equal(state.published.length, 1);
+  assert.equal(state.published[0].visibility, 'friends');
+  assert.equal(state.published[0].video, undefined);
+});
+
+test('a later disabled-video queue retry preserves text and cannot be submitted until the ticket is removed', async () => {
+  const { state } = setup();
+  state.resumeError = new Error('暂时无法恢复附件');
+  const page = await mount('compose');
+  page.input(evt({}, '恢复时也要保留的文字'));
+  state.resumeError = null;
+  state.snapshot.failures = [{ ticketId: 'late-video', mediaType: 'video', code: 'VIDEO_DISABLED', message: '旧附件不再支持，请移除后继续' }];
+  await page.retryUploads();
+  assert.equal(page.data.hasVideoAttachment, true);
+  assert.equal(page.data.failedUploads[0].ticketId, 'late-video');
+  assert.equal(page.data.videoPreviewSource, '');
+  assert.equal(page.data.text, '恢复时也要保留的文字');
+  assert.deepEqual(state.discard, []);
+  await page.submit(); assert.equal(state.published.length, 0);
+  await page.removeUpload(evt({ id: 'late-video' }));
+  await page.submit();
+  assert.equal(state.published.length, 1);
+  assert.equal(state.published[0].text, '恢复时也要保留的文字');
+  assert.equal(state.published[0].video, undefined);
+});
+
+test('the direct editor ignores a retired saved format while preserving organizing choices', async () => {
+  const { storage } = setup();
+  storage.set(drafts.KEY, { 'cloud:self': { version: 1, composeFormat: 'video', animalTypes: ['cat'], selectedTopics: ['户外出行'], selectedPlaceId: 'public-place' } });
+  const page = await mount('compose');
+  assert.equal(page.selectFormat, undefined);
+  assert.equal(page.uploadVideo, undefined);
+  assert.deepEqual(page.data.animalTypes, ['cat']);
+  assert.equal(page.data.selectedPlaceId, 'public-place');
+  page.input(evt({}, '继续记录'));
+  assert.equal(storage.get(drafts.KEY)['cloud:self'].composeFormat, undefined, 'retired format metadata is not resaved');
+});
+
+test('late upload restoration from an earlier account cannot enter the current account draft', async () => {
+  const { boot, storage } = setup();
+  const pending = [];
+  api.resumeUploads = () => new Promise(resolve => pending.push(resolve));
+  const page = instantiate('compose'); page.onLoad();
+  for (let i = 0; i < 10 && !pending.length; i += 1) await new Promise(resolve => setImmediate(resolve));
+  assert.equal(pending.length, 1);
+  boot.user.id = 'other';
+  await page.refresh();
+  assert.equal(page.data.restoringUploads, false);
+  const current = page.checkUploads(true);
+  assert.equal(pending.length, 2);
+  pending[0]({ ...emptyUploads(), images: ['cloud://first/private-image'], video: { url: 'cloud://first/private-video.mp4' }, failures: [{ ticketId: 'first-video', mediaType: 'video', code: 'VIDEO_DISABLED' }] });
+  await new Promise(resolve => setImmediate(resolve));
+  assert.equal(page.data.restoringUploads, true, 'the stale request must not clear the new request busy state');
+  assert.deepEqual(page.data.images, []);
+  assert.equal(page.data.video, null);
+  assert.deepEqual(page.data.failedUploads, [], 'the earlier account disabled video stays with that account');
+  pending[1]({ ...emptyUploads(), images: ['cloud://second/image'] });
+  await current;
+  assert.deepEqual(page.data.images, ['cloud://second/image']);
+  assert.deepEqual(storage.get(drafts.KEY)['cloud:other'].images, ['cloud://second/image']);
+});
+
+test('the direct editor publishes text alone or photos with text and never invokes a video picker', async () => {
+  for (const withImage of [false, true]) {
+    const { state } = setup();
+    let videoPickers = 0;
+    api.uploadVideo = async () => { videoPickers += 1; return emptyUploads(); };
+    const page = await mount('compose');
+    page.input(evt({}, '配文已经写好'));
+    if (withImage) {
+      state.snapshot.images = ['cloud://new/image'];
+      await page.upload();
+    }
+    await page.submit();
+    assert.equal(state.published.length, 1);
+    assert.equal(state.published[0].text, '配文已经写好');
+    assert.deepEqual(state.published[0].images, withImage ? ['cloud://new/image'] : []);
+    assert.equal(state.published[0].video, undefined);
+    assert.equal(videoPickers, 0);
+    assert.equal(page.uploadVideo, undefined);
+  }
+});
+
 test('formal policy pages show server content and identity, while incomplete and failed responses stay visibly unavailable', async () => {
   const { state, handlers } = setup();
   const page = await mount('policy', { type: 'privacy' });
@@ -316,26 +480,30 @@ test('demo policies and health remain explicitly simulated, with owned upload re
   assert.equal(storage.has(drafts.KEY), false);
 });
 
-test('restoring a mixed photo/video draft retains both removal choices and the body, then publishes only the chosen media', async () => {
+test('a mixed legacy private draft retains text and photos, blocks video publishing, and continues after video removal', async () => {
   const { state, storage } = setup();
   const video = { url: 'cloud://approved/video.mp4', durationSeconds: 10 };
   const photo = 'cloud://approved/photo.png';
-  storage.set(drafts.KEY, { 'cloud:self': { version: 1, text: '不能丢失的正文', title: '我的选择', circleId: 'circle', images: [photo], video,
+  storage.set(drafts.KEY, { 'cloud:self': { version: 1, visibility: 'private', text: '不能丢失的正文', title: '我的选择', circleId: 'circle', images: [photo], video,
     completedUploads: [{ ticketId: 'photo-ticket', fileId: photo }, { ticketId: 'video-ticket', fileId: video.url, mediaType: 'video' }], pendingUploads: [], failedUploads: [] } });
   const page = await mount('compose');
   assert.equal(page.data.mediaConflict, true);
   assert.deepEqual(page.data.images, [photo]); assert.deepEqual(page.data.video, video);
   assert.equal(page.data.attachmentCount, 2);
+  assert.equal(page.data.videoPreviewSource, '');
+  assert.equal(page.data.visibility, 'private');
   await page.submit(); assert.equal(state.published.length, 0);
-  assert.match(state.toasts.at(-1), /照片与视频不能一起发布/);
-  await page.removeImage(evt({ index: 0 }));
+  assert.match(state.toasts.at(-1), /仅支持文字和图片/);
+  await page.removeVideo();
   assert.equal(page.data.mediaConflict, false); assert.equal(page.data.attachmentCount, 1);
   await page.retryUploads();
-  assert.deepEqual(page.data.video, video, 'the chosen restored video does not disappear when its local queue snapshot is missing');
+  assert.equal(page.data.video, null);
+  assert.deepEqual(page.data.images, [photo]);
   assert.equal(page.data.text, '不能丢失的正文');
   await page.submit();
-  assert.equal(state.published.length, 1); assert.deepEqual(state.published[0].images, []);
-  assert.deepEqual(state.published[0].video, video); assert.equal(state.published[0].text, '不能丢失的正文');
+  assert.equal(state.published.length, 1); assert.deepEqual(state.published[0].images, [photo]);
+  assert.equal(state.published[0].video, undefined); assert.equal(state.published[0].text, '不能丢失的正文');
+  assert.equal(state.published[0].visibility, 'private');
 });
 
 test('a recovered video queue cannot hide a draft photo; removing the video keeps the photo across later retries', async () => {
@@ -353,7 +521,7 @@ test('a recovered video queue cannot hide a draft photo; removing the video keep
   await page.submit(); assert.deepEqual(state.published[0].images, [photo]); assert.equal(state.published[0].video, undefined);
 });
 
-test('conflicting unfinished media stays removable and the native template exposes both image and video controls', async () => {
+test('unfinished legacy video stays removable and the native template exposes photos without video publishing or playback', async () => {
   const { state, storage } = setup();
   storage.set(drafts.KEY, { 'cloud:self': { version: 1, text: '附件处理期间的正文', circleId: 'circle', images: ['cloud://approved/photo'],
     pendingUploads: [{ ticketId: 'waiting-video', mediaType: 'video', status: 'pending' }], failedUploads: [], completedUploads: [] } });
@@ -363,7 +531,9 @@ test('conflicting unfinished media stays removable and the native template expos
   assert.equal(page.data.mediaConflict, false); assert.deepEqual(page.data.images, ['cloud://approved/photo']);
   assert.equal(page.data.text, '附件处理期间的正文');
   const markup = require('node:fs').readFileSync(require('node:path').join(__dirname, '../miniprogram/pages/compose/index.wxml'), 'utf8');
-  assert.match(markup, /wx:if="\{\{images\.length \|\| !hasVideoAttachment\}\}" class="image-grid"/);
+  assert.match(markup, /class="image-grid"/);
   assert.match(markup, /bindtap="removeVideo"/); assert.match(markup, /catchtap="removeImage"/);
-  assert.match(markup, /草稿里同时保留了照片和视频/);
+  assert.match(markup, /旧附件不再支持/);
+  assert.match(markup, /bindtap="upload"/);
+  assert.doesNotMatch(markup, /<video\b|bindtap="uploadVideo"|selectFormat|changeFormat|发布视频/);
 });

@@ -230,8 +230,7 @@ test('revoked detail access removes cached post, comments, photos and video navi
   assert.equal(f.effects.shares.at(-1).method, 'hide');
   assert.equal(page.onShareAppMessage().path, '/pages/community/index');
   assert.doesNotMatch(JSON.stringify(page.onShareAppMessage()), /PRIVATE_TEST_TITLE|PRIVATE_TEST_BODY|PRIVATE_TEST_COMMENT/);
-  const before = f.effects.navigations.length; page.openVideo();
-  assert.equal(f.effects.navigations.length, before);
+  assert.equal(page.openVideo, undefined, 'video navigation is no longer exposed');
 });
 
 test('signed photo retry obtains new authorized URLs and ignores callbacks for the expired signature', async t => {
@@ -266,27 +265,21 @@ test('signed photo retry obtains new authorized URLs and ignores callbacks for t
   assert.equal(page.onShareAppMessage().path, '/pages/community/index');
 });
 
-test('signed video retry clears the expired source and reauthorizes playback before installing a new URL', async t => {
+test('historical video details stay unavailable even if a cached or cloud result returns their source', async t => {
   const f = await fixture(t); const source = await f.post('private');
-  const expired = 'https://example.invalid/video.mp4?signature=expired';
-  const renewed = 'https://example.invalid/video.mp4?signature=renewed';
-  const result = url => ({ post: { ...source, mediaSigned: true, video: { url, durationSeconds: 8 }, images: [] }, comments: [] });
-  f.handlers.getPost = () => result(expired);
-  const page = await f.mount('post', { id: source.id });
-  assert.equal(page.data.videoSource, expired);
-  const oldEvent = { currentTarget: { dataset: { src: expired, attempt: page.data.videoAttempt } } };
-  page.videoFailed(oldEvent);
-  let finish; f.handlers.getPost = () => new Promise(resolve => { finish = resolve; });
-  f.effects.calls.length = 0;
-  const pending = page.retryVideo();
-  assert.equal(page.data.videoSource, '', 'the expired URL is removed while authorization is pending');
-  assert.equal(f.effects.calls.filter(call => call.action === 'getPost').length, 1);
-  finish(result(renewed)); await pending;
-  assert.equal(page.data.videoSource, renewed); assert.equal(page.data.videoError, false);
-  page.videoFailed(oldEvent);
-  assert.equal(page.data.videoError, false, 'an old video failure cannot replace the renewed source');
-  f.handlers.getPost = () => { throw Object.assign(Error('仅内存范围已撤销'), { code: 'NOT_FOUND' }); };
-  page.videoFailed(); await page.retryVideo();
-  assert.equal(page.data.post, null); assert.equal(page.data.videoSource, ''); assert.equal(page.data.videoPlayerPath, '');
-  assert.equal(page.data.videoWaiting, false); assert.ok(page.data.error);
+  for (const extra of [
+    { video: { url: 'https://example.invalid/video.mp4?signature=old', durationSeconds: 8 } },
+    { video: { url: '/media/clips/112285953.mp4', durationSeconds: 8 } },
+    { contentType: 'video' }
+  ]) {
+    f.handlers.getPost = () => ({ post: { ...source, ...extra, mediaSigned: true }, comments: [] });
+    const page = await f.mount('post', { id: source.id });
+    assert.equal(page.data.post, null); assert.deepEqual(page.data.photoItems, []);
+    assert.match(page.data.error, /已下架/);
+    assert.equal(page.data.videoSource, ''); assert.equal(page.data.videoPlayerPath, '');
+    assert.equal(page.openVideo, undefined); assert.equal(page.retryVideo, undefined);
+    assert.equal(page.onShareAppMessage().path, '/pages/community/index');
+    assert.doesNotMatch(JSON.stringify(page.onShareAppMessage()), /PRIVATE_TEST_TITLE|PRIVATE_TEST_BODY/);
+    await page.refresh(); assert.equal(page.data.post, null);
+  }
 });

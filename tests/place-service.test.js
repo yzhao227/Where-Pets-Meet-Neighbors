@@ -126,7 +126,8 @@ for (const mode of ['demo', 'cloud']) {
     for (const mediaType of ['image', 'video']) {
       const fileId = 'cloud://test/' + mediaType;
       await f.put('uploads', 'pet-' + mediaType, { ticketId: 'pet-' + mediaType, ownerId: f.who('alice'), userId: f.who('alice'), fileId, purpose: 'pet', mediaType, status: 'complete', video: { url: fileId, durationSeconds: 5 } });
-      await reject(f.call('alice', 'createPost', { circleId: f.circle, text: '不能把宠物专用票据作为发帖附件', images: mediaType === 'image' ? [fileId] : [], ...(mediaType === 'video' ? { video: { url: fileId } } : {}) }), mode === 'demo' ? 'UPLOAD_UNAVAILABLE' : 'FORBIDDEN');
+      const expectedCode = mode === 'demo' ? mediaType === 'video' ? 'VIDEO_DISABLED' : 'UPLOAD_UNAVAILABLE' : 'FORBIDDEN';
+      await reject(f.call('alice', 'createPost', { circleId: f.circle, text: '不能把宠物专用票据作为发帖附件', images: mediaType === 'image' ? [fileId] : [], ...(mediaType === 'video' ? { video: { url: fileId } } : {}) }), expectedCode);
     }
   });
 }

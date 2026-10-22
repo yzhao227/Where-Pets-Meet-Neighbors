@@ -1,18 +1,1 @@
-<view class="page group-create-page">
-  <view class="intro">把熟悉的宠友聚在一起，聊聊养宠日常。</view>
-  <view class="field group-name-field"><view class="label">群聊名称<text>最多 30 个字</text></view><input class="input" value="{{name}}" bindinput="inputName" maxlength="30" placeholder="给你们的小群起个名字" disabled="{{busy || attemptLocked || createdConversation}}"/></view>
-  <view class="member-heading"><view>邀请好友<text>{{selectedCount}} / 19</text></view><button bindtap="addFriends" disabled="{{busy || attemptLocked}}">加好友</button></view>
-  <view class="selection-help">只能邀请已互相确认的好友，群聊最多 20 人（含你）。</view>
-  <view wx:if="{{loading}}" class="loading">正在读取好友列表…</view>
-  <view wx:elif="{{error}}" class="error-box"><text>{{error}}</text><button class="btn btn-secondary" bindtap="refresh">重新加载</button></view>
-  <view wx:elif="{{friends.length === 0}}" class="empty-friends"><view class="empty-title">先认识几位宠友吧</view><view>添加好友并获得对方同意后，就能邀请一起聊天。</view><button class="btn btn-secondary" bindtap="addFriends">去加好友</button></view>
-  <view wx:else class="friend-list">
-    <button wx:for="{{friends}}" wx:key="id" class="friend-option {{item.selected ? 'selected' : ''}}" bindtap="toggleFriend" data-id="{{item.id}}" disabled="{{busy || attemptLocked || createdConversation}}" aria-label="{{item.nickname}}，{{item.selected ? '已选择' : '未选择'}}">
-      <image wx:if="{{item.avatarUrl}}" class="person-avatar" src="{{item.avatarUrl}}" mode="aspectFill" binderror="imageFailed" data-id="{{item.id}}" data-src="{{item.avatarUrl}}"/><view wx:else class="person-avatar avatar-fallback">{{item.initial}}</view>
-      <view class="person-name">{{item.nickname}}</view><view class="check-circle">{{item.selected ? '✓' : ''}}</view>
-    </button>
-  </view>
-  <view wx:if="{{createError}}" class="error-box create-error"><text>{{createError}}</text><view wx:if="{{attemptLocked}}" class="retry-help">当前名称和邀请名单已保留，重试会继续同一次创建。</view></view>
-  <button wx:if="{{createdConversation}}" class="btn btn-primary create-button" bindtap="openCreated">进入已创建的群聊</button>
-  <button wx:else class="btn btn-primary create-button" bindtap="createGroup" loading="{{busy}}" disabled="{{busy || loading || error || !selectedCount || !name}}">{{attemptLocked ? '重试创建' : '创建群聊'}}</button>
-</view>
+<view class="page retired-group-page"><view class="retired-title">群聊功能已下线</view><view class="retired-description">请从作者主页给对方留言。</view></view>

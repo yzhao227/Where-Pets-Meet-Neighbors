@@ -16,7 +16,7 @@ async function fixture(t) {
   assert.equal(shared.personalMode, true, 'this suite validates the active personal product');
   const store = new Map();
   const files = new Set(), controls = { failDraftWrite: false }; let fileSequence = 0;
-  const effects = { calls: [], navigations: [], shares: [], toasts: [] };
+  const effects = { calls: [], navigations: [], shares: [], toasts: [], picks: [] };
   const pages = [];
   const apiKeys = ['call', 'getFeedVersion', 'uploadImages', 'uploadVideo', 'resumeUploads', 'discardUploads', 'clearLocalUploads'];
   const previous = { wx: global.wx, Page: global.Page, api: Object.fromEntries(apiKeys.map(key => [key, shared.api[key]])) };
@@ -32,7 +32,7 @@ async function fixture(t) {
     navigateBack() { effects.navigations.push('back'); },
     switchTab(options) { effects.navigations.push(options.url); },
     hideKeyboard() {}, stopPullDownRefresh() {},
-    chooseMedia(options) { const video = options.mediaType.includes('video'); options.success({ tempFiles: [{ tempFilePath: '/memory/pet.' + (video ? 'mp4' : 'png'), size: 1000, duration: 8, width: 640, height: 480 }] }); },
+    chooseMedia(options) { effects.picks.push(options.mediaType); assert.deepEqual(options.mediaType, ['image']); options.success({ tempFiles: [{ tempFilePath: '/memory/pet.png', size: 1000, width: 640, height: 480 }] }); },
     saveFile(options) { const savedFilePath = 'wxfile://memory-' + (++fileSequence) + '-' + options.tempFilePath.split('/').pop(); files.add(savedFilePath); options.success({ savedFilePath }); },
     getSavedFileList(options) { options.success({ fileList: [...files].map(filePath => ({ filePath })) }); },
     getFileInfo(options) { options.success({ size: 1000 }); },
@@ -74,16 +74,15 @@ async function fixture(t) {
   return { api, mount, store, effects, files, controls };
 }
 
-test('removing personal photos, videos and entire drafts deletes unreferenced saved files', async t => {
+test('removing personal photos and entire drafts deletes unreferenced saved files', async t => {
   const f = await fixture(t);
-  for (const operation of ['image', 'video', 'draft']) {
+  for (const operation of ['image', 'draft']) {
     const page = await f.mount('compose');
-    if (operation === 'video') await page.uploadVideo(); else await page.upload();
-    const file = operation === 'video' ? page.data.video.url : page.data.images[0];
+    await page.upload();
+    const file = page.data.images[0];
     assert.ok(f.files.has(file));
     page.input(input('保留的正文'));
     if (operation === 'image') await page.removeImage({ currentTarget: { dataset: { index: 0 } } });
-    else if (operation === 'video') await page.removeVideo();
     else await page.clearDraft();
     assert.ok(!f.files.has(file), operation + ' clears its local file after updating the draft');
     assert.equal(page.data.attachmentCount, 0);
@@ -92,6 +91,37 @@ test('removing personal photos, videos and entire drafts deletes unreferenced sa
     if (operation !== 'draft') assert.equal(drafts.read(page._draftOwner).value.text, '保留的正文');
     page.onUnload();
   }
+});
+
+test('a legacy personal video draft stays private and removable without playback, then saves as text and photos', async t => {
+  const f = await fixture(t);
+  const file = 'wxfile://legacy-personal-video.mp4';
+  const video = { url: file, durationSeconds: 8 };
+  const ticketId = 'legacy-private-video';
+  f.files.add(file);
+  f.store.set('youchong.personalUploadQueue.v1', { version: 1, items: [{ localId: ticketId, ticketId, ownerId: 'demo-self', scope: 'personal', mediaType: 'video', extension: 'mp4', status: 'complete', localPath: file, fileId: file, video }] });
+  f.store.set(drafts.KEY, { 'personal:personal:demo-self': { version: 1, visibility: 'private', text: '保留旧日记的正文', video, images: [], completedUploads: [{ ticketId, fileId: file, previewPath: file, mediaType: 'video' }], pendingUploads: [], failedUploads: [] } });
+  const page = await f.mount('compose');
+  assert.equal(page.uploadVideo, undefined);
+  assert.equal(page.data.videoPreviewSource, '');
+  assert.deepEqual(page.data.video, video);
+  assert.equal(page.data.visibility, 'private');
+  assert.equal(page.data.failedUploads[0].code, 'VIDEO_DISABLED');
+  assert.ok(f.files.has(file));
+  assert.deepEqual(f.effects.picks, []);
+  await page.submit();
+  assert.equal(f.effects.calls.some(row => row.action === 'createPost'), false);
+  assert.match(f.effects.toasts.at(-1), /仅支持文字和图片/);
+  await page.removeUpload(tap(ticketId));
+  assert.equal(page.data.video, null);
+  assert.equal(page.data.hasVideoAttachment, false);
+  assert.deepEqual(page.data.failedUploads, []);
+  assert.equal(page.data.text, '保留旧日记的正文');
+  assert.ok(!f.files.has(file));
+  await page.upload(); await page.submit();
+  const payload = f.effects.calls.find(row => row.action === 'createPost').payload;
+  assert.equal(payload.visibility, 'private'); assert.equal(payload.video, undefined);
+  assert.equal(payload.images.length, 1); assert.equal(payload.text, '保留旧日记的正文');
 });
 
 test('failed personal draft writes retain recoverable text and media until a later successful removal', async t => {
@@ -129,6 +159,8 @@ test('personal editor saves a private diary without verification or circles and 
   assert.deepEqual(page.data.circles, []);
   assert.equal(page.data.visibility, 'private');
   assert.equal(page.data.text, '');
+  assert.equal(page.selectFormat, undefined, 'private diaries open the text and image editor directly');
+  assert.equal(page.uploadVideo, undefined);
   page.chooseVisibility(input(0)); page.chooseCircle(input(0)); page.chooseEvent(input(0));
   assert.equal(page.data.visibility, 'private');
   page.inputTitle(input('今天的可爱')); page.input(input('只属于自己的日记正文'));
@@ -192,7 +224,8 @@ test('curated waterfall and records reject retired social navigation and legacy 
   assert.equal(page.data.postColumns.length, 2); assert.ok(page.data.posts.length);
   assert.ok(page.data.posts.every(post => post.author.isEditorial && !post.isMine));
   const beforeCalls = f.effects.calls.length, beforeNav = f.effects.navigations.length;
-  for (const method of ['compose', 'openAuthor', 'openCircle', 'openEvent', 'like', 'selectFeed', 'selectCircle']) await page[method]();
+  for (const method of ['compose', 'openAuthor', 'openCircle', 'openEvent', 'like', 'selectFeed']) await page[method]();
+  assert.equal(typeof page.selectCircle, 'undefined', 'retired membership filters have no page handler');
   assert.equal(f.effects.calls.length, beforeCalls); assert.equal(f.effects.navigations.length, beforeNav);
   assert.equal(page.data.feed, 'discover'); assert.equal(page.data.topic, '');
   await page.resume(); assert.equal(page.data.error, '');

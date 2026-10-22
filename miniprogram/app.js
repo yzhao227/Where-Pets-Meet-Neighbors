@@ -15,7 +15,7 @@ App({
     require('./services/devtools-tabbar').refresh(wx);
   },
   onPageNotFound() {
-    // Legacy social shares cannot reopen retired pages in the personal build.
+    // Stale or unknown shared routes return to the discovery tab.
     wx.switchTab({ url: '/pages/community/index' });
   },
   async bootstrap() {

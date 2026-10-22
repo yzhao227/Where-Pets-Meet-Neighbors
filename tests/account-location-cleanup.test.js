@@ -37,7 +37,7 @@ function fixture(t) {
     Object.assign(this.data, value);
   } };
   nearbyLocation.setManualReference({ latitude: 31.1, longitude: 121.4, coordinateSystem: 'gcj02' }, '测试公共参照点');
-  drafts.save('test-user', { text: '只存在于测试内存的草稿' });
+  drafts.save('demo:test-user', { text: '只存在于测试内存的草稿' });
   t.after(() => { global.wx = saved.wx; global.Page = saved.Page; api.call = saved.call; api.clearLocalUploads = saved.clearLocalUploads; });
   return { page, storage, effects, handlers };
 }

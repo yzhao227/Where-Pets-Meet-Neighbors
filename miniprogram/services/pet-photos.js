@@ -1,4 +1,5 @@
 'use strict';
+const { personalFileReferenced } = require('./personal');
 const KEY = 'youchong.petPhotoQueue.v1';
 const PERSONAL_KEY = 'youchong.personalPetPhotoQueue.v1';
 const error = (code, message) => Object.assign(new Error(message), { code });
@@ -17,23 +18,24 @@ function read(platform, key = KEY) {
 const write = (platform, items, key = KEY) => platform.setStorageSync(key, { version: 1, items });
 async function removeLocal(platform, path, canRemoveLocalFile) {
   if (!path || /^data:/i.test(path)) return;
-  if (canRemoveLocalFile && !await canRemoveLocalFile(path)) return;
+  const removable = canRemoveLocalFile || (filePath => !personalFileReferenced(platform, filePath, { throwOnReadError: true }));
+  if (!await removable(path)) return;
   try { await native(platform, 'removeSavedFile', { filePath: path }); }
   catch (err) { if (!/not found|not exist|不存在/i.test(err.message)) throw err; }
 }
 async function clearLocalPetPhotos(platform, options = {}) {
   const personal = options.productMode === 'personal';
   const key = personal ? PERSONAL_KEY : KEY;
-  if (personal && !options.ownerId) throw error('AUTH_REQUIRED', '请先确认本机资料');
-  const canRemoveLocalFile = personal ? options.canRemoveLocalFile || (path => require('./personal').createPersonalService(platform).canRemoveLocalFile(path, options.ownerId)) : null;
+  if (!options.ownerId || !personal && !options.scope) throw error('AUTH_REQUIRED', '请先确认本机照片所属账号');
+  const canRemoveLocalFile = personal ? options.canRemoveLocalFile || (path => require('./personal').createPersonalService(platform).canRemoveLocalFile(path, options.ownerId)) : path => !personalFileReferenced(platform, path, { ...options, throwOnReadError: true });
   const remaining = [];
   for (const item of read(platform, key)) {
-    if (personal && (item.ownerId !== options.ownerId || item.scope !== 'personal')) { remaining.push(item); continue; }
+    if (item.ownerId !== options.ownerId || item.scope !== (personal ? 'personal' : options.scope)) { remaining.push(item); continue; }
     try { await removeLocal(platform, item.localPath, canRemoveLocalFile); } catch (_) { remaining.push(item); }
   }
   if (remaining.length) write(platform, remaining, key);
   else if (typeof platform.removeStorageSync === 'function') platform.removeStorageSync(key); else write(platform, [], key);
-  if (remaining.some(item => !personal || item.ownerId === options.ownerId && item.scope === 'personal')) throw error('LOCAL_CLEANUP_FAILED', '宠物照片本机副本尚未清理，请重试');
+  if (remaining.some(item => item.ownerId === options.ownerId && item.scope === (personal ? 'personal' : options.scope))) throw error('LOCAL_CLEANUP_FAILED', '宠物照片本机副本尚未清理，请重试');
 }
 function createPetPhotos(platform, api, config = {}) {
   const personal = config.productMode === 'personal';

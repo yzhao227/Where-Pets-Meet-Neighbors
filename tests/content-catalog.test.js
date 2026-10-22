@@ -202,6 +202,8 @@ test('a 300-item memory fixture paginates circle content without loss, duplicati
   const posts = Array.from({ length: 100 }, (_, i) => testPost('knowledge-test-' + i, 'knowledge'))
     .concat(Array.from({ length: 200 }, (_, i) => testPost('photo-test-' + i)));
   syncCatalogue(state, EPOCH, { posts, version: CATALOG_VERSION });
+  assert.ok(state.posts.every(post => post.contentType !== 'video'), 'new catalogue sync does not reimport retired media');
+  state.posts.push(...posts.filter(post => post.contentType === 'video').map(post => ({ ...post, authorId: 'catalog-photo', catalogManaged: false, createdAt: EPOCH })));
   const f = fixture(state);
   const collected = [];
   let cursor;
@@ -218,7 +220,7 @@ test('a 300-item memory fixture paginates circle content without loss, duplicati
   await assert.rejects(f.api.call('getCircle', { id: 'circle-neighbors', cursor: '-1' }), { code: 'INVALID_INPUT' });
 });
 
-test('preset videos appear across the first three feed pages while circles alternate and real posts stay newest first', async () => {
+test('historical videos are hidden while retained editorial photos and real posts keep their order', async () => {
   const state = createSeed(EPOCH);
   const circleIds = state.circles.map(circle => circle.id);
   const posts = Array.from({ length: 50 }, (_, i) => ({ ...testPost('knowledge-test-' + i, 'knowledge'), circleId: circleIds[i % circleIds.length] }))
@@ -234,6 +236,8 @@ test('preset videos appear across the first three feed pages while circles alter
   }));
   state.posts.push(...realPosts);
   syncCatalogue(state, EPOCH, { posts, version: CATALOG_VERSION });
+  assert.ok(state.posts.every(post => post.contentType !== 'video'), 'new catalogue sync does not reimport retired media');
+  state.posts.push(...posts.filter(post => post.contentType === 'video').map(post => ({ ...post, authorId: 'catalog-photo', catalogManaged: false, createdAt: EPOCH })));
   const f = fixture(state);
   const pages = [];
   let cursor;
@@ -245,14 +249,15 @@ test('preset videos appear across the first three feed pages while circles alter
   const all = pages.flat();
   assert.deepEqual(all.slice(0, 2).map(post => post.id), ['user-test-1', 'user-test-2']);
   assert.deepEqual(f.state().posts.filter(post => post.authorId === 'demo-self'), realPosts, 'ranking does not rewrite user records');
-  assert.deepEqual(pages.slice(0, 3).map(page => page.filter(post => post.contentType === 'video').length), [1, 1, 1]);
-  assert.equal(all.length, 252);
-  assert.equal(new Set(all.map(post => post.id)).size, 252);
+  assert.ok(all.every(post => post.contentType !== 'video' && !post.video));
+  assert.equal(f.state().posts.filter(post => post.contentType === 'video').length, 3, 'filtering does not destroy historical records');
+  assert.equal(all.length, 249);
+  assert.equal(new Set(all.map(post => post.id)).size, 249);
   const editorial = all.slice(2);
   assert.ok(editorial.every(post => post.createdAt === 0 && post.likeCount === 0 && post.commentCount === 0));
   const media = editorial.filter(post => ['photo', 'video'].includes(post.contentType));
   assert.ok(media.slice(0, 50).every((post, index) => !index || post.circle.id !== media[index - 1].circle.id));
   const before = editorial.map(post => post.id);
   syncCatalogue(state, EPOCH + 1000, { posts, version: CATALOG_VERSION });
-  assert.deepEqual(state.posts.filter(post => post.catalogManaged).map(post => post.id), before, 'relaunch keeps the same editorial order');
+  assert.deepEqual(state.posts.filter(post => post.catalogManaged && !post.video && post.contentType !== 'video').map(post => post.id), before, 'relaunch keeps the same editorial order');
 });

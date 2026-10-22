@@ -71,7 +71,7 @@ test('the online directory replaces edited and withdrawn local entries without r
   assert.equal(page.data.places.some(item => item.id === 'fixture-far'), false, 'a withdrawn server entry cannot reappear from the fallback catalogue');
   assert.equal(page.data.places.find(item => item.id === 'fixture-near').title, '运营者已更新的公开地点');
   assert.equal(state.locationCalls, 0);
-  assert.ok(state.calls.every(action => ['bootstrap', 'listEvents', 'listPlaces'].includes(action)), 'directory reads cannot register attendance or publish a visit');
+  assert.ok(state.calls.every(action => ['bootstrap', 'listPlaces'].includes(action)), 'directory reads cannot request social events, register attendance or publish a visit');
   state.directory = null;
   await page.refresh();
   assert.equal(page.data.places.some(item => item.id === 'fixture-far'), false, 'a later service outage preserves the last accepted directory');
@@ -158,7 +158,7 @@ test('default place discovery expands losslessly, bypasses curation during searc
   assert.deepEqual(shown(), ['fixture-near', 'fixture-far', 'fixture-unknown']);
   assert.equal(new Set(shown()).size, originalIds.length);
   assert.equal(state.locationCalls, 0, 'recommendation, search and expanding the directory do not request GPS');
-  assert.ok(state.calls.every(action => ['bootstrap', 'listEvents', 'listPlaces'].includes(action)));
+  assert.ok(state.calls.every(action => ['bootstrap', 'listPlaces'].includes(action)));
 });
 
 test('two place columns remain in sync after expansion, search, distance order, image failure and directory replacement', async t => {
@@ -223,7 +223,7 @@ test('district, neighbourhood and real play tags filter places and external noti
   await page.onLoad();
   assert.equal(page.data.places.length, 3);
   assert.equal(state.locationCalls, 0);
-  assert.equal(page.data.eventsError, '仅测试后端不可用');
+  assert.ok(page.data.placeServiceError, 'directory failure is reported without blocking the bundled public catalogue');
   assert.deepEqual(Array.from(page.data.playChoices, tag => tag.id), ['walk', 'lawn', 'hangout']);
   page.selectDistrict(choice(page.data.districts.indexOf('闵行')));
   assert.deepEqual(Array.from(page.data.areas), ['全部片区', '莘庄', '梅陇']);

@@ -22,8 +22,8 @@ async function fixture(t) {
     removeStorageSync(key) { store.delete(key); },
     chooseMedia(options) {
       effects.picks += 1;
-      const video = options.mediaType.includes('video');
-      options.success({ tempFiles: Array.from({ length: video ? 1 : Math.min(state.images, options.count) }, (_, index) => ({ tempFilePath: '/memory/selected-' + index + (video ? '.mp4' : '.jpg'), size: 1200, duration: 8, width: 400, height: 300 })) });
+      assert.deepEqual(options.mediaType, ['image'], 'only the image picker may be opened');
+      options.success({ tempFiles: Array.from({ length: Math.min(state.images, options.count) }, (_, index) => ({ tempFilePath: '/memory/selected-' + index + '.jpg', size: 1200, width: 400, height: 300 })) });
     },
     compressVideo(options) { options.success({ tempFilePath: '/memory/compressed.mp4' }); },
     getVideoInfo(options) { options.success({ duration: 8, width: 400, height: 300 }); },
@@ -131,29 +131,47 @@ test('draft preview metadata survives reopening and temporary queue failure with
   assert.deepEqual(restored.data.images, []); assert.deepEqual(restored.data.imagePreviewSources, []); assert.equal(restored.data.videoPreviewSource, '');
 });
 
-test('cloud video drafts play from the saved local copy and submit only canonical video metadata', async t => {
-  const f = await fixture(t); const first = await f.mount(); await first.uploadVideo();
-  const video = structuredClone(first.data.video), local = first.data.videoPreviewSource;
-  assert.match(video.url, /^cloud:\/\//); assert.ok(f.files.has(local)); assert.notEqual(local, video.url);
-  assert.equal(first.data.completedUploads[0].previewPath, local);
-  assert.equal(first.data.video.poster, undefined);
-  first.input(event(undefined, '仅内存私密视频')); first.onUnload();
+test('legacy private video drafts never play or upload again and can continue as image posts after explicit removal', async t => {
+  const f = await fixture(t);
+  const video = { url: canonical('legacy-video', true), durationSeconds: 8 };
+  const local = 'wxfile://legacy-private-video.mp4', ticketId = 'legacy-video';
+  f.files.add(local);
+  f.store.set(QUEUE, { version: 1, items: [{ localId: ticketId, ticketId, ownerId: f.state.owner, scope: 'cloud:memory', mediaType: 'video', extension: 'mp4', status: 'complete', localPath: local, fileId: video.url, video }] });
+  f.store.set(drafts.KEY, { 'cloud:memory-owner': { version: 1, visibility: 'private', text: '仅内存私密视频草稿的正文', title: '旧草稿', video, images: [], completedUploads: [{ ticketId, fileId: video.url, previewPath: local, mediaType: 'video' }], pendingUploads: [], failedUploads: [] } });
   const restored = await f.mount();
-  assert.deepEqual(restored.data.video, video); assert.equal(restored.data.videoPreviewSource, local);
-  assert.equal(f.effects.picks, 1);
+  assert.deepEqual(restored.data.video, video);
+  assert.equal(restored.data.videoPreviewSource, '');
+  assert.equal(restored.uploadVideo, undefined);
+  assert.equal(restored.data.visibility, 'private');
+  assert.equal(restored.data.failedUploads[0].code, 'VIDEO_DISABLED');
+  assert.equal(restored.data.completedUploads[0].previewPath, local, 'legacy metadata remains available only for cleanup');
+  assert.ok(f.files.has(local), 'opening the editor does not delete the private draft file');
+  assert.equal(f.effects.picks, 0);
+  assert.equal(f.effects.calls.some(call => ['createUploadTicket', 'completeUpload', 'getUploadStatus'].includes(call.action)), false);
+  await restored.submit();
+  assert.equal(f.effects.calls.some(call => call.action === 'createPost'), false);
+  assert.match(f.effects.toasts.at(-1), /仅支持文字和图片/);
+  await restored.removeVideo();
+  assert.equal(restored.data.video, null);
+  assert.equal(restored.data.hasVideoAttachment, false);
+  assert.deepEqual(restored.data.failedUploads, []);
+  assert.ok(!f.files.has(local));
+  assert.equal(restored.data.text, '仅内存私密视频草稿的正文');
+  await restored.upload();
   await restored.submit();
   const payload = f.effects.calls.filter(call => call.action === 'createPost').at(-1).payload;
-  assert.deepEqual(payload.video, video); assert.doesNotMatch(JSON.stringify(payload), /wxfile:|previewPath|videoPreviewSource/);
-  assert.equal(restored.data.videoPreviewSource, ''); assert.equal(restored.data.video, null);
+  assert.equal(payload.video, undefined); assert.equal(payload.visibility, 'private');
+  assert.equal(payload.text, '仅内存私密视频草稿的正文'); assert.equal(payload.images.length, 3);
+  assert.doesNotMatch(JSON.stringify(payload), /wxfile:|previewPath|videoPreviewSource/);
 });
 
-test('media conflicts preserve both previews while removing one type clears only its preview', async t => {
+test('legacy mixed attachments preserve the photo preview without exposing video playback', async t => {
   const f = await fixture(t); const page = await f.mount();
   const image = canonical('old-image'), video = { url: canonical('new-video', true), durationSeconds: 8 };
   page.change({ images: [image], completedUploads: [{ ticketId: 'old-image', fileId: image, previewPath: 'wxfile://old-image.jpg', recoveredFromDraft: true }] });
   page.applyUploads({ images: [], video, completed: [{ ticketId: 'new-video', fileId: video.url, previewPath: 'wxfile://new-video.mp4', mediaType: 'video' }], pending: [], failures: [] });
   assert.equal(page.data.mediaConflict, true);
-  assert.deepEqual(page.data.imagePreviewSources, ['wxfile://old-image.jpg']); assert.equal(page.data.videoPreviewSource, 'wxfile://new-video.mp4');
+  assert.deepEqual(page.data.imagePreviewSources, ['wxfile://old-image.jpg']); assert.equal(page.data.videoPreviewSource, '');
   await page.submit(); assert.equal(f.effects.calls.some(call => call.action === 'createPost'), false);
   await page.removeVideo();
   assert.equal(page.data.videoPreviewSource, ''); assert.deepEqual(page.data.imagePreviewSources, ['wxfile://old-image.jpg']);
@@ -170,7 +188,7 @@ test('legacy cloud drafts without local copies show unavailable previews instead
   page.preview(event(0)); assert.deepEqual(f.effects.previews, []);
   const markup = fs.readFileSync(require.resolve('../miniprogram/pages/compose/index.wxml'), 'utf8');
   assert.match(markup, /src="\{\{imagePreviewSources\[index\]\}\}"/);
-  assert.match(markup, /src="\{\{videoPreviewSource\}\}"/);
+  assert.doesNotMatch(markup, /<video\b|videoPreviewSource|uploadVideo/);
   assert.doesNotMatch(markup, /src="\{\{video\.url\}\}"|poster="\{\{video\.poster/);
-  assert.match(markup, /本机照片预览暂不可用/); assert.match(markup, /本机视频预览暂不可用/);
+  assert.match(markup, /本机照片预览暂不可用/); assert.match(markup, /不支持的旧附件/);
 });

@@ -1,5 +1,6 @@
 const { CURATED_POSTS, CATALOG_VERSION } = require('./curated');
 const { EDITORS } = require('./editors');
+const contentPolicy = require('./content-policy');
 
 function clone(value) { return JSON.parse(JSON.stringify(value)); }
 function managed(post) { return post.catalogManaged === true || post.authorId === 'catalog-editor' && !!post.source; }
@@ -15,27 +16,11 @@ function mixCircles(posts) {
   return result;
 }
 
-function mixMedia(posts) {
-  const result = mixCircles(posts.filter(post => post.contentType === 'photo'));
-  const videos = mixCircles(posts.filter(post => post.contentType === 'video'));
-  // Three clips reach the first few feed pages without changing source dates.
-  videos.forEach((video, index) => {
-    const preferred = Math.min(3 + index * 12, result.length);
-    let position = preferred;
-    while (position < result.length &&
-      (result[position].circleId === video.circleId || position > 0 && result[position - 1].circleId === video.circleId)) position++;
-    // A single-circle catalogue cannot alternate; still show its clips early.
-    if (position === result.length) position = preferred;
-    result.splice(position, 0, video);
-  });
-  return result;
-}
-
 // Reconcile the editorial catalogue without replacing user data or replaying
 // fake engagement. Options allow isolated fixtures without changing the bundle.
 function syncCatalogue(state, timestamp, options) {
   const config = options || {};
-  const posts = config.posts || CURATED_POSTS;
+  const posts = (config.posts || CURATED_POSTS).filter(post => !contentPolicy.isVideoPost(post));
   const editors = config.editors || EDITORS;
   const version = config.version || CATALOG_VERSION;
   const editorIds = new Set(editors.map(editor => editor.id));
@@ -43,7 +28,7 @@ function syncCatalogue(state, timestamp, options) {
   const ids = new Set();
   const deleted = new Set(state.catalogDeletedIds || []);
   const existing = new Map(state.posts.map(post => [post.id, post]));
-  const pickEditor = post => post.editorId || (['photo', 'video'].includes(post.contentType) ? 'catalog-photo' : post.circleId === 'circle-cats' ? 'catalog-cat-home' : post.circleId === 'circle-walks' ? 'catalog-dog-walk' : 'catalog-pet-care');
+  const pickEditor = post => post.editorId || (post.contentType === 'photo' ? 'catalog-photo' : post.circleId === 'circle-cats' ? 'catalog-cat-home' : post.circleId === 'circle-walks' ? 'catalog-dog-walk' : 'catalog-pet-care');
   for (const post of posts) {
     if (!post.id || ids.has(post.id)) throw new Error('内容目录 ID 缺失或重复');
     ids.add(post.id);
@@ -54,8 +39,8 @@ function syncCatalogue(state, timestamp, options) {
     const user = state.users.find(item => item.id === editor.id);
     if (user && user.isEditorial !== true) throw new Error('展示账号 ID 与用户账号冲突');
   }
-  const knowledge = mixCircles(posts.filter(post => !['photo', 'video'].includes(post.contentType)));
-  const media = mixMedia(posts);
+  const knowledge = mixCircles(posts.filter(post => post.contentType !== 'photo'));
+  const media = mixCircles(posts.filter(post => post.contentType === 'photo'));
   const ordered = [];
   for (let i = 0; i < Math.max(knowledge.length, Math.ceil(media.length / 2)); i++) {
     if (knowledge[i]) ordered.push(knowledge[i]);

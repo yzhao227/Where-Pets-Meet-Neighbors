@@ -6,9 +6,10 @@ const { createApi } = require('../miniprogram/services/api');
 
 test('failed remote membership changes leave the feed version unchanged and successful changes invalidate it', async () => {
   let failure = 'transport';
-  const client = createApi({ cloud: { async callFunction() {
+  const client = createApi({ cloud: { async callFunction({ data: request }) {
     if (failure === 'transport') throw new Error('offline');
     if (failure === 'envelope') return { result: { ok: false, error: { code: 'FORBIDDEN', message: 'Denied' } } };
+    if (request.action === 'bootstrap') return { result: { ok: true, data: { user: { id: 'test-owner' } } } };
     return { result: { ok: true, data: { success: true } } };
   } } }, { mode: 'cloud' });
   await assert.rejects(client.call('followUser', { userId: 'other', follow: false }), { code: 'NETWORK_ERROR' });

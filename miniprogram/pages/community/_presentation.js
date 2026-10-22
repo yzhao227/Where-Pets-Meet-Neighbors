@@ -1,6 +1,7 @@
 'use strict';
 
 const additionalShapes = require('../../data/curated-shapes');
+const contentPolicy = require('../../data/content-policy');
 
 // Compact shape hints from the approved catalogue's existing Commons metadata.
 // Unknown images start fully contained. No catalogue or user data is changed;
@@ -23,9 +24,6 @@ const GROUP_COVER_SOURCES = Object.freeze({
   'knowledge-observe-chinchilla-features': '86374218',
   'knowledge-observe-guinea-pig-coats': '198523592'
 });
-// The two new posters preserve their encoded clips' 480×270 / 480×854 shape.
-LANDSCAPES.add('101613615');
-PORTRAITS.add('134636343');
 // The ten reviewed original JPEGs are 644–905 px wide in their source metadata.
 // Match exact Commons paths only; a different file must keep its original URL.
 const REVIEWED_ORIGINALS = new Set('d/d7/Small_Cat_Receiving_Love.jpg f/f4/Dog_sleeping_in_a_dog_bed.JPG f/f0/Anatolian_Shepherd_Dog_Laying.jpg 2/28/Orange_Syrian_shorthair_hamster.jpg 6/66/Holland_Lop_Bunny_Standing_On_Her_Back_Feet.jpg 1/16/Cat_Peeing_in_Plant.jpg 8/8d/Winter_white_hamster_sapphire.jpg c/c2/Winter_white_hamster_pearl_sapphire.jpg 9/9d/Goldhamster.jpg 0/05/Bunny_Photo.jpg'.split(' '));
@@ -47,7 +45,6 @@ function modeForSize(size, ratio) {
 function initialShape(post) {
   const extra = additionalShapes[String(post.id || '').replace(/^catalog-/, '')];
   const size = dimensions(post.coverWidth, post.coverHeight) ||
-    (post.video && post.cover === post.video.poster && dimensions(post.video.width, post.video.height)) ||
     (extra && dimensions(extra[0], extra[1]));
   if (size) {
     const sourceRatio = size.width / size.height;
@@ -57,7 +54,7 @@ function initialShape(post) {
   const knowledge = /^(?:catalog-)?knowledge-(\d+)$/.exec(post.id || '');
   const hint = knowledge && KNOWLEDGE_SHAPES[Number(knowledge[1]) - 1];
   if (hint && hint !== '.') return { ratio: { p: 'portrait', l: 'landscape', s: 'square' }[hint], mode: 'aspectFill' };
-  const match = /^(?:catalog-)?(?:photo|video)-commons-(\d+)$/.exec(post.id || '');
+  const match = /^(?:catalog-)?photo-commons-(\d+)$/.exec(post.id || '');
   const sourceId = match && match[1] || GROUP_COVER_SOURCES[String(post.id || '').replace(/^catalog-/, '')];
   if (PORTRAITS.has(sourceId)) return { ratio: 'portrait', mode: 'aspectFill' };
   if (LANDSCAPES.has(sourceId)) return { ratio: 'landscape', mode: 'aspectFill' };
@@ -72,18 +69,19 @@ function listCoverSource(post, sourceSrc) {
   return sourceSrc;
 }
 function createCoverState(post, attempt) {
+  if (contentPolicy.isVideoPost(post)) throw Object.assign(new Error('内容已下架'), { code: 'NOT_FOUND' });
   const sourceSrc = typeof post.cover === 'string' ? post.cover : '';
   const src = listCoverSource(post, sourceSrc);
   return Object.assign({ id: post.id, sourceSrc, src, attempt: attemptNumber(attempt) || 0, status: src ? 'loading' : 'none' }, initialShape(post));
 }
 function cardLabel(post) {
-  if (post.video) return { cardLabel: '视频', cardLabelType: 'video' };
   if (post.contentType === 'knowledge') return { cardLabel: '知识', cardLabelType: 'knowledge' };
   if (post.kind === 'question') return { cardLabel: '问答', cardLabelType: 'question' };
   if (post.kind === 'meetup') return { cardLabel: '一起玩', cardLabelType: 'meetup' };
   return { cardLabel: '', cardLabelType: '' };
 }
 function decorate(post, state) {
+  if (contentPolicy.isVideoPost(post)) throw Object.assign(new Error('内容已下架'), { code: 'NOT_FOUND' });
   const sourceSrc = typeof post.cover === 'string' ? post.cover : '';
   const current = state && state.id === post.id && state.sourceSrc === sourceSrc ? state : createCoverState(post, 0);
   return Object.assign({}, post, cardLabel(post), {

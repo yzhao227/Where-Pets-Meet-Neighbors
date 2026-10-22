@@ -29,6 +29,17 @@ async function fixture() {
   return { call, befriend, state: () => clone(saved), edit: fn => fn(saved), tick: () => { time += 1000; }, failWrites: value => { rejectWrites = value; } };
 }
 
+function legacyGroup(f) {
+  const id = 'legacy-group';
+  f.edit(state => {
+    state.conversations.push({ id, kind: 'group', name: 'LEGACY_GROUP_ONLY', memberIds: ['alice', 'bob', 'charlie', 'unverified'], ownerId: 'alice',
+      createdBy: 'alice', requestId: 'legacy', createdAt: EPOCH, lastSeq: 2, readBy: [], leftIds: [], closed: false });
+    for (const [index, senderId] of ['alice', 'bob'].entries()) state.chatMessages.push({ id: 'legacy-message-' + index, conversationId: id,
+      senderId, seq: index + 1, text: 'LEGACY_GROUP_ONLY', requestId: 'legacy-' + index, createdAt: EPOCH });
+  });
+  return id;
+}
+
 test('social upgrade preserves existing data and a new device has no fabricated social activity', async () => {
   let saved;
   const api = createDemoService({ getStorageSync: () => saved, setStorageSync: (key, value) => { saved = clone(value); } }, { now: () => EPOCH, storageKey: KEY });
@@ -93,7 +104,7 @@ test('friend requests require recipient confirmation, remain independent of foll
 
 test('social writes use existing verification while declines and private history remain available', async () => {
   const f = await fixture();
-  for (const [action, payload] of [['sendFriendRequest', { targetId: 'alice' }], ['createGroupChat', { name: '测试群', memberIds: ['alice'], requestId: 'new' }], ['openDirectChat', { targetId: 'alice' }], ['sendChatMessage', { conversationId: 'missing', text: 'hello', requestId: 'new' }]]) {
+  for (const [action, payload] of [['sendFriendRequest', { targetId: 'alice' }], ['openDirectChat', { targetId: 'alice' }]]) {
     await assert.rejects(f.call('unverified', action, payload), { code: 'VERIFICATION_REQUIRED' });
   }
   await f.call('alice', 'sendFriendRequest', { targetId: 'unverified' });
@@ -106,13 +117,14 @@ test('social writes use existing verification while declines and private history
   f.edit(state => { const bob = state.users.find(item => item.id === 'bob'); bob.verification = { status: 'unverified' }; delete bob.demoConsent; });
   const history = await f.call('bob', 'getChatMessages', { conversationId: conversation.id });
   assert.equal(history.items.length, 1); assert.equal(history.conversation.canSend, false);
+  await assert.rejects(f.call('bob', 'sendChatMessage', { conversationId: conversation.id, text: '需核验', requestId: 'unverified' }), { code: 'VERIFICATION_REQUIRED' });
   await f.call('bob', 'readConversation', { conversationId: conversation.id, throughSeq: 1 });
   await f.call('bob', 'removeFriend', { targetId: 'alice' });
-  assert.equal((await f.call('alice', 'getChatMessages', { conversationId: conversation.id })).conversation.canSend, false);
+  assert.equal((await f.call('alice', 'getChatMessages', { conversationId: conversation.id })).conversation.canSend, true, 'removing friendship does not disable direct chat');
 });
 
 test('direct chat is shared, authorized, idempotent and ordered with concurrent same-millisecond sends', async () => {
-  const f = await fixture(); await f.befriend('alice', 'bob');
+  const f = await fixture();
   const opened = await Promise.all([f.call('alice', 'openDirectChat', { targetId: 'bob' }), f.call('bob', 'openDirectChat', { targetId: 'alice' })]);
   const conversationId = opened[0].conversation.id;
   assert.equal(opened[1].conversation.id, conversationId);
@@ -135,8 +147,27 @@ test('direct chat is shared, authorized, idempotent and ordered with concurrent 
   assert.equal((await f.call('alice', 'listConversations')).unreadCount, 1, 'fetching does not read');
   await f.call('alice', 'removeFriend', { targetId: 'bob' });
   assert.equal((await f.call('alice', 'getChatMessages', { conversationId })).items.length, 2);
-  await assert.rejects(f.call('alice', 'sendChatMessage', { conversationId, text: '不能发送', requestId: 'a2' }), { code: 'FRIEND_REQUIRED' });
-  await assert.rejects(f.call('bob', 'openDirectChat', { targetId: 'alice' }), { code: 'FRIEND_REQUIRED' });
+  assert.equal((await f.call('alice', 'sendChatMessage', { conversationId, text: '仍可交流', requestId: 'a2' })).message.seq, 3);
+  assert.equal((await f.call('bob', 'openDirectChat', { targetId: 'alice' })).conversation.id, conversationId);
+  assert.deepEqual(f.state().friendships, [], 'direct messages never grant friendship');
+});
+
+test('private chats exclude editorial and inactive users, and account recreation cannot inherit old chats', async () => {
+  const f = await fixture();
+  for (const targetId of ['editor', 'missing']) await assert.rejects(f.call('alice', 'openDirectChat', { targetId }), { code: 'NOT_FOUND' });
+  await assert.rejects(f.call('alice', 'openDirectChat', { targetId: 'alice' }), { code: 'INVALID_INPUT' });
+  const chat = (await f.call('alice', 'openDirectChat', { targetId: 'bob' })).conversation.id;
+  await f.call('alice', 'sendChatMessage', { conversationId: chat, text: '你好', requestId: 'first' });
+  await f.call('bob', 'sendChatMessage', { conversationId: chat, text: '回复', requestId: 'reply' });
+  f.edit(state => { state.users.find(item => item.id === 'bob').status = 'suspended'; });
+  assert.equal((await f.call('alice', 'getChatMessages', { conversationId: chat })).conversation.canSend, false);
+  await assert.rejects(f.call('alice', 'sendChatMessage', { conversationId: chat, text: '不可发', requestId: 'inactive' }), { code: 'CHAT_UNAVAILABLE' });
+  f.edit(state => { state.users.find(item => item.id === 'bob').status = 'active'; });
+  await f.call('bob', 'deleteAccount');
+  await f.call('bob', 'bootstrap');
+  await f.call('bob', 'demoVerifyIdentity', { consent });
+  await assert.rejects(f.call('bob', 'getChatMessages', { conversationId: chat }), { code: 'NOT_FOUND' });
+  assert.notEqual((await f.call('alice', 'openDirectChat', { targetId: 'bob' })).conversation.id, chat);
 });
 
 test('read cursors only cover fetched sequence and never consume a later message or move backwards', async () => {
@@ -154,59 +185,48 @@ test('read cursors only cover fetched sequence and never consume a later message
   assert.equal((await f.call('bob', 'listConversations')).unreadCount, 0);
 });
 
-test('groups validate all members, creation retries, owner transfer and permanent leave permissions', async () => {
-  const f = await fixture(); await f.befriend('alice', 'bob'); await f.befriend('alice', 'charlie');
-  for (const memberIds of [[], ['bob', 'bob'], ['alice'], ['dana'], ['editor'], Array.from({ length: 20 }, (_, i) => 'id-' + i)]) {
-    await assert.rejects(f.call('alice', 'createGroupChat', { name: '测试群', memberIds, requestId: 'invalid' }));
+test('group APIs are retired without deleting legacy groups or exposing group messages and unread counts', async () => {
+  const f = await fixture(); await f.befriend('alice', 'bob');
+  const group = legacyGroup(f);
+  const chat = (await f.call('alice', 'openDirectChat', { targetId: 'bob' })).conversation.id;
+  await f.call('bob', 'sendChatMessage', { conversationId: chat, text: '可见私聊', requestId: 'direct' });
+  const before = f.state();
+  for (const who of ['alice', 'unverified']) {
+    await assert.rejects(f.call(who, 'createGroupChat', { name: '已下线群聊', memberIds: ['bob'], requestId: 'new-group' }), { code: 'FEATURE_UNAVAILABLE' });
+    for (const action of ['getChatMessages', 'readConversation', 'sendChatMessage', 'leaveGroup']) {
+      await assert.rejects(f.call(who, action, { conversationId: group, text: '不能发送', requestId: 'disabled', throughSeq: 2 }), { code: 'FEATURE_UNAVAILABLE' });
+    }
   }
-  await f.call('charlie', 'blockUser', { userId: 'bob', block: true });
-  await assert.rejects(f.call('alice', 'createGroupChat', { name: '测试群', memberIds: ['bob', 'charlie'], requestId: 'invalid' }), { code: 'MEMBER_UNAVAILABLE' });
-  await f.call('charlie', 'blockUser', { userId: 'bob', block: false });
-  const payload = { name: '测试群', memberIds: ['charlie', 'bob'], requestId: 'group1' };
-  const first = await f.call('alice', 'createGroupChat', payload);
-  const retry = await f.call('alice', 'createGroupChat', { ...payload, memberIds: ['bob', 'charlie'] });
-  const conversationId = first.conversation.id;
-  assert.equal(retry.conversation.id, conversationId); assert.equal(f.state().conversations.length, 1);
-  assert.equal(first.conversation.memberCount, 3);
-  await assert.rejects(f.call('alice', 'createGroupChat', { ...payload, name: '另一个测试群' }), { code: 'IDEMPOTENCY_CONFLICT' });
-  await assert.rejects(f.call('dana', 'leaveGroup', { conversationId }), { code: 'NOT_FOUND' });
-  await f.call('alice', 'leaveGroup', { conversationId }); await f.call('alice', 'leaveGroup', { conversationId });
-  const after = await f.call('bob', 'getChatMessages', { conversationId });
-  assert.equal(after.conversation.ownerId, 'bob'); assert.equal(after.conversation.memberCount, 2);
-  await assert.rejects(f.call('alice', 'getChatMessages', { conversationId }), { code: 'NOT_FOUND' });
-  await assert.rejects(f.call('alice', 'createGroupChat', payload), { code: 'NOT_FOUND' });
-  await f.call('bob', 'leaveGroup', { conversationId }); await f.call('charlie', 'leaveGroup', { conversationId });
-  assert.equal(f.state().conversations[0].closed, true);
-  assert.deepEqual((await f.call('charlie', 'listConversations')).items, []);
+  const list = await f.call('alice', 'listConversations', { limit: 1 });
+  assert.deepEqual(list.items.map(item => item.id), [chat]); assert.equal(list.unreadCount, 1); assert.equal(list.nextCursor, undefined);
+  const search = await f.call('alice', 'listConversations', { query: 'LEGACY_GROUP_ONLY' });
+  assert.deepEqual(search.items, []); assert.equal(search.unreadCount, 1);
+  assert.deepEqual(f.state(), before, 'retiring group functionality preserves its stored records and friendship data');
+  await assert.rejects(f.call('alice', 'listChatContacts'), { code: 'UNKNOWN_ACTION' });
 });
 
-test('blocking filters chat previews, bodies, member names, search and unread totals in both directions', async () => {
-  const f = await fixture(); await f.befriend('alice', 'bob'); await f.befriend('alice', 'charlie');
+test('blocking hides direct previews, history, search and unread totals in both directions', async () => {
+  const f = await fixture(); await f.befriend('alice', 'bob');
   const direct = (await f.call('alice', 'openDirectChat', { targetId: 'bob' })).conversation.id;
-  const group = (await f.call('alice', 'createGroupChat', { name: '本机测试群', memberIds: ['bob', 'charlie'], requestId: 'group' })).conversation.id;
-  await f.call('charlie', 'sendChatMessage', { conversationId: group, text: '仍可见的消息', requestId: 'c1' });
-  f.tick();
-  await f.call('bob', 'sendChatMessage', { conversationId: group, text: 'BLOCKED_SECRET', requestId: 'b1' });
-  await f.call('bob', 'sendChatMessage', { conversationId: direct, text: 'BLOCKED_DIRECT', requestId: 'b2' });
-  assert.equal((await f.call('alice', 'listConversations')).unreadCount, 3);
+  const visible = (await f.call('alice', 'openDirectChat', { targetId: 'charlie' })).conversation.id;
+  await f.call('charlie', 'sendChatMessage', { conversationId: visible, text: '仍可见的消息', requestId: 'c1' });
+  f.tick(); await f.call('bob', 'sendChatMessage', { conversationId: direct, text: 'BLOCKED_DIRECT', requestId: 'b2' });
+  assert.equal((await f.call('alice', 'listConversations')).unreadCount, 2);
   await f.call('bob', 'blockUser', { userId: 'alice', block: true });
   const list = await f.call('alice', 'listConversations');
-  assert.equal(list.items.length, 1); assert.equal(list.unreadCount, 1);
+  assert.equal(list.items.length, 1); assert.equal(list.unreadCount, 1); assert.equal(list.items[0].id, visible);
   assert.equal(list.items[0].lastText, '仍可见的消息'); assert.equal(list.items[0].updatedAt, EPOCH);
   assert.equal((await f.call('alice', 'listConversations', { query: 'BLOCKED' })).items.length, 0);
   assert.equal((await f.call('alice', 'listConversations', { query: '测试Cat乙' })).items.length, 0);
-  const history = await f.call('alice', 'getChatMessages', { conversationId: group });
-  assert.deepEqual(history.items.map(item => item.seq), [1]);
-  assert.equal(history.conversation.lastSeq, 2); assert.equal(history.conversation.memberCount, 3);
-  assert.equal(history.conversation.members.some(item => item.id === 'bob'), false);
   assert.equal((await f.call('alice', 'getFriendHub')).friends.some(item => item.id === 'bob'), false);
   assert.deepEqual((await f.call('alice', 'searchPeople', { query: 'bob' })).items, []);
-  for (const who of ['alice', 'bob']) await assert.rejects(f.call(who, 'getChatMessages', { conversationId: direct }), { code: 'NOT_FOUND' });
-  await f.call('alice', 'sendChatMessage', { conversationId: group, text: '屏蔽后我的群聊消息', requestId: 'a1' });
-  assert.equal((await f.call('bob', 'getChatMessages', { conversationId: group })).items.some(item => item.sender.id === 'alice'), false);
+  for (const who of ['alice', 'bob']) for (const action of ['getChatMessages', 'readConversation', 'sendChatMessage']) {
+    await assert.rejects(f.call(who, action, { conversationId: direct, text: '不可发', requestId: 'blocked', throughSeq: 1 }), { code: 'NOT_FOUND' });
+  }
+  await assert.rejects(f.call('alice', 'openDirectChat', { targetId: 'bob' }), { code: 'NOT_FOUND' });
   await f.call('bob', 'blockUser', { userId: 'alice', block: false });
   assert.equal((await f.call('alice', 'getFriendHub')).friends.some(item => item.id === 'bob'), false);
-  assert.equal((await f.call('alice', 'getChatMessages', { conversationId: direct })).conversation.canSend, false);
+  assert.equal((await f.call('alice', 'getChatMessages', { conversationId: direct })).conversation.canSend, true);
   await f.call('dana', 'sendFriendRequest', { targetId: 'alice' });
   const requestId = (await f.call('alice', 'getFriendHub')).incoming[0].id;
   await f.call('alice', 'blockUser', { userId: 'dana', block: true });
@@ -219,21 +239,22 @@ test('blocking filters chat previews, bodies, member names, search and unread to
 test('conversation search runs before pagination and unread totals remain global across filters', async () => {
   const f = await fixture(); await f.befriend('alice', 'bob');
   const ids = [];
-  for (let i = 0; i < 4; i += 1) {
-    const conversationId = (await f.call('alice', 'createGroupChat', { name: '测试群' + i, memberIds: ['bob'], requestId: 'g' + i })).conversation.id;
+  legacyGroup(f);
+  for (const [i, who] of ['bob', 'charlie', 'dana'].entries()) {
+    const conversationId = (await f.call('alice', 'openDirectChat', { targetId: who })).conversation.id;
     ids.push(conversationId);
-    await f.call('bob', 'sendChatMessage', { conversationId, text: i % 2 ? 'needle [CAT]' : '普通文字', requestId: 'b1' });
+    await f.call(who, 'sendChatMessage', { conversationId, text: i % 2 ? 'needle [CAT]' : '普通文字', requestId: 'b1' });
   }
   const all = await f.call('alice', 'listConversations');
-  assert.equal(all.unreadCount, 4);
+  assert.equal(all.unreadCount, 3);
   let cursor; const seen = [];
   do {
     const page = await f.call('alice', 'listConversations', { query: 'cat', limit: 1, cursor });
-    assert.equal(page.unreadCount, 4); seen.push(...page.items.map(item => item.id)); cursor = page.nextCursor;
+    assert.equal(page.unreadCount, 3); seen.push(...page.items.map(item => item.id)); cursor = page.nextCursor;
   } while (cursor);
-  assert.equal(seen.length, 4, 'public member nickname also matches CAT');
+  assert.equal(seen.length, 3, 'public member nickname also matches CAT');
   const textMatches = await f.call('alice', 'listConversations', { query: 'needle [' });
-  assert.deepEqual(textMatches.items.map(item => item.id).sort(), [ids[1], ids[3]].sort());
+  assert.deepEqual(textMatches.items.map(item => item.id).sort(), [ids[1]].sort());
   assert.equal((await f.call('alice', 'listConversations', { query: 'PRIVATE' })).items.length, 0);
   for (const cursor of [false, 'broken', 'c_9999999999999999_chat']) await assert.rejects(f.call('alice', 'listConversations', { cursor }), { code: 'INVALID_INPUT' });
 });
@@ -261,8 +282,8 @@ test('storage failures leave friendship and chat sequence unchanged and retries 
 test('account deletion removes social membership, relations, authored text and read cursors without revival', async () => {
   const f = await fixture(); await f.befriend('alice', 'bob'); await f.befriend('alice', 'charlie');
   const direct = (await f.call('alice', 'openDirectChat', { targetId: 'bob' })).conversation.id;
-  const group = (await f.call('alice', 'createGroupChat', { name: '测试群', memberIds: ['bob', 'charlie'], requestId: 'g1' })).conversation.id;
-  for (const conversationId of [direct, group]) {
+  const group = legacyGroup(f);
+  for (const conversationId of [direct]) {
     await f.call('alice', 'sendChatMessage', { conversationId, text: 'TO_BE_DELETED', requestId: 'a1' });
     await f.call('bob', 'sendChatMessage', { conversationId, text: '其他成员的文字', requestId: 'b1' });
     await f.call('alice', 'readConversation', { conversationId, throughSeq: 2 });
@@ -274,8 +295,9 @@ test('account deletion removes social membership, relations, authored text and r
   assert.equal(state.friendRequests.some(item => item.fromId === 'alice' || item.toId === 'alice'), false);
   assert.equal(state.chatMessages.some(item => item.senderId === 'alice'), false);
   assert.equal(state.conversations.some(item => item.memberIds.includes('alice') || item.readBy.some(read => read.userId === 'alice')), false);
-  const remaining = await f.call('bob', 'getChatMessages', { conversationId: group });
-  assert.equal(remaining.conversation.ownerId, 'bob'); assert.equal(remaining.items.length, 1);
+  assert.equal(state.conversations.find(item => item.id === group).ownerId, 'bob');
+  assert.equal(state.chatMessages.filter(item => item.conversationId === group).length, 1);
+  await assert.rejects(f.call('bob', 'getChatMessages', { conversationId: group }), { code: 'FEATURE_UNAVAILABLE' });
   assert.equal(JSON.stringify(await f.call('bob', 'listConversations')).includes('TO_BE_DELETED'), false);
   await f.call('alice', 'bootstrap');
   assert.deepEqual(await f.call('alice', 'getFriendHub'), { friends: [], incoming: [], outgoing: [] });

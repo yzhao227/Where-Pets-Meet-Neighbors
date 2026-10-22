@@ -229,7 +229,8 @@ test('editorial route guides are reachable from nearby and their place details, 
   t.after(() => { links.open = previousLinks.open; links.canOpen = previousLinks.canOpen; });
   const f = await fixture(t);
   const nearby = await f.mount('nearby');
-  assert.equal(nearby.data.guides.length, 3);
+  nearby.selectTab(evt({ id: 'guides' }));
+  assert.equal(nearby.data.displayGuides.length, 3);
   const raw = catalogue.guides[0];
   nearby.openGuide(evt({ id: raw.id }));
   assert.equal(f.effects.routes.at(-1), '/pages/local-detail/index?guideId=' + raw.id);
@@ -249,7 +250,7 @@ test('editorial route guides are reachable from nearby and their place details, 
   stop.openGuide(evt({ id: raw.id }));
   assert.equal(f.effects.routes.at(-1), '/pages/local-detail/index?guideId=' + raw.id);
   assert.equal(f.effects.locationRequests, 0);
-  assert.ok(f.effects.calls.every(call => ['bootstrap', 'listPlaces', 'listEvents', 'getPlace'].includes(call.action)), 'browsing a guide creates no visits, registrations or user posts');
+  assert.ok(f.effects.calls.every(call => ['bootstrap', 'listPlaces', 'getPlace'].includes(call.action)), 'browsing a guide creates no visits, registrations, social event requests or user posts');
   for (const name of ['nearby', 'local-detail']) {
     const page = f.instantiate(name);
     const markup = fs.readFileSync(path.join(__dirname, '../miniprogram/pages', name, 'index.wxml'), 'utf8');

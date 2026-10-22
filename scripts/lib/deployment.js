@@ -110,6 +110,8 @@ function contentBundleFiles(root) {
     files.set(relative, source);
   }
   contentInputs.forEach(add);
+  const retiredVideos = 'content/batch-001/retired-video-20261022.json';
+  if (fs.existsSync(path.join(root, retiredVideos))) add(retiredVideos);
   for (const relative of contentReviewRecords) {
     const record = JSON.parse(fs.readFileSync(files.get(relative), 'utf8'));
     if (!record.reviewedFileSha256 || typeof record.reviewedFileSha256 !== 'object' || Array.isArray(record.reviewedFileSha256)) throw new Error('内容审核依赖清单不正确: ' + relative);
@@ -145,9 +147,16 @@ function createBundle(config, { root = ROOT, output } = {}) {
   const target = path.resolve(output);
   if (fs.existsSync(target)) throw new Error('发布包目录已存在；请使用新的目录，避免覆盖旧结果');
   const contentFiles = contentBundleFiles(root);
+  const project = JSON.parse(fs.readFileSync(path.join(root, 'project.config.json'), 'utf8'));
+  const ignored = project.packOptions && project.packOptions.ignore || [];
+  const isIgnored = source => {
+    const relative = path.relative(path.join(root, 'miniprogram'), source).split(path.sep).join('/');
+    return ignored.some(entry => entry.type === 'file' ? relative === entry.value : entry.type === 'folder' && (relative === entry.value || relative.startsWith(entry.value + '/')));
+  };
   fs.mkdirSync(target, { recursive: true });
   for (const directory of ['miniprogram', 'cloudfunctions', 'preview', 'scripts', 'tests', 'infra', 'docs', 'tools']) {
     for (const source of walk(path.join(root, directory))) {
+      if (directory === 'miniprogram' && isIgnored(source)) continue;
       if (directory === 'infra' && !['database.schema.json', 'deployment.example.json', 'secrets.env.example', 'README.md', 'storage-policy.json', 'storage.rules.md'].includes(path.basename(source))) continue;
       if (/\.(?:pem|key|p12|pfx)$/i.test(source) || /(?:local|secrets)\.(?:json|env)$/i.test(source)) continue;
       const destination = path.join(target, path.relative(root, source));
@@ -162,7 +171,6 @@ function createBundle(config, { root = ROOT, output } = {}) {
   }
   fs.copyFileSync(path.join(root, 'package.json'), path.join(target, 'package.json'));
   fs.copyFileSync(path.join(root, 'README.md'), path.join(target, 'README.md'));
-  const project = JSON.parse(fs.readFileSync(path.join(root, 'project.config.json'), 'utf8'));
   project.appid = config.wechat.appid || 'touristappid';
   project.description = '有宠有邻 ' + config.version + ' · 微信部署候选包';
   fs.writeFileSync(path.join(target, 'project.config.json'), JSON.stringify(project, null, 2) + '\n');
@@ -206,8 +214,9 @@ async function uploadBundle(directory, { ci, privateKeyPath, preview = false } =
   const keyPath = fs.realpathSync(privateKeyPath);
   if (keyPath === rootPath || keyPath.startsWith(rootPath + path.sep)) throw new Error('上传密钥必须保存在发布包目录之外');
   const projectConfig = JSON.parse(fs.readFileSync(path.join(rootPath, 'project.config.json'), 'utf8'));
+  const ignored = (projectConfig.packOptions && projectConfig.packOptions.ignore || []).filter(entry => ['file', 'folder'].includes(entry.type)).map(entry => entry.value + (entry.type === 'folder' ? '/**/*' : ''));
   const project = new ci.Project({ appid: projectConfig.appid, type: 'miniProgram', projectPath: path.join(rootPath, 'miniprogram'),
-    privateKeyPath: keyPath, ignores: ['node_modules/**/*', 'tools/**/*', 'tests/**/*', 'scripts/**/*', 'infra/**/*'] });
+    privateKeyPath: keyPath, ignores: ['node_modules/**/*', 'tools/**/*', 'tests/**/*', 'scripts/**/*', 'infra/**/*'].concat(ignored) });
   const args = { project, desc: '有宠有邻 ' + manifest.version + ' 微信体验候选版', setting: { es6: true, minify: true }, robot: 1 };
   if (preview) {
     // Keep generated QR code outside the immutable package inventory.

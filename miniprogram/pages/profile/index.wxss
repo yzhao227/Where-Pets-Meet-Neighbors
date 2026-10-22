@@ -1,55 +1,91 @@
-.profile-page>.eyebrow{margin-top:15rpx;}
-.page-title{font-size:42rpx;margin:4rpx 0 18rpx;}
-.subtitle{font-size:25rpx;line-height:1.8;margin-bottom:25rpx;}
-.demo-label{margin-bottom:19rpx;}
-.profile-form,.pet-form{padding:27rpx;}
-.avatar-intro{gap:20rpx;border-bottom:1rpx solid #E9E5E1;padding-bottom:26rpx;margin-bottom:26rpx;}
-.profile-avatar{width:92rpx;height:92rpx;border-radius:50%;}
-.intro-title{font-size:27rpx;font-weight:650;margin-bottom:9rpx;}
-.intro-title+.small{font-size:21rpx;}
-.field{margin-top:26rpx;}
-.label{font-size:25rpx;}
-.required,.optional{font-size:19rpx;color:#66707A;font-weight:400;margin-left:12rpx;}
-.required{color:#B84735;}
-.input{margin-top:13rpx;font-size:26rpx;box-sizing:border-box;}
-.picker-value{min-height:85rpx;padding:20rpx;}
-.field-hint{font-size:21rpx;color:#66707A;margin-top:13rpx;line-height:1.7;}
-.bio-input{width:100%;height:185rpx;font-size:26rpx;line-height:1.8;box-sizing:border-box;margin-top:13rpx;}
-.word-count{text-align:right;font-size:20rpx;color:#66707A;margin-top:11rpx;}
-.pet-form{margin-top:24rpx;}
-.pet-caption{font-size:22rpx;color:#66707A;margin-top:12rpx;}
-.pet-add{margin:0;padding:10rpx 16rpx;background:#FFF0E9;color:#B84735;font-size:24rpx;line-height:1.6;border-radius:16rpx;}
-.pet-empty{margin-top:24rpx;padding:24rpx;background:#FAF8F5;border-radius:18rpx;font-size:24rpx;line-height:1.8;color:#66707A;}
-.pet-record{margin-top:26rpx;padding-top:24rpx;border-top:1rpx solid #E9E5E1;}
-.pet-record-head{gap:20rpx;align-items:center;}
-.pet-photo{width:112rpx;height:112rpx;border-radius:22rpx;flex:none;}
-.pet-photo-empty{display:flex;align-items:center;justify-content:center;background:#F4EEE8;font-size:42rpx;}
+.profile-page{padding:30rpx 32rpx calc(48rpx + env(safe-area-inset-bottom));}
+.profile-heading{margin-bottom:28rpx;}
+.profile-page .page-title{font-size:48rpx;line-height:1.35;font-weight:700;letter-spacing:-1rpx;margin:0;}
+.profile-page .subtitle{font-size:27rpx;line-height:1.7;margin-top:12rpx;}
+.profile-page .demo-label{margin-bottom:30rpx;padding:10rpx 14rpx;font-size:22rpx;background:#F0EEE9;color:#6A717B;border-radius:10rpx;}
+.profile-page .section-title{font-size:34rpx;line-height:1.45;font-weight:650;letter-spacing:-.5rpx;}
+.profile-page .card{padding:30rpx;border-radius:26rpx;box-shadow:none;}
+.pet-section-heading{gap:16rpx;}
+.pet-section-heading .section-title{min-width:0;flex:1;}
+button.pet-add{display:flex;align-items:center;justify-content:center;min-height:44px;flex:none;margin:0;padding:15rpx 21rpx;background:#CC4A37;color:#FFFFFF;font-size:26rpx;font-weight:600;line-height:1.5;border-radius:18rpx;}
+.pet-caption{margin-top:6rpx;color:#6A717B;font-size:24rpx;line-height:1.75;}
+.pet-empty{margin-top:24rpx;padding:36rpx 28rpx 40rpx;text-align:center;background:#FFFFFF;border:1rpx solid #E9E5E1;border-radius:28rpx;}
+.pet-empty-mark{display:flex;align-items:center;justify-content:center;width:100rpx;height:100rpx;margin:0 auto 20rpx;background:#F3ECE5;border-radius:32rpx;font-size:42rpx;}
+.pet-empty-icon{width:56rpx;height:56rpx;}
+.pet-empty-title{font-size:31rpx;font-weight:600;color:#24262D;line-height:1.5;}
+.pet-empty-copy{font-size:25rpx;line-height:1.85;color:#6A717B;margin-top:10rpx;}
+.pet-record{margin-top:24rpx;padding:26rpx 26rpx 0;border:1rpx solid #E9E5E1;background:#FFFFFF;border-radius:28rpx;overflow:hidden;}
+.pet-record-head{align-items:center;gap:26rpx;}
+.pet-photo{width:224rpx;height:224rpx;border-radius:21rpx;flex:none;background:#F3ECE5;}
+.pet-record-primary .pet-photo{width:248rpx;height:248rpx;}
+.pet-photo-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12rpx;background:#F3ECE5;}
+.pet-photo-placeholder{width:64rpx;height:64rpx;}
+.pet-photo-empty-caption{font-size:22rpx;color:#776F67;}
 .pet-record-copy{min-width:0;flex:1;}
-.pet-record-name{font-size:30rpx;font-weight:600;overflow-wrap:anywhere;}
-.pet-record-meta{font-size:24rpx;line-height:1.7;color:#66707A;margin-top:7rpx;overflow-wrap:anywhere;}
-.pet-primary-note{font-size:20rpx;color:#9A7164;margin-top:5rpx;}
-.pet-record-actions{display:flex;flex-wrap:wrap;gap:10rpx;margin-top:17rpx;}
-.pet-record-actions button{margin:0;padding:12rpx 15rpx;line-height:1.6;font-size:22rpx;color:#52685C;background:#F3F6F3;border-radius:14rpx;}
-.pet-record-actions .pet-remove{color:#976F66;background:#FAF2EF;}
-.pet-photo-status{padding:18rpx;margin-top:15rpx;font-size:23rpx;line-height:1.7;background:#F8F4EA;border-radius:15rpx;}
-.pet-editor{margin-top:28rpx;padding-top:26rpx;border-top:2rpx solid #F0B7A8;}
-.pet-age-inputs{display:flex;align-items:center;gap:15rpx;font-size:25rpx;}
-.pet-age-inputs .input{min-width:0;flex:1;}
-.pet-editor-actions{display:flex;gap:16rpx;margin-top:26rpx;}
+.pet-record-name{font-size:38rpx;line-height:1.35;font-weight:650;letter-spacing:-.6rpx;overflow-wrap:anywhere;}
+.pet-record-meta{font-size:25rpx;line-height:1.7;color:#6A717B;margin-top:12rpx;overflow-wrap:anywhere;}
+.pet-record-age{font-size:25rpx;line-height:1.6;color:#42464E;margin-top:3rpx;}
+.pet-primary-note{font-size:21rpx;line-height:1.6;color:#827469;margin-top:16rpx;}
+.pet-record-actions{display:flex;flex-wrap:wrap;gap:12rpx;}
+.pet-record-actions button{display:flex;align-items:center;justify-content:center;min-height:44px;margin:0;padding:17rpx 20rpx;line-height:1.5;font-size:25rpx;color:#42464E;background:#F5F3EF;border-radius:16rpx;}
+.pet-main-actions{margin-top:26rpx;}
+.pet-main-actions button{flex:1;min-width:0;}
+.pet-main-actions .pet-edit{color:#B13F2E;background:#FFF0E9;font-weight:600;}
+.pet-secondary-actions{justify-content:flex-end;gap:28rpx;border-top:1rpx solid #F1EEEA;margin-top:20rpx;}
+.pet-secondary-actions button{padding:16rpx 0;background:transparent;border-radius:0;font-size:23rpx;color:#6A717B;}
+.pet-secondary-actions .pet-remove{color:#A56458;}
+.pet-photo-status{margin:0 -26rpx;padding:22rpx 26rpx 26rpx;background:#FAF3E6;color:#755C3D;font-size:24rpx;line-height:1.7;}
+.pet-photo-status .pet-record-actions{margin-top:14rpx;}
+.pet-photo-status .pet-record-actions button{background:#FFFFFF;color:#755C3D;flex:1;}
+.profile-page .field-hint.pet-photo-error{padding:20rpx 24rpx;background:#FFF0E9;border-radius:16rpx;color:#B13F2E;}
+.pet-editor{margin-top:24rpx;}
+.pet-editor .section-title{color:#24262D;}
+.pet-age-inputs{display:flex;align-items:center;gap:15rpx;font-size:26rpx;}
+.pet-age-inputs .input{min-width:0;flex:1;margin-top:0;text-align:center;}
+.pet-editor-actions{display:flex;gap:16rpx;margin-top:28rpx;}
 .pet-editor-actions button{flex:1;min-width:0;}
-.pet-toggle{display:flex;gap:12rpx;margin-top:24rpx;}
-.pet-option{flex:1;text-align:center;border:1rpx solid #E9E5E1;border-radius:18rpx;color:#505863;padding:22rpx 5rpx;font-size:24rpx;background:#FFFFFF;}
-.pet-option.active{background:#FFF0E9;color:#B84735;border-color:#F0B7A8;font-weight:600;}
-button.save-button{margin-top:28rpx;width:100%;box-sizing:border-box;}
-.privacy-form{padding:26rpx;margin-top:24rpx;background:#FFFFFF;}
-.privacy-description,.privacy-current{font-size:22rpx;line-height:1.85;color:#66707A;margin-top:15rpx;}
+.pet-display-setting{margin-top:28rpx;padding:28rpx 0 4rpx;border-top:1rpx solid #DED9D2;}
+.pet-display-description{font-size:24rpx;color:#6A717B;line-height:1.8;margin-top:12rpx;}
+.profile-form{margin-top:36rpx;}
+.avatar-intro{gap:20rpx;padding-bottom:26rpx;border-bottom:1rpx solid #E9E5E1;}
+.profile-avatar{width:80rpx;height:80rpx;border-radius:50%;flex:none;background:#F3ECE5;}
+.intro-copy{flex:1;min-width:0;}
+.intro-copy .small{font-size:23rpx;line-height:1.6;margin-top:5rpx;}
+.profile-page .field{margin-top:28rpx;margin-bottom:0;}
+.profile-page .label{font-size:28rpx;font-weight:600;line-height:1.6;margin-bottom:12rpx;}
+.required,.optional{font-size:22rpx;color:#6A717B;font-weight:400;margin-left:10rpx;}
+.required{color:#B13F2E;}
+.profile-page .input{margin-top:0;height:96rpx;min-height:44px;border-radius:17rpx;padding:22rpx 23rpx;font-size:28rpx;box-sizing:border-box;background:#FAF9F7;}
+.profile-page .picker-value{height:auto;min-height:44px;line-height:1.6;padding:22rpx 23rpx;}
+.picker-value>text:first-child{min-width:0;overflow-wrap:anywhere;}
+.picker-chevron{flex:none;color:#7A7D84;font-size:30rpx;}
+.profile-page .field-hint{font-size:23rpx;color:#6A717B;margin-top:13rpx;line-height:1.8;}
+.profile-page .bio-input{width:100%;min-height:220rpx;height:220rpx;font-size:28rpx;line-height:1.8;box-sizing:border-box;margin-top:0;padding:20rpx 23rpx;border-radius:17rpx;}
+.word-count{text-align:right;font-size:22rpx;color:#6A717B;margin-top:9rpx;line-height:1.5;}
+.privacy-form,.neighbor-form{margin-top:28rpx;}
+.privacy-description,.privacy-current{font-size:24rpx;line-height:1.85;color:#6A717B;margin-top:15rpx;}
 .privacy-options{display:flex;gap:12rpx;margin-top:20rpx;}
-.privacy-option{flex:1;text-align:center;font-size:22rpx;padding:19rpx 8rpx;border:1rpx solid #E9E5E1;border-radius:17rpx;background:#FFFFFF;color:#66707A;}
-.privacy-option.active{background:#FFF0E9;border-color:#F0B7A8;color:#B84735;font-weight:600;}
-.privacy-current{font-size:21rpx;color:#66707A;}
-.pet-display-setting{margin-top:27rpx;padding-top:25rpx;border-top:1rpx solid #E9E5E1;}
-.pet-display-description{font-size:22rpx;color:#66707A;line-height:1.85;margin-top:13rpx;}
-.neighbor-form{padding:26rpx;margin-top:24rpx;}
-.residence-setting{border-top:1rpx solid #E9E5E1;margin-top:26rpx;padding-top:26rpx;}
-.residence-status{font-size:23rpx;color:#52685C;margin:24rpx 0 14rpx;}
-.residence-picker{width:100%;box-sizing:border-box;}
+button.privacy-option{display:flex;align-items:center;justify-content:center;flex:1;min-width:0;min-height:44px;text-align:center;font-size:25rpx;line-height:1.5;padding:17rpx 10rpx;border:1rpx solid #DFDCD6;border-radius:17rpx;background:#FFFFFF;color:#626873;}
+button.privacy-option.active{background:#FFF0E9;border-color:#DC9587;color:#B13F2E;font-weight:600;}
+.age-options{gap:10rpx;}
+.age-options .privacy-option{font-size:24rpx;padding-left:4rpx;padding-right:4rpx;}
+.privacy-current{padding-top:18rpx;font-size:23rpx;line-height:1.8;}
+.residence-setting{border-top:1rpx solid #E9E5E1;margin-top:28rpx;padding-top:28rpx;}
+.residence-status{font-size:24rpx;color:#55715D;margin:24rpx 0 14rpx;}
+button.residence-picker{width:100%;box-sizing:border-box;}
+.profile-save{margin-top:32rpx;}
+.profile-save .save-button{width:100%;min-height:50px;font-size:30rpx;border-radius:22rpx;box-sizing:border-box;}
+.profile-share{margin-top:18rpx;}
+.profile-share .btn{width:100%;background:#F0ECE6;color:#545963;font-weight:500;}
+.profile-share .field-hint{padding:0 4rpx;}
+.profile-page button{min-width:44px;min-height:44px;}
+.profile-page button[disabled]{opacity:.48;}
+.profile-page input[disabled],.profile-page textarea[disabled]{color:#8A8E95;}
+@media (max-width:360px){
+  .profile-page{padding-left:24rpx;padding-right:24rpx;}
+  .profile-page .page-title{font-size:46rpx;}
+  .pet-record-head{gap:20rpx;}
+  .pet-photo,.pet-record-primary .pet-photo{width:220rpx;height:220rpx;}
+  .pet-record-name{font-size:36rpx;}
+  .pet-primary-note{font-size:22rpx;}
+}

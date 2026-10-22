@@ -1,14 +1,17 @@
 const s = require('../_shared');
 const drafts = require('../_drafts');
 const nearbyLocation = require('../../services/nearby-location');
+const config = require('../../config');
 function clearLocationReference() {
   try { nearbyLocation.clearReference(); return true; }
   catch (_) { return false; }
 }
 function clearCurrentDraft(page) {
-  if (!s.personalMode) return drafts.clearAll();
   const user = page.data.user;
-  return !!user && drafts.clear('personal:' + page.data.mode + ':' + user.id);
+  if (!user) return false;
+  if (s.personalMode) return drafts.clear('personal:' + page.data.mode + ':' + user.id);
+  try { require('../../services/personal').clearCommunityDrafts(wx, user.id, page.data.mode); return true; }
+  catch (_) { return false; }
 }
 function navigationSize() {
   try {
@@ -31,7 +34,7 @@ function draftSummary(owner) {
   const hasDraft = !!(title || text || hasMedia || hasChoices);
   return {
     hasDraft,
-    draftPreview: (title || text || (hasMedia ? '照片或视频已留在草稿中' : hasDraft ? '已保存话题等编辑选择' : '把还没写完的日常留在这里')).replace(/\s+/g, ' ').slice(0, 60),
+    draftPreview: (title || text || (hasMedia ? '附件已留在草稿中' : hasDraft ? '已保存话题等编辑选择' : '把还没写完的日常留在这里')).replace(/\s+/g, ' ').slice(0, 60),
     draftError: result.error ? '暂时无法读取本机草稿，可进入编辑页重试' : ''
   };
 }
@@ -77,6 +80,7 @@ s.register({
     }, { retain });
   },
   openDraft() { s.go('/pages/compose/index'); },
+  privateLibrary() { if (!s.personalMode) s.go('/social/pages/private-library/index'); },
   exploreCircles() { if (s.personalMode) return; s.go('/pages/circle-square/index'); },
   toggleAdmin() { if (!s.personalMode && this.data.user && this.data.user.isAdmin) s.safe(this, { adminExpanded: !this.data.adminExpanded }); },
   clearLocalDrafts() {
@@ -85,7 +89,9 @@ s.register({
       const referenceCleared = clearLocationReference();
       let photosCleared = true;
       try { if (s.api.clearLocalUploads) await s.api.clearLocalUploads(); } catch (_) { photosCleared = false; }
-      try { if (!s.personalMode && typeof wx.getStorageSync === 'function') await require('../../services/pet-photos').clearLocalPetPhotos(wx); } catch (_) { photosCleared = false; }
+      try { if (!s.personalMode && this.data.user && typeof wx.getStorageSync === 'function') await require('../../services/pet-photos').clearLocalPetPhotos(wx, {
+        ownerId: this.data.user.id, scope: this.data.mode === 'demo' ? 'demo' : 'cloud:' + (config.cloudEnv || 'default')
+      }); } catch (_) { photosCleared = false; }
       if (this._closed) return;
       const localCleanupPending = !cleared || !photosCleared || !referenceCleared;
       const summary = this.data.user ? draftSummary((s.personalMode ? 'personal:' : '') + this.data.mode + ':' + this.data.user.id) : {};
@@ -109,7 +115,7 @@ s.register({
   privacy() { s.go('/pages/policy/index?type=privacy'); },
   deleteAccount() {
     return s.action(this, async () => {
-      if (!await s.confirm('清除我的资料和内容？', s.personalMode ? '将清除本版本在这台设备保存的个人资料、宠物档案、私人记录、收藏、草稿与参照地点。历史社区版本数据仍隔离保留。此操作不能撤销。' : '将删除你的公开内容与个人资料，解除圈子和活动报名关系，并清除本机草稿和参照地点。此操作不能撤销。', '确认清除')) return;
+      if (!await s.confirm('清除我的资料和内容？', s.personalMode ? '将清除本版本在这台设备保存的个人资料、宠物档案、私人记录、收藏、草稿与参照地点。历史社区版本数据仍隔离保留。此操作不能撤销。' : '将删除当前社区账号的内容与资料，解除圈子和活动报名关系，并清除其草稿和参照地点。原个人版的本机私人资料仍保留。此操作不能撤销。', '确认清除')) return;
       const result = await s.api.call('deleteAccount');
       if (!result || result.deleted !== true) throw new Error('尚未确认资料清除完成，请稍后重试');
       const cleared = clearCurrentDraft(this);

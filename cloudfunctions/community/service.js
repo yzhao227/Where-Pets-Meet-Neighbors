@@ -1425,12 +1425,13 @@ function createService({ repository: repo, now = Date.now, randomId = () => cryp
     async handle(action, payload = {}, context = {}) {
       if (typeof action !== 'string' || !Object.prototype.hasOwnProperty.call(handlers, action)) fail('UNKNOWN_ACTION', '暂不支持此操作');
       if (!object(payload)) fail('INVALID_INPUT', '请求参数不正确');
+      if (['createGroupChat', 'leaveGroup'].includes(action)) fail('FEATURE_UNAVAILABLE', '群聊功能已下线，请从作者主页给对方留言');
       for (const key of ['openid', 'openId', '_openid', 'userId', 'isAdmin', 'admin']) {
         // These actions receive only a target's public ID; actor identity remains trusted context.
         if (Object.prototype.hasOwnProperty.call(payload, key) && !(key === 'userId' && ['blockUser', 'followUser', 'getUserProfile'].includes(action))) fail('INVALID_INPUT', '请求不能包含身份或权限字段');
       }
       const identity = await authenticated(context.openid, action);
-      const gated = ['createPost', 'addComment', 'createEvent', 'updateEvent', 'createUploadTicket', 'completeUpload', 'getUploadStatus', 'sendFriendRequest', 'openDirectChat', 'createGroupChat', 'sendChatMessage'].includes(action) ||
+      const gated = ['createPost', 'addComment', 'createEvent', 'updateEvent', 'createUploadTicket', 'completeUpload', 'getUploadStatus', 'sendFriendRequest', 'openDirectChat'].includes(action) ||
         placeDomain.VERIFIED.includes(action) ||
         action === 'respondFriendRequest' && payload.accept === true ||
         (['joinCircle', 'joinEvent'].includes(action) && payload.join === true) || action === 'followUser' && payload.follow === true ||

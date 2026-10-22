@@ -90,13 +90,9 @@ test('invalid photo dimensions retain a known ratio and otherwise use the loadin
   assert.equal(media.photoHeight(media.photos({ images: ['one.jpg'] }), 3), 75);
 });
 
-test('packaged videos keep old IDs but route to their own package instead of crossing package boundaries', async () => {
-  const platform = { loadSubpackage() { assert.fail('preloading does not permit cross-package asset access'); } };
-  assert.equal(media.videoPath('/assets/curated-video/112285953.mp4'), '/media/clips/112285953.mp4');
-  assert.equal(media.playerPath('/assets/curated-video/112285953.mp4', 'catalog-video-commons-112285953'), '/media/pages/index?id=catalog-video-commons-112285953');
-  assert.equal(media.playerPath('/media3/clips/123.mp4', 'video-123'), '/media3/pages/index?id=video-123');
-  for (const url of ['/media/clips/../123.mp4', '/media2/clips/not-reviewed.mp4', '/media10/clips/123.mp4', 'https://example.com/media/clips/123.mp4']) assert.equal(media.playerPath(url, '123'), '');
-  await assert.rejects(media.videoSource(platform, '/media/clips/112285953.mp4'), /播放页/);
-  assert.equal(await media.videoSource(platform, 'cloud://approved-video.mp4'), 'cloud://approved-video.mp4');
-  assert.equal(await media.videoSource(platform, 'https://example.com/video.mp4'), 'https://example.com/video.mp4');
+test('retired video URLs no longer resolve to a player or playable source', async () => {
+  for (const url of ['/assets/curated-video/112285953.mp4', '/media/clips/123.mp4', '/media2/clips/123.mp4', '/media3/clips/123.mp4', 'cloud://approved-video.mp4', 'https://example.com/video.mp4']) {
+    assert.equal(media.playerPath(url, 'historical-video'), '');
+    await assert.rejects(media.videoSource({}, url), error => error.code === 'VIDEO_DISABLED');
+  }
 });

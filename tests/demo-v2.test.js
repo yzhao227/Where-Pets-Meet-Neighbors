@@ -100,18 +100,16 @@ test('demo filters message categories before stable pagination with legacy recor
   let cursor; const ids = [];
   do {
     const page = await f.api.call('listMessages', { category: 'interactions', limit: 4, cursor });
-    assert.equal(page.unreadCount, 66);
-    assert.deepEqual(page.categoryUnread, { interactions: 13, comments: 1, follows: 0, system: 52 });
+    assert.equal(page.unreadCount, 65);
+    assert.deepEqual(page.categoryUnread, { interactions: 13, comments: 0, follows: 0, system: 52 });
     assert.ok(page.items.every(message => message.kind === 'like'));
     ids.push(...page.items.map(item => item.id)); cursor = page.nextCursor;
   } while (cursor);
   assert.equal(ids.length, 13); assert.equal(new Set(ids).size, 13);
   const comments = await f.api.call('listMessages', { category: 'comments' });
-  assert.deepEqual(comments.items.map(item => item.id), ['old-post-notice']);
-  assert.equal(comments.items[0].actor, undefined);
+  assert.deepEqual(comments.items, [], 'notifications of unavailable posts are hidden');
   await assert.rejects(f.api.call('readMessage', { id: 'private-other-notice' }), { code: 'NOT_FOUND' });
-  const read = await f.api.call('readMessage', { id: 'old-post-notice' });
-  assert.equal(read.unreadCount, 65); assert.equal(read.categoryUnread.comments, 0);
+  await assert.rejects(f.api.call('readMessage', { id: 'old-post-notice' }), { code: 'NOT_FOUND' });
   await f.api.call('readMessage', { all: true });
   assert.equal((await f.api.call('listMessages')).unreadCount, 0);
   await f.as('demo-lin'); assert.equal((await f.api.call('listMessages')).unreadCount, 1);
@@ -557,28 +555,17 @@ test('legacy topic inputs map to canonical labels while original stored posts re
   for (const topics of [['toString'], ['__proto__'], [{}]]) await assert.rejects(post(f, { topics }), { code: 'INVALID_INPUT' });
 });
 
-test('demo videos require a saved device file, persist ticket metadata and cannot masquerade as images or be reused', async () => {
+test('demo video publishing is disabled even for saved device files and legacy tickets', async () => {
   const f = await fixture();
-  const input = { mediaType: 'video', extension: 'mp4', durationSeconds: 9.5, bytes: 1024, width: 640, height: 360 };
-  const ticket = await f.api.call('createUploadTicket', input);
-  const fileId = 'wxfile://saved-video.mp4';
-  await assert.rejects(f.api.call('completeUpload', { ticketId: ticket.ticketId, fileId }), { code: 'UPLOAD_UNAVAILABLE' });
-  f.save(fileId);
-  const completed = await f.api.call('completeUpload', { ticketId: ticket.ticketId, fileId });
-  assert.deepEqual(completed.video, { url: fileId, durationSeconds: 9.5, width: 640, height: 360 });
-  assert.deepEqual(await f.service().call('getUploadStatus', { ticketId: ticket.ticketId }), completed);
-  const imageId = await image(f, 'video-test-poster');
-  await assert.rejects(post(f, { images: [imageId], video: completed.video }), { code: 'INVALID_INPUT' });
-  await assert.rejects(post(f, { images: [fileId] }), { code: 'UPLOAD_UNAVAILABLE' });
-  await assert.rejects(post(f, { video: { url: 'https://cdn.example.org/foreign.mp4' } }), { code: 'UPLOAD_UNAVAILABLE' });
-  const created = await post(f, { text: '', video: { ...completed.video, durationSeconds: 999 } });
-  assert.equal(created.contentType, 'video');
-  assert.deepEqual(created.video, completed.video);
-  assert.equal(created.cover, '');
-  assert.deepEqual((await f.service().call('getPost', { id: created.id })).post.video, completed.video);
-  await assert.rejects(post(f, { video: completed.video }), { code: 'UPLOAD_UNAVAILABLE' });
-  for (const change of [{ durationSeconds: 61 }, { durationSeconds: 0 }, { bytes: 20 * 1024 * 1024 + 1 }, { bytes: 0 }, { width: 0 }]) await assert.rejects(f.api.call('createUploadTicket', { ...input, ...change }), { code: 'INVALID_VIDEO' });
-  await assert.rejects(f.api.call('createUploadTicket', { ...input, extension: 'mov' }), { code: 'INVALID_INPUT' });
+  await assert.rejects(f.api.call('createUploadTicket', { mediaType: 'video', extension: 'mp4' }), { code: 'VIDEO_DISABLED' });
+  const fileId = 'wxfile://saved-video.mp4'; f.save(fileId);
+  f.edit(state => state.uploads.push({ ticketId: 'legacy-video', fileId, userId: 'demo-self', mediaType: 'video', status: 'complete', video: { url: fileId, durationSeconds: 9 } }));
+  const before = clone(f.state().uploads);
+  await assert.rejects(f.api.call('completeUpload', { ticketId: 'legacy-video', fileId }), { code: 'VIDEO_DISABLED' });
+  await assert.rejects(f.api.call('getUploadStatus', { ticketId: 'legacy-video' }), { code: 'VIDEO_DISABLED' });
+  await assert.rejects(post(f, { video: { url: fileId } }), { code: 'VIDEO_DISABLED' });
+  await assert.rejects(post(f, { contentType: 'video' }), { code: 'VIDEO_DISABLED' });
+  assert.deepEqual(f.state().uploads, before);
 });
 
 test('circle and author browsing apply exclusions before pagination while personal records and details remain accessible', async () => {

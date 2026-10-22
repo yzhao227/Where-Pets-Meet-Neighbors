@@ -5,6 +5,7 @@ const path = require('node:path');
 const net = require('node:net');
 const { createHash, randomUUID } = require('node:crypto');
 const TOPICS = require('../../miniprogram/data/topics');
+const contentPolicy = require('../../miniprogram/data/content-policy');
 
 const ROOT = path.resolve(__dirname, '../..');
 const DEFAULT_INPUT = path.join(ROOT, 'content/batch-001/approved.json');
@@ -343,14 +344,15 @@ function validateManifest(manifest, options = {}) {
 
 function status(manifest, options = {}) {
   const checked = validateManifest(manifest, options);
+  const allowed = contentPolicy.videoEnabled || !checked.items.some(contentPolicy.isVideoPost);
   return {
     batchId: checked.batchId,
     targets: checked.targets || { ...TARGETS }, omitPublicAttribution: checked.omitPublicAttribution === true, counts: checked.counts, approved: checked.approved,
     total: Object.values(checked.counts).reduce((sum, count) => sum + count, 0),
     approvedTotal: Object.values(checked.approved).reduce((sum, count) => sum + count, 0),
     metadataValid: checked.valid,
-    readyToBuild: checked.valid && Object.keys(LIMITS).every(type => (checked.counts[type] || 0) === (checked.targets[type] || 0) && (checked.approved[type] || 0) === (checked.targets[type] || 0)),
-    readyToBuildPartial: checked.valid && checked.items.length > 0 && Object.keys(LIMITS).every(type => (checked.counts[type] || 0) <= (checked.targets[type] || 0) && (checked.approved[type] || 0) === (checked.counts[type] || 0)),
+    readyToBuild: checked.valid && allowed && Object.keys(LIMITS).every(type => (checked.counts[type] || 0) === (checked.targets[type] || 0) && (checked.approved[type] || 0) === (checked.targets[type] || 0)),
+    readyToBuildPartial: checked.valid && allowed && checked.items.length > 0 && Object.keys(LIMITS).every(type => (checked.counts[type] || 0) <= (checked.targets[type] || 0) && (checked.approved[type] || 0) === (checked.counts[type] || 0)),
     verification: 'metadata-only; sources and permissions require editorial review',
     errors: checked.errors
   };
@@ -423,6 +425,7 @@ function serializeCatalog(posts, version) {
 function buildCatalog(manifest, options = {}) {
   const checked = validateManifest(manifest, options);
   if (!checked.valid) throw new Error('内容元数据校验失败，现有目录未修改：\n' + checked.errors.join('\n'));
+  if (!contentPolicy.videoEnabled && checked.items.some(contentPolicy.isVideoPost)) throw new Error('视频发布已停用，不能生成含视频的目录；现有目录未修改');
   if (options.partial !== undefined && typeof options.partial !== 'boolean') throw new Error('partial 必须是布尔值；现有目录未修改');
   const partialBuild = options.partial === true;
   const targets = checked.targets;

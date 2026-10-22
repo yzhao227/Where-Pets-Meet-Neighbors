@@ -177,6 +177,65 @@ function draw(adapter, targetPage, template, values, nodePath = 'n-0') {
   return parent.childNodes[0];
 }
 
+test('boolean attributes distinguish bare presence from false and empty bound values', () => {
+  const adapter = runtime();
+  const cases = [
+    { name: 'bare attribute', attribute: '', expected: true },
+    { name: 'literal true', attribute: 'true', expected: true },
+    { name: 'literal false', attribute: 'false', expected: false },
+    { name: 'bound false', attribute: '{{value}}', value: false, expected: false },
+    { name: 'bound zero', attribute: '{{value}}', value: 0, expected: false },
+    { name: 'bound empty string', attribute: '{{value}}', value: '', expected: false },
+    { name: 'bound null', attribute: '{{value}}', value: null, expected: false },
+    { name: 'bound missing value', attribute: '{{value}}', expected: false },
+    { name: 'bound positive count', attribute: '{{value}}', value: 1, expected: true }
+  ];
+  for (const item of cases) {
+    const button = draw(adapter, page(), new Element('button', { disabled: item.attribute }), { value: item.value });
+    assert.equal(button.disabled, item.expected, item.name);
+  }
+});
+
+test('the compose publish control follows attachment state across preview redraws', () => {
+  const markup = fs.readFileSync(path.resolve(__dirname, '../miniprogram/pages/compose/index.wxml'), 'utf8');
+  const tag = markup.match(/<button\b[^>]*class="[^"]*\bpublish-button\b[^"]*"[^>]*>/);
+  assert.ok(tag, 'exercise the actual compose publish button attributes');
+  const attributes = Object.fromEntries(Array.from(tag[0].matchAll(/([\w-]+)="([^"]*)"/g), match => [match[1], match[2]]));
+  const adapter = runtime({ queued: true });
+  const targetPage = { route: 'pages/compose/index', data: { busy: false, uploadsBusy: false, hasVideoAttachment: false, pendingUploads: [], failedUploads: [] } };
+  let submissions = 0;
+  targetPage[attributes.bindtap] = () => { submissions += 1; };
+  targetPage.setData = values => { Object.assign(targetPage.data, values); adapter.scheduleRender(); };
+  const template = new Element('view');
+  template.append(new Element('button', attributes));
+  adapter.startRender(targetPage, template);
+  const button = () => adapter.pageRoot.querySelectorAll('button')[0];
+  const update = values => {
+    targetPage.setData(values);
+    let count = 0;
+    while (adapter.microtasks.length && count++ < 10) adapter.microtasks.shift()();
+    assert.equal(adapter.microtasks.length, 0);
+  };
+  assert.equal(button().disabled, false, 'no unfinished attachment permits text-only submission');
+  button().click();
+  assert.equal(submissions, 1);
+  update({ pendingUploads: [{ ticketId: 'pending-image' }] });
+  assert.equal(button().disabled, true, 'an unfinished image blocks submission');
+  button().click();
+  assert.equal(submissions, 1, 'the disabled control cannot invoke submission');
+  update({ pendingUploads: [], failedUploads: [{ ticketId: 'failed-video' }] });
+  assert.equal(button().disabled, true, 'a failed attachment also blocks submission');
+  update({ failedUploads: [] });
+  assert.equal(button().disabled, false, 'removing the last unfinished attachment enables submission again');
+  button().click();
+  assert.equal(submissions, 2);
+  update({ hasVideoAttachment: true });
+  assert.equal(button().disabled, true, 'even a completed legacy video blocks submission');
+  button().click(); assert.equal(submissions, 2);
+  update({ hasVideoAttachment: false });
+  assert.equal(button().disabled, false, 'explicitly removing legacy video permits text and image submission');
+});
+
 test('image lazy-load is resolved before src and all images decode asynchronously', () => {
   const adapter = runtime();
   const cases = [

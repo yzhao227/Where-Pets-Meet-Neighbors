@@ -6,6 +6,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { createHash } = require('node:crypto');
 const manifest = require('../content/batch-001/approved.json');
+const retired = require('../content/batch-001/retired-video-20261022.json');
+const { hasReviewAsset, isRetiredAsset } = require('./helpers/retired-editorial.cjs');
 const baseline = require('../content/batch-004/baseline-260.json');
 const baselineRuntime = require('../content/batch-004/baseline-runtime-260.json');
 const additions = require('../content/batch-004/additions.json');
@@ -18,19 +20,24 @@ const { validateManifest } = require('../scripts/lib/content-catalog');
 const ROOT = path.resolve(__dirname, '..');
 const hash = file => createHash('sha256').update(fs.readFileSync(path.join(ROOT, file))).digest('hex');
 
-test('the requested expansion adds exactly 100 non-knowledge items and preserves all original 260 objects', () => {
+test('the active catalogue retires its 13 videos and preserves the remaining expanded records', () => {
   assert.equal(baseline.items.length, 260);
   assert.equal(baselineRuntime.length, 260);
   assert.equal(additions.length, 100);
-  assert.equal(manifest.items.length, 360);
-  assert.equal(CURATED_POSTS.length, 360);
-  assert.deepEqual(manifest.targets, { knowledge: 58, photo: 289, video: 13 });
+  assert.equal(manifest.items.length, 347);
+  assert.equal(CURATED_POSTS.length, 347);
+  assert.deepEqual(manifest.targets, { knowledge: 58, photo: 289, video: 0 });
   assert.equal(additions.filter(item => item.contentType === 'photo').length, 92);
   assert.equal(additions.filter(item => item.contentType === 'video').length, 8);
-  const current = new Map(manifest.items.map(item => [item.id, item]));
+  const current = new Map(manifest.items.concat(retired.items).map(item => [item.id, item]));
   const runtime = new Map(CURATED_POSTS.map(item => [item.id, item]));
   for (const item of baseline.items) assert.deepEqual(current.get(item.id), item, item.id);
-  for (const item of baselineRuntime) assert.deepEqual(runtime.get(item.id), item, item.id);
+  for (const item of baselineRuntime) {
+    if (item.contentType === 'video') assert.equal(runtime.has(item.id), false);
+    else assert.deepEqual(runtime.get(item.id), item, item.id);
+  }
+  assert.equal(retired.items.length, 13);
+  assert.ok(CURATED_POSTS.every(item => !item.video && item.contentType !== 'video'));
   for (const item of additions) assert.deepEqual(current.get(item.id), item, item.id);
   assert.equal(validateManifest(manifest).valid, true);
 });
@@ -75,10 +82,10 @@ test('new photo copies match the retained source metadata, licence and exact rev
     assert.equal(picture.originalUrl, info.url);
     assert.equal(picture.license, info.extmetadata.LicenseShortName.value);
   }
-  for (const [file, expected] of Object.entries(evidence.reviewedFileSha256)) assert.equal(hash(file), expected, file);
+  for (const [file, expected] of Object.entries(evidence.reviewedFileSha256)) if (hasReviewAsset(file)) assert.equal(hash(file), expected, file);
 });
 
-test('new video files and feed posters fit their packages and preserve the reviewed encoded media', () => {
+test('retired video evidence remains verifiable locally and is excluded from upload candidates', () => {
   const byId = new Map(additions.map(item => [item.id, item]));
   assert.deepEqual(packages.packages.map(item => item.name), ['media2', 'media3']);
   for (const pack of packages.packages) {
@@ -88,6 +95,8 @@ test('new video files and feed posters fit their packages and preserve the revie
       const item = byId.get(entry.id);
       assert.equal(item.video.url, entry.path);
       const file = 'miniprogram' + item.video.url;
+      assert.equal(isRetiredAsset(file), true);
+      if (!hasReviewAsset(file)) continue;
       assert.equal(hash(file), item.video.contentHash);
       const bytes = fs.readFileSync(path.join(ROOT, file));
       assert.equal(bytes.length, entry.bytes);

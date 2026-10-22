@@ -7,6 +7,7 @@ const petData = require('../data/pets');
 const petService = require('./pets');
 const placeDomain = require('./place-engine');
 const placeCatalogue = require('../data/nearby-catalogue');
+const contentPolicy = require('../data/content-policy');
 
 const STORAGE_KEY = 'youchong.personal.v1';
 const LEGACY_KEY = 'youban.demo.v1';
@@ -25,6 +26,38 @@ const text = (value, label, max, required = false) => {
   return value.trim();
 };
 const rows = value => Array.isArray(value) ? value : [];
+
+// Community cleanup must not retire bytes that remain in the local private
+// library. A failed storage read preserves the file so cleanup can be retried.
+function personalFileReferenced(platform, path, options = {}) {
+  if (!path) return false;
+  const contains = value => value === path || value && typeof value === 'object' && Object.values(value).some(contains);
+  try {
+    if (!platform || typeof platform.getStorageSync !== 'function') throw new Error('storage unavailable');
+    for (const key of [options.personalStorageKey || STORAGE_KEY, 'youchong.personalUploadQueue.v1', 'youchong.personalPetPhotoQueue.v1']) {
+      if (contains(platform.getStorageSync(key))) return true;
+    }
+    const drafts = platform.getStorageSync('youchong.privateDrafts.v1');
+    return !!(drafts && Object.entries(drafts).some(([owner, value]) => owner.startsWith('personal:') && contains(value)));
+  } catch (_) {
+    // Cleanup queues need to distinguish a confirmed reference from an unknown
+    // read, otherwise they forget the only path that can retry this file later.
+    if (options.throwOnReadError) fail('LOCAL_CLEANUP_FAILED', '暂时无法检查私人资料引用，附件已保留，请重试清理');
+    return true;
+  }
+}
+
+function clearCommunityDrafts(platform, ownerId, mode) {
+  if (!ownerId || !['demo', 'cloud'].includes(mode)) fail('AUTH_REQUIRED', '无法确认要清理的本机草稿');
+  const key = 'youchong.privateDrafts.v1';
+  const stored = platform.getStorageSync(key);
+  if (!stored) return;
+  if (typeof stored !== 'object' || Array.isArray(stored)) fail('STORAGE_INVALID', '本机草稿记录无法读取，已保留原数据');
+  const drafts = clone(stored);
+  delete drafts[mode + ':' + ownerId];
+  if (!Object.keys(drafts).length && typeof platform.removeStorageSync === 'function') platform.removeStorageSync(key);
+  else platform.setStorageSync(key, drafts);
+}
 
 // Build public reading content only from the shipped catalogue. A local row
 // with the same ID or an editable editorial flag never supplies its contents.
@@ -47,13 +80,13 @@ function privateUser(input, userId) {
 function policies() {
   return { mode: 'personal', productMode: 'personal', isDraft: false, operator: { name: '有宠有邻', contact: CONTACT }, termsVersion: VERSION, privacyVersion: VERSION,
     terms: [
-      { title: '个人养宠工具', text: '本版本用于阅读精选资料、管理宠物档案和记录私人日记。日记、照片、视频、收藏与到访备注仅保存在当前设备，不公开发布，也不提供用户交流或活动报名。' },
+      { title: '个人养宠工具', text: '本版本用于阅读精选资料、管理宠物档案和记录私人日记。日记、照片、收藏与到访备注仅保存在当前设备，不公开发布，也不提供用户交流或活动报名。' },
       { title: '资料与出行', text: '精选资料和公共地点信息供参考。活动时间、票务与携宠要求请向主办方确认；收藏或记录计划不代表报名成功。' },
       { title: '管理本机内容', text: '可以修改资料、删除私人日记或清除本版本的个人数据。旧社区版本的数据不会自动发布、迁移删除；本版本不提供他人内容或账号访问。' }
     ],
     privacy: [
-      { title: '保存内容与用途', text: '仅在本机保存主动填写的昵称、宠物档案、私人图文视频、收藏和到访记录。不读取微信头像昵称，不采集手机号，不进行真实或模拟手机号核验，不启用云端社交服务。' },
-      { title: '照片和视频', text: '只处理主动选择或拍摄的文件，用于宠物档案和私人日记，并保存到当前设备；不会上传到云端或向其他用户展示。' },
+      { title: '保存内容与用途', text: '仅在本机保存主动填写的昵称、宠物档案、私人图文、收藏和到访记录。不读取微信头像昵称，不采集手机号，不进行真实或模拟手机号核验，不启用云端社交服务。' },
+      { title: '照片', text: '只处理主动选择或拍摄的文件，用于宠物档案和私人日记，并保存到当前设备；不会上传到云端或向其他用户展示。' },
       { title: '位置与导航', text: '主动定位仅用于本机计算公共地点距离，自动定位结果15分钟失效。手选参照可在本机保存和清除；地图导航目的地仅为公共场所，不保存或展示住宅距离。' },
       { title: '清除与联系', text: '本版本资料可在“我的”清除；历史社区版本的数据与本版本隔离保留。公开图片与资料加载仍可能使用网络。个人信息请求及反馈请联系 ' + CONTACT + '。' }
     ] };
@@ -99,26 +132,26 @@ function createPersonalService(platform, options = {}) {
   const id = (state, prefix) => 'personal-' + prefix + '-' + now().toString(36) + '-' + (++state.seq);
   function ownPosts(ctx) {
     const old = !ctx.account.legacySuppressed && ctx.sourceUser ? rows(ctx.legacy && ctx.legacy.posts).filter(post => post.authorId === ctx.userId && !publicPosts.has(post.id) && !ctx.account.hiddenLegacyIds.includes(post.id)) : [];
-    return [...old, ...ctx.account.posts.filter(post => post.authorId === ctx.userId && !publicPosts.has(post.id))];
+    return [...old, ...ctx.account.posts.filter(post => post.authorId === ctx.userId && !publicPosts.has(post.id))].filter(post => !contentPolicy.isVideoPost(post));
   }
   function findPost(ctx, postId) {
     const record = publicPosts.get(postId) || ownPosts(ctx).find(post => post.id === postId);
-    if (!record) fail('NOT_FOUND', '这条内容不存在或不属于当前本机资料');
+    if (!record || contentPolicy.isVideoPost(record)) fail('NOT_FOUND', '这条内容不存在或不属于当前本机资料');
     return record;
   }
   function postView(ctx, post) {
     const editorial = publicPosts.get(post.id) === post;
     const editor = editorial && editors.get(post.authorId);
     const images = rows(post.images).filter(path => typeof path === 'string' && !/^cloud:/i.test(path));
-    const video = post.video && typeof post.video.url === 'string' && !/^cloud:/i.test(post.video.url) ? clone(post.video) : null;
+    if (contentPolicy.isVideoPost(post)) fail('NOT_FOUND', '内容已下架');
     const coverIndex = Number.isInteger(post.coverIndex) && post.coverIndex >= 0 && post.coverIndex < images.length ? post.coverIndex : 0;
     const place = !editorial && publicPlaces.get(post.placeId);
     const visit = !editorial && ctx.account.place_visits.find(row => (row.id || row._id) === post.visitId && row.userId === ctx.userId && row.placeId === post.placeId);
     const result = { id: post.id, title: post.title || '', text: post.text || '', images, coverIndex,
-      ...(video ? { video } : {}), cover: video ? video.poster || '' : images[coverIndex] || '',
+      cover: images[coverIndex] || '',
       kind: 'daily', animalTypes: animals.normalize(post.animalTypes), topics: editorial ? topics.normalize(post.topics) : [],
       author: editorial ? { id: '', nickname: '有宠有邻精选', avatar: editor && editor.avatar || '/assets/avatar-6.png', isEditorial: true } : { id: ctx.userId, nickname: ctx.user.nickname, avatar: ctx.user.avatar },
-      visibility: editorial ? 'public' : 'private', isMine: !editorial, isEditorial: editorial, contentType: post.contentType || (video ? 'video' : images.length ? 'photo' : 'knowledge'),
+      visibility: editorial ? 'public' : 'private', isMine: !editorial, isEditorial: editorial, contentType: post.contentType || (images.length ? 'photo' : 'knowledge'),
       createdAt: Number(post.createdAt) || 0, isBookmarked: ctx.account.bookmarks.some(row => row.postId === post.id),
       likeCount: 0, commentCount: 0, isLiked: false, circle: null, circleId: '', event: null, eventId: '',
       place: place ? { id: place.id, title: place.title, address: place.address || '', city: place.city || '', area: place.area || '', active: place.active !== false, ...(place.point ? { point: clone(place.point) } : {}) } : null,
@@ -141,6 +174,7 @@ function createPersonalService(platform, options = {}) {
     const marks = new Set(ctx.account.bookmarks.map(row => row.postId));
     let list = payload.mine ? ownPosts(ctx) : payload.bookmarked ? canonical.posts.concat(ownPosts(ctx)) : canonical.posts;
     list = list.filter(post => {
+      if (contentPolicy.isVideoPost(post)) return false;
       const types = animals.normalize(post.animalTypes);
       return (!payload.bookmarked || marks.has(post.id)) && (!topic || publicPosts.get(post.id) === post && topics.normalize(post.topics).includes(topic)) &&
         (!query || [post.title, post.text, ...topics.normalize(post.topics)].join(' ').toLowerCase().includes(query)) &&
@@ -168,25 +202,16 @@ function createPersonalService(platform, options = {}) {
     return placeDomain.driveSync(engine.execute(action, payload, { userId: ctx.userId, isAdmin: false }), store);
   }
   function boot(ctx) {
-    const accessible = new Set(canonical.posts.map(post => post.id).concat(ownPosts(ctx).map(post => post.id)));
+    const accessible = new Set(canonical.posts.filter(post => !contentPolicy.isVideoPost(post)).map(post => post.id).concat(ownPosts(ctx).map(post => post.id)));
     return { mode: 'personal', productMode: 'personal', user: ctx.user, settings: { city: '上海', areas: rows(ctx.legacy && ctx.legacy.settings && ctx.legacy.settings.areas), contact: CONTACT },
       registration: { phoneEnabled: false, verificationRequired: false, policyConfigured: true, termsVersion: VERSION, privacyVersion: VERSION },
       stats: { postCount: ownPosts(ctx).length, diaryCount: ownPosts(ctx).length, petCount: petData.list(ctx.user).length,
         bookmarkCount: ctx.account.bookmarks.filter(row => accessible.has(row.postId)).length, placeBookmarkCount: ctx.account.place_bookmarks.length, visitCount: ctx.account.place_visits.length } };
   }
-  function mediaMetadata(payload) {
-    if (!Number.isFinite(payload.durationSeconds) || payload.durationSeconds < 1 || payload.durationSeconds > 60 || !Number.isSafeInteger(payload.bytes) || payload.bytes < 1 || payload.bytes > 20 * 1024 * 1024) fail('INVALID_VIDEO', '视频需为1–60秒且不超过20MB');
-    const data = { durationSeconds: payload.durationSeconds, bytes: payload.bytes };
-    for (const field of ['width', 'height']) if (payload[field] !== undefined) {
-      if (!Number.isInteger(payload[field]) || payload[field] < 1 || payload[field] > 16384) fail('INVALID_VIDEO', '视频尺寸无效');
-      data[field] = payload[field];
-    }
-    return data;
-  }
-  async function savedFile(path, video) {
+  async function savedFile(path) {
     if (typeof path !== 'string' || !path || /^cloud:/i.test(path)) return false;
-    if (!video && /^data:image\/(?:png|jpeg|webp);base64,/i.test(path) && platform && platform.__preview) return true;
-    if (video || /^https?:/i.test(path)) {
+    if (/^data:image\/(?:png|jpeg|webp);base64,/i.test(path) && platform && platform.__preview) return true;
+    if (/^https?:/i.test(path)) {
       if (!platform || typeof platform.getSavedFileList !== 'function') fail('LOCAL_IMAGE_CHECK_FAILED', '暂时无法检查本机附件，请重试');
       return new Promise((resolve, reject) => platform.getSavedFileList({ success: result => resolve(rows(result && result.fileList).some(file => file.filePath === path)), fail: () => reject(failure('LOCAL_IMAGE_CHECK_FAILED', '暂时无法检查本机附件，请重试')) }));
     }
@@ -231,24 +256,18 @@ function createPersonalService(platform, options = {}) {
       if (!Array.isArray(images) || images.length > 3 || new Set(images).size !== images.length || images.some(path => typeof path !== 'string' || !path)) fail('INVALID_INPUT', '每篇日记最多添加3张不重复的图片');
       const types = payload.animalTypes === undefined ? [] : payload.animalTypes;
       if (!Array.isArray(types) || types.length > 3 || types.some(type => !animals.IDS.includes(type))) fail('INVALID_INPUT', '最多选择3种动物');
-      const attachment = (path, video) => ctx.account.uploads.find(upload => upload.userId === ctx.userId && upload.purpose !== 'pet' && upload.fileId === path && upload.status === 'complete' && (upload.mediaType === 'video') === video && !upload.postId);
-      if (images.some(path => !attachment(path, false))) fail('UPLOAD_UNAVAILABLE', '请使用本人已保存在本机的图片');
-      const requestedVideo = payload.video;
-      if (requestedVideo && (!requestedVideo.url || requestedVideo.poster || images.length)) fail('INVALID_INPUT', '请选择图片或一个已保存的视频');
-      const videoUpload = requestedVideo && attachment(requestedVideo.url, true);
-      if (requestedVideo && !videoUpload) fail('UPLOAD_UNAVAILABLE', '请使用本人已保存在本机的视频');
-      const video = videoUpload ? clone(videoUpload.video) : null;
-      if (!body && !images.length && !video) fail('INVALID_INPUT', '写一点日记或添加照片、视频');
+      const attachment = path => ctx.account.uploads.find(upload => upload.userId === ctx.userId && upload.purpose !== 'pet' && upload.fileId === path && upload.status === 'complete' && !contentPolicy.isVideoUpload(upload) && !upload.postId);
+      if (images.some(path => !attachment(path))) fail('UPLOAD_UNAVAILABLE', '请使用本人已保存在本机的图片');
+      if (!body && !images.length) fail('INVALID_INPUT', '写一点日记或添加照片');
       const coverIndex = payload.coverIndex === undefined ? 0 : payload.coverIndex;
       if (!Number.isInteger(coverIndex) || coverIndex < 0 || (images.length ? coverIndex >= images.length : coverIndex !== 0)) fail('INVALID_INPUT', '封面选择无效');
       const placeId = payload.placeId || '', visitId = payload.visitId || '';
       if (placeId && (!publicPlaces.has(placeId) || publicPlaces.get(placeId).active === false)) fail('NOT_FOUND', '关联公共地点不存在或已下架');
       if (visitId && !ctx.account.place_visits.some(row => (row.id || row._id) === visitId && row.userId === ctx.userId && row.placeId === placeId)) fail('NOT_FOUND', '只能关联本人在该地点的到访记录');
       const post = { id: id(ctx.state, 'diary'), authorId: ctx.userId, visibility: 'private', title, text: body, animalTypes: [...new Set(types)],
-        images: images.slice(), ...(video ? { video, contentType: 'video' } : {}), coverIndex, placeId, visitId, createdAt: now() };
+        images: images.slice(), coverIndex, placeId, visitId, createdAt: now() };
       ctx.account.posts.push(post);
-      for (const path of images) attachment(path, false).postId = post.id;
-      if (videoUpload) videoUpload.postId = post.id;
+      for (const path of images) attachment(path).postId = post.id;
       return { post: postView(ctx, post) };
     }
     if (action === 'deletePost') {
@@ -265,23 +284,20 @@ function createPersonalService(platform, options = {}) {
       return { deleted: true, ownerId: ctx.userId };
     }
     if (action === 'createUploadTicket') {
-      const video = payload.mediaType === 'video';
-      if (payload.mediaType !== undefined && !['image', 'video'].includes(payload.mediaType) || (video ? payload.extension !== 'mp4' : !['jpg', 'png', 'webp'].includes(payload.extension))) fail('INVALID_INPUT', '附件类型无效');
+      if (payload.mediaType !== undefined && payload.mediaType !== 'image' || !['jpg', 'png', 'webp'].includes(payload.extension)) fail('INVALID_INPUT', '仅支持 JPG、PNG 或 WebP 图片');
       const ticketId = id(ctx.state, 'upload'), cloudPath = 'personal-local/' + ticketId + '.' + payload.extension;
-      ctx.account.uploads.push({ ticketId, cloudPath, userId: ctx.userId, status: 'pending', mediaType: video ? 'video' : 'image',
-        ...(video ? { declaredVideo: mediaMetadata(payload) } : {}), createdAt: now() });
-      return { ticketId, cloudPath, ...(video ? { mediaType: 'video' } : {}) };
+      ctx.account.uploads.push({ ticketId, cloudPath, userId: ctx.userId, status: 'pending', mediaType: 'image', createdAt: now() });
+      return { ticketId, cloudPath };
     }
     if (action === 'completeUpload' || action === 'getUploadStatus') {
       const upload = ctx.account.uploads.find(row => row.ticketId === payload.ticketId && row.userId === ctx.userId);
       if (!upload) fail('UPLOAD_UNAVAILABLE', '本机附件记录不存在，请重新选择');
+      if (contentPolicy.isVideoUpload(upload)) contentPolicy.assertVideoAllowed();
       if (action === 'completeUpload') {
-        if (!['pending', 'complete'].includes(upload.status) || !await savedFile(payload.fileId, upload.mediaType === 'video') || upload.fileId && upload.fileId !== payload.fileId) fail('UPLOAD_UNAVAILABLE', '只能使用已保存到当前设备的附件');
+        if (!['pending', 'complete'].includes(upload.status) || !await savedFile(payload.fileId) || upload.fileId && upload.fileId !== payload.fileId) fail('UPLOAD_UNAVAILABLE', '只能使用已保存到当前设备的附件');
         upload.fileId = payload.fileId; upload.status = 'complete';
-        if (upload.mediaType === 'video') upload.video = { url: upload.fileId, ...upload.declaredVideo };
       }
-      return { ticketId: upload.ticketId, status: upload.status === 'cleanup' ? 'expired' : upload.status, ...(upload.status === 'complete' ? { fileId: upload.fileId } : {}),
-        ...(upload.mediaType === 'video' && upload.status === 'complete' ? { mediaType: 'video', video: upload.video } : {}) };
+      return { ticketId: upload.ticketId, status: upload.status === 'cleanup' ? 'expired' : upload.status, ...(upload.status === 'complete' ? { fileId: upload.fileId } : {}) };
     }
     if (action === 'deleteAccount') {
       const files = ctx.account.uploads.map(upload => upload.fileId).filter(path => typeof path === 'string' && path && !/^data:/i.test(path));
@@ -298,6 +314,7 @@ function createPersonalService(platform, options = {}) {
     if (payload !== undefined && (!payload || typeof payload !== 'object' || Array.isArray(payload))) return Promise.reject(failure('INVALID_INPUT', '提交内容格式无效'));
     let input;
     try { input = clone(payload || {}); } catch (_) { return Promise.reject(failure('INVALID_INPUT', '提交内容格式无效')); }
+    try { contentPolicy.assertRequest(action, input); } catch (error) { return Promise.reject(error); }
     return serial(async () => {
       const ctx = context();
       const result = await dispatch(ctx, action, input);
@@ -305,6 +322,25 @@ function createPersonalService(platform, options = {}) {
       // ever written back to the legacy community store.
       if (!['getPolicies', 'listPosts', 'getPost', 'listPets', 'listPlaces', 'getPlace', 'listPlaceVisits', 'getUploadStatus'].includes(action)) persist(ctx.state);
       return clone(result);
+    });
+  }
+  function readLibrary(expectedOwner) {
+    return serial(() => {
+      const ctx = context();
+      if (!expectedOwner || ctx.userId !== expectedOwner) fail('UPLOAD_OWNER_CHANGED', '本机账号已切换，请重新打开私人资料库');
+      const stored = read(key);
+      const exists = rows(stored && stored.accounts).some(account => account.userId === expectedOwner);
+      const draftMap = read('youchong.privateDrafts.v1') || {};
+      if (typeof draftMap !== 'object' || Array.isArray(draftMap)) fail('STORAGE_INVALID', '本机草稿无法读取，原数据仍然保留');
+      // This was the exact owner key used by the personal editor. Never accept
+      // a page parameter, another account, or a loosely matching suffix.
+      const draft = draftMap['personal:personal:' + expectedOwner];
+      return clone({ ownerId: expectedOwner, available: exists || !!draft,
+        user: exists ? ctx.user : null,
+        posts: exists ? ownPosts(ctx).map(post => postView(ctx, post)).sort((a, b) => b.createdAt - a.createdAt) : [],
+        pets: exists ? petData.list(ctx.user) : [],
+        drafts: draft && draft.version === 1 ? [{ ...draft, id: 'personal-draft', visibility: 'private' }] : [],
+        placeVisits: exists ? ctx.account.place_visits : [], placeBookmarks: exists ? ctx.account.place_bookmarks : [] });
     });
   }
   function canRemoveLocalFile(path, ownerId, options = {}) {
@@ -342,7 +378,7 @@ function createPersonalService(platform, options = {}) {
       if (remaining.length) fail('LOCAL_CLEANUP_FAILED', '个人工具附件尚未清理完成，请重试');
     });
   }
-  return { call, clearLocalFiles, canRemoveLocalFile };
+  return { call, readLibrary, clearLocalFiles, canRemoveLocalFile };
 }
 
-module.exports = { createPersonalService, STORAGE_KEY, ACTIONS };
+module.exports = { createPersonalService, personalFileReferenced, clearCommunityDrafts, STORAGE_KEY, ACTIONS };

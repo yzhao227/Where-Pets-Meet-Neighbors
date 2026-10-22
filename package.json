@@ -1,8 +1,8 @@
 {
   "name": "youchong-pet-community",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "private": true,
-  "description": "有宠有邻：宠物私人记录、宠物档案与出门资讯微信小程序",
+  "description": "有宠有邻：宠物社区分享、聊天、私人记录与出门资讯微信小程序",
   "scripts": {
     "dev": "node scripts/preview-server.js",
     "check": "node scripts/check-project.js",

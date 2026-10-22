@@ -1,6 +1,7 @@
 const { httpsUrl } = require('../utils/public-url');
 const animalTypes = require('../data/animal-types');
 const contentTopics = require('../data/topics');
+const contentPolicy = require('../data/content-policy');
 const postVisibility = require('../data/post-visibility');
 const api = require('../services/api');
 const nearbyLocation = require('../services/nearby-location');
@@ -8,6 +9,21 @@ const { publication } = require('./post/_metadata');
 const product = require('../product');
 const personalMode = product.personalMode;
 let verificationPageOpen = false;
+const SHARE_TITLE = '有宠有邻｜喜欢宠物，就在这里相遇';
+const SHARE_IMAGE = '/assets/event-walk.png';
+
+// Always use a public cover: WeChat's default page screenshot may include
+// private profile fields, visit notes or an unfinished comment.
+function shareCard(title = SHARE_TITLE, path = '/pages/community/index') {
+  return { title, path, imageUrl: SHARE_IMAGE };
+}
+function shareTimeline(title = SHARE_TITLE, query = '') {
+  return { title, query, imageUrl: SHARE_IMAGE };
+}
+function shareMenu(visible) {
+  const method = !personalMode && visible ? 'showShareMenu' : 'hideShareMenu';
+  if (typeof wx[method] === 'function') wx[method]({ menus: ['shareAppMessage', 'shareTimeline'] });
+}
 
 function verificationArrived() { verificationPageOpen = true; }
 function verificationLeft() { verificationPageOpen = false; }
@@ -36,16 +52,17 @@ function register(definition) {
     delete definition.onShareTimeline;
     delete definition.onAddToFavorites;
   }
-  const hideSharing = () => {
-    if (personalMode && typeof wx.hideShareMenu === 'function') wx.hideShareMenu({ menus: ['shareAppMessage', 'shareTimeline'] });
+  const syncSharing = function () {
+    if (!personalMode && typeof this.syncShareMenu === 'function') this.syncShareMenu();
+    else shareMenu(!!definition.onShareAppMessage || !!definition.onShareTimeline);
   };
   definition.onLoad = function (options) {
     this._closed = false;
-    hideSharing();
+    syncSharing.call(this);
     if (originalLoad) return originalLoad.call(this, options || {});
   };
   definition.onShow = function () {
-    hideSharing();
+    syncSharing.call(this);
     if (originalShow) return originalShow.call(this);
   };
   definition.onUnload = function () {
@@ -158,33 +175,31 @@ function imageCredit(credit) {
   return result;
 }
 function post(item) {
+  if (contentPolicy.isVideoPost(item)) throw Object.assign(new Error('内容已下架'), { code: 'NOT_FOUND' });
   const visibility = postVisibility.selected(item.visibility);
   const placeDistance = item.place && item.place.active !== false ? nearbyLocation.distanceFor(item.place.point) : null;
   const images = Array.isArray(item.images) ? item.images : [];
-  const video = item.video && typeof item.video.url === 'string' ? item.video : null;
-  const videoSeconds = video && Number.isFinite(video.durationSeconds) ? Math.max(0, Math.round(video.durationSeconds)) : 0;
   const coverIndex = Number.isInteger(item.coverIndex) && item.coverIndex >= 0 && item.coverIndex < images.length ? item.coverIndex : 0;
   const kind = ['daily', 'question', 'meetup'].includes(item.kind) ? item.kind : 'daily';
   const title = item.title || '';
   const text = item.text || '';
   const source = publicSource(item.source);
   const imageCredits = Array.isArray(item.imageCredits) ? item.imageCredits.map(imageCredit) : [];
-  const contentType = ['knowledge', 'photo', 'video'].includes(item.contentType) ? item.contentType : '';
+  const contentType = ['knowledge', 'photo'].includes(item.contentType) ? item.contentType : '';
   const isEditorialContent = !!source || item.catalogManaged === true || !!(item.author && item.author.isEditorial);
   const linkedEvent = item.event ? Object.assign({}, item.event, {
     timeText: dateText(item.event.startAt),
     statusText: item.event.status === 'cancelled' ? '已取消' : item.event.startAt <= Date.now() ? '已开始' : '去看看',
     petText: { none: '无需带宠', optional: '可带宠物', dog: '需要带犬' }[item.event.petPolicy] || ''
   }) : null;
-  return Object.assign({}, item, publication(item), { visibility: visibility.id, visibilityText: visibility.name, author: avatar(item.author), images, title, text, kind, coverIndex, source, contentType, isEditorialContent, video,
+  return Object.assign({}, item, publication(item), { visibility: visibility.id, visibilityText: visibility.name, author: avatar(item.author), images, title, text, kind, coverIndex, source, contentType, isEditorialContent,
     placeDistance, placeDistanceText: placeDistance ? '距' + placeDistance.referenceLabel + '直线 ' + placeDistance.label : '',
-    videoDurationText: video ? Math.floor(videoSeconds / 60) + ':' + String(videoSeconds % 60).padStart(2, '0') : '',
     animalTypes: animalTypes.normalize(item.animalTypes), animalLabels: animalTypes.normalize(item.animalTypes).map(id => animalTypes.TYPES.find(type => type.id === id).name),
     imageCredits, hasRequiredCredits: imageCredits.some(credit => credit.requiresAttribution),
-    cover: video && video.poster || item.cover || images[coverIndex] || '', topics: contentTopics.normalize(item.topics),
+    cover: item.cover || images[coverIndex] || '', topics: contentTopics.normalize(item.topics),
     timeText: isEditorialContent ? '' : relative(item.createdAt), commentCount: item.commentCount || 0,
     likeCount: item.likeCount || 0, isLiked: !!item.isLiked, isBookmarked: !!item.isBookmarked,
-    kindText: personalMode ? (isEditorialContent ? (video ? '宠物视频' : contentType === 'photo' ? '动物影像' : '养宠知识') : '私人记录') : video ? '视频分享' : contentType === 'photo' ? '图片分享' : isEditorialContent ? '养宠知识' : { daily: '日常分享', question: '想问问大家', meetup: '一起做点什么' }[kind],
+    kindText: personalMode ? (isEditorialContent ? (contentType === 'photo' ? '动物影像' : '养宠知识') : '私人记录') : contentType === 'photo' ? '图片分享' : isEditorialContent ? '养宠知识' : { daily: '日常分享', question: '想问问大家', meetup: '一起做点什么' }[kind],
     kindSymbol: { daily: '✦', question: '?', meetup: '↗' }[kind],
     displayTitle: title || text || (personalMode ? '留住这一刻' : '分享了一份可爱'), cardText: text || title || (personalMode ? '留住这一刻' : '分享了一份可爱'),
     event: linkedEvent, eventId: item.eventId || '' });
@@ -232,4 +247,4 @@ async function block(userId) {
   return true;
 }
 
-module.exports = { personalMode, api, safe, register, load, more, action, toast, confirm, choose, go, back, openVerification, verificationArrived, verificationLeft, relative, post, updatePost, person: avatar, event, comment, message, preview, report, block, dateText, httpsUrl };
+module.exports = { personalMode, api, safe, register, load, more, action, toast, confirm, choose, go, back, openVerification, verificationArrived, verificationLeft, relative, post, updatePost, person: avatar, event, comment, message, preview, report, block, dateText, httpsUrl, shareCard, shareTimeline, shareMenu };

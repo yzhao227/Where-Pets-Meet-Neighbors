@@ -140,7 +140,7 @@ test('public places ignore legacy user overrides and private visits cannot link 
   assert.deepEqual(f.data.get(legacyKey), old);
 });
 
-test('image and video queues use persistent local media with no phone or cloud service', async () => {
+test('image queues remain local and video entry points are disabled without phone or cloud service', async () => {
   const f = fixture(), api = f.api();
   const image = await api.uploadImages(1); assert.equal(image.images.length, 1);
   assert.deepEqual((await f.api().resumeUploads()).images, image.images);
@@ -148,10 +148,8 @@ test('image and video queues use persistent local media with no phone or cloud s
   assert.equal(f.data.has('youchong.uploadQueue.v1'), false);
   const photoPost = await api.call('createPost', { images: image.images, visibility: 'private' });
   assert.equal(photoPost.post.images[0], image.images[0]); assert.ok(f.files.has(image.images[0]));
-  const clip = await api.uploadVideo(); assert.ok(clip.video); assert.equal(clip.video.durationSeconds, 8);
-  assert.equal((await f.api().resumeUploads()).video.url, clip.video.url);
-  const { post } = await api.call('createPost', { video: clip.video, visibility: 'private' });
-  assert.equal(post.video.url, clip.video.url);
+  await assert.rejects(api.uploadVideo(), { code: 'VIDEO_DISABLED' });
+  await assert.rejects(api.call('createPost', { video: { url: 'wxfile://old.mp4' }, visibility: 'private' }), { code: 'VIDEO_DISABLED' });
   assert.deepEqual(f.cloudCalls, []);
   const ticket = await api.call('createUploadTicket', { extension: 'png' });
   await assert.rejects(api.call('completeUpload', { ticketId: ticket.ticketId, fileId: 'cloud://secret/image.png' }), { code: 'UPLOAD_UNAVAILABLE' });

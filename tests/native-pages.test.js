@@ -131,7 +131,7 @@ test('profile accepts a pet-free user and an optional area, then round-trips cat
   assert.equal(me.data.petLabel, '猫');
 });
 
-test('profile and nearby round-trip explicit pet-neighbor participation and coarse home sharing through the demo service', async () => {
+test('profile retains explicit neighbor consent in the demo service while nearby remains a public travel directory', async () => {
   const { api } = await setup();
   const profile = await mount('profile');
   assert.equal(profile.data.neighborVisible, false);
@@ -150,11 +150,16 @@ test('profile and nearby round-trip explicit pet-neighbor participation and coar
   assert.equal(user.neighborAreaId, profile.data.neighborAreaChoices[1].id);
   assert.equal(user.residenceSharing, true);
   assert.deepEqual(Object.keys(user.residenceCell).sort(), ['grid', 'x', 'y']);
+  const neighbors = await api.call('listNeighbors', { areaId: '', kind: 'pets', petType: 'all', query: '' });
+  assert.equal(neighbors.items.some(item => item.id === user.id), false, 'the retained neighbor service never presents the current viewer as another person');
+  const requested = [];
+  exportedApi.call = async (action, payload) => { requested.push(action); return api.call(action, payload); };
   const nearby = await mount('nearby');
   await nearby.selectTab(evt({ id: 'neighbors' }));
-  assert.equal(nearby.data.neighborError, '');
-  assert.equal(nearby.data.selfNeighborVisible, true);
-  assert.equal(nearby.data.neighbors.some(item => item.id === user.id), false, 'own profile is never shown as another neighbor');
+  assert.equal(nearby.data.tab, 'places');
+  assert.ok(requested.every(action => ['bootstrap', 'listPlaces'].includes(action)));
+  assert.equal(Object.hasOwn(nearby.data, 'selfNeighborVisible'), false);
+  assert.doesNotMatch(JSON.stringify(nearby.data), /仅测试邻居小猫|residenceCell|不应保存的测试地址/);
   profile.neighborState(evt({ value: 'no' }));
   await profile.save();
   user = (await api.call('bootstrap')).user;
@@ -328,33 +333,34 @@ test('post comments follow returned cursors, merge overlapping pages and ignore 
   assert.equal(page.data.nextCursor, null);
 });
 
-test('nearby pagination drops stale filter results and deduplicates the current event pages', async () => {
+test('nearby loads all public directory pages and rejects late pages from a superseded directory refresh', async () => {
   const { api } = await setup();
-  const sample = (await api.call('listEvents')).items[0];
-  const event = id => Object.assign({}, sample, { id, title: id });
+  const sample = require('../miniprogram/data/nearby-catalogue').records.find(item => item.type === 'place');
+  const place = id => ({ ...sample, id, title: id });
   const calls = [];
-  let resolveOld;
+  let resolveOld, phase = 'initial';
   exportedApi.call = async (action, payload = {}) => {
-    if (action !== 'listEvents') return api.call(action, payload);
-    calls.push([payload.filter, payload.cursor]);
-    if (payload.cursor === 'all-2') return new Promise(resolve => { resolveOld = resolve; });
-    if (payload.cursor === 'dog-2') return { items: [event('dog-1'), event('dog-2')] };
-    if (payload.filter === 'dog') return { items: [event('dog-1')], nextCursor: 'dog-2' };
-    return { items: [event('all-1')], nextCursor: 'all-2' };
+    if (action !== 'listPlaces') return api.call(action, payload);
+    calls.push(structuredClone(payload));
+    if (phase === 'retained' && payload.cursor === 'old-page-two') return new Promise(resolve => { resolveOld = resolve; });
+    if (phase === 'new') return payload.cursor ? { items: [place('new-2')] } : { items: [place('new-1')], nextCursor: 'new-page-two' };
+    return payload.cursor ? { items: [place('old-2')] } : { items: [place('old-1')], nextCursor: 'old-page-two' };
   };
   const page = await mount('nearby');
-  const oldRequest = page.loadMore();
-  page.selectFilter(evt({ id: 'dog' }));
-  for (let i = 0; i < 20 && page.data.loading; i += 1) await new Promise(resolve => setImmediate(resolve));
-  assert.equal(page.data.nextCursor, 'dog-2');
-  resolveOld({ items: [event('all-2')], nextCursor: 'all-3' });
+  assert.deepEqual(page.data.places.map(item => item.id), ['old-1', 'old-2']);
+  assert.deepEqual(calls.map(payload => payload.cursor || null), [null, 'old-page-two']);
+  assert.ok(calls.every(payload => payload.type === 'all' && payload.limit === 50));
+  phase = 'retained'; const oldRequest = page.refresh({ retain: true });
+  await new Promise(resolve => setImmediate(resolve));
+  assert.equal(typeof resolveOld, 'function');
+  assert.equal(page.data.loading, false);
+  phase = 'new'; await page.refresh({ retain: true });
+  assert.deepEqual(page.data.places.map(item => item.id), ['new-1', 'new-2']);
+  resolveOld({ items: [place('retired-late-place')] });
   await oldRequest;
-  assert.deepEqual(page.data.items.map(item => item.id), ['dog-1']);
-  assert.equal(page.data.nextCursor, 'dog-2');
-  await Promise.all([page.loadMore(), page.loadMore()]);
-  assert.deepEqual(page.data.items.map(item => item.id), ['dog-1', 'dog-2']);
-  assert.equal(calls.filter(call => call[1] === 'dog-2').length, 1);
-  assert.equal(page.data.nextCursor, null);
+  assert.deepEqual(page.data.places.map(item => item.id), ['new-1', 'new-2']);
+  assert.equal(calls.filter(payload => payload.cursor === 'new-page-two').length, 1);
+  page.onUnload();
 });
 
 test('nearby public places survive cloud failure and local filters never require location permission', async t => {
@@ -378,7 +384,8 @@ test('nearby public places survive cloud failure and local filters never require
   const page = await mount('nearby');
   assert.equal(page.data.error, '');
   assert.equal(page.data.places.length, 6);
-  assert.equal(page.data.eventsError, '后台暂时不可用');
+  assert.ok(page.data.placeServiceError);
+  assert.equal(page.data.isAdmin, false, 'failed identity reads cannot retain administrator controls');
   page.selectPetFilter(evt({ id: 'with' }));
   assert.equal(page.data.places.length, 3);
   assert.ok(page.data.places.every(place => ['conditional', 'allowed'].includes(place.petStatus)));

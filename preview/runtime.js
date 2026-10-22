@@ -257,7 +257,9 @@
     for(const attr of Array.from(node.attributes)){
       const name=attr.name;if(name.startsWith('wx:')||name.startsWith('bind')||name.startsWith('catch')||['range','range-key','mode','value'].includes(name))continue;
       const value=interpolate(attr.value,scope);
-      if(['disabled','hidden','checked','controls','autoplay','loop','muted'].includes(name)){el[name]=value!==false&&value!=='false'&&value!=null;continue;}
+      // Bare boolean attributes opt in; bound values retain JS truthiness so
+      // an empty upload count or string cannot disable an available action.
+      if(['disabled','hidden','checked','controls','autoplay','loop','muted'].includes(name)){el[name]=attr.value===''||value!=='false'&&!!value;continue;}
       if(name==='maxlength'){el.maxLength=Number(value);continue;}
       if(name==='class'){el.className=value||'';continue;}
       if(name==='style'){el.setAttribute('style',rpx(String(value||'')));continue;}

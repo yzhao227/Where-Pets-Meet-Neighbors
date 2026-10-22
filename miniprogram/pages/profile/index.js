@@ -15,6 +15,7 @@ s.register({
     this._residenceRequest = (this._residenceRequest || 0) + 1;
     return s.load(this, async () => {
       const boot = await s.api.call('bootstrap'); const user = boot.user;
+      this.userId = user.id;
       const areas = ['暂不填写'].concat(boot.settings.areas || []);
       if (user.area && !areas.includes(user.area)) areas.push(user.area);
       const neighborVisible = !s.personalMode && user.neighborVisible === true;
@@ -27,6 +28,9 @@ s.register({
         residenceCell: neighborVisible && user.residenceSharing === true ? neighborLocation.normalizeCell(user.residenceCell) : null,
         residenceUpdatedAt: Number.isFinite(user.residenceUpdatedAt) ? user.residenceUpdatedAt : 0 };
     });
+  },
+  openPublicProfile() {
+    if (!s.personalMode && !this.data.loading && !this.data.error && !this.data.busy && this.userId) s.go('/pages/author/index?userId=' + encodeURIComponent(this.userId));
   },
   input(e) { const key = e.currentTarget.dataset.field; if (key === 'petName') this._legacyPetEdited = true; if (['nickname', 'bio', 'petName', 'petDraftName', 'petDraftBreed', 'petAgeYears', 'petAgeMonths'].includes(key)) s.safe(this, { [key]: e.detail.value }); },
   selectArea(e) { s.safe(this, { areaIndex: Number(e.detail.value) }); },

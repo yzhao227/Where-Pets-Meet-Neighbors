@@ -6,22 +6,8 @@ const location = require('../../services/nearby-location');
 const presentation = require('./presentation');
 const { splitDiscoveryCards } = require('./discovery-quality');
 const controls = require('../../data/nearby-controls');
-const neighborAreas = require('../../data/neighbor-areas');
-const neighborAreaChoices = [{ id: '', label: '全部活动片区' }].concat(neighborAreas);
 const dropdownId = (tab, menu, value) => tab + ':' + menu + ':' + value;
 
-function refreshedItems(previous, pages, cursors, decorate) {
-  const current = new Map();
-  pages.forEach(page => (page.items || []).forEach(item => current.set(item.id, decorate(item))));
-  // An item absent inside a refreshed cursor range was withdrawn/hidden. An
-  // item pushed beyond that range by new head entries still keeps its slot.
-  return previous.filter(item => current.has(item.id) || !pages.some((page, index) =>
-    (!cursors[index] || item.id < cursors[index]) && (!page.nextCursor || item.id >= page.nextCursor)
-  )).map(item => current.get(item.id) || item);
-}
-function readPages(action, query, cursors) {
-  return Promise.all(cursors.map(cursor => s.api.call(action, { ...query, ...(cursor ? { cursor } : {}) })));
-}
 function settled(promise) { return Promise.resolve(promise).then(value => ({ value }), error => ({ error })); }
 
 function navigationSize() {
@@ -33,18 +19,6 @@ function navigationSize() {
     const inset = capsule && Number.isFinite(info.windowWidth) && capsule.left > info.windowWidth / 2 ? info.windowWidth - capsule.left + 8 : 96;
     return { statusBarHeight, navigationHeight: Math.max(44, Math.min(64, row)), navigationInset: Math.max(80, Math.min(120, inset)) };
   } catch (_) { return { statusBarHeight: 0, navigationHeight: 44, navigationInset: 96 }; }
-}
-
-function neighborCard(item, failedAvatars) {
-  const pet = item.pet && typeof item.pet.name === 'string' && ['cat', 'dog', 'other'].includes(item.pet.type) ? { name: item.pet.name, type: item.pet.type } : null;
-  const avatar = typeof item.avatar === 'string' ? item.avatar : '';
-  const avatarUrl = s.httpsUrl(avatar) || (/^\/assets\/avatar-[0-9]+\.png$/.test(avatar) ? avatar : '');
-  return { id: item.id, nickname: item.nickname || '爱宠同好', avatarUrl: failedAvatars[item.id] === avatarUrl ? '' : avatarUrl,
-    pet, title: pet ? pet.name : item.nickname || '爱宠同好', petTypeText: pet ? { cat: '猫咪', dog: '狗狗', other: '其他宠物' }[pet.type] : '未展示宠物资料',
-    petSymbol: pet ? { cat: '猫', dog: '犬', other: '宠' }[pet.type] : '友',
-    areaLabel: item.neighborArea && typeof item.neighborArea.label === 'string' ? item.neighborArea.label : '',
-    bio: typeof item.bio === 'string' ? item.bio : '', isFollowing: item.isFollowing === true,
-    distanceBand: typeof item.distanceBand === 'string' ? item.distanceBand : '' };
 }
 
 function cards(records, page) {
@@ -83,18 +57,27 @@ function placeColumnsFor(records) {
   return columns;
 }
 
-function matchingMeetups(items, query) {
-  const words = String(query || '').trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
-  return (items || []).filter(item => {
-    const text = [item.title, item.location, item.hostName, item.petText].join(' ').toLocaleLowerCase();
-    return words.every(word => text.includes(word));
-  });
+function routeCards(records, query = '') {
+  const places = new Map(records.filter(record => record.type === 'place' && record.active !== false && record.status !== 'cancelled').map(record => [record.id, record]));
+  const words = String(query).trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+  return (catalogue.guides || []).reduce((result, guide) => {
+    // A route depends on every reviewed stop; do not silently substitute a
+    // withdrawn place or turn a partial itinerary into a complete recommendation.
+    if (!guide.steps || !guide.steps.length || guide.steps.some(step => !places.has(step.placeId))) return result;
+    const stops = guide.steps.map(step => ({ id: step.placeId, title: places.get(step.placeId).title, duration: step.duration }));
+    const text = [guide.title, guide.shortTitle, guide.summary, guide.petLabel,
+      ...guide.steps.map(step => { const place = places.get(step.placeId); return [place.title, place.district, place.area].join(' '); })
+    ].join(' ').toLocaleLowerCase();
+    if (words.every(word => text.includes(word))) result.push({ id: guide.id, title: guide.title, summary: guide.summary,
+      duration: guide.duration, petLabel: guide.petLabel, notice: guide.notice, stops });
+    return result;
+  }, []);
 }
 
 s.register({
   data: {
     loading: true, error: '', mode: '', city: '', isAdmin: false, statusBarHeight: 0, navigationHeight: 44, navigationInset: 96,
-    guides: (catalogue.guides || []).map(guide => ({ id: guide.id, title: guide.shortTitle || guide.title, duration: guide.duration, petLabel: guide.petLabel })),
+    displayGuides: [],
     tab: 'places', region: catalogue.region, checkedAt: catalogue.checkedAt,
     districts: ['全部区域'], districtIndex: 0, selectedDistrict: '', districtSelections: { places: '', activities: '' },
     areas: ['全部片区'], areaIndex: 0, selectedArea: '', playTag: 'all', playChoices: [], sort: 'recommended',
@@ -105,20 +88,13 @@ s.register({
     sortOptions: controls.SORTS.places, sortMenuOptions: controls.SORTS.places.concat({ id: 'help', name: '排序说明' }), sortIndex: 0, sortSelections: { places: 'recommended', activities: 'recommended' },
     filtersByTab: { places: { ...controls.DEFAULT_FILTERS }, activities: { ...controls.DEFAULT_FILTERS } },
     draftFilters: { ...controls.DEFAULT_FILTERS }, draftGroups: [], draftCount: 0, activeFilters: [], filterCount: 0, distanceNote: '',
-    kindOptions: ['宠物邻居', '爱宠同好'], neighborPetIndex: 0,
     places: [], displayPlaces: [], placeColumns: [], discoveryCurated: false, showMorePlaces: false, morePlaceCount: 0,
-    externalItems: [], announcements: [], hasHistory: false, neighboursOpen: false,
-    filter: 'all', items: [], neighbourItems: [], nextCursor: null, moreBusy: false, eventsError: '',
-    petFilters: [{ id: 'all', name: '全部' }, { id: 'with', name: '带宠出门' }, { id: 'without', name: '不带宠也能逛' }],
-    filters: [{ id: 'all', name: '全部小聚' }, { id: 'none', name: '不用带宠' }, { id: 'dog', name: '可以带狗' }],
-    neighborAreaChoices, neighborAreaIndex: 0, neighborKind: 'pets', neighborPetType: 'all',
-    neighborPets: [{ id: 'all', name: '全部宠物' }, { id: 'cat', name: '猫咪' }, { id: 'dog', name: '狗狗' }, { id: 'other', name: '其他宠物' }],
-    neighbors: [], neighborLoading: false, neighborMoreBusy: false, neighborError: '', neighborNextCursor: null, selfNeighborVisible: false
+    externalItems: [], announcements: [], hasHistory: false,
+    petFilters: [{ id: 'all', name: '全部' }, { id: 'with', name: '带宠出门' }, { id: 'without', name: '不带宠也能逛' }]
   },
   onLoad() {
     s.safe(this, navigationSize());
     this._failedPhotos = Object.create(null);
-    this._failedNeighborAvatars = Object.create(null);
     this.updateDirectoryOptions();
     this.updateCatalogue();
     return this.refresh();
@@ -129,14 +105,20 @@ s.register({
     this._hidden = true; this.closeControls(); s.safe(this, { searchFocused: false, filterOpen: false, referencePanel: false });
     this._sortAfterReference = false; this._referenceFromFilters = false; location.cancelPending();
     this._loadId = (this._loadId || 0) + 1; this._moreRequestId = (this._moreRequestId || 0) + 1;
-    this._neighborLoadId = (this._neighborLoadId || 0) + 1;
-    this._eventRefreshId = 0; this._neighborRefreshId = 0;
   },
-  onUnload() { this.closeControls(); location.cancelPending(); this._neighborLoadId = (this._neighborLoadId || 0) + 1; },
+  onUnload() { this.closeControls(); location.cancelPending(); },
   onPullDownRefresh() { return this.refresh(); },
   myPlaces() { this.closeControls(); s.go('/pages/places/index'); },
-  openGuide(e) { const id = e.currentTarget.dataset.id; if ((catalogue.guides || []).some(guide => guide.id === id)) s.go('/pages/local-detail/index?guideId=' + encodeURIComponent(id)); },
-  managePlaces() { if (!s.personalMode && this.data.isAdmin) s.go('/pages/places-manage/index'); },
+  openGuide(e) {
+    if (this._closed || this._hidden || this.data.busy) return;
+    const id = e.currentTarget.dataset.id;
+    if (routeCards(this._placeRecords || catalogue.records).some(guide => guide.id === id)) s.go('/pages/local-detail/index?guideId=' + encodeURIComponent(id));
+  },
+  contribute() {
+    if (s.personalMode || this._closed || this._hidden || this.data.busy) return;
+    this.closeControls(); s.go('/social/pages/contribute/index');
+  },
+  managePlaces() { if (!s.personalMode && !this._closed && !this._hidden && this.data.isAdmin) s.go('/pages/places-manage/index'); },
   currentFilters(tab = this.data.tab) {
     const filters = { ...controls.DEFAULT_FILTERS, ...this.data.filtersByTab[tab] };
     if (tab === 'places') filters.petFilter = this.data.petFilter;
@@ -152,6 +134,11 @@ s.register({
     return cards(records, this);
   },
   updateCatalogue() {
+    if (this.data.tab === 'guides') {
+      s.safe(this, { displayGuides: routeCards(this._placeRecords || catalogue.records, this.data.query),
+        activeFilters: [], filterCount: 0, distanceNote: '' });
+      return;
+    }
     const reference = location.getReference();
     if (!reference) {
       const filtersByTab = { places: { ...this.data.filtersByTab.places, radius: 'all' }, activities: { ...this.data.filtersByTab.activities, radius: 'all' } };
@@ -184,12 +171,12 @@ s.register({
       displayPlaces, placeColumns: placeColumnsFor(displayPlaces),
       externalItems: events.filter(item => item.timeStatus !== 'undated'), announcements: events.filter(item => item.timeStatus === 'undated'),
       hasHistory: selectNearbyRecords((this._placeRecords || catalogue.records), { kind: ['exhibition', 'event'], district: this.data.districtSelections.activities, history: true }).length > 0,
-      neighbourItems: matchingMeetups(this.data.items, this.data.query)
+      displayGuides: routeCards(this._placeRecords || catalogue.records, this.data.tab === 'guides' ? this.data.query : '')
     });
     if (this.data.filterOpen) this.updateFilterPreview();
   },
   updateDistricts() {
-    if (this.data.tab === 'neighbors') return;
+    if (this.data.tab === 'guides') return;
     const activities = this.data.tab === 'activities';
     const districts = [activities ? '全上海' : '全部区域'].concat(Array.from(new Set((this._placeRecords || catalogue.records)
       .filter(record => activities ? ['event', 'exhibition'].includes(record.type) : record.type === 'place')
@@ -223,117 +210,42 @@ s.register({
     const selectedArea = preserveSelection && areas.includes(this.data.selectedArea) ? this.data.selectedArea : '';
     s.safe(this, { areas: ['全部片区'].concat(areas), areaIndex: selectedArea ? areas.indexOf(selectedArea) + 1 : 0, selectedArea });
   },
-  acceptViewer(boot, source) {
-    const id = boot && boot.user && (boot.user.id || boot.user._id);
-    if (typeof id !== 'string' || !id) return false;
-    const key = String(boot.mode || '') + ':' + id;
-    const changed = !!this._nearbyViewer && this._nearbyViewer !== key;
-    this._nearbyViewer = key;
-    if (changed) {
-      this._eventPageCursors = [null]; this._neighborPageCursors = [null]; this._neighborsLoaded = false;
-      if (source === 'neighbors') { this._loadId = (this._loadId || 0) + 1; this._moreRequestId = (this._moreRequestId || 0) + 1; }
-      else this._neighborLoadId = (this._neighborLoadId || 0) + 1;
-      s.safe(this, { items: [], neighbourItems: [], nextCursor: null, moreBusy: false, neighbors: [], neighborNextCursor: null,
-        neighborMoreBusy: false, neighborError: '', selfNeighborVisible: false, isAdmin: false });
-    }
-    return changed;
-  },
-  refreshPersonal() {
-    if (!['places', 'activities'].includes(this.data.tab)) s.safe(this, { tab: 'places' });
+  refresh(options) {
+    if (this._closed || this._hidden) return Promise.resolve();
+    this.closeControls();
+    if (!['places', 'activities', 'guides'].includes(this.data.tab)) s.safe(this, { tab: 'places' });
     this.updateCatalogue();
     return s.load(this, async () => {
       const request = this._loadId;
       const [boot, directory] = await Promise.all([
-        settled(s.api.call('bootstrap')), settled(placeService.listAll({ type: 'all' }))
-      ]);
-      if (this._closed || request !== this._loadId) return {};
-      if (directory.value) { this._placeRecords = directory.value; this.updateDirectoryOptions(); this.updateCatalogue(); }
-      return { mode: boot.value && boot.value.mode || 'demo', city: boot.value && boot.value.settings && boot.value.settings.city || '',
-        isAdmin: false, selfNeighborVisible: false, items: [], neighbourItems: [], neighbors: [], nextCursor: null, neighborNextCursor: null, eventsError: '',
-        placeServiceError: directory.error ? '地点资料暂未读取完整，可继续浏览已保存内容' : '' };
-    }, { retain: this._loaded });
-  },
-  refresh(options) {
-    this.closeControls();
-    if (s.personalMode) return this.refreshPersonal();
-    if (this.data.tab === 'neighbors') return this.refreshNeighbors(options);
-    this.updateCatalogue();
-    const filter = this.data.filter;
-    let retain = !!(options && options.retain && this._loaded && this.data.items.length && this._eventFilter === filter);
-    const previous = this.data.items.slice(), nextCursor = this.data.nextCursor;
-    const cursors = retain ? (this._eventPageCursors || [null]).slice() : [null];
-    let refreshId;
-    return s.load(this, async () => {
-      const request = refreshId = this._loadId;
-      this._eventRefreshId = request;
-      // Revalidate exactly the pages already opened, without collapsing the
-      // visible list to page one or adding new cards above the reading position.
-      const [bootResult, initialEvents, directoryResult] = await Promise.all([
         settled(Promise.resolve().then(() => s.api.call('bootstrap'))),
-        settled(readPages('listEvents', { filter }, cursors)),
-        settled(placeService.listAll({ type: 'all' }))
+        settled(Promise.resolve().then(() => placeService.listAll({ type: 'all' })))
       ]);
-      if (this._closed || request !== this._loadId) return {};
-      const boot = bootResult.value;
-      const changed = this.acceptViewer(boot, 'events');
-      let eventResult = initialEvents;
-      if (changed && retain) { retain = false; eventResult = await settled(readPages('listEvents', { filter }, [null])); }
-      if (this._closed || request !== this._loadId) return {};
-      if (directoryResult.value) { this._placeRecords = directoryResult.value; this.updateDirectoryOptions(); this.updateCatalogue(); }
-      const pages = eventResult.value;
-      const keepOnError = retain && previous.length > 0;
-      const items = pages ? (retain ? refreshedItems(previous, pages, cursors, s.event) : (pages[0].items || []).map(s.event)) : keepOnError ? previous : [];
-      if (pages) { this._eventPageCursors = retain ? cursors : [null]; this._eventFilter = filter; }
-      if (eventResult.error && keepOnError) s.toast('小聚暂未更新，保留上次浏览内容');
-      return {
-        mode: boot ? boot.mode : this.data.mode,
-        city: boot && boot.settings && boot.settings.city || '',
-        isAdmin: boot ? !!(boot.user && boot.user.isAdmin) : this.data.isAdmin,
-        selfNeighborVisible: boot ? !!(boot.user && boot.user.neighborVisible) : this.data.selfNeighborVisible,
-        items, neighbourItems: matchingMeetups(items, this.data.query),
-        nextCursor: retain && (pages || keepOnError) ? nextCursor : pages && pages[0].nextCursor || null,
-        placeServiceError: directoryResult.error ? '地点在线更新暂不可用，仍可浏览已保存资料' : '',
-        eventsError: eventResult.error && !keepOnError ? eventResult.error.message || '小聚暂时没有连接上，请稍后重试' : ''
-      };
-    }, { retain }).finally(() => { if (this._eventRefreshId === refreshId) this._eventRefreshId = 0; });
-  },
-  async loadMore() {
-    if (s.personalMode) return;
-    if (this._closed || this._hidden || this._eventRefreshId && this._eventRefreshId === this._loadId) return;
-    const request = this._loadId;
-    await s.more(this, { key: 'items', request: async cursor => {
-      const result = await s.api.call('listEvents', { filter: this.data.filter, cursor });
-      if (!this._closed && request === this._loadId) {
-        const cursors = this._eventPageCursors || [null];
-        if (!cursors.includes(cursor)) this._eventPageCursors = cursors.concat(cursor);
+      if (this._closed || this._hidden || request !== this._loadId) return {};
+      if (Array.isArray(directory.value)) {
+        this._placeRecords = directory.value; this.updateDirectoryOptions(); this.updateCatalogue();
       }
-      return result;
-    }, decorate: s.event });
-    if (!this._closed && !this._hidden && request === this._loadId) this.updateCatalogue();
-  },
-  selectFilter(e) {
-    const filter = e.currentTarget.dataset.id;
-    if (!this.data.filters.some(item => item.id === filter)) return;
-    s.safe(this, { filter });
-    return this.refresh();
+      return { mode: boot.value && boot.value.mode || this.data.mode || 'demo',
+        city: boot.value && boot.value.settings && boot.value.settings.city || '',
+        isAdmin: !s.personalMode && !!(boot.value && boot.value.user && boot.value.user.isAdmin),
+        placeServiceError: directory.error ? '出行资料暂未更新，可继续浏览已保存内容' : '' };
+    }, { retain: !!(options && options.retain) });
   },
   selectTab(e) {
     const tab = e.currentTarget.dataset.id;
-    if (!(s.personalMode ? ['places', 'activities'] : ['places', 'activities', 'neighbors']).includes(tab)) return;
+    if (!['places', 'activities', 'guides'].includes(tab) || this._closed || this._hidden) return;
     if (this.data.busy) return;
     this.closeControls();
     const searchState = tab !== this.data.tab ? { searchOpen: false, searchFocused: false, searchText: '', query: '' } : {};
     this._sortAfterReference = false;
     if (tab !== this.data.tab && this.data.searchOpen && typeof wx.hideKeyboard === 'function') wx.hideKeyboard();
-    this._neighborLoadId = (this._neighborLoadId || 0) + 1;
     this._referenceFromFilters = false;
-    s.safe(this, { tab, sort: this.data.sortSelections[tab] || 'recommended', playTag: 'all', regionOpen: false, filterOpen: false, referencePanel: false, neighborLoading: false, neighborMoreBusy: false, ...searchState });
-    if (tab === 'neighbors') return this.refreshNeighbors();
+    s.safe(this, { tab, sort: this.data.sortSelections[tab] || 'recommended', playTag: 'all', regionOpen: false, filterOpen: false, referencePanel: false, ...searchState });
     this.updateDistricts();
     this.updateCatalogue();
   },
   selectDistrict(e) {
-    if (this.data.tab === 'neighbors') return;
+    if (this.data.tab === 'guides') return;
     const index = Number(e.detail.value);
     if (!Number.isInteger(index) || index < 0 || index >= this.data.districts.length) return;
     const selectedDistrict = index ? this.data.districts[index] : '';
@@ -342,12 +254,13 @@ s.register({
     this.updateCatalogue();
   },
   selectPlayTag(e) {
+    if (this.data.tab === 'guides') return;
     const playTag = e.currentTarget.dataset.id;
     if (playTag !== 'all' && !this.data.playChoices.some(tag => tag.id === playTag)) return;
     s.safe(this, { playTag }); this.updateCatalogue();
   },
   toggleControls() {
-    if (this._closed || this._hidden || this.data.busy) return;
+    if (this._closed || this._hidden || this.data.busy || this.data.tab === 'guides') return;
     if (this.data.controlsOpen) return this.closeControls();
     this.closeDropdown();
     this._controlsTab = this.data.tab;
@@ -384,7 +297,7 @@ s.register({
     return result;
   },
   openAdvancedFilters() {
-    if (this._closed || this._hidden || this.data.busy || !this.data.controlsOpen || this._controlsTab !== this.data.tab || this.data.dropdown || this.data.tab === 'neighbors') return;
+    if (this._closed || this._hidden || this.data.busy || !this.data.controlsOpen || this._controlsTab !== this.data.tab || this.data.dropdown || this.data.tab === 'guides') return;
     this.closeControls();
     return this.toggleFilters();
   },
@@ -396,42 +309,38 @@ s.register({
   toggleDropdown(e) {
     const menu = e.currentTarget.dataset.menu;
     const tab = this.data.tab;
-    if (this._closed || this._hidden || this.data.busy || !(tab === 'neighbors' ? ['region', 'kind', 'pet'] : ['region', 'sort', 'play']).includes(menu) ||
-      menu === 'pet' && this.data.neighborKind !== 'pets') return;
+    if (this._closed || this._hidden || this.data.busy || tab === 'guides' || !['region', 'sort', 'play'].includes(menu)) return;
     if (this.data.dropdown === menu) return this.closeDropdown();
     this.closeDropdown();
     this._sortAfterReference = false;
     this._referenceFromFilters = false;
     this._dropdownTab = tab;
     if (this.data.searchOpen && typeof wx.hideKeyboard === 'function') wx.hideKeyboard();
-    const dropdownTitle = { region: '选择区域', sort: '排序方式', play: '宠物玩法', kind: '发现宠友', pet: '宠物种类' }[menu];
+    const dropdownTitle = { region: '选择区域', sort: '排序方式', play: '宠物玩法' }[menu];
     s.safe(this, { dropdown: menu, dropdownTitle, regionOpen: menu === 'region', filterOpen: false, referencePanel: false,
       searchOpen: false, searchFocused: false, searchText: this.data.query });
     if (menu === 'region') {
-      if (tab !== 'neighbors') this.updateDistricts();
+      this.updateDistricts();
       if (tab === 'activities') {
         return s.safe(this, { dropdownItems: this.data.districts.map((label, index) => ({ id: dropdownId(tab, 'region', index ? label : ''),
           label, selected: this.data.districtSelections.activities === (index ? label : '') })) });
       }
-      const selected = tab === 'neighbors' ? neighborAreaChoices[this.data.neighborAreaIndex].district || '' : this.data.districtSelections.places;
+      const selected = this.data.districtSelections.places;
       return this.updateRegionDropdown(selected);
     }
-    const options = menu === 'sort' ? this.data.sortMenuOptions : menu === 'play' ? this.data.playOptions
-      : menu === 'kind' ? [{ id: 'pets', name: this.data.kindOptions[0] }, { id: 'people', name: this.data.kindOptions[1] }] : this.data.neighborPets;
-    const selected = menu === 'sort' ? this.data.sort : menu === 'play' ? this.data.playTag : menu === 'kind' ? this.data.neighborKind : this.data.neighborPetType;
+    const options = menu === 'sort' ? this.data.sortMenuOptions : this.data.playOptions;
+    const selected = menu === 'sort' ? this.data.sort : this.data.playTag;
     s.safe(this, { dropdownItems: options.map(item => ({ id: dropdownId(tab, menu, item.id), label: menu === 'play' && item.id === 'all' ? '全部玩法' : item.name,
       selected: item.id === selected, ...(menu === 'sort' && item.id === 'distance' && !location.getReference() ? { hint: '先选择距离参照' } : {}) })) });
   },
   updateRegionDropdown(district) {
     const tab = this.data.tab;
-    if (this.data.dropdown !== 'region' || this._dropdownTab !== tab || tab === 'activities') return;
-    const districts = tab === 'neighbors' ? Array.from(new Set(neighborAreas.map(item => item.district))) : this.data.districts.slice(1);
+    if (this.data.dropdown !== 'region' || this._dropdownTab !== tab || tab !== 'places') return;
+    const districts = this.data.districts.slice(1);
     if (district && !districts.includes(district)) district = '';
-    const selectedArea = tab === 'neighbors' ? neighborAreaChoices[this.data.neighborAreaIndex].id : this.data.selectedArea;
-    const selectedDistrict = tab === 'neighbors' ? neighborAreaChoices[this.data.neighborAreaIndex].district || '' : this.data.districtSelections.places;
+    const selectedArea = this.data.selectedArea;
+    const selectedDistrict = this.data.districtSelections.places;
     const choices = !district ? [{ value: '', label: '全上海', district: '', selected: !selectedDistrict && !selectedArea }]
-      : tab === 'neighbors' ? neighborAreas.filter(item => item.district === district).map(item => ({ value: item.id,
-        label: item.area || '整个' + district, district, selected: selectedArea === item.id }))
       : [{ value: '', label: '整个' + district, district, selected: selectedDistrict === district && !selectedArea }].concat(
         Array.from(new Set((this._placeRecords || catalogue.records).filter(item => item.type === 'place' && item.district === district).map(item => item.area).filter(Boolean)))
           .map(area => ({ value: area, label: area, district, selected: selectedDistrict === district && selectedArea === area })));
@@ -453,11 +362,6 @@ s.register({
     const choice = (this._regionChoices || []).find(item => item.id === e.currentTarget.dataset.id);
     if (this._closed || this._hidden || this.data.busy || this.data.dropdown !== 'region' || this._dropdownTab !== tab || !choice) return;
     this.closeDropdown();
-    if (tab === 'neighbors') {
-      const index = neighborAreaChoices.findIndex(item => item.id === choice.value);
-      if (index >= 0) return this.selectNeighborArea({ detail: { value: index } });
-      return;
-    }
     if (tab !== 'places') return;
     const districtIndex = choice.district ? this.data.districts.indexOf(choice.district) : 0;
     if (districtIndex < 0) return;
@@ -481,11 +385,10 @@ s.register({
     const itemEvent = { currentTarget: { dataset: { id: value } } };
     if (menu === 'sort') return value === 'help' ? this.showSortHelp() : this.selectSort(itemEvent);
     if (menu === 'play') return this.selectPlayTag(itemEvent);
-    if (menu === 'kind') return this.selectNeighborKind(itemEvent);
-    if (menu === 'pet') return this.selectNeighborPet(itemEvent);
   },
   toggleRegion() { return this.toggleDropdown({ currentTarget: { dataset: { menu: 'region' } } }); },
   toggleFilters() {
+    if (this.data.tab === 'guides' || this._closed || this._hidden) return;
     this.closeControls();
     this._sortAfterReference = false;
     this._referenceFromFilters = false;
@@ -494,7 +397,7 @@ s.register({
   },
   updateFilterPreview() {
     const tab = this.data.tab;
-    if (tab === 'neighbors') return;
+    if (tab === 'guides') return;
     const filters = this.data.draftFilters;
     const count = values => controls.filterCards(this.candidateCards(tab, values), values).length;
     const draftGroups = controls.groupsFor(tab, filters).map(group => ({ key: group.key, title: group.title,
@@ -508,6 +411,7 @@ s.register({
     s.safe(this, { draftGroups, draftCount: count(filters) });
   },
   selectDraftFilter(e) {
+    if (this.data.tab === 'guides') return;
     const { key, value } = e.currentTarget.dataset;
     const group = controls.groupsFor(this.data.tab, this.data.draftFilters).find(item => item.key === key);
     const choice = group && group.choices.find(item => String(item[0]) === String(value));
@@ -520,7 +424,7 @@ s.register({
   applyFilters() { this.commitFilters(this.data.draftFilters); },
   commitFilters(filters) {
     const tab = this.data.tab;
-    if (tab === 'neighbors') return;
+    if (tab === 'guides') return;
     const next = { ...filters, radius: location.getReference() ? filters.radius : 'all' };
     s.safe(this, { filtersByTab: { ...this.data.filtersByTab, [tab]: next }, filterOpen: false,
       ...(tab === 'places' ? { petFilter: next.petFilter } : { period: next.period, playTag: next.period !== this.data.period ? 'all' : this.data.playTag }) });
@@ -560,7 +464,7 @@ s.register({
     s.safe(this, { sort, sortSelections: { ...this.data.sortSelections, [this.data.tab]: sort } }); this.updateCatalogue();
   },
   openReferenceMenu() {
-    if (this._closed || this._hidden) return;
+    if (this._closed || this._hidden || this.data.tab === 'guides') return;
     this._referenceFromFilters = this.data.filterOpen;
     this.closeControls();
     return s.action(this, async () => {
@@ -579,7 +483,7 @@ s.register({
     });
   },
   selectKnownReference(e) {
-    if (this._closed || this._hidden) return;
+    if (this._closed || this._hidden || this.data.tab === 'guides') return;
     return s.action(this, () => {
       const choice = this.data.referenceOptions[Number(e.detail.value)];
       const record = choice && (this._placeRecords || catalogue.records).find(item => item.id === choice.id);
@@ -602,18 +506,21 @@ s.register({
   },
   toggleMorePlaces() { s.safe(this, { showMorePlaces: !this.data.showMorePlaces }); this.updateCatalogue(); },
   selectArea(e) {
+    if (this.data.tab !== 'places') return;
     const index = Number(e.detail.value);
     if (!Number.isInteger(index) || index < 0 || index >= this.data.areas.length) return;
     s.safe(this, { areaIndex: index, selectedArea: index === 0 ? '' : this.data.areas[index], playTag: 'all' });
     this.updateCatalogue();
   },
   selectPetFilter(e) {
+    if (this.data.tab !== 'places') return;
     const petFilter = e.currentTarget.dataset.id;
     if (!this.data.petFilters.some(item => item.id === petFilter)) return;
     s.safe(this, { petFilter, playTag: 'all', filtersByTab: { ...this.data.filtersByTab, places: { ...this.data.filtersByTab.places, petFilter } } });
     this.updateCatalogue();
   },
   selectPeriod(e) {
+    if (this.data.tab !== 'activities') return;
     const period = e.currentTarget.dataset.id;
     if (!['upcoming', 'past'].includes(period)) return;
     s.safe(this, { period, playTag: 'all' });
@@ -633,17 +540,17 @@ s.register({
     const query = this.data.searchText.trim();
     s.safe(this, { searchText: query, query, searchFocused: false });
     if (typeof wx.hideKeyboard === 'function') wx.hideKeyboard();
-    return this.data.tab === 'neighbors' ? this.refreshNeighbors() : this.updateCatalogue();
+    return this.updateCatalogue();
   },
   clearSearch() {
     s.safe(this, { searchText: '', query: '', searchFocused: this.data.searchOpen });
-    return this.data.tab === 'neighbors' ? this.refreshNeighbors() : this.updateCatalogue();
+    return this.updateCatalogue();
   },
   cancelSearch() {
     const hadQuery = !!this.data.query;
     s.safe(this, { searchOpen: false, searchFocused: false, searchText: '', query: '' });
     if (typeof wx.hideKeyboard === 'function') wx.hideKeyboard();
-    if (hadQuery) return this.data.tab === 'neighbors' ? this.refreshNeighbors() : this.updateCatalogue();
+    if (hadQuery) return this.updateCatalogue();
   },
   resetPlaces() {
     s.safe(this, { districtSelections: { ...this.data.districtSelections, places: '' }, filtersByTab: { ...this.data.filtersByTab, places: { ...controls.DEFAULT_FILTERS } }, areaIndex: 0, selectedArea: '', petFilter: 'all', playTag: 'all', searchText: '', query: '' });
@@ -651,126 +558,11 @@ s.register({
     this.updateAreas();
     this.updateCatalogue();
   },
-  toggleNeighbours() { if (s.personalMode) return; s.safe(this, { neighboursOpen: !this.data.neighboursOpen }); },
-  neighborQuery() { return { areaId: neighborAreaChoices[this.data.neighborAreaIndex].id, kind: this.data.neighborKind, petType: this.data.neighborKind === 'pets' ? this.data.neighborPetType : 'all', query: this.data.query }; },
-  async refreshNeighbors(options) {
-    if (s.personalMode) return;
-    const request = this._neighborLoadId = (this._neighborLoadId || 0) + 1;
-    this._neighborRefreshId = request;
-    const query = this.neighborQuery(), queryKey = JSON.stringify(query);
-    let retain = !!(options && options.retain && this._neighborsLoaded && this.data.neighbors.length && this._neighborQueryKey === queryKey);
-    const previous = this.data.neighbors.slice(), nextCursor = this.data.neighborNextCursor;
-    const cursors = retain ? (this._neighborPageCursors || [null]).slice() : [null];
-    s.safe(this, retain ? { neighborLoading: false, neighborMoreBusy: false, neighborError: '' }
-      : { neighborLoading: true, neighborMoreBusy: false, neighborError: '', neighborNextCursor: null, neighbors: [] });
-    const current = () => !this._closed && !this._hidden && request === this._neighborLoadId && this.data.tab === 'neighbors';
-    try {
-      const [initial, bootResult] = await Promise.all([settled(readPages('listNeighbors', query, cursors)), settled(Promise.resolve().then(() => s.api.call('bootstrap')))]);
-      if (!current()) return;
-      const boot = bootResult.value;
-      const changed = this.acceptViewer(boot, 'neighbors');
-      let result = initial;
-      if (changed && retain) { retain = false; s.safe(this, { neighborLoading: true }); result = await settled(readPages('listNeighbors', query, [null])); }
-      if (!current()) return;
-      if (boot) s.safe(this, { mode: boot.mode, selfNeighborVisible: !!(boot.user && boot.user.neighborVisible), isAdmin: !!(boot.user && boot.user.isAdmin) });
-      if (result.error) throw result.error;
-      const pages = result.value;
-      const decorate = item => neighborCard(item, this._failedNeighborAvatars);
-      s.safe(this, { neighbors: retain ? refreshedItems(previous, pages, cursors, decorate) : (pages[0].items || []).map(decorate),
-        neighborNextCursor: retain ? nextCursor : pages[0].nextCursor || null });
-      this._neighborPageCursors = retain ? cursors : [null]; this._neighborQueryKey = queryKey; this._neighborsLoaded = true;
-    } catch (error) {
-      if (current()) {
-        if (retain && previous.length) s.toast('宠友列表暂未更新，保留上次浏览内容');
-        else s.safe(this, { neighborError: error.message || '宠友列表暂时没有连接上，请稍后重试' });
-      }
-    } finally {
-      if (this._neighborRefreshId === request) this._neighborRefreshId = 0;
-      if (!this._closed && request === this._neighborLoadId) { s.safe(this, { neighborLoading: false }); if (wx.stopPullDownRefresh) wx.stopPullDownRefresh(); }
-    }
-  },
-  async loadMoreNeighbors() {
-    if (s.personalMode) return;
-    if (this._closed || this._hidden || this._neighborRefreshId && this._neighborRefreshId === this._neighborLoadId) return;
-    if (this.data.neighborLoading || this.data.neighborMoreBusy || !this.data.neighborNextCursor || this.data.tab !== 'neighbors') return;
-    const request = this._neighborLoadId;
-    const query = { ...this.neighborQuery(), cursor: this.data.neighborNextCursor };
-    s.safe(this, { neighborMoreBusy: true });
-    try {
-      const result = await s.api.call('listNeighbors', query);
-      if (this._closed || this._hidden || request !== this._neighborLoadId || this.data.tab !== 'neighbors') return;
-      const neighbors = this.data.neighbors.slice();
-      (result.items || []).map(item => neighborCard(item, this._failedNeighborAvatars)).forEach(item => {
-        const index = neighbors.findIndex(value => value.id === item.id);
-        if (index >= 0) neighbors[index] = item; else neighbors.push(item);
-      });
-      const cursors = this._neighborPageCursors || [null];
-      if (!cursors.includes(query.cursor)) this._neighborPageCursors = cursors.concat(query.cursor);
-      s.safe(this, { neighbors, neighborNextCursor: result.nextCursor || null });
-    } catch (error) {
-      if (!this._closed && !this._hidden && request === this._neighborLoadId) s.toast(error.message || '加载未完成，请重试');
-    } finally { if (!this._closed && request === this._neighborLoadId) s.safe(this, { neighborMoreBusy: false }); }
-  },
-  selectNeighborArea(e) {
-    const index = Number(e.detail.value);
-    if (this.data.busy || !Number.isInteger(index) || index < 0 || index >= neighborAreaChoices.length) return;
-    s.safe(this, { neighborAreaIndex: index }); return this.refreshNeighbors();
-  },
-  selectNeighborKind(e) {
-    const kind = e.currentTarget.dataset.id;
-    if (this.data.busy || !['pets', 'people'].includes(kind)) return;
-    s.safe(this, { neighborKind: kind }); return this.refreshNeighbors();
-  },
-  selectNeighborKindChoice(e) {
-    const kind = ['pets', 'people'][Number(e.detail.value)];
-    if (kind) return this.selectNeighborKind({ currentTarget: { dataset: { id: kind } } });
-  },
-  selectNeighborPetChoice(e) {
-    const pet = this.data.neighborPets[Number(e.detail.value)];
-    if (pet) return this.selectNeighborPet({ currentTarget: { dataset: { id: pet.id } } });
-  },
-  selectNeighborPet(e) {
-    const petType = e.currentTarget.dataset.id;
-    if (this.data.busy || !this.data.neighborPets.some(item => item.id === petType)) return;
-    s.safe(this, { neighborPetType: petType, neighborPetIndex: this.data.neighborPets.findIndex(item => item.id === petType) }); return this.refreshNeighbors();
-  },
-  resetNeighborFilters() {
-    s.safe(this, { query: '', searchText: '', searchFocused: false, neighborAreaIndex: 0, neighborPetType: 'all', neighborPetIndex: 0 });
-    return this.refreshNeighbors();
-  },
-  neighborEmptyAction() {
-    if (this.data.query || this.data.neighborAreaIndex || (this.data.neighborKind === 'pets' && this.data.neighborPetType !== 'all')) return this.resetNeighborFilters();
-    return this.data.selfNeighborVisible ? this.refreshNeighbors() : this.editNeighborProfile();
-  },
-  openNeighbor(e) {
-    if (s.personalMode) return;
-    const item = this.data.neighbors.find(value => value.id === e.currentTarget.dataset.id);
-    if (item) s.go('/pages/author/index?userId=' + encodeURIComponent(item.id));
-  },
-  followNeighbor(e) {
-    if (s.personalMode) return;
-    const item = this.data.neighbors.find(value => value.id === e.currentTarget.dataset.id);
-    if (!item) return;
-    return s.action(this, async () => {
-      const follow = !item.isFollowing;
-      if (!follow && !await s.confirm('取消关注「' + item.nickname + '」？', '取消后，该账号的日常将不再出现在关注列表中。', '取消关注')) return;
-      await s.api.call('followUser', { userId: item.id, follow });
-      if (!this._closed && this.data.tab === 'neighbors') await this.refreshNeighbors();
-    });
-  },
-  neighborAvatarFailed(e) {
-    const item = this.data.neighbors.find(value => value.id === e.currentTarget.dataset.id);
-    if (!item) return;
-    this._failedNeighborAvatars[item.id] = item.avatarUrl;
-    s.safe(this, { neighbors: this.data.neighbors.map(value => value.id === item.id ? { ...value, avatarUrl: '' } : value) });
-  },
-  editNeighborProfile() { if (s.personalMode) return; this.closeControls(); s.go('/pages/profile/index'); },
   openLocal(e) {
     const id = e.currentTarget.dataset.id;
     if (!(this._placeRecords || catalogue.records).some(record => record.id === id)) return;
     s.go('/pages/local-detail/index?id=' + encodeURIComponent(id));
   },
-  openEvent(e) { if (s.personalMode) return; s.go('/pages/event/index?id=' + encodeURIComponent(e.currentTarget.dataset.id)); },
-  manage() { if (s.personalMode) return; s.go('/pages/manage/index'); },
-  onShareAppMessage() { if (s.personalMode) return; return { title: '有宠有邻｜从莘庄出发，找个喜欢的地方', path: '/pages/nearby/index' }; }
+  onShareAppMessage() { return s.shareCard('有宠有邻｜宠物出行指南，好去处、活动与路线', '/pages/nearby/index'); },
+  onShareTimeline() { return s.shareTimeline('有宠有邻｜宠物出行指南，好去处、活动与路线'); }
 });

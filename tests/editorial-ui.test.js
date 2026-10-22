@@ -222,12 +222,12 @@ test('attribution controls bind each image index and public fields without evide
   assert.doesNotMatch(markup, /permissionRef|agreement|reviewer/);
 });
 
-test('a member video retains its publication time and ordinary discussion context', () => {
+test('retired member and editorial attachments cannot become a visible post through shared decoration', () => {
   const member = { id: 'member-video', contentType: 'video', images: [], video: { url: 'cloud://test/video.mp4', durationSeconds: 9 },
     text: '刚刚拍下的日常', author: { id: 'member', nickname: '真实会员' }, createdAt: Date.now() };
-  const decorated = shared.post(member);
-  assert.equal(decorated.isEditorialContent, false); assert.equal(decorated.timeText, '刚刚');
-  assert.equal(decorated.kindText, '视频分享');
-  const editorial = shared.post({ ...member, source: { publisher: '来源', url: 'https://example.org/video' } });
-  assert.equal(editorial.isEditorialContent, true); assert.equal(editorial.timeText, '');
+  assert.throws(() => shared.post(member), { code: 'NOT_FOUND', message: '内容已下架' });
+  assert.throws(() => shared.post({ ...member, source: { publisher: '来源', url: 'https://example.org/video' } }), { code: 'NOT_FOUND' });
+  const photo = shared.post({ ...member, video: null, contentType: 'photo' });
+  assert.equal(photo.isEditorialContent, false); assert.equal(photo.timeText, '刚刚');
+  assert.equal(photo.kindText, '图片分享');
 });

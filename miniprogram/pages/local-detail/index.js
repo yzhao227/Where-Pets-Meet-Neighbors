@@ -353,10 +353,14 @@ s.register({
     wx.switchTab({ url: '/pages/nearby/index', fail: () => { if (!this._closed) s.toast('暂时无法返回，请使用左上角返回'); } });
   },
   onShareAppMessage() {
-    if (s.personalMode) return;
-    if (this.data.guide) return { title: '有宠有邻｜' + this.data.guide.title, path: '/pages/local-detail/index?guideId=' + encodeURIComponent(this.data.guide.id) };
+    if (this.data.guide) return s.shareCard('有宠有邻｜' + this.data.guide.title, '/pages/local-detail/index?guideId=' + encodeURIComponent(this.data.guide.id));
     const item = this.data.item;
-    return item ? { title: '有宠有邻｜' + item.title, path: '/pages/local-detail/index?id=' + encodeURIComponent(item.id) }
-      : { title: '有宠有邻｜看看附近有什么', path: '/pages/nearby/index' };
+    return item ? s.shareCard('有宠有邻｜' + item.title, '/pages/local-detail/index?id=' + encodeURIComponent(item.id))
+      : s.shareCard('有宠有邻｜看看附近有什么', '/pages/nearby/index');
+  },
+  onShareTimeline() {
+    const guide = this.data.guide, item = this.data.item;
+    if (guide) return s.shareTimeline('有宠有邻｜' + guide.title, 'guideId=' + encodeURIComponent(guide.id));
+    return item ? s.shareTimeline('有宠有邻｜' + item.title, 'id=' + encodeURIComponent(item.id)) : s.shareTimeline();
   }
 });

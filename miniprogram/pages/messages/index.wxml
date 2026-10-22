@@ -1,76 +1,58 @@
 <view class="messages-navbar" style="padding-top:{{statusBarHeight}}px;"><view class="messages-navbar-title" style="height:{{navigationHeight}}px;">消息</view></view>
 <view class="page messages-page">
-  <view wx:if="{{menuOpen}}" class="message-menu-mask" bindtap="closeMenu" catchtouchmove="stopTouch" aria-label="收起菜单"></view>
-  <view wx:if="{{!searchOpen}}" class="messages-topbar {{menuOpen ? 'menu-open' : ''}}">
-    <button class="message-tool" bindtap="openSearch" disabled="{{busy}}" aria-label="搜索消息"><view class="message-search-icon" aria-hidden="true"></view></button>
-    <button class="message-tool {{menuOpen ? 'active' : ''}}" bindtap="toggleMenu" disabled="{{busy}}" aria-label="{{menuOpen ? '关闭新增菜单' : '新增'}}" aria-expanded="{{menuOpen}}"><view class="message-plus-icon {{menuOpen ? 'is-open' : ''}}" aria-hidden="true"></view></button>
-    <view wx:if="{{menuOpen}}" class="message-menu">
-      <button class="message-menu-item" data-id="group" bindtap="selectMenu"><view class="menu-icon menu-group-icon" aria-hidden="true"><view></view></view><text>创建群聊</text></button>
-      <button class="message-menu-item" data-id="friend" bindtap="selectMenu"><view class="menu-icon menu-friend-icon" aria-hidden="true"><view></view></view><text>加好友</text></button>
-      <button class="message-menu-item" data-id="circles" bindtap="selectMenu"><view class="menu-icon menu-circles-icon" aria-hidden="true"><view></view><view></view><view></view><view></view></view><text>圈子广场</text></button>
-      <button class="message-menu-item" data-id="contribute" bindtap="selectMenu"><view class="menu-icon menu-submit-icon" aria-hidden="true"></view><text>投稿</text></button>
-    </view>
-  </view>
+  <button wx:if="{{!searchOpen}}" class="message-search-entry" bindtap="openSearch" disabled="{{busy}}" hover-class="message-pressed" aria-label="搜索通知和留言"><view class="message-search-icon" aria-hidden="true"></view><text>搜索通知和留言</text></button>
   <view wx:else class="message-searchbar">
     <view class="message-search-field">
       <view class="message-search-icon" aria-hidden="true"></view>
-      <input class="message-search-input" value="{{searchText}}" focus="{{searchFocused}}" bindfocus="focusSearch" bindblur="blurSearch" bindinput="inputSearch" bindconfirm="search" confirm-type="search" maxlength="60" placeholder="搜宠友、群聊、消息" placeholder-class="message-search-placeholder" aria-label="搜索消息关键词"/>
+      <input class="message-search-input" value="{{searchText}}" focus="{{searchFocused}}" bindfocus="focusSearch" bindblur="blurSearch" bindinput="inputSearch" bindconfirm="search" confirm-type="search" maxlength="60" placeholder="搜索通知和留言" placeholder-class="message-search-placeholder" aria-label="搜索通知和留言关键词"/>
       <button wx:if="{{searchText}}" class="message-search-clear" bindtap="clearSearch" disabled="{{busy}}" aria-label="清除搜索">×</button>
       <button class="message-search-submit" bindtap="search" disabled="{{busy}}">搜索</button>
     </view>
     <button class="message-search-cancel" bindtap="cancelSearch" disabled="{{busy}}">取消</button>
   </view>
-
-  <view class="message-entries">
-    <button wx:for="{{entries}}" wx:key="id" class="message-entry {{category === item.id ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="selectCategory" disabled="{{busy}}">
-      <view class="entry-symbol entry-{{item.id}}">
-        <view class="entry-drawing drawing-{{item.icon}}"><text wx:if="{{item.icon === 'heart'}}">♡</text></view>
-        <view wx:if="{{item.unread > 0}}" class="entry-badge">{{item.badge}}</view>
-      </view>
-      <view class="entry-name">{{item.name}}</view>
-    </button>
-  </view>
-
   <view wx:if="{{query}}" class="message-search-summary">“{{query}}”的搜索结果</view>
-  <view wx:if="{{mode === 'demo'}}" class="message-mode">本机体验 · 聊天与提醒保存在当前设备</view>
-  <view wx:if="{{!loading && !error && (friendRequestCount > 0 || socialError || conversations.length > 0 || query)}}" class="conversation-section">
-    <button wx:if="{{friendRequestCount > 0}}" class="friend-request-banner" bindtap="openFriends"><text>新的好友申请</text><text>{{friendRequestCount}} 条待处理 ›</text></button>
-    <view wx:if="{{socialError}}" class="chat-load-error"><text>{{socialError}}</text><button bindtap="refresh">重试</button></view>
-    <view wx:elif="{{query && conversations.length === 0}}" class="conversation-empty">没有找到相关聊天</view>
-    <view wx:elif="{{conversations.length > 0}}">
-      <button wx:for="{{conversations}}" wx:key="id" class="conversation-row" data-id="{{item.id}}" bindtap="openConversation" aria-label="{{item.name}}">
-        <view class="conversation-avatar {{item.kind === 'group' ? 'group-avatar' : ''}}">{{item.initial}}<view wx:if="{{item.unreadCount > 0}}" class="conversation-badge">{{item.badge}}</view></view>
-        <view class="conversation-body"><view class="message-first-line"><text class="message-sender">{{item.name}}</text><text class="message-time">{{item.timeText}}</text></view><view class="conversation-preview">{{item.lastText || '还没有消息，聊聊彼此的毛孩子吧。'}}</view></view>
-      </button>
-    </view>
-    <button wx:if="{{conversationCursor && !socialError}}" class="conversation-more" bindtap="loadMoreConversations" loading="{{conversationMoreBusy}}" disabled="{{conversationMoreBusy}}">查看更多聊天</button>
-  </view>
-  <view class="inbox-heading"><view class="inbox-title">{{categoryLabel}}</view><view class="inbox-filter-actions"><button wx:if="{{category !== 'all'}}" class="inbox-filter" data-id="all" bindtap="selectCategory" disabled="{{busy}}">全部</button><button class="inbox-filter {{category === 'system' ? 'chosen' : ''}}" data-id="system" bindtap="selectCategory" disabled="{{busy}}">系统<text wx:if="{{categoryUnread.system > 0}}" class="system-dot"></text></button><button wx:if="{{unreadCount > 0}}" class="read-all" bindtap="readAll" disabled="{{busy || loading}}" aria-label="全部通知已读">全部已读</button></view></view>
-  <view wx:if="{{!loading && !error && !countsReady}}" class="counts-unavailable">未读数量暂未取得，可下拉刷新。</view>
-
   <view wx:if="{{loading}}" class="message-loading">正在读取消息…</view>
   <view wx:elif="{{error}}" class="error-box"><view>{{error}}</view><button class="btn btn-secondary" bindtap="refresh">重新加载</button></view>
-  <view wx:elif="{{items.length === 0}}" class="message-empty">
-    <view class="empty-message-symbol"></view>
-    <view class="message-empty-title">{{query ? '没有找到相关消息' : category === 'all' ? '还没有新的消息' : category === 'interactions' ? '还没有收到赞与收藏' : category === 'comments' ? '还没有评论与回复' : category === 'follows' ? '还没有新增关注' : '还没有系统与活动通知'}}</view>
-    <view class="message-empty-copy">{{query ? '换个昵称或关键词试试，也可以切换上方分类。' : category === 'all' ? '收到互动或活动提醒时，会出现在这里。' : category === 'interactions' ? '有人喜欢或收藏你的分享时，会在这里告诉你。' : category === 'comments' ? '分享下的评论和回复，会在这里汇集。' : category === 'follows' ? '关注你的爱宠同好，会在这里出现。' : '活动安排的变化和系统提醒，会留在这里。'}}</view>
-    <button wx:if="{{query}}" class="message-reset-search" bindtap="clearSearch" disabled="{{busy}}">清除搜索</button>
-  </view>
-  <view wx:else class="message-list">
-    <view wx:for="{{items}}" wx:key="id" class="message-card {{item.isRead ? '' : 'unread'}}" data-id="{{item.id}}" bindtap="openMessage">
-      <view class="message-avatar-wrap">
-        <image wx:if="{{item.avatarUrl}}" class="message-avatar" src="{{item.avatarUrl}}" mode="aspectFill" binderror="imageFailed" data-id="{{item.id}}" data-field="avatar" data-src="{{item.avatarUrl}}"/>
-        <view wx:else class="message-avatar avatar-fallback category-{{item.category}}">{{item.initial || item.symbol}}</view>
-        <text wx:if="{{!item.isRead}}" class="message-unread-dot"></text>
+  <block wx:else>
+    <view class="notification-section">
+      <view class="notification-categories" aria-label="通知分类">
+        <button wx:for="{{notificationCategories}}" wx:key="id" class="notification-category {{category === item.id ? 'category-selected' : ''}}" data-id="{{item.id}}" bindtap="selectCategory" disabled="{{busy}}" hover-class="category-pressed" aria-pressed="{{category === item.id}}" aria-label="{{item.label + (item.unreadCount > 0 ? '，' + item.unreadCount + '条未读' : '')}}">
+          <view class="category-icon category-icon-{{item.id}}" aria-hidden="true">
+            <view wx:if="{{item.id === 'interactions'}}" class="category-heart"></view>
+            <view wx:elif="{{item.id === 'comments'}}" class="category-reply"><view class="category-reply-line"></view></view>
+            <view wx:else class="category-person"><view class="category-person-head"></view><view class="category-person-body"></view><view class="category-person-plus"></view></view>
+            <view wx:if="{{item.unreadCount > 0}}" class="category-badge">{{item.badge}}</view>
+          </view>
+          <text class="category-label">{{item.label}}</text>
+        </button>
       </view>
-      <view class="message-body">
-        <view class="message-first-line"><text class="message-sender">{{item.displayTitle}}</text><text wx:if="{{item.timeText}}" class="message-time">{{item.timeText}}</text></view>
-        <view wx:if="{{item.actionText}}" class="message-action">{{item.actionText}}</view>
-        <view wx:if="{{item.text && item.text !== item.actionText}}" class="message-preview">{{item.text}}</view>
+      <view class="inbox-heading"><view class="section-heading"><text class="section-title">通知</text><text wx:if="{{inboxUnreadCount > 0}}" class="section-count">{{inboxUnreadCount > 99 ? '99+' : inboxUnreadCount}} 未读</text></view><button wx:if="{{unreadCount > 0}}" class="read-all" bindtap="readAll" disabled="{{busy || loading || notificationLoading}}" aria-label="将互动与系统通知标为已读，不影响一对一留言">通知已读</button></view>
+      <view wx:if="{{category !== 'all'}}" class="notification-filter"><text>当前分类：{{categoryTitle}}</text><button bindtap="clearCategory" disabled="{{busy}}">查看全部</button></view>
+      <view wx:if="{{inboxUnreadCount === null}}" class="counts-unavailable">未读数量暂未取得，可下拉刷新。</view>
+      <view wx:if="{{inboxError}}" class="notification-load-error inbox-sync-error"><text>{{inboxError}}</text><button bindtap="retryInbox" disabled="{{busy || inboxMoreBusy}}">重试</button></view>
+      <view wx:if="{{inboxItems.length || notificationLoading || !inboxError || hasMoreInbox}}" class="inbox-panel">
+        <view wx:if="{{(notificationLoading || inboxMoreBusy) && !inboxItems.length}}" class="notification-loading">正在读取{{categoryTitle}}…</view>
+        <view wx:elif="{{inboxItems.length}}" class="message-list">
+          <button wx:for="{{inboxItems}}" wx:key="rowKey" class="message-card {{item.entryType === 'conversation' ? (item.unreadCount > 0 ? 'unread' : '') : (item.isRead ? '' : 'unread')}}" data-id="{{item.id}}" data-type="{{item.entryType}}" bindtap="openInboxItem" disabled="{{busy}}" hover-class="message-pressed" aria-label="{{(item.entryType === 'conversation' ? (item.unreadCount > 0 ? '未读，' : '') : (item.isRead ? '' : '未读，')) + (item.entryType === 'conversation' ? item.name : item.displayTitle) + (item.sourceLabel ? '，' + item.sourceLabel : '')}}">
+            <view wx:if="{{item.entryType === 'conversation'}}" class="conversation-avatar" aria-hidden="true">{{item.initial}}<view wx:if="{{item.unreadCount > 0}}" class="conversation-badge">{{item.badge}}</view></view>
+            <view wx:else class="notice-icon-wrap" aria-hidden="true"><view class="notice-icon"></view><view wx:if="{{!item.isRead}}" class="message-unread-dot"></view></view>
+            <view class="message-body">
+              <view class="message-first-line"><text class="message-title">{{item.entryType === 'conversation' ? item.name : item.displayTitle}}</text><text wx:if="{{item.timeText}}" class="message-time">{{item.timeText}}</text></view>
+              <view wx:if="{{item.entryType === 'conversation' || item.summaryText}}" class="message-preview">{{item.entryType === 'conversation' ? (item.lastText || '暂无留言内容') : item.summaryText}}</view>
+              <view wx:if="{{item.sourceLabel}}" class="message-source {{item.entryType === 'conversation' ? 'message-source-direct' : ''}}">{{item.sourceLabel}}</view>
+            </view>
+          </button>
+        </view>
+        <view wx:elif="{{!inboxError}}" class="section-empty note-empty {{query ? 'note-empty-search' : ''}}">
+          <view wx:if="{{!query && (category === 'all' || category === 'comments')}}" class="note-art" aria-hidden="true"><view class="note-paper"><view class="note-paper-line"></view><view class="note-paper-line note-paper-line-short"></view></view><view class="note-envelope"><view class="note-fold"></view><view class="note-seal"><view class="paw-pad"></view><view class="paw-toe paw-toe-one"></view><view class="paw-toe paw-toe-two"></view><view class="paw-toe paw-toe-three"></view><view class="paw-toe paw-toe-four"></view></view></view></view>
+          <view class="section-empty-title">{{query ? '没有找到相关消息' : category === 'all' ? '暂无消息' : '暂无' + categoryTitle}}</view>
+          <view wx:if="{{!query}}" class="section-empty-copy">{{category === 'comments' ? '对内容的评论、回复和一对一留言，都会收在这里。' : '有新的进展，会在这里告诉你。'}}</view>
+          <button wx:if="{{!query && (category === 'all' || category === 'comments')}}" class="discover-content" bindtap="discoverContent" hover-class="discover-pressed">去发现内容<view class="button-arrow" aria-hidden="true"></view></button>
+        </view>
+        <button wx:if="{{hasMoreInbox && !notificationLoading}}" class="more-messages" bindtap="loadMoreInbox" loading="{{inboxMoreBusy}}" disabled="{{inboxMoreBusy || busy}}" hover-class="message-pressed">查看更多{{category === 'comments' ? '留言' : '消息'}}</button>
       </view>
-      <image wx:if="{{item.coverUrl}}" class="message-cover" src="{{item.coverUrl}}" mode="aspectFill" binderror="imageFailed" data-id="{{item.id}}" data-field="cover" data-src="{{item.coverUrl}}"/>
     </view>
-  </view>
-  <button wx:if="{{nextCursor && !loading && !error}}" class="btn btn-ghost more-messages" bindtap="loadMore" loading="{{moreBusy}}" disabled="{{moreBusy || busy}}">查看更多消息</button>
-  <view class="message-privacy">消息仅对你可见</view>
+    <button wx:if="{{query && !inboxItems.length && !inboxError && !notificationLoading && !inboxMoreBusy}}" class="message-reset-search" bindtap="clearSearch" disabled="{{busy}}">清除搜索</button>
+  </block>
+  <view wx:if="{{mode === 'demo'}}" class="message-mode">本机体验 · 通知与留言保存在当前设备</view>
 </view>

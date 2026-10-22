@@ -100,42 +100,14 @@ test('friend requests require explicit acceptance and confirmed friends open enc
   assert.equal(page.data.friends.length, 0);
 });
 
-test('group creation only selects confirmed friends and retries the identical create attempt without duplicates', async t => {
-  const { page, effects, handlers } = fixture(t, 'group-create');
-  handlers.getFriendHub = () => ({ friends: [person('one'), person('two')], incoming: [{ id: 'unconfirmed', from: person('three') }] });
-  let attempts = 0;
-  handlers.createGroupChat = () => { if (++attempts === 1) throw new Error('仅测试保存连接中断'); return { conversation: { id: 'created&group' } }; };
-  await page.onLoad();
-  page.toggleFriend(event('three'));
-  assert.equal(page.data.selectedCount, 0);
-  page.inputName(input('测试群')); page.toggleFriend(event('one'));
-  await Promise.all([page.createGroup(), page.createGroup()]);
-  assert.equal(attempts, 1);
-  assert.equal(page.data.attemptLocked, true);
-  page.inputName(input('不会改动')); page.toggleFriend(event('two'));
-  assert.equal(page.data.name, '测试群');
-  assert.equal(page.data.selectedCount, 1);
-  await page.createGroup();
-  const requests = effects.calls.filter(call => call.action === 'createGroupChat');
-  assert.deepEqual(requests[0].payload, requests[1].payload);
-  assert.equal(effects.routes.at(-1), '/social/pages/chat/index?id=created%26group');
-  await page.createGroup();
-  assert.equal(attempts, 2);
-});
-
-test('group validation leaves the form editable while retaining its idempotency key until success', async t => {
-  const { page, effects, handlers } = fixture(t, 'group-create');
-  handlers.getFriendHub = () => ({ friends: [person('one')] });
-  handlers.createGroupChat = () => { const error = new Error('仅测试群名不合适'); error.code = 'CONTENT_REJECTED'; throw error; };
-  await page.onLoad();
-  await page.createGroup();
-  assert.equal(effects.calls.some(call => call.action === 'createGroupChat'), false);
-  page.inputName(input('测试群')); page.toggleFriend(event('one')); await page.createGroup();
-  assert.equal(page.data.attemptLocked, false);
-  page.inputName(input('新的测试群')); await page.createGroup();
-  const requests = effects.calls.filter(call => call.action === 'createGroupChat');
-  assert.equal(requests[0].payload.requestId, requests[1].payload.requestId);
-  assert.equal(requests[1].payload.name, '新的测试群');
+test('the retired group page has no actions, API calls or editable member controls', async t => {
+  const { page, effects } = fixture(t, 'group-create');
+  await page.onLoad(); await page.onShow();
+  assert.deepEqual(effects.calls, []); assert.deepEqual(effects.routes, []);
+  assert.equal(page.createGroup, undefined); assert.equal(page.toggleContact, undefined); assert.equal(page.addFriends, undefined);
+  const markup = fs.readFileSync(path.join(__dirname, '../miniprogram/social/pages/group-create/index.wxml'), 'utf8');
+  assert.match(markup, /群聊功能已下线/); assert.match(markup, /作者主页/);
+  assert.doesNotMatch(markup, /<button|<input|<textarea|bindtap|加好友/);
 });
 
 test('chat orders same-timestamp messages by sequence and marks only the messages actually obtained as read', async t => {
@@ -178,18 +150,16 @@ test('chat sends preserve a newer draft, reuse a failed message request ID, and 
 
 test('chat polling refreshes loaded history to remove hidden records and keeps older pages deduplicated', async t => {
   const { page, handlers, effects } = fixture(t, 'chat');
-  const conversation = { id: 'group', kind: 'group', name: '测试群', canSend: true, memberCount: 2, members: [person('one'), person('two')] };
+  const conversation = { id: 'direct', kind: 'direct', name: '测试宠友', canSend: true, members: [person('one'), person('two')] };
   let hidden = false;
   handlers.getChatMessages = payload => payload.cursor ? { conversation, items: [message(8), message(7)] } : { conversation, items: hidden ? [message(10)] : [message(10), message(9)], nextCursor: 'older' };
-  handlers.leaveGroup = () => ({ success: true });
-  await page.onLoad({ id: 'group' }); await page.loadEarlier();
+  await page.onLoad({ id: 'direct' }); await page.loadEarlier();
   assert.deepEqual(Array.from(page.data.messages, item => item.seq), [7, 8, 9, 10]);
   hidden = true; await page.refresh(true);
   assert.deepEqual(Array.from(page.data.messages, item => item.seq), [7, 8, 10]);
-  page.toggleMembers(); assert.equal(page.data.membersOpen, true); assert.equal(page.data.members.length, 2);
-  await page.leaveGroup();
-  assert.equal(effects.routes.at(-1), '/pages/messages/index');
-  assert.equal(page._active, false);
+  assert.equal(page.data.conversation.name, '测试宠友');
+  assert.equal(typeof page.toggleMembers, 'undefined'); assert.equal(typeof page.leaveGroup, 'undefined');
+  assert.deepEqual(effects.routes, []);
 });
 
 test('hidden or unloaded chat requests never render or mark unseen messages as read and can resume after first-load interruption', async t => {
@@ -221,7 +191,7 @@ test('chat permissions and sync errors preserve a recoverable UI without leaving
   await page.refresh(true);
   assert.equal(page.data.messages.length, 1);
   assert.match(page.data.syncError, /连接中断/);
-  handlers.getChatMessages = () => { const error = new Error('已退出群聊'); error.code = 'NOT_MEMBER'; throw error; };
+  handlers.getChatMessages = () => { const error = new Error('会话已不可见'); error.code = 'NOT_FOUND'; throw error; };
   await page.refresh(true);
   assert.equal(page.data.messages.length, 0);
   assert.equal(page.data.conversation, null);
@@ -248,9 +218,9 @@ test('a pending send completed in the background does not mark anything read or 
 
 test('a sent-message acknowledgement interleaved with a refresh cannot preserve blocked old messages', async t => {
   const { page, handlers } = fixture(t, 'chat');
-  const conversation = { id: 'group', kind: 'group', canSend: true, members: [] };
+  const conversation = { id: 'direct', kind: 'direct', canSend: true, members: [] };
   handlers.getChatMessages = () => ({ conversation, items: [message(1, { sender: person('now-blocked') })] });
-  await page.onLoad({ id: 'group' });
+  await page.onLoad({ id: 'direct' });
   let finish;
   handlers.getChatMessages = () => new Promise(resolve => { finish = resolve; });
   const refreshing = page.refresh(true);
@@ -259,6 +229,65 @@ test('a sent-message acknowledgement interleaved with a refresh cannot preserve 
   finish({ conversation, items: [] }); await refreshing;
   assert.deepEqual(Array.from(page.data.messages, item => item.seq), [2]);
   assert.equal(page.data.messages.some(item => item.sender.id === 'now-blocked'), false);
+});
+
+test('old group deep links show an unavailable state without displaying, reading or sending group messages', async t => {
+  const { page, handlers, effects } = fixture(t, 'chat');
+  handlers.getChatMessages = () => ({ conversation: { id: 'old-group', kind: 'group', name: '旧群', canSend: true }, items: [message(1)], nextCursor: 'older' });
+  await page.onLoad({ id: 'old-group' });
+  assert.match(page.data.error, /停用.*留言/);
+  assert.equal(page.data.conversation, null); assert.equal(page.data.messages.length, 0); assert.equal(page.data.nextCursor, null);
+  page.inputDraft(input('不应发送')); await page.send(); await page.loadEarlier(); await page.markRead(1);
+  assert.equal(effects.calls.some(call => ['readConversation', 'sendChatMessage', 'leaveGroup'].includes(call.action)), false);
+  handlers.getChatMessages = () => { throw Object.assign(new Error('群聊已停用，请查看留言'), { code: 'FEATURE_UNAVAILABLE' }); };
+  await page.refresh(true);
+  assert.match(page.data.error, /停用/); assert.equal(page.data.draft, '');
+  const markup = fs.readFileSync(path.join(__dirname, '../miniprogram/social/pages/chat/index.wxml'), 'utf8');
+  assert.match(markup, /class="chat-subtitle">留言<\/view>/);
+  assert.doesNotMatch(markup, /toggleMembers|leaveGroup|membersOpen|私聊|聊天|群聊/);
+  assert.equal(JSON.parse(fs.readFileSync(path.join(__dirname, '../miniprogram/social/pages/chat/index.json'), 'utf8')).navigationBarTitleText, '留言');
+});
+
+test('a non-direct history page clears the conversation and a late send acknowledgement cannot restore it', async t => {
+  const { page, handlers, effects } = fixture(t, 'chat');
+  handlers.getChatMessages = payload => ({ conversation: { id: 'chat', kind: payload.cursor ? 'group' : 'direct', canSend: true }, items: [message(payload.cursor ? 1 : 2)], nextCursor: payload.cursor ? null : 'older' });
+  await page.onLoad({ id: 'chat' });
+  let finish;
+  handlers.sendChatMessage = () => new Promise(resolve => { finish = resolve; });
+  page.inputDraft(input('发送中')); const sending = page.send();
+  await page.loadEarlier();
+  assert.match(page.data.error, /停用/); assert.equal(page.data.conversation, null);
+  finish({ message: message(3, { isMine: true }) }); await sending;
+  assert.equal(page.data.messages.length, 0); assert.equal(page.data.pending.length, 0);
+  assert.equal(effects.calls.filter(call => call.action === 'readConversation').length, 1);
+  assert.equal(effects.calls.filter(call => call.action === 'readConversation')[0].payload.throughSeq, 2);
+});
+
+test('hidden private chats cannot start a new send or retry a failed message', async t => {
+  const { page, handlers, effects } = fixture(t, 'chat');
+  handlers.getChatMessages = () => ({ conversation: { id: 'chat', kind: 'direct', canSend: true }, items: [] });
+  handlers.sendChatMessage = () => { throw new Error('测试超时'); };
+  await page.onLoad({ id: 'chat' }); page.inputDraft(input('第一次发送')); await page.send();
+  const pendingId = page.data.pending[0].id;
+  page.onHide(); page.inputDraft(input('隐藏期间输入')); await page.send(); await page.retryMessage(event(pendingId));
+  assert.equal(effects.calls.filter(call => call.action === 'sendChatMessage').length, 1);
+  assert.equal(page.data.pending.length, 1);
+});
+
+test('a retired-conversation send rejection also invalidates a history refresh already in flight', async t => {
+  const { page, handlers, effects } = fixture(t, 'chat');
+  const conversation = { id: 'chat', kind: 'direct', canSend: true };
+  handlers.getChatMessages = () => ({ conversation, items: [message(1)] });
+  await page.onLoad({ id: 'chat' });
+  let finish;
+  handlers.getChatMessages = () => new Promise(resolve => { finish = resolve; });
+  const refreshing = page.refresh(true);
+  handlers.sendChatMessage = () => { throw Object.assign(new Error('会话已停用'), { code: 'FEATURE_UNAVAILABLE' }); };
+  page.inputDraft(input('不会恢复的消息')); await page.send();
+  finish({ conversation, items: [message(1), message(2)] }); await refreshing;
+  assert.match(page.data.error, /停用/); assert.equal(page.data.conversation, null); assert.equal(page.data.messages.length, 0);
+  assert.equal(page._fetching, false);
+  assert.equal(effects.calls.filter(call => call.action === 'readConversation').length, 1);
 });
 
 test('all social page WXML handlers exist and no sample avatars are used as fallback', async t => {

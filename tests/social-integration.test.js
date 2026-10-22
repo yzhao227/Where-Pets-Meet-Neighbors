@@ -4,6 +4,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
+const { createRequire } = require('node:module');
 const { createDemoService } = require('../miniprogram/services/demo');
 const { createSeed, newUser } = require('../miniprogram/data/seed');
 const shared = require('../miniprogram/pages/_shared');
@@ -26,7 +27,7 @@ function fixture(t) {
   const effects = { calls: [], routes: [], toasts: [], timers: new Map(), writesAfterUnload: 0 };
   let timerId = 0;
   const platform = {
-    getStorageSync(key) { assert.equal(key, KEY); return clone(saved); },
+    getStorageSync(key) { return key === KEY ? clone(saved) : ''; },
     setStorageSync(key, value) { assert.equal(key, KEY); saved = clone(value); },
     stopPullDownRefresh() {}, hideKeyboard() {},
     showToast(options) { effects.toasts.push(options.title); },
@@ -47,7 +48,7 @@ function fixture(t) {
   function page(name) {
     let definition;
     global.Page = value => { definition = value; };
-    const file = path.join(__dirname, name === 'messages' ? '../miniprogram/pages/messages/index.js' : '../miniprogram/social/pages/' + name + '/index.js');
+    const file = path.join(__dirname, ['messages', 'author'].includes(name) ? '../miniprogram/pages/' + name + '/index.js' : '../miniprogram/social/pages/' + name + '/index.js');
     vm.runInNewContext(fs.readFileSync(file, 'utf8'), {
       wx: platform,
       setInterval(callback, delay) { const id = ++timerId; effects.timers.set(id, { callback, delay }); return id; },
@@ -55,6 +56,7 @@ function fixture(t) {
       require(name) {
         if (name === '../../../pages/_shared' || name === '../_shared') return shared;
         if (name === '../../shared') return social;
+        if (['../../data/pets', '../../data/feed-preferences'].includes(name)) return createRequire(file)(name);
         throw new Error('Unexpected page dependency: ' + name);
       }
     }, { filename: file });
@@ -75,7 +77,7 @@ function fixture(t) {
     state: () => clone(saved), closePages };
 }
 
-test('actual social controllers and demo persistence complete friendship, group chat, read/search and authorization across accounts', async t => {
+test('legacy friendship data and private chats retain read/search and account authorization across restarts', async t => {
   const f = fixture(t);
   for (const id of ['alice', 'bob', 'charlie']) {
     f.as(id);
@@ -110,17 +112,7 @@ test('actual social controllers and demo persistence complete friendship, group 
   assert.equal(aliceFriends.data.results[0].friendStatus, 'friends');
   assert.equal(f.state().follows.length, 0, 'the friend flow does not create follows');
 
-  const group = f.page('group-create');
-  await group.onLoad();
-  group.inputName(input('集成测试猫友群'));
-  group.toggleFriend(tap('charlie'));
-  assert.equal(group.data.selectedCount, 0, 'unconfirmed people cannot be selected');
-  group.toggleFriend(tap('bob'));
-  await group.createGroup();
-  assert.equal(group.data.createError, '');
-  assert.ok(group.data.createdConversation);
-  const conversationId = group.data.createdConversation.id;
-  assert.equal(f.effects.routes.at(-1), '/social/pages/chat/index?id=' + encodeURIComponent(conversationId));
+  const conversationId = (await f.call('openDirectChat', { targetId: 'bob' })).conversation.id;
   assert.deepEqual(f.state().conversations[0].memberIds, ['alice', 'bob']);
 
   f.as('bob');
@@ -196,4 +188,108 @@ test('actual social controllers and demo persistence complete friendship, group 
   f.closePages();
   assert.equal(f.effects.timers.size, 0);
   assert.equal(f.effects.writesAfterUnload, 0);
+});
+
+
+test('author private messages connect two users without creating friends, follows or groups', async t => {
+  const f = fixture(t);
+  for (const id of ['alice', 'bob', 'charlie']) {
+    f.as(id);
+    await f.call('demoVerifyIdentity', { consent: { accepted: true, termsVersion: '2026-09-29', privacyVersion: '2026-09-29' } });
+  }
+  f.as('alice');
+  const author = f.page('author'); await author.onLoad({ userId: 'bob' });
+  assert.equal(author.data.canChat, true);
+  await author.startChat();
+  const conversationId = f.state().conversations[0].id;
+  assert.equal(f.effects.routes.at(-1), '/social/pages/chat/index?id=' + conversationId);
+  assert.equal(f.state().chatMessages.length, 0, 'opening a conversation never sends a greeting');
+  const aliceChat = f.page('chat'); await aliceChat.onLoad({ id: conversationId });
+  aliceChat.inputDraft(input('仅内存私聊测试：你好')); await aliceChat.send();
+  assert.equal(aliceChat.data.pending.length, 0);
+  aliceChat.onHide(); author.onHide();
+
+  f.as('bob');
+  const inbox = f.page('messages'); await inbox.onLoad();
+  assert.equal(inbox.data.chatUnreadCount, 1);
+  assert.equal(inbox.data.conversations[0].id, conversationId);
+  const authorBack = f.page('author'); await authorBack.onLoad({ userId: 'alice' });
+  await authorBack.startChat();
+  assert.equal(f.state().conversations.length, 1, 'both profile entries reuse the same private conversation');
+  const bobChat = f.page('chat'); await bobChat.onLoad({ id: conversationId });
+  assert.equal(bobChat.data.messages[0].text, '仅内存私聊测试：你好');
+  bobChat.inputDraft(input('仅内存私聊测试：收到')); await bobChat.send();
+  assert.equal(bobChat.data.pending.length, 0);
+  bobChat.onHide(); authorBack.onHide(); inbox.onHide();
+
+  f.as('alice');
+  const aliceInbox = f.page('messages'); await aliceInbox.onLoad();
+  assert.equal(aliceInbox.data.chatUnreadCount, 1);
+  assert.equal(aliceInbox.data.conversations.length, 1);
+  assert.equal(aliceInbox.data.conversations[0].kind, 'direct');
+  assert.equal(f.state().conversations.some(item => item.kind === 'group'), false);
+  assert.deepEqual(f.state().friendships, []);
+  assert.deepEqual(f.state().friendRequests, []);
+  assert.deepEqual(f.state().follows, []);
+  assert.ok(!f.effects.calls.some(call => ['sendFriendRequest', 'respondFriendRequest', 'followUser', 'createGroupChat'].includes(call.action)));
+  f.restart();
+  const restored = f.page('chat'); await restored.onLoad({ id: conversationId });
+  assert.equal(restored.data.messages.length, 2);
+  assert.deepEqual(f.state().users.map(user => user.id), ['alice', 'bob', 'charlie']);
+});
+
+test('one notes entry combines public comments and replies with private correspondence without changing where replies go', async t => {
+  const f = fixture(t);
+  for (const id of ['alice', 'bob', 'charlie']) {
+    f.as(id);
+    await f.call('demoVerifyIdentity', { consent: { accepted: true, termsVersion: '2026-09-29', privacyVersion: '2026-09-29' } });
+  }
+  f.as('alice');
+  await f.call('joinCircle', { id: 'circle-neighbors', join: true });
+  const { post } = await f.call('createPost', { circleId: 'circle-neighbors', text: '仅内存集成测试：周末携宠出行准备', images: [] });
+  const { comment: authorComment } = await f.call('addComment', { targetType: 'post', targetId: post.id, text: '仅内存作者补充' });
+
+  f.as('bob');
+  await f.call('addComment', { targetType: 'post', targetId: post.id, text: '仅内存公开评论' });
+  await f.call('likePost', { id: post.id, like: true });
+  const { conversation } = await f.call('openDirectChat', { targetId: 'alice' });
+  await f.call('sendChatMessage', { conversationId: conversation.id, text: '仅内存一对一留言一', requestId: 'merged-note-1' });
+  await f.call('sendChatMessage', { conversationId: conversation.id, text: '仅内存一对一留言二', requestId: 'merged-note-2' });
+  f.as('charlie');
+  await f.call('addComment', { targetType: 'post', targetId: post.id, replyToId: authorComment.id, text: '仅内存公开回复' });
+
+  f.as('alice');
+  const inbox = f.page('messages'); await inbox.onLoad();
+  assert.equal(inbox.data.inboxUnreadCount, 5);
+  assert.equal(inbox.data.inboxItems.length, 4, 'a private conversation is one row even when it contains two unread messages');
+  const notesEntry = inbox.data.notificationCategories.find(item => item.id === 'comments');
+  assert.equal(notesEntry.label, '留言'); assert.equal(notesEntry.unreadCount, 4);
+  await inbox.selectCategory(tap('comments'));
+  assert.equal(inbox.data.inboxItems.length, 3);
+  assert.deepEqual(new Set(Array.from(inbox.data.inboxItems, item => item.sourceLabel)), new Set(['内容评论', '内容回复', '一对一留言']));
+  assert.equal(inbox.data.inboxItems.some(item => item.kind === 'like'), false);
+
+  const commentRow = inbox.data.inboxItems.find(item => item.kind === 'comment');
+  await inbox.openInboxItem(tap(commentRow.id, { type: commentRow.entryType }));
+  assert.equal(f.effects.routes.at(-1), '/pages/post/index?id=' + encodeURIComponent(post.id));
+  assert.equal(inbox.data.chatUnreadCount, 2);
+  assert.equal(inbox.data.notificationCategories.find(item => item.id === 'comments').unreadCount, 3);
+  assert.equal(inbox.data.inboxUnreadCount, 4);
+
+  const directRow = inbox.data.inboxItems.find(item => item.entryType === 'conversation');
+  await inbox.openInboxItem(tap(directRow.id, { type: directRow.entryType }));
+  assert.equal(f.effects.routes.at(-1), '/social/pages/chat/index?id=' + encodeURIComponent(conversation.id));
+  inbox.onHide();
+  const conversationPage = f.page('chat'); await conversationPage.onLoad({ id: conversation.id });
+  assert.equal(conversationPage.data.messages.length, 2);
+  assert.ok(conversationPage.data.messages.every(item => item.text.startsWith('仅内存一对一留言')));
+  conversationPage.onHide();
+  await inbox.onShow();
+  assert.equal(inbox.data.chatUnreadCount, 0);
+  assert.equal(inbox.data.notificationCategories.find(item => item.id === 'comments').unreadCount, 1);
+  assert.equal(inbox.data.inboxUnreadCount, 2, 'the public reply and like remain unread after reading private messages');
+  assert.equal(f.state().comments.length, 3);
+  assert.equal(f.state().chatMessages.length, 2);
+  assert.deepEqual(f.state().friendships, []);
+  assert.equal(f.state().conversations.some(item => item.kind === 'group'), false);
 });

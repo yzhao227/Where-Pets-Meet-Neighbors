@@ -287,7 +287,7 @@ test('empty scan pages advance automatically until content appears with a bounde
 });
 
 test('each column prioritizes its first two covers and later images remain lazy through loads and pagination', async t => {
-  fixture(t, async (action, payload) => {
+  const { effects } = fixture(t, async (action, payload) => {
     assert.equal(action, 'listPosts');
     return payload.cursor
       ? { items: [post('later-a'), post('later-b')] }
@@ -307,10 +307,51 @@ test('each column prioritizes its first two covers and later images remain lazy 
   assertPriorities();
   for (const [id, value] of Object.entries(position)) assert.deepEqual(columnPositions(page)[id], value);
   assert.equal(page.data.postColumns.flatMap(column => column.posts).filter(item => !item.coverLazy).length, 4);
+  const beforeTopicEntry = columnPositions(page), calls = effects.calls.length;
   page.selectFeed(event({ id: 'circles' }));
   await settle(page);
-  assert.equal(page.data.postColumns.length, 1);
+  assert.equal(effects.navigations.at(-1), '/pages/circle-square/index');
+  assert.equal(effects.calls.length, calls, 'opening the topic guide does not replace the loaded feed');
+  assert.equal(page.data.postColumns.length, 2);
+  assert.deepEqual(columnPositions(page), beforeTopicEntry);
   assertPriorities();
+});
+
+
+test('the topic entry preserves feed filters and loaded cards while retired circle state never reaches listPosts', async t => {
+  const { effects, stored } = fixture(t, async action => {
+    assert.equal(action, 'listPosts');
+    return { items: [post('one'), post('two')], nextCursor: 'next-page' };
+  }, ['reptile']);
+  const page = await mount(t);
+  page.setData({ feed: 'following', query: '饮水', searchInput: '饮水', topic: '健康护理', animalType: 'cat', selectedCircle: 'legacy-circle' });
+  await page.refresh();
+  const expectedFilters = { feed: 'following', query: '饮水', searchInput: '饮水', topic: '健康护理', animalType: 'cat', excludedAnimalTypes: ['reptile'] };
+  const cards = structuredClone(page.data.postColumns), calls = effects.calls.length;
+  const savedPreferences = structuredClone(stored.get(preferences.KEY));
+  assert.equal(page.data.feeds.find(item => item.id === 'circles').name, '主题');
+  assert.equal(typeof page.selectCircle, 'undefined');
+  await page.selectFeed(event({ id: 'circles' }));
+  assert.deepEqual(effects.navigations, ['/pages/circle-square/index']);
+  assert.equal(effects.calls.length, calls);
+  for (const [key, value] of Object.entries(expectedFilters)) assert.deepEqual(page.data[key], value, key);
+  assert.deepEqual(page.data.postColumns, cards);
+  assert.equal(page.data.nextCursor, 'next-page');
+  assert.deepEqual(stored.get(preferences.KEY), savedPreferences);
+  page.onHide(); await page.onShow();
+  assert.equal(effects.calls.filter(call => call.action === 'listPosts').length, 2, 'returning from the guide keeps the previous feed pages');
+  for (const [key, value] of Object.entries(expectedFilters)) assert.deepEqual(page.data[key], value, key);
+  page.setData({ feed: 'circles', selectedCircle: 'retired-saved-circle' });
+  await page.refresh();
+  const payload = effects.calls.filter(call => call.action === 'listPosts').at(-1).payload;
+  assert.equal(payload.feed, 'discover'); assert.equal(payload.circleId, undefined);
+  assert.equal(payload.query, '饮水'); assert.equal(payload.topic, '健康护理');
+  assert.equal(payload.animalType, 'cat'); assert.deepEqual(payload.excludedAnimalTypes, ['reptile']);
+  assert.ok(effects.calls.every(call => call.action !== 'joinCircle' && (call.action !== 'listPosts' || call.payload.feed !== 'circles' && !call.payload.circleId)));
+  assert.equal(page.data.postColumns.length, 2);
+  const finalCalls = effects.calls.length, finalNavigations = effects.navigations.length;
+  page.selectFeed(event({ id: 'unknown' }));
+  assert.equal(effects.calls.length, finalCalls); assert.equal(effects.navigations.length, finalNavigations);
 });
 
 test('editorial thumbnails fall back once without losing their original source or accepting old events', async t => {
@@ -799,7 +840,7 @@ test('a collection change during revalidation or refresh is not marked as alread
   });
 });
 
-test('real API collection mutations refresh membership while ordinary detail interactions retain pages', async t => {
+test('real API visibility changes refresh public content while memberships do not filter topic browsing', async t => {
   fixture(t, async action => { throw new Error(action); });
   const client = api.createApi(global.wx, { mode: 'demo' });
   api.call = client.call;
@@ -837,16 +878,20 @@ test('real API collection mutations refresh membership while ordinary detail int
   assert.equal(page.data.posts.length, 0);
 
   await api.call('joinCircle', { id: first.circle.id, join: true });
-  page.setData({ feed: 'circles' });
+  page.setData({ feed: 'discover', topic: first.topics[0] || '' });
   await page.refresh();
   assert.ok(page.data.posts.some(item => item.circle.id === first.circle.id));
+  const publicTopicIds = page.data.posts.map(item => item.id);
+  const joinedVersion = api.getFeedVersion();
   page.onHide();
   await api.call('joinCircle', { id: first.circle.id, join: false });
+  assert.ok(api.getFeedVersion() > joinedVersion, 'membership writes still invalidate the shared feed cache');
   await page.onShow();
-  assert.ok(page.data.posts.every(item => item.circle.id !== first.circle.id));
+  assert.deepEqual(page.data.posts.map(item => item.id), publicTopicIds, 'leaving a legacy membership does not remove publicly visible topic content');
+  assert.ok(page.data.posts.some(item => item.circle.id === first.circle.id));
 
   await api.call('joinCircle', { id: 'circle-neighbors', join: true });
-  page.setData({ feed: 'discover' });
+  page.setData({ feed: 'discover', topic: '' });
   await page.refresh();
   page.onHide();
   const created = await api.call('createPost', { circleId: 'circle-neighbors', text: '新的邻里分享', images: [] });

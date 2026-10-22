@@ -1,23 +1,10 @@
 'use strict';
 
-function videoPath(url) {
-  return String(url || '').replace(/^\/assets\/curated-video\/(\d+\.mp4)$/, '/media/clips/$1');
-}
-function videoPackage(url) {
-  const match = /^\/(media[2-9]?)\/clips\/\d+\.mp4$/.exec(videoPath(url));
-  return match ? match[1] : '';
-}
-function playerPath(url, id) {
-  const root = videoPackage(url);
-  return root && id ? '/' + root + '/pages/index?id=' + encodeURIComponent(id) : '';
-}
-function videoSource(platform, url) {
-  const source = videoPath(url);
-  // Loading another package does not grant the main page access to its assets.
-  // A package video must be opened in that package's own player page.
-  if (videoPackage(source)) return Promise.reject(new Error('请在视频播放页打开这段视频'));
-  return Promise.resolve(source);
-}
+const contentPolicy = require('../../data/content-policy');
+
+// Keep stale callers unable to resolve a retired attachment.
+function playerPath() { return ''; }
+function videoSource() { return Promise.reject(contentPolicy.videoError()); }
 function photos(post, previous) {
   return (post.images || []).map((src, index) => {
     const old = previous && previous[index];
@@ -42,4 +29,4 @@ function photoEvent(items, event, status) {
   const size = status === 'ready' ? photoDimensions(event.detail) : {};
   return items.map((value, i) => i === index ? Object.assign({}, value, size, { status }) : value);
 }
-module.exports = { videoPath, videoPackage, playerPath, videoSource, photos, photoEvent, photoHeight };
+module.exports = { playerPath, videoSource, photos, photoEvent, photoHeight };

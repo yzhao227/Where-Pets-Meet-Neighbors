@@ -181,21 +181,18 @@ test('animal tags use the shared ten-species vocabulary and extended circles, de
   }
 });
 
-test('video imports count independently, retain reviewed poster metadata and emit only public video fields', t => {
+test('valid video metadata can be audited but no build can republish retired videos', t => {
   const { output } = temporary(t);
   const video = licensedVideo();
   const manifest = { ...partial(video), targets: { knowledge: 0, photo: 0, video: 1 }, omitPublicAttribution: true };
-  assert.equal(catalog.status(manifest).readyToBuild, true);
-  const result = catalog.buildCatalog(manifest, { output });
-  assert.deepEqual(result.counts, { knowledge: 0, photo: 0, video: 1 });
-  assert.equal(catalog.status(manifest).total, 1);
-  const generated = evaluate(output).CURATED_POSTS[0];
-  assert.deepEqual(generated.video, { url: video.video.url, poster: video.video.poster, durationSeconds: 12.5 });
-  assert.equal(generated.images[0], video.video.poster);
-  assert.equal(generated.imageCredits[0].licenseName, 'CC0 1.0');
-  assert.equal(generated.editorId, 'catalog-photo');
-  assert.equal('contentHash' in generated.video, false);
-  assert.throws(() => catalog.buildCatalog(partial(video), { output, partial: true }), /不能超过/);
+  assert.equal(catalog.status(manifest).metadataValid, true);
+  assert.equal(catalog.status(manifest).readyToBuild, false);
+  assert.equal(catalog.status(manifest).readyToBuildPartial, false);
+  fs.writeFileSync(output, 'existing catalogue must survive');
+  for (const partialBuild of [false, true]) {
+    assert.throws(() => catalog.buildCatalog(manifest, { output, partial: partialBuild }), /视频发布已停用/);
+    assert.equal(fs.readFileSync(output, 'utf8'), 'existing catalogue must survive');
+  }
 });
 
 test('video imports reject invalid duration, missing or mismatched poster, unsafe URLs, duplicate originals and disallowed licenses', () => {
@@ -559,9 +556,8 @@ test('bundled editorial videos require a numeric MP4 path, real bounded bytes an
   video.video.contentHash = createHash('sha256').update(bytes).digest('hex');
   const manifest = { ...partial(video), targets: { knowledge: 0, photo: 0, video: 1 }, omitPublicAttribution: true };
   assert.equal(catalog.validateManifest(manifest, { assetsRoot }).valid, true);
-  assert.equal(catalog.status(manifest, { assetsRoot }).readyToBuild, true);
-  catalog.buildCatalog(manifest, { assetsRoot, output });
-  assert.equal(evaluate(output).CURATED_POSTS[0].video.url, video.video.url);
+  assert.equal(catalog.status(manifest, { assetsRoot }).readyToBuild, false);
+  assert.throws(() => catalog.buildCatalog(manifest, { assetsRoot, output }), /视频发布已停用/);
   for (const url of ['/assets/curated-video/word.mp4', '/assets/curated-video/123.mov', '/assets/other/123.mp4',
     '/assets/curated-video/../123.mp4', '/assets/curated-video/123.mp4?token=x', '/assets/curated-video/%31.mp4', '/assets/curated-video/456.mp4']) {
     const copy = structuredClone(manifest); copy.items[0].video.url = url;
@@ -651,8 +647,7 @@ test('media subpackage supports new paths and resolves old URLs without changing
     video.video.url = url;
     const manifest = { ...partial(video), targets: { knowledge: 0, photo: 0, video: 1 } };
     assert.equal(catalog.validateManifest(manifest, { assetsRoot }).valid, true);
-    catalog.buildCatalog(manifest, { assetsRoot, output });
-    assert.equal(evaluate(output).CURATED_POSTS[0].video.url, url);
+    assert.throws(() => catalog.buildCatalog(manifest, { assetsRoot, output }), /视频发布已停用/);
   }
   for (const url of ['/media/clips/../123.mp4', '/media/clips/word.mp4', '/media/clips/123.mp4?x=1', '/media1/clips/123.mp4', '/media10/clips/123.mp4', '/media2/other/123.mp4']) {
     video.video.url = url;
@@ -696,8 +691,7 @@ test('bundled JPEG video frames require exact paths, bounded bytes and hashes wi
   video.assets[0].originalUrl = video.video.originalUrl;
   const manifest = { ...partial(video), targets: { knowledge: 0, photo: 0, video: 1 }, omitPublicAttribution: true };
   assert.equal(catalog.validateManifest(manifest, { assetsRoot }).valid, true);
-  catalog.buildCatalog(manifest, { assetsRoot, output });
-  assert.equal(evaluate(output).CURATED_POSTS[0].images[0], video.video.poster);
+  assert.throws(() => catalog.buildCatalog(manifest, { assetsRoot, output }), /视频发布已停用/);
   for (const url of ['/assets/curated-poster/word.jpg', '/assets/curated-poster/123.png', '/assets/curated-poster/123.jpg?x=1',
     '/assets/curated-poster/../123.jpg', '/media/123.jpg', '/assets/curated-poster/456.jpg']) {
     const copy = structuredClone(manifest); copy.items[0].assets[0].url = copy.items[0].video.poster = url;

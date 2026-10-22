@@ -1,0 +1,39 @@
+<view class="page library-page">
+  <view class="library-note">个人版保存的日记、宠物资料和草稿，只在当前设备查看，继续保持私密。</view>
+  <view wx:if="{{loading}}" class="loading">正在读取本机私人资料…</view>
+  <view wx:elif="{{error}}" class="error-box"><text>{{error}}</text><button class="btn btn-secondary" bindtap="refresh">重新读取</button></view>
+  <view wx:else>
+    <view wx:if="{{user}}" class="library-owner">{{user.nickname}} 的私人资料</view>
+    <view class="library-tabs">
+      <button class="library-tab {{section === 'posts' ? 'active' : ''}}" bindtap="selectSection" data-section="posts">日记 {{totalPosts}}</button>
+      <button class="library-tab {{section === 'pets' ? 'active' : ''}}" bindtap="selectSection" data-section="pets">宠物 {{pets.length}}</button>
+      <button class="library-tab {{section === 'drafts' ? 'active' : ''}}" bindtap="selectSection" data-section="drafts">草稿 {{drafts.length}}</button>
+    </view>
+    <view wx:if="{{selected}}" class="card library-detail">
+      <button class="library-back" bindtap="closeEntry">‹ 返回列表</button>
+      <view class="library-title">{{selected.title}}</view><view class="library-date">{{selected.timeText}} · {{selected.draft ? '未保存草稿' : '仅自己可见'}}</view>
+      <text class="library-text" selectable>{{selected.text}}</text>
+      <image wx:for="{{selected.images}}" wx:key="*this" class="library-image" src="{{item}}" mode="widthFix"/>
+      <view wx:if="{{selected.hasRetiredAttachment}}" class="library-note">草稿中有已停用的旧附件，原始资料仍保存在本机。</view>
+      <view wx:if="{{selected.pendingCount}}" class="library-note">此草稿另有 {{selected.pendingCount}} 个未完成的附件记录，原记录仍保存在本机。</view>
+    </view>
+    <view wx:elif="{{section === 'posts'}}">
+      <view wx:if="{{!posts.length}}" class="library-empty">当前本机账号没有个人版保存的私人日记。</view>
+      <button wx:for="{{posts}}" wx:key="id" class="card library-row" bindtap="showEntry" data-id="{{item.id}}">
+        <view class="library-title">{{item.title}}</view><view class="library-date">{{item.timeText}} · 仅自己可见</view><view class="library-excerpt">{{item.text || '图片日记'}}</view>
+      </button>
+      <button wx:if="{{hasMore}}" class="btn btn-ghost" bindtap="loadMore">查看更多日记</button>
+    </view>
+    <view wx:elif="{{section === 'pets'}}">
+      <view wx:if="{{!pets.length}}" class="library-empty">当前本机账号没有个人版保存的宠物资料。</view>
+      <view wx:for="{{pets}}" wx:key="id" class="card library-pet">
+        <image wx:if="{{item.photo}}" class="library-pet-photo" src="{{item.photo}}" mode="aspectFill"/>
+        <view><view class="library-title">{{item.name}}</view><view>{{item.typeLabel}}{{item.breed ? ' · ' + item.breed : ''}}</view><view class="library-date">{{item.ageLabel}}</view><view wx:if="{{item.birthDate}}" class="library-date">生日 {{item.birthDate}}</view></view>
+      </view>
+    </view>
+    <view wx:else>
+      <view wx:if="{{!drafts.length}}" class="library-empty">当前本机账号没有个人版留下的草稿。</view>
+      <button wx:for="{{drafts}}" wx:key="id" class="card library-row" bindtap="showEntry" data-id="{{item.id}}" data-draft="{{true}}"><view class="library-title">{{item.title}}</view><view class="library-date">{{item.timeText}}</view><view class="library-excerpt">{{item.text || '查看草稿附件'}}</view></button>
+    </view>
+  </view>
+</view>

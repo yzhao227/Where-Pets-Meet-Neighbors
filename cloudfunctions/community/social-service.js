@@ -29,18 +29,25 @@ function createSocialService({ repository: repo, now, fail, requireUser, require
   const requestKey = (kind, ctx, requestId, extra = '') => kind + '_' + digest([ctx.userId, ctx.lifecycleId, requestId, extra]);
   const readKey = (conversationId, ctx) => 'read_' + digest([conversationId, ctx.userId, ctx.lifecycleId]);
   const matchesLife = (record, user) => record.memberIds.includes(user._id || user.id) && record.memberLifecycles[user._id || user.id] === life(user);
+  const directIdFor = (left, right) => 'direct_' + digest(keyFor(left, right));
+
+  async function requireChatUser(access, ctx, verified = false) {
+    const me = await (verified ? requireVerifiedUser(access, ctx.userId, ctx.lifecycleId) : requireUser(access, ctx.userId, ctx.lifecycleId));
+    if (me.isEditorial) fail('AUTH_REQUIRED', '请使用有效的宠友账号');
+    return me;
+  }
 
   async function blocked(access, left, right) {
     return left !== right && !!(await access.get('blocks', left + '__' + right) || await access.get('blocks', right + '__' + left));
   }
   async function targetUser(access, id) {
     const user = await access.get('users', id);
-    if (!user || user.status !== 'active' || user.isEditorial) fail('NOT_FOUND', '这位邻居暂不可添加');
+    if (!user || user.status !== 'active' || user.isEditorial) fail('NOT_FOUND', '这位用户暂不可联系');
     return user;
   }
   async function pairUsers(access, ctx, targetId, verified = false) {
     if (targetId === ctx.userId) fail('INVALID_INPUT', '不能选择自己');
-    const me = await (verified ? requireVerifiedUser(access, ctx.userId, ctx.lifecycleId) : requireUser(access, ctx.userId, ctx.lifecycleId));
+    const me = await requireChatUser(access, ctx, verified);
     const other = await targetUser(access, targetId);
     if (await blocked(access, ctx.userId, targetId)) fail('NOT_FOUND', '这位邻居不存在或不可见');
     return { me, other, key: keyFor(me, other) };
@@ -63,22 +70,25 @@ function createSocialService({ repository: repo, now, fail, requireUser, require
     return user;
   }
   async function conversationFor(access, ctx, id, verified = false) {
-    const me = await (verified ? requireVerifiedUser(access, ctx.userId, ctx.lifecycleId) : requireUser(access, ctx.userId, ctx.lifecycleId));
+    const me = await requireChatUser(access, ctx);
     const conversation = await access.get('conversations', id);
     if (!conversation || conversation.status !== 'active' || !matchesLife(conversation, me)) fail('NOT_FOUND', '会话不存在或你已退出');
+    if (conversation.kind !== 'direct') fail('FEATURE_UNAVAILABLE', '群聊功能已下线，请从作者主页给对方留言');
+    if (verified) await requireChatUser(access, ctx, true);
     if (conversation.kind === 'direct') for (const memberId of conversation.memberIds) {
       if (memberId !== ctx.userId && await blocked(access, ctx.userId, memberId)) fail('NOT_FOUND', '会话不存在或不可见');
     }
     return { me, conversation };
   }
   async function canSend(access, ctx, conversation) {
+    const me = await access.get('users', ctx.userId);
+    if (!me || me.status !== 'active' || me.isEditorial || !matchesLife(conversation, me)) return false;
     if ((await verificationFor(access, ctx.userId)).status !== 'phone_verified') return false;
-    if (conversation.kind === 'group') return true;
+    if (conversation.kind !== 'direct') return false;
     if (conversation.memberIds.length !== 2) return false;
     const otherId = conversation.memberIds.find(id => id !== ctx.userId);
-    const me = await access.get('users', ctx.userId);
     const other = await visiblePerson(access, me, otherId, conversation.memberLifecycles[otherId]);
-    return !!other && await friendStatus(access, me, other) === 'friends';
+    return !!other;
   }
   async function chatSnapshot(ctx, id) {
     const { me, conversation } = await conversationFor(repo, ctx, id);
@@ -211,9 +221,8 @@ function createSocialService({ repository: repo, now, fail, requireUser, require
     async openDirectChat(payload, ctx) {
       const targetId = identifier(payload.targetId);
       const id = await repo.transaction(async tx => {
-        const { me, other, key } = await pairUsers(tx, ctx, targetId, true);
-        if (await friendStatus(tx, me, other) !== 'friends') fail('FRIEND_REQUIRED', '双方成为好友后即可聊天');
-        const conversationId = 'direct_' + digest(key);
+        const { me, other } = await pairUsers(tx, ctx, targetId, true);
+        const conversationId = directIdFor(me, other);
         const existing = await tx.get('conversations', conversationId);
         if (!existing) await tx.set('conversations', conversationId, { kind: 'direct', name: '', ownerId: '', memberIds: [ctx.userId, targetId].sort(),
           memberLifecycles: { [ctx.userId]: life(me), [targetId]: life(other) }, createdAt: now(), updatedAt: now(), lastSeq: 0, status: 'active' });
@@ -221,42 +230,12 @@ function createSocialService({ repository: repo, now, fail, requireUser, require
       });
       return { conversation: (await chatSnapshot(ctx, id)).conversation };
     },
-    async createGroupChat(payload, ctx) {
-      const name = text(payload.name, '群聊名称', 1, 30); const requestId = identifier(payload.requestId);
-      if (!Array.isArray(payload.memberIds) || payload.memberIds.length < 1 || payload.memberIds.length > 19) fail('INVALID_INPUT', '请选择 1–19 位好友');
-      const memberIds = payload.memberIds.map(identifier);
-      if (memberIds.includes(ctx.userId) || new Set(memberIds).size !== memberIds.length) fail('INVALID_INPUT', '群成员不能重复或包含自己');
-      const fingerprint = digest([name, [...memberIds].sort()]);
-      const id = requestKey('group', ctx, requestId);
-      await requireVerifiedUser(repo, ctx.userId, ctx.lifecycleId);
-      await moderateText(name, ctx.openid);
-      await repo.transaction(async tx => {
-        const me = await requireVerifiedUser(tx, ctx.userId, ctx.lifecycleId);
-        const existing = await tx.get('conversations', id);
-        if (existing) {
-          if (existing.creationFingerprint !== fingerprint) fail('IDEMPOTENCY_CONFLICT', '这次建群请求已使用，请重新发起');
-          await conversationFor(tx, ctx, id);
-          return;
-        }
-        const users = [me];
-        for (const memberId of memberIds) {
-          const { other } = await pairUsers(tx, ctx, memberId);
-          if (await friendStatus(tx, me, other) !== 'friends') fail('FRIEND_REQUIRED', '只能邀请已确认的好友');
-          users.push(other);
-        }
-        for (let left = 0; left < users.length; left++) for (let right = left + 1; right < users.length; right++) {
-          if (await blocked(tx, users[left]._id, users[right]._id)) fail('MEMBER_UNAVAILABLE', '所选成员之间暂不适合加入同一群聊');
-        }
-        await tx.set('conversations', id, { kind: 'group', name, ownerId: ctx.userId, memberIds: [ctx.userId, ...memberIds],
-          memberLifecycles: Object.fromEntries(users.map(user => [user._id, life(user)])), creationFingerprint: fingerprint,
-          createdAt: now(), updatedAt: now(), lastSeq: 0, status: 'active' });
-      });
-      return { conversation: (await chatSnapshot(ctx, id)).conversation };
-    },
+    async createGroupChat() { fail('FEATURE_UNAVAILABLE', '群聊功能已下线，请从作者主页给对方留言'); },
     async listConversations(payload, ctx) {
       const query = text(payload.query === undefined ? '' : payload.query, '搜索内容', 0, 60).toLowerCase();
       const snapshots = [];
       for (const record of await allRecords('conversations', { memberIds: ctx.userId })) {
+        if (record.kind !== 'direct') continue;
         try { snapshots.push(await chatSnapshot(ctx, record._id)); }
         catch (error) { if (error.code !== 'NOT_FOUND') throw error; }
       }
@@ -267,7 +246,7 @@ function createSocialService({ repository: repo, now, fail, requireUser, require
     async getChatMessages(payload, ctx) {
       const id = identifier(payload.conversationId); const limit = limitFor(payload); let before = Infinity;
       if (present(payload.cursor)) {
-        if (typeof payload.cursor !== 'string' || !/^[1-9]\d{0,15}$/.test(payload.cursor) || !Number.isSafeInteger(Number(payload.cursor))) fail('INVALID_INPUT', '聊天分页位置无效');
+        if (typeof payload.cursor !== 'string' || !/^[1-9]\d{0,15}$/.test(payload.cursor) || !Number.isSafeInteger(Number(payload.cursor))) fail('INVALID_INPUT', '留言分页位置无效');
         before = Number(payload.cursor);
       }
       const snapshot = await chatSnapshot(ctx, id);
@@ -281,14 +260,14 @@ function createSocialService({ repository: repo, now, fail, requireUser, require
       const id = requestKey('chat', ctx, requestId, conversationId);
       const message = await repo.transaction(async tx => {
         const { me, conversation } = await conversationFor(tx, ctx, conversationId, true);
-        if (!await canSend(tx, ctx, conversation)) fail('FRIEND_REQUIRED', '重新成为好友后才能继续聊天');
+        if (!await canSend(tx, ctx, conversation)) fail('CHAT_UNAVAILABLE', '当前会话暂时无法发送消息，请刷新后重试');
         const existing = await tx.get('chat_messages', id);
         if (existing) {
           if (existing.text !== body) fail('IDEMPOTENCY_CONFLICT', '这次发送请求已使用，请重新发送');
           return { id, seq: existing.seq, text: existing.text, createdAt: existing.createdAt, sender: personFields(me), isMine: true };
         }
         const seq = conversation.lastSeq + 1;
-        if (!Number.isSafeInteger(seq)) fail('CHAT_FULL', '会话消息已达上限，请新建群聊');
+        if (!Number.isSafeInteger(seq)) fail('CHAT_FULL', '当前留言数量已达上限，暂时无法继续发送');
         const record = { conversationId, senderId: ctx.userId, senderLifecycleId: ctx.lifecycleId, seq, text: body, createdAt: now() };
         await tx.set('chat_messages', id, record);
         await tx.set('conversations', conversationId, { ...conversation, lastSeq: seq, updatedAt: now() });
@@ -307,25 +286,7 @@ function createSocialService({ repository: repo, now, fail, requireUser, require
       });
       return { success: true };
     },
-    async leaveGroup(payload, ctx) {
-      const id = identifier(payload.conversationId);
-      await repo.transaction(async tx => {
-        await requireUser(tx, ctx.userId, ctx.lifecycleId);
-        const existing = await tx.get('conversations', id);
-        if (existing && existing.kind === 'group' && (existing.leftMemberLifecycles || {})[ctx.userId] === ctx.lifecycleId) return;
-        const { conversation } = await conversationFor(tx, ctx, id);
-        if (conversation.kind !== 'group') fail('INVALID_INPUT', '这不是群聊');
-        const memberIds = conversation.memberIds.filter(memberId => memberId !== ctx.userId);
-        const memberLifecycles = { ...conversation.memberLifecycles }; delete memberLifecycles[ctx.userId];
-        await tx.set('conversations', id, { ...conversation, memberIds, memberLifecycles,
-          leftMemberIds: [...new Set([...(conversation.leftMemberIds || []), ctx.userId])], leftMemberLifecycles: { ...conversation.leftMemberLifecycles, [ctx.userId]: ctx.lifecycleId },
-          ownerId: conversation.ownerId === ctx.userId ? memberIds[0] || '' : conversation.ownerId,
-          status: memberIds.length ? 'active' : 'closed', updatedAt: now() });
-        const key = readKey(id, ctx);
-        if (await tx.get('chat_reads', key)) await tx.remove('chat_reads', key);
-      });
-      return { success: true };
-    }
+    async leaveGroup() { fail('FEATURE_UNAVAILABLE', '群聊功能已下线，请从作者主页给对方留言'); }
   };
 
   async function blockPair(tx, leftId, rightId) {

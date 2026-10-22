@@ -10,6 +10,8 @@ const neighbors = require('../data/neighbor-profile');
 const social = require('./social');
 const petData = require('../data/pets');
 const petService = require('./pets');
+const { personalFileReferenced, clearCommunityDrafts } = require('./personal');
+const contentPolicy = require('../data/content-policy');
 
 const STORAGE_KEY = 'youban.demo.v1';
 const PAGE_SIZE = 20;
@@ -79,27 +81,18 @@ function animalFilters(payload) {
     return (!selected || (selected === 'unclassified' ? !types.length : types.includes(selected))) && !types.some(type => excluded.includes(type));
   };
 }
-function videoMetadata(value) {
-  if (!Number.isFinite(value.durationSeconds) || value.durationSeconds < 1 || value.durationSeconds > 60 ||
-    !Number.isSafeInteger(value.bytes) || value.bytes < 1 || value.bytes > 20 * 1024 * 1024) throw failure('INVALID_VIDEO', '视频需为 1–60 秒且不超过 20 MB');
-  const result = { durationSeconds: value.durationSeconds, bytes: value.bytes };
-  ['width', 'height'].forEach(field => {
-    if (value[field] !== undefined) {
-      if (!Number.isInteger(value[field]) || value[field] < 1 || value[field] > 16384) throw failure('INVALID_VIDEO', '视频尺寸无效');
-      result[field] = value[field];
-    }
-  });
-  return result;
-}
-function videoView(value) {
-  if (!value || typeof value !== 'object' || typeof value.url !== 'string' || !value.url) return null;
-  return { url: value.url, ...(value.poster ? { poster: value.poster } : {}), durationSeconds: value.durationSeconds,
-    ...(value.width ? { width: value.width } : {}), ...(value.height ? { height: value.height } : {}) };
-}
+
 
 function createDemoService(platform, options) {
   const opts = options || {};
   const now = opts.now || Date.now;
+  const cleanupPlatform = platform && { ...platform, removeSavedFile(request) {
+    if (personalFileReferenced(platform, request.filePath, opts)) {
+      if (request.fail) request.fail({ errMsg: 'file retained for personal library' });
+      return;
+    }
+    if (typeof platform.removeSavedFile === 'function') platform.removeSavedFile(request);
+  } };
   function placeRun(state, operation) {
     const engine = placeDomain.createPlaceEngine({ catalogue: placeCatalogue, now, newId: () => id(state, 'place'), fail: (code, message) => { throw failure(code, message); } });
     const rows = key => state[key] || (state[key] = []);
@@ -312,7 +305,7 @@ function createDemoService(platform, options) {
   }
 
   function canViewPost(state, post, userId = state.currentUserId) {
-    if (!post || isBlockedPair(state, userId, post.authorId)) return false;
+    if (!post || contentPolicy.isVideoPost(post) || isBlockedPair(state, userId, post.authorId)) return false;
     const scope = postVisibility(post);
     return post.authorId === userId || scope === 'public' || scope === 'friends' && state.friendships.some(item => item.userIds.includes(userId) && item.userIds.includes(post.authorId));
   }
@@ -350,13 +343,13 @@ function createDemoService(platform, options) {
     const circle = findCircle(state, post.circleId);
     const associated = post.eventId && state.events.find(event => event.id === post.eventId && !isBlocked(state, event.hostId));
     const event = associated ? { id: associated.id, title: associated.title, startAt: associated.startAt, location: associated.location, status: associated.status, petPolicy: associated.petPolicy } : null;
-    const video = videoView(post.video);
+    if (contentPolicy.isVideoPost(post)) throw failure('NOT_FOUND', '内容已下架');
     return {
       id: post.id, author: publicUser(state, post.authorId), circle: { id: circle.id, name: circle.name },
       title: post.title || '', kind: post.kind || 'daily', visibility: postVisibility(post), topics: TOPICS.normalize(post.topics), animalTypes: normalizeAnimals(post.animalTypes), text: post.text,
-      images: post.images.slice(), ...(video ? { video } : {}), coverIndex: post.coverIndex || 0, cover: video ? video.poster || '' : post.images[post.coverIndex || 0] || '',
+      images: post.images.slice(), coverIndex: post.coverIndex || 0, cover: post.images[post.coverIndex || 0] || '',
       ...(post.source ? { source: clone(post.source) } : {}),
-      ...(post.contentType || video ? { contentType: post.contentType || 'video' } : {}),
+      ...(post.contentType ? { contentType: post.contentType } : {}),
       ...(post.omitPublicAttribution === true ? { omitPublicAttribution: true } : {}),
       ...(post.imageCredits ? { imageCredits: post.imageCredits.map(credit => ({
         imageUrl: credit.imageUrl, originalUrl: credit.originalUrl, sourceUrl: credit.sourceUrl, author: credit.author,
@@ -391,7 +384,7 @@ function createDemoService(platform, options) {
     return state.messages.filter(message => {
       if (message.userId !== userId || isBlockedPair(state, userId, message.actorId)) return false;
       const target = message.targetType === 'post' ? state.posts.find(item => item.id === message.targetId) : message.targetType === 'event' ? state.events.find(item => item.id === message.targetId) : null;
-      if (message.targetType === 'post' && target && !canViewPost(state, target, userId)) return false;
+      if (message.targetType === 'post' && !canViewPost(state, target, userId)) return false;
       const ownerId = target && (target.authorId || target.hostId) || (message.targetType === 'user' ? message.targetId : '');
       return !ownerId || !isBlockedPair(state, userId, ownerId);
     });
@@ -399,7 +392,7 @@ function createDemoService(platform, options) {
   function messageView(state, record) {
     const actor = record.actorId && state.users.some(user => user.id === record.actorId) ? publicUser(state, record.actorId) : null;
     const post = record.targetType === 'post' && state.posts.find(item => item.id === record.targetId);
-    const cover = post && (post.video ? post.video.poster || '' : (post.images || [])[post.coverIndex || 0] || '');
+    const cover = post && (post.images || [])[post.coverIndex || 0] || '';
     return { id: record.id, title: record.title, text: record.text, createdAt: record.createdAt, isRead: !!record.isRead,
       targetType: record.targetType, targetId: record.targetId, kind: messageKind(record), category: messageCategory(record), ...(actor ? { actor } : {}), ...(cover ? { cover } : {}) };
   }
@@ -507,12 +500,12 @@ function createDemoService(platform, options) {
         state.users.push(user);
         persist(state);
       }
-      return { mode: 'demo', user: ownUser(user), registration: { termsVersion: TERMS_VERSION, privacyVersion: PRIVACY_VERSION, phoneEnabled: false, policyConfigured: false }, settings: state.settings, circles: state.circles.map(circle => circleView(state, circle)), stats: { postCount: state.posts.filter(post => post.authorId === user.id).length, joinedCircleCount: state.circles.filter(circle => circle.memberIds.indexOf(user.id) !== -1).length, joinedEventCount: state.events.filter(event => event.status === 'active' && event.attendeeIds.indexOf(user.id) !== -1).length, bookmarkCount: bookmarksFor(state, user.id).length, followingCount: followingFor(state, user.id).length } };
+      return { mode: 'demo', user: ownUser(user), registration: { termsVersion: TERMS_VERSION, privacyVersion: PRIVACY_VERSION, phoneEnabled: false, policyConfigured: false }, settings: state.settings, circles: state.circles.map(circle => circleView(state, circle)), stats: { postCount: state.posts.filter(post => post.authorId === user.id && canViewPost(state, post)).length, joinedCircleCount: state.circles.filter(circle => circle.memberIds.indexOf(user.id) !== -1).length, joinedEventCount: state.events.filter(event => event.status === 'active' && event.attendeeIds.indexOf(user.id) !== -1).length, bookmarkCount: bookmarksFor(state, user.id).length, followingCount: followingFor(state, user.id).length } };
     }
     const user = currentUser(state);
     requireVerification(user, action, payload);
     if (petService.handles(action)) {
-      const response = petService.dispatch(state, user, action, payload, { now, id, failure, platform });
+      const response = petService.dispatch(state, user, action, payload, { now, id, failure, platform: cleanupPlatform });
       if (action !== 'listPets') persist(state);
       return response;
     }
@@ -660,21 +653,14 @@ function createDemoService(platform, options) {
         const animalTypes = animalList(payload.animalTypes, '动物种类', 3);
         const images = payload.images === undefined ? [] : payload.images;
         if (!Array.isArray(images) || images.length > 3 || images.some(fileId => typeof fileId !== 'string' || !fileId)) throw failure('INVALID_INPUT', '最多添加 3 张图片');
-        const requestedVideo = payload.video === undefined || payload.video === null ? null : payload.video;
-        if (requestedVideo !== null && (!requestedVideo || typeof requestedVideo !== 'object' || Array.isArray(requestedVideo) || typeof requestedVideo.url !== 'string' || !requestedVideo.url || requestedVideo.poster)) throw failure('INVALID_INPUT', '请选择已保存的视频，视频封面暂不支持另行设置');
-        if (requestedVideo && images.length) throw failure('INVALID_INPUT', '图片与视频不能同时发布');
-        const videoUpload = requestedVideo && state.uploads.find(upload => upload.userId === user.id && upload.purpose !== 'pet' && upload.mediaType === 'video' && upload.status === 'complete' && upload.fileId === requestedVideo.url && !upload.postId);
-        if (requestedVideo && !videoUpload) throw failure('UPLOAD_UNAVAILABLE', '视频只能使用本人已保存且尚未发布的上传记录');
-        const video = videoUpload ? videoView(videoUpload.video) : null;
         const coverIndex = payload.coverIndex === undefined ? 0 : payload.coverIndex;
         if (!Number.isInteger(coverIndex) || coverIndex < 0 || (images.length ? coverIndex >= images.length : coverIndex !== 0)) throw failure('INVALID_INPUT', '请从已选图片中选择封面');
         const eventId = payload.eventId === undefined ? '' : textField(payload.eventId, '关联活动', 0, 128);
         if (eventId) findEvent(state, eventId);
-        if (!text && !images.length && !video) throw failure('INVALID_INPUT', '写一点内容或添加图片、视频吧');
+        if (!text && !images.length) throw failure('INVALID_INPUT', '写一点内容或添加图片吧');
         if (images.some(fileId => !state.uploads.some(upload => upload.userId === user.id && upload.purpose !== 'pet' && upload.fileId === fileId && upload.mediaType !== 'video' && upload.status === 'complete'))) throw failure('UPLOAD_UNAVAILABLE', '请重新选择图片，动态只能使用本人已保存的图片');
-        const post = { id: id(state, 'post'), authorId: user.id, circleId: circle.id, title, kind, visibility: scope, topics, animalTypes, text, images: images.slice(), ...(video ? { video, contentType: 'video' } : {}), coverIndex, eventId, createdAt: now() };
+        const post = { id: id(state, 'post'), authorId: user.id, circleId: circle.id, title, kind, visibility: scope, topics, animalTypes, text, images: images.slice(), coverIndex, eventId, createdAt: now() };
         Object.assign(post, placeRun(state, engine => engine.linkPost(payload, { userId: user.id }, post.id)));
-        if (videoUpload) videoUpload.postId = post.id;
         state.posts.push(post);
         result = { post: postView(state, post) };
         break;
@@ -683,7 +669,7 @@ function createDemoService(platform, options) {
         if (Object.keys(payload).some(key => !['id', 'visibility'].includes(key))) throw failure('INVALID_INPUT', '可见范围只接收分享编号与范围');
         const scope = visibility(payload.visibility);
         const post = state.posts.find(item => item.id === payload.id);
-        if (!post) throw failure('NOT_FOUND', '这条动态已删除或不可见');
+        if (!post || contentPolicy.isVideoPost(post)) throw failure('NOT_FOUND', '这条动态已删除或不可见');
         if (post.authorId !== user.id) throw failure('FORBIDDEN', '只能修改自己分享的可见范围');
         post.visibility = scope;
         result = { post: postView(state, post) };
@@ -840,7 +826,7 @@ function createDemoService(platform, options) {
         const neighborSettings = neighbors.update(user, payload, now(), (code, message) => { throw failure(code, message); });
         const previousPet = petData.list(user)[0];
         Object.assign(user, { nickname, area, bio, pet, publicProfile, showPet }, neighborSettings, petData.legacyPatch(user, payload.pet));
-        if (payload.pet === null && previousPet && previousPet.photoTicketId) petService.dispatch(state, user, 'discardPetUpload', { ticketId: previousPet.photoTicketId }, { now, id, failure, platform });
+        if (payload.pet === null && previousPet && previousPet.photoTicketId) petService.dispatch(state, user, 'discardPetUpload', { ticketId: previousPet.photoTicketId }, { now, id, failure, platform: cleanupPlatform });
         result = { user: ownUser(user) };
         break;
       }
@@ -915,35 +901,30 @@ function createDemoService(platform, options) {
       case 'listBlocked': return { items: state.blocks.filter(item => item.userId === user.id).map(item => publicUser(state, item.blockedUserId)) };
       case 'createUploadTicket': {
         const mediaType = payload.mediaType === undefined ? 'image' : payload.mediaType;
-        if (!['image', 'video'].includes(mediaType)) throw failure('INVALID_INPUT', '上传媒体类型不正确');
-        const isVideo = mediaType === 'video';
-        if (isVideo ? payload.extension !== 'mp4' : ['jpg', 'png', 'webp'].indexOf(payload.extension) === -1) throw failure('INVALID_INPUT', isVideo ? '视频仅支持 MP4 格式' : '请选择 JPG、PNG 或 WebP 图片');
-        const metadata = isVideo ? videoMetadata(payload) : null;
+        if (mediaType !== 'image') throw failure('INVALID_INPUT', '仅支持图片附件');
+        if (!['jpg', 'png', 'webp'].includes(payload.extension)) throw failure('INVALID_INPUT', '请选择 JPG、PNG 或 WebP 图片');
         const ticketId = id(state, 'upload');
         const cloudPath = 'demo-uploads/' + user.id + '/' + ticketId + '.' + payload.extension;
-        state.uploads.push({ ticketId, cloudPath, userId: user.id, status: 'pending', createdAt: now(), extension: payload.extension, ...(isVideo ? { mediaType, declaredVideo: metadata } : {}) });
-        result = { ticketId, cloudPath, ...(isVideo ? { mediaType } : {}) };
+        state.uploads.push({ ticketId, cloudPath, userId: user.id, status: 'pending', createdAt: now(), extension: payload.extension });
+        result = { ticketId, cloudPath };
         break;
       }
       case 'completeUpload': {
         const upload = state.uploads.find(item => item.ticketId === payload.ticketId && item.userId === user.id);
         if (!upload) throw failure('UPLOAD_UNAVAILABLE', '图片保存记录不存在，请重新选择');
         if (!['pending', 'complete'].includes(upload.status)) throw failure('UPLOAD_UNAVAILABLE', '这份上传记录已结束，请重新选择');
-        if (upload.mediaType === 'video' && !savedHttpImage) throw failure('UPLOAD_UNAVAILABLE', '本机演示只接受已保存到当前设备的视频');
         if (typeof payload.fileId !== 'string' || !payload.fileId || /^cloud:/i.test(payload.fileId) || (/^https?:/i.test(payload.fileId) && !savedHttpImage)) throw failure('UPLOAD_UNAVAILABLE', '本机演示只接受已保存到当前设备的图片');
         if (upload.status === 'complete' && upload.fileId !== payload.fileId) throw failure('UPLOAD_UNAVAILABLE', '这张图片的保存记录已完成');
         upload.fileId = payload.fileId;
         upload.status = 'complete';
-        if (upload.mediaType === 'video') upload.video = videoView(Object.assign({ url: upload.fileId }, upload.declaredVideo));
-        result = { ticketId: upload.ticketId, status: 'complete', fileId: upload.fileId, ...(upload.mediaType === 'video' ? { mediaType: 'video', video: upload.video } : {}) };
+        result = { ticketId: upload.ticketId, status: 'complete', fileId: upload.fileId };
         break;
       }
       case 'getUploadStatus': {
         const upload = state.uploads.find(item => item.ticketId === payload.ticketId && item.userId === user.id);
         if (!upload) throw failure('UPLOAD_UNAVAILABLE', '图片保存记录不存在，请重新选择');
         if (upload.status === 'cleanup') return { ticketId: upload.ticketId, status: 'expired', message: '照片已移除，请重新选择' };
-        return { ticketId: upload.ticketId, status: upload.status === 'complete' ? 'complete' : 'pending', fileId: upload.status === 'complete' ? upload.fileId : undefined,
-          ...(upload.mediaType === 'video' && upload.status === 'complete' ? { mediaType: 'video', video: upload.video } : {}) };
+        return { ticketId: upload.ticketId, status: upload.status === 'complete' ? 'complete' : 'pending', fileId: upload.status === 'complete' ? upload.fileId : undefined };
       }
       case 'initialize': {
         assertAdmin(user);
@@ -982,12 +963,11 @@ function createDemoService(platform, options) {
         // registrations. Account deletion also clears that local archive.
         delete state.legacySampleArchive;
         persist(state);
-        if (platform && typeof platform.removeSavedFile === 'function') ownedUploads.forEach(upload => {
-          if (upload.fileId && !/^data:/i.test(upload.fileId)) platform.removeSavedFile({ filePath: upload.fileId, fail: function () {} });
+        if (cleanupPlatform) ownedUploads.forEach(upload => {
+          if (upload.fileId && !/^data:/i.test(upload.fileId)) cleanupPlatform.removeSavedFile({ filePath: upload.fileId, fail: function () {} });
         });
         try {
-          if (platform && typeof platform.removeStorageSync === 'function') platform.removeStorageSync('youchong.privateDrafts.v1');
-          else if (platform && typeof platform.setStorageSync === 'function') platform.setStorageSync('youchong.privateDrafts.v1', {});
+          clearCommunityDrafts(platform, user.id, 'demo');
         } catch (error) { return { deleted: true, localCleanupPending: true }; }
         return { deleted: true };
       }
@@ -1005,8 +985,9 @@ function createDemoService(platform, options) {
         // Keep the scalar upload path and ticket stable while native file
         // validation is pending; the caller may reuse its payload object.
         const data = Object.assign({}, payload || {});
-        const videoTicket = action === 'completeUpload' && load().uploads.some(upload => upload.ticketId === data.ticketId && upload.mediaType === 'video');
-        const savedHttpImage = action === 'completeUpload' && typeof data.fileId === 'string' && (videoTicket || /^https?:/i.test(data.fileId))
+        contentPolicy.assertRequest(action, data);
+        if (['completeUpload', 'getUploadStatus'].includes(action) && load().uploads.some(upload => upload.ticketId === data.ticketId && contentPolicy.isVideoUpload(upload))) contentPolicy.assertVideoAllowed();
+        const savedHttpImage = action === 'completeUpload' && typeof data.fileId === 'string' && /^https?:/i.test(data.fileId)
           ? await isSavedHttpImage(data.fileId) : false;
         // Read state after the asynchronous device check so concurrent demo
         // actions are never overwritten with a stale snapshot.

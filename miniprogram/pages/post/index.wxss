@@ -100,15 +100,7 @@ button.send-button{padding:0 30rpx;margin:0;border-radius:32rpx;min-height:64rpx
 .credit-attribution{white-space:pre-wrap;}
 .credit-links{display:flex;flex-wrap:wrap;gap:4rpx 24rpx;}
 .credit-links button.source-link{flex:0 1 auto;margin:0;padding:12rpx 0 2rpx;min-height:54rpx;line-height:1.7;}
-.detail-video video{width:100%;height:450rpx;border-radius:18rpx;background:#242A30;}
-.detail-video{position:relative;min-height:450rpx;margin:0;background:#242A30;overflow:hidden;}
-.video-buffer{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;}
-.video-error{min-height:450rpx;padding:34rpx;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#F6F3EF;border-radius:18rpx;font-size:24rpx;line-height:1.8;color:#707982;}
 
-button.packaged-video-cover{position:relative;display:block;width:100%;height:540rpx;padding:0;margin:0;background:#242A30;border:0;overflow:hidden;}
-.packaged-video-cover image{display:block;width:100%;height:100%;}
-.packaged-video-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12rpx;color:#fff;background:rgba(0,0,0,.12);font-size:24rpx;text-shadow:0 1px 5px #000;}
-.packaged-video-play text:first-child{display:flex;align-items:center;justify-content:center;width:88rpx;height:88rpx;border:2rpx solid rgba(255,255,255,.75);border-radius:50%;background:rgba(0,0,0,.4);font-size:36rpx;}
 .post-visibility-label,button.post-visibility{display:inline-block;font-size:20rpx;line-height:1.7;color:#8A7065;margin:4rpx 0 0;padding:0;background:transparent;text-align:left;}
 
 .personal-reading-header{display:flex;align-items:center;justify-content:space-between;padding:28rpx 30rpx;gap:18rpx;}.personal-reading-kicker{font-size:23rpx;letter-spacing:2rpx;color:#6B756A;font-weight:600;}.personal-reading-date{margin-top:8rpx;font-size:21rpx;color:#92958F;}.personal-reading-mark{font-size:22rpx;color:#A49C8C;letter-spacing:4rpx;}.personal-reading-dock{gap:18rpx;}.personal-reading-note{flex:1;font-size:22rpx;color:#888D84;line-height:1.6;}

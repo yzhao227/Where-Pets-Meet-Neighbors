@@ -3,168 +3,190 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const { createApi } = require('../miniprogram/services/api');
+const { createDemoService } = require('../miniprogram/services/demo');
+const { createPersonalService } = require('../miniprogram/services/personal');
+const policy = require('../miniprogram/data/content-policy');
 
 const QUEUE = 'youchong.uploadQueue.v1';
+const STORE = 'youban.demo.v1';
+const DRAFTS = 'youchong.privateDrafts.v1';
 function fixture() {
-  const data = new Map(), saved = new Set(), calls = [], progress = [];
-  const state = { userId: 'self', duration: 12, bytes: 2048, saveFails: false, cancel: false, uploadCalls: 0, status: 'complete', nextSave: 0 };
-  const ok = value => ({ result: { ok: true, data: value } });
+  const data = new Map(), effects = [];
   const platform = {
     getStorageSync(key) { return data.has(key) ? structuredClone(data.get(key)) : ''; },
     setStorageSync(key, value) { data.set(key, structuredClone(value)); },
     removeStorageSync(key) { data.delete(key); },
-    chooseMedia(args) {
-      calls.push(['choose', args.mediaType]);
-      if (state.cancel) return args.fail({ errMsg: 'chooseMedia:fail cancel' });
-      args.success({ tempFiles: [{ tempFilePath: '/tmp/selected.mp4', duration: state.duration, size: state.bytes, width: 640, height: 360 }] });
-    },
-    compressVideo(args) { calls.push(['compress', args.src]); if (state.compressHook) state.compressHook(); args.success({ tempFilePath: '/tmp/compressed.mp4' }); },
-    getVideoInfo(args) { args.success({ duration: state.duration, width: 640, height: 360 }); },
-    getFileInfo(args) { args.success({ size: state.bytes }); },
-    saveFile(args) {
-      if (state.saveFails) return args.fail({ errMsg: 'saveFile:fail storage full' });
-      const savedFilePath = 'wxfile://saved-video-' + (++state.nextSave) + '.mp4'; saved.add(savedFilePath); args.success({ savedFilePath });
-    },
-    getSavedFileList(args) { args.success({ fileList: [...saved].map(filePath => ({ filePath })) }); },
-    removeSavedFile(args) { saved.delete(args.filePath); args.success({}); },
-    cloud: {
-      callFunction({ data: { action, payload } }) {
-        calls.push([action, payload]);
-        if (action === 'bootstrap') return Promise.resolve(ok({ user: { id: state.userId, verification: { status: 'phone_verified' } } }));
-        if (action === 'createUploadTicket') {
-          assert.equal(payload.mediaType, 'video'); assert.equal(payload.extension, 'mp4');
-          assert.equal(payload.bytes, state.bytes);
-          assert.ok(data.get(QUEUE).items.some(item => item.ownerId === state.userId && saved.has(item.localPath)));
-          return Promise.resolve(ok({ ticketId: 'video-ticket', cloudPath: 'community/incoming/self/video-ticket.mp4' }));
-        }
-        if (action === 'completeUpload' || action === 'getUploadStatus') {
-          if (state.reviewFails) return Promise.reject(new Error('offline'));
-          return Promise.resolve(ok(state.status === 'complete' ? { status: 'complete', fileId: 'cloud://test/community/published/video.mp4',
-            video: { url: 'cloud://test/community/published/video.mp4', durationSeconds: 11.5, width: 320, height: 180 } } : { status: state.status }));
-        }
-        if (action === 'createPost') return state.postFails ? Promise.reject(new Error('offline')) : Promise.resolve(ok({ post: { id: 'post', video: payload.video } }));
-        throw new Error('unexpected action ' + action);
-      },
-      uploadFile(args) {
-        state.uploadCalls += 1;
-        queueMicrotask(() => args.success({ fileID: 'cloud://test/community/incoming/self/video-ticket.mp4' }));
-        return { onProgressUpdate(callback) { [17, 64, 100].forEach(value => { progress.push(value); callback({ progress: value }); }); } };
-      }
-    }
+    chooseMedia(args) { effects.push('choose'); args.success({ tempFiles: [{ tempFilePath: '/tmp/pet.png', size: 100 }] }); },
+    chooseVideo() { effects.push('video-picker'); throw new Error('must never choose video'); },
+    saveFile(args) { effects.push('save'); args.success({ savedFilePath: 'wxfile://saved-pet.png' }); },
+    removeSavedFile(args) { effects.push(['remove', args.filePath]); args.success({}); },
+    cloud: { async callFunction() { effects.push('cloud'); throw new Error('unexpected cloud access'); }, async uploadFile() { effects.push('upload'); throw new Error('unexpected upload'); } }
   };
-  const api = (mode = 'cloud') => createApi(platform, { mode, cloudEnv: 'test' }, { mediaPollAttempts: 0 });
-  return { data, saved, calls, progress, state, platform, api };
+  return { data, effects, platform, api: config => createApi(platform, config || { mode: 'demo' }) };
 }
+async function demo(f) {
+  const service = createDemoService(f.platform);
+  await service.call('bootstrap');
+  await service.call('demoVerifyIdentity', { consent: { accepted: true, termsVersion: '2026-09-29', privacyVersion: '2026-09-29' } });
+  return service;
+}
+const video = (id, extra = {}) => ({ id, authorId: 'demo-self', circleId: 'circle-neighbors', title: '旧记录', text: '历史附件', images: [], topics: [], animalTypes: [], kind: 'daily', coverIndex: 0, eventId: '', visibility: 'public', createdAt: 9999999999999, video: { url: 'wxfile://old-' + id + '.mp4', durationSeconds: 9 }, ...extra });
 
-test('video upload compresses and saves once, reports native progress, and uses server metadata', async () => {
-  const f = fixture(), updates = [];
-  const result = await f.api().uploadVideo(value => updates.push(value));
-  assert.deepEqual(result.images, []);
-  assert.deepEqual(result.video, { url: 'cloud://test/community/published/video.mp4', durationSeconds: 11.5, width: 320, height: 180 });
-  assert.equal(result.completed[0].mediaType, 'video');
-  assert.deepEqual(updates, [17, 64, 100]);
-  assert.deepEqual((await f.api().resumeUploads()).video, result.video);
-  assert.equal(f.calls.filter(call => call[0] === 'compress').length, 1);
-  assert.equal(f.state.uploadCalls, 1);
-});
-
-test('video save failure retains the selection and can recover without reopening the picker', async () => {
-  const f = fixture(); f.state.saveFails = true;
-  const first = await f.api().uploadVideo();
-  assert.equal(first.video, null); assert.equal(first.failures[0].retryable, true);
-  assert.equal(f.data.get(QUEUE).items[0].preparedPath, '/tmp/compressed.mp4');
-  f.state.saveFails = false;
-  assert.ok((await f.api().resumeUploads()).video);
-  assert.equal(f.calls.filter(call => call[0] === 'choose').length, 1);
-  assert.equal(f.calls.filter(call => call[0] === 'compress').length, 1);
-});
-
-test('video review interruption retains one ticket and never attaches incoming unreviewed bytes', async () => {
-  const f = fixture(); f.state.reviewFails = true;
-  const first = await f.api().uploadVideo();
-  assert.equal(first.video, null); assert.equal(first.failures[0].mediaType, 'video');
-  f.state.reviewFails = false; f.state.status = 'pending';
-  assert.equal((await f.api().resumeUploads()).pending[0].mediaType, 'video');
-  f.state.status = 'complete';
-  assert.ok((await f.api().resumeUploads()).video);
-  assert.equal(f.state.uploadCalls, 1);
-  assert.equal(f.calls.filter(call => call[0] === 'createUploadTicket').length, 1);
-});
-
-test('video limit violations fail before cloud work and keep an explicit removable failed attachment', async () => {
-  for (const [key, value, code] of [['duration', 60.1, 'VIDEO_TOO_LONG'], ['bytes', 20 * 1024 * 1024 + 1, 'VIDEO_TOO_LARGE']]) {
-    const f = fixture(); f.state[key] = value;
-    const result = await f.api().uploadVideo();
-    assert.equal(result.video, null); assert.equal(result.failures[0].code, code); assert.equal(result.failures[0].retryable, false);
-    assert.equal(f.calls.some(call => call[0] === 'createUploadTicket'), false);
-    assert.deepEqual((await f.api().discardUploads([result.failures[0].ticketId])).failures, []);
+test('video capability is fixed off for every API product and blocks writes before picker, storage or cloud work', async () => {
+  assert.equal(policy.videoEnabled, false); assert.ok(Object.isFrozen(policy));
+  for (const config of [{ mode: 'demo' }, { mode: 'cloud', cloudEnv: 'test' }, { mode: 'cloud', productMode: 'personal' }]) {
+    const f = fixture(), api = f.api(config);
+    for (const run of [() => api.uploadVideo(), () => api.call('createPost', { text: 'test', video: { url: 'wxfile://old.mp4' } }),
+      () => api.call('createPost', { text: 'test', contentType: 'video' }), () => api.call('createUploadTicket', { mediaType: 'video', extension: 'mp4' }),
+      () => api.call('createUploadTicket', { mediaType: 'image', extension: 'mp4' })]) await assert.rejects(run(), { code: 'VIDEO_DISABLED' });
+    assert.deepEqual(f.effects, []); assert.equal(f.data.size, 0);
   }
 });
 
-test('cancelling the video picker leaves text drafts intact and creates no upload', async () => {
-  const f = fixture(); f.state.cancel = true; f.data.set('youchong.privateDrafts.v1', { text: '我的草稿' });
-  assert.equal((await f.api().uploadVideo()).video, null);
-  assert.deepEqual(f.data.get('youchong.privateDrafts.v1'), { text: '我的草稿' });
-  assert.equal(f.state.uploadCalls, 0);
+test('direct demo and personal services cannot bypass the disabled write capability', async () => {
+  for (const create of [createDemoService, createPersonalService]) {
+    const f = fixture(), service = create(f.platform);
+    await assert.rejects(service.call('createPost', { text: 'text', video: { url: 'wxfile://old.mp4' } }), { code: 'VIDEO_DISABLED' });
+    await assert.rejects(service.call('createUploadTicket', { mediaType: 'video', extension: 'mp4' }), { code: 'VIDEO_DISABLED' });
+    assert.equal(f.data.size, 0);
+  }
 });
 
-test('an expired temporary video remains a removable failure rather than a false successful retry', async () => {
-  const f = fixture(); f.state.saveFails = true;
-  await f.api().uploadVideo();
-  f.platform.saveFile = args => args.fail({ errMsg: 'saveFile:fail no such file' });
-  const result = await f.api().resumeUploads();
-  assert.equal(result.video, null);
-  assert.equal(result.failures[0].code, 'VIDEO_SOURCE_UNAVAILABLE');
-  assert.equal(result.failures[0].retryable, false);
-  assert.equal(f.state.uploadCalls, 0);
+test('legacy video queue entries remain intact and removable, never resume or yield a playable URL', async () => {
+  for (const productMode of ['community', 'personal']) {
+    const f = fixture(); await demo(f);
+    const key = productMode === 'personal' ? 'youchong.personalUploadQueue.v1' : QUEUE;
+    const scope = productMode === 'personal' ? 'personal' : 'demo';
+    const items = ['retry', 'pending', 'complete'].map((status, i) => ({ localId: 'legacy-' + i, ticketId: 'ticket-' + i, ownerId: 'demo-self', scope, mediaType: 'video', status,
+      localPath: 'wxfile://old-' + i + '.mp4', fileId: status === 'complete' ? 'wxfile://old-' + i + '.mp4' : '', video: { durationSeconds: 9 } }));
+    items.push({ localId: 'someone-else', ownerId: 'someone-else', scope, mediaType: 'video', status: 'pending' });
+    f.data.set(key, { version: 1, items });
+    f.data.set(DRAFTS, { [scope + ':demo-self']: { version: 1, text: '不可丢失', visibility: 'private', video: items[0].video } });
+    const original = structuredClone(f.data.get(key)), draft = structuredClone(f.data.get(DRAFTS));
+    const api = f.api({ mode: 'demo', productMode });
+    const restored = await api.resumeUploads();
+    assert.equal(restored.video, null); assert.deepEqual(restored.completed, []); assert.deepEqual(restored.pending, []);
+    assert.equal(restored.failures.length, 3); assert.ok(restored.failures.every(row => row.code === 'VIDEO_DISABLED' && row.retryable === false && row.mediaType === 'video'));
+    assert.deepEqual(f.data.get(key), original); assert.deepEqual(f.data.get(DRAFTS), draft); assert.deepEqual(f.effects, []);
+    await assert.rejects(api.call('completeUpload', { ticketId: 'ticket-1', fileId: 'wxfile://old-1.mp4' }), { code: 'VIDEO_DISABLED' });
+    const removed = await api.discardUploads(['ticket-1']);
+    assert.equal(removed.failures.length, 2); assert.ok(f.data.get(key).items.some(row => row.localId === 'someone-else'));
+    assert.deepEqual(f.data.get(DRAFTS), draft);
+  }
 });
 
-test('chooseVideo fallback uses byte-level file information rather than its kB size field', async () => {
-  const f = fixture(); delete f.platform.chooseMedia;
-  f.platform.chooseVideo = args => {
-    assert.equal(args.maxDuration, 60); assert.equal(args.compressed, true);
-    args.success({ tempFilePath: '/tmp/selected.mp4', duration: 12, width: 640, height: 360, size: 2 });
+test('text and image publishing still works after a disabled legacy video is explicitly removed', async () => {
+  const f = fixture(); await demo(f); const api = f.api();
+  f.data.set(QUEUE, { version: 1, items: [{ localId: 'old', ownerId: 'demo-self', scope: 'demo', mediaType: 'video', status: 'pending' }] });
+  await api.discardUploads(['old']);
+  const selected = await api.uploadImages(1);
+  assert.equal(selected.images.length, 1);
+  const saved = await api.call('createPost', { circleId: 'circle-neighbors', text: '新图文', images: selected.images });
+  assert.equal(saved.post.text, '新图文'); assert.equal(saved.post.video, undefined);
+  assert.equal((await api.call('getPost', { id: saved.post.id })).post.images[0], selected.images[0]);
+  assert.equal((await api.call('createPost', { circleId: 'circle-neighbors', text: '纯文字' })).post.text, '纯文字');
+});
+
+test('demo history is filtered before pagination across all feeds, author, circle, mine, bookmarks and detail without deleting records', async () => {
+  const f = fixture(), service = await demo(f);
+  const state = f.data.get(STORE);
+  const hidden = [video('old-object'), video('old-type', { video: null, contentType: 'video' })];
+  state.posts.push(...hidden);
+  for (let i = 0; i < 22; i++) state.posts.push(video('text-' + i, { video: null, createdAt: 9999999999000 + i, text: '保留图文' }));
+  state.bookmarks.push(...hidden.map(post => ({ userId: 'demo-self', postId: post.id })));
+  state.follows.push({ userId: 'demo-self', targetUserId: 'demo-self' });
+  f.data.set(STORE, state);
+  for (const payload of [{}, { mine: true }, { bookmarked: true }, { feed: 'following' }, { feed: 'circles' }, { authorId: 'demo-self' }]) {
+    assert.ok((await service.call('listPosts', payload)).items.every(post => !policy.isVideoPost(post)));
+  }
+  for (const [action, payload] of [['getCircle', { id: 'circle-neighbors' }], ['getUserProfile', { userId: 'demo-self' }]]) assert.ok((await service.call(action, payload)).posts.every(post => !policy.isVideoPost(post)));
+  const first = await service.call('listPosts', { mine: true });
+  const last = await service.call('listPosts', { mine: true, cursor: first.nextCursor });
+  assert.equal(first.items.length, 20); assert.equal(last.items.length, 2); assert.equal(last.nextCursor, undefined);
+  assert.equal(new Set(first.items.concat(last.items).map(row => row.id)).size, 22);
+  for (const post of hidden) {
+    await assert.rejects(service.call('getPost', { id: post.id }), { code: 'NOT_FOUND' });
+    await assert.rejects(service.call('bookmarkPost', { id: post.id, bookmark: true }), { code: 'NOT_FOUND' });
+    assert.deepEqual(f.data.get(STORE).posts.find(row => row.id === post.id), post);
+  }
+  assert.equal((await service.call('bootstrap')).stats.postCount, 22);
+  assert.equal((await service.call('bootstrap')).stats.bookmarkCount, 0);
+});
+
+test('personal history and private library hide legacy and personal video records while keeping their storage', async () => {
+  const f = fixture(); await demo(f);
+  const state = f.data.get(STORE), hidden = video('old-personal');
+  state.posts.push(hidden, video('text-personal', { video: null })); f.data.set(STORE, state);
+  const service = createPersonalService(f.platform); await service.call('bootstrap');
+  const personal = f.data.get('youchong.personal.v1');
+  personal.accounts[0].posts.push(video('overlay-video', { video: null, contentType: 'video' }));
+  personal.accounts[0].bookmarks.push({ userId: 'demo-self', postId: hidden.id });
+  f.data.set('youchong.personal.v1', personal);
+  const original = structuredClone(f.data.get(STORE));
+  assert.deepEqual((await service.call('listPosts', { mine: true })).items.map(row => row.id), ['text-personal']);
+  assert.deepEqual((await service.readLibrary('demo-self')).posts.map(row => row.id), ['text-personal']);
+  for (const id of ['old-personal', 'overlay-video']) await assert.rejects(service.call('getPost', { id }), { code: 'NOT_FOUND' });
+  assert.equal((await service.call('bootstrap')).stats.diaryCount, 1);
+  assert.deepEqual(f.data.get(STORE), original);
+  assert.ok(f.data.get('youchong.personal.v1').accounts[0].posts.some(row => row.id === 'overlay-video'));
+});
+
+test('cloud read filtering follows original cursors across all-video pages and preserves the next partial-page cursor', async () => {
+  for (const [action, field] of [['listPosts', 'items'], ['getCircle', 'posts'], ['getUserProfile', 'posts']]) {
+    const f = fixture(), calls = [];
+    f.platform.cloud.callFunction = async ({ data: { payload } }) => {
+      calls.push(payload);
+      const data = !payload.cursor ? { [field]: [video('one')], nextCursor: 'opaque-a', user: { id: 'author' } }
+        : payload.cursor === 'opaque-a' ? { [field]: [video('two', { video: null, contentType: 'video' })], nextCursor: 'opaque-b' }
+        : payload.cursor === 'opaque-b' ? { [field]: [{ id: 'visible-a', images: [] }, video('three')], nextCursor: 'opaque-c' }
+        : { [field]: [{ id: 'visible-b', images: [] }] };
+      return { result: { ok: true, data } };
+    };
+    const api = f.api({ mode: 'cloud', cloudEnv: 'test' });
+    const first = await api.call(action, { id: 'circle', userId: 'author', query: 'cat' });
+    assert.deepEqual(first[field].map(row => row.id), ['visible-a']); assert.equal(first.nextCursor, 'opaque-c');
+    assert.deepEqual(calls.map(row => row.cursor), [undefined, 'opaque-a', 'opaque-b']);
+    assert.ok(calls.every(row => row.id === 'circle' && row.userId === 'author' && row.query === 'cat'));
+    const second = await api.call(action, { cursor: first.nextCursor });
+    assert.deepEqual(second[field].map(row => row.id), ['visible-b']); assert.equal(second.nextCursor, undefined);
+  }
+});
+
+test('cloud video details and repeated opaque cursors are rejected', async () => {
+  const f = fixture();
+  f.platform.cloud.callFunction = async ({ data: { action } }) => ({ result: { ok: true, data: action === 'getPost' ? { post: video('old-cloud') } : { items: [video('old-cloud')], nextCursor: 'same' } } });
+  const api = f.api({ mode: 'cloud' });
+  await assert.rejects(api.call('getPost', { id: 'old-cloud' }), { code: 'NOT_FOUND' });
+  await assert.rejects(api.call('listPosts'), { code: 'INVALID_RESPONSE' });
+});
+
+test('cloud notifications verify post targets before exposing old summaries or covers and preserve paging', async () => {
+  const f = fixture(), checked = [];
+  const notice = (id, targetId) => ({ id, targetType: 'post', targetId, title: '旧摘要', text: '旧附件', cover: '/assets/old-poster.jpg' });
+  f.platform.cloud.callFunction = async ({ data: { action, payload } }) => {
+    if (action === 'getPost') {
+      checked.push(payload.id);
+      if (payload.id === 'missing') return { result: { ok: false, error: { code: 'NOT_FOUND', message: '内容已下架' } } };
+      return { result: { ok: true, data: { post: payload.id === 'old-video' ? video('old-video') : { id: payload.id, images: [] } } } };
+    }
+    const items = !payload.cursor ? [notice('old-a', 'old-video'), notice('old-b', 'missing'), notice('old-c', 'old-video')]
+      : [notice('visible', 'picture'), { id: 'system', targetType: 'system', text: '正常提醒' }];
+    return { result: { ok: true, data: { items, nextCursor: payload.cursor ? undefined : 'next-page', unreadCount: 5, categoryUnread: { comments: 4, system: 1, interactions: 0, follows: 0 } } } };
   };
-  assert.ok((await f.api().uploadVideo()).video);
-  const ticket = f.calls.find(call => call[0] === 'createUploadTicket')[1];
-  assert.equal(ticket.bytes, 2048);
+  const api = f.api({ mode: 'cloud' });
+  const result = await api.call('listMessages');
+  assert.deepEqual(result.items.map(item => item.id), ['visible', 'system']);
+  assert.deepEqual(checked.sort(), ['missing', 'old-video', 'picture']);
+  assert.equal(result.nextCursor, undefined);
+  assert.equal(result.unreadCount, null, 'legacy totals cannot be presented as verified after targets are removed');
+  assert.equal(result.categoryUnread, null);
 });
 
-test('video and image queues are mutually exclusive and video selection remains single', async () => {
-  const f = fixture(); const first = await f.api().uploadVideo();
-  assert.deepEqual((await f.api().uploadVideo()).video, first.video);
-  assert.equal(f.calls.filter(call => call[0] === 'choose').length, 1);
-  await assert.rejects(f.api().uploadImages(1), { code: 'MEDIA_CONFLICT' });
-  const g = fixture(); g.data.set(QUEUE, { version: 1, items: [{ ownerId: 'self', scope: 'cloud:test', localId: 'image', status: 'complete', fileId: 'photo.png' }] });
-  await assert.rejects(g.api().uploadVideo(), { code: 'MEDIA_CONFLICT' });
-});
-
-test('account switching during video preparation cannot issue a ticket for the new user', async () => {
-  const f = fixture(); f.state.compressHook = () => { f.state.userId = 'someone-else'; };
-  await assert.rejects(f.api().uploadVideo(), { code: 'UPLOAD_OWNER_CHANGED' });
-  assert.equal(f.calls.some(call => call[0] === 'createUploadTicket'), false);
-  assert.equal(f.data.get(QUEUE).items[0].ownerId, 'self');
-  assert.equal((await f.api().resumeUploads()).video, null);
-});
-
-test('published video consumes its queue only after a successful post', async () => {
-  const f = fixture(), api = f.api(); const upload = await api.uploadVideo();
-  f.state.postFails = true;
-  await assert.rejects(api.call('createPost', { images: [], video: upload.video }), { code: 'NETWORK_ERROR' });
-  assert.ok((await api.resumeUploads()).video); assert.equal(f.saved.size, 1);
-  f.state.postFails = false;
-  await api.call('createPost', { images: [], video: upload.video });
-  assert.equal((await f.api().resumeUploads()).video, null); assert.equal(f.saved.size, 0);
-});
-
-test('demo video persists for local playback and does not claim cloud moderation', async () => {
-  const f = fixture(), api = f.api('demo');
-  await api.call('demoVerifyIdentity', { consent: { accepted: true, termsVersion: '2026-09-29', privacyVersion: '2026-09-29' } });
-  const uploaded = await api.uploadVideo();
-  assert.match(uploaded.video.url, /^wxfile:\/\/saved-video-/);
-  assert.equal(f.state.uploadCalls, 0);
-  const result = await api.call('createPost', { circleId: 'circle-neighbors', text: '散步片段', images: [], video: uploaded.video });
-  assert.equal((await f.api('demo').call('getPost', { id: result.post.id })).post.video.url, uploaded.video.url);
-  assert.ok(f.saved.has(uploaded.video.url));
-  assert.equal((await f.api('demo').resumeUploads()).video, null);
+test('cloud target verification fails closed when the target cannot be checked', async () => {
+  const f = fixture();
+  f.platform.cloud.callFunction = async ({ data: { action } }) => {
+    if (action === 'getPost') throw new Error('offline');
+    return { result: { ok: true, data: { items: [{ id: 'old', targetType: 'post', targetId: 'unknown', text: 'potential old summary' }] } } };
+  };
+  await assert.rejects(f.api({ mode: 'cloud' }).call('listMessages'), { code: 'NETWORK_ERROR' });
 });

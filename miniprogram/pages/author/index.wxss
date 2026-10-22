@@ -22,3 +22,10 @@ button.follow-button{min-height:80rpx;font-size:26rpx;}
 .author-pet-empty{display:flex;align-items:center;justify-content:center;font-size:36rpx;background:#F2EDE7;}
 .author-pet-name{font-size:27rpx;font-weight:600;}
 .author-pet-meta{font-size:23rpx;color:#66707A;line-height:1.7;margin-top:7rpx;}
+
+.author-actions{display:flex;gap:18rpx;align-items:stretch;}
+.author-actions button{flex:1;margin:0;min-width:0;}
+button.message-button{display:flex;align-items:center;justify-content:center;gap:12rpx;min-height:80rpx;font-size:26rpx;background:#F5F3EF;color:#444B52;border:1rpx solid #E5E1DB;}
+button.message-button[disabled]{color:#94999F;background:#F4F3F0;border-color:#ECE9E3;}
+.author-message-icon{width:29rpx;height:23rpx;border:2rpx solid currentColor;border-radius:7rpx;position:relative;box-sizing:border-box;}
+.author-message-icon:after{content:"";position:absolute;left:5rpx;bottom:-6rpx;width:7rpx;height:7rpx;border-left:2rpx solid currentColor;transform:skewY(-35deg);background:inherit;}

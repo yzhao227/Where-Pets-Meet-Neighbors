@@ -51,29 +51,19 @@ async function mount(name, options = {}) {
   return page;
 }
 
-test('circle joining unlocks publishing, leaving is cancelable and updates personal records', async () => {
+test('legacy circle content remains readable without exposing membership actions', async () => {
   const { api, effects } = await fixture();
+  const before = (await api.call('getCircle', { id: 'circle-cats' })).circle;
   const circle = await mount('circle', { id: 'circle-cats' });
-  const members = circle.data.circle.memberCount;
-  circle.compose();
-  assert.equal(effects.navigations.length, 0);
-  assert.match(effects.toasts.at(-1), /先加入/);
-  await Promise.all([circle.join(), circle.join()]);
-  assert.equal(circle.data.circle.isJoined, true);
-  assert.equal(circle.data.circle.memberCount, members + 1);
-  circle.compose();
-  assert.equal(effects.navigations.at(-1), '/pages/compose/index?circleId=circle-cats');
-  const records = await mount('records', { type: 'circles' });
-  assert.ok(records.data.items.some(item => item.id === 'circle-cats'));
-  effects.confirm = false;
-  await circle.join();
-  assert.equal((await api.call('getCircle', { id: 'circle-cats' })).circle.isJoined, true);
-  effects.confirm = true;
-  await circle.join();
-  await records.refresh();
-  assert.equal(circle.data.circle.memberCount, members);
-  assert.equal(records.data.items.some(item => item.id === 'circle-cats'), false);
-  circle.onUnload(); records.onUnload();
+  assert.equal(circle.data.circle.name, before.name);
+  assert.equal(circle.data.circle.memberCount, undefined);
+  assert.equal(circle.data.circle.isJoined, undefined);
+  assert.equal(typeof circle.join, 'undefined');
+  assert.equal(typeof circle.compose, 'undefined');
+  assert.deepEqual(effects.navigations, []);
+  await circle.refresh();
+  assert.deepEqual((await api.call('getCircle', { id: 'circle-cats' })).circle, before);
+  circle.onUnload();
 });
 
 test('real demo notifications open the right post or event and read state round-trips', async () => {

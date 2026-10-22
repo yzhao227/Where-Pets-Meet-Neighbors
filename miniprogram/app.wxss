@@ -83,5 +83,3 @@ button.source-link{font-size:23rpx;line-height:1.8;padding:10rpx 0 0;color:#B847
 .community-page .empty .muted,.nearby-page .empty .muted,.messages-page .empty .muted{font-size:24rpx;line-height:1.8;max-width:540rpx;margin:0 auto;}
 .community-page .empty .btn{margin:22rpx auto 0;width:100%;max-width:440rpx;}
 .discovery-body .source-badge{max-width:100%;margin-top:10rpx;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.video-cover-fallback{height:300rpx;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18rpx;background:#EEF1F1;color:#60767B;font-size:24rpx;}
-.video-cover-fallback>text{font-size:70rpx;line-height:1;}

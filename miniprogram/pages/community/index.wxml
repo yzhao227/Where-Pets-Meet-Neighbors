@@ -1,17 +1,15 @@
 <view class="community-navbar" style="padding-top:{{statusBarHeight}}px;"><view class="community-navbar-row" style="height:{{navigationHeight}}px;padding-left:{{navigationInset}}px;padding-right:{{navigationInset}}px;"><view class="community-brand"><image class="brand-logo" src="/assets/tab-community-active.png" mode="aspectFit" aria-hidden="true"/><text>有宠有邻</text></view></view></view>
 <view class="page community-page">
   <view class="feed-navigation">
-    <view class="feed-tabs"><button wx:for="{{feeds}}" wx:key="id" class="feed-tab {{feed === item.id ? 'selected' : ''}}" bindtap="selectFeed" data-id="{{item.id}}">{{item.name}}</button></view>
-    <view class="feed-actions">
-      <view class="search-bar {{searchFocused || query ? 'active' : ''}}">
-        <button class="search-button" bindtap="search" aria-label="搜索"><view class="search-symbol" aria-hidden="true"></view></button>
-        <input class="search-input" value="{{searchInput}}" focus="{{searchFocused}}" bindfocus="focusSearch" bindblur="blurSearch" bindinput="inputSearch" bindconfirm="search" confirm-type="search" maxlength="60" aria-label="{{personalMode ? '搜索精选内容' : '搜索日常、问题或话题'}}"/>
-        <button wx:if="{{searchInput}}" class="search-clear" bindtap="clearSearch" aria-label="清空搜索">×</button>
-      </view>
-      <button wx:if="{{!personalMode}}" class="publish-shortcut" bindtap="compose" aria-label="发布分享"><text class="publish-label" aria-hidden="true">＋</text></button>
-    </view>
+    <view class="feed-tabs"><button wx:for="{{feeds}}" wx:key="id" class="feed-tab {{feed === item.id ? 'selected' : ''}}" bindtap="selectFeed" data-id="{{item.id}}" aria-pressed="{{feed === item.id}}">{{item.name}}</button></view>
+    <button wx:if="{{!personalMode}}" class="publish-shortcut" bindtap="compose" aria-label="发布分享"><text class="publish-label" aria-hidden="true">＋</text></button>
   </view>
-  <view class="browse-tools">
+  <view class="browse-tools {{searchFocused || searchInput || query ? 'searching' : ''}}">
+    <view class="search-bar {{searchFocused || searchInput || query ? 'active' : ''}}">
+      <button class="search-button" bindtap="search" aria-label="搜索"><view class="search-symbol" aria-hidden="true"></view></button>
+      <input class="search-input" value="{{searchInput}}" focus="{{searchFocused}}" bindfocus="focusSearch" bindblur="blurSearch" bindinput="inputSearch" bindconfirm="search" confirm-type="search" maxlength="60" placeholder="{{personalMode ? '搜索精选内容' : '搜索宠物日常'}}" placeholder-class="search-placeholder" aria-label="{{personalMode ? '搜索精选内容' : '搜索日常、问题或话题'}}"/>
+      <button wx:if="{{searchInput}}" class="search-clear" bindtap="clearSearch" aria-label="清空搜索">×</button>
+    </view>
     <button class="browse-tool {{animalFiltersOpen || animalType || excludedAnimalTypes.length ? 'active' : ''}}" bindtap="toggleAnimalFilters" aria-label="{{animalFilterLabel}}" aria-expanded="{{animalFiltersOpen}}">
       <view class="filter-symbol" aria-hidden="true"><view></view><view></view></view>
       <text class="filter-button-label">{{animalFilterTitle}}</text>
@@ -22,36 +20,30 @@
       <view wx:if="{{topic}}" class="filter-dot" aria-hidden="true"></view>
     </button>
   </view>
-  <scroll-view wx:if="{{topicsOpen}}" scroll-x="true" class="topic-scroll"><view class="topic-track"><view class="topic-chip {{topic === '' ? 'chosen' : ''}}" bindtap="selectTopic" data-topic="">全部话题</view><view wx:for="{{topics}}" wx:key="*this" class="topic-chip {{topic === item ? 'chosen' : ''}}" bindtap="selectTopic" data-topic="{{item}}"># {{item}}</view></view></scroll-view>
-  <view wx:if="{{!personalMode && feed === 'circles'}}" class="circle-discovery"><view class="row between"><text class="circle-heading">找到共同的喜欢</text><text class="small muted">点进圈子，慢慢熟悉</text></view><view class="circle-grid"><button wx:for="{{circles}}" wx:key="id" class="circle-tile" bindtap="openCircle" data-id="{{item.id}}"><text class="circle-icon">{{item.icon || '🐾'}}</text><view><view class="circle-name">{{item.name}}</view><view class="circle-count">{{item.memberCount}} 位同好 · {{item.isJoined ? '已加入' : '去看看'}}</view></view></button></view><scroll-view scroll-x="true" class="circle-filter-scroll"><view class="topic-track"><view class="circle-filter {{selectedCircle === '' ? 'selected' : ''}}" bindtap="selectCircle" data-id="">我加入的全部圈子</view><view wx:for="{{joinedCircles}}" wx:key="id" class="circle-filter {{selectedCircle === item.id ? 'selected' : ''}}" bindtap="selectCircle" data-id="{{item.id}}">{{item.name}}</view></view></scroll-view></view>
-  <view wx:if="{{query}}" class="search-result row between"><text>与「{{query}}」相关的{{personalMode ? '内容' : '分享'}}</text><text bindtap="clearSearch">清除 ×</text></view>
+  <scroll-view wx:if="{{topicsOpen}}" scroll-x="true" class="topic-scroll"><view class="topic-track"><button class="topic-chip {{topic === '' ? 'chosen' : ''}}" bindtap="selectTopic" data-topic="" aria-pressed="{{topic === ''}}">全部话题</button><button wx:for="{{topics}}" wx:key="*this" class="topic-chip {{topic === item ? 'chosen' : ''}}" bindtap="selectTopic" data-topic="{{item}}" aria-pressed="{{topic === item}}"># {{item}}</button></view></scroll-view>
+  <view wx:if="{{query}}" class="search-result row between"><text>与「{{query}}」相关的{{personalMode ? '内容' : '分享'}}</text><button class="search-result-clear" bindtap="clearSearch">清除 ×</button></view>
   <view wx:if="{{loading}}" class="loading">正在加载新鲜内容…</view><view wx:elif="{{error}}" class="error-box"><text>{{error}}</text><button class="btn btn-secondary" bindtap="refresh">重新加载</button></view>
-  <view wx:elif="{{posts.length === 0}}" class="empty {{nextCursor ? 'empty-continuable' : ''}}"><image class="empty-art" src="/assets/empty-community.png" mode="aspectFit"/><view class="empty-title">{{personalMode ? '还没有找到相关内容' : nextCursor ? '这一批还没有相关分享' : query || topic || animalType || excludedAnimalTypes.length ? '还没有找到相关分享' : feed === 'following' ? '关注作者，留住想看的内容' : feed === 'circles' ? '先加入一个感兴趣的小圈子' : '从你的第一份分享开始'}}</view><view class="muted">{{personalMode ? '换个关键词，或看看其他动物的精选内容。' : nextCursor ? '还可以继续查找后面的分享。' : feed === 'following' ? '点进喜欢的作者主页，关注后就在这里相遇。' : '分享一个问题、一张照片，让共同的喜欢被看见。'}}</view><button wx:if="{{query || topic || animalType || feed !== 'discover' || selectedCircle}}" class="btn btn-secondary" bindtap="resetFilters">{{personalMode ? '查看全部内容' : '查看全部分享'}}</button><button wx:if="{{!personalMode}}" class="btn btn-primary" bindtap="compose">＋ 分享我的日常</button></view>
-  <view wx:else class="{{feed === 'circles' ? 'circle-feed' : 'discovery-grid'}}">
+  <view wx:elif="{{posts.length === 0}}" class="empty {{nextCursor ? 'empty-continuable' : ''}}"><image class="empty-art" src="/assets/empty-community.png" mode="aspectFit"/><view class="empty-title">{{personalMode ? '还没有找到相关内容' : nextCursor ? '这一批还没有相关分享' : query || topic || animalType || excludedAnimalTypes.length ? '还没有找到相关分享' : feed === 'following' ? '关注作者，留住想看的内容' : '从你的第一份分享开始'}}</view><view class="muted">{{personalMode ? '换个关键词，或看看其他动物的精选内容。' : nextCursor ? '还可以继续查找后面的分享。' : feed === 'following' ? '点进喜欢的作者主页，关注后就在这里相遇。' : '分享一个问题、一张照片，让共同的喜欢被看见。'}}</view><button wx:if="{{query || topic || animalType || feed !== 'discover' || selectedCircle}}" class="btn btn-secondary" bindtap="resetFilters">{{personalMode ? '查看全部内容' : '查看全部分享'}}</button><button wx:if="{{!personalMode}}" class="btn btn-primary" bindtap="compose">＋ 分享我的日常</button></view>
+  <view wx:else class="discovery-grid">
     <view wx:for="{{postColumns}}" wx:for-item="column" wx:key="id" class="discovery-column">
       <view wx:for="{{column.posts}}" wx:key="id" class="discovery-card" aria-role="button" bindtap="openPost" data-id="{{item.id}}" aria-label="查看内容：{{item.displayTitle}}">
-        <view wx:if="{{!personalMode && feed === 'circles'}}" class="discussion-preview"><view class="discussion-kicker">{{item.circle.name}}</view><view wx:if="{{item.title}}" class="discussion-title">{{item.title}}</view><view wx:if="{{item.text}}" class="discussion-text">{{item.text}}</view></view>
         <view wx:if="{{item.coverSrc}}" class="discovery-cover-wrap cover-{{item.coverRatio}}">
-          <image wx:if="{{item.coverState !== 'error'}}" class="discovery-cover {{item.coverState === 'ready' ? 'is-ready' : ''}}" src="{{item.coverSrc}}" mode="{{feed === 'circles' ? 'aspectFit' : item.coverMode}}" lazy-load="{{item.coverLazy}}" bindload="onCoverLoad" binderror="onCoverError" data-id="{{item.id}}" data-src="{{item.coverSrc}}" data-attempt="{{item.coverAttempt}}"/>
+          <image wx:if="{{item.coverState !== 'error'}}" class="discovery-cover {{item.coverState === 'ready' ? 'is-ready' : ''}}" src="{{item.coverSrc}}" mode="{{item.coverMode}}" lazy-load="{{item.coverLazy}}" bindload="onCoverLoad" binderror="onCoverError" data-id="{{item.id}}" data-src="{{item.coverSrc}}" data-attempt="{{item.coverAttempt}}"/>
           <view wx:if="{{item.coverState === 'loading'}}" class="media-placeholder media-loading"><view class="placeholder-picture" aria-hidden="true"></view><text>图片加载中</text></view>
           <view wx:elif="{{item.coverState === 'error'}}" class="media-placeholder media-error"><view class="placeholder-picture" aria-hidden="true"></view><text>图片暂未加载</text><button class="retry-cover" catchtap="retryCover" data-id="{{item.id}}" data-src="{{item.coverSrc}}" data-attempt="{{item.coverAttempt}}" aria-label="重试加载图片：{{item.displayTitle}}">重试</button></view>
-          <text wx:if="{{item.cardLabel && !item.video}}" class="cover-kind kind-{{item.cardLabelType}}">{{item.cardLabel}}</text>
-          <text wx:if="{{!item.video && item.imageCount > 1}}" class="photo-count">{{item.imageCount}} 图</text>
-          <text wx:if="{{item.video}}" class="video-mark">▶ {{item.videoDurationText}}</text>
-          <view wx:if="{{item.place && item.place.active !== false}}" class="cover-place {{item.video ? 'above-video' : ''}}" catchtap="openPlace" data-id="{{item.place.id}}" aria-label="查看地点：{{item.place.title}}"><text>⌖ {{item.place.title}}</text></view>
+          <text wx:if="{{item.cardLabel}}" class="cover-kind kind-{{item.cardLabelType}}">{{item.cardLabel}}</text>
+          <text wx:if="{{item.imageCount > 1}}" class="photo-count">{{item.imageCount}} 图</text>
+          <view wx:if="{{item.place && item.place.active !== false}}" class="cover-place" catchtap="openPlace" data-id="{{item.place.id}}" aria-label="查看地点：{{item.place.title}}"><text>⌖ {{item.place.title}}</text></view>
         </view>
-        <view wx:elif="{{item.video}}" class="video-cover-fallback"><text>▷</text><view>视频 · {{item.videoDurationText}}</view></view>
-        <view wx:elif="{{feed !== 'circles'}}" class="text-cover text-{{item.kind}}"><view class="text-cover-kicker"><text>{{item.kindSymbol}}</text> {{item.cardLabel || (personalMode ? '精选内容' : '日常分享')}}</view><view class="text-cover-copy">{{item.cardText}}</view></view>
+        <view wx:else class="text-cover text-{{item.kind}}"><view class="text-cover-kicker"><text>{{item.kindSymbol}}</text> {{item.cardLabel || (personalMode ? '精选内容' : '日常分享')}}</view><view class="text-cover-copy">{{item.cardText}}</view></view>
         <view class="discovery-body">
-          <view wx:if="{{feed !== 'circles' && (item.coverSrc || item.video)}}" class="discovery-title">{{item.displayTitle}}</view>
-          <view wx:if="{{feed !== 'circles' && ((!personalMode && item.circle && item.circle.name) || item.topics.length)}}" class="discovery-labels">
-            <view wx:if="{{!personalMode && item.circle && item.circle.name}}" class="discovery-label circle-label" catchtap="openCircle" data-id="{{item.circle.id}}" aria-label="进入圈子：{{item.circle.name}}"><text class="label-symbol">◎</text><text class="label-name">{{item.circle.name}}</text></view>
+          <view wx:if="{{item.coverSrc}}" class="discovery-title">{{item.displayTitle}}</view>
+          <view wx:if="{{(!personalMode && item.circle && item.circle.name) || item.topics.length}}" class="discovery-labels">
+            <view wx:if="{{!personalMode && item.circle && item.circle.name}}" class="discovery-label circle-label" catchtap="openCircle" data-id="{{item.circle.id}}" aria-label="查看分类：{{item.circle.name}}"><text class="label-symbol">◎</text><text class="label-name">{{item.circle.name}}</text></view>
             <view wx:if="{{item.topics.length}}" class="discovery-label topic-label" catchtap="selectTopic" data-topic="{{item.topics[0]}}" aria-label="查看话题：{{item.topics[0]}}"><text class="label-symbol">#</text><text class="label-name">{{item.topics[0]}}</text></view>
           </view>
-          <view wx:if="{{!personalMode && feed === 'circles' && item.topics.length}}" class="discovery-topic" catchtap="selectTopic" data-topic="{{item.topics[0]}}"># {{item.topics[0]}}</view>
           <view wx:if="{{!personalMode && item.event}}" class="discovery-event" catchtap="openEvent" data-id="{{item.event.id}}">↗ {{item.event.status === 'cancelled' ? '关联活动已取消' : '查看关联活动'}}</view>
           <view wx:if="{{!personalMode}}" class="discovery-footer"><view class="discovery-author" catchtap="openAuthor" data-id="{{item.author.id}}" aria-label="查看作者：{{item.author.nickname}}"><image src="{{item.author.avatar}}" mode="aspectFill"/><text class="author-name-line">{{item.author.nickname}}</text></view><button class="card-like {{item.isLiked ? 'liked' : ''}}" catchtap="like" data-id="{{item.id}}" disabled="{{busy}}" aria-label="{{(item.isLiked ? '取消点赞' : '点赞') + (item.likeCount ? '，已有 ' + item.likeCount + ' 个赞' : '')}}"><text>{{item.isLiked ? '♥' : '♡'}}</text><text wx:if="{{item.likeCount > 0}}" class="like-count">{{item.likeCount}}</text></button></view>
-          <view wx:if="{{!personalMode && feed === 'circles' && item.commentCount > 0}}" class="discovery-meta">{{item.commentCount}} 个回应</view>
         </view>
       </view>
     </view>
@@ -64,7 +56,7 @@
     <view class="sheet-heading"><view><view class="sheet-title">想看哪些动物</view><view class="sheet-caption">选择一种，或发现全部可爱</view></view><button class="sheet-close" bindtap="closeAnimalFilters" aria-label="关闭动物筛选">×</button></view>
     <scroll-view scroll-y="true" class="sheet-content">
       <view class="animal-chips"><button wx:for="{{animalChoices}}" wx:key="id" class="animal-chip {{animalType === item.id ? 'chosen' : ''}}" bindtap="selectAnimal" data-id="{{item.id}}" aria-label="查看{{item.name}}" aria-pressed="{{animalType === item.id}}">{{item.name}}</button></view>
-      <view class="hidden-section"><view class="row between"><view class="filter-label">暂时不想看 <text class="filter-note">可多选</text></view><button wx:if="{{excludedAnimalTypes.length}}" class="clear-hidden" bindtap="clearHiddenAnimals">恢复显示</button></view><view class="animal-chips"><button wx:for="{{hiddenChoices}}" wx:key="id" class="animal-chip {{item.selected ? 'hidden-chosen' : ''}}" bindtap="toggleHiddenAnimal" data-id="{{item.id}}" aria-label="{{(item.selected ? '恢复显示' : '隐藏') + item.name}}" aria-pressed="{{item.selected}}">{{(item.selected ? '✓ ' : '') + item.name}}</button></view><view class="filter-note">{{personalMode ? '隐藏偏好保存在本机，仅影响精选内容；私人记录和收藏仍可查看。' : '隐藏偏好保存在本机，适用于内容流、圈子和作者页。自己的发布和收藏仍可查看。'}}</view><view wx:if="{{preferenceError}}" class="filter-error">{{preferenceError}}</view></view>
+      <view class="hidden-section"><view class="row between"><view class="filter-label">暂时不想看 <text class="filter-note">可多选</text></view><button wx:if="{{excludedAnimalTypes.length}}" class="clear-hidden" bindtap="clearHiddenAnimals">恢复显示</button></view><view class="animal-chips"><button wx:for="{{hiddenChoices}}" wx:key="id" class="animal-chip {{item.selected ? 'hidden-chosen' : ''}}" bindtap="toggleHiddenAnimal" data-id="{{item.id}}" aria-label="{{(item.selected ? '恢复显示' : '隐藏') + item.name}}" aria-pressed="{{item.selected}}">{{(item.selected ? '✓ ' : '') + item.name}}</button></view><view class="filter-note">{{personalMode ? '隐藏偏好保存在本机，仅影响精选内容；私人记录和收藏仍可查看。' : '隐藏偏好保存在本机，适用于内容流、主题和作者页。自己的发布和收藏仍可查看。'}}</view><view wx:if="{{preferenceError}}" class="filter-error">{{preferenceError}}</view></view>
     </scroll-view>
     <view class="sheet-footer"><button class="sheet-done" bindtap="closeAnimalFilters">完成{{excludedAnimalTypes.length ? ' · 已隐藏 ' + excludedAnimalTypes.length + ' 类' : ''}}</button></view>
   </view>

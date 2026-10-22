@@ -5,16 +5,10 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 const path = require('node:path');
 const product = require('../miniprogram/product');
-const app = require('../miniprogram/app.json');
-const project = require('../project.config.json');
 
-test('personal package registers only its supported routes and excludes retired social pages from upload', () => {
+test('retained personal mode only allows its private tools and rejects social routes', () => {
   assert.equal(product.personalMode, true);
-  const routes = app.pages.concat(app.subPackages.flatMap(pkg => pkg.pages.map(page => pkg.root + '/' + page)));
-  assert.deepEqual(routes.slice().sort(), product.PERSONAL_PAGES.slice().sort());
-  assert.deepEqual(app.tabBar.list.map(item => item.text), ['发现', '附近', '我的']);
   for (const retired of ['pages/messages', 'pages/author', 'pages/circle', 'pages/event', 'pages/register', 'social']) {
-    assert.ok(project.packOptions.ignore.some(item => item.type === 'folder' && item.value === retired), retired);
     assert.equal(product.allowsNavigation('/' + retired + '/index?id=old'), false);
   }
   assert.equal(product.allowsNavigation('/pages/post/index?id=old'), true, 'post data authorization remains in the service');

@@ -1,5 +1,5 @@
 {
-  "description": "有宠有邻 v0.4.2 · 个人工具版：私人记录、宠物档案、地点与活动资讯",
+  "description": "有宠有邻 · 社区功能恢复：宠物分享、好友聊天、地点与活动资讯",
   "projectname": "youchong-pet-community",
   "appid": "wxb39b756b2fcf8872",
   "compileType": "miniprogram",
@@ -34,80 +34,31 @@
   "packOptions": {
     "ignore": [
       {
-        "value": "pages/messages",
-        "type": "folder"
+        "type": "folder",
+        "value": "media"
       },
       {
-        "value": "pages/circle",
-        "type": "folder"
+        "type": "folder",
+        "value": "media2"
       },
       {
-        "value": "pages/circle-square",
-        "type": "folder"
+        "type": "folder",
+        "value": "media3"
       },
       {
-        "value": "pages/event",
-        "type": "folder"
+        "type": "folder",
+        "value": "assets/curated-video"
       },
       {
-        "value": "pages/blocked",
-        "type": "folder"
+        "type": "folder",
+        "value": "assets/curated-poster"
       },
       {
-        "value": "pages/manage",
-        "type": "folder"
-      },
-      {
-        "value": "pages/moderation",
-        "type": "folder"
-      },
-      {
-        "value": "pages/author",
-        "type": "folder"
-      },
-      {
-        "value": "pages/register",
-        "type": "folder"
-      },
-      {
-        "value": "pages/petstats",
-        "type": "folder"
-      },
-      {
-        "value": "pages/operations",
-        "type": "folder"
-      },
-      {
-        "value": "pages/places-manage",
-        "type": "folder"
-      },
-      {
-        "value": "social",
-        "type": "folder"
+        "type": "file",
+        "value": "pages/post/_player.js"
       }
     ],
-    "include": [
-      {
-        "value": "pages/post/_player.js",
-        "type": "file"
-      },
-      {
-        "value": "media/clips",
-        "type": "folder"
-      },
-      {
-        "value": "assets/curated-poster",
-        "type": "folder"
-      },
-      {
-        "value": "media2/clips",
-        "type": "folder"
-      },
-      {
-        "value": "media3/clips",
-        "type": "folder"
-      }
-    ]
+    "include": []
   },
   "simulatorPluginLibVersion": {},
   "editorSetting": {}

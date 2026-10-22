@@ -247,50 +247,66 @@
 .detail-official-link>view>view{font-size:20rpx;color:#B7987B;margin-top:5rpx;font-weight:400;}
 .detail-official-link>text{font-size:30rpx;}
 
-/* Routes use the same language, with a numbered itinerary rather than generic cards. */
-.guide-heading{position:relative;padding:32rpx 28rpx 27rpx;background:#F2F0E5;border:1rpx solid #E7E4D4;border-radius:28rpx;overflow:hidden;}
-.guide-heading .place-eyebrow,.guide-heading .local-title,.guide-summary,.guide-meta,.guide-notice{position:relative;z-index:1;}
-.guide-heading .place-eyebrow{color:#8D9574;margin-bottom:21rpx;}
-.eyebrow-line{width:23rpx;height:2rpx;background:#A8B18D;margin-right:5rpx;}
-.guide-heading .local-title{max-width:95%;font-size:42rpx;}
-.guide-summary{font-size:26rpx;line-height:1.8;color:#788364;margin-top:20rpx;}
-.guide-meta{display:flex;align-items:center;flex-wrap:wrap;gap:10rpx;margin:23rpx 0 0;}
-.guide-meta-item{display:flex;align-items:center;gap:9rpx;font-size:22rpx;line-height:1.5;padding:8rpx 12rpx;background:rgba(255,255,255,.7);border:1rpx solid #E5E6D5;border-radius:9rpx;color:#829068;}
-.guide-meta-item .clock-symbol{width:20rpx;height:20rpx;flex-basis:20rpx;}
-.guide-notice{font-size:23rpx;line-height:1.8;color:#9B8864;margin-top:23rpx;padding-top:20rpx;border-top:1rpx solid #E4E1D0;}
-.guide-cover-art{position:absolute;right:-30rpx;top:-35rpx;width:285rpx;height:270rpx;opacity:.5;pointer-events:none;color:#BBC6A2;}
-.guide-orbit{position:absolute;right:0;top:0;width:250rpx;height:250rpx;border:1rpx solid currentColor;border-radius:50%;}
-.guide-path{position:absolute;right:44rpx;top:82rpx;width:155rpx;height:94rpx;border:2rpx dashed currentColor;border-right:0;border-radius:46rpx 0 0 46rpx;transform:rotate(-38deg);}
-.guide-point{position:absolute;width:13rpx;height:13rpx;border:3rpx solid currentColor;border-radius:50%;background:#F2F0E5;}
-.point-start{right:74rpx;top:62rpx;}.point-end{right:22rpx;top:138rpx;}
-.guide-conditions{border:1rpx solid #E8E6D8;background:#FFFFFF;border-radius:22rpx;padding:8rpx 23rpx;}
-.guide-condition{display:flex;gap:16rpx;align-items:flex-start;font-size:25rpx;line-height:1.8;color:#727D5C;padding:17rpx 0;border-top:1rpx solid #EFEEE2;}
-.guide-condition:first-child{border:0;}
-.condition-mark{flex:0 0 8rpx;width:8rpx;height:8rpx;background:#ABB992;border-radius:50%;margin-top:17rpx;}
-.guide-steps{padding-top:2rpx;}
-.guide-step{position:relative;display:flex;gap:20rpx;padding-bottom:25rpx;}
-.guide-step::before{content:"";position:absolute;left:22rpx;top:44rpx;bottom:0;width:2rpx;background:#E0E5D3;}
+/* A route is a reading sequence: clear pet scope, real stops, then preparation. */
+.guide-heading{padding:24rpx 8rpx 28rpx;border-bottom:1rpx solid #E9E5E1;}
+.guide-kicker{font-size:24rpx;line-height:1.5;color:#5F7863;margin-bottom:14rpx;font-weight:550;}
+.guide-heading .local-title{font-size:46rpx;line-height:1.4;letter-spacing:-.7rpx;color:#24262D;}
+.guide-summary{font-size:28rpx;line-height:1.8;color:#626A64;margin-top:18rpx;}
+.guide-meta{margin-top:24rpx;padding:22rpx 24rpx;background:#EDF2EB;border-radius:18rpx;}
+.guide-duration{display:flex;align-items:center;gap:12rpx;font-size:30rpx;line-height:1.55;font-weight:600;color:#39543F;}
+.guide-duration .clock-symbol{width:24rpx;height:24rpx;flex-basis:24rpx;}
+.guide-duration .clock-symbol::before{left:10rpx;top:5rpx;}
+.guide-duration .clock-symbol::after{left:10rpx;top:11rpx;}
+.guide-pet-scope{display:flex;align-items:flex-start;gap:18rpx;font-size:26rpx;line-height:1.6;color:#39543F;margin-top:13rpx;}
+.guide-meta-label{flex-shrink:0;color:#68766A;font-weight:400;}
+.guide-pet-scope>text:last-child{min-width:0;word-break:break-word;}
+.guide-notice{font-size:24rpx;line-height:1.75;color:#6A717B;margin-top:20rpx;}
+.guide-state-banner{font-size:26rpx;color:#8D553C;}
+.guide-itinerary,.guide-preparation{padding:30rpx 8rpx 0;}
+.guide-itinerary .section-heading,.guide-preparation .section-heading{margin-bottom:18rpx;}
+.guide-itinerary .section-title,.guide-preparation .section-title{font-size:32rpx;line-height:1.5;color:#24262D;}
+.guide-itinerary .section-aside{font-size:24rpx;color:#6A717B;}
+.guide-steps{padding-top:0;}
+.guide-step{position:relative;display:flex;gap:20rpx;padding-bottom:30rpx;}
+.guide-step::before{content:"";position:absolute;left:22rpx;top:64rpx;bottom:0;width:2rpx;background:#DDE5DA;}
 .guide-step:last-child{padding-bottom:0;}
 .guide-step:last-child::before{display:none;}
-.guide-step-number{position:relative;z-index:1;flex:0 0 46rpx;width:46rpx;height:46rpx;display:flex;align-items:center;justify-content:center;border:1rpx solid #DCE4CC;border-radius:50%;background:#EDF2E2;color:#81965F;font-size:24rpx;font-weight:600;margin-top:1rpx;}
-.guide-step-body{flex:1;min-width:0;padding:21rpx 22rpx;border:1rpx solid #E9E7DA;background:#FFFFFF;border-radius:20rpx;}
-.local-detail-page button.guide-stop-link{width:100%;font-size:28rpx;line-height:1.5;font-weight:650;text-align:left;padding:0;color:#627B48;display:flex;align-items:center;justify-content:space-between;gap:16rpx;background:transparent;}
-.guide-stop-link>text{flex-shrink:0;color:#ADBC95;font-size:28rpx;}
-.guide-step-duration{font-size:21rpx;line-height:1.5;color:#9AA585;margin-top:8rpx;}
-.guide-step-action{font-size:25rpx;line-height:1.8;color:#788860;margin-top:15rpx;}
-.guide-step-address{display:flex;align-items:flex-start;gap:10rpx;font-size:21rpx;line-height:1.7;color:#A1AA8C;padding-top:14rpx;margin-top:15rpx;border-top:1rpx solid #F1F1E7;}
-.guide-step-address .pin-symbol{flex:0 0 15rpx;width:15rpx;height:19rpx;border-width:1.5rpx;margin:5rpx 4rpx 0 1rpx;color:#A1AF8B;}
-.guide-step-address .pin-symbol::after{width:4rpx;height:4rpx;left:4rpx;top:5rpx;border-width:1rpx;}
-.guide-step-unavailable{font-size:23rpx;line-height:1.7;color:#AE835D;margin-top:15rpx;}
-.guide-source-note{font-size:21rpx;line-height:1.8;color:#98A086;margin-top:23rpx;padding-left:3rpx;}
-.guide-service-note{font-size:22rpx;line-height:1.75;color:#9A947B;margin-top:17rpx;}
-.guide-service-note .text-action{display:inline-block;margin-left:14rpx;}
-.guide-references{padding-top:21rpx;}
-.guide-footer{display:flex;gap:16rpx;margin:30rpx 0 5rpx;}
+.guide-step-number{position:relative;z-index:1;flex:0 0 46rpx;width:46rpx;height:46rpx;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#5F7863;color:#FFFFFF;font-size:26rpx;font-weight:650;margin-top:20rpx;}
+.guide-step-body{flex:1;min-width:0;padding:0 0 28rpx;border-bottom:1rpx solid #E9E5E1;}
+.guide-step:last-child .guide-step-body{padding-bottom:0;border-bottom:0;}
+.local-detail-page button.guide-stop-link{display:flex;align-items:center;justify-content:space-between;gap:16rpx;width:100%;min-height:44px;padding:14rpx 0;background:transparent;font-size:32rpx;line-height:1.55;font-weight:650;text-align:left;color:#24262D;}
+.guide-stop-title{flex:1;min-width:0;word-break:break-word;}
+.guide-stop-entry{display:flex;align-items:center;gap:9rpx;flex-shrink:0;font-size:24rpx;font-weight:400;line-height:1.5;color:#5F7863;}
+.guide-stop-chevron{display:block;width:10rpx;height:10rpx;border-top:2rpx solid currentColor;border-right:2rpx solid currentColor;transform:rotate(45deg);margin-right:4rpx;}
+.local-detail-page button.guide-stop-link[disabled]{background:transparent;color:#6A717B;opacity:1;}
+.guide-step-duration{font-size:26rpx;line-height:1.55;font-weight:500;color:#5F7863;margin-top:1rpx;}
+.guide-step-action{font-size:27rpx;line-height:1.85;color:#545D57;margin-top:14rpx;word-break:break-word;}
+.guide-step-address{display:flex;align-items:flex-start;gap:12rpx;font-size:24rpx;line-height:1.7;color:#6A717B;margin-top:15rpx;}
+.guide-step-address>text{flex:1;min-width:0;word-break:break-word;}
+.guide-step-address .pin-symbol{flex:0 0 17rpx;width:17rpx;height:21rpx;border-width:1.5rpx;margin:7rpx 4rpx 0 1rpx;color:#788877;}
+.guide-step-address .pin-symbol::after{width:4rpx;height:4rpx;left:5rpx;top:6rpx;border-width:1rpx;}
+.guide-step-unavailable{font-size:25rpx;line-height:1.75;color:#93543B;margin-top:15rpx;}
+.guide-preparation{margin-top:30rpx;padding:26rpx 24rpx;background:#FFFFFF;border-radius:20rpx;}
+.guide-conditions{padding:0;}
+.guide-condition{display:flex;align-items:flex-start;gap:14rpx;font-size:26rpx;line-height:1.85;color:#545D57;padding-top:18rpx;}
+.guide-condition:first-child{padding-top:0;}
+.guide-condition>view:last-child{flex:1;min-width:0;word-break:break-word;}
+.condition-mark{flex:0 0 6rpx;width:6rpx;height:6rpx;background:#788C77;border-radius:50%;margin-top:21rpx;}
+.guide-source-note{font-size:24rpx;line-height:1.8;color:#6A717B;margin:23rpx 8rpx 0;}
+.guide-service-note{display:flex;align-items:center;gap:16rpx;padding:16rpx 20rpx;margin-top:17rpx;background:#FFF0E9;border-radius:14rpx;font-size:25rpx;line-height:1.75;color:#93543B;}
+.guide-service-note>text{flex:1;min-width:0;}
+.local-detail-page .guide-service-note button.text-action{display:flex;align-items:center;flex-shrink:0;min-height:44px;padding:0;font-size:25rpx;color:#CC4A37;}
+.guide-references{padding:8rpx 8rpx 0;}
+.local-detail-page .guide-references button.reference-toggle{min-height:44px;padding:14rpx 0;font-size:26rpx;color:#465A48;}
+.guide-references .reference-toggle>text:last-child{font-size:24rpx;color:#6A717B;}
+.guide-references .reference-title{font-size:26rpx;line-height:1.75;color:#465A48;}
+.guide-references .reference-meta{font-size:24rpx;line-height:1.8;color:#6A717B;}
+.local-detail-page .guide-references button.text-action{display:flex;align-items:center;min-height:44px;padding:10rpx 0 0;font-size:25rpx;color:#CC4A37;}
+.guide-footer{display:flex;gap:16rpx;margin:26rpx 8rpx 5rpx;}
 .guide-footer>button{flex:1;min-width:0;}
-.local-detail-page .guide-footer .btn{font-size:26rpx;padding:18rpx 15rpx;border-radius:18rpx;}
-.local-detail-page .guide-footer .btn-primary{background:#C16A4C;color:#FFFCF5;}
-.local-detail-page .guide-footer .btn-secondary{background:#F4EBDD;color:#AC815C;border:1rpx solid #E5D8C4;}
+.local-detail-page .guide-footer .btn{min-height:44px;font-size:28rpx;line-height:1.5;padding:20rpx 16rpx;border-radius:18rpx;}
+.local-detail-page .guide-footer .btn-primary{background:#CC4A37;color:#FFFFFF;}
+.local-detail-page .guide-footer .btn-secondary{background:#FFFFFF;color:#545D57;border:1rpx solid #E9E5E1;}
 .related-guides{padding:21rpx 24rpx;background:#F3F1E6;border:1rpx solid #E8E4D4;border-radius:22rpx;margin-top:19rpx;}
 .related-guides-label{display:flex;align-items:center;gap:12rpx;font-size:23rpx;line-height:1.5;font-weight:600;color:#7F8C65;}
 .related-guides-label>text{margin-left:auto;font-size:20rpx;line-height:1.5;font-weight:400;color:#A5AB90;}
@@ -302,6 +318,11 @@
 .related-guide-title{font-size:27rpx;font-weight:550;color:#728456;line-height:1.6;}
 .related-guide-duration{font-size:21rpx;line-height:1.6;color:#A1A788;margin-top:5rpx;}
 .route-arrow{display:flex;align-items:center;justify-content:center;flex:0 0 46rpx;width:46rpx;height:46rpx;background:#FFFFFF;border:1rpx solid #E3E6D3;border-radius:50%;font-size:27rpx;color:#99AB76;}
-@media(max-width:350px){.local-detail-page{padding-left:21rpx;padding-right:21rpx;}.local-title,.guide-heading .local-title{font-size:39rpx;}.detail-heading{padding-left:24rpx;padding-right:24rpx;}.quick-time{flex:1.35;}.quick-value{font-size:23rpx;}.place-tools{padding:22rpx;}.local-detail-page button.place-tool-button{gap:10rpx;font-size:23rpx;}.local-detail-page button.secondary-action{flex-basis:162rpx;font-size:23rpx;}.local-detail-page button.primary-action{font-size:25rpx;}.guide-step-body{padding:20rpx;}.guide-step{gap:16rpx;}}
+@media(max-width:350px){.local-detail-page{padding-left:21rpx;padding-right:21rpx;}.local-title{font-size:39rpx;}.detail-heading{padding-left:24rpx;padding-right:24rpx;}.quick-time{flex:1.35;}.quick-value{font-size:23rpx;}.place-tools{padding:22rpx;}.local-detail-page button.place-tool-button{gap:10rpx;font-size:23rpx;}.local-detail-page button.secondary-action{flex-basis:162rpx;font-size:23rpx;}.local-detail-page button.primary-action{font-size:25rpx;}.guide-heading .local-title{font-size:44rpx;}.guide-duration{font-size:29rpx;}.guide-pet-scope{gap:14rpx;}.guide-meta{padding:20rpx;}.guide-step{gap:16rpx;}.local-detail-page button.guide-stop-link{gap:12rpx;font-size:31rpx;}.guide-stop-entry{font-size:24rpx;}.guide-preparation{padding:24rpx 20rpx;}}
 
 .reference-url{display:block;word-break:break-all;}
+@media(max-width:350px){
+  .guide-summary,.guide-step-action,.guide-condition{font-size:13px;}
+  .guide-notice,.guide-step-duration,.guide-step-address,.guide-pet-scope,.guide-references .reference-title,.guide-references .reference-meta{font-size:12px;}
+  .guide-step-unavailable,.guide-service-note{font-size:13px;}
+}

@@ -1,40 +1,194 @@
-<view class="page profile-page"><view class="page-title">{{personalMode ? '我的私人档案' : '慢慢认识你。'}}</view><view class="subtitle">{{personalMode ? '记下自己和动物伙伴的小事。' : '喜欢动物，就是我们共同的开场白。'}}</view><view wx:if="{{loading}}" class="loading">正在读取资料…</view><view wx:elif="{{error}}" class="error-box"><text>{{error}}</text><button class="btn btn-secondary" bindtap="refresh">重新加载</button></view><block wx:else><view wx:if="{{personalMode || mode === 'demo'}}" class="demo-label">{{personalMode ? '仅自己可见 · 资料保存在当前设备' : '本机演示 · 资料只保存在当前设备'}}</view><view class="profile-form card"><view class="avatar-intro row"><image class="profile-avatar" src="{{avatar}}" mode="aspectFill"/><view><view class="intro-title">先从简单的介绍开始</view><view class="small muted">{{personalMode ? '昵称和头像用于自己的档案' : '昵称和默认头像随公开内容展示'}}</view></view></view><view class="field"><view class="label">昵称 <text class="required">必填</text></view><input class="input" value="{{nickname}}" data-field="nickname" bindinput="input" maxlength="20" placeholder="写下你的昵称" disabled="{{busy}}"/></view><view class="field"><view class="label">私人生活片区 <text class="optional">选填</text></view><picker range="{{areas}}" value="{{areaIndex}}" bindchange="selectArea" disabled="{{busy}}"><view class="input picker-value row between"><text>{{areas[areaIndex]}}</text><text class="muted">⌄</text></view></picker><view class="field-hint">{{personalMode ? '用于自己的生活记录，仅保存在当前设备。' : '此片区仅自己可见，不会自动带入下方的公开活动片区。'}}</view></view><view class="field"><view class="label">一句自我介绍 <text class="optional">{{personalMode ? '选填 · 仅自己可见' : '选填 · 由下方公开范围决定'}}</text></view><textarea class="textarea bio-input" value="{{bio}}" data-field="bio" bindinput="input" maxlength="150" placeholder="记录喜欢的动物、日常爱好，或者此刻想记下的小事…" disabled="{{busy}}"/><view class="word-count">{{bio.length}} / 150</view></view></view><view class="pet-form card">
-  <view class="row between"><view class="section-title">我的动物伙伴</view><button class="pet-add" bindtap="editPet" disabled="{{busy}}">＋ 添加</button></view>
-  <view class="pet-caption">选填，可登记最多 8 只。没有养宠，也一样欢迎。</view>
-  <view wx:if="{{!pets.length}}" class="pet-empty">记下名字、品种、生日或大致年龄，为每个小伙伴留一张照片。</view>
-  <view wx:for="{{pets}}" wx:key="id" class="pet-record">
-    <view class="row pet-record-head"><image wx:if="{{item.photo}}" class="pet-photo" src="{{item.photo}}" mode="aspectFill"/><view wx:else class="pet-photo pet-photo-empty">🐾</view><view class="pet-record-copy"><view class="pet-record-name">{{item.name}}</view><view class="pet-record-meta">{{item.typeName}}{{item.breed ? ' · ' + item.breed : ''}}{{item.ageLabel ? ' · ' + item.ageLabel : ''}}</view><view wx:if="{{index === 0}}" class="pet-primary-note">{{personalMode ? '我的页优先展示这位伙伴' : '头像旁与附近名片优先展示'}}</view></view></view>
-    <view class="pet-record-actions"><button bindtap="editPet" data-id="{{item.id}}" disabled="{{busy}}">编辑资料</button><button bindtap="petPhotoAction" data-id="{{item.id}}" data-action="select" disabled="{{busy || item.pendingPhoto}}">{{item.photo ? '更换照片' : '添加照片'}}</button><button wx:if="{{item.photo}}" bindtap="petPhotoAction" data-id="{{item.id}}" data-action="remove" disabled="{{busy}}">移除照片</button><button class="pet-remove" bindtap="deletePet" data-id="{{item.id}}" disabled="{{busy}}">移除宠物</button></view>
-    <view wx:if="{{item.pendingPhoto}}" class="pet-photo-status"><view>{{item.pendingPhoto.message}}</view><view class="pet-record-actions"><button wx:if="{{item.pendingPhoto.retryable}}" bindtap="petPhotoAction" data-id="{{item.id}}" data-action="retry" disabled="{{busy}}">{{item.pendingPhoto.status === 'pending' ? '检查审核结果' : '重试照片'}}</button><button bindtap="petPhotoAction" data-id="{{item.id}}" data-action="discard" disabled="{{busy}}">移除本次选择</button></view></view>
+<view class="page profile-page">
+  <view class="profile-heading">
+    <view class="page-title">{{personalMode ? '我的私人档案' : '我和我的宠物'}}</view>
+    <view class="subtitle">{{personalMode ? '记下自己和动物伙伴的小事。' : '让每位动物伙伴，都有自己的介绍。'}}</view>
   </view>
-  <view wx:if="{{petPhotoError}}" class="field-hint">{{petPhotoError}}</view>
-  <view wx:if="{{petEditorOpen}}" class="pet-editor">
-    <view class="section-title">{{editingPetId ? '编辑宠物资料' : '添加动物伙伴'}}</view>
-    <view class="field"><view class="label">名字 <text class="required">必填</text></view><input class="input" value="{{petDraftName}}" data-field="petDraftName" bindinput="input" maxlength="24" placeholder="它叫什么名字" disabled="{{busy}}"/></view>
-    <view class="field"><view class="label">动物种类</view><picker range="{{petTypes}}" range-key="name" value="{{petDraftTypeIndex}}" bindchange="selectPetType" disabled="{{busy}}"><view class="input picker-value row between"><text>{{petTypes[petDraftTypeIndex].name}}</text><text>⌄</text></view></picker></view>
-    <view class="field"><view class="label">品种 <text class="optional">选填</text></view><input class="input" value="{{petDraftBreed}}" data-field="petDraftBreed" bindinput="input" maxlength="40" placeholder="如中华田园猫，也可以暂不填写" disabled="{{busy}}"/></view>
-    <view class="field"><view class="label">生日或大致年龄</view><view class="privacy-options"><view class="privacy-option {{petAgeMode === 'unknown' ? 'active' : ''}}" bindtap="selectPetAgeMode" data-value="unknown">暂不填写</view><view class="privacy-option {{petAgeMode === 'birthday' ? 'active' : ''}}" bindtap="selectPetAgeMode" data-value="birthday">记得生日</view><view class="privacy-option {{petAgeMode === 'age' ? 'active' : ''}}" bindtap="selectPetAgeMode" data-value="age">大致年龄</view></view></view>
-    <picker wx:if="{{petAgeMode === 'birthday'}}" mode="date" value="{{petBirthDate}}" start="1900-01-01" end="{{today}}" bindchange="selectPetBirthday" disabled="{{busy}}"><view class="input picker-value">{{petBirthDate || '选择生日'}} ⌄</view></picker>
-    <view wx:if="{{petAgeMode === 'age'}}" class="pet-age-inputs"><input class="input" type="number" value="{{petAgeYears}}" data-field="petAgeYears" bindinput="input" maxlength="3" placeholder="0" disabled="{{busy}}"/><text>岁</text><input class="input" type="number" value="{{petAgeMonths}}" data-field="petAgeMonths" bindinput="input" maxlength="2" placeholder="0" disabled="{{busy}}"/><text>个月</text></view>
-    <view class="field-hint">{{personalMode ? '生日与年龄仅自己可见。先保存资料，再为它选择照片。' : '生日仅自己可见；公开主页展示换算后的年龄。先保存资料，再为它选择照片。'}}</view>
-    <view class="pet-editor-actions"><button class="btn btn-secondary" bindtap="closePetEditor" disabled="{{busy}}">取消</button><button class="btn btn-primary" bindtap="savePet" disabled="{{busy}}" loading="{{busy}}">保存宠物</button></view>
+  <view wx:if="{{loading}}" class="loading">正在读取资料…</view>
+  <view wx:elif="{{error}}" class="error-box">
+    <text>{{error}}</text>
+    <button class="btn btn-secondary" bindtap="refresh">重新加载</button>
   </view>
-  <view wx:if="{{!personalMode && hasPet}}" class="pet-display-setting"><view class="label">在头像旁展示第一只宠物</view><view class="pet-display-description">仅展示名字与种类。完整宠物资料和照片由下方主页公开范围控制。</view><view class="privacy-options"><view class="privacy-option {{showPet ? '' : 'active'}}" bindtap="petDisplayState" data-value="no">不展示</view><view class="privacy-option {{showPet ? 'active' : ''}}" bindtap="petDisplayState" data-value="yes">展示名字与种类</view></view></view>
-</view><view wx:if="{{!personalMode}}" class="privacy-form card"><view class="section-title">主页介绍的公开范围</view><view class="privacy-description">此开关控制主页中的简介与宠物详情，头像旁的宠物展示由上方独立设置。「私人生活片区」始终不公开；加入附近宠友时，可在下方另选「公开活动片区」。</view><view class="privacy-options"><view class="privacy-option {{publicProfile ? '' : 'active'}}" bindtap="privacyState" data-value="private">仅自己可见</view><view class="privacy-option {{publicProfile ? 'active' : ''}}" bindtap="privacyState" data-value="public">公开到我的主页</view></view><view class="privacy-current">{{publicProfile ? '保存后，其他用户可以在你的主页看到简介及已填写的宠物资料。' : showPet ? '简介保持私密；宠物名字和类型按头像旁展示设置公开。' : '简介与宠物仅自己可见，其他人仍可查看公开分享与关注数量。'}}</view></view>
-<view wx:if="{{!personalMode}}" class="neighbor-form card">
-  <view class="section-title">加入附近宠友</view>
-  <view class="privacy-description">独立选择是否展示名片。活动片区会公开；上方的私人生活片区不会自动带入。保存后生效。</view>
-  <view class="privacy-options"><view class="privacy-option {{neighborVisible ? '' : 'active'}}" bindtap="neighborState" data-value="no">暂不加入</view><view class="privacy-option {{neighborVisible ? 'active' : ''}}" bindtap="neighborState" data-value="yes">展示我的名片</view></view>
-  <block wx:if="{{neighborVisible}}">
-    <view class="field"><view class="label">公开活动片区</view><picker range="{{neighborAreaChoices}}" range-key="label" value="{{neighborAreaIndex}}" bindchange="selectNeighborArea" disabled="{{busy}}"><view class="input picker-value row between"><text>{{neighborAreaChoices[neighborAreaIndex].label}}</text><text class="muted">⌄</text></view></picker></view>
-    <view class="field-hint">完成手机号核验后可加入。已公开的宠物会出现在「宠物邻居」；未展示宠物资料时，出现在「爱宠同好」。宠物与简介继续遵循上方公开设置。</view>
-    <view class="residence-setting">
-      <view class="label">展示居住地大致距离 <text class="optional">独立选填</text></view>
-      <view class="privacy-description">双方都开启才显示约距范围。手选位置在本机转换为约 1 km 网格，仅保存粗网格，不保存门牌、地址或原始坐标，不提供到人导航。</view>
-      <view class="privacy-options"><view class="privacy-option {{residenceSharing ? '' : 'active'}}" bindtap="residenceState" data-value="no">不展示</view><view class="privacy-option {{residenceSharing ? 'active' : ''}}" bindtap="residenceState" data-value="yes">展示大致距离</view></view>
-      <block wx:if="{{residenceSharing}}"><view class="residence-status">{{residenceCell ? '已选好居住范围 · 保存后生效' : '尚未选择居住范围'}}</view><button class="btn btn-secondary residence-picker" bindtap="chooseResidence" disabled="{{busy}}">{{residenceCell ? '重新选择居住位置' : '手选居住位置'}}</button><view class="field-hint">居住位置每 24 小时可更新一次。关闭展示后保存，会清除已存的居住网格；退出附近宠友也会清除。</view></block>
+  <block wx:else>
+    <view wx:if="{{personalMode || mode === 'demo'}}" class="demo-label">{{personalMode ? '仅自己可见 · 资料保存在当前设备' : '本机演示 · 资料只保存在当前设备'}}</view>
+    <view class="pet-form">
+      <view class="row between pet-section-heading">
+        <view class="section-title">我的动物伙伴</view>
+        <button class="pet-add" bindtap="editPet" disabled="{{busy}}">＋ 添加宠物</button>
+      </view>
+      <view class="pet-caption">最多可登记 8 只，没有养宠也可以跳过。</view>
+      <view wx:if="{{!pets.length && !petEditorOpen}}" class="pet-empty">
+        <view class="pet-empty-mark"><image class="pet-empty-icon" src="/assets/tab-community-active.png" mode="aspectFit"/></view>
+        <view class="pet-empty-title">为它留一份档案</view>
+        <view class="pet-empty-copy">记下名字、品种、生日或大致年龄，再放上一张喜欢的照片。</view>
+      </view>
+      <view wx:for="{{pets}}" wx:key="id" class="pet-record {{index === 0 ? 'pet-record-primary' : ''}}">
+        <view class="row pet-record-head">
+          <image wx:if="{{item.photo}}" class="pet-photo" src="{{item.photo}}" mode="aspectFill"/>
+          <view wx:else class="pet-photo pet-photo-empty">
+            <image class="pet-photo-placeholder" src="/assets/tab-community-active.png" mode="aspectFit"/>
+            <text class="pet-photo-empty-caption">暂无照片</text>
+          </view>
+          <view class="pet-record-copy">
+            <view class="pet-record-name">{{item.name}}</view>
+            <view class="pet-record-meta">{{item.typeName}}{{item.breed ? ' · ' + item.breed : ''}}</view>
+            <view wx:if="{{item.ageLabel}}" class="pet-record-age">{{item.ageLabel}}</view>
+            <view wx:if="{{index === 0}}" class="pet-primary-note">{{personalMode ? '我的页优先展示这位伙伴' : '头像旁与附近名片优先展示'}}</view>
+          </view>
+        </view>
+        <view class="pet-record-actions pet-main-actions">
+          <button class="pet-edit" bindtap="editPet" data-id="{{item.id}}" disabled="{{busy}}">编辑资料</button>
+          <button bindtap="petPhotoAction" data-id="{{item.id}}" data-action="select" disabled="{{busy || item.pendingPhoto}}">{{item.photo ? '更换照片' : '添加照片'}}</button>
+        </view>
+        <view class="pet-record-actions pet-secondary-actions">
+          <button wx:if="{{item.photo}}" bindtap="petPhotoAction" data-id="{{item.id}}" data-action="remove" disabled="{{busy}}">移除照片</button>
+          <button class="pet-remove" bindtap="deletePet" data-id="{{item.id}}" disabled="{{busy}}">移除宠物</button>
+        </view>
+        <view wx:if="{{item.pendingPhoto}}" class="pet-photo-status">
+          <view>{{item.pendingPhoto.message}}</view>
+          <view class="pet-record-actions">
+            <button wx:if="{{item.pendingPhoto.retryable}}" bindtap="petPhotoAction" data-id="{{item.id}}" data-action="retry" disabled="{{busy}}">{{item.pendingPhoto.status === 'pending' ? '检查审核结果' : '重试照片'}}</button>
+            <button bindtap="petPhotoAction" data-id="{{item.id}}" data-action="discard" disabled="{{busy}}">移除本次选择</button>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{petPhotoError}}" class="field-hint pet-photo-error">{{petPhotoError}}</view>
+      <view wx:if="{{petEditorOpen}}" class="pet-editor card">
+        <view class="section-title">{{editingPetId ? '编辑宠物资料' : '添加动物伙伴'}}</view>
+        <view class="field">
+          <view class="label">名字 <text class="required">必填</text>
+          </view>
+          <input class="input" value="{{petDraftName}}" data-field="petDraftName" bindinput="input" maxlength="24" placeholder="它叫什么名字" disabled="{{busy}}"/>
+        </view>
+        <view class="field">
+          <view class="label">动物种类</view>
+          <picker range="{{petTypes}}" range-key="name" value="{{petDraftTypeIndex}}" bindchange="selectPetType" disabled="{{busy}}">
+            <view class="input picker-value row between">
+              <text>{{petTypes[petDraftTypeIndex].name}}</text>
+              <text class="picker-chevron">⌄</text>
+            </view>
+          </picker>
+        </view>
+        <view class="field">
+          <view class="label">品种 <text class="optional">选填</text>
+          </view>
+          <input class="input" value="{{petDraftBreed}}" data-field="petDraftBreed" bindinput="input" maxlength="40" placeholder="如中华田园猫，也可以暂不填写" disabled="{{busy}}"/>
+        </view>
+        <view class="field">
+          <view class="label">生日或大致年龄</view>
+          <view class="privacy-options age-options">
+            <button class="privacy-option {{petAgeMode === 'unknown' ? 'active' : ''}}" bindtap="selectPetAgeMode" data-value="unknown" disabled="{{busy}}" aria-pressed="{{petAgeMode === 'unknown'}}">暂不填写</button>
+            <button class="privacy-option {{petAgeMode === 'birthday' ? 'active' : ''}}" bindtap="selectPetAgeMode" data-value="birthday" disabled="{{busy}}" aria-pressed="{{petAgeMode === 'birthday'}}">记得生日</button>
+            <button class="privacy-option {{petAgeMode === 'age' ? 'active' : ''}}" bindtap="selectPetAgeMode" data-value="age" disabled="{{busy}}" aria-pressed="{{petAgeMode === 'age'}}">大致年龄</button>
+          </view>
+        </view>
+        <picker wx:if="{{petAgeMode === 'birthday'}}" mode="date" value="{{petBirthDate}}" start="1900-01-01" end="{{today}}" bindchange="selectPetBirthday" disabled="{{busy}}">
+          <view class="input picker-value row between">
+            <text>{{petBirthDate || '选择生日'}}</text>
+            <text class="picker-chevron">⌄</text>
+          </view>
+        </picker>
+        <view wx:if="{{petAgeMode === 'age'}}" class="pet-age-inputs">
+          <input class="input" type="number" value="{{petAgeYears}}" data-field="petAgeYears" bindinput="input" maxlength="3" placeholder="0" disabled="{{busy}}"/>
+          <text>岁</text>
+          <input class="input" type="number" value="{{petAgeMonths}}" data-field="petAgeMonths" bindinput="input" maxlength="2" placeholder="0" disabled="{{busy}}"/>
+          <text>个月</text>
+        </view>
+        <view class="field-hint">{{personalMode ? '生日与年龄仅自己可见。先保存资料，再为它选择照片。' : '生日仅自己可见；公开主页展示换算后的年龄。先保存资料，再为它选择照片。'}}</view>
+        <view class="pet-editor-actions">
+          <button class="btn btn-secondary" bindtap="closePetEditor" disabled="{{busy}}">取消</button>
+          <button class="btn btn-primary" bindtap="savePet" disabled="{{busy}}" loading="{{busy}}">保存宠物</button>
+        </view>
+      </view>
+      <view wx:if="{{!personalMode && hasPet}}" class="pet-display-setting">
+        <view class="label">在头像旁展示第一只宠物</view>
+        <view class="pet-display-description">仅展示名字与种类。完整宠物资料和照片由下方主页公开范围控制。</view>
+        <view class="privacy-options">
+          <button class="privacy-option {{showPet ? '' : 'active'}}" bindtap="petDisplayState" data-value="no" disabled="{{busy}}" aria-pressed="{{!showPet}}">不展示</button>
+          <button class="privacy-option {{showPet ? 'active' : ''}}" bindtap="petDisplayState" data-value="yes" disabled="{{busy}}" aria-pressed="{{showPet}}">展示名字与种类</button>
+        </view>
+      </view>
+    </view>
+    <view class="profile-form card">
+      <view class="avatar-intro row">
+        <image class="profile-avatar" src="{{avatar}}" mode="aspectFill"/>
+        <view class="intro-copy">
+          <view class="section-title">关于我</view>
+          <view class="small muted">{{personalMode ? '昵称和头像用于自己的档案' : '昵称和默认头像随公开内容展示'}}</view>
+        </view>
+      </view>
+      <view class="field">
+        <view class="label">昵称 <text class="required">必填</text>
+        </view>
+        <input class="input" value="{{nickname}}" data-field="nickname" bindinput="input" maxlength="20" placeholder="写下你的昵称" disabled="{{busy}}"/>
+      </view>
+      <view class="field">
+        <view class="label">私人生活片区 <text class="optional">选填</text>
+        </view>
+        <picker range="{{areas}}" value="{{areaIndex}}" bindchange="selectArea" disabled="{{busy}}">
+          <view class="input picker-value row between">
+            <text>{{areas[areaIndex]}}</text>
+            <text class="picker-chevron">⌄</text>
+          </view>
+        </picker>
+        <view class="field-hint">{{personalMode ? '用于自己的生活记录，仅保存在当前设备。' : '此片区仅自己可见，不会自动带入下方的公开活动片区。'}}</view>
+      </view>
+      <view class="field">
+        <view class="label">一句自我介绍 <text class="optional">{{personalMode ? '选填 · 仅自己可见' : '选填 · 由下方公开范围决定'}}</text>
+        </view>
+        <textarea class="textarea bio-input" value="{{bio}}" data-field="bio" bindinput="input" maxlength="150" placeholder="记录喜欢的动物、日常爱好，或者此刻想记下的小事…" disabled="{{busy}}"/>
+        <view class="word-count">{{bio.length}} / 150</view>
+      </view>
+    </view>
+    <view wx:if="{{!personalMode}}" class="privacy-form card">
+      <view class="section-title">主页介绍的公开范围</view>
+      <view class="privacy-description">此开关控制主页中的简介与宠物详情，头像旁的宠物展示由上方独立设置。「私人生活片区」始终不公开；加入附近宠友时，可在下方另选「公开活动片区」。</view>
+      <view class="privacy-options">
+        <button class="privacy-option {{publicProfile ? '' : 'active'}}" bindtap="privacyState" data-value="private" disabled="{{busy}}" aria-pressed="{{!publicProfile}}">仅自己可见</button>
+        <button class="privacy-option {{publicProfile ? 'active' : ''}}" bindtap="privacyState" data-value="public" disabled="{{busy}}" aria-pressed="{{publicProfile}}">公开到我的主页</button>
+      </view>
+      <view class="privacy-current">{{publicProfile ? '保存后，其他用户可以在你的主页看到简介及已填写的宠物资料。' : showPet ? '简介保持私密；宠物名字和类型按头像旁展示设置公开。' : '简介与宠物仅自己可见，其他人仍可查看公开分享与关注数量。'}}</view>
+    </view>
+    <view wx:if="{{!personalMode}}" class="neighbor-form card">
+      <view class="section-title">加入附近宠友</view>
+      <view class="privacy-description">独立选择是否展示名片。活动片区会公开；上方的私人生活片区不会自动带入。保存后生效。</view>
+      <view class="privacy-options">
+        <button class="privacy-option {{neighborVisible ? '' : 'active'}}" bindtap="neighborState" data-value="no" disabled="{{busy}}" aria-pressed="{{!neighborVisible}}">暂不加入</button>
+        <button class="privacy-option {{neighborVisible ? 'active' : ''}}" bindtap="neighborState" data-value="yes" disabled="{{busy}}" aria-pressed="{{neighborVisible}}">展示我的名片</button>
+      </view>
+      <block wx:if="{{neighborVisible}}">
+        <view class="field">
+          <view class="label">公开活动片区</view>
+          <picker range="{{neighborAreaChoices}}" range-key="label" value="{{neighborAreaIndex}}" bindchange="selectNeighborArea" disabled="{{busy}}">
+            <view class="input picker-value row between">
+              <text>{{neighborAreaChoices[neighborAreaIndex].label}}</text>
+              <text class="picker-chevron">⌄</text>
+            </view>
+          </picker>
+        </view>
+        <view class="field-hint">完成手机号核验后可加入。已公开的宠物会出现在「宠物邻居」；未展示宠物资料时，出现在「爱宠同好」。宠物与简介继续遵循上方公开设置。</view>
+        <view class="residence-setting">
+          <view class="label">展示居住地大致距离 <text class="optional">独立选填</text>
+          </view>
+          <view class="privacy-description">双方都开启才显示约距范围。手选位置在本机转换为约 1 km 网格，仅保存粗网格，不保存门牌、地址或原始坐标，不提供到人导航。</view>
+          <view class="privacy-options">
+            <button class="privacy-option {{residenceSharing ? '' : 'active'}}" bindtap="residenceState" data-value="no" disabled="{{busy}}" aria-pressed="{{!residenceSharing}}">不展示</button>
+            <button class="privacy-option {{residenceSharing ? 'active' : ''}}" bindtap="residenceState" data-value="yes" disabled="{{busy}}" aria-pressed="{{residenceSharing}}">展示大致距离</button>
+          </view>
+          <block wx:if="{{residenceSharing}}">
+            <view class="residence-status">{{residenceCell ? '已选好居住范围 · 保存后生效' : '尚未选择居住范围'}}</view>
+            <button class="btn btn-secondary residence-picker" bindtap="chooseResidence" disabled="{{busy}}">{{residenceCell ? '重新选择居住位置' : '手选居住位置'}}</button>
+            <view class="field-hint">居住位置每 24 小时可更新一次。关闭展示后保存，会清除已存的居住网格；退出附近宠友也会清除。</view>
+          </block>
+        </view>
+      </block>
+      <view wx:else class="field-hint">保存后退出附近宠友，并关闭居住距离、清除居住网格。公开日常仍可正常浏览。</view>
+    </view>
+    <view class="profile-save">
+      <button class="btn btn-primary save-button" bindtap="save" loading="{{busy}}" disabled="{{busy}}">{{personalMode ? '保存私人资料' : '保存我的介绍'}}</button>
+      <view wx:if="{{!personalMode}}" class="profile-share">
+        <button class="btn btn-secondary" bindtap="openPublicProfile" disabled="{{busy}}">打开已保存的主页与分享</button>
+        <view class="field-hint">先保存上方的公开范围，再到主页分享。朋友只能看到你已公开的资料；生日、私人生活片区和未公开日记不会随主页分享。</view>
+      </view>
     </view>
   </block>
-  <view wx:else class="field-hint">保存后退出附近宠友，并关闭居住距离、清除居住网格。公开日常仍可正常浏览。</view>
 </view>
-<button class="btn btn-primary save-button" bindtap="save" loading="{{busy}}" disabled="{{busy}}">{{personalMode ? '保存私人资料' : '保存我的介绍'}}</button></block></view>

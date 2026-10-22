@@ -63,17 +63,17 @@ s.register({
     s.safe(this, { busy: true, attemptLocked: true, formError: '', notice: '' });
     try {
       const result = await s.api.call('submitNearbySubmission', this._attempt);
-      if (!result || !result.submission || !result.submission.id) throw new Error('尚未确认投稿结果，请重试');
+      if (!result || !result.submission || !result.submission.id) throw new Error('尚未确认提交结果，请重试');
       if (this._closed) return;
       this._attempt = null; this._requestId = null; this._dirty = false;
       s.safe(this, { form: formTools.empty(), tab: 'mine', statusIndex: 0, expandedId: result.submission.id, attemptLocked: false,
-        notice: this.data.mode === 'demo' ? '投稿已保存在本机，等待本机运营审核。' : '投稿已提交，等待运营核实。' });
+        notice: this.data.mode === 'demo' ? '推荐已保存在本机，等待本机运营审核。' : '推荐已提交，等待运营核实。' });
       await this.refresh();
     } catch (error) {
       if (this._closed) return;
       const editable = formTools.editableFailures.includes(error.code);
       if (editable) this._attempt = null;
-      s.safe(this, { attemptLocked: !editable, formError: error.message || '投稿暂未完成，填写的内容已保留，请重试。' });
+      s.safe(this, { attemptLocked: !editable, formError: error.message || '推荐暂未提交完成，填写的内容已保留，请重试。' });
       if (error.code === 'VERIFICATION_REQUIRED') s.openVerification();
     } finally { s.safe(this, { busy: false }); }
   },
@@ -82,18 +82,18 @@ s.register({
     const item = this.data.items.find(row => row.id === e.currentTarget.dataset.id);
     if (!item || item.status !== 'pending') return;
     return s.action(this, async () => {
-      if (!await s.confirm('撤回这条投稿？', '撤回后不会进入审核发布。你可以修改内容后重新投稿。', '撤回投稿') || this._closed) return;
+      if (!await s.confirm('撤回这条推荐？', '撤回后不会进入审核发布。你可以修改内容后重新提交。', '撤回推荐') || this._closed) return;
       const result = await s.api.call('withdrawNearbySubmission', { id: item.id });
       if (!result || !result.submission || result.submission.status !== 'withdrawn') throw new Error('尚未确认撤回结果，请刷新后重试');
-      if (!this._closed) { s.safe(this, { notice: '投稿已撤回，可修改后重新投稿。' }); await this.refresh(); }
+      if (!this._closed) { s.safe(this, { notice: '推荐已撤回，可修改后重新提交。' }); await this.refresh(); }
     });
   },
   async copyDraft(e) {
     if (this.data.busy) return;
     const item = this.data.items.find(row => row.id === e.currentTarget.dataset.id);
     if (!item || !['rejected', 'withdrawn'].includes(item.status)) return;
-    if (this.data.attemptLocked) return s.toast('请先重试当前投稿，确认提交结果');
-    if (this._dirty && !await s.confirm('替换正在填写的草稿？', '将用这条投稿的内容替换当前表单，原记录会保留。', '替换草稿')) return;
+    if (this.data.attemptLocked) return s.toast('请先重试当前推荐，确认提交结果');
+    if (this._dirty && !await s.confirm('替换正在填写的草稿？', '将用这条推荐的内容替换当前表单，原记录会保留。', '替换草稿')) return;
     if (this._closed) return;
     this._attempt = null; this._requestId = null; this._dirty = true;
     s.safe(this, { form: formTools.formFor(item), tab: 'form', formError: '', notice: '内容已放入新草稿，修改后提交会重新审核。' });

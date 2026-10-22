@@ -13,13 +13,13 @@ function event(state, overrides) {
 }
 const catalogueCover = 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Blue_cat.jpg/960px-Blue_cat.jpg?utm_source=commons.wikimedia.org';
 
-test('card labels reflect knowledge, questions, invitations and video without labelling ordinary photos', () => {
+test('card labels reflect knowledge, questions and invitations while retired attachments cannot be decorated', () => {
   assert.equal(presentation.decorate(post({ contentType: 'knowledge' })).cardLabelType, 'knowledge');
   assert.equal(presentation.decorate(post({ kind: 'question', contentType: 'photo' })).cardLabelType, 'question');
   assert.equal(presentation.decorate(post({ kind: 'meetup' })).cardLabelType, 'meetup');
   const video = post({ video: { url: '/assets/clip.mp4' }, videoDurationText: '0:08', contentType: 'knowledge' });
-  assert.equal(presentation.decorate(video).cardLabelType, 'video');
-  assert.equal(presentation.decorate(video).videoDurationText, '0:08');
+  assert.throws(() => presentation.decorate(video), { code: 'NOT_FOUND', message: '内容已下架' });
+  assert.throws(() => presentation.createCoverState(video), { code: 'NOT_FOUND' });
   for (const value of [post(), post({ contentType: 'photo', isEditorialContent: true })]) assert.equal(presentation.decorate(value).cardLabel, '');
 });
 
@@ -77,12 +77,15 @@ test('the reviewed hamster original gets a same-photo thumbnail while unknown or
   assert.equal(presentation.applyCoverEvent(fallback, event(fallback, { type: 'error' })).status, 'error');
 });
 
-test('the original 260 records retain fourteen original-image references to the ten reviewed files', () => {
+test('retained original text and photos keep the reviewed image references after video retirement', () => {
   const { CURATED_POSTS } = require('../miniprogram/data/curated');
   const baseline = require('../content/batch-004/baseline-runtime-260.json');
   assert.equal(baseline.length, 260);
   const byId = new Map(CURATED_POSTS.map(item => [item.id, item]));
-  for (const item of baseline) assert.deepEqual(byId.get(item.id).images, item.images, item.id + ' retains its original image references');
+  for (const item of baseline) {
+    if (item.video || item.contentType === 'video') assert.equal(byId.has(item.id), false);
+    else assert.deepEqual(byId.get(item.id).images, item.images, item.id + ' retains its original image references');
+  }
   const originals = baseline.flatMap(item => (item.images || []).filter(src => src.startsWith('https://upload.wikimedia.org/')).map(cover => ({ ...item, cover, isEditorialContent: true })));
   assert.equal(originals.length, 14);
   assert.equal(new Set(originals.map(item => item.cover.split('?')[0])).size, 10);
@@ -166,7 +169,7 @@ test('known and explicit dimensions reserve portrait, landscape or square frames
   const portrait = presentation.createCoverState(post({ id: 'photo-commons-148465188' }), 4);
   assert.equal(portrait.ratio, 'portrait');
   assert.equal(portrait.mode, 'aspectFill');
-  const veryTall = presentation.createCoverState(post({ id: 'video-commons-164819779' }), 4);
+  const veryTall = presentation.createCoverState(post({ id: 'photo-commons-164819779' }), 4);
   assert.equal(veryTall.ratio, 'portrait');
   assert.equal(veryTall.mode, 'aspectFill');
   const wide = presentation.createCoverState(post({ coverWidth: 2400, coverHeight: 900 }), 1);
@@ -262,7 +265,7 @@ test('additional cover hints independently match first-image metadata and reserv
   }
 });
 
-test('all eight named groups and two new video posters reserve their reviewed shapes before loading', () => {
+test('all eight retained named groups reserve their reviewed shapes before loading', () => {
   const additions = require('../content/batch-003/additions.json');
   const { CURATED_POSTS } = require('../miniprogram/data/curated');
   const byId = new Map(CURATED_POSTS.map(item => [item.id, item]));
@@ -280,6 +283,7 @@ test('all eight named groups and two new video posters reserve their reviewed sh
   };
   assert.equal(additions.length, Object.keys(expected).length);
   for (const addition of additions) {
+    if (addition.video || addition.contentType === 'video') { assert.equal(byId.has(addition.id), false); continue; }
     const item = byId.get(addition.id);
     const cover = item.video && item.video.poster || item.images[0];
     for (const id of [item.id, 'catalog-' + item.id]) {

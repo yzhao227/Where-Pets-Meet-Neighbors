@@ -1,230 +1,184 @@
 'use strict';
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const fs = require('node:fs');
-const path = require('node:path');
-const vm = require('node:vm');
-const { createRequire } = require('node:module');
-const shared = require('../miniprogram/pages/_shared');
+const { fixture, tap, choice, ids, deferred, flush } = require('./helpers/nearby-page.cjs');
 
-const tap = id => ({ currentTarget: { dataset: { id } } });
-const meetup = (id, values = {}) => ({ id, title: '小聚 ' + id, startAt: Date.now() + 86400000, endAt: Date.now() + 90000000, capacity: 8, attendeeCount: 1, petPolicy: 'optional', status: 'published', isJoined: false, ...values });
-const neighbor = (id, values = {}) => ({ id, nickname: '宠友 ' + id, pet: { name: '宠物 ' + id, type: 'cat' }, isFollowing: false, ...values });
-const deferred = () => { let resolve; const promise = new Promise(value => { resolve = value; }); return { resolve, promise }; };
-const ids = items => Array.from(items, item => item.id);
+test('nearby refresh reads only the viewer and complete public directory, including an authoritative empty directory', async t => {
+  const { page, state, catalogue } = fixture(t);
+  state.directory = [{ ...catalogue.records[1], title: '在线更新后的地点' }];
+  await page.onLoad();
+  assert.deepEqual(state.calls.map(call => call.action).sort(), ['bootstrap', 'listPlaces']);
+  assert.deepEqual(state.calls.find(call => call.action === 'listPlaces').payload, { type: 'all' });
+  assert.deepEqual(ids(page.data.places), ['place-b']);
+  assert.equal(page.data.places[0].title, '在线更新后的地点');
+  assert.equal(page.data.loading, false);
+  state.directory = [];
+  await page.refresh();
+  assert.deepEqual(ids(page.data.places), [], 'an empty accepted directory cannot resurrect bundled records');
+  assert.deepEqual(ids(page.data.displayGuides), [], 'routes disappear when all of their stops are withdrawn');
+  assert.equal(state.locationCalls, 0);
+});
 
-function fixture(t) {
-  const previous = { wx: global.wx, Page: global.Page, call: shared.api.call };
-  const state = { user: { id: 'viewer-a', isAdmin: true, neighborVisible: true }, mode: 'demo', calls: [], writes: [], toasts: [], directories: 0, reference: null };
-  const records = require('../miniprogram/data/nearby-catalogue').records.slice(0, 2);
-  const handlers = {
-    listEvents: payload => payload.cursor ? { items: [meetup('event-b')], nextCursor: 'events-next-2' } : { items: [meetup('event-a')], nextCursor: 'events-next-1' },
-    listNeighbors: payload => payload.cursor ? { items: [neighbor('neighbor-b')], nextCursor: 'neighbors-next-2' } : { items: [neighbor('neighbor-a')], nextCursor: 'neighbors-next-1' },
-    bootstrap: () => ({ mode: state.mode, user: { ...state.user }, settings: { city: '上海' } })
-  };
-  global.wx = { stopPullDownRefresh() {}, showToast({ title }) { state.toasts.push(title); } };
-  shared.api.call = async (action, payload = {}) => { state.calls.push({ action, payload: structuredClone(payload) }); return handlers[action](payload); };
-  let definition; global.Page = value => { definition = value; };
-  const filename = path.resolve(__dirname, '../miniprogram/pages/nearby/index.js');
-  const localRequire = createRequire(filename);
-  vm.runInNewContext(fs.readFileSync(filename, 'utf8'), { wx: global.wx, require(name) {
-    if (name === '../_shared') return shared;
-    if (name === '../../services/places') return { listAll: async () => { state.directories++; return structuredClone(records); } };
-    if (name === '../../services/nearby-location') return { getReference: () => state.reference, distanceFor: () => null, cancelPending() {} };
-    if (name === '../../data/nearby-catalogue') return { records, region: '上海', checkedAt: '2026-09-30' };
-    return localRequire(name);
-  } }, { filename });
-  const page = { ...definition, data: structuredClone(definition.data), setData(value) { state.writes.push(structuredClone(value)); Object.assign(this.data, value); } };
-  t.after(() => { global.wx = previous.wx; global.Page = previous.Page; shared.api.call = previous.call; });
-  return { page, state, handlers };
-}
+test('an initial directory outage leaves the bundled catalogue usable without granting unverified administrator rights', async t => {
+  const { page, handlers, catalogue, state } = fixture(t);
+  handlers.bootstrap = () => { throw Error('viewer unavailable'); };
+  handlers.listPlaces = () => { throw Error('directory unavailable'); };
+  await page.onLoad();
+  assert.deepEqual(ids(page.data.places), ids(catalogue.records.filter(item => item.type === 'place')));
+  assert.equal(page.data.loading, false);
+  assert.equal(page.data.error, '');
+  assert.ok(page.data.placeServiceError);
+  assert.equal(page.data.isAdmin, false);
+  page.managePlaces();
+  assert.deepEqual(state.routes, []);
+});
 
-test('returning to nearby preserves loaded meetup pages, order, cursor and expansion while updating their current state', async t => {
-  const { page, state, handlers } = fixture(t);
-  await page.onLoad(); await page.loadMore();
-  page.data.showMorePlaces = true; page.data.neighboursOpen = true;
-  handlers.listEvents = payload => payload.cursor
-    ? { items: [meetup('event-b', { isJoined: true, attendeeCount: 3 })], nextCursor: 'different-latest-cursor' }
-    : { items: [meetup('new-event'), meetup('event-a', { title: '更新标题' })], nextCursor: 'new-first-cursor' };
-  page.onHide(); state.writes = []; state.calls = [];
-  state.reference = { source: 'manual', label: '返回时的距离参照' };
-  await page.onShow();
-  assert.deepEqual(ids(page.data.items), ['event-a', 'event-b']);
-  assert.equal(page.data.items[0].title, '更新标题');
-  assert.equal(page.data.items[1].isJoined, true);
-  assert.equal(page.data.items[1].attendeeCount, 3);
-  assert.equal(page.data.nextCursor, 'events-next-2');
+test('returning reloads the complete directory while retaining place expansion and the chosen reference without a loading flash', async t => {
+  const { page, state, catalogue } = fixture(t);
+  await page.onLoad();
+  assert.ok(page.data.morePlaceCount > 0);
+  page.toggleMorePlaces();
   assert.equal(page.data.showMorePlaces, true);
-  assert.equal(page.data.neighboursOpen, true);
-  assert.equal(page.data.referenceText, '手选参照：返回时的距离参照');
-  assert.equal(state.directories, 2, 'online place updates still run on return');
-  assert.equal(state.writes.some(value => value.loading === true || value.items && value.items.length === 0), false, 'the visible list is never replaced by a loading screen or an empty first page');
-  assert.deepEqual(state.calls.filter(call => call.action === 'listEvents').map(call => call.payload.cursor || null), [null, 'events-next-1']);
-});
-
-test('neighbor return refreshes all already opened pages without collapsing them or resetting pagination', async t => {
-  const { page, state, handlers } = fixture(t);
-  await page.onLoad(); await page.selectTab(tap('neighbors')); await page.loadMoreNeighbors();
-  handlers.listNeighbors = payload => payload.cursor
-    ? { items: [neighbor('neighbor-b', { isFollowing: true, distanceBand: '约1–3km' })] }
-    : { items: [neighbor('new-neighbor'), neighbor('neighbor-a', { nickname: '已更新的昵称' })] };
+  state.directory = catalogue.records.filter(item => item.id !== 'place-a').map(item => item.id === 'place-b' ? { ...item, title: '返回后的新标题' } : item);
+  state.reference = { source: 'manual', label: '返回时的距离参照' };
   page.onHide(); state.writes = []; state.calls = [];
   await page.onShow();
-  assert.deepEqual(ids(page.data.neighbors), ['neighbor-a', 'neighbor-b']);
-  assert.equal(page.data.neighbors[0].nickname, '已更新的昵称');
-  assert.equal(page.data.neighbors[1].isFollowing, true);
-  assert.equal(page.data.neighbors[1].distanceBand, '约1–3km');
-  assert.equal(page.data.neighborNextCursor, 'neighbors-next-2');
-  assert.equal(state.writes.some(value => value.neighborLoading === true || value.neighbors && value.neighbors.length === 0), false);
-  assert.deepEqual(state.calls.filter(call => call.action === 'listNeighbors').map(call => call.payload.cursor || null), [null, 'neighbors-next-1']);
-  handlers.listNeighbors = () => ({ items: [] });
-  page.onHide(); await page.onShow();
-  assert.deepEqual(ids(page.data.neighbors), [], 'withdrawn or no longer visible cards do not remain after successful revalidation');
+  assert.equal(page.data.showMorePlaces, true);
+  assert.equal(page.data.places.find(item => item.id === 'place-b').title, '返回后的新标题');
+  assert.equal(page.data.displayPlaces.some(item => item.id === 'place-a'), false);
+  assert.deepEqual(new Set(ids(page.data.displayPlaces)), new Set(ids(page.data.places)));
+  assert.equal(new Set(ids(page.data.displayPlaces)).size, page.data.places.length);
+  assert.equal(page.data.referenceText, '手选参照：返回时的距离参照');
+  assert.equal(state.writes.some(value => value.loading === true || value.places && value.places.length === 0), false);
+  assert.deepEqual(state.calls.map(call => call.action).sort(), ['bootstrap', 'listPlaces']);
+  assert.equal(state.locationCalls, 0);
 });
 
-test('a background refresh failure preserves already visible meetup and neighbor cards', async t => {
-  const { page, handlers, state } = fixture(t);
-  await page.onLoad(); await page.loadMore();
-  handlers.listEvents = () => { throw Error('offline'); };
-  page.onHide(); await page.onShow();
-  assert.deepEqual(ids(page.data.items), ['event-a', 'event-b']);
-  assert.equal(page.data.nextCursor, 'events-next-2');
-  assert.equal(page.data.eventsError, '');
-  await page.selectTab(tap('neighbors')); await page.loadMoreNeighbors();
-  handlers.listNeighbors = () => { throw Error('offline'); };
-  page.onHide(); await page.onShow();
-  assert.deepEqual(ids(page.data.neighbors), ['neighbor-a', 'neighbor-b']);
-  assert.equal(page.data.neighborNextCursor, 'neighbors-next-2');
-  assert.equal(page.data.neighborError, '');
-  assert.equal(state.toasts.length, 2);
+test('a failed return keeps the latest accepted records and expansion rather than reviving withdrawn fallback entries', async t => {
+  const { page, state, handlers, catalogue } = fixture(t);
+  state.directory = catalogue.records.filter(item => item.id !== 'place-a');
+  await page.onLoad(); page.toggleMorePlaces();
+  const before = structuredClone(page.data.displayPlaces);
+  handlers.listPlaces = () => { throw Error('offline'); };
+  page.onHide(); state.writes = [];
+  await page.onShow();
+  assert.deepEqual(structuredClone(page.data.displayPlaces), before);
+  assert.equal(page.data.showMorePlaces, true);
+  assert.ok(page.data.placeServiceError);
+  assert.equal(page.data.error, '');
+  assert.equal(state.writes.some(value => value.loading === true), false);
+  handlers.listPlaces = () => [{ ...catalogue.records[2], title: '连接恢复后的地点' }];
+  await page.refresh({ retain: true });
+  assert.deepEqual(ids(page.data.places), ['place-c']);
+  assert.equal(page.data.placeServiceError, '');
 });
 
-test('manual pull and filter changes still reload page one instead of preserving the old scope', async t => {
-  const { page, handlers, state } = fixture(t);
-  await page.onLoad(); await page.loadMore();
-  handlers.listEvents = () => ({ items: [meetup('fresh-event')], nextCursor: 'fresh-event-next' });
+test('pull refresh replaces directory records and retains only region and area choices that still exist', async t => {
+  const { page, state, catalogue } = fixture(t);
+  await page.onLoad();
+  page.selectDistrict(choice(page.data.districts.indexOf('闵行')));
+  page.selectArea(choice(page.data.areas.indexOf('滨江片区')));
+  state.directory = catalogue.records.map(item => item.id === 'place-a' ? { ...item, title: '更新后的河畔' } : item);
   state.writes = [];
   await page.onPullDownRefresh();
-  assert.deepEqual(ids(page.data.items), ['fresh-event']);
-  assert.equal(page.data.nextCursor, 'fresh-event-next');
-  assert.ok(state.writes.some(value => value.loading === true));
-  await page.selectTab(tap('neighbors')); await page.loadMoreNeighbors();
-  handlers.listNeighbors = payload => ({ items: [neighbor(payload.petType)], nextCursor: 'filtered-next' });
-  await page.selectNeighborPet(tap('dog'));
-  assert.deepEqual(ids(page.data.neighbors), ['dog']);
-  assert.equal(page.data.neighborNextCursor, 'filtered-next');
-  assert.deepEqual(Array.from(page._neighborPageCursors), [null]);
+  assert.equal(state.writes.some(value => value.loading === true), true);
+  assert.deepEqual(ids(page.data.places), ['place-a']);
+  assert.equal(page.data.places[0].title, '更新后的河畔');
+  assert.equal(page.data.selectedDistrict, '闵行');
+  assert.equal(page.data.selectedArea, '滨江片区');
+  state.directory = [catalogue.records[2]];
+  await page.onPullDownRefresh();
+  assert.equal(page.data.selectedDistrict, '');
+  assert.equal(page.data.selectedArea, '');
+  assert.deepEqual(ids(page.data.places), ['place-c']);
 });
 
-test('a different viewer clears both account-dependent lists and rechecks page one before retaining any state', async t => {
-  const { page, handlers, state } = fixture(t);
-  await page.onLoad(); await page.loadMore();
-  await page.selectTab(tap('neighbors')); await page.loadMoreNeighbors();
-  state.user = { id: 'viewer-b', isAdmin: false, neighborVisible: false };
-  handlers.listNeighbors = () => { throw Error('new account list unavailable'); };
-  page.onHide(); await page.onShow();
-  assert.deepEqual(ids(page.data.neighbors), []);
-  assert.equal(page.data.neighborNextCursor, null);
-  assert.deepEqual(ids(page.data.items), []);
-  assert.equal(page.data.nextCursor, null);
+test('a delayed directory uses the latest visible tab and search instead of replaying the scope at request start', async t => {
+  const { page, handlers, catalogue } = fixture(t);
+  await page.onLoad();
+  const pending = deferred(); handlers.listPlaces = () => pending.promise;
+  const refresh = page.refresh({ retain: true }); await flush();
+  page.selectTab(tap('guides')); page.openSearch(); page.inputSearch(choice('文化')); await page.search();
+  pending.resolve(structuredClone(catalogue.records)); await refresh;
+  assert.equal(page.data.tab, 'guides');
+  assert.equal(page.data.query, '文化');
+  assert.deepEqual(ids(page.data.displayGuides), ['guide-culture']);
+});
+
+test('a superseded refresh cannot replace a newer directory or restore the previous viewer administrator rights', async t => {
+  const { page, handlers, catalogue, state } = fixture(t);
+  await page.onLoad();
+  const oldDirectory = deferred(), oldViewer = deferred();
+  handlers.listPlaces = () => oldDirectory.promise; handlers.bootstrap = () => oldViewer.promise;
+  const old = page.refresh({ retain: true }); await flush();
+  const currentDirectory = deferred(), currentViewer = deferred();
+  handlers.listPlaces = () => currentDirectory.promise; handlers.bootstrap = () => currentViewer.promise;
+  const current = page.refresh({ retain: true }); await flush();
+  currentDirectory.resolve([{ ...catalogue.records[2], title: '当前目录' }]);
+  currentViewer.resolve({ mode: 'demo', user: { id: 'viewer-b', isAdmin: false }, settings: { city: '当前城市' } });
+  await current;
+  const writes = state.writes.length;
+  oldDirectory.resolve([{ ...catalogue.records[0], title: '过期目录' }]);
+  oldViewer.resolve({ mode: 'demo', user: { id: 'viewer-a', isAdmin: true }, settings: { city: '过期城市' } });
+  await old;
+  assert.equal(state.writes.length, writes);
+  assert.deepEqual(ids(page.data.places), ['place-c']);
+  assert.equal(page.data.city, '当前城市');
   assert.equal(page.data.isAdmin, false);
-  assert.equal(page.data.selfNeighborVisible, false);
-  assert.match(page.data.neighborError, /new account/);
+  page.managePlaces(); assert.deepEqual(state.routes, []);
 });
 
-test('late retained pages cannot replace a newer explicit neighbor filter', async t => {
-  const { page, handlers } = fixture(t);
-  await page.onLoad(); await page.selectTab(tap('neighbors')); await page.loadMoreNeighbors();
-  const pending = deferred();
-  handlers.listNeighbors = () => pending.promise;
-  page.onHide(); const refresh = page.onShow();
-  handlers.listNeighbors = () => ({ items: [neighbor('current-filter')] });
-  await page.selectNeighborPet(tap('dog'));
-  pending.resolve({ items: [neighbor('obsolete-page')] }); await refresh;
-  assert.deepEqual(ids(page.data.neighbors), ['current-filter']);
-  assert.equal(page.data.neighborPetType, 'dog');
-});
-
-test('new entries ahead of a retained page cannot silently evict older cards outside the refreshed cursor range', async t => {
-  const { page, handlers } = fixture(t);
-  handlers.listEvents = () => ({ items: [meetup('m-event'), meetup('l-event')], nextCursor: 'l-event' });
-  await page.onLoad();
-  handlers.listEvents = () => ({ items: [meetup('z-new'), meetup('y-new')], nextCursor: 'y-new' });
+test('viewer changes and failed bootstrap revoke the previously visible administrator entry', async t => {
+  const { page, state, handlers } = fixture(t);
+  await page.onLoad(); assert.equal(page.data.isAdmin, true);
+  state.user = { id: 'viewer-b', isAdmin: false };
   page.onHide(); await page.onShow();
-  assert.deepEqual(ids(page.data.items), ['m-event', 'l-event']);
-  assert.equal(page.data.nextCursor, 'l-event');
-  handlers.listEvents = () => ({ items: [meetup('m-event', { isJoined: true })] });
-  page.onHide(); await page.onShow();
-  assert.deepEqual(ids(page.data.items), ['m-event'], 'a complete response can confirm that a former card is gone');
-  assert.equal(page.data.items[0].isJoined, true);
+  assert.equal(page.data.isAdmin, false);
+  page.managePlaces(); assert.deepEqual(state.routes, []);
+  state.user = { id: 'viewer-a', isAdmin: true }; await page.refresh();
+  assert.equal(page.data.isAdmin, true);
+  handlers.bootstrap = () => { throw Object.assign(Error('account unavailable'), { code: 'ACCOUNT_UNAVAILABLE' }); };
+  await page.refresh({ retain: true });
+  assert.equal(page.data.isAdmin, false);
+  assert.ok(page.data.places.length > 0, 'public catalogue access remains usable');
+  page.managePlaces(); assert.deepEqual(state.routes, []);
 });
 
-test('retained meetup revalidation blocks overlapping pagination until its snapshot is applied', async t => {
-  const { page, handlers, state } = fixture(t);
+test('hiding invalidates an in-flight refresh and hidden refresh calls do not read or write', async t => {
+  const { page, state, handlers, catalogue } = fixture(t);
   await page.onLoad();
-  const pending = deferred(); handlers.listEvents = () => pending.promise;
-  page.onHide(); const refresh = page.onShow();
-  assert.equal(page.data.loading, false, 'retained cards remain displayed');
-  const requests = state.calls.filter(call => call.action === 'listEvents').length;
-  await page.loadMore();
-  assert.equal(state.calls.filter(call => call.action === 'listEvents').length, requests, 'pagination must wait while the retained snapshot is being revalidated');
-  pending.resolve({ items: [meetup('event-a', { isJoined: true })], nextCursor: 'events-next-1' }); await refresh;
-  handlers.listEvents = () => ({ items: [meetup('event-b')], nextCursor: 'events-next-2' });
-  await page.loadMore();
-  assert.deepEqual(ids(page.data.items), ['event-a', 'event-b']);
-  assert.equal(page.data.items[0].isJoined, true);
-  assert.equal(page.data.nextCursor, 'events-next-2');
+  const before = ids(page.data.places), pending = deferred();
+  handlers.listPlaces = () => pending.promise;
+  const refresh = page.refresh({ retain: true }); await flush();
+  page.onHide(); const writes = state.writes.length, calls = state.calls.length;
+  await page.refresh(); await page.onPullDownRefresh();
+  pending.resolve([{ ...catalogue.records[0], title: '隐藏后的过期标题' }]); await refresh;
+  assert.equal(state.calls.length, calls);
+  assert.equal(state.writes.length, writes);
+  assert.deepEqual(ids(page.data.places), before);
+  assert.equal(page.data.places.some(item => item.title === '隐藏后的过期标题'), false);
+  assert.ok(state.cancelled > 0);
 });
 
-test('neighbor retained refresh blocks pagination, and an older refresh cannot unlock a newer one', async t => {
-  const { page, handlers, state } = fixture(t);
-  await page.onLoad(); await page.selectTab(tap('neighbors'));
-  const old = deferred(); handlers.listNeighbors = () => old.promise;
-  page.onHide(); const previous = page.onShow();
-  const current = deferred(); handlers.listNeighbors = () => current.promise;
-  const refreshing = page.refreshNeighbors({ retain: true });
-  old.resolve({ items: [neighbor('obsolete')] }); await previous;
-  const requests = state.calls.filter(call => call.action === 'listNeighbors').length;
-  await page.loadMoreNeighbors();
-  assert.equal(state.calls.filter(call => call.action === 'listNeighbors').length, requests, 'an obsolete finally cannot unblock pagination during a newer refresh');
-  assert.equal(page.data.neighborLoading, false);
-  current.resolve({ items: [neighbor('neighbor-a', { isFollowing: true })], nextCursor: 'neighbors-next-1' }); await refreshing;
-  handlers.listNeighbors = () => ({ items: [neighbor('neighbor-b')], nextCursor: 'neighbors-next-2' });
-  await page.loadMoreNeighbors();
-  assert.deepEqual(ids(page.data.neighbors), ['neighbor-a', 'neighbor-b']);
-  assert.equal(page.data.neighbors[0].isFollowing, true);
-  assert.equal(page.data.neighborNextCursor, 'neighbors-next-2');
+test('returning after hiding the initial request starts a fresh load without waiting for the retired request', async t => {
+  const { page, handlers, catalogue } = fixture(t);
+  const pending = deferred(); handlers.listPlaces = () => pending.promise;
+  const initial = page.onLoad(); await flush(); page.onHide();
+  handlers.listPlaces = () => [{ ...catalogue.records[1], title: '当前初次加载' }];
+  await page.onShow();
+  assert.deepEqual(ids(page.data.places), ['place-b']); assert.equal(page.data.loading, false);
+  pending.resolve([catalogue.records[0]]); await initial;
+  assert.deepEqual(ids(page.data.places), ['place-b']);
+  assert.equal(page.data.places[0].title, '当前初次加载');
 });
 
-test('hiding invalidates old meetup refreshes and pagination before either can publish late content', async t => {
-  const { page, handlers, state } = fixture(t);
+test('unloading suppresses late directory writes and any subsequent refresh', async t => {
+  const { page, state, handlers, catalogue } = fixture(t);
   await page.onLoad();
-  const refreshing = deferred(); handlers.listEvents = () => refreshing.promise;
-  const oldRefresh = page.refresh({ retain: true });
-  page.onHide(); const writes = state.writes.length;
-  refreshing.resolve({ items: [meetup('hidden-update')] }); await oldRefresh;
-  assert.equal(state.writes.length, writes, 'an old refresh cannot write a hidden page');
-  assert.deepEqual(ids(page.data.items), ['event-a']);
-  handlers.listEvents = () => ({ items: [meetup('event-a')], nextCursor: 'events-next-1' });
-  await page.onShow();
-  const paging = deferred(); handlers.listEvents = () => paging.promise;
-  const oldPage = page.loadMore(); page.onHide();
-  const afterHide = state.writes.length;
-  paging.resolve({ items: [meetup('hidden-page')], nextCursor: 'obsolete' }); await oldPage;
-  assert.equal(state.writes.length, afterHide, 'an old page must not update lists or recompute the directory after hide');
-  assert.deepEqual(ids(page.data.items), ['event-a']);
-  assert.equal(page.data.nextCursor, 'events-next-1');
-  assert.deepEqual(Array.from(page._eventPageCursors), [null]);
-});
-
-test('returning after the initial nearby request was hidden starts a fresh load instead of waiting on the invalidated one', async t => {
-  const { page, handlers } = fixture(t);
-  const pending = deferred(); handlers.listEvents = () => pending.promise;
-  const first = page.onLoad(); page.onHide();
-  handlers.listEvents = () => ({ items: [meetup('current-initial')] });
-  await page.onShow();
-  assert.deepEqual(ids(page.data.items), ['current-initial']);
-  assert.equal(page.data.loading, false);
-  pending.resolve({ items: [meetup('old-initial')] }); await first;
-  assert.deepEqual(ids(page.data.items), ['current-initial']);
+  const pending = deferred(); handlers.listPlaces = () => pending.promise;
+  const refresh = page.refresh({ retain: true }); await flush(); page.onUnload();
+  const writes = state.writes.length, calls = state.calls.length;
+  pending.resolve([catalogue.records[0]]); await refresh; await page.refresh();
+  assert.equal(state.writes.length, writes);
+  assert.equal(state.calls.length, calls);
 });

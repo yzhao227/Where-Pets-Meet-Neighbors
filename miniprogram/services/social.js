@@ -1,9 +1,10 @@
 const READS = ['searchPeople', 'getFriendHub', 'listConversations', 'getChatMessages'];
-const WRITES = ['sendFriendRequest', 'respondFriendRequest', 'removeFriend', 'createGroupChat', 'openDirectChat', 'sendChatMessage', 'readConversation', 'leaveGroup'];
+const WRITES = ['sendFriendRequest', 'respondFriendRequest', 'removeFriend', 'openDirectChat', 'sendChatMessage', 'readConversation'];
+const RETIRED = ['createGroupChat', 'leaveGroup'];
 const TABLES = ['friendships', 'friendRequests', 'conversations', 'chatMessages'];
-const handles = action => READS.includes(action) || WRITES.includes(action);
+const handles = action => READS.includes(action) || WRITES.includes(action) || RETIRED.includes(action);
 const writes = action => WRITES.includes(action);
-const needsVerification = (action, payload) => ['sendFriendRequest', 'createGroupChat', 'openDirectChat', 'sendChatMessage'].includes(action) || action === 'respondFriendRequest' && payload.accept === true;
+const needsVerification = (action, payload) => ['sendFriendRequest', 'openDirectChat'].includes(action) || action === 'respondFriendRequest' && payload.accept === true;
 
 function upgrade(state) {
   let changed = false;
@@ -38,6 +39,7 @@ function blockPair(state, left, right) {
 function dispatch(state, me, action, payload, helpers) {
   const { now, id: nextId, failure, textField, isBlockedPair } = helpers;
   const fail = (code, message) => { throw failure(code, message); };
+  if (RETIRED.includes(action)) fail('FEATURE_UNAVAILABLE', '群聊功能已下线，请从作者主页给对方留言');
   const identifier = value => {
     if (typeof value !== 'string' || !/^[A-Za-z0-9_-]{1,120}$/.test(value)) fail('INVALID_INPUT', '记录编号格式不正确');
     return value;
@@ -69,11 +71,12 @@ function dispatch(state, me, action, payload, helpers) {
     const conversationId = identifier(value);
     const item = state.conversations.find(row => row.id === conversationId && !row.closed && row.memberIds.includes(me.id));
     if (!item || item.kind === 'direct' && item.memberIds.some(memberId => blocked(me.id, memberId))) fail('NOT_FOUND', '会话不存在或不可见');
+    if (item.kind !== 'direct') fail('FEATURE_UNAVAILABLE', '群聊功能已下线，请从作者主页给对方留言');
     return item;
   };
   const messages = item => state.chatMessages.filter(row => row.conversationId === item.id && user(row.senderId) && !blocked(me.id, row.senderId)).sort((a, b) => b.seq - a.seq);
   const canSend = item => active(me) && me.verification && me.verification.status === 'demo_verified' &&
-    (item.kind === 'group' || item.memberIds.length === 2 && item.memberIds.every(memberId => user(memberId) && !blocked(me.id, memberId)) && friends(item.memberIds[0], item.memberIds[1]));
+    item.kind === 'direct' && item.memberIds.length === 2 && item.memberIds.every(memberId => user(memberId) && !blocked(me.id, memberId));
   const project = (item, includeMembers) => {
     const visible = messages(item), last = visible[0];
     const read = item.readBy.find(row => row.userId === me.id);
@@ -139,28 +142,8 @@ function dispatch(state, me, action, payload, helpers) {
       state.friendships = state.friendships.filter(item => !(item.userIds.includes(me.id) && item.userIds.includes(targetId)));
       return { success: true };
     }
-    case 'createGroupChat': {
-      const name = textField(payload.name, '群聊名称', 1, 30), requestId = identifier(payload.requestId);
-      if (!Array.isArray(payload.memberIds) || payload.memberIds.length < 1 || payload.memberIds.length > 19) fail('INVALID_INPUT', '请选择 1–19 位好友');
-      const selected = payload.memberIds.map(identifier).sort();
-      if (selected.includes(me.id) || new Set(selected).size !== selected.length) fail('INVALID_INPUT', '群成员不能重复或包含自己');
-      const previous = state.conversations.find(item => item.createdBy === me.id && item.requestId === requestId && item.kind === 'group');
-      if (previous) {
-        if (previous.name !== name || previous.originalMembers !== selected.join(',')) fail('IDEMPOTENCY_CONFLICT', '本次创建编号已用于其他群聊，请重试');
-        return { conversation: project(conversation(previous.id), true) };
-      }
-      selected.forEach(memberId => { target(memberId); if (!friends(me.id, memberId)) fail('FRIEND_REQUIRED', '只能邀请已确认的好友'); });
-      const memberIds = [me.id, ...selected];
-      for (let i = 0; i < memberIds.length; i += 1) for (let j = i + 1; j < memberIds.length; j += 1) {
-        if (blocked(memberIds[i], memberIds[j])) fail('MEMBER_UNAVAILABLE', '部分成员暂时无法加入同一群聊');
-      }
-      const item = makeConversation('group', name, memberIds, requestId);
-      item.originalMembers = selected.join(',');
-      return { conversation: project(item, true) };
-    }
     case 'openDirectChat': {
       const other = target(payload.targetId);
-      if (!friends(me.id, other.id)) fail('FRIEND_REQUIRED', '双方确认好友后才能聊天');
       const existing = state.conversations.find(item => item.kind === 'direct' && !item.closed && item.memberIds.length === 2 && item.memberIds.includes(me.id) && item.memberIds.includes(other.id));
       return { conversation: project(existing || makeConversation('direct', '', [me.id, other.id], ''), true) };
     }
@@ -172,7 +155,7 @@ function dispatch(state, me, action, payload, helpers) {
         if (!match || !Number.isSafeInteger(Number(match[1]))) fail('INVALID_INPUT', '会话分页位置无效');
         anchor = { updatedAt: Number(match[1]), id: match[2] };
       }
-      const visible = state.conversations.filter(item => !item.closed && item.memberIds.includes(me.id) && !(item.kind === 'direct' && item.memberIds.some(memberId => blocked(me.id, memberId))));
+      const visible = state.conversations.filter(item => item.kind === 'direct' && !item.closed && item.memberIds.includes(me.id) && !(item.kind === 'direct' && item.memberIds.some(memberId => blocked(me.id, memberId))));
       const projected = visible.map(item => ({ raw: item, view: project(item, false) }));
       const unreadCount = projected.reduce((sum, item) => sum + item.view.unreadCount, 0);
       const rows = projected.filter(({ raw, view }) => (!query || [view.name, ...raw.memberIds.map(user).filter(value => value && !blocked(me.id, value.id)).map(value => value.nickname), ...messages(raw).map(value => value.text)].join(' ').toLowerCase().includes(query)) &&
@@ -193,7 +176,8 @@ function dispatch(state, me, action, payload, helpers) {
     }
     case 'sendChatMessage': {
       const item = conversation(payload.conversationId), text = textField(payload.text, '消息', 1, 1000), requestId = identifier(payload.requestId);
-      if (!canSend(item)) fail('FRIEND_REQUIRED', '当前会话暂时无法发送消息，请确认好友关系');
+      if (!me.verification || me.verification.status !== 'demo_verified') fail('VERIFICATION_REQUIRED', '请先完成本机模拟核验，再发送消息');
+      if (!canSend(item)) fail('CHAT_UNAVAILABLE', '当前会话暂时无法发送消息，请刷新后重试');
       const previous = state.chatMessages.find(row => row.conversationId === item.id && row.senderId === me.id && row.requestId === requestId);
       if (previous) {
         if (previous.text !== text) fail('IDEMPOTENCY_CONFLICT', '本次发送编号已用于其他消息，请重试');
@@ -211,19 +195,6 @@ function dispatch(state, me, action, payload, helpers) {
       const read = item.readBy.find(row => row.userId === me.id);
       if (read) read.seq = Math.max(read.seq, through);
       else item.readBy.push({ userId: me.id, seq: through });
-      return { success: true };
-    }
-    case 'leaveGroup': {
-      const conversationId = identifier(payload.conversationId);
-      const item = state.conversations.find(row => row.id === conversationId && row.kind === 'group' && (row.memberIds.includes(me.id) || row.leftIds.includes(me.id)));
-      if (!item) fail('NOT_FOUND', '群聊不存在或不可见');
-      if (item.memberIds.includes(me.id)) {
-        item.memberIds = item.memberIds.filter(memberId => memberId !== me.id);
-        item.readBy = item.readBy.filter(read => read.userId !== me.id);
-        item.leftIds.push(me.id);
-        if (item.ownerId === me.id) item.ownerId = item.memberIds[0] || '';
-        if (!item.memberIds.length) item.closed = true;
-      }
       return { success: true };
     }
     default: fail('UNKNOWN_ACTION', '暂不支持这个操作');

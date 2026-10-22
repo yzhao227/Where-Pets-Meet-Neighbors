@@ -75,13 +75,14 @@ test('personal nearby pages browse official places and preserve private bookmark
   const f = fixture(t);
   const nearby = await f.mount('nearby');
   assert.ok(nearby.data.places.length > 0);
-  assert.deepEqual(nearby.data.neighbors, []);
+  for (const tab of ['activities', 'guides', 'places']) {
+    nearby.selectTab(event({ id: tab }));
+    assert.equal(nearby.data.tab, tab, 'personal browsing includes each public travel catalogue');
+  }
   nearby.selectTab(event({ id: 'neighbors' }));
   assert.equal(nearby.data.tab, 'places');
-  await nearby.refreshNeighbors(); await nearby.loadMoreNeighbors();
-  nearby.openNeighbor(event({ id: 'unavailable-user' }));
-  nearby.openEvent(event({ id: 'unavailable-event' }));
-  assert.ok(!f.effects.calls.some(call => ['listEvents', 'listNeighbors'].includes(call.action)));
+  nearby.contribute();
+  assert.ok(!f.effects.calls.some(call => ['listEvents', 'listNeighbors', 'getFriendHub', 'followUser', 'submitNearbySubmission'].includes(call.action)));
   assert.deepEqual(f.effects.routes, []);
 
   const detail = await f.mount('local-detail', { id: catalogue.records.find(item => item.type === 'place').id });
@@ -101,6 +102,27 @@ test('personal nearby pages browse official places and preserve private bookmark
   const saved = await f.mount('places');
   assert.ok(saved.data.items.some(item => item.id === detail.id));
   assert.equal(f.effects.location, 0, 'reading and saving never request viewer location');
+  f.assertLegacyPreserved();
+});
+
+test('personal travel routes open valid public itineraries while recommendation and stale navigation stay unavailable', async t => {
+  const f = fixture(t);
+  const nearby = await f.mount('nearby');
+  nearby.selectTab(event({ id: 'guides' }));
+  assert.ok(nearby.data.displayGuides.length > 0);
+  const guide = nearby.data.displayGuides[0];
+  nearby.openGuide(event({ id: guide.id }));
+  assert.equal(f.effects.routes.pop(), '/pages/local-detail/index?guideId=' + encodeURIComponent(guide.id));
+  nearby.openGuide(event({ id: 'unavailable-guide' }));
+  nearby.contribute();
+  nearby.data.busy = true; nearby.openGuide(event({ id: guide.id })); nearby.contribute();
+  nearby.data.busy = false; nearby.onHide(); nearby.openGuide(event({ id: guide.id })); nearby.contribute();
+  assert.deepEqual(f.effects.routes, []);
+  await nearby.onShow();
+  assert.equal(nearby.data.tab, 'guides');
+  assert.ok(nearby.data.displayGuides.some(item => item.id === guide.id));
+  assert.ok(!f.effects.calls.some(call => ['listEvents', 'listNeighbors', 'submitNearbySubmission'].includes(call.action)));
+  assert.equal(f.effects.location, 0);
   f.assertLegacyPreserved();
 });
 

@@ -1,0 +1,39 @@
+{
+  "size": {
+    "total": 4914755,
+    "packages": [
+      {
+        "name": "TOTAL",
+        "size": 4914755
+      },
+      {
+        "name": "main",
+        "size": 1610006
+      },
+      {
+        "name": "/media/",
+        "size": 1174220
+      },
+      {
+        "name": "/media2/",
+        "size": 1624583
+      },
+      {
+        "name": "/media3/",
+        "size": 289403
+      },
+      {
+        "name": "/pages/compose/",
+        "size": 39525
+      },
+      {
+        "name": "/pages/local-detail/",
+        "size": 79258
+      },
+      {
+        "name": "/social/",
+        "size": 97760
+      }
+    ]
+  }
+}
